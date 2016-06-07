@@ -1,6 +1,6 @@
 RSS-Manager
 ===========
-
+[![Build Status](https://travis-ci.com/DEKHTIARJonathan/RSS-Manager.svg?token=Mwzs9s5gJEGyrsnoybN5)](https://github.com/DEKHTIARJonathan/RSS-Manager)
 ![Licence CC BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
 
 RSS Manager developped by Jonathan DEKHTIAR.
