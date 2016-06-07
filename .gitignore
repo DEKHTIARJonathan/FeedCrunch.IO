@@ -1,4 +1,5 @@
 config.inc.php
+django_app/*
 files/
 *.bat
 dev/
