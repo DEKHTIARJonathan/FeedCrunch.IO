@@ -1,7 +1,7 @@
-config.inc.php
-django_app/*
-files/
+venv/*
+*.pyc
+staticfiles
+.env
+db.sqlite3
 *.bat
-dev/
-.htaccess
-myWebHook.php
+
