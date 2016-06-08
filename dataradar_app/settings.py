@@ -26,12 +26,16 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 if 'TRAVIS' in os.environ:
 	SECRET_KEY = '19+3m74)qbb)w_1ug0pfqe-d33&nbcrd(_%e#=iygt)szt_!1+'
+elif 'HEROKU' in os.environ:
+	SECRET_KEY = os.environ['SECRET_KEY']
 else:
 	SECRET_KEY = getenv.env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if 'TRAVIS' in os.environ:
 	debug_value = True
+elif 'HEROKU' in os.environ:
+	debug_value = False
 else:
 	debug_value = getenv.env('DEBUG')
 	
@@ -98,6 +102,10 @@ if 'TRAVIS' in os.environ:
 			'PORT':	 '',
 		}
 	}
+elif 'HEROKU' in os.environ:
+	DATABASES = {
+		'default': os.environ['DATABASE_URL'],	
+	}	
 else:
 	DATABASES = {
 		'default': dj_database_url.config(default=getenv.env('DATABASE_URL')),	

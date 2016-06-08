@@ -5,7 +5,7 @@ import sys
 import dotenv
 
 if __name__ == "__main__":
-	if not 'TRAVIS' in os.environ:
+	if not 'TRAVIS' in os.environ and 'HEROKU' in os.environ:
 		dotenv.read_dotenv()
 	
 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dataradar_app.settings")
