@@ -1,0 +1,2 @@
+travis login --pro
+travis setup heroku
