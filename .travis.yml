@@ -2,10 +2,6 @@
 #
 #   The set-up assumes a postgreSQL database.
 #
-#   Replace the following variables in the code:
-# * your_project_settings
-# * your_github_username
-# * your_repo
 
 language: python
 
@@ -18,8 +14,8 @@ env:
   - DJANGO=1.9.7
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=your_project.settings
-  - export PYTHONPATH=$HOME/builds/your_github_username/your_repo
+  - export DJANGO_SETTINGS_MODULE=dataradar_app.settings
+  - export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/RSS-Manager
   - export PIP_USE_MIRRORS=true
 
 install:
