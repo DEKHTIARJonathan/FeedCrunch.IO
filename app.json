@@ -1,8 +1,7 @@
 {
-  "name": "Python on Heroku example",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
-  "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
+  "name": "DataRadar.IO",
+  "description": "DataRadar - Data Science open Knowledge Platform",
+  "repository": "https://github.com/DEKHTIARJonathan/RSS-Manager/",
   "keywords": ["python", "django" ],
   "addons": [ "heroku-postgresql" ]
 }
