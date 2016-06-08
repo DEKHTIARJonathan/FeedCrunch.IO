@@ -16,7 +16,7 @@ import dj_database_url
 import getenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -24,48 +24,41 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if 'TRAVIS' in os.environ:
-	SECRET_KEY = '19+3m74)qbb)w_1ug0pfqe-d33&nbcrd(_%e#=iygt)szt_!1+'
-elif 'HEROKU' in os.environ:
+if ('TRAVIS' in os.environ) or ('HEROKU' in os.environ):
 	SECRET_KEY = os.environ['SECRET_KEY']
 else:
 	SECRET_KEY = getenv.env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if 'TRAVIS' in os.environ:
-	debug_value = True
-elif 'HEROKU' in os.environ:
-	debug_value = False
+if ('TRAVIS' in os.environ) or ('HEROKU' in os.environ):
+	debug_value = os.environ['DEBUG']
 else:
 	debug_value = getenv.env('DEBUG')
 
 DEBUG = debug_value
 
-ALLOWED_HOSTS = []
-
 # Application definition
 
-INSTALLED_APPS = [
-	'django.contrib.admin',
-	'django.contrib.auth',
-	'django.contrib.contenttypes',
-	'django.contrib.sessions',
-	'django.contrib.messages',
-	'django.contrib.staticfiles',
-	'hello'
-]
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'hello'
+)
 
-MIDDLEWARE_CLASSES = [
-	'django.middleware.security.SecurityMiddleware',
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.common.CommonMiddleware',
-	'django.middleware.csrf.CsrfViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-	'django.contrib.messages.middleware.MessageMiddleware',
-	'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-]
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+)
 
 ROOT_URLCONF = 'dataradar_app.urls'
 
@@ -139,7 +132,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
