@@ -27,7 +27,12 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = getenv.env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = getenv.env('DEBUG')
+if 'TRAVIS' in os.environ:
+	debug_value = True
+else:
+	debug_value = getenv.env('DEBUG')
+	
+DEBUG = debug_value
 
 ALLOWED_HOSTS = []
 
@@ -63,7 +68,7 @@ TEMPLATES = [
 		'DIRS': [],
 		'APP_DIRS': True,
 		'OPTIONS': {
-			'debug': getenv.env('DEBUG'),
+			'debug': debug_value,
 			'context_processors': [
 				'django.template.context_processors.debug',
 				'django.template.context_processors.request',
