@@ -91,3 +91,10 @@ ENV/
 application/staticfiles/
 cover/
 test.py
+codedeploy/certificate.crt
+codedeploy/data.zip
+codedeploy/data_.zip
+codedeploy/deploy.sh
+codedeploy/feedradar.xyz.csr
+codedeploy/https.key
+https/deploy.sh

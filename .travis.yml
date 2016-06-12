@@ -1,8 +1,3 @@
-#   A basic travis.yml boilerplate for Django projects
-#
-#   The set-up assumes a postgreSQL database.
-#
-
 language: python
 
 python:
@@ -14,23 +9,49 @@ env:
   - DJANGO=1.9.7
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=application.settings
-  - export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/RSS-Manager
-  - export PIP_USE_MIRRORS=true
+- export DJANGO_SETTINGS_MODULE=application.settings
+- export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/RSS-Manager
+- export PIP_USE_MIRRORS=true
 
 install:
-  - pip install -r requirements.txt
-  - pip install django==$DJANGO --quiet
-  - pip install psycopg2 --quiet
+- pip install -r requirements.txt
+- pip install django==$DJANGO --quiet
+- pip install psycopg2 --quiet
 
 before_script:
-  - psql -c "CREATE DATABASE travisci;" -U postgres
+- psql -c "CREATE DATABASE travisci;" -U postgres
 
 script:
-  - python manage.py collectstatic --noinput
-  - python manage.py migrate
-  - coverage run manage.py test dataradar_webviewer dataradar dataradar_api_v1
+- python manage.py collectstatic --noinput
+- python manage.py migrate
+- coverage run manage.py test dataradar_webviewer dataradar dataradar_api_v1
 
 after_success:
-  - coveralls
-  - codeclimate-test-reporter
+- coveralls
+- codeclimate-test-reporter
+
+before_deploy:
+  - zip -r latest *
+  - mkdir -p dpl_cd_upload
+  - mv latest.zip dpl_cd_upload/latest.zip
+
+deploy:
+  - provider: s3
+    access_key_id: AKIAINZUQJG5S6IRULLA
+    secret_access_key: &1
+      secure: tYgsSIwbVWSmDHMOsNGfxZLE4/thO2i4Z4L+BdY4fh0/whG0HN0toK5r90ufCAIz/z9e3BGxvZHpNlxKJQIh7c3osWSDZqh+82XjNTeEBtLwFW2evw0z9zWQTsqCBPnBiBfnbNL7o5UBuy5UBZkmpr8HmK2PIHi9emRAdy5tDd3ge3G6IZk1wUTlJo3n9YjISqURR1Xmryw5+czyO9uzGMgCyR6+EYIG8NzOluJcSM/vyMCzaynQUVujqI/amjCc4WOkUTA441k7v+TDyHAQ4yzvFlMxg4xIYM4GHZ+i6Mx4NbNRWCR+b3AUcQE35yhTnRDKzDUwx/PaqUtYyR+Mbw8raQebRchbkL8EjclTKPbuJauThBoBsUTmcD62yoYB5lVD6jLt8rTzqfyQxTWf0ln2LmOiXVO1e5rQmyFEY1NgN9QzHeCdsnf41yTS6+ME18IwajwzKJxF7mvI0DOHtyLXUkr0j7fK5LO2r0dDturos46CSriiciiXXhhcMku+3VrMNq8wg3mVM+w6BpqU7BwuYk/Ys8YNj6f31W4vTKbMhS6D+Shm/7CUtznF1BlY6gbAP3ANkQi9mgf5h5ixGmCklBQXvYlFR1YgmHsaHSNmsQlf1YKHjMzMrV8FZWtnu0ZLTOI8vIYSDg3/9bnTE5RzPdBFa9YfUEX4peEXlaA=
+    local_dir: dpl_cd_upload
+    skip_cleanup: true
+    on: &2
+      repo: DEKHTIARJonathan/RSS-Manager
+      branch: django_app
+    bucket: feedreader-codedeploy
+  - provider: codedeploy
+    access_key_id: AKIAINZUQJG5S6IRULLA
+    secret_access_key: *1
+    bucket: feedreader-codedeploy
+    key: latest.zip
+    bundle_type: zip
+    application: FeedRadar_App
+    deployment_group: FeedRadar_DeployGroup
+    on: *2
