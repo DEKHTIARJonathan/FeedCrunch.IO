@@ -1,0 +1,290 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="author">
+	<title>DataRadar RSS FEED</title>
+	<link href="{% static "favicon.png" %}" rel="shortcut icon">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="description">
+	<meta content="Jonathan Dekhtiar" name="author">
+	<link href="rss/" rel="alternate" title=
+	"DataRadar.IO - Do you have enough data about your #data?" type=
+	"application/rss+xml"><!-- Bootstrap Core CSS -->
+	<link href="{% static "assets/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" type=
+	"text/css"><!-- Custom Fonts -->
+	<link href=
+	"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+	rel="stylesheet" type="text/css">
+	<link href=
+	"https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic"
+	rel="stylesheet" type="text/css">
+	<link href="{% static "assets/fonts/font-awesome/css/font-awesome.min.css" %}" rel=
+	"stylesheet" type="text/css"><!-- Plugin CSS -->
+	<link href="{% static "assets/css/animate.min.css" rel="stylesheet" type="text/css" %}">
+	<!-- Custom CSS -->
+	<link href="{% static "assets/css/creative.css" %}" rel="stylesheet" type="text/css">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link href="{% static "assets/css/custom.min.css" %}" rel="stylesheet" type="text/css">
+	<style>
+	       @media(max-width: 768px) {
+	           .intro-text {
+	               margin-top: 50px;
+	           }
+	           .hidden_column {
+	               display: none;
+	           }
+	           td,
+	           th {
+	               font-size: 10px;
+	           }
+	       }
+	</style>
+	<style type="text/css">
+	</style>
+</head>
+<body id="page-top">
+	<nav class="navbar navbar-default navbar-fixed-top affix-top" id="mainNav">
+		<div class="container-fluid">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" data-target=
+					"#bs-example-navbar-collapse-1" data-toggle="collapse" type=
+					"button"><span class="sr-only">Toggle navigation</span> <span class=
+					"icon-bar"></span> <span class="icon-bar"></span> <span class=
+					"icon-bar"></span></button> <a class="navbar-brand page-scroll" href=
+					"#page-top">DataRadar.IO</a>
+				</div><!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a class="page-scroll" href="#feed">Feed Explorer</a>
+						</li>
+						<li>
+							<a href="/rss/" target="_blank">RSS Feed</a>
+						</li>
+						<li>
+							<a href="http://docs.dataradar.io/" target="_blank">API
+							Documentation</a>
+						</li>
+						<li>
+							<a href="/admin/" target="_blank">Admin Panel</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="#contact">Contact</a>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<header>
+		<div class="header-content">
+			<div class="header-content-inner">
+				<h2 style="font-style: italic; margin-bottom:50px;">Welcome to
+				DataRadar.IO</h2>
+				<h1 style="font-size: 35px;">DataRadar.IO RSS FEED</h1>
+				<hr>
+				<p>DataRadar.IO - Do you have enough data about your #data?</p>
+				<div class="row">
+					<a class=
+					"btn btn-primary btn-xl page-scroll col-xs-push-1 col-xs-10 col-sm-4 btn-custom"
+					href="#feed" style="height: 70px;padding-top: 25px;">Take me to the
+					Feed</a>
+					<div class="hidden-xs-down col-sm-2 col-md-2 col-lg-2"></div><a class=
+					"btn btn-primary btn-xl col-xs-push-1 col-xs-10 col-sm-4 btn-custom" href=
+					"rss/" target="_blank">5872 subscribers<br>
+					~ And you ? ~</a>
+				</div>
+			</div>
+		</div>
+	</header><!-- Services Section -->
+	<section id="feed">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2 class="section-heading">RSS Feed Explorer</h2>
+					<h3 class="section-subheading text-muted">Do you have enough data about
+					#Data ?</h3>
+					<hr>
+				</div>
+			</div>
+			<div class="search-bar" id="search">
+				<div class="row table_row search-wrapper">
+					<div class="col-xs-12 col-sm-12 col-md-3 logo-wrapper logo-name">
+						<div class="logo-name">
+							~ Search DataRadar.IO ~
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6">
+						<i class="icon-search"></i> <input autocomplete="off" id="search-bar"
+						placeholder="Search articles by title, url" spellcheck="false" type=
+						"search">
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<span class="powered-by ng-scope">Designed by <a href=
+						"https://www.jonathandekhtiar.eu/" target="_blank">Jonathan
+						DEKHTIAR</a></span>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<br>
+			<div class="container">
+				<div class="row text-center table_row">
+					<table class="table table-hover" id="viewer" style="text-align:center;">
+						<thead id="viewer_header">
+							<tr>
+								<th class="hidden_column">#</th>
+								<th>Article's Name</th>
+								<th class="hidden_column" style="width:150px;">Publication Date</th>
+								<th>Link</th>
+							</tr>
+						</thead>
+						<tbody id="viewer_body">
+
+							{% for article in articles %}
+
+									<tr>
+										<td class="hidden_column" style="vertical-align:middle;">{{ article.id }}</td>
+										<td style="vertical-align:middle;">{{ article.title }} <span class="domain_value">~
+										({{ article.get_domain }})</span></td>
+										<td class="hidden_column" style="vertical-align:middle;">{{ article.get_date }}</td>
+										<td style="vertical-align:middle;">
+											<a href="{{ article.link }}" target="_blank">Link</a>
+										</td>
+									</tr>
+
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section><!-- Contact Section -->
+	<section class="contact_section" id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Contact Me</h2>
+					<h3 class="section-subheading text-muted"></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<form id="contactForm" name="sentMessage" novalidate="">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input class="form-control" data-validation-required-message=
+									"Please enter your name." id="name" placeholder="Your Name *"
+									required="" type="text">
+									<p class="help-block text-danger"></p>
+								</div>
+								<div class="form-group">
+									<input class="form-control" data-validation-required-message=
+									"Please enter your email address." id="email" placeholder=
+									"Your Email *" required="" type="email">
+									<p class="help-block text-danger"></p>
+								</div>
+								<div class="form-group">
+									<input class="form-control" data-validation-required-message=
+									"Please enter your phone number." id="phone" placeholder=
+									"Your Phone *" required="" type="tel">
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<textarea class="form-control" data-validation-required-message=
+									"Please enter a message." id="message" placeholder="Your Message *"
+									required=""></textarea>
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-lg-12 text-center">
+								<div id="success"></div><button class="btn btn-xl" type="submit">Send
+								Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					Developed with <span style="color:red; font-size:18px;">♥</span> by
+					<a href="http://www.jonathandekhtiar.eu/" target="_blank">Jonathan
+					Dekhtiar</a>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline social-buttons">
+						<li>
+							<a href="https://twitter.com/born2data" target="_blank"><i class=
+							"fa fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="https://github.com/DEKHTIARJonathan" target="_blank"><i class=
+							"fa fa-github"></i></a>
+						</li>
+						<li>
+							<a href="https://www.jonathandekhtiar.eu" target="_blank"><i class=
+							"fa fa-link"></i></a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/jonathandekhtiar" target=
+							"_blank"><i class="fa fa-linkedin"></i></a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline quicklinks">
+						<li>
+							<a href="http://www.born2data.com" target=
+							"_blank">http://www.born2data.com</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer><!-- jQuery -->
+	<script src="{% static "assets/js/jquery.js" %}">
+	</script> <!-- Bootstrap Core JavaScript -->
+
+	<script src="{% static "assets/js/bootstrap.min.js" %}">
+	</script> <!-- Plugin JavaScript -->
+
+	<script src="{% static "assets/js/jquery.easing.min.js" %}">
+	</script>
+	<script src="{% static "assets/js/jquery.fittext.js" %}">
+	</script>
+	<script src="{% static "assets/js/wow.min.js" %}">
+	</script> <!-- Contact Form JavaScript -->
+
+	<script src="{% static "assets/js/jqBootstrapValidation.js" %}">
+	</script>
+	<script src="{% static "assets/js/contact_me.js" %}">
+	</script> <!-- Custom Theme JavaScript -->
+
+	<script src="{% static "assets/js/creative.js" %}">
+	</script> <!-- Custom Ajax Search JavaScript -->
+
+	<script src="{% static "assets/js/ajaxSearch.js" %}">
+	</script>
+</body>
+</html>

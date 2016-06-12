@@ -5,10 +5,12 @@ import sys
 import dotenv
 
 if __name__ == "__main__":
-	if ((not 'TRAVIS' in os.environ) and (not 'HEROKU' in os.environ)):
+
+	platforms = ["TRAVIS", "HEROKU"]
+	if not any(x in os.environ for x in platforms):
 		dotenv.read_dotenv()
-	
-	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dataradar_app.settings")
+
+	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "application.settings")
 
 	from django.core.management import execute_from_command_line
 

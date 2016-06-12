@@ -1,22 +1,59 @@
-RSS-Manager
-===========
-[![Build Status](https://travis-ci.com/DEKHTIARJonathan/RSS-Manager.svg?token=Mwzs9s5gJEGyrsnoybN5)](https://github.com/DEKHTIARJonathan/RSS-Manager)
-![Licence CC BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
+DATARADAR.IO - DJANGO APP
+====================
 
-RSS Manager developped by Jonathan DEKHTIAR.
+[![Build Status](https://travis-ci.org/DEKHTIARJonathan/django_starter_app.svg?branch=master)](https://travis-ci.org/DEKHTIARJonathan/django_starter_app)
+[![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/django_starter_app/badge.svg?branch=master)](https://coveralls.io/github/DEKHTIARJonathan/django_starter_app?branch=master)
+[![Dependency Status](https://gemnasium.com/badges/github.com/DEKHTIARJonathan/django_starter_app.svg)](https://gemnasium.com/github.com/DEKHTIARJonathan/django_starter_app)
+[![Code Climate](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/gpa.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app)
+[![Test Coverage](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/coverage.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/coverage)
+[![Issue Count](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/issue_count.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app)
 
-It uses PHP, MySQL, JQuery & Bootstrap in order to manager an RSS FEED.
+## Installation
 
-You can see a runing demo here : https://www.dataradar.io
+Rename the file ".env.dist" to ".env"
+```sh
+mv .env.dist .env
+```
 
+Then please update the file ".env" with the correct values.
 
-INSTRUCTION TO INSTALL THE SOFTWARE
-===================================
+If needed, you can generate a secret key for DJANGO here: http://www.miniwebtool.com/django-secret-key-generator/
 
-1. Upload the full repo to the Webhost's Root.
-2. Create a database.
-3. Run the SQL script : "install.sql" in your new database.
-4. Rename "config.inc.dist.php" to "config.inc.php"
-5. Update the values of the different variables of "config.inc.php"
+```sh
+pip install virtualenv
+virtualenv venv
 
-Now the website should be working.
+## Windows
+venv\Scripts\activate.bat
+
+## Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+## Launching Server
+
+```sh
+python manage.py runserver 0.0.0.0:5000
+```
+
+Launching Tests
+
+```sh
+coverage run manage.py test
+coverage report -m
+coverage html
+```
+
+## Travis / Heroku
+
+You will need to set environment variables as followed:
+
+| Key                                    | Value                                            |
+|----------------------------------------|--------------------------------------------------|
+| TRAVIS/HEROKU (if needed)              | True                                             |
+| DEBUG                                  | True/False                                       |
+| SECRET_KEY                             | '##############################################' |
+| DATABASE_URL (not needed for travis)   | 'postgres://user:password@host:port/Database'    |
+| CODECLIMATE_REPO_TOKEN                 | '##############################################' |

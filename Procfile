@@ -1,1 +1,1 @@
-web: gunicorn dataradar_app.wsgi --log-file -
+web: gunicorn application.wsgi --log-file -

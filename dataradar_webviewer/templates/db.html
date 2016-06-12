@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="container">
+
+
+<h2>Page View Report</h2>
+
+
+<ul>
+
+{% for article in articles %}
+    <li>{{ article.title }} and {{ article.link }}</li>
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endblock %}

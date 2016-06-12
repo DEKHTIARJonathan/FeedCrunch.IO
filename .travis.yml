@@ -14,7 +14,7 @@ env:
   - DJANGO=1.9.7
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=dataradar_app.settings
+  - export DJANGO_SETTINGS_MODULE=application.settings
   - export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/RSS-Manager
   - export PIP_USE_MIRRORS=true
 
@@ -27,4 +27,10 @@ before_script:
   - psql -c "CREATE DATABASE travisci;" -U postgres
 
 script:
+  - python manage.py collectstatic --noinput
   - python manage.py migrate
+  - coverage run manage.py test dataradar_webviewer dataradar dataradar_api_v1
+
+after_success:
+  - coveralls
+  - codeclimate-test-reporter
