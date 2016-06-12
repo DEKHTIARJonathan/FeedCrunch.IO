@@ -1,7 +1,7 @@
 DATARADAR.IO - DJANGO APP
 ====================
 
-[![Build Status](https://travis-ci.org/DEKHTIARJonathan/django_starter_app.svg?branch=master)](https://travis-ci.org/DEKHTIARJonathan/django_starter_app)
+[![Build Status](https://travis-ci.com/DEKHTIARJonathan/RSS-Manager.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=django_app)](https://travis-ci.com/DEKHTIARJonathan/RSS-Manager)
 [![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/django_starter_app/badge.svg?branch=master)](https://coveralls.io/github/DEKHTIARJonathan/django_starter_app?branch=master)
 [![Dependency Status](https://gemnasium.com/badges/github.com/DEKHTIARJonathan/django_starter_app.svg)](https://gemnasium.com/github.com/DEKHTIARJonathan/django_starter_app)
 [![Code Climate](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/gpa.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app)
