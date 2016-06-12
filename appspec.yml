@@ -4,10 +4,10 @@ files:
     destination: /dataradar
 hooks:
   BeforeInstall:
-    - location: /dataradar/codedeploy/Scripts/BeforeInstall.sh
+    - location: codedeploy/Scripts/BeforeInstall.sh
   ApplicationStart:
-    - location: /dataradar/codedeploy/Scripts/startServer.sh
+    - location: codedeploy/Scripts/startServer.sh
       timeout: 3600
   ApplicationStop:
-    - location: /dataradar/codedeploy/Scripts/stopServer.sh
+    - location: codedeploy/Scripts/stopServer.sh
       timeout: 3600
