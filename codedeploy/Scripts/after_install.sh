@@ -1,9 +1,9 @@
 #!/bin/bash
 
-sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen -y
+yum install python-pip wget postgresql gcc python-devel postgresql-devel screen -y
 pip install --upgrade pip
 
-app_dir = /home/ec2-user/dataradar
+app_dir="/home/ec2-user/dataradar"
 
 rm -rf $app_dir/venv
 virtualenv $app_dir/venv

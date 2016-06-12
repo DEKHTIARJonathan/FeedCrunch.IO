@@ -1,5 +1,8 @@
 #!/bin/bash
 
 # Make directory for project
-rm -rf dataradar
-mkdir -p /home/ec2-user/dataradar
+
+app_dir="/home/ec2-user/dataradar"
+
+rm -rf $app_dir
+mkdir -p $app_dir
