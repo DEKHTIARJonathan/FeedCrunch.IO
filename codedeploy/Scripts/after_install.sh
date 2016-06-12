@@ -2,7 +2,7 @@
 
 sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen -y
 
-app_dir="/home/ec2-user/dataradar"
+app_dir="/home/django/dataradar"
 
 virtualenv $app_dir/venv
 source $app_dir/venv/bin/activate
