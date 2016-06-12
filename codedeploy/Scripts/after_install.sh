@@ -12,6 +12,6 @@ pip install --upgrade pip
 pip install -r $app_dir/requirements.txt
 sudo wget -q https://s3-eu-west-1.amazonaws.com/feedreader-codedeploy/feedreader_data/data_.zip -O $app_dir/data.zip
 sudo unzip -o $app_dir/data.zip
-python $app_dir/manage.py collectstatic --noinput
-python $app_dir/manage.py migrate --noinput
-python $app_dir/manage.py makemigrations --noinput
+sudo python $app_dir/manage.py collectstatic --noinput
+sudo python $app_dir/manage.py migrate --noinput
+sudo python $app_dir/manage.py makemigrations --noinput
