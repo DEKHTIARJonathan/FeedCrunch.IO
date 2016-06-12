@@ -1,10 +1,14 @@
 os: linux
 files:
   - source: /
-    destination: /dataradar
+    destination: /home/ec2-user/dataradar
 hooks:
   BeforeInstall:
-    - location: codedeploy/Scripts/BeforeInstall.sh
+    - location: codedeploy/Scripts/before_install.sh
+  BeforeInstall:
+    - location: codedeploy/Scripts/before_install.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
     - location: codedeploy/Scripts/startServer.sh
       timeout: 3600

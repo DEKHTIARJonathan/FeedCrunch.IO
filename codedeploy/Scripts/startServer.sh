@@ -1,4 +1,5 @@
 #!/bin/bash
 
-screen -dmS django_app  sh -c "source /dataradar/venv/bin/activate; python /dataradar/manage.py runserver 0.0.0.0:8080; exec /bin/bash"
+app_dir = /home/ec2-user/dataradar
 
+screen -dmS django_app  sh -c "source $app_dir/venv/bin/activate; python $app_dir/manage.py runserver 0.0.0.0:8080; exec /bin/bash"
