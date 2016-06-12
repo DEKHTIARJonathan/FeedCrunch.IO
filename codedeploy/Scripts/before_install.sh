@@ -4,5 +4,5 @@
 
 app_dir="/home/ec2-user/dataradar"
 
-rm -rf $app_dir
-mkdir -p $app_dir
+sudo rm -rf $app_dir
+sudo mkdir -p $app_dir
