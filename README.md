@@ -46,14 +46,16 @@ coverage report -m
 coverage html
 ```
 
-## Travis / Heroku
+## Travis with AWS CodeDeploy
 
 You will need to set environment variables as followed:
 
 | Key                                    | Value                                            |
 |----------------------------------------|--------------------------------------------------|
-| TRAVIS/HEROKU (if needed)              | True                                             |
+| TRAVIS                                 | True                                             |
 | DEBUG                                  | True/False                                       |
 | SECRET_KEY                             | '##############################################' |
 | DATABASE_URL (not needed for travis)   | 'postgres://user:password@host:port/Database'    |
 | CODECLIMATE_REPO_TOKEN                 | '##############################################' |
+| AWS_ACCESS_KEY_ID                      | '##############################################' |
+| AWS_SECRET_ACCESS_KEY                  | '##############################################' |
