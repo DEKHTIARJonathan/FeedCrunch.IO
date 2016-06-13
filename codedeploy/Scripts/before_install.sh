@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_dir="/home/ec2-user/dataradar"
+app_dir="/home/django/dataradar"
 
 # Make directory for project
 sudo rm -rf $app_dir
