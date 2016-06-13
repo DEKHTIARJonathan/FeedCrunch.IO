@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen -y
+sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen libxslt-devel -y
 
 app_dir="/home/django/dataradar"
 
