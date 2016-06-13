@@ -27,5 +27,7 @@ import dataradar_webviewer.views
 
 urlpatterns = [
     url(r'^$', dataradar_webviewer.views.index, name='index'),
+    url(r'^rss/', dataradar_webviewer.views.rss_feed, name='rss_feed'),
+    url(r'^atom/', dataradar_webviewer.views.atom_feed, name='atom_feed'),
     url(r'^admin/', include(admin.site.urls)),
 ]
