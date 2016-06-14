@@ -2,11 +2,11 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/django/dataradar
+    destination: /home/ec2-user/dataradar
 permissions:
-  - object: /home/django/dataradar
-    owner: django
-    group: django
+  - object: /home/ec2-user/dataradar
+    owner: ec2-user
+    group: ec2-user
     mode: 755
 hooks:
   BeforeInstall:
@@ -16,12 +16,12 @@ hooks:
   AfterInstall:
     - location: codedeploy/Scripts/after_install.sh
       timeout: 300
-      runas: django
+      runas: ec2-user
   ApplicationStart:
     - location: codedeploy/Scripts/start_server.sh
       timeout: 3600
-      runas: django
+      runas: ec2-user
   ApplicationStop:
     - location: codedeploy/Scripts/stop_server.sh
       timeout: 3600
-      runas: django
+      runas: ec2-user
