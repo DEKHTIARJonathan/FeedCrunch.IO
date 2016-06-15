@@ -1,7 +1,0 @@
-{
-  "name": "DataRadar.IO",
-  "description": "DataRadar - Data Science open Knowledge Platform",
-  "repository": "https://github.com/DEKHTIARJonathan/RSS-Manager/",
-  "keywords": ["python", "django" ],
-  "addons": [ "heroku-postgresql" ]
-}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_dir="/home/ec2-user/dataradar"
+app_dir="/home/ec2-user/feedradar"
 user="ec2-user"
 
 # Make directory for project

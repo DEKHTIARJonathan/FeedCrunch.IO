@@ -10,7 +10,7 @@ env:
 
 before_install:
 - export DJANGO_SETTINGS_MODULE=application.settings
-- export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/RSS-Manager
+- export PYTHONPATH=$HOME/builds/DataIsTheNewBlack/FeedRadar.IO
 - export PIP_USE_MIRRORS=true
 
 install:
@@ -24,7 +24,7 @@ before_script:
 script:
 - python manage.py collectstatic --noinput
 - python manage.py migrate
-- coverage run manage.py test dataradar_webviewer dataradar dataradar_api_v1
+- coverage run manage.py test
 
 after_success:
 - coveralls
@@ -33,4 +33,4 @@ after_success:
 - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 - aws configure set default.region eu-west-1
-- aws deploy create-deployment --application-name "FeedRadar_App" --github-location repository="DEKHTIARJonathan/RSS-Manager",commitId=$commitID --deployment-group-name "FeedRadar_DeployGroup"
+- aws deploy create-deployment --application-name "FeedRadar_App" --github-location repository="DataIsTheNewBlack/FeedRadar.IO",commitId=$commitID --deployment-group-name "FeedRadar_DeployGroup"

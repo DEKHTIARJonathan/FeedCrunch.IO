@@ -2,7 +2,7 @@
 
 sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen libxslt-devel -y
 
-app_dir="/home/ec2-user/dataradar"
+app_dir="/home/ec2-user/feedradar"
 user="ec2-user"
 
 virtualenv $app_dir/venv
