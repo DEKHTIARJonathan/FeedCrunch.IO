@@ -27,7 +27,6 @@ script:
 - coverage run manage.py test
 
 after_success:
-- coveralls
 - codeclimate-test-reporter
 - commitID="$(git rev-parse HEAD)"
 - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
