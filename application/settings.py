@@ -45,9 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'dataradar',
-	'dataradar_api_v1',
-	'dataradar_webviewer',
+	'feedradar',
+	'feedradar_api_v1',
+	'feedradar_rssviewer',
+	'feedradar_home',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'
