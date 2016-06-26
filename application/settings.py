@@ -100,13 +100,9 @@ if "test" in sys.argv:
 	    },
 	}
 else:
-	if ('DATABASE_URL') in os.environ:
-		DATABASES = {
-			'default': dj_database_url.config(default=getenv.env('DATABASE_URL'), conn_max_age=500),
-		}
-	else:
-		sys.exit("DATABASE_URL is not defined in the environment variables")
-
+	DATABASES = {
+		'default': dj_database_url.config(default=assign_env_value('DATABASE_URL'), conn_max_age=500),
+	}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
