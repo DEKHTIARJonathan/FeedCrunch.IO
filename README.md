@@ -1,12 +1,11 @@
-DATARADAR.IO - DJANGO APP
+FeedRadar.IO - DJANGO APP
 ====================
 
 [![Build Status](https://travis-ci.com/DataIsTheNewBlack/FeedRadar.IO.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=master)](https://travis-ci.com/DataIsTheNewBlack/FeedRadar.IO)
-[![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/django_starter_app/badge.svg?branch=master)](https://coveralls.io/github/DEKHTIARJonathan/django_starter_app?branch=master)
-[![Dependency Status](https://gemnasium.com/badges/aacec361ef5d744d0582716c2cf2b5dd.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedRadar.IO)
-[![Code Climate](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/gpa.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app)
-[![Test Coverage](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/coverage.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/coverage)
-[![Issue Count](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app/badges/issue_count.svg)](https://codeclimate.com/github/DEKHTIARJonathan/django_starter_app)
+[![Dependency Status](https://gemnasium.com/badges/f7cb2bd2f6e6ccf302cab8638a30ce03.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedRadar.IO)
+[![Code Climate](https://codeclimate.com/repos/5763ac50e58714007d008297/badges/5c16f9f102cc95935231/gpa.svg)](https://codeclimate.com/repos/5763ac50e58714007d008297/feed)
+[![Test Coverage](https://codeclimate.com/repos/5763ac50e58714007d008297/badges/5c16f9f102cc95935231/coverage.svg)](https://codeclimate.com/repos/5763ac50e58714007d008297/coverage)
+[![Issue Count](https://codeclimate.com/repos/5763ac50e58714007d008297/badges/5c16f9f102cc95935231/issue_count.svg)](https://codeclimate.com/repos/5763ac50e58714007d008297/feed)
 
 ## Installation
 

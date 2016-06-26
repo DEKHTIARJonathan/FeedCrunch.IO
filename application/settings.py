@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def assign_env_value(var_name):
 	if var_name in os.environ:
-		return getenv.env('SECRET_KEY')
+		return getenv.env(var_name)
 	else:
 		sys.exit(var_name + " is not defined in the environment variables")
 
