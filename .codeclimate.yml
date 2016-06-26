@@ -3,10 +3,7 @@ engines:
     enabled: true
     config:
       languages:
-        - ruby
-        - javascript
         - python
-        - php
   fixme:
     enabled: true
   radon:
@@ -17,9 +14,7 @@ engines:
 ratings:
   paths:
   - "**.py"
-  - "**.html"
-  - "**.css"
-  - "**.js"
+
 exclude_paths:
 - "**/tests/**"
 - "**/test_**.py"
