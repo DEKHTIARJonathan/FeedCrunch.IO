@@ -6,7 +6,7 @@ import dotenv
 
 if __name__ == "__main__":
 
-	platforms = ["TRAVIS", "HEROKU"]
+	platforms = ["TRAVIS"]
 	if not any(x in os.environ for x in platforms):
 		dotenv.read_dotenv()
 
