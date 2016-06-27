@@ -205,7 +205,7 @@ class FeedUser(AbstractFeedUser):
 	"""
 	country = models.ForeignKey(Country, on_delete=models.CASCADE)
 	birthdate = models.DateField()
-	apikey = models.UUIDField(default=uuid.uuid4, editable=False)
+	apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique= True)
 	sex = models.CharField(
 		max_length=1,
 		choices=(('M', 'Male'),('F', 'Female')),
