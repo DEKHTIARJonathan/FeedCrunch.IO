@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 
-from feedradar.models import Post
+from feedradar.models import Post, FeedUser
 
 from feedgen.feed import FeedGenerator
 from .functions import *
@@ -10,8 +10,13 @@ from .functions import *
 # Create your views here.
 
 def index(request, feedname=None):
+
     if feedname == None:
-        return HttpResponse("Error")
+        return HttpResponse("Error, feedname = None")
+
+    elif not FeedUser.objects.filter(username = feedname).select_related('User').exists():
+        return HttpResponse("Error, feedname = " + feedname + " doesn't exist.")
+
     else:
         posts = Post.objects.all()
         return render(request, 'index.html', {'posts': posts})

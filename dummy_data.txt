@@ -1,0 +1,16 @@
+from feedradar.models import *
+
+FeedUser.objects.create_superuser(
+	username="###############", 
+	email="######@################.###", 
+	password="##############", 
+	first_name="#############", 
+	last_name="#############", 
+	country="###########", 
+	sex="#", 
+	birth_year=####, 
+	birth_month=#, 
+	birth_day=#
+)
+
+Post.objects.create(title="testTitle", link="testLink", clicks=0, activeLink=True, user=a)
