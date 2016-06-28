@@ -10,7 +10,7 @@ env:
 
 before_install:
 - export DJANGO_SETTINGS_MODULE=application.settings
-- export PYTHONPATH=$HOME/builds/DataIsTheNewBlack/FeedRadar.IO
+- export PYTHONPATH=$HOME/builds/DataIsTheNewBlack/FeedCrunch.IO
 - export PIP_USE_MIRRORS=true
 
 install:
@@ -32,4 +32,4 @@ after_success:
 - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 - aws configure set default.region eu-west-1
-- aws deploy create-deployment --application-name "FeedRadar_App" --github-location repository="DataIsTheNewBlack/FeedRadar.IO",commitId=$commitID --deployment-group-name "FeedRadar_DeployGroup"
+- aws deploy create-deployment --application-name "FeedCrunch.io" --github-location repository="DataIsTheNewBlack/FeedCrunch.IO",commitId=$commitID --deployment-group-name "FeedCrunch_DeployGroup"

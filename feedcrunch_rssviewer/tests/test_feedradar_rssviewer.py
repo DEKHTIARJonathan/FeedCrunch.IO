@@ -1,8 +1,8 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
-from feedradar.models import Post
+from feedcrunch.models import Post
 
-from feedradar_rssviewer.functions import *
+from feedcrunch_rssviewer.functions import *
 
 import factory
 from feedparser import parse
@@ -17,7 +17,7 @@ class PostFactory(factory.Factory):
     clicks = 100
     activeLink = True
 
-class feedradar_rssviewer_TestCase(TestCase):
+class feedcrunch_rssviewer_TestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.dummy_post = PostFactory()
@@ -31,7 +31,7 @@ class feedradar_rssviewer_TestCase(TestCase):
          response = self.client.get(url)
          self.assertEqual(response.status_code, 200)
          self.assertTemplateUsed(response, 'index.html')
-         self.assertContains(response, 'feedradar.IO - Do you have enough data about your #data?')
+         self.assertContains(response, 'feedcrunch.IO - Do you have enough data about your #data?')
 
     def test_rss_feed(self):
          url = reverse('rss_feed')

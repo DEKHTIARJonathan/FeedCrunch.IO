@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from feedradar.models import *
+from feedcrunch.models import *
 from application.settings import *
 
 import os
@@ -18,7 +18,7 @@ class Command(BaseCommand):
         ## Load Continents to DATABASE
 
         print "Saving Continents ..."
-        with open(os.path.join(BASE_DIR, 'feedradar/data/continents.csv'), 'rb') as f:
+        with open(os.path.join(BASE_DIR, 'feedcrunch/data/continents.csv'), 'rb') as f:
             reader = csv.reader(f)
             next(reader, None) #skip the headers
             for row in reader:
@@ -29,7 +29,7 @@ class Command(BaseCommand):
         ## Load Countries to DATABASE
 
         print "Saving Countries ..."
-        with open(os.path.join(BASE_DIR, 'feedradar/data/countries.csv'), 'rb') as f:
+        with open(os.path.join(BASE_DIR, 'feedcrunch/data/countries.csv'), 'rb') as f:
             reader = unicode_csv_reader(f)
             next(reader, None) #skip the headers
             for row in reader:

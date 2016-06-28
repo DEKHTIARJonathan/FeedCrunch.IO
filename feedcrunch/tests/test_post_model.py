@@ -1,5 +1,5 @@
 from django.test import TestCase
-from feedradar.models import Post
+from feedcrunch.models import Post
 
 import factory, datetime
 

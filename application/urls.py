@@ -25,7 +25,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('feedradar_home.urls')),
-    url(r'^@(?P<feedname>\w+)/', include('feedradar_rssviewer.urls')),
-    #url(r'^$', feedradar_home.views.index, name='index'),
+    url(r'', include('feedcrunch_home.urls')),
+    url(r'^@(?P<feedname>\w+)/', include('feedcrunch_rssviewer.urls')),
+    #url(r'^$', feedcrunch_home.views.index, name='index'),
 ]

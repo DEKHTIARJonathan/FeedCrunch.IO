@@ -45,10 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'feedradar',
-	'feedradar_api_v1',
-	'feedradar_rssviewer',
-	'feedradar_home',
+	'feedcrunch',
+	'feedcrunch_api_v1',
+	'feedcrunch_rssviewer',
+	'feedcrunch_home',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'
@@ -123,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 	},
 ]
 
-AUTH_USER_MODEL = 'feedradar.FeedUser'
+AUTH_USER_MODEL = 'feedcrunch.FeedUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

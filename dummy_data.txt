@@ -1,4 +1,4 @@
-from feedradar.models import *
+from feedcrunch.models import *
 
 FeedUser.objects.create_superuser(
 	username="###############", 

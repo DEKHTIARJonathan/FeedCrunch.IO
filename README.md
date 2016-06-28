@@ -1,11 +1,11 @@
-FeedRadar.IO - DJANGO APP
+FeedCrunch.IO - DJANGO APP
 ====================
 
-[![Build Status](https://travis-ci.com/DataIsTheNewBlack/FeedRadar.IO.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=master)](https://travis-ci.com/DataIsTheNewBlack/FeedRadar.IO)
-[![Dependency Status](https://gemnasium.com/badges/f7cb2bd2f6e6ccf302cab8638a30ce03.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedRadar.IO)
-[![Code Climate](https://codeclimate.com/repos/5763ac50e58714007d008297/badges/5c16f9f102cc95935231/gpa.svg)](https://codeclimate.com/repos/5763ac50e58714007d008297/feed)
-[![Test Coverage](https://codeclimate.com/repos/5763ac50e58714007d008297/badges/5c16f9f102cc95935231/coverage.svg)](https://codeclimate.com/repos/5763ac50e58714007d008297/coverage)
-[![Issue Count](https://codeclimate.com/repos/5763ac50e58714007d008297/badges/5c16f9f102cc95935231/issue_count.svg)](https://codeclimate.com/repos/5763ac50e58714007d008297/feed)
+[![Build Status](https://travis-ci.com/DataIsTheNewBlack/FeedCrunch.IO.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=master)](https://travis-ci.com/DataIsTheNewBlack/FeedCrunch.IO)
+[![Dependency Status](https://gemnasium.com/badges/04ce4180e33774ce36e41e22b0942ec1.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedCrunch.IO)
+[![Code Climate](https://codeclimate.com/repos/5772aa87f97096006f001cb4/badges/7ea6335aee9b44fcdc67/gpa.svg)](https://codeclimate.com/repos/5772aa87f97096006f001cb4/feed)
+[![Test Coverage](https://codeclimate.com/repos/5772aa87f97096006f001cb4/badges/7ea6335aee9b44fcdc67/coverage.svg)](https://codeclimate.com/repos/5772aa87f97096006f001cb4/coverage)
+[![Issue Count](https://codeclimate.com/repos/5772aa87f97096006f001cb4/badges/7ea6335aee9b44fcdc67/issue_count.svg)](https://codeclimate.com/repos/5772aa87f97096006f001cb4/feed)
 
 ## Installation
 

@@ -87,6 +87,6 @@ codedeploy/certificate.crt
 codedeploy/data.zip
 codedeploy/data_.zip
 codedeploy/deploy.sh
-codedeploy/feedradar.xyz.csr
+codedeploy/feedcrunch.xyz.csr
 codedeploy/https.key
 https/deploy.sh

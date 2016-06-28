@@ -13,7 +13,7 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Base de données :  `feedradar.io`
+-- Base de données :  `feedcrunch.io`
 --
 
 DELIMITER $$

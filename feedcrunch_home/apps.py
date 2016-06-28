@@ -3,5 +3,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class feedradarConfig(AppConfig):
-    name = 'feedradar'
+class FeedcrunchHomeConfig(AppConfig):
+    name = 'feedcrunch_home'
