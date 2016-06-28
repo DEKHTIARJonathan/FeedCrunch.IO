@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from feedcrunch.models import Post
 
 import factory, datetime
