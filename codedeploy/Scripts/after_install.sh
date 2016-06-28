@@ -18,4 +18,4 @@ sudo chmod 755 $app_dir/.env $app_dir/data.zip
 python $app_dir/manage.py collectstatic --noinput
 python $app_dir/manage.py makemigrations feedcrunch --noinput
 python $app_dir/manage.py migrate --noinput
-python $app_dir/manage.py load_data
+python $app_dir/manage.py loaddata feedcrunch_dump.json
