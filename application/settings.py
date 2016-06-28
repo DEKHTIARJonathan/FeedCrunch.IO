@@ -36,6 +36,7 @@ debug_value = assign_env_value('DEBUG')
 
 DEBUG = debug_value
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -84,6 +85,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'application.wsgi.application'
+
+FIXTURE_DIRS = (
+	os.path.join(BASE_DIR, 'application/fixtures/'),
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

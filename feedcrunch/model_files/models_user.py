@@ -34,7 +34,7 @@ class FeedUserManager(BaseUserManager):
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
 
 			elif not Country.objects.filter(name = country).exists():
-				raise ValueError("The given country doesn't exist")
+				raise ValueError("The given country ( "+ country +" ) doesn't exist")
 
 			elif (not isinstance( username, str )) or len( username ) >= 31:
 				raise ValueError("The given username is not a valid string or longer than 30 characters.")
