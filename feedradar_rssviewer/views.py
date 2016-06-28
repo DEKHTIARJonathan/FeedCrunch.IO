@@ -14,36 +14,48 @@ def index(request, feedname=None):
     if feedname == None:
         return HttpResponse("Error, feedname = None")
 
-    elif not FeedUser.objects.filter(username = feedname).select_related('User').exists():
+    elif not FeedUser.objects.filter(username = feedname).exists():
         return HttpResponse("Error, feedname = " + feedname + " doesn't exist.")
 
     else:
-        posts = Post.objects.all()
+        posts = Post.objects.filter(user=feedname)
         return render(request, 'index.html', {'posts': posts})
 
 
 def redirect(request, feedname=None, postID=None):
     if postID == None or feedname == None :
         return HttpResponse("Error")
+
+    elif not FeedUser.objects.filter(username = feedname).exists():
+        return HttpResponse("Error, feedname = " + feedname + " doesn't exist.")
+
+    elif not Post.objects.filter(user=feedname, id=postID).exists():
+        return HttpResponse("Error, the requested post (id ="+ postID +") doesn't exist for the feed: "+ feedname)
+
     else:
-        return HttpResponseRedirect("http://www.google.fr")
+        queried_post = Post.objects.get(user="dataradar", id=postID)
+        return HttpResponseRedirect(queried_post.link)
 
 def rss_feed(request, feedname=None):
     if feedname == None:
         return HttpResponse("Error")
+
+    elif not FeedUser.objects.filter(username = feedname).exists():
+        return HttpResponse("Error, feedname = " + feedname + " doesn't exist.")
+
+    elif Post.objects.filter(user=feedname).count() > 0:
+        fg = generateRSS(feedname, "rss")
+        return HttpResponse(fg.rss_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
+
     else:
-        if Post.objects.count() > 0:
-            fg = generateRSS("rss")
-            return HttpResponse(fg.rss_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
-        else:
-            return HttpResponse("No Entries in this feed yet")
+        return HttpResponse("No Entries in this feed yet")
 
 def atom_feed(request, feedname=None):
     if feedname == None:
         return HttpResponse("Error")
     else:
         if Post.objects.count() > 0:
-            fg = generateRSS("atom")
+            fg = generateRSS(feedname, "atom")
             return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
         else:
             return HttpResponse("No Entries in this feed yet")

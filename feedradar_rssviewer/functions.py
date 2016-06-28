@@ -8,7 +8,7 @@ time_modifier = timezone('Europe/Paris')
 now = datetime.now()
 time_delta = time_modifier.utcoffset(now)
 
-def generateRSS(type=""):
+def generateRSS(feedname, type=""):
     if type not in ["rss", "atom"]:
         raise ValueError('Wrong Type of RSS Feed given to the generator, only "rss" and "atom" accepted.')
     fg = FeedGenerator()
@@ -34,7 +34,7 @@ def generateRSS(type=""):
 
     fg.lastBuildDate(time_modifier.localize(datetime.now()))
 
-    listPosts = Post.objects.all().order_by('-id')
+    listPosts = Post.objects.filter(user=feedname).order_by('-id')
     for post in listPosts:
         fe = fg.add_entry()
         #fe.id(post.link)
