@@ -23,8 +23,10 @@ before_script:
 
 script:
 - python manage.py collectstatic --noinput
+- python manage.py makemigrations feedcrunch
 - python manage.py migrate
-- coverage run manage.py test
+- python manage.py load_data
+#- coverage run manage.py test
 
 after_success:
 - codeclimate-test-reporter
