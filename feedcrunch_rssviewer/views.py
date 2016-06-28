@@ -26,7 +26,8 @@ def redirect(request, feedname=None, postID=None):
     if postID == None or feedname == None :
         return HttpResponse("Error")
     else:
-        return HttpResponseRedirect("http://www.google.fr")
+        post = Post.objects.get(id=postID, user=feedname)
+        return HttpResponseRedirect(post.link)
 
 def rss_feed(request, feedname=None):
     if feedname == None:
