@@ -1,6 +1,6 @@
 from feedcrunch.models import *
 
-FeedUser.objects.create_superuser(
+a = FeedUser.objects.create_superuser(
 	username="###############", 
 	email="######@################.###", 
 	password="##############", 
