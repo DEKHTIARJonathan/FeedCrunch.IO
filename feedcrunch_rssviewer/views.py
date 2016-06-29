@@ -48,3 +48,12 @@ def atom_feed(request, feedname=None):
             return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
         else:
             return HttpResponse("No Entries in this feed yet")
+
+def admin_add(request, feedname=None):
+    context = RequestContext(request)
+    if feedname == None:
+        return HttpResponse("Error")
+    elif not request.user.is_authenticated():
+        return HttpResponse("Not logged in")
+    else:
+        return HttpResponse("No Entries in this feed yet, " + request.user.username)

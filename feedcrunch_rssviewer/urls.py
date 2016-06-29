@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^rss/', rss_feed, name='rss_feed'),
     url(r'^atom/', atom_feed, name='atom_feed'),
     url(r'^redirect/(?P<postID>\w+)/$', redirect, name='redirect_page'),
+    url(r'^admin/', admin_add, name='admin'),
 ]
