@@ -26,7 +26,7 @@ class FeedUserManager(BaseUserManager):
 			if sex not in ['M', 'F']:
 				raise ValueError("The given sex value is not valid : 'M' or 'F'.")
 
-			if "UTC" in os.environ and getenv.env("UTC"):
+			if "CHECK_EMAIL" in os.environ and getenv.env("CHECK_EMAIL"):
 				if not validate_email(email):
 					raise ValueError("The given email is not valid or not doesn''t exist.")
 			else:

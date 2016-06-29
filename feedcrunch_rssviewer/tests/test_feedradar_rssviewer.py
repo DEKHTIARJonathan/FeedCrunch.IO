@@ -26,16 +26,16 @@ class feedcrunch_rssviewer_TestCase(TestCase):
 		    'loaddata',
 		    'feedcrunch_dump.json'
 		)
-		
+
 	def tearDown(self):
 		self.dummy_post.delete()
 
 	def test_index_page(self):
-		url = reverse('index')
+		url = reverse('index', kwargs={'feedname':"test_user1"})
 		response = self.client.get(url)
 		self.assertEqual(response.status_code, 200)
-		self.assertTemplateUsed(response, 'index_home.html')
-		self.assertContains(response, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.')
+		self.assertTemplateUsed(response, 'index.html')
+		self.assertContains(response, 'Do you have enough data about your #data?')
 
 	def test_rss_feed(self):
 		url = reverse('rss_feed', kwargs={'feedname':"test_user1"})
