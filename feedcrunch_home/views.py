@@ -7,11 +7,25 @@ def index(request):
     response.status_code = 200
     return response
 
+def faq(request):
+    response = render_to_response('faq.html')
+    response.status_code = 200
+    return response
+
+def contact(request):
+    response = render_to_response('contact.html')
+    response.status_code = 200
+    return response
+
+def about(request):
+    response = render_to_response('about.html')
+    response.status_code = 200
+    return response
+
 def handler404(request):
     response = render_to_response('404.html')
     response.status_code = 404
     return response
-
 
 def handler500(request):
     response = render_to_response('500.html')
