@@ -23,6 +23,7 @@
 
 			<!-- Custom styles for this template -->
 			<link href="{% static "css/style.css" %}" rel="stylesheet">
+			<link href="{% static "css/login.css" %}" rel="stylesheet">
 
 			<!-- Color style -->
 			<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
@@ -49,7 +50,7 @@
 		                    </button>
 
 		                    <!-- LOGO -->
-		                    <a class="navbar-brand logo" href="#home">
+		                    <a class="navbar-brand logo" id="nav_link_logo">
 		                        FeedCrunch.io
 		                    </a>
 
@@ -61,14 +62,14 @@
 
 		                    <!-- Navbar left -->
 		                    <ul class="nav navbar-nav nav-custom-left">
-								<li class="active">
-									<a href="#home" class="nav-link">Home</a>
+								<li id="li_home">
+									<a id="nav_link_home">Home</a>
 								</li>
-								<li>
-									<a href="#features" class="nav-link">Features</a>
+								<li id="li_features">
+									<a id="nav_link_features" class="nav-link">Features</a>
 								</li>
-								<li>
-									<a href="#pricing" class="nav-link">Plans</a>
+								<li id="li_pricing">
+									<a id="nav_link_pricing" class="nav-link">Pricing</a>
 								</li>
 								<li>
 									<a href="/about">About Us</a>
@@ -83,8 +84,8 @@
 
 		                    <!-- Navbar right -->
 		                    <ul class="nav navbar-nav navbar-right">
-		                        <li>
-		                            <a href="/login/">Login</a>
+		                        <li style="margin-right:25px;">
+		                            <a href="/login">Login</a>
 		                        </li>
 		                        <li>
 		                            <a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
@@ -102,6 +103,9 @@
         {% block body %}
         {% endblock %}
 
+
+
+				{% if request.path != '/login/' %}
 				<!-- Subscribe -->
 				<section class="section bg-custom">
 						<div class="container">
@@ -130,8 +134,7 @@
 						</div> <!-- end container -->
 				</section>
 				<!-- End Subscribe -->
-
-
+				{% endif %}
 
 				<!-- FOOTER -->
 				<footer class="section bg-gray footer">
@@ -170,7 +173,7 @@
 												<h5>Contact</h5>
 												<address>
 														795 Folsom Ave, Suite 600<br>
-														San Francisco, CA 94107<br>
+														San Franciscoo, CA 94107<br>
 														<abbr title="Phone">P:</abbr> (123) 456-7890<br>
 														E: <a href="mailto:#">contact@feedcrunch.io</a>
 												</address>
@@ -200,22 +203,53 @@
 
 				<!--common script for all pages-->
 				<!-- <script src="js/jquery.app.js"></script> -->
+
 				<script>
-				$(document).ready(function(){
-				    $("body").scrollspy({
-				        target: "#menu",
-				        offset: 50
-				    })
-				});
+
 				$('.nav-link').click(function(e) {
 				    e.preventDefault();
 
 				    var goto = $(this).attr('href');
 
-				    $('html, body').animate({
-				        scrollTop: $(goto).offset().top
-				    }, 800);
+					if (goto[0] == "#"){
+						 $('html, body').animate({
+							scrollTop: $(goto).offset().top
+						}, 800);
+					}
+					else{
+						window.location = goto;
+					}
+
 				});
+
+				$(function() {
+				    // Highlight the active nav link.
+				    var url = window.location.pathname;
+						url = url.slice(0, -1); // We remove the last "/"
+				    var filename = url.substr(url.lastIndexOf('/'));
+				    $('.navbar a[href$="' + filename + '"]').parent().addClass("active");
+				});
+
+				$(function(){
+					fullpath = window.location.pathname;
+					if ( fullpath == "/" ){
+						$("#nav_link_logo").prop("href", "#home");
+						$("#nav_link_home").prop("href", "#home");
+						$("#nav_link_features").prop("href", "#features");
+						$("#nav_link_pricing").prop("href", "#pricing");
+					}
+					else{
+						$("#nav_link_logo").prop("href", "/");
+						$("#nav_link_home").prop("href", "/");
+						$("#nav_link_features").prop("href", "/#features");
+						$("#nav_link_pricing").prop("href", "/#pricing");
+						$("#li_home").removeClass("active");
+					}
+				});
+
+
+
+
 				</script>
 
 	</body>

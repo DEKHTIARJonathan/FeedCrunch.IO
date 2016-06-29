@@ -321,6 +321,7 @@ a:hover,a:focus,.a:active {
 .navbar-custom .nav>li>a:focus,.navbar-custom .nav>li>a:hover,.navbar-custom .navbar-nav li.active a {
   background-color: transparent;
   color: #ffffff;
+  font-weight: 600;
 }
 
 .navbar-custom {
@@ -329,7 +330,7 @@ a:hover,a:focus,.a:active {
   z-index: 999;
   padding: 0px 0px;
   margin-bottom: 0px;
-	position: fixed;
+  position: fixed;
 }
 
 .navbar-custom .navbar-nav li a {
