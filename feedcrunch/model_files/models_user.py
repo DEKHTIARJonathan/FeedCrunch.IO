@@ -11,7 +11,7 @@ from django.utils import six, timezone
 
 from django.utils.translation import ugettext_lazy as _
 
-import re, uuid, datetime, unicodedata
+import os, re, uuid, datetime, unicodedata, getenv
 from validate_email import validate_email
 
 from .models_geo import *
@@ -26,32 +26,35 @@ class FeedUserManager(BaseUserManager):
 			if sex not in ['M', 'F']:
 				raise ValueError("The given sex value is not valid : 'M' or 'F'.")
 
-			#elif not validate_email(email,verify=True):
-			elif not validate_email(email):
-				raise ValueError("The given email is not valid or not doesn''t exist.")
+			if "UTC" in os.environ and getenv.env("UTC"):
+				if not validate_email(email):
+					raise ValueError("The given email is not valid or not doesn''t exist.")
+			else:
+				if not validate_email(email,verify=True):
+					raise ValueError("The given email is not valid or not doesn''t exist.")
 
-			elif re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})', password) == None:
+			if re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})', password) == None:
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
 
-			elif not Country.objects.filter(name = country).exists():
+			if not Country.objects.filter(name = country).exists():
 				raise ValueError("The given country ( "+ country +" ) doesn't exist")
 
-			elif (not isinstance( username, str )) or len( username ) >= 31:
+			if (not isinstance( username, str )) or len( username ) >= 31:
 				raise ValueError("The given username is not a valid string or longer than 30 characters.")
 
-			elif (not isinstance( first_name, str )) or len( first_name ) >= 31:
+			if (not isinstance( first_name, str )) or len( first_name ) >= 31:
 				raise ValueError("The given first_name is not a valid string or longer than 30 characters.")
 
 			if (not isinstance( last_name, str )) or len( last_name ) >= 31:
 				raise ValueError("The given last_name is not a valid string or longer than 30 characters.")
 
-			elif not isinstance( birth_year, int ):
+			if not isinstance( birth_year, int ):
 				raise ValueError("The given birth_year value is not valid, only integer values are accepted.")
 
-			elif (not isinstance( birth_month, int )) or birth_month > 12:
+			if (not isinstance( birth_month, int )) or birth_month > 12:
 				raise ValueError("The given birth_month value is not valid, only integer values are accepted and maximum value = 12.")
 
-			elif (not isinstance( birth_day, int )) or birth_day > 31:
+			if (not isinstance( birth_day, int )) or birth_day > 31:
 				raise ValueError("The given birth_day value is not valid, only integer values are accepted and maximum value = 31 (depends on the month).")
 
 			else:
