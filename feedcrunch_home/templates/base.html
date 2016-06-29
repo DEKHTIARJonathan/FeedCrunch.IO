@@ -23,7 +23,14 @@
 
 			<!-- Custom styles for this template -->
 			<link href="{% static "css/style.css" %}" rel="stylesheet">
+			{% if 'login' in request.path %}
 			<link href="{% static "css/login.css" %}" rel="stylesheet">
+			{% endif %}
+
+			{% if 'admin' in request.path %}
+			<link href="{% static "css/admin.css" %}" rel="stylesheet">
+			{% endif %}
+
 
 			<!-- Color style -->
 			<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
@@ -84,9 +91,16 @@
 
 		                    <!-- Navbar right -->
 		                    <ul class="nav navbar-nav navbar-right">
-		                        <li style="margin-right:25px;">
-		                            <a href="/login">Login</a>
-		                        </li>
+														{% if user.is_authenticated %}
+															<li style="margin-right:25px;">
+																	<a href="/logout">Logout</a>
+															</li>
+														{% else %}
+															<li style="margin-right:25px;">
+																	<a href="/login">Login</a>
+															</li>
+														{% endif %}
+
 		                        <li>
 		                            <a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
 		                        </li>
@@ -105,7 +119,7 @@
 
 
 
-				{% if request.path != '/login/' %}
+				{% if 'login' not in request.path and 'admin' not in request.path %}
 				<!-- Subscribe -->
 				<section class="section bg-custom">
 						<div class="container">
@@ -203,6 +217,10 @@
 
 				<!--common script for all pages-->
 				<!-- <script src="js/jquery.app.js"></script> -->
+
+				{% if 'admin/add' in request.path %}
+				<script type="text/javascript" src="{% static "js/ajax_admin_add.js" %}"></script>
+				{% endif %}
 
 				<script>
 

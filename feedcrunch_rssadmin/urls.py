@@ -6,7 +6,6 @@ from .views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
-    url(r'^rss/', rss_feed, name='rss_feed'),
-    url(r'^atom/', atom_feed, name='atom_feed'),
-    url(r'^redirect/(?P<postID>\w+)/$', redirect, name='redirect_page'),
+    url(r'^add/ajax/', admin_add_ajax, name='add_ajax'),
+    url(r'^add/', admin_add, name='add'),
 ]

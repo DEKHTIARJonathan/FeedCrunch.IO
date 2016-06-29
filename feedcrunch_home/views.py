@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
@@ -23,7 +23,7 @@ def about(request):
     response.status_code = 200
     return response
 
-def loginView(request, user=None):
+def loginView(request):
     context = RequestContext(request)
     if request.method == 'POST':
         username = request.POST['username']
@@ -33,7 +33,8 @@ def loginView(request, user=None):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect('/@'+user.username+'/admin')
+                return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
             else:
                 return HttpResponse("Your account is inactive.")
         else:

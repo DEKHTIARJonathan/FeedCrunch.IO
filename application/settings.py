@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 	'feedcrunch',
 	'feedcrunch_api_v1',
 	'feedcrunch_rssviewer',
+	'feedcrunch_rssadmin',
 	'feedcrunch_home',
 ]
 

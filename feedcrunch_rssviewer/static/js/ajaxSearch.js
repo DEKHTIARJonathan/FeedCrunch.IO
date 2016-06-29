@@ -33,7 +33,7 @@ $('#search-bar').keyup(function(){
 		request = null;
 	}
 	request = $.ajax({
-		url: 'assets/inc/ajaxSearch.php',
+		url: 'inc/ajaxSearch.php',
 		type: 'POST',
 		dataType: 'json',
 		data: postForm,

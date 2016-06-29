@@ -1,6 +1,7 @@
-from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
-from django.template import RequestContext
+from django.template import RequestContext, loader
+from django.shortcuts import render_to_response, redirect, render
+from django.contrib.auth import authenticate, login, logout
 
 from feedcrunch.models import Post, FeedUser
 
@@ -18,7 +19,7 @@ def index(request, feedname=None):
         return HttpResponse("Error, feedname = " + feedname + " doesn't exist.")
 
     else:
-        posts = Post.objects.all()
+        posts = Post.objects.filter(user = feedname).order_by('-id')
         return render(request, 'index.html', {'posts': posts})
 
 
@@ -48,15 +49,3 @@ def atom_feed(request, feedname=None):
             return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
         else:
             return HttpResponse("No Entries in this feed yet")
-
-
-def admin_add(request, feedname=None):
-    context = RequestContext(request)
-    if feedname == None:
-        return HttpResponse("Error")
-    elif not request.user.is_authenticated():
-        return HttpResponse("Not logged in")
-    elif feedname != request.user.username:
-        return HttpResponse("You have nothing to do here !")
-    else:
-        return HttpResponse("No Entries in this feed yet, " + request.user.username)
