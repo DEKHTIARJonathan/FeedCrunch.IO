@@ -317,12 +317,9 @@ a:hover,a:focus,.a:active {
   width: 100%;
   border-radius: 0px;
   z-index: 999;
-  padding: 20px 0px;
+  padding: 0px 0px;
   margin-bottom: 0px;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+	position: fixed;
 }
 
 .navbar-custom .navbar-nav li a {
@@ -391,7 +388,7 @@ a:hover,a:focus,.a:active {
 }
 
 .home-wrapper {
-  padding: 200px 0px 150px 0px;
+  padding: 10% 0px 150px 0px;
 }
 
 .home-sm {
@@ -402,7 +399,8 @@ a:hover,a:focus,.a:active {
 }
 .home-wrapper-alt{
   display: table-cell;
-  vertical-align: middle;
+  /* vertical-align: middle; */
+  padding-top: 250px;
 }
 
 .home-wrapper h1{
