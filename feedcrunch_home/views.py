@@ -4,24 +4,16 @@ from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
 
 def index(request):
-    response = render_to_response('index_home.html')
-    response.status_code = 200
-    return response
+    return render(request, 'index_home.html')
 
 def faq(request):
-    response = render_to_response('faq.html')
-    response.status_code = 200
-    return response
+    return render(request, 'faq.html')
 
 def contact(request):
-    response = render_to_response('contact.html')
-    response.status_code = 200
-    return response
+    return render(request, 'contact.html')
 
 def about(request):
-    response = render_to_response('about.html')
-    response.status_code = 200
-    return response
+    return render(request, 'about.html')
 
 def loginView(request):
     context = RequestContext(request)
@@ -40,7 +32,10 @@ def loginView(request):
         else:
             return redirect('/login/')
     else:
-        return render(request, 'login.html')
+        if request.user.is_authenticated():
+            return HttpResponseRedirect('/@'+request.user.username+'/admin')
+        else:
+            return render(request, 'login.html')
 
 #@login_required(login_url='/login/')
 def test(request):
