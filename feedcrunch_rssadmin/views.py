@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
 
 from feedcrunch.models import Post, FeedUser
+from .tw_funcs import TwitterAPI
 
 import json
 
@@ -56,8 +57,13 @@ def admin_add_ajax(request, feedname=None):
                 return HttpResponse("Data Missing")
             else:
                 tmp_user = FeedUser.objects.get(username=request.user.username)
+
                 tmp_post = Post.objects.create(title=title, link=link, clicks=0, activeLink=True, user=tmp_user)
                 tmp_post.save()
+
+                twitter_instance = TwitterAPI(tmp_user)
+                twitter_instance.post_twitter(title, tmp_post.id)
+
                 return HttpResponse("1")
 
     else:
