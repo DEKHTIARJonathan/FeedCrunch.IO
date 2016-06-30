@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from feedcrunch.models import Post, FeedUser
 from .tw_funcs import TwitterAPI
+from .ap_style import format_title
 
 import json
 
@@ -52,7 +53,7 @@ def admin_add_ajax(request, feedname=None):
         if check_passed != True:
             return check_passed
         else:
-            title = request.POST['title']
+            title = format_title(request.POST['title'])
             link = request.POST['link']
             if title == "" or link == "":
                 return HttpResponse("Data Missing")
