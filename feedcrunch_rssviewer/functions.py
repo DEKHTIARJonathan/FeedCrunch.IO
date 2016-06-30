@@ -24,8 +24,8 @@ def generateRSS(type=""):
     else:
         fg.link( href='https://www.feedcrunch.io/atom/', rel='self', type="application/rss+xml")
 
-    fg.logo('https://www.feedcrunch.io/favicon.png')
-    fg.icon('https://www.feedcrunch.io/favicon.png')
+    fg.logo('https://www.feedcrunch.io/static/images/favicon.png')
+    fg.icon('https://www.feedcrunch.io/static/images/favicon.png')
 
     fg.category(term='Data Science')
     fg.language("en-us")
