@@ -26,6 +26,8 @@ script:
 - python manage.py makemigrations feedcrunch
 - python manage.py migrate
 - python manage.py loaddata feedcrunch_dump.json
+- keyczart create --location=fieldkeys --purpose=crypt
+- keyczart addkey --location=fieldkeys --status=primary --size=256
 - coverage run manage.py test
 
 after_success:
@@ -34,4 +36,4 @@ after_success:
 - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 - aws configure set default.region eu-west-1
-- aws deploy create-deployment --application-name "FeedCrunch.io" --github-location repository="DataIsTheNewBlack/FeedCrunch.IO",commitId=$commitID --deployment-group-name "FeedCrunch_DeployGroup"
+#- aws deploy create-deployment --application-name "FeedCrunch.io" --github-location repository="DataIsTheNewBlack/FeedCrunch.IO",commitId=$commitID --deployment-group-name "FeedCrunch_DeployGroup"

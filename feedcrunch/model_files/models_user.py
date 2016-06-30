@@ -13,6 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import os, re, uuid, datetime, unicodedata, getenv
 from validate_email import validate_email
+from encrypted_fields import EncryptedCharField
 
 from .models_geo import *
 
@@ -208,12 +209,21 @@ class FeedUser(AbstractFeedUser):
 	"""
 	country = models.ForeignKey(Country, on_delete=models.CASCADE)
 	birthdate = models.DateField()
-	apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique= True)
+	apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 	sex = models.CharField(
 		max_length=1,
 		choices=(('M', 'Male'),('F', 'Female')),
 		default='M',
 	)
+
+	rss_feed_title = models.CharField(max_length=100, default='')
+
+	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500) 
+
+	twitter_consummer_key = EncryptedCharField(max_length=500, default='')
+	twitter_consummer_secret = EncryptedCharField(max_length=500, default='')
+	twitter_token = EncryptedCharField(max_length=500, default='')
+	twitter_token_secret = EncryptedCharField(max_length=500, default='')
 
 	objects = FeedUserManager()
 

@@ -93,3 +93,5 @@ codedeploy/deploy.sh
 codedeploy/feedcrunch.xyz.csr
 codedeploy/https.key
 https/deploy.sh
+fieldkeys/*
+!fieldkeys/__init__.py

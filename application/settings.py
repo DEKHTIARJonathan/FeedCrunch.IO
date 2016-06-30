@@ -91,6 +91,8 @@ FIXTURE_DIRS = (
 	os.path.join(BASE_DIR, 'application/fixtures/'),
 )
 
+ENCRYPTED_FIELDS_KEYDIR = os.path.join(BASE_DIR, 'fieldkeys')
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
