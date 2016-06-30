@@ -230,3 +230,9 @@ class FeedUser(AbstractFeedUser):
 
 	class Meta(AbstractFeedUser.Meta):
 			swappable = 'AUTH_USER_MODEL'
+
+	def is_twitter_enabled(self):
+		if self.twitter_consummer_key != "" and self.twitter_consummer_secret != "" and self.twitter_token != "" and self.twitter_token_secret != "" :
+			return True
+		else:
+			return False
