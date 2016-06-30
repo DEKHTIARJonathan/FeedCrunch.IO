@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.core import management
 
 import sys, datetime, factory, time

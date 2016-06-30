@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.test import TestCase, Client
 from feedcrunch.models import Post, FeedUser
 from feedcrunch.factories import *

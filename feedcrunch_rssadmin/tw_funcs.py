@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from feedcrunch.models import *
 from twitter import Api
 

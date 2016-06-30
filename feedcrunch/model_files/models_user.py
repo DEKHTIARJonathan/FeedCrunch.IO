@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ######### https://github.com/django/django/blob/master/django/contrib/auth/models.py
 from __future__ import unicode_literals
 from django.db import models
@@ -218,7 +219,7 @@ class FeedUser(AbstractFeedUser):
 
 	rss_feed_title = models.CharField(max_length=100, default='')
 
-	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500) 
+	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 
 	twitter_consummer_key = EncryptedCharField(max_length=500, default='')
 	twitter_consummer_secret = EncryptedCharField(max_length=500, default='')
