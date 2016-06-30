@@ -8,16 +8,23 @@ import re, uuid, datetime
 from .models_geo import *
 from .models_user import *
 
+class SerialField(object):
+    def db_type(self, connection):
+        return 'serial'
+
 ############################## ARTICLE MODEL ###################################
 
 class Post(models.Model):
-	id = models.AutoField(primary_key=True)
+	global_post_id = models.AutoField(primary_key=True)
+	id = SerialField()
+	#id = models.AutoField(primary_key=True)
+	user = models.ForeignKey(FeedUser)
 	title = models.CharField(max_length=255)
 	link = models.URLField(max_length=2000)
 	when = models.DateTimeField(auto_now_add=True)
 	clicks = models.IntegerField()
 	activeLink = models.BooleanField()
-	user = models.ForeignKey(FeedUser)
+
 
 	def get_date(self):
 		return self.when.strftime("%Y/%m/%d %H:%M")

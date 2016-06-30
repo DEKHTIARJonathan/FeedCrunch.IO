@@ -79,7 +79,6 @@ ENV/
 .spyderproject
 
 # App Specific Files
-*/migrations/
 application/staticfiles/
 cover/
 test.py
