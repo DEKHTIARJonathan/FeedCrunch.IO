@@ -22,6 +22,7 @@ def index(request, feedname=None):
 
 
 def search(request, feedname=None):
+    result = {}
 
     if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
         return HttpResponseRedirect("/")
@@ -30,28 +31,29 @@ def search(request, feedname=None):
         search_str = request.POST['search_str']
 
         if search_str != "":
+            rslt_from_db = Post.objects.filter(title__icontains=search_str, user=feedname).order_by('-id')
+        else:
+            rslt_from_db = Post.objects.filter(user=feedname).order_by('-id')
 
-            posts = []
+        posts = []
 
-            for post in Post.objects.filter(title__icontains=search_str).order_by('-id'):
-                data = {}
-                data["id"] = post.id
-                data["title"] = post.title
-                data["when"] = post.get_date()
-                data["domain_name"] = post.get_domain()
-                posts.append(data)
+        for post in rslt_from_db:
+            data = {}
+            data["id"] = post.id
+            data["title"] = post.title
+            data["when"] = post.get_date()
+            data["domain_name"] = post.get_domain()
+            posts.append(data)
 
-            result = {}
-            result["status"] = "OK"
-            result["search_str"] = search_str
-            result["posts"] = posts
+        result["status"] = "OK"
+        result["posts"] = posts
 
     else:
-        result = {}
+
         result["status"] = "KO"
-        result["search_str"] = search_str
         result["posts"] = {}
 
+    result["search_str"] = search_str
     return JsonResponse(result)
 
 
@@ -61,6 +63,9 @@ def redirect(request, feedname=None, postID=None):
     else:
         try:
             post = Post.objects.get(id=postID, user=feedname)
+            post.clicks += 1
+            post.save()
+            
             return HttpResponseRedirect(post.link)
         except:
             return HttpResponseRedirect("/@"+feedname)

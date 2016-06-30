@@ -61,7 +61,7 @@ $('#search-bar').keyup(function(){
 						<td style="vertical-align:middle;" class="hidden_column">'+id+'</td>\
 						<td style="vertical-align:middle;">'+title+'<span class="domain_value"> ~ ('+domain_name+')</span></td>\
 						<td style="vertical-align:middle;" class="hidden_column">'+published_date+'</td>\
-						<td style="vertical-align:middle;"><a href="redirect.php?postID='+id+'" target="_blank">Link</a></td>\
+						<td style="vertical-align:middle;"><a href="redirect/'+id+'" target="_blank">Link</a></td>\
 					</tr>';
 					$("#viewer tbody").append(row);
 				}
