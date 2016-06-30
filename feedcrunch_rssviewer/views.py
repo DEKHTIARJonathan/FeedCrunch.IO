@@ -13,11 +13,18 @@ from .functions import *
 
 def index(request, feedname=None):
 
-    if feedname == None:
-        return HttpResponse("Error, feedname = None")
+    if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
+        return HttpResponseRedirect("/")
 
-    elif not FeedUser.objects.filter(username = feedname).select_related('User').exists():
-        return HttpResponse("Error, feedname = " + feedname + " doesn't exist.")
+    else:
+        posts = Post.objects.filter(user = feedname).order_by('-id')
+        return render(request, 'index.html', {'posts': posts})
+
+
+def search(request, feedname=None):
+
+    if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
+        return HttpResponseRedirect("/")
 
     else:
         posts = Post.objects.filter(user = feedname).order_by('-id')
