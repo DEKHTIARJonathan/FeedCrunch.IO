@@ -4,6 +4,9 @@ import re
 def format_title(title):
     stopwords = 'a an and at but by for in nor of on or so the to up yet'.split(' ')
 
+    if type(title) is unicode:
+        title = title.encode('utf-8','ignore')
+
     if type(title) is str:
         title = title.strip().lower()
 
@@ -19,4 +22,7 @@ def format_title(title):
 
         rslt = re.sub(' +',' ',rslt)
 
-    return rslt
+        return rslt
+        
+    else:
+        raise ValueError("This datatype ( "+ type(title) +" ) is not handled by the application.")
