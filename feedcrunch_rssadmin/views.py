@@ -63,8 +63,9 @@ def admin_add_ajax(request, feedname=None):
                 tmp_post = Post.objects.create(title=title, link=link, clicks=0, activeLink=True, user=tmp_user)
                 tmp_post.save()
 
-                twitter_instance = TwitterAPI(tmp_user)
-                twitter_instance.post_twitter(title, tmp_post.id)
+                if tmp_user.is_twitter_enabled():
+                    twitter_instance = TwitterAPI(tmp_user)
+                    twitter_instance.post_twitter(title, tmp_post.id)
 
                 return HttpResponse("1")
 
