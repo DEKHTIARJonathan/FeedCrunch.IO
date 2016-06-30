@@ -128,9 +128,12 @@
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6">
-						<i class="icon-search"></i> <input autocomplete="off" id="search-bar"
-						placeholder="Search posts by title, url" spellcheck="false" type=
-						"search">
+						<i class="icon-search"></i>
+						{% csrf_token %}
+		        {% if next %}
+		            <input type="hidden" name="next" value="{{ next }}" />
+		        {% endif %}
+						<input autocomplete="off" id="search-bar"	placeholder="Search posts by title, url" spellcheck="false" type="search">
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-3">
 						<span class="powered-by ng-scope">Designed by <a href=

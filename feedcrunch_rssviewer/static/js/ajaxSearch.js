@@ -24,16 +24,17 @@ var request = null;
 $('#search-bar').keyup(function(){
 
 	var postForm = {
-		'search_str' : $('#search-bar').val()
+		'search_str' : $('#search-bar').val(),
+		'csrfmiddlewaretoken' : $('input[name^=csrfmiddlewaretoken]').val()
 	};
-	
+
 	//check for existing ajax request
-	if (request != null){ 
+	if (request != null){
 		request.abort();
 		request = null;
 	}
 	request = $.ajax({
-		url: 'inc/ajaxSearch.php',
+		url: 'search/',
 		type: 'POST',
 		dataType: 'json',
 		data: postForm,
@@ -53,8 +54,8 @@ $('#search-bar').keyup(function(){
 					var domain_name = highlight(posts[i]["domain_name"], str_search);
 					var published_date = posts[i]["when"];
 					var id = posts[i]["id"];
-					
-					
+
+
 					var row = '\
 					<tr>\
 						<td style="vertical-align:middle;" class="hidden_column">'+id+'</td>\
@@ -64,10 +65,10 @@ $('#search-bar').keyup(function(){
 					</tr>';
 					$("#viewer tbody").append(row);
 				}
-				}			      	
+				}
 			else
 				alert("Request Error");
 
 	   }
 	});
-});        
+});
