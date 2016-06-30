@@ -2,6 +2,7 @@
   height: calc(100vh - 350px);
   background: url('../images/login_bg.jpg') no-repeat fixed center center;
   background-size: cover;
+  min-height: 600px;
 }
 
 #login_container{
@@ -15,8 +16,8 @@
     border-radius: 5px;
     border-top: 5px solid #ff656c;
     display: inline-block;
-    margin-top: 25%;
-    transform: translateY(-50%);
+    margin-top: 20%;
+    transform: translateY(-55%);
 }
 
 .login-block h1 {

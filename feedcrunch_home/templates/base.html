@@ -24,7 +24,7 @@
 			<!-- Custom styles for this template -->
 			<link href="{% static "css/style.css" %}" rel="stylesheet">
 			{% if 'login' in request.path %}
-			<link href="{% static "css/login.css" %}" rel="stylesheet">
+			<link href="{% static "css/login_panel.css" %}" rel="stylesheet">
 			{% endif %}
 
 			{% if 'admin' in request.path %}
@@ -95,15 +95,25 @@
 															<li style="margin-right:25px;">
 																	<a href="/logout">Logout</a>
 															</li>
+															{% if 'admin' in request.path %}
+															<li>
+			                            <a href="/@{{user.username}}/" class="btn btn-white-fill navbar-btn">Go to my Feed</a>
+			                        </li>
+															{% else %}
+															<li>
+			                            <a href="/@{{user.username}}/admin" class="btn btn-white-fill navbar-btn">Admin Panel</a>
+			                        </li>
+															{% endif %}
 														{% else %}
 															<li style="margin-right:25px;">
 																	<a href="/login">Login</a>
 															</li>
+															<li>
+			                            <a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
+			                        </li>
 														{% endif %}
 
-		                        <li>
-		                            <a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
-		                        </li>
+
 		                    </ul>
 
 		                </div>
