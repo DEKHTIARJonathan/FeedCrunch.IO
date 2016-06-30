@@ -10,10 +10,15 @@ source $app_dir/venv/bin/activate
 pip install --upgrade pip
 pip install -r $app_dir/requirements.txt
 
-wget -q https://s3-eu-west-1.amazonaws.com/feedreader-codedeploy/feedreader_data/data_.zip -O $app_dir/data.zip
-sudo unzip -o $app_dir/data.zip -d $app_dir/
+wget -q https://s3-eu-west-1.amazonaws.com/feedreader-codedeploy/feedreader_data/data_crypt.zip -O $app_dir/fieldkeys/data.zip
+sudo unzip -o $app_dir/fieldkeys/data.zip -d $app_dir/fieldkeys/
 sudo chown $user:$user $app_dir/.env
-sudo chmod 755 $app_dir/.env $app_dir/data.zip
+
+wget -q https://s3-eu-west-1.amazonaws.com/feedreader-codedeploy/feedreader_data/data_env.zip -O $app_dir/data.zip
+sudo unzip -o $app_dir/data.zip -d $app_dir/
+
+sudo chown -R $user:$user $app_dir
+sudo chmod 755 -R $app_dir
 
 python $app_dir/manage.py collectstatic --noinput
 python $app_dir/manage.py makemigrations feedcrunch --noinput
