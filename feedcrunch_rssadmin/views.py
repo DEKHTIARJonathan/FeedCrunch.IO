@@ -26,6 +26,9 @@ def check_admin(feedname, user):
     else:
         return True
 
+def str2bool(v):
+  return v.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
+
 # Create your views here.
 
 def index(request, feedname=None):
@@ -53,17 +56,24 @@ def admin_add_ajax(request, feedname=None):
         if check_passed != True:
             return check_passed
         else:
-            title = format_title(request.POST['title'])
+            title = request.POST['title']
             link = request.POST['link']
+
+            activated_bool = str2bool(request.POST['activated'])
+            twitter_bool = str2bool(request.POST['twitter'])
+
+            if str2bool(request.POST['autoformat']) :
+                title = format_title(title)
+
             if title == "" or link == "":
                 return HttpResponse("Data Missing")
             else:
                 tmp_user = FeedUser.objects.get(username=request.user.username)
 
-                tmp_post = Post.objects.create(title=title, link=link, clicks=0, activeLink=True, user=tmp_user)
+                tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
                 tmp_post.save()
 
-                if tmp_user.is_twitter_enabled():
+                if twitter_bool and tmp_user.is_twitter_enabled():
                     twitter_instance = TwitterAPI(tmp_user)
                     twitter_instance.post_twitter(title, tmp_post.id)
 

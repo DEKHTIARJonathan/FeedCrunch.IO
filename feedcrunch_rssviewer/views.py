@@ -17,7 +17,7 @@ def index(request, feedname=None):
         return HttpResponseRedirect("/")
 
     else:
-        posts = Post.objects.filter(user = feedname).order_by('-id')
+        posts = Post.objects.filter(user = feedname, activeLink=True).order_by('-id')
         return render(request, 'index.html', {'posts': posts})
 
 
@@ -31,7 +31,7 @@ def search(request, feedname=None):
         search_str = request.POST['search_str']
 
         if search_str != "":
-            rslt_from_db = Post.objects.filter(title__icontains=search_str, user=feedname).order_by('-id')
+            rslt_from_db = Post.objects.filter(title__icontains=search_str, user=feedname, activeLink=True).order_by('-id')
         else:
             rslt_from_db = Post.objects.filter(user=feedname).order_by('-id')
 
@@ -62,10 +62,11 @@ def redirect(request, feedname=None, postID=None):
         return HttpResponse("Error")
     else:
         try:
-            post = Post.objects.get(id=postID, user=feedname)
+            post = Post.objects.get(id=postID, user=feedname, activeLink=True)
+
             post.clicks += 1
             post.save()
-            
+
             return HttpResponseRedirect(post.link)
         except:
             return HttpResponseRedirect("/@"+feedname)
