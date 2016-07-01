@@ -10,7 +10,7 @@ class UserFactory(factory.DjangoModelFactory):
 		model = FeedUser
 
 	username="test_user1"
-	email="contact@dataradar.io"
+	email="marco.flint31@gmail.com"
 	password="DummyPassword123"
 	first_name="test"
 	last_name="USER1"

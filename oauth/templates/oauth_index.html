@@ -1,0 +1,19 @@
+{% extends "base_oauth.html" %}
+
+{% block content %}
+name: {{ username }}
+<hr />
+<form action="../post" method="post">{% csrf_token %}
+  <textarea name="tweet" maxlength="140" rows="4" cols="40" style="font-size:20px;"></textarea>
+  <input type="submit" value="Submit" />
+</form>
+<hr />
+{% if timeline_list %}
+{% for timeline in timeline_list %}
+<hr />
+author: {{ timeline.author.screen_name }}
+created_at: {{ timeline.created_at }}<br />
+text: {{ timeline.text }}
+{% endfor %}
+{% endif %}
+{% endblock %}

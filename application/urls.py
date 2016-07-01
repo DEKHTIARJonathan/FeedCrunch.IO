@@ -19,6 +19,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from oauth.views import *
+
 # Examples:
 # url(r'^$', 'settings.views.home', name='home'),
 # url(r'^blog/', include('blog.urls')),
@@ -29,4 +31,12 @@ urlpatterns = [
     url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),
     url(r'^@(?P<feedname>\w+)/', include('feedcrunch_rssviewer.urls')),
     #url(r'^$', feedcrunch_home.views.index, name='index'),
+     # Top Page
+    url(r'^oauth/$', index, name='index'),
+    # Callback
+    url(r'^oauth/get_callback/$', get_callback, name='get_callback'),
+    # Redirect Page of after Authenticate
+    url(r'^oauth/oauth_index/$', oauth_index, name='oauth_index'),
+    # Tweet
+    url(r'^oauth/post/$', post, name='post'),
 ]
