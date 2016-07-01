@@ -1,5 +1,5 @@
-awscli==1.10.43
-botocore==1.4.33
+awscli==1.10.44
+botocore==1.4.34
 codeclimate-test-reporter==0.1.2
 colorama==0.3.7
 coverage==4.1
