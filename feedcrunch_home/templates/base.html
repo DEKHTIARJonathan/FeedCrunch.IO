@@ -250,8 +250,8 @@
 				</script>
 				{% endif %}
 
-				{% if 'admin/add' in request.path %}
-				<script type="text/javascript" src="{% static "js/ajax_admin_add.js" %}"></script>
+				{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
+				<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
 				{% endif %}
 
 				<script>

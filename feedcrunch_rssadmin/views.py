@@ -39,16 +39,18 @@ def index(request, feedname=None):
     else:
         return render(request, 'admin_index.html')
 
-
-def admin_add(request, feedname=None):
+def add_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
     if check_passed != True:
         return check_passed
     else:
-        return render(request, 'admin_add.html')
+        return render(request, 'post_form.html')
 
-def admin_add_ajax(request, feedname=None):
+def add_form_ajax(request, feedname=None):
+
+    data = {}
+    data["operation"] = "insert"
 
     if request.method == 'POST':
 
@@ -56,31 +58,102 @@ def admin_add_ajax(request, feedname=None):
         if check_passed != True:
             return check_passed
         else:
-            title = request.POST['title']
-            link = request.POST['link']
+            try:
 
-            activated_bool = str2bool(request.POST['activated'])
-            twitter_bool = str2bool(request.POST['twitter'])
+                title = request.POST['title']
+                link = request.POST['link']
 
-            if str2bool(request.POST['autoformat']) :
-                title = format_title(title)
+                activated_bool = str2bool(request.POST['activated'])
+                twitter_bool = str2bool(request.POST['twitter'])
 
-            if title == "" or link == "":
-                return HttpResponse("Data Missing")
-            else:
+                if str2bool(request.POST['autoformat']) :
+                    title = format_title(title)
+
+                if title == "" or link == "":
+                    return HttpResponse("Data Missing")
+                else:
+                    tmp_user = FeedUser.objects.get(username=request.user.username)
+
+                    tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
+                    tmp_post.save()
+
+                    if twitter_bool and tmp_user.is_twitter_enabled():
+                        twitter_instance = TwitterAPI(tmp_user)
+                        twitter_instance.post_twitter(title, tmp_post.id)
+
+                    data["status"] = "success"
+                    data["postID"] = str(tmp_post.id)
+
+            except:
+                data["status"] = "error"
+                data["error"] = "An error occured in the process"
+                data["postID"] = str(postID)
+
+
+    else:
+        data["status"] = "error"
+        data["error"] = "Only available with a POST Request"
+        data["postID"] = str(postID)
+
+    return JsonResponse(data)
+
+def modify_form_ajax(request, feedname=None, postID=None):
+
+    data = {}
+    data["operation"] = "modification"
+
+    if request.method == 'POST':
+
+        check_passed = check_admin(feedname, request.user)
+        if check_passed != True:
+            return check_passed
+
+        elif postID == None:
+            data["status"] = "error"
+            data["error"] = "postID parameter is missing"
+            data["postID"] = ""
+
+        else:
+            try:
+                title = request.POST['title']
+                link = request.POST['link']
+
+                activated_bool = str2bool(request.POST['activated'])
+                twitter_bool = str2bool(request.POST['twitter'])
+
+                if str2bool(request.POST['autoformat']) :
+                    title = format_title(title)
+
+                if title == "" or link == "":
+                    return HttpResponse("Data Missing")
+
+                post = Post.objects.get(id=postID, user=feedname)
+
+                post.title = title
+                post.link = link
+                post.activeLink = activated_bool
+
+                post.save()
+
                 tmp_user = FeedUser.objects.get(username=request.user.username)
-
-                tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
-                tmp_post.save()
-
                 if twitter_bool and tmp_user.is_twitter_enabled():
                     twitter_instance = TwitterAPI(tmp_user)
                     twitter_instance.post_twitter(title, tmp_post.id)
 
-                return HttpResponse("1")
+                data["status"] = "success"
+                data["postID"] = str(postID)
+
+            except:
+                data["status"] = "error"
+                data["error"] = "An error occured in the process"
+                data["postID"] = str(postID)
 
     else:
-        return HttpResponse("Post Request Needed")
+        data["status"] = "error"
+        data["error"] = "Only available with a POST Request"
+        data["postID"] = str(postID)
+
+    return JsonResponse(data)
 
 def modify_listing(request, feedname=None):
 
@@ -88,4 +161,31 @@ def modify_listing(request, feedname=None):
     if check_passed != True:
         return check_passed
     else:
-        return render(request, 'admin_add.html')
+        posts = Post.objects.filter(user = feedname).order_by('-id')
+        return render(request, 'listing.html', {'posts': posts})
+
+def modify_form(request, feedname=None, postID=None):
+
+    check_passed = check_admin(feedname, request.user)
+    if check_passed != True:
+        return check_passed
+
+    elif postID == None:
+        return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
+    else:
+        try:
+            post = Post.objects.get(id=postID, user=feedname)
+            return render(request, 'post_form.html', {"post": post})
+
+        except:
+            return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
+def delete_listing(request, feedname=None):
+
+    check_passed = check_admin(feedname, request.user)
+    if check_passed != True:
+        return check_passed
+    else:
+        posts = Post.objects.filter(user = feedname).order_by('-id')
+        return render(request, 'listing.html', {'posts': posts})

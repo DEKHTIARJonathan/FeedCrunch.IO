@@ -11,10 +11,10 @@ $(function() {
         twitter: $("#twitter_radio").bootstrapSwitch('state'),
         autoformat: $("#auto_format").bootstrapSwitch('state')
       },
-      dataType : "html",
+      dataType : "json",
 
       success: function(data){
-        if (data != 1) {
+        if (data.status != "success") {
            $("#resultatUpload").attr('class', 'alert alert-warning show');
            $("#resultatUpload").html("Attention, cette action n'a pas pu être enregistrée.");
         }
@@ -22,12 +22,17 @@ $(function() {
         {
           $("#resultatUpload").attr('class', 'alert alert-success show');
           $("#resultatUpload").html("Enregistrement effectué avec succès.");
-          $("#title").val("");
-          $("#link").val("");
-          $("#activated_radio").bootstrapSwitch('state', true);
-          $("#twitter_radio").bootstrapSwitch('state', true);
-          $("#auto_format").bootstrapSwitch('state', true);
 
+          if (data.operation == "insert"){
+            $("#title").val("");
+            $("#link").val("");
+            $("#activated_radio").bootstrapSwitch('state', true);
+            $("#twitter_radio").bootstrapSwitch('state', true);
+            $("#auto_format").bootstrapSwitch('state', true);
+          }
+          else if (data.operation == "modification") {
+            window.location.href = "../";
+          }
         }
       }
     });
@@ -39,6 +44,16 @@ $(function() {
     $("#title").val("");
     $("#link").val("");
     $("#activated_radio").bootstrapSwitch('state', true);
+    $("#twitter_radio").bootstrapSwitch('state', true);
+    $("#auto_format").bootstrapSwitch('state', true);
+  });
+});
+
+$(function() {
+  $("#reset").click( function(){
+    $("#title").val($("#title").data("init"));
+    $("#link").val($("#link").data("init"));
+    $("#activated_radio").bootstrapSwitch('state', $("#activated_radio").data("init"));
     $("#twitter_radio").bootstrapSwitch('state', true);
     $("#auto_format").bootstrapSwitch('state', true);
   });

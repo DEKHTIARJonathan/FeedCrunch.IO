@@ -75,3 +75,16 @@
 .login-block button:hover {
     background: #ff7b81;
 }
+
+@media(max-width: 768px) {
+    .hidden_column {
+        display: none;
+    }
+    td,
+    th {
+        font-size: 10px;
+    }
+}
+th {
+    text-align: center;
+}
