@@ -76,7 +76,7 @@ def rss_feed(request, feedname=None):
         return HttpResponse("Error")
     else:
         if Post.objects.count() > 0:
-            fg = generateRSS("rss")
+            fg = generateRSS("rss", feedname)
             return HttpResponse(fg.rss_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
         else:
             return HttpResponse("No Entries in this feed yet")
@@ -86,7 +86,7 @@ def atom_feed(request, feedname=None):
         return HttpResponse("Error")
     else:
         if Post.objects.count() > 0:
-            fg = generateRSS("atom")
+            fg = generateRSS("atom", feedname)
             return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
         else:
             return HttpResponse("No Entries in this feed yet")
