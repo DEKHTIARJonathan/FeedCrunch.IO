@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^modify/(?P<postID>\d+)/ajax/$', modify_form_ajax, name='modify_ajax'),
     url(r'^modify/(?P<postID>\d+)/$', modify_form, name='modify_listing'),
     url(r'^modify/$', modify_listing, name='modify_listing'),
+    url(r'^delete/ajax/$', delete_ajax, name='delete_ajax'),
     url(r'^delete/$', delete_listing, name='delete_listing'),
 ]

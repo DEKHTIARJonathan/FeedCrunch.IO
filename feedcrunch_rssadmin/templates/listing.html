@@ -3,6 +3,14 @@
 
 {% block body %}
 
+{% if 'delete' in request.path %}
+  {% csrf_token %}
+  {% if next %}
+      <input type="hidden" name="next" value="{{ next }}" />
+  {% endif %}
+{% endif %}
+
+
 <section class="section" id="admin-listing">
     <div class="container" id="admin_container">
         <div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
@@ -39,7 +47,7 @@
                         {% if 'modify' in request.path %}
   											<a href="{{ post.id }}">Edit</a>
                         {% elif 'delete' in request.path %}
-                        <a href="{{ post.id }}">Delete</a>
+                        <a class="delete-link" data-id="{{ post.id }}" href="#">Delete</a>
                         {% endif %}
   										</td>
   									</tr>

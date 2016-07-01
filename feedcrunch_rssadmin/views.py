@@ -70,7 +70,9 @@ def add_form_ajax(request, feedname=None):
                     title = format_title(title)
 
                 if title == "" or link == "":
-                    return HttpResponse("Data Missing")
+                    data["status"] = "error"
+                    data["error"] = "Title and/or Link is/are issing"
+                    data["postID"] = str(postID)
                 else:
                     tmp_user = FeedUser.objects.get(username=request.user.username)
 
@@ -180,6 +182,46 @@ def modify_form(request, feedname=None, postID=None):
 
         except:
             return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
+
+def delete_ajax(request, feedname=None):
+
+    data = {}
+    data["operation"] = "delete"
+
+    if request.method == 'POST':
+
+        check_passed = check_admin(feedname, request.user)
+        if check_passed != True:
+            return check_passed
+        else:
+            try:
+                postID = int(request.POST['postID'])
+
+                if type(postID) is not int or postID < 1:
+                    data["status"] = "error"
+                    data["error"] = "postID parameter is not valid"
+                    data["postID"] = str(postID)
+
+                else:
+
+                    Post.objects.filter(id=postID, user=feedname).delete()
+                    data["status"] = "success"
+                    data["postID"] = str(postID)
+
+            except:
+                data["status"] = "error"
+                data["error"] = "An error occured in the process"
+                data["postID"] = str(postID)
+
+
+    else:
+        data["status"] = "error"
+        data["error"] = "Only available with a POST Request"
+        data["postID"] = str(postID)
+
+    return JsonResponse(data)
+
 
 def delete_listing(request, feedname=None):
 

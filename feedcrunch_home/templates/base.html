@@ -252,6 +252,8 @@
 
 				{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
 				<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
+				{% elif 'admin/delete' in request.path %}
+				<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
 				{% endif %}
 
 				<script>
