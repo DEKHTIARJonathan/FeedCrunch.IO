@@ -21,7 +21,7 @@ def check_admin(feedname, user):
         return HttpResponse("We are sorry... You account is inactive. Please contact our support")
 
     elif feedname != user.username:
-        return HttpResponseRedirect('/@'+request.user.username+'/admin')
+        return HttpResponseRedirect('/@'+user.username+'/admin')
 
     else:
         return True
