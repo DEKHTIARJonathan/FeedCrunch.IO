@@ -39,7 +39,7 @@ def get_callback(request):
     verifier = request.GET.get('oauth_verifier')
 
     # Let's say this is a web app, so we need to re-build the auth handler first...
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
     token = request.session.get('request_token')
     del request.session['request_token']
     auth.request_token = token
@@ -58,7 +58,7 @@ def oauth_index(request):
     """
     Redirect page of after authenticate
     """
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
     auth.set_access_token(request.session.get('key'), request.session.get('secret'))
     api = tweepy.API(auth)
 
@@ -80,7 +80,7 @@ def post(request):
     Tweet
     """
     if request.method == 'POST':
-        auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+        auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
         auth.set_access_token(request.session.get('key'), request.session.get('secret'))
         api = tweepy.API(auth_handler=auth)
         tweet = request.POST['tweet']
