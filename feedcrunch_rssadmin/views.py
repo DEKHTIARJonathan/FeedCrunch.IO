@@ -81,3 +81,11 @@ def admin_add_ajax(request, feedname=None):
 
     else:
         return HttpResponse("Post Request Needed")
+
+def modify_listing(request, feedname=None):
+
+    check_passed = check_admin(feedname, request.user)
+    if check_passed != True:
+        return check_passed
+    else:
+        return render(request, 'admin_add.html')
