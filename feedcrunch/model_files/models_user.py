@@ -2,6 +2,7 @@
 ######### https://github.com/django/django/blob/master/django/contrib/auth/models.py
 from __future__ import unicode_literals
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User, UserManager, PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import User
@@ -17,6 +18,8 @@ from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
 from .models_geo import *
+
+from twython import Twython
 
 class FeedUserManager(BaseUserManager):
 		use_in_migrations = True
@@ -230,7 +233,19 @@ class FeedUser(AbstractFeedUser):
 			swappable = 'AUTH_USER_MODEL'
 
 	def is_twitter_enabled(self):
-		if self.twitter_token != "" and self.twitter_token_secret != "" :
-			return True
-		else:
+		try:
+			if self.twitter_token != "" and self.twitter_token_secret != "" :
+				twitter = Twython(settings.CONSUMER_KEY, settings.CONSUMER_SECRET, self.twitter_token, self.twitter_token_secret)
+				if twitter.verify_credentials()["screen_name"] != "":
+					return True
+				else:
+					return False
+			else:
+				return False
+		except:
 			return False
+
+	def reset_twitter_credentials(self):
+		self.twitter_token = ""
+		self.twitter_token_secret = ""
+		self.save()

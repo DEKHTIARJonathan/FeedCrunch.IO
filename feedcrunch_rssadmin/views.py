@@ -48,7 +48,7 @@ def add_form(request, feedname=None):
     if check_passed != True:
         return check_passed
     else:
-        return render(request, 'post_form.html', {'auth_url': auth_url})
+        return render(request, 'post_form.html')
 
 def add_form_ajax(request, feedname=None):
 
