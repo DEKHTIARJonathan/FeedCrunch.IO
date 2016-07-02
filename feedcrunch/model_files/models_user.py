@@ -221,8 +221,6 @@ class FeedUser(AbstractFeedUser):
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 
-	twitter_consummer_key = EncryptedCharField(max_length=500, default='')
-	twitter_consummer_secret = EncryptedCharField(max_length=500, default='')
 	twitter_token = EncryptedCharField(max_length=500, default='')
 	twitter_token_secret = EncryptedCharField(max_length=500, default='')
 
@@ -232,7 +230,7 @@ class FeedUser(AbstractFeedUser):
 			swappable = 'AUTH_USER_MODEL'
 
 	def is_twitter_enabled(self):
-		if self.twitter_consummer_key != "" and self.twitter_consummer_secret != "" and self.twitter_token != "" and self.twitter_token_secret != "" :
+		if self.twitter_token != "" and self.twitter_token_secret != "" :
 			return True
 		else:
 			return False

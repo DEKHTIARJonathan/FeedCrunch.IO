@@ -28,15 +28,8 @@ from oauth.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('feedcrunch_home.urls')),
+    url(r'^oauth/', include('oauth.urls')), 
     url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),
     url(r'^@(?P<feedname>\w+)/', include('feedcrunch_rssviewer.urls')),
     #url(r'^$', feedcrunch_home.views.index, name='index'),
-     # Top Page
-    url(r'^oauth/$', index, name='index'),
-    # Callback
-    url(r'^oauth/get_callback/$', get_callback, name='get_callback'),
-    # Redirect Page of after Authenticate
-    url(r'^oauth/oauth_index/$', oauth_index, name='oauth_index'),
-    # Tweet
-    url(r'^oauth/post/$', post, name='post'),
 ]

@@ -1,44 +1,19 @@
 # Create your views here.
 # -*- coding:utf-8 -*-
-
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, render
-from django.template import RequestContext
+from django.http import HttpResponseRedirect
 from django.conf import settings
+
+from feedcrunch.models import FeedUser
+
+from oauth import *
 
 import tweepy
 
-def get_authorization_url(request):
-    """
-    Twitter oauth authenticate
-    """
-    auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
-    try:
-        auth_url = auth.get_authorization_url()
-    except tweepy.TweepError:
-        raise Exception('Error! Failed to get request token.')
-    request.session['request_token'] = auth.request_token
-    return auth_url
-
-
-def index(request):
-    """
-    Top page
-    """
-    auth_url = get_authorization_url(request)
-
-    return render(request, 'index_oauth.html', {'auth_url': auth_url})
-
-
 def get_callback(request):
-    """
-    Callback
-    """
-    # Example using callback (web app)
+
     verifier = request.GET.get('oauth_verifier')
 
-    # Let's say this is a web app, so we need to re-build the auth handler first...
     auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
     token = request.session.get('request_token')
     del request.session['request_token']
@@ -51,28 +26,41 @@ def get_callback(request):
 
     request.session['key'] = auth.access_token
     request.session['secret'] = auth.access_token_secret
-    return HttpResponseRedirect(reverse('oauth.views.oauth_index'))
 
+    usr_tmp = FeedUser.objects.get(username=request.user.username)
 
-def oauth_index(request):
-    """
-    Redirect page of after authenticate
-    """
+    usr_tmp.twitter_token = auth.access_token
+    usr_tmp.twitter_token_secret = auth.access_token_secret
+
+    usr_tmp.save()
+
+    return HttpResponseRedirect(reverse('feedcrunch_rssadmin.views.index', kwargs={'feedname': request.user.username}))
+
+def unlink(request):
+
+    verifier = request.GET.get('oauth_verifier')
+
     auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
-    auth.set_access_token(request.session.get('key'), request.session.get('secret'))
-    api = tweepy.API(auth)
+    token = request.session.get('request_token')
+    del request.session['request_token']
+    auth.request_token = token
 
-    # Get username
-    username = auth.get_username()
+    try:
+        auth.get_access_token(verifier)
+    except tweepy.TweepError:
+        raise Exception('Error! Failed to get access token.')
 
-    # Get timeline
-    timeline_list = api.home_timeline()
+    request.session['key'] = auth.access_token
+    request.session['secret'] = auth.access_token_secret
 
-    ctxt = RequestContext(request, {
-        'username': username,
-        'timeline_list': timeline_list,
-        })
-    return render_to_response('oauth_index.html', ctxt)
+    usr_tmp = FeedUser.objects.get(username=request.user.username)
+
+    usr_tmp.twitter_token = auth.access_token
+    usr_tmp.twitter_token_secret = auth.access_token_secret
+
+    usr_tmp.save()
+
+    return HttpResponseRedirect(reverse('feedcrunch_rssadmin.views.index', kwargs={'feedname': request.user.username}))
 
 
 def post(request):

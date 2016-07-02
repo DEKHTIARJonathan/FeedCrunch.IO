@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.conf import settings
 from feedcrunch.models import *
 from twitter import Api
 
@@ -10,8 +11,8 @@ class TwitterAPI(object):
     baseurl = ""
 
     def __init__(self, user):
-        self.api = Api(consumer_key=user.twitter_consummer_key,
-                          consumer_secret=user.twitter_consummer_secret,
+        self.api = Api(consumer_key=settings.CONSUMER_KEY,
+                          consumer_secret=settings.CONSUMER_SECRET,
                           access_token_key=user.twitter_token,
                           access_token_secret=user.twitter_token_secret)
         try:
