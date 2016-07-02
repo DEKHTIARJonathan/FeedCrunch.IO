@@ -58,3 +58,5 @@ You will need to set environment variables as followed:
 | CODECLIMATE_REPO_TOKEN | '##############################################'                                                         |
 | AWS_ACCESS_KEY_ID      | '##############################################'                                                         |
 | AWS_SECRET_ACCESS_KEY  | '##############################################'                                                         |
+| CONSUMER_KEY           | '##############################################'                                                         |
+| CONSUMER_SECRET        | '##############################################'                                                         |
