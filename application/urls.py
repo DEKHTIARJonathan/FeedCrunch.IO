@@ -19,6 +19,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from oauth.views import *
+
 # Examples:
 # url(r'^$', 'settings.views.home', name='home'),
 # url(r'^blog/', include('blog.urls')),
@@ -26,6 +28,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('feedcrunch_home.urls')),
+    url(r'^oauth/', include('oauth.urls')), 
     url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),
     url(r'^@(?P<feedname>\w+)/', include('feedcrunch_rssviewer.urls')),
     #url(r'^$', feedcrunch_home.views.index, name='index'),

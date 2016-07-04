@@ -95,3 +95,4 @@ https/deploy.sh
 fieldkeys/*
 !fieldkeys/__init__.py
 application/fixtures/dataradar.json
+*.sqlite3

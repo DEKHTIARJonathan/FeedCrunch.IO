@@ -31,6 +31,7 @@
 			{% if 'admin' in request.path %}
 			<link href="{% static "css/admin.css" %}" rel="stylesheet">
 			<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
+			<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
 			{% endif %}
 
 
@@ -71,36 +72,40 @@
 
 		                    <!-- Navbar left -->
 		                    <ul class="nav navbar-nav nav-custom-left">
-								<li id="li_home">
-									<a id="nav_link_home">Home</a>
-								</li>
-								{% if 'admin' in request.path %}
-								<li id="li_add">
-									<a href="/@{{user.username}}/admin/add">Add a Post</a>
-								</li>
-								<li id="li_modify">
-									<a href="/@{{user.username}}/admin/modify">Modify a Post</a>
-								</li>
-								<li id="li_delete">
-									<a href="/@{{user.username}}/admin/delete">Delete a Post</a>
-								</li>
-								{% else %}
-								<li id="li_features">
-									<a id="nav_link_features" class="nav-link">Features</a>
-								</li>
-								<li id="li_pricing">
-									<a id="nav_link_pricing" class="nav-link">Pricing</a>
-								</li>
-								<li>
-									<a href="/about">About Us</a>
-								</li>
-								<li>
-									<a href="/faq">FAQ</a>
-								</li>
-								{% endif %}
-								<li>
-									<a href="/contact">Contact</a>
-								</li>
+
+													{% if 'admin' in request.path %}
+														<li id="li_home">
+															<a href="/@{{user.username}}/admin/">Home</a>
+														</li>
+														<li id="li_add">
+															<a href="/@{{user.username}}/admin/add">Add a Post</a>
+														</li>
+														<li id="li_modify">
+															<a href="/@{{user.username}}/admin/modify">Modify a Post</a>
+														</li>
+														<li id="li_delete">
+															<a href="/@{{user.username}}/admin/delete">Delete a Post</a>
+														</li>
+													{% else %}
+														<li id="li_home">
+															<a id="nav_link_home">Home</a>
+														</li>
+														<li id="li_features">
+															<a id="nav_link_features" class="nav-link">Features</a>
+														</li>
+														<li id="li_pricing">
+															<a id="nav_link_pricing" class="nav-link">Pricing</a>
+														</li>
+														<li>
+															<a href="/about">About Us</a>
+														</li>
+														<li>
+															<a href="/faq">FAQ</a>
+														</li>
+													{% endif %}
+													<li>
+														<a href="/contact">Contact</a>
+													</li>
 		                    </ul>
 
 		                    <!-- Navbar right -->

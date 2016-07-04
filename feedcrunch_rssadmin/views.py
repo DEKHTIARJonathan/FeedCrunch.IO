@@ -5,6 +5,8 @@ from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
 
 from feedcrunch.models import Post, FeedUser
+from oauth.oauth import get_authorization_url
+
 from .tw_funcs import TwitterAPI
 from .ap_style import format_title
 
@@ -21,7 +23,7 @@ def check_admin(feedname, user):
         return HttpResponse("We are sorry... You account is inactive. Please contact our support")
 
     elif feedname != user.username:
-        return HttpResponseRedirect('/@'+request.user.username+'/admin')
+        return HttpResponseRedirect('/@'+user.username+'/admin')
 
     else:
         return True
@@ -37,7 +39,8 @@ def index(request, feedname=None):
     if check_passed != True:
         return check_passed
     else:
-        return render(request, 'admin_index.html')
+        auth_url = get_authorization_url(request)
+        return render(request, 'admin_index.html', {'auth_url': auth_url})
 
 def add_form(request, feedname=None):
 
@@ -89,7 +92,7 @@ def add_form_ajax(request, feedname=None):
             except:
                 data["status"] = "error"
                 data["error"] = "An error occured in the process"
-                data["postID"] = str(postID)
+                data["postID"] = None
 
 
     else:
