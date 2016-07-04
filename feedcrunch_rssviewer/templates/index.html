@@ -24,7 +24,6 @@
 	"stylesheet" type="text/css"><!-- Plugin CSS -->
 	<link href="{% static "css/animate.min.css" rel="stylesheet" type="text/css" %}">
 	<!-- Custom CSS -->
-	<link href="{% static "css/creative.css" %}" rel="stylesheet" type="text/css">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -32,6 +31,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<link href="{% static "css/custom.min.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/medium.css" %}" rel="stylesheet">
 	<style>
 	       @media(max-width: 768px) {
 	           .intro-text {
@@ -48,10 +49,43 @@
 				 th {
 						 text-align: center;
 				 }
+				 .user_desc{
+				   margin-top: 200px;
+				   margin-bottom: 150px;
+				 }
+				 .navbar-custom {
+    	 			background-color: #12415a !important;
+				    width: 100%;
+				    border-radius: 0px;
+				    z-index: 999;
+				    padding: 0px 0px;
+				    margin-bottom: 0px;
+				    position: fixed;
+					}
+					@media (min-width: 768px){
+						.navbar {
+						    border-radius: 4px;
+						}
+						.nav-custom-left {
+						    margin-left: 5%;
+						}
+					}
+					.navbar {
+					    position: relative;
+					    min-height: 50px;
+					    margin-bottom: 20px;
+					    border: 1px solid transparent;
+					}
+					@media (min-width: 768px){
+						.navbar-header {
+						    float: left;
+						}
+					}
 	</style>
+
 </head>
 <body id="page-top">
-	<nav class="navbar navbar-default navbar-fixed-top affix-top" id="mainNav">
+	<nav class="navbar navbar-default navbar-fixed-top affix-top navbar-custom" id="mainNav">
 		<div class="container-fluid">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -88,26 +122,30 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-	<header>
-		<div class="header-content">
-			<div class="header-content-inner">
-				<h2 style="font-style: italic; margin-bottom:50px;">Welcome to
-				FeedCrunch.IO</h2>
-				<h1 style="font-size: 35px;">@{{user.username}} - RSS FEED</h1>
-				<hr>
-				<p>{{user.rss_feed_title}}</p>
-				<div class="row">
-					<a class=
-					"btn btn-primary btn-xl page-scroll col-xs-push-1 col-xs-10 col-sm-4 btn-custom"
-					href="#feed" style="height: 70px;padding-top: 25px;">Take me to the	Feed</a>
-					<div class="hidden-xs-down col-sm-2 col-md-2 col-lg-2"></div><a class=
-					"btn btn-primary btn-xl col-xs-push-1 col-xs-10 col-sm-4 btn-custom" href=
-					"rss/" target="_blank">5872 subscribers<br>
-					~ And you ? ~</a>
-				</div>
-			</div>
-		</div>
-	</header><!-- Services Section -->
+	<div class="container user_desc">
+    <div class="label label--smaller u-inlineBlock js-followeesWhoFollow">Followed by <a class="link u-baseColor--link" href="https://medium.com/@NikkiTirado" data-action="show-user-card" data-action-type="hover" data-user-id="6fba128d9825" dir="auto">Nikki Tirado</a> and&nbsp;<a class="link u-baseColor--link" href="https://medium.com/@EnrikeLopez" data-action="show-user-card" data-action-type="hover" data-user-id="47f6c4dd96b1" dir="auto">Enrique Lopez</a></div>
+    <header class="hero hero--profile">
+        <div class="hero-avatar u-floatRight js-profileAvatar">
+            <div class="hero-avatarPicker">
+                <button class="button button--light button--chromeless u-baseColor--buttonNormal button--withIcon button--withSvgIcon u-lineHeight100" title="Upload an optional image" aria-label="Upload an optional image" data-action="pick-image"><span class="svgIcon svgIcon--addMediaImage svgIcon--65px"><svg class="svgIcon-use" width="65" height="65" viewBox="0 0 65 65"><g fill-rule="evenodd"><path d="M10.61 44.486V23.418c0-2.798 2.198-4.757 5.052-4.757h6.405c1.142-1.915 2.123-5.161 3.055-5.138L40.28 13.5c.79 0 1.971 3.4 3.073 5.14 0 .2 6.51 0 6.51 0 2.856 0 5.136 1.965 5.136 4.757V44.47c-.006 2.803-2.28 4.997-5.137 4.997h-34.2c-2.854.018-5.052-2.184-5.052-4.981zm5.674-23.261c-1.635 0-3.063 1.406-3.063 3.016v19.764c0 1.607 1.428 2.947 3.063 2.947H49.4c1.632 0 2.987-1.355 2.987-2.957v-19.76c0-1.609-1.357-3.016-2.987-3.016h-7.898c-.627-1.625-1.909-4.937-2.28-5.148 0 0-13.19.018-13.055 0-.554.276-2.272 5.143-2.272 5.143l-7.611.01z"></path><path d="M32.653 41.727c-5.06 0-9.108-3.986-9.108-8.975 0-4.98 4.047-8.966 9.108-8.966 5.057 0 9.107 3.985 9.107 8.969 0 4.988-4.047 8.974-9.107 8.974v-.002zm0-15.635c-3.674 0-6.763 3.042-6.763 6.66 0 3.62 3.089 6.668 6.763 6.668 3.673 0 6.762-3.047 6.762-6.665 0-3.616-3.088-6.665-6.762-6.665v.002z"></path></g></svg></span></button>
+            </div>
+            <div class="avatar"><img src="https://cdn-images-1.medium.com/fit/c/100/100/0*5gIoUWECsJhZqaWK.jpeg" class="avatar-image u-size100x100 u-xs-size80x80 imagePicker-target" alt="Tim O'Reilly"></div>
+        </div>
+        <h1 class="hero-title"><a class="link link--darker link--darken u-accentColor--textDarken u-baseColor--link" href="https://medium.com/@timoreilly" title="Go to the profile of Tim O'Reilly" aria-label="Go to the profile of Tim O'Reilly" data-user-id="8bd20f383de4" dir="auto">Tim O'Reilly</a></h1>
+        <p class="hero-description ">Founder and CEO, O'Reilly Media. Watching the alpha geeks, sharing their stories, helping the future unfold.</p>
+    </header>
+    <div class="label label--smaller js-collectionsEditedByUser u-marginTop20 u-paddingBottom20">Editor of <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="https://medium.com/the-wtf-economy">What’s The Future of Work?</a> </div>
+    <div class="buttonSet buttonSet--profile u-noWrap">
+        <button class="button button--chromeless u-baseColor--buttonNormal" title="Show 936 people following" aria-label="Show 936 people following" data-action="show-follow-list" data-action-value="following"><b>936</b> Following</button>
+        <button class="button button--chromeless u-baseColor--buttonNormal" title="Show 104,321 followers" aria-label="Show 104,321 followers" data-action="show-follow-list" data-action-value="followers"><b>104K</b> Followers</button><span class="middotDivider u-xs-hide"></span>
+        <div class="buttonSet-inner u-xs-hide"><a class="button button--chromeless u-baseColor--buttonNormal button--withIcon" href="https://twitter.com/timoreilly" title="Twitter" aria-label="Twitter" target="_blank"><span class="button-defaultState"><span class="svgIcon svgIcon--twitterFilled svgIcon--21px"><svg class="svgIcon-use" width="21" height="21" viewBox="0 0 21 21"><path d="M18.502 4.435a6.892 6.892 0 0 1-2.18.872 3.45 3.45 0 0 0-2.552-1.12 3.488 3.488 0 0 0-3.488 3.486c0 .276.03.543.063.81a9.912 9.912 0 0 1-7.162-3.674c-.3.53-.47 1.13-.498 1.74.027 1.23.642 2.3 1.557 2.92a3.357 3.357 0 0 1-1.555-.44.15.15 0 0 0 0 .06c-.004 1.67 1.2 3.08 2.8 3.42-.3.06-.606.1-.934.12-.216-.02-.435-.04-.623-.06.42 1.37 1.707 2.37 3.24 2.43a7.335 7.335 0 0 1-4.36 1.49L2 16.44A9.96 9.96 0 0 0 7.355 18c6.407 0 9.915-5.32 9.9-9.9.015-.18.01-.33 0-.5A6.546 6.546 0 0 0 19 5.79a6.185 6.185 0 0 1-1.992.56 3.325 3.325 0 0 0 1.494-1.93"></path></svg></span></span></a><a class="button button--chromeless u-baseColor--buttonNormal button--withIcon" href="https://facebook.com/10153086000156117" title="Facebook" aria-label="Facebook" target="_blank"><span class="button-defaultState"><span class="svgIcon svgIcon--facebookFilled svgIcon--21px"><svg class="svgIcon-use" width="21" height="21" viewBox="0 0 21 21"><path d="M18.26 10.55c0-4.302-3.47-7.79-7.75-7.79-4.28 0-7.75 3.488-7.75 7.79a7.773 7.773 0 0 0 6.535 7.684v-5.49h-1.89v-2.2h1.89v-1.62c0-1.882 1.144-2.907 2.814-2.907.8 0 1.48.06 1.68.087V8.07h-1.15c-.91 0-1.09.435-1.09 1.07v1.405h2.16l-.28 2.2h-1.88v5.515c3.78-.514 6.7-3.766 6.7-7.71"></path></svg></span></span></a></div>
+    </div>
+    <div class="buttonSet buttonSet--profile js-headerButtons u-inlineBlock"><span class="followState js-followState buttonSet-inner" data-user-id="8bd20f383de4"><button class="button u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton" data-action="toggle-block-user" data-action-value="8bd20f383de4" data-action-source="profile"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button>
+        <button class="button button--primary is-active u-noUserSelect button--withChrome u-accentColor--buttonNormal button--follow js-followButton" data-action="toggle-subscribe-user" data-action-value="8bd20f383de4" data-action-source="profile_follow" data-subscribe-source="profile"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button>
+        <button class="button button--chromeless u-baseColor--buttonNormal button--withIcon button--withSvgIcon js-profileActionsButton" data-action="open-userProfileActions" data-action-value="8bd20f383de4"><span class="svgIcon svgIcon--arrowDown svgIcon--21px"><svg class="svgIcon-use" width="21" height="21" viewBox="0 0 21 21"><path d="M4 7.331l6.032 6.67.495.547.495-.547 5.973-6.603-.989-.895-5.974 6.603h.99l-6.033-6.67z" fill-rule="evenodd"></path></svg></span></button>
+        </span>
+    </div>
+</div>
 	<section id="feed">
 		<div class="container">
 			<div class="row">
