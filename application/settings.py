@@ -40,10 +40,10 @@ CONSUMER_SECRET = assign_env_value('CONSUMER_SECRET')
 
 DEBUG = debug_value
 
-
 # Application definition
 
 INSTALLED_APPS = [
+	'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

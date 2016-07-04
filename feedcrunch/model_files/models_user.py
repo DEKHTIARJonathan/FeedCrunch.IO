@@ -3,9 +3,9 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User, UserManager, PermissionsMixin
+from django.contrib.auth.models import User, UserManager, PermissionsMixin, AbstractUser
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.contrib.auth.models import User
+
 #from django.contrib.auth.validators import *
 from .validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 from django.utils.encoding import force_text
@@ -185,7 +185,7 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
         abstract = True
 
     def clean(self):
-        super(AbstractUser, self).clean()
+        super(AbstractBaseUser, self).clean()
         self.email = self.__class__.objects.normalize_email(self.email)
 
     def get_full_name(self):
@@ -235,6 +235,9 @@ class FeedUser(AbstractFeedUser):
 
 	class Meta(AbstractFeedUser.Meta):
 			swappable = 'AUTH_USER_MODEL'
+
+	def __unicode__(self):
+		return self.username
 
 	def is_twitter_enabled(self):
 		try:

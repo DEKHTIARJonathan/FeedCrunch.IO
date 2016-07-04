@@ -26,9 +26,10 @@ from oauth.views import *
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
+    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('feedcrunch_home.urls')),
-    url(r'^oauth/', include('oauth.urls')), 
+    url(r'^oauth/', include('oauth.urls')),
     url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),
     url(r'^@(?P<feedname>\w+)/', include('feedcrunch_rssviewer.urls')),
     #url(r'^$', feedcrunch_home.views.index, name='index'),
