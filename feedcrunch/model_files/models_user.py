@@ -16,6 +16,8 @@ import os, re, uuid, datetime, unicodedata, getenv
 from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
+from django.conf import settings
+
 from .models_geo import *
 
 class FeedUserManager(BaseUserManager):
@@ -220,6 +222,8 @@ class FeedUser(AbstractFeedUser):
 	rss_feed_title = models.CharField(max_length=100, default='')
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
+
+	profile_picture = models.ImageField(upload_to=os.path.join(settings.BASE_DIR, 'images/user_photos'), default='')
 
 	twitter_consummer_key = EncryptedCharField(max_length=500, default='')
 	twitter_consummer_secret = EncryptedCharField(max_length=500, default='')
