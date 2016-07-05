@@ -5,10 +5,11 @@ def format_title(title):
     stopwords = 'a an and at but by for in nor of on or so the to up yet'.split(' ')
 
     if type(title) is unicode:
+        title = title.replace("\u2013", "-") #en dash
         title = title.encode('utf-8','ignore')
 
     if type(title) is str:
-        title = title.replace("\u2013", "-") #en dash
+        title = title.replace("–", "-") #en dash
         title = title.strip().lower()
 
         rslt = ""
