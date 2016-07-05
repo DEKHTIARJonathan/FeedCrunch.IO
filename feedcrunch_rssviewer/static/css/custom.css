@@ -144,9 +144,12 @@ section#contact {
 	background-image: url(../images/map-image.png);
 	background-position: center;
 	background-repeat: no-repeat;
+	margin-top: 50px;
+	padding: 50px 0px;
 }
 section#contact .section-heading {
 	color: #fff;
+	margin-bottom: 50px;
 }
 section#contact .form-group {
 	margin-bottom: 25px;

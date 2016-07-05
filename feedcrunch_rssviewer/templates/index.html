@@ -28,14 +28,15 @@
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>v
     <![endif]-->
-	<link href="{% static "css/custom.min.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css">
 	<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css">
 	<link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
 	<!-- Color style -->
 	<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
 	<link href="{% static "css/colors/blue_dark.css" %}" rel="stylesheet" id="color-opt_blue_dark">
+	<link href="{% static "css/arrow.css" %}" rel="stylesheet">
 	<style>
 	       @media(max-width: 768px) {
 	           .intro-text {
@@ -53,37 +54,9 @@
 						 text-align: center;
 				 }
 				 .user_desc{
-				   margin-top: 200px;
-				   margin-bottom: 150px;
+					 min-height: calc(100vh);
+					 padding-top: 10%;
 				 }
-				 .navbar-custom {
-    	 			background-color: #12415a !important;
-				    width: 100%;
-				    border-radius: 0px;
-				    z-index: 999;
-				    padding: 0px 0px;
-				    margin-bottom: 0px;
-				    position: fixed;
-					}
-					@media (min-width: 768px){
-						.navbar {
-						    border-radius: 4px;
-						}
-						.nav-custom-left {
-						    margin-left: 5%;
-						}
-					}
-					.navbar {
-					    position: relative;
-					    min-height: 50px;
-					    margin-bottom: 20px;
-					    border: 1px solid transparent;
-					}
-					@media (min-width: 768px){
-						.navbar-header {
-						    float: left;
-						}
-					}
 					.label-custom{
 					  padding-left: 0;
 					  margin-top: 20px;
@@ -99,6 +72,23 @@
 
 					article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
 					    display: block;
+					}
+
+					.btn-primary .badge {
+					    color: #f05f40;
+					    background-color: #fff;
+					}
+
+					.btn {
+					    border: 0;
+					    border-radius: 300px;
+					    text-transform: uppercase;
+					    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+					    font-weight: 700;
+					}
+
+					.btn-xl {
+					    padding: 15px 30px;
 					}
 	</style>
 
@@ -238,6 +228,7 @@
 			</div>
 		</div>
 	</nav>-->
+
 	<div class="container user_desc">
     <div class="label label--smaller u-inlineBlock js-followeesWhoFollow" style="padding-left: 0px;"><span style="color: #525252;">Categories:</span>
 			<a class="link u-baseColor--link" href="https://www.feedcrunch.io/category/datascience" data-action="show-user-card" data-action-type="hover" data-user-id="6fba128d9825" dir="auto">Data Science</a>
@@ -267,6 +258,7 @@
         </span>
     </div>
 </div>
+<div class="bounce"><a href="#feed" id="arrow_down"><i class="fa fa-angle-double-down"></i></a></div>
 	<section id="feed" style="color:rgb(35, 35, 35)">
 		<div class="container">
 			<div class="row">
@@ -442,6 +434,16 @@
 	</script> <!-- Custom Ajax Search JavaScript -->
 
 	<script src="{% static "js/ajaxSearch.js" %}">
+	</script>
+
+	<script>
+	$('#arrow_down').click(function(){
+		var the_id = $(this).attr("href");
+		$('html, body').animate({
+			scrollTop:$(the_id).offset().top - 50,
+		}, 1300);
+		return false;
+	});
 	</script>
 </body>
 </html>

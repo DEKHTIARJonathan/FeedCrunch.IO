@@ -735,10 +735,6 @@ textarea {
   border: 2px solid rgba(40, 40, 46, 0.3);
 }
 
-textarea.form-control {
-  height: auto !important;
-}
-
 .error {
   margin: 8px 0px;
   display: none;
