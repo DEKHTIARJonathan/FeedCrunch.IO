@@ -8,6 +8,7 @@ def format_title(title):
         title = title.encode('utf-8','ignore')
 
     if type(title) is str:
+        title = title.replace("\u2013", "-") #en dash
         title = title.strip().lower()
 
         rslt = ""
@@ -23,6 +24,6 @@ def format_title(title):
         rslt = re.sub(' +',' ',rslt)
 
         return rslt
-        
+
     else:
         raise ValueError("This datatype ( "+ type(title) +" ) is not handled by the application.")

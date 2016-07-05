@@ -22,7 +22,6 @@ class Post(models.Model):
 	def __unicode__(self):
 		return str(self.id)
 
-
 	def get_date(self):
 		return self.when.strftime("%Y/%m/%d %H:%M")
 
