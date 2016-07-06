@@ -36,7 +36,7 @@ class feedcrunch_rssviewer_TestCase(TestCase):
 		response = self.client.get(url)
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'index.html')
-		self.assertContains(response, 'Do you have enough data about your #data?')
+		self.assertContains(response, 'RSS Feed Explorer')
 
 	def test_rss_feed(self):
 		url = reverse('rss_feed', kwargs={'feedname':"test_user1"})
