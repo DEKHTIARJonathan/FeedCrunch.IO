@@ -2,309 +2,387 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="description" content="FeedCrunch.IO - RSS Feeds to the next level !">
-			<meta name="author" content="Jonathan DEKHTIAR">
+		<meta charset="utf-8">
+		<meta content="IE=edge" http-equiv="X-UA-Compatible">
 
-			<link rel="shortcut icon" href="{% static "images/favicon.ico" %}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="FeedCrunch.IO - RSS Feeds to the next level !">
+		<meta name="author" content="Jonathan DEKHTIAR">
 
-			<title>FeedCrunch.IO | RSS Feeds to the next level !</title>
-
-			<!-- Google Fonts -->
-			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
-			<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
-			<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
-
-			<!-- Bootstrap core CSS -->
-			<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-
-			<!-- Font Icons CSS -->
-			<link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet">
-
-			<!-- Custom styles for this template -->
-			<link href="{% static "css/style.css" %}" rel="stylesheet">
-			{% if 'login' in request.path %}
-			<link href="{% static "css/login_panel.css" %}" rel="stylesheet">
-			{% endif %}
-
-			{% if 'admin' in request.path %}
-			<link href="{% static "css/admin.css" %}" rel="stylesheet">
-			<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
-			<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
-			{% endif %}
+		<link href="{% static "images/favicon.ico" %}" rel="shortcut icon" >
+		<title>FeedCrunch.IO | RSS Feeds to the next level !</title>
 
 
-			<!-- Color style -->
-			<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
-			<link href="{% static "css/colors/blue_dark.css" %}" rel="stylesheet" id="color-opt_blue_dark">
+		{% if rss_feed_display %}
+			<link href="rss/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/rss+xml"> <!-- RSS Feed 2.0 -->
+			<link href="atom/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/atom+xml"> <!-- ATOM Feed 1.0 -->
+		{% endif %}
 
-		</head>
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel="stylesheet" type="text/css">
 
+		<!-- Font Icons CSS -->
+		<link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet">
+		<link href="{% static "fonts/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css"><!-- Plugin CSS -->
 
-		<body id="page-top" data-spy="scroll" data-target="#menu">
+		<!-- Bootstrap core CSS -->
+		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
-				<!-- Navbar -->
-				<div class="navbar navbar-custom sticky" role="navigation" id="menu">
-		            <div class="container">
+		{% if rss_feed_display %}
+		<link href="{% static "css/animate.min.css" rel="stylesheet" type="text/css" %}">
+		<link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css">
+		{% endif %}
 
-		                <!-- Navbar-header -->
-		                <div class="navbar-header">
+		<!-- General styles for this template -->
+		<link href="{% static "css/style.css" %}" rel="stylesheet">
 
-		                    <!-- Responsive menu button -->
-		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                        <span class="sr-only">Toggle navigation</span>
-		                        <span class="icon-bar"></span>
-		                        <span class="icon-bar"></span>
-		                        <span class="icon-bar"></span>
-		                    </button>
+		{% if 'login' in request.path %}
 
-		                    <!-- LOGO -->
-		                    <a class="navbar-brand logo" id="nav_link_logo">
-		                        FeedCrunch.io
-		                    </a>
+		<link href="{% static "css/login_panel.css" %}" rel="stylesheet">
 
-		                </div>
-		                <!-- end navbar-header -->
+		{% elif 'admin' in request.path %}
 
-		                <!-- menu -->
-		                <div class="navbar-collapse collapse" id="navbar-menu">
+		<link href="{% static "css/admin.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
+		<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
 
-		                    <!-- Navbar left -->
-		                    <ul class="nav navbar-nav nav-custom-left">
+		{% elif rss_feed_display %}
 
-													{% if 'admin' in request.path %}
-														<li id="li_home">
-															<a href="/@{{user.username}}/admin/">Home</a>
-														</li>
-														<li id="li_add">
-															<a href="/@{{user.username}}/admin/add">Add a Post</a>
-														</li>
-														<li id="li_modify">
-															<a href="/@{{user.username}}/admin/modify">Modify a Post</a>
-														</li>
-														<li id="li_delete">
-															<a href="/@{{user.username}}/admin/delete">Delete a Post</a>
-														</li>
-													{% else %}
-														<li id="li_home">
-															<a id="nav_link_home">Home</a>
-														</li>
-														<li id="li_features">
-															<a id="nav_link_features" class="nav-link">Features</a>
-														</li>
-														<li id="li_pricing">
-															<a id="nav_link_pricing" class="nav-link">Pricing</a>
-														</li>
-														<li>
-															<a href="/about">About Us</a>
-														</li>
-														<li>
-															<a href="/faq">FAQ</a>
-														</li>
-													{% endif %}
-													<li>
-														<a href="/contact">Contact</a>
-													</li>
-		                    </ul>
+		<link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
 
-		                    <!-- Navbar right -->
-		                    <ul class="nav navbar-nav navbar-right">
-														{% if user.is_authenticated %}
-															<li style="margin-right:25px;">
-																	<a href="/logout">Logout</a>
-															</li>
-															{% if 'admin' in request.path %}
-															<li>
-			                            <a href="/@{{user.username}}/" class="btn btn-white-fill navbar-btn">Go to my Feed</a>
-			                        </li>
-															{% else %}
-															<li>
-			                            <a href="/@{{user.username}}/admin" class="btn btn-white-fill navbar-btn">Admin Panel</a>
-			                        </li>
-															{% endif %}
-														{% else %}
-															<li style="margin-right:25px;">
-																	<a href="/login">Login</a>
-															</li>
-															<li>
-			                            <a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
-			                        </li>
-														{% endif %}
+		{% endif %}
+
+		<!-- Color style -->
+		<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
+		<link href="{% static "css/colors/blue_dark.css" %}" rel="stylesheet" id="color-opt_blue_dark">
+
+		{% if rss_feed_display %}
+		<link href="{% static "css/arrow.css" %}" rel="stylesheet">
+		<link href="{% static "css/viewer.css" %}" rel="stylesheet">
+		{% endif %}
+
+	</head>
 
 
-		                    </ul>
+	<body id="page-top" data-spy="scroll" data-target="#menu">
 
-		                </div>
-		                <!--/Menu -->
-		            </div>
-		            <!-- end container -->
-		        </div>
-				<!-- End navbar-custom -->
+			<!-- Navbar -->
+			<div class="navbar navbar-custom sticky" role="navigation" id="menu">
+				<div class="container">
 
+					<!-- Navbar-header -->
+					<div class="navbar-header">
 
-        {% block body %}
-        {% endblock %}
+						<!-- Responsive menu button -->
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
 
+						<!-- LOGO -->
+						<a class="navbar-brand logo" id="nav_link_logo" href="/">
+							FeedCrunch.io
+						</a>
 
+					</div>
+					<!-- end navbar-header -->
 
-				{% if 'login' not in request.path and 'admin' not in request.path %}
-				<!-- Subscribe -->
-				<section class="section bg-custom">
-						<div class="container">
+					<!-- menu -->
+					<div class="navbar-collapse collapse" id="navbar-menu">
 
-								<div class="row">
-										<div class="col-sm-12 text-center">
-												<h3 class="title text-white">Be engaged Newsletter</h3>
-												<p class="text-light sub-title">The clean and well commented code allows easy customization of the theme.It's <br> designed for describing your app, agency or business.</p>
-										</div>
-								</div><!-- End row -->
+						<!-- Navbar left -->
+						<ul class="nav navbar-nav nav-custom-left">
 
-								<div class="row">
-										<div class="col-sm-6 col-sm-offset-3">
-												<form class="text-center">
-													<div class="form-group">
-														<input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
-													</div>
+							{% if '@' in request.path and user.is_authenticated %}
 
-													<button type="submit" class="btn btn-white-fill">Subscribe </button>
-													<br><br>
-													<p class="text-light"><small>You can unsubscribe at any time.</small></p>
-												</form>
-										</div>
-								</div><!-- End row -->
+								<li id="li_home">
+									<a href="/">Home</a>
+								</li>
+								<li id="li_add">
+									<a href="/@{{user.username}}/admin/add">Add a Post</a>
+								</li>
+								<li id="li_modify">
+									<a href="/@{{user.username}}/admin/modify">Modify a Post</a>
+								</li>
+								<li id="li_delete">
+									<a href="/@{{user.username}}/admin/delete">Delete a Post</a>
+								</li>
 
-						</div> <!-- end container -->
-				</section>
-				<!-- End Subscribe -->
-				{% endif %}
+							{% elif '@' in request.path and not user.is_authenticated %}
 
-				<!-- FOOTER -->
-				<footer class="section bg-gray footer">
-						<div class="container">
-								<div class="row">
-										<div class="col-md-3 col-sm-6">
-												<h5>FeedCrunch.IO</h5>
-												<ul class="list-unstyled">
-														<li><a href="">Home</a></li>
-														<li><a href="">Features</a></li>
-														<li><a href="">Team</a></li>
-														<li><a href="">FAQ</a></li>
-												</ul>
-										</div>
+								<li id="li_home">
+									<a href="/">Home</a>
+								</li>
+								<li id="li_features">
+									<a href="/#features">Features</a>
+								</li>
+								<li id="li_pricing">
+									<a href="/#pricing">Pricing</a>
+								</li>
+								<li>
+									<a href="/about">About Us</a>
+								</li>
+								<li>
+									<a href="/faq">FAQ</a>
+								</li>
 
-										<div class="col-md-3 col-sm-6">
-												<h5>Social</h5>
-												<ul class="list-unstyled">
-														<li><a href="">Facebook</a></li>
-														<li><a href="">Twitter</a></li>
-														<li><a href="">Behance</a></li>
-														<li><a href="">Dribbble</a></li>
-												</ul>
-										</div>
+							{% else %}
 
-										<div class="col-md-3 col-sm-6">
-												<h5>Support</h5>
-												<ul class="list-unstyled">
-														<li><a href="">Help &amp; Support</a></li>
-														<li><a href="">Privacy Policy</a></li>
-														<li><a href="">Terms &amp; Conditions</a></li>
-												</ul>
-										</div>
+								<li id="li_home">
+									<a id="nav_link_home" class="nav-link">Home</a>
+								</li>
+								<li id="li_features">
+									<a id="nav_link_features" class="nav-link">Features</a>
+								</li>
+								<li id="li_pricing">
+									<a id="nav_link_pricing" class="nav-link">Pricing</a>
+								</li>
+								<li>
+									<a href="/about">About Us</a>
+								</li>
+								<li>
+									<a href="/faq">FAQ</a>
+								</li>
 
-										<div class="col-md-3 col-sm-6">
-												<h5>Contact</h5>
-												<address>
-														795 Folsom Ave, Suite 600<br>
-														San Franciscoo, CA 94107<br>
-														<abbr title="Phone">P:</abbr> (123) 456-7890<br>
-														E: <a href="mailto:#">contact@feedcrunch.io</a>
-												</address>
-										</div>
+							{% endif %}
 
-								</div> <!-- end row -->
+							<li>
+								<a href="/contact">Contact</a>
+							</li>
+						</ul>
 
-								<div class="row">
-										<div class="col-sm-12">
-												<div class="footer-alt text-center">
-														<p class="text-muted_footer m-b-0">2016 © FeedCrunch.io - <a href="https://www.jonathandekhtiar.eu">Jonathan DEKHTIAR</a></p>
+						<!-- Navbar right -->
+						<ul class="nav navbar-nav navbar-right">
+
+							{% if user.is_authenticated %}
+
+								<li style="margin-right:25px;">
+									<a href="/logout">Logout</a>
+								</li>
+
+								{% if 'admin' in request.path %}
+
+									<li>
+										<a href="/@{{user.username}}/" class="btn btn-white-fill navbar-btn">Go to my Feed</a>
+									</li>
+
+								{% else %}
+
+									<li>
+										<a href="/@{{user.username}}/admin" class="btn btn-white-fill navbar-btn">Admin Panel</a>
+									</li>
+
+								{% endif %}
+
+							{% else %}
+
+								<li style="margin-right:25px;">
+									<a href="/login">Login</a>
+								</li>
+								<li>
+									<a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
+								</li>
+
+							{% endif %}
+
+						</ul>
+
+					</div>
+					<!--/Menu -->
+				</div>
+				<!-- end container -->
+			</div>
+			<!-- End navbar-custom -->
+
+	{% block body %}
+
+	{% endblock %}
+
+			{% if 'login' not in request.path and not user.is_authenticated %}
+			<!-- Subscribe -->
+			<section class="section bg-custom">
+					<div class="container">
+
+							<div class="row">
+									<div class="col-sm-12 text-center">
+											<h3 class="title text-white">Be engaged Newsletter</h3>
+											<p class="text-light sub-title">The clean and well commented code allows easy customization of the theme.It's <br> designed for describing your app, agency or business.</p>
+									</div>
+							</div><!-- End row -->
+
+							<div class="row">
+									<div class="col-sm-6 col-sm-offset-3">
+											<form class="text-center">
+												<div class="form-group">
+													<input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
 												</div>
-										</div>
-								</div> <!-- end row -->
 
-						</div> <!-- end container -->
-				</footer>
-				<!-- END FOOTER -->
+												<button type="submit" class="btn btn-white-fill">Subscribe </button>
+												<br><br>
+												<p class="text-light"><small>You can unsubscribe at any time.</small></p>
+											</form>
+									</div>
+							</div><!-- End row -->
 
-				<!-- js placed at the end of the document so the pages load faster -->
-				<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+					</div> <!-- end container -->
+			</section>
+			<!-- End Subscribe -->
+			{% endif %}
 
-				<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+			<!-- FOOTER -->
+			<footer class="section bg-gray footer">
+					<div class="container">
+							<div class="row">
+									<div class="col-md-3 col-sm-6">
+											<h5>FeedCrunch.IO</h5>
+											<ul class="list-unstyled">
+													<li><a href="">Home</a></li>
+													<li><a href="">Features</a></li>
+													<li><a href="">Team</a></li>
+													<li><a href="">FAQ</a></li>
+											</ul>
+									</div>
 
-				<!-- Jquery easing -->
-				<script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>
+									<div class="col-md-3 col-sm-6">
+											<h5>Social</h5>
+											<ul class="list-unstyled">
+													<li><a href="">Facebook</a></li>
+													<li><a href="">Twitter</a></li>
+													<li><a href="">Behance</a></li>
+													<li><a href="">Dribbble</a></li>
+											</ul>
+									</div>
 
-				<!--common script for all pages-->
-				<!-- <script src="js/jquery.app.js"></script> -->
-				{% if 'admin' in request.path %}
+									<div class="col-md-3 col-sm-6">
+											<h5>Support</h5>
+											<ul class="list-unstyled">
+													<li><a href="">Help &amp; Support</a></li>
+													<li><a href="">Privacy Policy</a></li>
+													<li><a href="">Terms &amp; Conditions</a></li>
+											</ul>
+									</div>
+
+									<div class="col-md-3 col-sm-6">
+											<h5>Contact</h5>
+											<address>
+													795 Folsom Ave, Suite 600<br>
+													San Franciscoo, CA 94107<br>
+													<abbr title="Phone">P:</abbr> (123) 456-7890<br>
+													E: <a href="mailto:#">contact@feedcrunch.io</a>
+											</address>
+									</div>
+
+							</div> <!-- end row -->
+
+							<div class="row">
+									<div class="col-sm-12">
+											<div class="footer-alt text-center">
+													<p class="text-muted_footer m-b-0">2016 © FeedCrunch.io - <a href="https://www.jonathandekhtiar.eu">Jonathan DEKHTIAR</a></p>
+											</div>
+									</div>
+							</div> <!-- end row -->
+
+					</div> <!-- end container -->
+			</footer>
+			<!-- END FOOTER -->
+
+			<!-- JQUery & Bootstrap -->
+			<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+			<!-- Jquery easing -->
+			<script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>
+
+			<!--common script for all pages-->
+			<!-- <script src="js/jquery.app.js"></script> -->
+			{% if 'admin' in request.path %}
+
 				<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
 				<script>
 				$(function() {
 					$("[class='switch-checkbox']").bootstrapSwitch();
 				});
 				</script>
-				{% endif %}
 
 				{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
-				<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
+					<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
 				{% elif 'admin/delete' in request.path %}
-				<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
+					<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
 				{% endif %}
 
+			{% elif '@' in request.path %}
+
+				<script src="{% static "js/jquery.fittext.js" %}"></script>
+				<script src="{% static "js/wow.min.js" %}"></script>  <!-- Contact Form JavaScript -->
+
+				<script src="{% static "js/jqBootstrapValidation.js" %}"></script>
+				<script src="{% static "js/contact_me.js" %}"></script> <!-- Custom Theme JavaScript -->
+
+				<script src="{% static "js/creative.js" %}"></script> <!-- Custom Ajax Search JavaScript -->
+
+				<script src="{% static "js/ajaxSearch.js" %}"></script>
+
 				<script>
-
-				$('.nav-link').click(function(e) {
-				    e.preventDefault();
-
-				    var goto = $(this).attr('href');
-
-					if (goto[0] == "#"){
-						 $('html, body').animate({
-							scrollTop: $(goto).offset().top
-						}, 800);
-					}
-					else{
-						window.location = goto;
-					}
-
+				$('#arrow_down').click(function(){
+					var the_id = $(this).attr("href");
+					$('html, body').animate({
+						scrollTop:$(the_id).offset().top - 50,
+					}, 1300);
+					return false;
 				});
-
-				$(function() {
-				    // Highlight the active nav link.
-				    var url = window.location.pathname;
-						url = url.slice(0, -1); // We remove the last "/"
-				    var filename = url.substr(url.lastIndexOf('/'));
-				    $('.navbar a[href$="' + filename + '"]').parent().addClass("active");
-				});
-
-				$(function(){
-					fullpath = window.location.pathname;
-					if ( fullpath == "/" ){
-						$("#nav_link_logo").prop("href", "#home");
-						$("#nav_link_home").prop("href", "#home");
-						$("#nav_link_features").prop("href", "#features");
-						$("#nav_link_pricing").prop("href", "#pricing");
-					}
-					else{
-						$("#nav_link_logo").prop("href", "/");
-						$("#nav_link_home").prop("href", "/");
-						$("#nav_link_features").prop("href", "/#features");
-						$("#nav_link_pricing").prop("href", "/#pricing");
-						$("#li_home").removeClass("active");
-					}
-				});
-
 				</script>
+
+			{% endif %}
+
+			<script>
+
+			$('.nav-link').click(function(e) {
+				e.preventDefault();
+
+				var goto = $(this).attr('href');
+
+				if (goto[0] == "#"){
+					 $('html, body').animate({
+						scrollTop: $(goto).offset().top
+					}, 800);
+				}
+				else{
+					window.location = goto;
+				}
+			});
+
+			$(function() {
+				// Highlight the active nav link.
+				var url = window.location.pathname;
+					url = url.slice(0, -1); // We remove the last "/"
+				var filename = url.substr(url.lastIndexOf('/'));
+				$('.navbar a[href$="' + filename + '"]').parent().addClass("active");
+			});
+
+			$(function(){
+				fullpath = window.location.pathname;
+				if ( fullpath == "/" ){
+					$("#nav_link_logo").prop("href", "#home");
+					$("#nav_link_home").prop("href", "#home");
+					$("#nav_link_features").prop("href", "#features");
+					$("#nav_link_pricing").prop("href", "#pricing");
+				}
+				else{
+					$("#nav_link_logo").prop("href", "/");
+					$("#nav_link_home").prop("href", "/");
+					$("#nav_link_features").prop("href", "/#features");
+					$("#nav_link_pricing").prop("href", "/#pricing");
+					$("#li_home").removeClass("active");
+				}
+			});
+
+			</script>
 
 	</body>
 </html>

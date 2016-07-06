@@ -19,7 +19,7 @@ def index(request, feedname=None):
     else:
         posts = Post.objects.filter(user = feedname, activeLink=True).order_by('-id')
         user = FeedUser.objects.get(username=feedname)
-        return render(request, 'index.html', {'posts': posts, 'user': user})
+        return render(request, 'index.html', {'posts': posts, 'user': user, 'rss_feed_display': True})
 
 
 def search(request, feedname=None):
