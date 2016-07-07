@@ -24,6 +24,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
 		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 
 		<!-- Font Icons CSS -->
 		<link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet">
@@ -53,6 +54,21 @@
 		{% elif rss_feed_display %}
 
 		<link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
+
+		{% elif 'signup' in request.path %}
+
+		<link href="{% static "css/signup.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
+
+		<script type="application/x-javascript">
+			addEventListener("load", function() {
+				 setTimeout(hideURLbar, 0);
+			 }, false);
+
+			 function hideURLbar(){
+				 window.scrollTo(0,1);
+			 }
+		</script>
 
 		{% endif %}
 
@@ -185,9 +201,12 @@
 								<li style="margin-right:25px;">
 									<a href="/login">Login</a>
 								</li>
-								<li>
-									<a href="" class="btn btn-white-fill navbar-btn">Try for Free</a>
-								</li>
+								
+								{% if 'signup' not in request.path %}
+									<li>
+										<a href="/signup" class="btn btn-white-fill navbar-btn">Try for Free</a>
+									</li>
+								{% endif %}
 
 							{% endif %}
 
@@ -204,7 +223,7 @@
 
 	{% endblock %}
 
-			{% if 'login' not in request.path and not user.is_authenticated %}
+			{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
 			<!-- Subscribe -->
 			<section class="section bg-custom">
 					<div class="container">
@@ -338,6 +357,18 @@
 				});
 				</script>
 
+			{% elif 'signup' in request.path %}
+
+				<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+				<script>
+					$('#sandbox-container .input-group.date').datepicker({
+						format: "dd/mm/yyyy",
+						startView: 3,
+						maxViewMode: 3,
+						todayBtn: true,
+						autoclose: true
+					});
+				</script>
 			{% endif %}
 
 			<script>

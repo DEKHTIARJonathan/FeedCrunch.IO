@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<!-- Contact Form -->
+<section class="section" id="signup">
+    <div class="container" id="signup_container">
+        <div class="main">
+            <h1>Join FeedCrunch.IO</h1>
+            <h2>The best way to create, share, and manage RSS Feeds.</h2>
+            <hr>
+            <form>
+                {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                {% endif %}
+                <div class="lable-2">
+                    <input type="text" class="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                    <div class="clear"></div>
+                </div>
+
+                <div class="lable">
+                    <div class="col_1_of_2 span_1_of_2">
+                        <input type="text" class="text" value="First Name" onfocus="if (this.value == 'First Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'First Name';}">
+                    </div>
+                    <div class="col_1_of_2 span_1_of_2">
+                        <input type="text" class="text" value="Last Name" onfocus="if (this.value == 'Last Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Last Name';}">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="lable-2">
+                    <input type="text" class="text" value="your@email.com" onfocus="if (this.value == 'your@email.com') {this.value = '';}" onblur="if (this.value == '') {this.value = 'your@email.com';}">
+                    <div class="clear"></div>
+                </div>
+                <div class="lable-2">
+                    <input type="password" class="text" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                    <div class="clear"></div>
+                </div>
+
+                <div class="lable-2" id="sandbox-container">
+                    <div class="input-group date">
+                      <input type="text" class="" value="Date of Birth ~ dd/mm/yyyy"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="lable-2">
+                    <select class="form-controll">
+                        <option selected disabled>Select One Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="lable-2">
+                    <select class="form-controll">
+                        <option selected disabled>Where are you from ?</option>
+                        {% for country in countries %}
+                            <option>{{ country.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="clear"></div>
+                </div>
+
+                <hr>
+                <h3>
+                    By creating an account, you agree to our <span class="term"><a href="/terms">Terms & Conditions</a></span>
+                </h3>
+                <hr>
+                <div class="submit">
+                    <input type="submit" onclick="myFunction()" value="Create account" >
+                </div>
+                <div class="clear"> </div>
+            </form>
+        </div>
+    </div>
+    <!-- end container -->
+</section>
+<!-- End Contact Form -->
+
+{% endblock %}

@@ -1,0 +1,216 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/****-----start-body----****/
+body{
+	background:#efefef;
+	font-family: 'Oxygen', sans-serif;
+}
+
+.lable, .lable-2{
+	margin: 18px 0px;
+}
+.main{
+	margin:0 auto 0;
+	width:44%;
+}
+
+.main h2,.main h3{
+	font-size: 1.45em;
+}
+.main h3{
+	font-size: 1em;
+	font-family: 'Oxygen', sans-serif;
+}
+span.term a{
+	color: #1888A8;
+	font-weight: bold;
+}
+span.term a:hover{
+	text-decoration: underline;
+}
+.lable input[type="text"] {
+	padding: 15px;
+	font-size: 1.1em;
+	color: #666666;
+	width:100%;
+	cursor: pointer;
+	font-family: 'Oxygen', sans-serif;
+	outline: none;
+	font-weight: 600;
+	background: #FFFFFF;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	border: 2px solid #a9a8a8;
+	border-radius: 7px;
+}
+
+.lable input[type="text"]:hover,.lable-2 input[type="text"]:hover,input[type="Password"]:hover,#active {
+	border-left:6px solid#40A46F;
+}
+
+.lable-2 input[type="text"],input[type="Password"], select {
+	padding: 14px;
+	width: 100%;
+	font-size: 1em;
+	border:none;
+	color: #666666;
+	cursor: pointer;
+	background: none;
+	float: left;
+	outline: none;
+	font-weight: 700;
+	font-family: 'Oxygen', sans-serif;
+	background: #ffffff;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	border: 2px solid #a9a8a8;
+	border-radius: 7px;
+}
+.submit{
+	text-align: center;
+}
+
+input[type=submit] {
+	padding: 17px 30px;
+	color: #fff;
+	float: right;
+	font-family: 'Oxygen', sans-serif;
+	background: #40A46F;
+	border: 1px solid #40A46F;
+	cursor: pointer;
+	font-size: 18px;
+	transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-ms-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	outline:none;
+	width: 100%;
+	-webkit-appearance: none;
+}
+.submit input[type=submit]:hover {
+	 background:#07793D;
+	 border:1px solid #07793D;
+}
+/**start-copy-right**/
+.copy-right {
+	text-align: center;
+	margin: 2em 0;
+}
+.copy-right p {
+	color: #FFF;
+	font-size:1em;
+}
+.copy-right p a {
+	font-family: 'Oxygen', sans-serif;
+	font-size:1em;
+	font-weight:600;
+	color:#55ACEE;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.copy-right a:hover{
+	color:#fff;
+}
+.col_1_of_2:first-child {
+	margin-left: 0;
+}
+.span_1_of_2 {
+	width:49.7%;
+}
+.col_1_of_2 {
+	display: block;
+	float: left;
+	margin:0 0 0 0.6%;
+}
+.col_1_of_f:first-child {
+	margin-left: 0;
+}
+.span_1_of_f {
+	width:49.7%;
+}
+.col_1_of_f {
+	display: block;
+	float: left;
+	margin:0 0 0 0;
+}
+/*----start-responsive design-----*/
+@media (max-width:1024px){
+.col_1_of_2 {
+	margin: 0 0 0 3.6%;
+}
+.span_1_of_2 {
+	width: 47.7%;
+}
+.span_1_of_f {
+	width: 50%;
+}
+i.fb, i.tw {
+	margin-right: 1em;
+}
+.main {
+	width: 50%;
+}
+}
+@media (max-width:800px){
+.span_1_of_f {
+	width: 100%;
+}
+.col_1_of_f {
+	float:none;
+}
+.span_1_of_2 {
+	width: 100%;
+}
+.col_1_of_2 {
+	margin:0;
+}
+.lable-2 input[type="text"], input[type="Password"] {
+	padding: 14px;
+	width: 89%;
+}
+}
+@media (max-width:480px){
+.main {
+margin: 7em auto 0;
+width:70%;
+}
+}
+@media (max-width:320px){
+.main {
+	width:80%;
+}
+.lable input[type="text"] {
+	width: 83%;
+}
+.lable-2 input[type="text"], input[type="Password"] {
+	width: 84%;
+}
+}

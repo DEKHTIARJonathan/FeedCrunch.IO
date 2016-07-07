@@ -12,3 +12,6 @@ class Option(models.Model):
 
 	def __unicode__(self):
 		return self.parameter
+
+	def get_bool_value(self):
+		return self.value.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
