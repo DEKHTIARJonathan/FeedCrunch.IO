@@ -27,13 +27,13 @@ BODY STYLING
 	border: 0;
 }
 html{
-      height: 100%;
-      background: url('../images/dots.png') center center fixed, url('../images/bg.jpg') center center no-repeat fixed #252326;
-      -webkit-background-size: auto, cover;
-      -moz-background-size: auto, cover;
-      -o-background-size: auto, cover;
-      background-size: auto, cover;
-    }
+	  height: 100%;
+	  background: url('../images/dots.png') center center fixed, url('../images/bg.jpg') center center no-repeat fixed #252326;
+	  -webkit-background-size: auto, cover;
+	  -moz-background-size: auto, cover;
+	  -o-background-size: auto, cover;
+	  background-size: auto, cover;
+	}
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight:300;

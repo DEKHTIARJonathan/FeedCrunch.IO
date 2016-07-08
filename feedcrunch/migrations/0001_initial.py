@@ -14,85 +14,85 @@ import uuid
 
 class Migration(migrations.Migration):
 
-    initial = True
+	initial = True
 
-    dependencies = [
-        ('auth', '0007_alter_validators_add_error_messages'),
-    ]
+	dependencies = [
+		('auth', '0007_alter_validators_add_error_messages'),
+	]
 
-    operations = [
-        migrations.CreateModel(
-            name='FeedUser',
-            fields=[
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
-                ('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
-                ('username', models.CharField(error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=150, primary_key=True, serialize=False, validators=[feedcrunch.model_files.validators.ASCIIUsernameValidator()], verbose_name='username')),
-                ('first_name', models.CharField(blank=True, max_length=30, verbose_name='first name')),
-                ('last_name', models.CharField(blank=True, max_length=30, verbose_name='last name')),
-                ('email', models.EmailField(error_messages={'unique': 'A user with that email already exists.'}, help_text='Required. 255 characters or fewer and a valid email.', max_length=254, unique=True, verbose_name='email address')),
-                ('is_staff', models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.', verbose_name='staff status')),
-                ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
-                ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
-                ('birthdate', models.DateField()),
-                ('sex', models.CharField(choices=[('M', 'Male'), ('F', 'Female')], default='M', max_length=1)),
-                ('rss_feed_title', models.CharField(default='', max_length=100)),
-                ('apikey', encrypted_fields.fields.EncryptedCharField(default=uuid.uuid4, editable=False, max_length=500, unique=True)),
-                ('twitter_consummer_key', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
-                ('twitter_consummer_secret', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
-                ('twitter_token', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
-                ('twitter_token_secret', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
-            ],
-            options={
-                'abstract': False,
-                'verbose_name': 'user',
-                'swappable': 'AUTH_USER_MODEL',
-                'verbose_name_plural': 'users',
-            },
-            managers=[
-                ('objects', feedcrunch.model_files.models_user.FeedUserManager()),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Continent',
-            fields=[
-                ('name', models.CharField(max_length=60, primary_key=True, serialize=False)),
-                ('code', models.CharField(max_length=2)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Country',
-            fields=[
-                ('name', models.CharField(max_length=60, primary_key=True, serialize=False)),
-                ('code', models.CharField(max_length=2)),
-                ('continent', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='feedcrunch.Continent')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Post',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=255)),
-                ('link', models.URLField(max_length=2000)),
-                ('when', models.DateTimeField(auto_now_add=True)),
-                ('clicks', models.IntegerField()),
-                ('activeLink', models.BooleanField()),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.AddField(
-            model_name='feeduser',
-            name='country',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='feedcrunch.Country'),
-        ),
-        migrations.AddField(
-            model_name='feeduser',
-            name='groups',
-            field=models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.Group', verbose_name='groups'),
-        ),
-        migrations.AddField(
-            model_name='feeduser',
-            name='user_permissions',
-            field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions'),
-        ),
-    ]
+	operations = [
+		migrations.CreateModel(
+			name='FeedUser',
+			fields=[
+				('password', models.CharField(max_length=128, verbose_name='password')),
+				('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
+				('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
+				('username', models.CharField(error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=150, primary_key=True, serialize=False, validators=[feedcrunch.model_files.validators.ASCIIUsernameValidator()], verbose_name='username')),
+				('first_name', models.CharField(blank=True, max_length=30, verbose_name='first name')),
+				('last_name', models.CharField(blank=True, max_length=30, verbose_name='last name')),
+				('email', models.EmailField(error_messages={'unique': 'A user with that email already exists.'}, help_text='Required. 255 characters or fewer and a valid email.', max_length=254, unique=True, verbose_name='email address')),
+				('is_staff', models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.', verbose_name='staff status')),
+				('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
+				('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
+				('birthdate', models.DateField()),
+				('sex', models.CharField(choices=[('M', 'Male'), ('F', 'Female')], default='M', max_length=1)),
+				('rss_feed_title', models.CharField(default='', max_length=100)),
+				('apikey', encrypted_fields.fields.EncryptedCharField(default=uuid.uuid4, editable=False, max_length=500, unique=True)),
+				('twitter_consummer_key', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
+				('twitter_consummer_secret', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
+				('twitter_token', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
+				('twitter_token_secret', encrypted_fields.fields.EncryptedCharField(default='', max_length=500)),
+			],
+			options={
+				'abstract': False,
+				'verbose_name': 'user',
+				'swappable': 'AUTH_USER_MODEL',
+				'verbose_name_plural': 'users',
+			},
+			managers=[
+				('objects', feedcrunch.model_files.models_user.FeedUserManager()),
+			],
+		),
+		migrations.CreateModel(
+			name='Continent',
+			fields=[
+				('name', models.CharField(max_length=60, primary_key=True, serialize=False)),
+				('code', models.CharField(max_length=2)),
+			],
+		),
+		migrations.CreateModel(
+			name='Country',
+			fields=[
+				('name', models.CharField(max_length=60, primary_key=True, serialize=False)),
+				('code', models.CharField(max_length=2)),
+				('continent', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='feedcrunch.Continent')),
+			],
+		),
+		migrations.CreateModel(
+			name='Post',
+			fields=[
+				('id', models.AutoField(primary_key=True, serialize=False)),
+				('title', models.CharField(max_length=255)),
+				('link', models.URLField(max_length=2000)),
+				('when', models.DateTimeField(auto_now_add=True)),
+				('clicks', models.IntegerField()),
+				('activeLink', models.BooleanField()),
+				('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+			],
+		),
+		migrations.AddField(
+			model_name='feeduser',
+			name='country',
+			field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='feedcrunch.Country'),
+		),
+		migrations.AddField(
+			model_name='feeduser',
+			name='groups',
+			field=models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.Group', verbose_name='groups'),
+		),
+		migrations.AddField(
+			model_name='feeduser',
+			name='user_permissions',
+			field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions'),
+		),
+	]

@@ -23,10 +23,10 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS `cleaning`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cleaning` ()  MODIFIES SQL DATA
 BEGIN 
-      UPDATE `visits`  SET `ipAddress` = '172.21.159.208' WHERE  `ipAddress` = '172.21.159.208, 195.83.155.53';
-      
-      DELETE FROM `visits` WHERE `ipAddress` in (Select `ipAddress` FROM (select * from (SELECT `ipAddress`, count(*) as `c` FROM `visits` WHERE `webpage` LIKE "%?%" GROUP BY `ipAddress` ORDER BY `ipAddress`) as `t_temp` WHERE `t_temp`.`c` > 15 order by c DESC) as `t1`);
-      
+	  UPDATE `visits`  SET `ipAddress` = '172.21.159.208' WHERE  `ipAddress` = '172.21.159.208, 195.83.155.53';
+	  
+	  DELETE FROM `visits` WHERE `ipAddress` in (Select `ipAddress` FROM (select * from (SELECT `ipAddress`, count(*) as `c` FROM `visits` WHERE `webpage` LIKE "%?%" GROUP BY `ipAddress` ORDER BY `ipAddress`) as `t_temp` WHERE `t_temp`.`c` > 15 order by c DESC) as `t1`);
+	  
 END$$
 
 --
@@ -39,9 +39,9 @@ DECLARE domain varchar(255);
 SET domain = "";
 
 SELECT CASE
-      WHEN url RLIKE '^http://' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(url, '/', 3), '/', -1)  
-      WHEN url RLIKE '^https://' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(url, '/', 3), '/', -1)
-      ELSE SUBSTRING_INDEX(url, '/', 1) 
+	  WHEN url RLIKE '^http://' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(url, '/', 3), '/', -1)  
+	  WHEN url RLIKE '^https://' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(url, '/', 3), '/', -1)
+	  ELSE SUBSTRING_INDEX(url, '/', 1) 
   END into domain
   FROM ( SELECT link AS url ) q;
   

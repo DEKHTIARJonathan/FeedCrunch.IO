@@ -6,25 +6,25 @@
 {% if 'delete' in request.path %}
   {% csrf_token %}
   {% if next %}
-      <input type="hidden" name="next" value="{{ next }}" />
+	  <input type="hidden" name="next" value="{{ next }}" />
   {% endif %}
 {% endif %}
 
 
 <section class="section" id="admin-listing">
-    <div class="container" id="admin_container">
-        <div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
+	<div class="container" id="admin_container">
+		<div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
 
-          <h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
-          <p style="margin-top:-20px">
-            <font size='3' >
-              <br>Please select the article you would like to modify.
-            </font>
-          </p>
+		  <h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
+		  <p style="margin-top:-20px">
+			<font size='3' >
+			  <br>Please select the article you would like to modify.
+			</font>
+		  </p>
 
-        </div>
+		</div>
 
-        <div class="container">
+		<div class="container">
   				<div class="row text-center table_row">
   					<table class="table table-hover" id="viewer" style="text-align:center;">
   						<thead id="viewer_header">
@@ -36,7 +36,7 @@
   							</tr>
   						</thead>
   						<tbody id="viewer_body">
-                {% for post in posts %}
+				{% for post in posts %}
 
   									<tr>
   										<td class="hidden_column" style="vertical-align:middle;">{{ post.id }}</td>
@@ -44,22 +44,22 @@
   										({{ post.get_domain }})</span></td>
   										<td class="hidden_column" style="vertical-align:middle;">{{ post.get_date }}</td>
   										<td style="vertical-align:middle;">
-                        {% if 'modify' in request.path %}
+						{% if 'modify' in request.path %}
   											<a href="{{ post.id }}">Edit</a>
-                        {% elif 'delete' in request.path %}
-                        <a class="delete-link" data-id="{{ post.id }}" href="#">Delete</a>
-                        {% endif %}
+						{% elif 'delete' in request.path %}
+						<a class="delete-link" data-id="{{ post.id }}" href="#">Delete</a>
+						{% endif %}
   										</td>
   									</tr>
 
   							{% endfor %}
 
-              </tbody>
-          </table>
+			  </tbody>
+		  </table>
 
-        </div>
+		</div>
 
-    </div> <!-- end container -->
+	</div> <!-- end container -->
 </section>
 
 {% endblock %}

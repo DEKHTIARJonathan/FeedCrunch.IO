@@ -2,86 +2,91 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
-from feedcrunch.models import Country, Option
+from feedcrunch.models import Country, Option, FeedUser
 
 def index(request):
-    try:
-        freemium_period = Option.objects.get(parameter="freemium_period").get_bool_value()
-    except:
-        print "freemium_period may not exists."
-        freemium_period = True
+	try:
+		freemium_period = Option.objects.get(parameter="freemium_period").get_bool_value()
+	except:
+		print "freemium_period may not exists."
+		freemium_period = True
 
-    print freemium_period
-
-    return render(request, 'home.html', {'free_period': freemium_period})
+	return render(request, 'home.html', {'free_period': freemium_period})
 
 def faq(request):
-    return render(request, 'faq.html')
+	return render(request, 'faq.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+	return render(request, 'contact.html')
 
 def about(request):
-    return render(request, 'about.html')
+	return render(request, 'about.html')
 
 def terms(request):
-    return render(request, 'terms.html')
+	return render(request, 'terms.html')
 
 def loginView(request):
-    context = RequestContext(request)
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+	context = RequestContext(request)
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
 
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/@'+request.user.username+'/admin')
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return HttpResponseRedirect('/@'+request.user.username+'/admin')
 
-            else:
-                return HttpResponse("Your account is inactive.")
-        else:
-            return HttpResponseRedirect('/login/')
-    else:
-        if request.user.is_authenticated():
-            return HttpResponseRedirect('/@'+request.user.username+'/admin')
-        else:
-            return render(request, 'login.html')
+			else:
+				return HttpResponse("Your account is inactive.")
+		else:
+			return HttpResponseRedirect('/login/')
+	else:
+		if request.user.is_authenticated():
+			return HttpResponseRedirect('/@'+request.user.username+'/admin')
+		else:
+			return render(request, 'login.html')
 
 def signUPView(request):
-    context = RequestContext(request)
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
 
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/@'+request.user.username+'/admin')
+	if request.method == 'POST':
+		try:
+			username = request.POST['username'].encode('utf-8')
+			firstname = request.POST['firstname'].encode('utf-8')
+			lastname = request.POST['lastname'].encode('utf-8')
+			email = request.POST['email'].encode('utf-8')
+			gender = request.POST['gender'].encode('utf-8')
+			country = request.POST['country'].encode('utf-8')
+			password = request.POST['password'].encode('utf-8')
+			birthdate = request.POST['birthdate'].encode('utf-8')
 
-            else:
-                return HttpResponse("Your account is inactive.")
-        else:
-            return HttpResponseRedirect('/login/')
-    else:
-        if request.user.is_authenticated():
-            return HttpResponseRedirect('/@'+request.user.username+'/admin')
-        else:
-            country_list = Country.objects.all().order_by('name')
-            return render(request, 'signup.html', {'countries': country_list})
+			tmp_usr = FeedUser.objects.create_user(username, email, password, firstname, lastname, country, gender, birthdate)
+
+			user = authenticate(username=username, password=password)
+			login(request, user)
+			
+			return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
+		except Exception, e:
+			return HttpResponse(str(e))
+	else:
+
+		if request.user.is_authenticated():
+			return HttpResponseRedirect('/@'+request.user.username+'/admin')
+		else:
+			country_list = Country.objects.all().order_by('name')
+			return render(request, 'signup.html', {'countries': country_list})
 
 #@login_required(login_url='/login/')
 def test(request):
-    return HttpResponse("Welcome.")
+	return HttpResponse("Welcome.")
 
 def handler404(request):
-    response = render_to_response('404.html')
-    response.status_code = 404
-    return response
+	response = render_to_response('404.html')
+	response.status_code = 404
+	return response
 
 def handler500(request):
-    response = render_to_response('500.html')
-    response.status_code = 500
-    return response
+	response = render_to_response('500.html')
+	response.status_code = 500
+	return response

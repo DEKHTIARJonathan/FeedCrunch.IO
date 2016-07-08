@@ -7,17 +7,17 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('feedcrunch', '0001_initial'),
-    ]
+	dependencies = [
+		('feedcrunch', '0001_initial'),
+	]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='feeduser',
-            name='twitter_consummer_key',
-        ),
-        migrations.RemoveField(
-            model_name='feeduser',
-            name='twitter_consummer_secret',
-        ),
-    ]
+	operations = [
+		migrations.RemoveField(
+			model_name='feeduser',
+			name='twitter_consummer_key',
+		),
+		migrations.RemoveField(
+			model_name='feeduser',
+			name='twitter_consummer_secret',
+		),
+	]

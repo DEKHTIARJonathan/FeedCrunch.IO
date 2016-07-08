@@ -49,14 +49,23 @@ coverage html
 
 You will need to set environment variables as followed:
 
-| Key                    | Value                                                                                                    |
+| Key					| Value																									|
 |------------------------|----------------------------------------------------------------------------------------------------------|
-| TRAVIS                 | True                                                                                                     |
-| DEBUG                  | True/False                                                                                               |
-| SECRET_KEY             | '##############################################'                                                         |
-| DATABASE_URL           | 'postgres://user:password@host:port/Database' (travis : 'postgres://postgres:@localhost:5432/travisci')  |
-| CODECLIMATE_REPO_TOKEN | '##############################################'                                                         |
-| AWS_ACCESS_KEY_ID      | '##############################################'                                                         |
-| AWS_SECRET_ACCESS_KEY  | '##############################################'                                                         |
-| CONSUMER_KEY           | '##############################################'                                                         |
-| CONSUMER_SECRET        | '##############################################'                                                         |
+| TRAVIS				 | True																									 |
+| DEBUG				  | True/False																							   |
+| SECRET_KEY			 | '##############################################'														 |
+| DATABASE_URL		   | 'postgres://user:password@host:port/Database' (travis : 'postgres://postgres:@localhost:5432/travisci')  |
+| CODECLIMATE_REPO_TOKEN | '##############################################'														 |
+| AWS_ACCESS_KEY_ID	  | '##############################################'														 |
+| AWS_SECRET_ACCESS_KEY  | '##############################################'														 |
+
+
+Options needed to be declared in the Admin Panel :
+
+| Key					 | Value											|
+|-------------------------|--------------------------------------------------|
+| twitter_consumer_secret | '##############################################' |
+| twitter_consumer_key	| '##############################################' |
+| mailchimp_client_secret | '##############################################' |
+| mailchimp_client_id	 | '##############################################' |
+| freemium_period		 | True/False									   |

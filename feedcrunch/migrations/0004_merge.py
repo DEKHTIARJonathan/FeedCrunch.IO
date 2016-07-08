@@ -7,10 +7,10 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('feedcrunch', '0002_auto_20160702_0115'),
-        ('feedcrunch', '0003_options'),
-    ]
+	dependencies = [
+		('feedcrunch', '0002_auto_20160702_0115'),
+		('feedcrunch', '0003_options'),
+	]
 
-    operations = [
-    ]
+	operations = [
+	]

@@ -3,1977 +3,1977 @@
    "model": "feedcrunch.continent",
    "pk": "Africa",
    "fields": {
-      "code": "AF"
+	  "code": "AF"
    }
 },
 {
    "model": "feedcrunch.continent",
    "pk": "Antartica",
    "fields": {
-      "code": "AN"
+	  "code": "AN"
    }
 },
 {
    "model": "feedcrunch.continent",
    "pk": "Asia",
    "fields": {
-      "code": "AS"
+	  "code": "AS"
    }
 },
 {
    "model": "feedcrunch.continent",
    "pk": "Europe",
    "fields": {
-      "code": "EU"
+	  "code": "EU"
    }
 },
 {
    "model": "feedcrunch.continent",
    "pk": "North America",
    "fields": {
-      "code": "NA"
+	  "code": "NA"
    }
 },
 {
    "model": "feedcrunch.continent",
    "pk": "Oceania",
    "fields": {
-      "code": "OC"
+	  "code": "OC"
    }
 },
 {
    "model": "feedcrunch.continent",
    "pk": "South America",
    "fields": {
-      "code": "SA"
+	  "code": "SA"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Afghanistan",
    "fields": {
-      "code": "AF",
-      "continent": "Asia"
+	  "code": "AF",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "\u00c5land Islands",
    "fields": {
-      "code": "AX",
-      "continent": "Europe"
+	  "code": "AX",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Albania",
    "fields": {
-      "code": "AL",
-      "continent": "Europe"
+	  "code": "AL",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Algeria",
    "fields": {
-      "code": "DZ",
-      "continent": "Africa"
+	  "code": "DZ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "American Samoa",
    "fields": {
-      "code": "AS",
-      "continent": "Oceania"
+	  "code": "AS",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Andorra",
    "fields": {
-      "code": "AD",
-      "continent": "Europe"
+	  "code": "AD",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Angola",
    "fields": {
-      "code": "AO",
-      "continent": "Africa"
+	  "code": "AO",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Anguilla",
    "fields": {
-      "code": "AI",
-      "continent": "North America"
+	  "code": "AI",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Antarctica",
    "fields": {
-      "code": "AQ",
-      "continent": "Antartica"
+	  "code": "AQ",
+	  "continent": "Antartica"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Antigua & Barbuda",
    "fields": {
-      "code": "AG",
-      "continent": "North America"
+	  "code": "AG",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Argentina",
    "fields": {
-      "code": "AR",
-      "continent": "South America"
+	  "code": "AR",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Armenia",
    "fields": {
-      "code": "AM",
-      "continent": "Asia"
+	  "code": "AM",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Aruba",
    "fields": {
-      "code": "AW",
-      "continent": "North America"
+	  "code": "AW",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Ascension Island",
    "fields": {
-      "code": "AC",
-      "continent": "Oceania"
+	  "code": "AC",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Australia",
    "fields": {
-      "code": "AU",
-      "continent": "Europe"
+	  "code": "AU",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Austria",
    "fields": {
-      "code": "AT",
-      "continent": "Europe"
+	  "code": "AT",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Azerbaijan",
    "fields": {
-      "code": "AZ",
-      "continent": "North America"
+	  "code": "AZ",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bahamas",
    "fields": {
-      "code": "BS",
-      "continent": "Asia"
+	  "code": "BS",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bahrain",
    "fields": {
-      "code": "BH",
-      "continent": "Asia"
+	  "code": "BH",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bangladesh",
    "fields": {
-      "code": "BD",
-      "continent": "North America"
+	  "code": "BD",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Barbados",
    "fields": {
-      "code": "BB",
-      "continent": "Europe"
+	  "code": "BB",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Belarus",
    "fields": {
-      "code": "BY",
-      "continent": "Europe"
+	  "code": "BY",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Belgium",
    "fields": {
-      "code": "BE",
-      "continent": "North America"
+	  "code": "BE",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Belize",
    "fields": {
-      "code": "BZ",
-      "continent": "Africa"
+	  "code": "BZ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Benin",
    "fields": {
-      "code": "BJ",
-      "continent": "North America"
+	  "code": "BJ",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bermuda",
    "fields": {
-      "code": "BM",
-      "continent": "Asia"
+	  "code": "BM",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bhutan",
    "fields": {
-      "code": "BT",
-      "continent": "South America"
+	  "code": "BT",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bolivia",
    "fields": {
-      "code": "BO",
-      "continent": "North America"
+	  "code": "BO",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bosnia & Herzegovina",
    "fields": {
-      "code": "BA",
-      "continent": "Europe"
+	  "code": "BA",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Botswana",
    "fields": {
-      "code": "BW",
-      "continent": "Africa"
+	  "code": "BW",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Brazil",
    "fields": {
-      "code": "BR",
-      "continent": "South America"
+	  "code": "BR",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "British Indian Ocean Territory",
    "fields": {
-      "code": "IO",
-      "continent": "Asia"
+	  "code": "IO",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "British Virgin Islands",
    "fields": {
-      "code": "VG",
-      "continent": "North America"
+	  "code": "VG",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Brunei",
    "fields": {
-      "code": "BN",
-      "continent": "Asia"
+	  "code": "BN",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Bulgaria",
    "fields": {
-      "code": "BG",
-      "continent": "Europe"
+	  "code": "BG",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Burkina Faso",
    "fields": {
-      "code": "BF",
-      "continent": "Africa"
+	  "code": "BF",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Burundi",
    "fields": {
-      "code": "BI",
-      "continent": "Africa"
+	  "code": "BI",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cambodia",
    "fields": {
-      "code": "KH",
-      "continent": "Asia"
+	  "code": "KH",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cameroon",
    "fields": {
-      "code": "CM",
-      "continent": "Africa"
+	  "code": "CM",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Canada",
    "fields": {
-      "code": "CA",
-      "continent": "North America"
+	  "code": "CA",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Canary Islands",
    "fields": {
-      "code": "IC",
-      "continent": "Africa"
+	  "code": "IC",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cape Verde",
    "fields": {
-      "code": "CV",
-      "continent": "Africa"
+	  "code": "CV",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Caribbean Netherlands",
    "fields": {
-      "code": "BQ",
-      "continent": "South America"
+	  "code": "BQ",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cayman Islands",
    "fields": {
-      "code": "KY",
-      "continent": "North America"
+	  "code": "KY",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Central African Republic",
    "fields": {
-      "code": "CF",
-      "continent": "Africa"
+	  "code": "CF",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Chad",
    "fields": {
-      "code": "TD",
-      "continent": "Africa"
+	  "code": "TD",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Chile",
    "fields": {
-      "code": "CL",
-      "continent": "South America"
+	  "code": "CL",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "China",
    "fields": {
-      "code": "CN",
-      "continent": "Asia"
+	  "code": "CN",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Christmas Island",
    "fields": {
-      "code": "CX",
-      "continent": "Asia"
+	  "code": "CX",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cocos (Keeling) Islands",
    "fields": {
-      "code": "CC",
-      "continent": "Asia"
+	  "code": "CC",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Colombia",
    "fields": {
-      "code": "CO",
-      "continent": "South America"
+	  "code": "CO",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Comoros",
    "fields": {
-      "code": "KM",
-      "continent": "Africa"
+	  "code": "KM",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Congo",
    "fields": {
-      "code": "CG",
-      "continent": "Africa"
+	  "code": "CG",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cook Islands",
    "fields": {
-      "code": "CK",
-      "continent": "Oceania"
+	  "code": "CK",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Costa Rica",
    "fields": {
-      "code": "CR",
-      "continent": "North America"
+	  "code": "CR",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "C\u00f4te d'Ivoire",
    "fields": {
-      "code": "CI",
-      "continent": "Africa"
+	  "code": "CI",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Croatia",
    "fields": {
-      "code": "HR",
-      "continent": "Europe"
+	  "code": "HR",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cuba",
    "fields": {
-      "code": "CU",
-      "continent": "North America"
+	  "code": "CU",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Cyprus",
    "fields": {
-      "code": "CY",
-      "continent": "Europe"
+	  "code": "CY",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Czech Republic",
    "fields": {
-      "code": "CZ",
-      "continent": "Europe"
+	  "code": "CZ",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Denmark",
    "fields": {
-      "code": "DK",
-      "continent": "Europe"
+	  "code": "DK",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Diego Garcia",
    "fields": {
-      "code": "DG",
-      "continent": "Oceania"
+	  "code": "DG",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Djibouti",
    "fields": {
-      "code": "DJ",
-      "continent": "Africa"
+	  "code": "DJ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Dominica",
    "fields": {
-      "code": "DM",
-      "continent": "North America"
+	  "code": "DM",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Dominican Republic",
    "fields": {
-      "code": "DO",
-      "continent": "North America"
+	  "code": "DO",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Ecuador",
    "fields": {
-      "code": "EC",
-      "continent": "South America"
+	  "code": "EC",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Egypt",
    "fields": {
-      "code": "EG",
-      "continent": "Africa"
+	  "code": "EG",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "El Salvador",
    "fields": {
-      "code": "SV",
-      "continent": "North America"
+	  "code": "SV",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Equatorial Guinea",
    "fields": {
-      "code": "GQ",
-      "continent": "Africa"
+	  "code": "GQ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Eritrea",
    "fields": {
-      "code": "ER",
-      "continent": "Africa"
+	  "code": "ER",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Estonia",
    "fields": {
-      "code": "EE",
-      "continent": "Europe"
+	  "code": "EE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Ethiopia",
    "fields": {
-      "code": "ET",
-      "continent": "Africa"
+	  "code": "ET",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Falkland Islands",
    "fields": {
-      "code": "FK",
-      "continent": "South America"
+	  "code": "FK",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Faroe Islands",
    "fields": {
-      "code": "FO",
-      "continent": "Europe"
+	  "code": "FO",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Fiji",
    "fields": {
-      "code": "FJ",
-      "continent": "Oceania"
+	  "code": "FJ",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Finland",
    "fields": {
-      "code": "FI",
-      "continent": "Europe"
+	  "code": "FI",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "France",
    "fields": {
-      "code": "FR",
-      "continent": "Europe"
+	  "code": "FR",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "French Guiana",
    "fields": {
-      "code": "GF",
-      "continent": "South America"
+	  "code": "GF",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "French Polynesia",
    "fields": {
-      "code": "PF",
-      "continent": "Oceania"
+	  "code": "PF",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "French Southern Territories",
    "fields": {
-      "code": "TF",
-      "continent": "Antartica"
+	  "code": "TF",
+	  "continent": "Antartica"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Gabon",
    "fields": {
-      "code": "GA",
-      "continent": "Africa"
+	  "code": "GA",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Gambia",
    "fields": {
-      "code": "GM",
-      "continent": "Africa"
+	  "code": "GM",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Georgia",
    "fields": {
-      "code": "GE",
-      "continent": "Europe"
+	  "code": "GE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Germany",
    "fields": {
-      "code": "DE",
-      "continent": "Europe"
+	  "code": "DE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Ghana",
    "fields": {
-      "code": "GH",
-      "continent": "Africa"
+	  "code": "GH",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Gibraltar",
    "fields": {
-      "code": "GI",
-      "continent": "Europe"
+	  "code": "GI",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Greece",
    "fields": {
-      "code": "GR",
-      "continent": "Europe"
+	  "code": "GR",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Greenland",
    "fields": {
-      "code": "GL",
-      "continent": "North America"
+	  "code": "GL",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Grenada",
    "fields": {
-      "code": "GD",
-      "continent": "North America"
+	  "code": "GD",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guadeloupe",
    "fields": {
-      "code": "GP",
-      "continent": "North America"
+	  "code": "GP",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guam",
    "fields": {
-      "code": "GU",
-      "continent": "Oceania"
+	  "code": "GU",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guatemala",
    "fields": {
-      "code": "GT",
-      "continent": "North America"
+	  "code": "GT",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guernsey",
    "fields": {
-      "code": "GG",
-      "continent": "Europe"
+	  "code": "GG",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guinea",
    "fields": {
-      "code": "GN",
-      "continent": "Africa"
+	  "code": "GN",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guinea-Bissau",
    "fields": {
-      "code": "GW",
-      "continent": "Africa"
+	  "code": "GW",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Guyana",
    "fields": {
-      "code": "GY",
-      "continent": "South America"
+	  "code": "GY",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Haiti",
    "fields": {
-      "code": "HT",
-      "continent": "North America"
+	  "code": "HT",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Honduras",
    "fields": {
-      "code": "HN",
-      "continent": "North America"
+	  "code": "HN",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Hong Kong SAR China",
    "fields": {
-      "code": "HK",
-      "continent": "Asia"
+	  "code": "HK",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Hungary",
    "fields": {
-      "code": "HU",
-      "continent": "Europe"
+	  "code": "HU",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Iceland",
    "fields": {
-      "code": "IS",
-      "continent": "Europe"
+	  "code": "IS",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "India",
    "fields": {
-      "code": "IN",
-      "continent": "Asia"
+	  "code": "IN",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Indonesia",
    "fields": {
-      "code": "ID",
-      "continent": "Asia"
+	  "code": "ID",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Iran",
    "fields": {
-      "code": "IR",
-      "continent": "Asia"
+	  "code": "IR",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Iraq",
    "fields": {
-      "code": "IQ",
-      "continent": "Asia"
+	  "code": "IQ",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Ireland",
    "fields": {
-      "code": "IE",
-      "continent": "Europe"
+	  "code": "IE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Isle of Man",
    "fields": {
-      "code": "IM",
-      "continent": "Europe"
+	  "code": "IM",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Israel",
    "fields": {
-      "code": "IL",
-      "continent": "Asia"
+	  "code": "IL",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Italy",
    "fields": {
-      "code": "IT",
-      "continent": "Europe"
+	  "code": "IT",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Jamaica",
    "fields": {
-      "code": "JM",
-      "continent": "North America"
+	  "code": "JM",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Japan",
    "fields": {
-      "code": "JP",
-      "continent": "Asia"
+	  "code": "JP",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Jersey",
    "fields": {
-      "code": "JE",
-      "continent": "Europe"
+	  "code": "JE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Jordan",
    "fields": {
-      "code": "JO",
-      "continent": "Asia"
+	  "code": "JO",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Kazakhstan",
    "fields": {
-      "code": "KZ",
-      "continent": "Europe"
+	  "code": "KZ",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Kenya",
    "fields": {
-      "code": "KE",
-      "continent": "Asia"
+	  "code": "KE",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Kiribati",
    "fields": {
-      "code": "KI",
-      "continent": "Africa"
+	  "code": "KI",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Kosovo",
    "fields": {
-      "code": "XK",
-      "continent": "Oceania"
+	  "code": "XK",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Kuwait",
    "fields": {
-      "code": "KW",
-      "continent": "Asia"
+	  "code": "KW",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Kyrgyzstan",
    "fields": {
-      "code": "KG",
-      "continent": "Asia"
+	  "code": "KG",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Laos",
    "fields": {
-      "code": "LA",
-      "continent": "Asia"
+	  "code": "LA",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Latvia",
    "fields": {
-      "code": "LV",
-      "continent": "Europe"
+	  "code": "LV",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Lebanon",
    "fields": {
-      "code": "LB",
-      "continent": "Asia"
+	  "code": "LB",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Lesotho",
    "fields": {
-      "code": "LS",
-      "continent": "Africa"
+	  "code": "LS",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Liberia",
    "fields": {
-      "code": "LR",
-      "continent": "Africa"
+	  "code": "LR",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Libya",
    "fields": {
-      "code": "LY",
-      "continent": "Africa"
+	  "code": "LY",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Liechtenstein",
    "fields": {
-      "code": "LI",
-      "continent": "Europe"
+	  "code": "LI",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Lithuania",
    "fields": {
-      "code": "LT",
-      "continent": "Europe"
+	  "code": "LT",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Luxembourg",
    "fields": {
-      "code": "LU",
-      "continent": "Europe"
+	  "code": "LU",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Macau SAR China",
    "fields": {
-      "code": "MO",
-      "continent": "Asia"
+	  "code": "MO",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Macedonia",
    "fields": {
-      "code": "MK",
-      "continent": "Europe"
+	  "code": "MK",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Madagascar",
    "fields": {
-      "code": "MG",
-      "continent": "Africa"
+	  "code": "MG",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Malawi",
    "fields": {
-      "code": "MW",
-      "continent": "Africa"
+	  "code": "MW",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Malaysia",
    "fields": {
-      "code": "MY",
-      "continent": "Asia"
+	  "code": "MY",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Maldives",
    "fields": {
-      "code": "MV",
-      "continent": "Asia"
+	  "code": "MV",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mali",
    "fields": {
-      "code": "ML",
-      "continent": "Africa"
+	  "code": "ML",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Malta",
    "fields": {
-      "code": "MT",
-      "continent": "Europe"
+	  "code": "MT",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Marshall Islands",
    "fields": {
-      "code": "MH",
-      "continent": "Oceania"
+	  "code": "MH",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Martinique",
    "fields": {
-      "code": "MQ",
-      "continent": "North America"
+	  "code": "MQ",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mauritania",
    "fields": {
-      "code": "MR",
-      "continent": "Africa"
+	  "code": "MR",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mauritius",
    "fields": {
-      "code": "MU",
-      "continent": "Africa"
+	  "code": "MU",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mayotte",
    "fields": {
-      "code": "YT",
-      "continent": "Africa"
+	  "code": "YT",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mexico",
    "fields": {
-      "code": "MX",
-      "continent": "North America"
+	  "code": "MX",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Micronesia",
    "fields": {
-      "code": "FM",
-      "continent": "Oceania"
+	  "code": "FM",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Moldova",
    "fields": {
-      "code": "MD",
-      "continent": "Europe"
+	  "code": "MD",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Monaco",
    "fields": {
-      "code": "MC",
-      "continent": "Europe"
+	  "code": "MC",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mongolia",
    "fields": {
-      "code": "MN",
-      "continent": "Asia"
+	  "code": "MN",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Montenegro",
    "fields": {
-      "code": "ME",
-      "continent": "Europe"
+	  "code": "ME",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Montserrat",
    "fields": {
-      "code": "MS",
-      "continent": "North America"
+	  "code": "MS",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Morocco",
    "fields": {
-      "code": "MA",
-      "continent": "Africa"
+	  "code": "MA",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Mozambique",
    "fields": {
-      "code": "MZ",
-      "continent": "Africa"
+	  "code": "MZ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Myanmar (Burma)",
    "fields": {
-      "code": "MM",
-      "continent": "Asia"
+	  "code": "MM",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Namibia",
    "fields": {
-      "code": "NA",
-      "continent": "Africa"
+	  "code": "NA",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Nauru",
    "fields": {
-      "code": "NR",
-      "continent": "Oceania"
+	  "code": "NR",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Nepal",
    "fields": {
-      "code": "NP",
-      "continent": "Asia"
+	  "code": "NP",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Netherlands",
    "fields": {
-      "code": "NL",
-      "continent": "Europe"
+	  "code": "NL",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "New Caledonia",
    "fields": {
-      "code": "NC",
-      "continent": "Oceania"
+	  "code": "NC",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "New Zealand",
    "fields": {
-      "code": "NZ",
-      "continent": "Oceania"
+	  "code": "NZ",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Nicaragua",
    "fields": {
-      "code": "NI",
-      "continent": "North America"
+	  "code": "NI",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Niger",
    "fields": {
-      "code": "NE",
-      "continent": "Africa"
+	  "code": "NE",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Nigeria",
    "fields": {
-      "code": "NG",
-      "continent": "Africa"
+	  "code": "NG",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Niue",
    "fields": {
-      "code": "NU",
-      "continent": "Oceania"
+	  "code": "NU",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Norfolk Island",
    "fields": {
-      "code": "NF",
-      "continent": "Oceania"
+	  "code": "NF",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Northern Mariana Islands",
    "fields": {
-      "code": "MP",
-      "continent": "Oceania"
+	  "code": "MP",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "North Korea",
    "fields": {
-      "code": "KP",
-      "continent": "Asia"
+	  "code": "KP",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Norway",
    "fields": {
-      "code": "NO",
-      "continent": "Europe"
+	  "code": "NO",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Oman",
    "fields": {
-      "code": "OM",
-      "continent": "Asia"
+	  "code": "OM",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Pakistan",
    "fields": {
-      "code": "PK",
-      "continent": "Asia"
+	  "code": "PK",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Palau",
    "fields": {
-      "code": "PW",
-      "continent": "Oceania"
+	  "code": "PW",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Palestinian Territories",
    "fields": {
-      "code": "PS",
-      "continent": "Asia"
+	  "code": "PS",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Panama",
    "fields": {
-      "code": "PA",
-      "continent": "North America"
+	  "code": "PA",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Papua New Guinea",
    "fields": {
-      "code": "PG",
-      "continent": "Oceania"
+	  "code": "PG",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Paraguay",
    "fields": {
-      "code": "PY",
-      "continent": "South America"
+	  "code": "PY",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Peru",
    "fields": {
-      "code": "PE",
-      "continent": "South America"
+	  "code": "PE",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Philippines",
    "fields": {
-      "code": "PH",
-      "continent": "Asia"
+	  "code": "PH",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Pitcairn Islands",
    "fields": {
-      "code": "PN",
-      "continent": "Oceania"
+	  "code": "PN",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Poland",
    "fields": {
-      "code": "PL",
-      "continent": "Europe"
+	  "code": "PL",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Portugal",
    "fields": {
-      "code": "PT",
-      "continent": "Europe"
+	  "code": "PT",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Puerto Rico",
    "fields": {
-      "code": "PR",
-      "continent": "North America"
+	  "code": "PR",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Qatar",
    "fields": {
-      "code": "QA",
-      "continent": "Asia"
+	  "code": "QA",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Romania",
    "fields": {
-      "code": "RO",
-      "continent": "Europe"
+	  "code": "RO",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Russia",
    "fields": {
-      "code": "RU",
-      "continent": "Asia"
+	  "code": "RU",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Rwanda",
    "fields": {
-      "code": "RW",
-      "continent": "Africa"
+	  "code": "RW",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Samoa",
    "fields": {
-      "code": "WS",
-      "continent": "Oceania"
+	  "code": "WS",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "San Marino",
    "fields": {
-      "code": "SM",
-      "continent": "Europe"
+	  "code": "SM",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Saudi Arabia",
    "fields": {
-      "code": "SA",
-      "continent": "Asia"
+	  "code": "SA",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Senegal",
    "fields": {
-      "code": "SN",
-      "continent": "Africa"
+	  "code": "SN",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Serbia",
    "fields": {
-      "code": "RS",
-      "continent": "Europe"
+	  "code": "RS",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Seychelles",
    "fields": {
-      "code": "SC",
-      "continent": "Africa"
+	  "code": "SC",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Sierra Leone",
    "fields": {
-      "code": "SL",
-      "continent": "Africa"
+	  "code": "SL",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Singapore",
    "fields": {
-      "code": "SG",
-      "continent": "Asia"
+	  "code": "SG",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Sint Maarten",
    "fields": {
-      "code": "SX",
-      "continent": "North America"
+	  "code": "SX",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Slovakia",
    "fields": {
-      "code": "SK",
-      "continent": "Europe"
+	  "code": "SK",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Slovenia",
    "fields": {
-      "code": "SI",
-      "continent": "Europe"
+	  "code": "SI",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Solomon Islands",
    "fields": {
-      "code": "SB",
-      "continent": "Oceania"
+	  "code": "SB",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Somalia",
    "fields": {
-      "code": "SO",
-      "continent": "Africa"
+	  "code": "SO",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "South Africa",
    "fields": {
-      "code": "ZA",
-      "continent": "Africa"
+	  "code": "ZA",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "South Georgia & South Sandwich Islands",
    "fields": {
-      "code": "GS",
-      "continent": "South America"
+	  "code": "GS",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "South Korea",
    "fields": {
-      "code": "KR",
-      "continent": "Asia"
+	  "code": "KR",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "South Sudan",
    "fields": {
-      "code": "SS",
-      "continent": "Africa"
+	  "code": "SS",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Spain",
    "fields": {
-      "code": "ES",
-      "continent": "Europe"
+	  "code": "ES",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Sri Lanka",
    "fields": {
-      "code": "LK",
-      "continent": "Asia"
+	  "code": "LK",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "St. Kitts & Nevis",
    "fields": {
-      "code": "KN",
-      "continent": "North America"
+	  "code": "KN",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "St. Lucia",
    "fields": {
-      "code": "LC",
-      "continent": "North America"
+	  "code": "LC",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "St. Vincent & Grenadines",
    "fields": {
-      "code": "VC",
-      "continent": "North America"
+	  "code": "VC",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Sudan",
    "fields": {
-      "code": "SD",
-      "continent": "Africa"
+	  "code": "SD",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Suriname",
    "fields": {
-      "code": "SR",
-      "continent": "South America"
+	  "code": "SR",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Svalbard & Jan Mayen",
    "fields": {
-      "code": "SJ",
-      "continent": "Europe"
+	  "code": "SJ",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Swaziland",
    "fields": {
-      "code": "SZ",
-      "continent": "Africa"
+	  "code": "SZ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Sweden",
    "fields": {
-      "code": "SE",
-      "continent": "Europe"
+	  "code": "SE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Switzerland",
    "fields": {
-      "code": "CH",
-      "continent": "Europe"
+	  "code": "CH",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Syria",
    "fields": {
-      "code": "SY",
-      "continent": "Asia"
+	  "code": "SY",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Taiwan",
    "fields": {
-      "code": "TW",
-      "continent": "Asia"
+	  "code": "TW",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Tajikistan",
    "fields": {
-      "code": "TJ",
-      "continent": "Asia"
+	  "code": "TJ",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Tanzania",
    "fields": {
-      "code": "TZ",
-      "continent": "Africa"
+	  "code": "TZ",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Thailand",
    "fields": {
-      "code": "TH",
-      "continent": "Asia"
+	  "code": "TH",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Timor-Leste",
    "fields": {
-      "code": "TL",
-      "continent": "Asia"
+	  "code": "TL",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Togo",
    "fields": {
-      "code": "TG",
-      "continent": "Africa"
+	  "code": "TG",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Tokelau",
    "fields": {
-      "code": "TK",
-      "continent": "Oceania"
+	  "code": "TK",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Tonga",
    "fields": {
-      "code": "TO",
-      "continent": "Oceania"
+	  "code": "TO",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Trinidad & Tobago",
    "fields": {
-      "code": "TT",
-      "continent": "North America"
+	  "code": "TT",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Tunisia",
    "fields": {
-      "code": "TN",
-      "continent": "Africa"
+	  "code": "TN",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Turkey",
    "fields": {
-      "code": "TR",
-      "continent": "Asia"
+	  "code": "TR",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Turkmenistan",
    "fields": {
-      "code": "TM",
-      "continent": "Asia"
+	  "code": "TM",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Turks & Caicos Islands",
    "fields": {
-      "code": "TC",
-      "continent": "North America"
+	  "code": "TC",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Tuvalu",
    "fields": {
-      "code": "TV",
-      "continent": "Oceania"
+	  "code": "TV",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Uganda",
    "fields": {
-      "code": "UG",
-      "continent": "Africa"
+	  "code": "UG",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Ukraine",
    "fields": {
-      "code": "UA",
-      "continent": "Europe"
+	  "code": "UA",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "United Arab Emirates",
    "fields": {
-      "code": "AE",
-      "continent": "Europe"
+	  "code": "AE",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "United Kingdom",
    "fields": {
-      "code": "GB",
-      "continent": "North America"
+	  "code": "GB",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "United States of America",
    "fields": {
-      "code": "US",
-      "continent": "North America"
+	  "code": "US",
+	  "continent": "North America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Uruguay",
    "fields": {
-      "code": "UY",
-      "continent": "South America"
+	  "code": "UY",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Uzbekistan",
    "fields": {
-      "code": "UZ",
-      "continent": "Asia"
+	  "code": "UZ",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Vanuatu",
    "fields": {
-      "code": "VU",
-      "continent": "Oceania"
+	  "code": "VU",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Vatican City",
    "fields": {
-      "code": "VA",
-      "continent": "Europe"
+	  "code": "VA",
+	  "continent": "Europe"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Venezuela",
    "fields": {
-      "code": "VE",
-      "continent": "South America"
+	  "code": "VE",
+	  "continent": "South America"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Vietnam",
    "fields": {
-      "code": "VN",
-      "continent": "Asia"
+	  "code": "VN",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Wallis & Futuna",
    "fields": {
-      "code": "WF",
-      "continent": "Oceania"
+	  "code": "WF",
+	  "continent": "Oceania"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Western Sahara",
    "fields": {
-      "code": "EH",
-      "continent": "Africa"
+	  "code": "EH",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Yemen",
    "fields": {
-      "code": "YE",
-      "continent": "Asia"
+	  "code": "YE",
+	  "continent": "Asia"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Zambia",
    "fields": {
-      "code": "ZM",
-      "continent": "Africa"
+	  "code": "ZM",
+	  "continent": "Africa"
    }
 },
 {
    "model": "feedcrunch.country",
    "pk": "Zimbabwe",
    "fields": {
-      "code": "ZW",
-      "continent": "Africa"
+	  "code": "ZW",
+	  "continent": "Africa"
    }
 }
 ]

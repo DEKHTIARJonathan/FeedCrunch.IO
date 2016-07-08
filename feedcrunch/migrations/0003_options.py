@@ -8,16 +8,16 @@ import encrypted_fields.fields
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('feedcrunch', '0002_feeduser_profile_picture'),
-    ]
+	dependencies = [
+		('feedcrunch', '0002_feeduser_profile_picture'),
+	]
 
-    operations = [
-        migrations.CreateModel(
-            name='Options',
-            fields=[
-                ('parameter', models.CharField(max_length=255, primary_key=True, serialize=False)),
-                ('value', encrypted_fields.fields.EncryptedCharField(default='', max_length=255)),
-            ],
-        ),
-    ]
+	operations = [
+		migrations.CreateModel(
+			name='Options',
+			fields=[
+				('parameter', models.CharField(max_length=255, primary_key=True, serialize=False)),
+				('value', encrypted_fields.fields.EncryptedCharField(default='', max_length=255)),
+			],
+		),
+	]

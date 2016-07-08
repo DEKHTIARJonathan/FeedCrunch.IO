@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		<meta content="IE=edge" http-equiv="X-UA-Compatible">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
 		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel="stylesheet" type="text/css">
-		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 
 		<!-- Font Icons CSS -->
 		<link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet">
@@ -219,159 +219,168 @@
 			</div>
 			<!-- End navbar-custom -->
 
-	{% block body %}
+		{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
+			<div style="min-height:calc(100vh - 346px - 452px);">
+		{% else %}
+			<div style="min-height:calc(100vh - 346px);">
+		{% endif %}
 
-	{% endblock %}
+		{% block body %}
 
-			{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
-			<!-- Subscribe -->
-			<section class="section bg-custom">
-					<div class="container">
+		{% endblock %}
+		</div>
 
-							<div class="row">
-									<div class="col-sm-12 text-center">
-											<h3 class="title text-white">Be engaged Newsletter</h3>
-											<p class="text-light sub-title">The clean and well commented code allows easy customization of the theme.It's <br> designed for describing your app, agency or business.</p>
+		{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
+		<!-- Subscribe -->
+		<section class="section bg-custom">
+			<div class="container">
+
+					<div class="row">
+							<div class="col-sm-12 text-center">
+									<h3 class="title text-white">Be engaged Newsletter</h3>
+									<p class="text-light sub-title">The clean and well commented code allows easy customization of the theme.It's <br> designed for describing your app, agency or business.</p>
+							</div>
+					</div><!-- End row -->
+
+					<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+									<form class="text-center">
+										<div class="form-group">
+											<input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
+										</div>
+
+										<button type="submit" class="btn btn-white-fill">Subscribe </button>
+										<br><br>
+										<p class="text-light"><small>You can unsubscribe at any time.</small></p>
+									</form>
+							</div>
+					</div><!-- End row -->
+
+			</div> <!-- end container -->
+		</section>
+		<!-- End Subscribe -->
+		{% endif %}
+
+		<!-- FOOTER -->
+		<footer class="section bg-gray footer">
+			<div class="container">
+					<div class="row">
+							<div class="col-md-3 col-sm-6">
+									<h5>FeedCrunch.IO</h5>
+									<ul class="list-unstyled">
+											<li><a href="">Home</a></li>
+											<li><a href="">Features</a></li>
+											<li><a href="">Team</a></li>
+											<li><a href="">FAQ</a></li>
+									</ul>
+							</div>
+
+							<div class="col-md-3 col-sm-6">
+									<h5>Social</h5>
+									<ul class="list-unstyled">
+											<li><a href="">Facebook</a></li>
+											<li><a href="">Twitter</a></li>
+											<li><a href="">Behance</a></li>
+											<li><a href="">Dribbble</a></li>
+									</ul>
+							</div>
+
+							<div class="col-md-3 col-sm-6">
+									<h5>Support</h5>
+									<ul class="list-unstyled">
+											<li><a href="/contact">Help &amp; Support</a></li>
+											<li><a href="/terms">Privacy Policy</a></li>
+											<li><a href="/terms">Terms &amp; Conditions</a></li>
+									</ul>
+							</div>
+
+							<div class="col-md-3 col-sm-6">
+									<h5>Contact</h5>
+									<address>
+											795 Folsom Ave, Suite 600<br>
+											San Franciscoo, CA 94107<br>
+											<abbr title="Phone">P:</abbr> (123) 456-7890<br>
+											E: <a href="mailto:#">contact@feedcrunch.io</a>
+									</address>
+							</div>
+
+					</div> <!-- end row -->
+
+					<div class="row">
+							<div class="col-sm-12">
+									<div class="footer-alt text-center">
+											<p class="text-muted_footer m-b-0">2016 © FeedCrunch.io - <a href="https://www.jonathandekhtiar.eu">Jonathan DEKHTIAR</a></p>
 									</div>
-							</div><!-- End row -->
+							</div>
+					</div> <!-- end row -->
 
-							<div class="row">
-									<div class="col-sm-6 col-sm-offset-3">
-											<form class="text-center">
-												<div class="form-group">
-													<input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
-												</div>
+			</div> <!-- end container -->
+		</footer>
+		<!-- END FOOTER -->
 
-												<button type="submit" class="btn btn-white-fill">Subscribe </button>
-												<br><br>
-												<p class="text-light"><small>You can unsubscribe at any time.</small></p>
-											</form>
-									</div>
-							</div><!-- End row -->
+		<!-- JQUery & Bootstrap -->
+		<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
 
-					</div> <!-- end container -->
-			</section>
-			<!-- End Subscribe -->
+		<!-- Jquery easing -->
+		<script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>
+
+		<!--common script for all pages-->
+		<!-- <script src="js/jquery.app.js"></script> -->
+		{% if 'admin' in request.path %}
+
+			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
+			<script>
+			$(function() {
+				$("[class='switch-checkbox']").bootstrapSwitch();
+			});
+			</script>
+
+			{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
+				<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
+			{% elif 'admin/delete' in request.path %}
+				<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
 			{% endif %}
 
-			<!-- FOOTER -->
-			<footer class="section bg-gray footer">
-					<div class="container">
-							<div class="row">
-									<div class="col-md-3 col-sm-6">
-											<h5>FeedCrunch.IO</h5>
-											<ul class="list-unstyled">
-													<li><a href="">Home</a></li>
-													<li><a href="">Features</a></li>
-													<li><a href="">Team</a></li>
-													<li><a href="">FAQ</a></li>
-											</ul>
-									</div>
+		{% elif '@' in request.path %}
 
-									<div class="col-md-3 col-sm-6">
-											<h5>Social</h5>
-											<ul class="list-unstyled">
-													<li><a href="">Facebook</a></li>
-													<li><a href="">Twitter</a></li>
-													<li><a href="">Behance</a></li>
-													<li><a href="">Dribbble</a></li>
-											</ul>
-									</div>
+			<script src="{% static "js/jquery.fittext.js" %}"></script>
+			<script src="{% static "js/wow.min.js" %}"></script>  <!-- Contact Form JavaScript -->
 
-									<div class="col-md-3 col-sm-6">
-											<h5>Support</h5>
-											<ul class="list-unstyled">
-													<li><a href="/contact">Help &amp; Support</a></li>
-													<li><a href="/terms">Privacy Policy</a></li>
-													<li><a href="/terms">Terms &amp; Conditions</a></li>
-											</ul>
-									</div>
+			<script src="{% static "js/jqBootstrapValidation.js" %}"></script>
+			<script src="{% static "js/contact_me.js" %}"></script> <!-- Custom Theme JavaScript -->
 
-									<div class="col-md-3 col-sm-6">
-											<h5>Contact</h5>
-											<address>
-													795 Folsom Ave, Suite 600<br>
-													San Franciscoo, CA 94107<br>
-													<abbr title="Phone">P:</abbr> (123) 456-7890<br>
-													E: <a href="mailto:#">contact@feedcrunch.io</a>
-											</address>
-									</div>
+			<script src="{% static "js/creative.js" %}"></script> <!-- Custom Ajax Search JavaScript -->
 
-							</div> <!-- end row -->
-
-							<div class="row">
-									<div class="col-sm-12">
-											<div class="footer-alt text-center">
-													<p class="text-muted_footer m-b-0">2016 © FeedCrunch.io - <a href="https://www.jonathandekhtiar.eu">Jonathan DEKHTIAR</a></p>
-											</div>
-									</div>
-							</div> <!-- end row -->
-
-					</div> <!-- end container -->
-			</footer>
-			<!-- END FOOTER -->
-
-			<!-- JQUery & Bootstrap -->
-			<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-
-			<!-- Jquery easing -->
-			<script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>
-
-			<!--common script for all pages-->
-			<!-- <script src="js/jquery.app.js"></script> -->
-			{% if 'admin' in request.path %}
-
-				<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
-				<script>
-				$(function() {
-					$("[class='switch-checkbox']").bootstrapSwitch();
-				});
-				</script>
-
-				{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
-					<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
-				{% elif 'admin/delete' in request.path %}
-					<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
-				{% endif %}
-
-			{% elif '@' in request.path %}
-
-				<script src="{% static "js/jquery.fittext.js" %}"></script>
-				<script src="{% static "js/wow.min.js" %}"></script>  <!-- Contact Form JavaScript -->
-
-				<script src="{% static "js/jqBootstrapValidation.js" %}"></script>
-				<script src="{% static "js/contact_me.js" %}"></script> <!-- Custom Theme JavaScript -->
-
-				<script src="{% static "js/creative.js" %}"></script> <!-- Custom Ajax Search JavaScript -->
-
-				<script src="{% static "js/ajaxSearch.js" %}"></script>
-
-				<script>
-				$('#arrow_down').click(function(){
-					var the_id = $(this).attr("href");
-					$('html, body').animate({
-						scrollTop:$(the_id).offset().top - 50,
-					}, 1300);
-					return false;
-				});
-				</script>
-
-			{% elif 'signup' in request.path %}
-
-				<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
-				<script>
-					$('#sandbox-container .input-group.date').datepicker({
-						format: "dd/mm/yyyy",
-						startView: 3,
-						maxViewMode: 3,
-						todayBtn: true,
-						autoclose: true
-					});
-				</script>
-			{% endif %}
+			<script src="{% static "js/ajaxSearch.js" %}"></script>
 
 			<script>
+			$('#arrow_down').click(function(){
+				var the_id = $(this).attr("href");
+				$('html, body').animate({
+					scrollTop:$(the_id).offset().top - 50,
+				}, 1300);
+				return false;
+			});
+			</script>
+
+		{% elif 'signup' in request.path %}
+
+			<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+			<script>
+				$('#sandbox-container .input-group.date').datepicker({
+					format: "dd/mm/yyyy",
+					startView: 3,
+					maxViewMode: 3,
+					todayBtn: true,
+					autoclose: true,
+					clearBtn: true,
+					defaultViewDate: { year: 1940, month: 04, day: 25 }
+				});
+			</script>
+		{% endif %}
+
+		<script>
 
 			$('.nav-link').click(function(e) {
 				e.preventDefault();
@@ -413,7 +422,7 @@
 				}
 			});
 
-			</script>
+		</script>
 
 	</body>
 </html>
