@@ -161,56 +161,72 @@ input[type=submit] {
 	float: left;
 	margin:0 0 0 0;
 }
+
+.select-disabled{
+	color: #a9a9a9;
+	font-weight: 700;
+	font-family: 'Oxygen', sans-serif;
+	option {
+		color: black; /* color of all the other options */
+	}
+}
+
+.select-disabled option:not([disabled]){
+	color: #666666;
+	font-weight: 700;
+	font-family: 'Oxygen', sans-serif;
+}
+
 /*----start-responsive design-----*/
 @media (max-width:1024px){
-.col_1_of_2 {
-	margin: 0 0 0 3.6%;
-}
-.span_1_of_2 {
-	width: 47.7%;
-}
-.span_1_of_f {
-	width: 50%;
-}
-i.fb, i.tw {
-	margin-right: 1em;
-}
-.main {
-	width: 50%;
-}
+	.col_1_of_2 {
+		margin: 0 0 0 3.6%;
+	}
+	.span_1_of_2 {
+		width: 47.7%;
+	}
+	.span_1_of_f {
+		width: 50%;
+	}
+	i.fb, i.tw {
+		margin-right: 1em;
+	}
+	.main {
+		width: 50%;
+	}
 }
 @media (max-width:800px){
-.span_1_of_f {
-	width: 100%;
-}
-.col_1_of_f {
-	float:none;
-}
-.span_1_of_2 {
-	width: 100%;
-}
-.col_1_of_2 {
-	margin:0;
-}
-.lable-2 input[type="text"], input[type="Password"] {
-	padding: 14px;
-	width: 89%;
-}
+	.span_1_of_f {
+		width: 100%;
+	}
+	.col_1_of_f {
+		float:none;
+	}
+	.span_1_of_2 {
+		width: 100%;
+	}
+	.col_1_of_2 {
+		margin:0;
+	}
+	.lable-2 input[type="text"], input[type="Password"] {
+		padding: 14px;
+		width: 89%;
+	}
 }
 @media (max-width:480px){
-.main {
-margin: 7em auto 0;
-width:70%;
-}
+	.main {
+	margin: 7em auto 0;
+	width:70%;
+	}
 }
 @media (max-width:320px){
-.main {
-	width:80%;
-}
-.lable input[type="text"] {
-	width: 83%;
-}
-.lable-2 input[type="text"], input[type="Password"] {
-	width: 84%;
-}
+	.main {
+		width:80%;
+	}
+	.lable input[type="text"] {
+		width: 83%;
+	}
+	.lable-2 input[type="text"], input[type="Password"] {
+		width: 84%;
+	}
 }

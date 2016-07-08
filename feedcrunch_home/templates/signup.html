@@ -16,38 +16,41 @@
                     <input type="hidden" name="next" value="{{ next }}" />
                 {% endif %}
                 <div class="lable-2">
-                    <input type="text" class="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                    <input type="text" class="text" placeholder="Username">
                     <div class="clear"></div>
                 </div>
 
                 <div class="lable">
                     <div class="col_1_of_2 span_1_of_2">
-                        <input type="text" class="text" value="First Name" onfocus="if (this.value == 'First Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'First Name';}">
+                        <input type="text" class="text" placeholder="First Name">
                     </div>
                     <div class="col_1_of_2 span_1_of_2">
-                        <input type="text" class="text" value="Last Name" onfocus="if (this.value == 'Last Name') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Last Name';}">
+                        <input type="text" class="text" placeholder="Last Name">
                     </div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="lable-2">
-                    <input type="text" class="text" value="your@email.com" onfocus="if (this.value == 'your@email.com') {this.value = '';}" onblur="if (this.value == '') {this.value = 'your@email.com';}">
+                    <input type="text" class="text" placeholder="your@email.com">
                     <div class="clear"></div>
                 </div>
                 <div class="lable-2">
-                    <input type="password" class="text" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                    <input type="password" class="text" placeholder="Password">
                     <div class="clear"></div>
                 </div>
 
                 <div class="lable-2" id="sandbox-container">
                     <div class="input-group date">
-                      <input type="text" class="" value="Date of Birth ~ dd/mm/yyyy"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                      <input type="text" class="" placeholder="Date of Birth ~ dd/mm/yyyy">
+					  <span class="input-group-addon">
+						  <i class="glyphicon glyphicon-th"></i>
+					  </span>
                     </div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="lable-2">
-                    <select class="form-controll">
+                    <select onchange="this.className=''" class="select-disabled">
                         <option selected disabled>Select One Gender</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
@@ -56,7 +59,7 @@
                 </div>
 
                 <div class="lable-2">
-                    <select class="form-controll">
+                    <select onchange="this.className=''" class="select-disabled">
                         <option selected disabled>Where are you from ?</option>
                         {% for country in countries %}
                             <option>{{ country.name }}</option>
