@@ -42,7 +42,7 @@
 					<hr>
 				</div>
 			</div>
-			<div class="search-bar" id="search">
+			<div class="row search-bar" id="search">
 				<div class="row table_row search-wrapper">
 					<div class="col-xs-12 col-sm-12 col-md-3 logo-wrapper logo-name" style="text-align:center">
 						<a class="logo" id="nav_link_logo" style="padding-top: 4px; display: block;">FeedCrunch.io</a>
@@ -63,36 +63,34 @@
 			</div>
 			<hr>
 			<br>
-			<div class="container">
-				<div class="row text-center table_row">
-					<table class="table table-hover" id="viewer" style="text-align:center;">
-						<thead id="viewer_header">
+			<div class="row text-center table_row">
+				<table class="table table-hover" id="viewer" style="text-align:center;">
+					<thead id="viewer_header">
+						<tr>
+							<th class="hidden_column">#</th>
+							<th>Post's Title</th>
+							<th class="hidden_column" style="width:150px;">Publication Date</th>
+							<th>Link</th>
+						</tr>
+					</thead>
+					<tbody id="viewer_body">
+
+						{% for post in posts %}
+
 							<tr>
-								<th class="hidden_column">#</th>
-								<th>Post's Title</th>
-								<th class="hidden_column" style="width:150px;">Publication Date</th>
-								<th>Link</th>
+								<td class="hidden_column" style="vertical-align:middle;">{{ post.id }}</td>
+								<td style="vertical-align:middle;">{{ post.title }} <span class="domain_value">~
+								({{ post.get_domain }})</span></td>
+								<td class="hidden_column" style="vertical-align:middle;">{{ post.get_date }}</td>
+								<td style="vertical-align:middle;">
+									<a href="redirect/{{ post.id }}" target="_blank">Link</a>
+								</td>
 							</tr>
-						</thead>
-						<tbody id="viewer_body">
 
-							{% for post in posts %}
+						{% endfor %}
 
-									<tr>
-										<td class="hidden_column" style="vertical-align:middle;">{{ post.id }}</td>
-										<td style="vertical-align:middle;">{{ post.title }} <span class="domain_value">~
-										({{ post.get_domain }})</span></td>
-										<td class="hidden_column" style="vertical-align:middle;">{{ post.get_date }}</td>
-										<td style="vertical-align:middle;">
-											<a href="redirect/{{ post.id }}" target="_blank">Link</a>
-										</td>
-									</tr>
-
-							{% endfor %}
-
-						</tbody>
-					</table>
-				</div>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</section><!-- Contact Section -->

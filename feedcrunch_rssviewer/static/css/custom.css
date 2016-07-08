@@ -69,6 +69,7 @@ input[type="search"] {
 	-ms-appearance: none;
 	-o-appearance: none;
 	appearance: none;
+	border-radius: 15px;
 }
 textarea,
 input[type="email"],
