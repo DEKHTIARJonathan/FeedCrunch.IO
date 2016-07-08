@@ -7,14 +7,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('feedcrunch', '0001_initial'),
-    ]
+	dependencies = [
+		('feedcrunch', '0001_initial'),
+	]
 
-    operations = [
-        migrations.AddField(
-            model_name='feeduser',
-            name='profile_picture',
-            field=models.ImageField(default='', upload_to='D:\\Git Projects\\FeedCrunch.IO\\images/user_photos'),
-        ),
-    ]
+	operations = [
+		migrations.AddField(
+			model_name='feeduser',
+			name='profile_picture',
+			field=models.ImageField(default='', upload_to='D:\\Git Projects\\FeedCrunch.IO\\images/user_photos'),
+		),
+	]

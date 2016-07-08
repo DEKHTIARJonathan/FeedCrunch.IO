@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class FeedcrunchRssadminConfig(AppConfig):
-    name = 'feedcrunch_rssadmin'
+	name = 'feedcrunch_rssadmin'

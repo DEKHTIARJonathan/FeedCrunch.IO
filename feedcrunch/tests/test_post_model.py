@@ -19,8 +19,8 @@ class PostTest(TestCase):
 		# Set up data for the whole TestCase
 		from django.core.management import call_command
 		call_command(
-		    'loaddata',
-		    'feedcrunch_dump.json'
+			'loaddata',
+			'feedcrunch_dump.json'
 		)
 
 	def tearDown(self):

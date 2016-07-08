@@ -4,31 +4,31 @@
 {% block body %}
 
 <section class="section" id="admin">
-    <div class="container" id="admin_container">
-        <div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
+	<div class="container" id="admin_container">
+		<div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
 
-          <h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
-          <p style="margin-top:-20px">
-            <font size='3' >
-              <br>Please add the article's title and the link in order to add it to the Feed.
-            </font>
-          </p>
+		  <h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
+		  <p style="margin-top:-20px">
+			<font size='3' >
+			  <br>Please add the article's title and the link in order to add it to the Feed.
+			</font>
+		  </p>
 
-        </div>
+		</div>
 
-        <div class="row">
-          <div class="col-md-3">
-              {% if auth_url %}
+		<div class="row">
+		  <div class="col-md-3">
+			  {% if auth_url %}
 				<a href="{{ auth_url }}" class="btn btn-primary btn-primary"><span class="socicon-twitter" style="margin-right: 10px;"></span>Link My Twitter Account</a>
-              {% else %}
-                <a href="/oauth/unlink" class="btn btn-primary btn-danger"> <span class="socicon-twitter" style="margin-right: 10px;"></span>Unlink My Twitter Account</a>
-              {% endif %}
-          </div
-        </div
+			  {% else %}
+				<a href="/oauth/unlink" class="btn btn-primary btn-danger"> <span class="socicon-twitter" style="margin-right: 10px;"></span>Unlink My Twitter Account</a>
+			  {% endif %}
+		  </div
+		</div
 
 
 
-    </div> <!-- end container -->
+	</div> <!-- end container -->
 </section>
 
 {% endblock %}

@@ -41,12 +41,12 @@ DEBUG = debug_value
 
 INSTALLED_APPS = [
 	'grappelli',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
 	'feedcrunch',
 	'feedcrunch_api_v1',
 	'feedcrunch_rssviewer',
@@ -58,14 +58,14 @@ INSTALLED_APPS = [
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'
 
 MIDDLEWARE_CLASSES = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.middleware.security.SecurityMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware',
+	'django.middleware.common.CommonMiddleware',
+	'django.middleware.csrf.CsrfViewMiddleware',
+	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware',
+	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'application.urls'
@@ -100,15 +100,15 @@ ENCRYPTED_FIELDS_KEYDIR = os.path.join(BASE_DIR, 'fieldkeys')
 
 if "test" in sys.argv:
 	DATABASES = {
-	    'default': {
-	        'ENGINE': 'django.db.backends.sqlite3',
-	        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 			'CONN_MAX_AGE': 500,
-	        'TEST' :
-	        {
-	            'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3'),
-	        }
-	    },
+			'TEST' :
+			{
+				'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3'),
+			}
+		},
 	}
 else:
 	DATABASES = {
@@ -158,7 +158,7 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+	os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # Simplified static file serving.

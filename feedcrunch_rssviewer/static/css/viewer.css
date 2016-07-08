@@ -1,17 +1,17 @@
 @media(max-width: 768px) {
-    .intro-text {
-        margin-top: 50px;
-    }
-    .hidden_column {
-        display: none;
-    }
-    td,
-    th {
-        font-size: 10px;
-    }
+	.intro-text {
+		margin-top: 50px;
+	}
+	.hidden_column {
+		display: none;
+	}
+	td,
+	th {
+		font-size: 10px;
+	}
 }
 th {
-    text-align: center;
+	text-align: center;
 }
 .user_desc{
   min-height: calc(100vh);
@@ -26,27 +26,27 @@ th {
 
 
  .hero--profile {
-     height: auto;
-     text-align: left;
+	 height: auto;
+	 text-align: left;
  }
 
  article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-     display: block;
+	 display: block;
  }
 
  .btn-primary .badge {
-     color: #f05f40;
-     background-color: #fff;
+	 color: #f05f40;
+	 background-color: #fff;
  }
 
  .btn {
-     border: 0;
-     border-radius: 300px;
-     text-transform: uppercase;
-     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-     font-weight: 700;
+	 border: 0;
+	 border-radius: 300px;
+	 text-transform: uppercase;
+	 font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+	 font-weight: 700;
  }
 
  .btn-xl {
-     padding: 15px 30px;
+	 padding: 15px 30px;
  }

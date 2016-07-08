@@ -49,7 +49,7 @@ span.term a:hover{
 	text-decoration: underline;
 }
 .lable input[type="text"] {
-	padding: 15px;
+	padding: 10px;
 	font-size: 1.1em;
 	color: #666666;
 	width:100%;
@@ -71,7 +71,7 @@ span.term a:hover{
 }
 
 .lable-2 input[type="text"],input[type="Password"], select {
-	padding: 14px;
+	padding: 10px;
 	width: 100%;
 	font-size: 1em;
 	border:none;
@@ -95,7 +95,7 @@ span.term a:hover{
 }
 
 input[type=submit] {
-	padding: 17px 30px;
+	padding: 10px;
 	color: #fff;
 	float: right;
 	font-family: 'Oxygen', sans-serif;

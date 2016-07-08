@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class feedcrunchWebviewerConfig(AppConfig):
-    name = 'feedcrunch_rssviewer'
+	name = 'feedcrunch_rssviewer'

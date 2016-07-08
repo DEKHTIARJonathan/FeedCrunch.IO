@@ -7,13 +7,13 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('feedcrunch', '0004_merge'),
-    ]
+	dependencies = [
+		('feedcrunch', '0004_merge'),
+	]
 
-    operations = [
-        migrations.RenameModel(
-            old_name='Options',
-            new_name='Option',
-        ),
-    ]
+	operations = [
+		migrations.RenameModel(
+			old_name='Options',
+			new_name='Option',
+		),
+	]

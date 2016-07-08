@@ -22,11 +22,11 @@
 10. SUBSCRIBE
 11. Footer
 12. Other pages CSS
-		12.1 Contact
-		12.2 Team
-		12.3 FAQ
-		12.4 JOB
-		12.5 Intro Form
+	12.1 Contact
+	12.2 Team
+	12.3 FAQ
+	12.4 JOB
+	12.5 Intro Form
 13. Responsive
 
 -------------------------------------------------------------------*/
@@ -39,7 +39,7 @@
 }
 
 /*======= 1.Reset ======== */
-body {
+html, body {
 	font-family: 'Roboto', sans-serif;
 	color: #496174;
 	background: #fff;
@@ -259,34 +259,34 @@ a:hover,a:focus,.a:active {
 
 @-webkit-keyframes dropdownOpen {
 	0% {
-		-webkit-transform: scale(0);
-		-ms-transform: scale(0);
-		-o-transform: scale(0);
-		transform: scale(0);
-		opacity: 0;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	opacity: 0;
 	}
 	100% {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		-o-transform: scale(1);
-		transform: scale(1);
-		opacity: 1;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
 	}
 }
 @keyframes dropdownOpen {
 	0% {
-		-webkit-transform: scale(0);
-		-ms-transform: scale(0);
-		-o-transform: scale(0);
-		transform: scale(0);
-		opacity: 0;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	opacity: 0;
 	}
 	100% {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		-o-transform: scale(1);
-		transform: scale(1);
-		opacity: 1;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
 	}
 }
 
@@ -505,8 +505,8 @@ iframe {
 
 .inner-box.active {
 	-webkit-transform: scale(1.05);
-			-ms-transform: scale(1.05);
-					transform: scale(1.05);
+		-ms-transform: scale(1.05);
+			transform: scale(1.05);
 }
 
 .pricing-column .plan-header {
@@ -651,6 +651,7 @@ input.input-subscribe:-ms-input-placeholder {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	background-color: #151515;
+	margin-bottom: 0px;
 }
 
 .footer h5{
@@ -868,28 +869,28 @@ textarea {
 /*======= 13. Responsive ======*/
 @media (min-width: 768px) {
 	.nav-custom-left {
-		margin-left: 5%;
+	margin-left: 5%;
 	}
 	.navbar-nav>li>a {
-		padding-top: 10px;
-		padding-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	}
 }
 
 @media (max-width: 767px) {
 	.no-padding.img,.no-padding.img-2 {
-		position: relative;
-		height: 300px;
+	position: relative;
+	height: 300px;
 	}
 	.video-wrapper {
-		padding-top: 50px;
+	padding-top: 50px;
 	}
 	.intro-form {
-		margin-top: 50px;
+	margin-top: 50px;
 	}
 	.feat-description {
-		margin-bottom: 50px;
-		text-align: center;
+	margin-bottom: 50px;
+	text-align: center;
 	}
 }
 
@@ -897,113 +898,113 @@ textarea {
 /* Demo Only */
 #style-switcher,
 #style-switcher .bottom a.settings {
-		background: #FFF;
-		box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .08);
+	background: #FFF;
+	box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .08);
 }
 
 #style-switcher div h3 {
-		color: #1D1D1D;
-		font-size: 16px;
-		margin: 0px 3px 20px 0;
+	color: #1D1D1D;
+	font-size: 16px;
+	margin: 0px 3px 20px 0;
 }
 
 #style-switcher {
-		left: -189px;
-		position: fixed;
-		top: 17%;
-		width: 189px;
-		z-index: 9999;
-		padding: 10px 5px;
+	left: -189px;
+	position: fixed;
+	top: 17%;
+	width: 189px;
+	z-index: 9999;
+	padding: 10px 5px;
 }
 
 #style-switcher div {
-		padding: 5px 10px;
+	padding: 5px 10px;
 }
 
 #style-switcher .bottom {
-		background: #FFF;
-		color: #252525;
-		padding: 0;
+	background: #FFF;
+	color: #252525;
+	padding: 0;
 }
 
 #style-switcher .bottom a.settings {
-		display: block;
-		height: 41px;
-		position: absolute;
-		right: -40px;
-		top: 0;
-		width: 40px;
-		padding: 3px;
+	display: block;
+	height: 41px;
+	position: absolute;
+	right: -40px;
+	top: 0;
+	width: 40px;
+	padding: 3px;
 }
 
 #style-switcher .bottom a {
-		text-decoration: none;
+	text-decoration: none;
 }
 
 #style-switcher .bottom a.settings i {
-		margin-left: 8px;
-		color: #000;
-		font-size: 18px;
-		position: absolute;
-		margin-top: 9px;
+	margin-left: 8px;
+	color: #000;
+	font-size: 18px;
+	position: absolute;
+	margin-top: 9px;
 }
 
 ul.pattern {
-		list-style: none;
-		margin: 0;
-		overflow: hidden;
-		padding: 0;
-		border-radius: 0;
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	border-radius: 0;
 }
 
 ul.pattern li {
-		float: left;
-		margin: 2px;
+	float: left;
+	margin: 2px;
 }
 
 ul.pattern li a {
-		cursor: pointer;
-		display: block;
-		height: 35px;
-		width: 35px;
-		border-radius: 50%;
+	cursor: pointer;
+	display: block;
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
 }
 
 ul.pattern .color1 {
-		background-color: #01bf86;
+	background-color: #01bf86;
 }
 
 ul.pattern .color2 {
-		background-color: #4db5ed;
+	background-color: #4db5ed;
 }
 
 ul.pattern .color3 {
-		background-color: #ff8acc;
+	background-color: #ff8acc;
 }
 
 ul.pattern .color4 {
-		background-color: #f57c00;
+	background-color: #f57c00;
 }
 
 ul.pattern .color5 {
-		background-color: #8066e9;
+	background-color: #8066e9;
 }
 
 ul.pattern .color6 {
-		background-color: #e55a55;
+	background-color: #e55a55;
 }
 
 ul.pattern .color7 {
-		background-color: #ffbd00;
+	background-color: #ffbd00;
 }
 
 ul.pattern .color8 {
-		background-color: #00b19d;
+	background-color: #00b19d;
 }
 
 
 @media only screen and (max-width:479px) {
 	#style-switcher {
-			display: none
+		display: none
 	}
 }

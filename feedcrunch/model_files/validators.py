@@ -9,19 +9,19 @@ from django.utils.translation import ugettext_lazy as _
 
 @deconstructible
 class ASCIIUsernameValidator(validators.RegexValidator):
-    regex = r'^[\w.@+-]+$'
-    message = _(
-        'Enter a valid username. This value may contain only English letters, '
-        'numbers, and @/./+/-/_ characters.'
-    )
-    flags = re.ASCII if six.PY3 else 0
+	regex = r'^[\w.@+-]+$'
+	message = _(
+		'Enter a valid username. This value may contain only English letters, '
+		'numbers, and @/./+/-/_ characters.'
+	)
+	flags = re.ASCII if six.PY3 else 0
 
 
 @deconstructible
 class UnicodeUsernameValidator(validators.RegexValidator):
-    regex = r'^[\w.@+-]+$'
-    message = _(
-        'Enter a valid username. This value may contain only letters, '
-        'numbers, and @/./+/-/_ characters.'
-    )
-    flags = re.UNICODE if six.PY2 else 0
+	regex = r'^[\w.@+-]+$'
+	message = _(
+		'Enter a valid username. This value may contain only letters, '
+		'numbers, and @/./+/-/_ characters.'
+	)
+	flags = re.UNICODE if six.PY2 else 0

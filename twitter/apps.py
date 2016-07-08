@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class oauthConfig(AppConfig):
-    name = 'twitter'
+	name = 'twitter'

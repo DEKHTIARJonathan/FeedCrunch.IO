@@ -4,9 +4,9 @@
   font-family: "socicon";
   src:url("../fonts/socicon.eot");
   src:url("../fonts/socicon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/socicon.woff") format("woff"),
-    url("../fonts/socicon.ttf") format("truetype"),
-    url("../fonts/socicon.svg#socicon") format("svg");
+	url("../fonts/socicon.woff") format("woff"),
+	url("../fonts/socicon.ttf") format("truetype"),
+	url("../fonts/socicon.svg#socicon") format("svg");
   font-weight: normal;
   font-style: normal;
 
