@@ -38,14 +38,9 @@ class FeedUserManager(BaseUserManager):
 				raise ValueError("The given username ( "+ username +" ) is already taken")
 
 		def _validate_email(self, email):
-			if "CHECK_EMAIL" in os.environ and getenv.env("CHECK_EMAIL"):
-				if not validate_email(email):
-					raise ValueError("The given email is not valid or not doesn''t exist.")
-
-			else:
-				if not validate_email(email,verify=True):
-					raise ValueError("The given email is not valid or not doesn''t exist.")
-
+			if not validate_email(email):
+				raise ValueError("The given email is not valid or not doesn''t exist.")
+				
 		def _validate_password(self, password):
 			if re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})', password) == None:
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
