@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
-from feedcrunch.models import Country, Option
+from feedcrunch.models import Country, Option, FeedUser
 
 def index(request):
 	try:
@@ -48,45 +48,29 @@ def loginView(request):
 			return render(request, 'login.html')
 
 def signUPView(request):
-	context = RequestContext(request)
+
 	if request.method == 'POST':
-		'''
-		username = request.POST['username']
-		password = request.POST['password']
+		try:
+			username = request.POST['username'].encode('utf-8')
+			firstname = request.POST['firstname'].encode('utf-8')
+			lastname = request.POST['lastname'].encode('utf-8')
+			email = request.POST['email'].encode('utf-8')
+			gender = request.POST['gender'].encode('utf-8')
+			country = request.POST['country'].encode('utf-8')
+			password = request.POST['password'].encode('utf-8')
+			birthdate = request.POST['birthdate'].encode('utf-8')
 
-		user = authenticate(username=username, password=password)
-		if user is not None:
-			if user.is_active:
-				login(request, user)
-				return HttpResponseRedirect('/@'+request.user.username+'/admin')
+			tmp_usr = FeedUser.objects.create_user(username, email, password, firstname, lastname, country, gender, birthdate)
 
-			else:
-				return HttpResponse("Your account is inactive.")
-		else:
-			return HttpResponseRedirect('/login/')
-		'''
-		username = request.POST['username']
-		firstname = request.POST['firstname']
-		lastname = request.POST['lastname']
-		email = request.POST['email']
-		gender = request.POST['gender']
-		country = request.POST['country']
-		password = request.POST['password']
-
-		print "username: " + username
-		print "firstname: " + firstname
-		print "lastname: " + lastname
-		print "email: " + email
-		print "gender: " + gender
-		print "country: " + country
-		print "password:  " + password
-
-		if request.user.is_authenticated():
+			user = authenticate(username=username, password=password)
+			login(request, user)
+			
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
-		else:
-			country_list = Country.objects.all().order_by('name')
-			return render(request, 'signup.html', {'countries': country_list})
+
+		except Exception, e:
+			return HttpResponse(str(e))
 	else:
+
 		if request.user.is_authenticated():
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
 		else:

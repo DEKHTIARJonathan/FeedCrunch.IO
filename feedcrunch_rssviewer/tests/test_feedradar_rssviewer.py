@@ -14,8 +14,6 @@ from feedparser import parse
 class feedcrunch_rssviewer_TestCase(TestCase):
 	def setUp(self):
 		self.client = Client()
-		self.dummy_user = UserFactory()
-		self.dummy_user.save()
 		self.dummy_post = PostFactory()
 		self.dummy_post.save()
 
@@ -28,18 +26,15 @@ class feedcrunch_rssviewer_TestCase(TestCase):
 			'feedcrunch_dump.json'
 		)
 
-	def tearDown(self):
-		self.dummy_post.delete()
-
 	def test_index_page(self):
-		url = reverse('index', kwargs={'feedname':"test_user1"})
+		url = reverse('index', kwargs={'feedname':"testuser1"})
 		response = self.client.get(url)
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'rssviewer.html')
 		self.assertContains(response, 'RSS Feed Explorer')
 
 	def test_rss_feed(self):
-		url = reverse('rss_feed', kwargs={'feedname':"test_user1"})
+		url = reverse('rss_feed', kwargs={'feedname':"testuser1"})
 		response = self.client.get(url)
 		myfeed = parse(response.content)
 		self.assertEqual(response.status_code, 200)
@@ -47,7 +42,7 @@ class feedcrunch_rssviewer_TestCase(TestCase):
 		self.assertContains(response, "Post's Title")
 
 	def test_atom_feed(self):
-		url = reverse('atom_feed', kwargs={'feedname':"test_user1"})
+		url = reverse('atom_feed', kwargs={'feedname':"testuser1"})
 		response = self.client.get(url)
 		myfeed = parse(response.content)
 		self.assertEqual(response.status_code, 200)
@@ -61,19 +56,16 @@ class feedcrunch_rssviewer_TestCase(TestCase):
 	def test_RSS_with_No_Data(self):
 		self.dummy_post.delete()
 
-		url = reverse('rss_feed', kwargs={'feedname':"test_user1"})
+		url = reverse('rss_feed', kwargs={'feedname':"testuser1"})
 		response = self.client.get(url)
 		myfeed = parse(response.content)
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(len(myfeed.entries), 0)
 		self.assertContains(response, "No Entries in this feed yet")
 
-		url = reverse('atom_feed', kwargs={'feedname':"test_user1"})
+		url = reverse('atom_feed', kwargs={'feedname':"testuser1"})
 		response = self.client.get(url)
 		myfeed = parse(response.content)
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(len(myfeed.entries), 0)
 		self.assertContains(response, "No Entries in this feed yet")
-
-		self.dummy_post = PostFactory()
-		self.dummy_post.save()

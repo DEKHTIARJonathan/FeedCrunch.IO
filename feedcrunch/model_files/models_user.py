@@ -27,83 +27,93 @@ class FeedUserManager(BaseUserManager):
 
 		use_in_migrations = True
 
-		def _validate_parameters(self, username, email, password, first_name, last_name, country, sex, birth_year, birth_month, birth_day):
+		def _validate_username(self, username):
+			if (not isinstance( username, str )) or len( username ) >= 31:
+				raise ValueError("The given username is not a valid string or longer than 30 characters.")
 
-			today = datetime.date.today()
+			if not re.match("^[A-Za-z0-9]*$", username):
+				raise ValueError("The given username is not a valid string, it should only contains letters (A-Z and a-z) and numbers (0-9)")
 
-			if sex not in ['M', 'F']:
-				raise ValueError("The given sex value is not valid : 'M' or 'F'.")
+			if FeedUser.objects.filter(username = username).exists():
+				raise ValueError("The given username ( "+ username +" ) is already taken")
 
+		def _validate_email(self, email):
 			if "CHECK_EMAIL" in os.environ and getenv.env("CHECK_EMAIL"):
 				if not validate_email(email):
 					raise ValueError("The given email is not valid or not doesn''t exist.")
+
 			else:
 				if not validate_email(email,verify=True):
 					raise ValueError("The given email is not valid or not doesn''t exist.")
 
+		def _validate_password(self, password):
 			if re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})', password) == None:
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
 
+		def _validate_firstname(self, firstname):
+			if (not isinstance( firstname, str )) or len( firstname ) >= 31:
+				raise ValueError("The given firstname is not a valid string or longer than 30 characters.")
+
+		def _validate_lastname(self, lastname):
+			if (not isinstance( lastname, str )) or len( lastname ) >= 31:
+				raise ValueError("The given last_name is not a valid string or longer than 30 characters.")
+
+		def _validate_country(self, country):
 			if not Country.objects.filter(name = country).exists():
 				raise ValueError("The given country ( "+ country +" ) doesn't exist")
 
-			if (not isinstance( username, str )) or len( username ) >= 31:
-				raise ValueError("The given username is not a valid string or longer than 30 characters.")
+		def _validate_gender(self, gender):
+			if gender not in ['M', 'F']:
+				raise ValueError("The given gender value is not valid : 'M' or 'F'.")
 
-			if (not isinstance( first_name, str )) or len( first_name ) >= 31:
-				raise ValueError("The given first_name is not a valid string or longer than 30 characters.")
+		def _validate_birthdate(self, birthdate):
 
-			if (not isinstance( last_name, str )) or len( last_name ) >= 31:
-				raise ValueError("The given last_name is not a valid string or longer than 30 characters.")
+			today = datetime.date.today()
 
-			if not isinstance( birth_year, int ):
-				raise ValueError("The given birth_year value is not valid, only integer values are accepted.")
+			if datetime.datetime.strptime(birthdate, '%d/%m/%Y').date() > today:
+				raise ValueError("The given birthdate can't be in the future. Please provide a correct date.")
 
-			if (not isinstance( birth_month, int )) or birth_month > 12:
-				raise ValueError("The given birth_month value is not valid, only integer values are accepted and maximum value = 12.")
+		def _validate_parameters(self, username, email, password, firstname, lastname, country, gender, birthdate):
 
-			if (not isinstance( birth_day, int )) or birth_day > 31:
-				raise ValueError("The given birth_day value is not valid, only integer values are accepted and maximum value = 31 (depends on the month).")
+			try:
+				self._validate_username(username)
+				self._validate_email(email)
+				self._validate_password(password)
+				self._validate_firstname(firstname)
+				self._validate_lastname(lastname)
+				self._validate_country(country)
+				self._validate_gender(gender)
+				self._validate_birthdate(birthdate)
 
-			else:
-				try:
-					if datetime.date(birth_year, birth_month, birth_day) > today:
-						raise ValueError("The given birthdate can't be in the future. Please provide a correct date.")
+				return {'status': True}
 
-				except ValueError:
-					raise ValueError("The given birthdate is not valid, please check the max_day for the given month")
-
-			return True
+			except Exception, e:
+				return {'status': False, 'error': str(e)}
 
 		def _normalize_username(self, username):
 			return unicodedata.normalize('NFKC', force_text(username))
 
-		def _create_user(self, username, email, password, **extra_fields):
+		def _create_user(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
 				"""
 				Creates and saves a User with the given username, email and password.
 				"""
 
-				first_name = extra_fields.get('first_name')
-				last_name = extra_fields.get('last_name')
-				country = extra_fields.get('country')
-				sex = extra_fields.get('sex')
-				birth_year = extra_fields.get('birth_year')
-				birth_month = extra_fields.get('birth_month')
-				birth_day = extra_fields.get('birth_day')
-
 				is_staff = extra_fields.get('is_staff')
 				is_superuser = extra_fields.get('is_superuser')
 
-				if self._validate_parameters(username, email, password, first_name, last_name, country, sex, birth_year, birth_month, birth_day):
+				validation = self._validate_parameters(username, email, password, firstname, lastname, country, gender, birthdate)
+
+				if validation['status']:
+
 					user = self.model(
 						username=self._normalize_username(username),
 						email=self.normalize_email(email),
 						password="###", #Temporary value replaced below
-						first_name=first_name,
-						last_name=last_name,
+						first_name=firstname,
+						last_name=lastname,
 						country=Country.objects.get(name=country),
-						sex=sex,
-						birthdate = datetime.date(birth_year, birth_month, birth_day),
+						gender=gender,
+						birthdate = datetime.datetime.strptime(birthdate, '%d/%m/%Y').date(),
 						is_staff = is_staff,
 						is_superuser = is_superuser
 					)
@@ -113,14 +123,18 @@ class FeedUserManager(BaseUserManager):
 					return user
 
 				else:
-					return False
+					raise Exception(validation['error'])
 
-		def create_user(self, username, email=None, password=None, **extra_fields):
+		def create_user(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
 				extra_fields.setdefault('is_staff', False)
 				extra_fields.setdefault('is_superuser', False)
-				return self._create_user(username, email, password, **extra_fields)
 
-		def create_superuser(self, username, email, password, **extra_fields):
+				try:
+					return self._create_user(username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields)
+				except Exception, e:
+					raise Exception(str(e))
+
+		def create_superuser(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
 				extra_fields.setdefault('is_staff', True)
 				extra_fields.setdefault('is_superuser', True)
 
@@ -129,7 +143,10 @@ class FeedUserManager(BaseUserManager):
 				if extra_fields.get('is_superuser') is not True:
 						raise ValueError('Superuser must have is_superuser=True.')
 
-				return self._create_user(username, email, password, **extra_fields)
+				try:
+					return self._create_user(username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields)
+				except Exception, e:
+					raise Exception(validation['error'])
 
 
 class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
@@ -217,7 +234,7 @@ class FeedUser(AbstractFeedUser):
 	country = models.ForeignKey(Country, on_delete=models.CASCADE)
 	birthdate = models.DateField()
 	apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-	sex = models.CharField(
+	gender = models.CharField(
 		max_length=1,
 		choices=(('M', 'Male'),('F', 'Female')),
 		default='M',

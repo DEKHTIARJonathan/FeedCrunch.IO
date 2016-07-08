@@ -8,12 +8,6 @@ import factory, datetime
 
 class PostTest(TestCase):
 
-	def setUp(self):
-		self.dummy_user = UserFactory()
-		self.dummy_user.save()
-		self.dummy_post = PostFactory()
-		self.dummy_post.save()
-
 	@classmethod
 	def setUpTestData(self):
 		# Set up data for the whole TestCase
@@ -23,12 +17,8 @@ class PostTest(TestCase):
 			'feedcrunch_dump.json'
 		)
 
-	def tearDown(self):
-		self.dummy_post.delete()
-		self.dummy_user.delete()
-
 	def test_get_domain(self):
-		domain = self.dummy_post.get_domain()
+		domain = PostFactory().get_domain()
 		self.assertIsInstance(domain, str)
 		self.assertEqual(domain, "www.google.com")
 
@@ -45,10 +35,9 @@ class PostTest(TestCase):
 		self.assertEqual(domain, "error")
 
 	def test_get_date(self):
-		date = self.dummy_post.get_date()
+		date = PostFactory().get_date()
 		self.assertIsInstance(date, str)
 		self.assertTrue(self.validate_date(date))
-
 
 	def test_validate_date_ok(self):
 		date = "2016/06/11 22:36"

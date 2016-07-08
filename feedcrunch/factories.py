@@ -9,16 +9,14 @@ class UserFactory(factory.DjangoModelFactory):
 	class Meta:
 		model = FeedUser
 
-	username="test_user1"
+	username="testuser1"
 	email="marco.flint31@gmail.com"
 	password="DummyPassword123"
-	first_name="test"
-	last_name="USER1"
+	firstname="test"
+	lastname="USER1"
 	country="France"
-	sex="M"
-	birth_year=2000
-	birth_month=1
-	birth_day=1
+	gender="M"
+	birthdate="01/01/2000"
 
 	@classmethod
 	def _create(cls, model_class, *args, **kwargs):

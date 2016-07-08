@@ -1,15 +1,15 @@
 from feedcrunch.models import *
 
 a = FeedUser.objects.create_superuser(
-	username="###############", 
-	email="######@################.###", 
-	password="##############", 
-	first_name="#############", 
-	last_name="#############", 
-	country="###########", 
-	sex="#", 
-	birth_year=####, 
-	birth_month=#, 
+	username="###############",
+	email="######@################.###",
+	password="##############",
+	first_name="#############",
+	last_name="#############",
+	country="###########",
+	gender="#", 
+	birth_year=####,
+	birth_month=#,
 	birth_day=#
 )
 
