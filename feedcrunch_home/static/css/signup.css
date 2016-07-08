@@ -50,7 +50,7 @@ span.term a:hover{
 }
 .lable input[type="text"] {
 	padding: 15px;
-	font-size: 1.1em;
+	font-size: 1em;
 	color: #666666;
 	width:100%;
 	cursor: pointer;
@@ -58,16 +58,8 @@ span.term a:hover{
 	outline: none;
 	font-weight: 600;
 	background: #FFFFFF;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-ms-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
 	border: 2px solid #a9a8a8;
 	border-radius: 7px;
-}
-
-.lable input[type="text"]:hover,.lable-2 input[type="text"]:hover,input[type="Password"]:hover,#active {
-	border-left:6px solid#40A46F;
 }
 
 .lable-2 input[type="text"],input[type="Password"], select {
@@ -83,10 +75,6 @@ span.term a:hover{
 	font-weight: 700;
 	font-family: 'Oxygen', sans-serif;
 	background: #ffffff;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-ms-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
 	border: 2px solid #a9a8a8;
 	border-radius: 7px;
 }
