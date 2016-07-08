@@ -35,9 +35,6 @@ def assign_env_value(var_name):
 SECRET_KEY = assign_env_value('SECRET_KEY')
 debug_value = assign_env_value('DEBUG')
 
-CONSUMER_KEY = assign_env_value('CONSUMER_KEY')
-CONSUMER_SECRET = assign_env_value('CONSUMER_SECRET')
-
 DEBUG = debug_value
 
 # Application definition
@@ -55,7 +52,7 @@ INSTALLED_APPS = [
 	'feedcrunch_rssviewer',
 	'feedcrunch_rssadmin',
 	'feedcrunch_home',
-	'oauth',
+	'twitter',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'

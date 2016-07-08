@@ -17,13 +17,14 @@ import os, re, uuid, datetime, unicodedata, getenv
 from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
-from django.conf import settings
+from twitter.tw_funcs import *
 
 from .models_geo import *
 
 from twython import Twython
 
 class FeedUserManager(BaseUserManager):
+
 		use_in_migrations = True
 
 		def _validate_parameters(self, username, email, password, first_name, last_name, country, sex, birth_year, birth_month, birth_day):
@@ -240,16 +241,15 @@ class FeedUser(AbstractFeedUser):
 		return self.username
 
 	def is_twitter_enabled(self):
-		try:
-			if self.twitter_token != "" and self.twitter_token_secret != "" :
-				twitter = Twython(settings.CONSUMER_KEY, settings.CONSUMER_SECRET, self.twitter_token, self.twitter_token_secret)
-				if twitter.verify_credentials()["screen_name"] != "":
-					return True
-				else:
-					return False
-			else:
-				return False
-		except:
+		if self.twitter_token != "" and self.twitter_token_secret != "" :
+			return True
+		else:
+			return False
+
+	def is_twitter_activated(self):
+		if self.is_twitter_enabled() and TwitterAPI(self).verify_credentials()['status']:
+			return True
+		else:
 			return False
 
 	def reset_twitter_credentials(self):

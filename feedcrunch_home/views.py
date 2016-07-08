@@ -11,8 +11,6 @@ def index(request):
         print "freemium_period may not exists."
         freemium_period = True
 
-    print freemium_period
-
     return render(request, 'home.html', {'free_period': freemium_period})
 
 def faq(request):

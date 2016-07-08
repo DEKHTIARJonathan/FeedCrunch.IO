@@ -58,5 +58,14 @@ You will need to set environment variables as followed:
 | CODECLIMATE_REPO_TOKEN | '##############################################'                                                         |
 | AWS_ACCESS_KEY_ID      | '##############################################'                                                         |
 | AWS_SECRET_ACCESS_KEY  | '##############################################'                                                         |
-| CONSUMER_KEY           | '##############################################'                                                         |
-| CONSUMER_SECRET        | '##############################################'                                                         |
+
+
+Options needed to be declared in the Admin Panel :
+
+| Key                     | Value                                            |
+|-------------------------|--------------------------------------------------|
+| twitter_consumer_secret | '##############################################' |
+| twitter_consumer_key    | '##############################################' |
+| mailchimp_client_secret | '##############################################' |
+| mailchimp_client_id     | '##############################################' |
+| freemium_period         | True/False                                       |
