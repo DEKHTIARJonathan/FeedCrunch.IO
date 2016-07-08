@@ -177,6 +177,12 @@ input[type=submit] {
 	font-family: 'Oxygen', sans-serif;
 }
 
+.select-disabled option:disabled{
+	color: #9e9d9d;
+	font-weight: 400;
+	font-family: 'Oxygen', sans-serif;
+}
+
 /*----start-responsive design-----*/
 @media (max-width:1024px){
 	.col_1_of_2 {
