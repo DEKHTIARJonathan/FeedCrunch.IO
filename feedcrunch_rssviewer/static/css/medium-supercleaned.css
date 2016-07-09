@@ -847,7 +847,8 @@ main {
 
 .label {
 	color: rgba(0, 0, 0, .44);
-	line-height: 1.4
+	line-height: 1.4;
+	font-size:1.2em;
 }
 
 .label--smaller {
@@ -898,13 +899,14 @@ main {
 .hero--profile .hero-title {
 	font-size: 32px;
 	margin-left: -2px;
-	margin-bottom: 0
+	margin-bottom: 0;
+	margin-top: 15px;
 }
 
 .hero--profile .hero-description {
 	font-size: 16px;
 	line-height: 1.4;
-	margin-top: 4px;
+	margin-top: 10px;
 	margin-bottom: 0
 }
 

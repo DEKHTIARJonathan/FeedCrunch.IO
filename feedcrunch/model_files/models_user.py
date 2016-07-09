@@ -40,7 +40,7 @@ class FeedUserManager(BaseUserManager):
 		def _validate_email(self, email):
 			if not validate_email(email):
 				raise ValueError("The given email is not valid or not doesn''t exist.")
-				
+
 		def _validate_password(self, password):
 			if re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})', password) == None:
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
@@ -206,6 +206,13 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
 		Returns the first_name plus the last_name, with a space in between.
 		"""
 		full_name = '%s %s' % (self.first_name, self.last_name)
+		return full_name.strip()
+
+	def get_full_name_formatted(self):
+		"""
+		Returns the first_name in title format plus the last_name in capital case, with a space in between.
+		"""
+		full_name = '%s %s' % (self.first_name.title(), self.last_name.upper())
 		return full_name.strip()
 
 	def get_short_name(self):
