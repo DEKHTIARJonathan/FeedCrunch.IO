@@ -235,21 +235,35 @@ class FeedUser(AbstractFeedUser):
 	"""
 	country = models.ForeignKey(Country, on_delete=models.CASCADE)
 	birthdate = models.DateField()
-	apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 	gender = models.CharField(
 		max_length=1,
 		choices=(('M', 'Male'),('F', 'Female')),
 		default='M',
 	)
 
-	rss_feed_title = models.CharField(max_length=100, default='')
+	rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 
-	profile_picture = models.ImageField(upload_to=os.path.join(settings.BASE_DIR, 'images/user_photos'), default='')
+	profile_picture = models.ImageField(upload_to=os.path.join(settings.BASE_DIR, 'images/user_photos'), default='', blank=True, null=True)
 
-	twitter_token = EncryptedCharField(max_length=500, default='')
-	twitter_token_secret = EncryptedCharField(max_length=500, default='')
+	twitter_token = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+	twitter_token_secret = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+
+	social_twitter = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_facebook = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_pinterest = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_gplus = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_dribbble = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_linkedin = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_flickr = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_stumble = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_vimeo = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_instagram = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_youtube = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_researchgate = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_personalwebsite = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_blog = models.URLField(max_length=60, default='', blank=True, null=True)
 
 	objects = FeedUserManager()
 

@@ -102,12 +102,6 @@ a.twitter-big:active {
 
 a.twitter-big:before {
     background: url("../images/social_ico/twitter.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.facebook-small,
@@ -143,12 +137,6 @@ a.facebook-big:active {
 
 a.facebook-big:before {
     background: url("../images/social_ico/facebook.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.pinterest-small,
@@ -183,12 +171,6 @@ a.pinterest-big:active {
 
 a.pinterest-big:before {
     background: url("../images/social_ico/pinterest.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.gplus-small,
@@ -224,12 +206,6 @@ a.gplus-big:active {
 
 a.gplus-big:before {
     background: url("../images/social_ico/gplus.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.rss-small,
@@ -264,12 +240,6 @@ a.rss-big:active {
 
 a.rss-big:before {
     background: url("../images/social_ico/rss.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.dribbble-small,
@@ -305,12 +275,6 @@ a.dribbble-big:active {
 
 a.dribbble-big:before {
     background: url("../images/social_ico/dribbble.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.linkedin-small,
@@ -345,12 +309,6 @@ a.linkedin-big:active {
 
 a.linkedin-big:before {
     background: url("../images/social_ico/linkedin.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.stumble-small,
@@ -385,12 +343,6 @@ a.stumble-big:active {
 
 a.stumble-big:before {
     background: url("../images/social_ico/stumble.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.flickr-small,
@@ -425,12 +377,6 @@ a.flickr-big:active {
 
 a.flickr-big:before {
     background: url("../images/social_ico/flickr.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.vimeo-small,
@@ -465,12 +411,6 @@ a.vimeo-big:active {
 
 a.vimeo-big:before {
     background: url("../images/social_ico/vimeo.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
 }
 
 a.instagram-small,
@@ -505,16 +445,160 @@ a.instagram-big:active {
 
 a.instagram-big:before {
     background: url("../images/social_ico/instagram.png") no-repeat center center;
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 11%;
+}
+
+a.youtube-small,
+a.youtube-big {
+    -webkit-box-shadow: 0px 6px 0px #8C151B;
+    -moz-box-shadow: 0px 6px 0px #8C151B;
+    box-shadow: 0px 6px 0px #8C151B;
+}
+
+a.youtube-small {
+    background: #CD1D1F url("../images/social_ico/youtube.png") no-repeat center center;
+}
+
+a.youtube-big {
+    background: #CD1D1F;
+}
+
+a.youtube-small:hover{
+	background: RGBA(212, 15, 17, 0.65) url("../images/social_ico/youtube.png") no-repeat center center;
+}
+
+a.youtube-big:hover {
+    background: RGBA(212, 15, 17, 0.65);
+}
+
+a.youtube-small:active,
+a.youtube-big:active {
+    -webkit-box-shadow: 0px 2px 0px #8C151B;
+    -moz-box-shadow: 0px 2px 0px #8C151B;
+    box-shadow: 0px 2px 0px #8C151B;
+}
+
+a.youtube-big:before {
+    background: url("../images/social_ico/youtube.png") no-repeat center center;
+}
+
+a.researchgate-small,
+a.researchgate-big {
+    -webkit-box-shadow: 0px 6px 0px #06897f;
+    -moz-box-shadow: 0px 6px 0px #06897f;
+    box-shadow: 0px 6px 0px #06897f;
+}
+
+a.researchgate-small {
+    background: #0cb url("../images/social_ico/researchgate.png") no-repeat center center;
+}
+
+a.researchgate-big {
+    background: #0cb;
+}
+
+a.researchgate-small:hover{
+	background: rgba(0, 204, 187, 0.7) url("../images/social_ico/researchgate.png") no-repeat center center;
+}
+
+a.researchgate-big:hover {
+    background: rgba(0, 204, 187, 0.7);
+}
+
+a.researchgate-small:active,
+a.researchgate-big:active {
+    -webkit-box-shadow: 0px 2px 0px #06897f;
+    -moz-box-shadow: 0px 2px 0px #06897f;
+    box-shadow: 0px 2px 0px #06897f;
+}
+
+a.researchgate-big:before {
+    background: url("../images/social_ico/researchgate.png") no-repeat center center;
+}
+
+a.personalwebsite-small,
+a.personalwebsite-big {
+    -webkit-box-shadow: 0px 6px 0px #5a181b;
+    -moz-box-shadow: 0px 6px 0px #5a181b;
+    box-shadow: 0px 6px 0px #5a181b;
+}
+
+a.personalwebsite-small {
+    background: #8c151b url("../images/social_ico/website.png") no-repeat center center;
+}
+
+a.personalwebsite-big {
+    background: #8c151b;
+}
+
+a.personalwebsite-small:hover{
+	background: rgba(140, 21, 27, 0.8) url("../images/social_ico/website.png") no-repeat center center;
+}
+
+a.personalwebsite-big:hover {
+    background: rgba(140, 21, 27, 0.8);
+}
+
+a.personalwebsite-small:active,
+a.personalwebsite-big:active {
+    -webkit-box-shadow: 0px 2px 0px #5a181b;
+    -moz-box-shadow: 0px 2px 0px #5a181b;
+    box-shadow: 0px 2px 0px #5a181b;
+}
+
+a.personalwebsite-big:before {
+    background: url("../images/social_ico/website.png") no-repeat center center;
+}
+
+a.blog-small,
+a.blog-big {
+    -webkit-box-shadow: 0px 6px 0px #442c79;
+    -moz-box-shadow: 0px 6px 0px #442c79;
+    box-shadow: 0px 6px 0px #442c79;
+}
+
+a.blog-small {
+    background: #5d2ec7 url("../images/social_ico/blog.png") no-repeat center center;
+}
+
+a.blog-big {
+    background: #5d2ec7;
+}
+
+a.blog-small:hover{
+	background: rgba(93, 46, 199, 0.8) url("../images/social_ico/blog.png") no-repeat center center;
+}
+
+a.blog-big:hover {
+    background: rgba(93, 46, 199, 0.8);
+}
+
+a.blog-small:active,
+a.blog-big:active {
+    -webkit-box-shadow: 0px 2px 0px #442c79;
+    -moz-box-shadow: 0px 2px 0px #442c79;
+    box-shadow: 0px 2px 0px #442c79;
+}
+
+a.blog-big:before {
+    background: url("../images/social_ico/blog.png") no-repeat center center;
+}
+
+a.button:before{
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 10px;
+	top: 11%;
+	background-size: 100% auto;
 }
 
 a.button{
 	width: 160px;
 	padding-left: 55px;
 	padding-top: 2px;
+}
+
+a.button:hover{
+	color:white;
 }
