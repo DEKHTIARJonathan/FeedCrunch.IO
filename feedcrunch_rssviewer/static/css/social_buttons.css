@@ -6,13 +6,16 @@
     display: inline-block;
     margin-left: 20px;
     margin-top: 20px;
+	list-style-type: none;
 }
 
 .set-2 {
+	list-style-type: none;
 }
 
 .set-2 ul li {
     display: inline-block;
+	list-style-type: none;
 }
 
 .set-1 a {
@@ -216,19 +219,19 @@ a.rss-big {
 }
 
 a.rss-small {
-    background: #FF6501 url("../images/social_ico/rss.png") no-repeat center center;
+    background: #F39C12 url("../images/social_ico/rss.png") no-repeat center center;
 }
 
 a.rss-big {
-    background: #FF6501;
+    background: #F39C12;
 }
 
 a.rss-small:hover{
-	background: RGBA(255, 101, 1, 0.75) url("../images/social_ico/rss.png") no-repeat center center;
+	background: RGBA(243, 156, 18, 0.75) url("../images/social_ico/rss.png") no-repeat center center;
 }
 
 a.rss-big:hover {
-    background: RGBA(255, 101, 1, 0.75);
+    background: RGBA(243, 156, 18, 0.75);
 }
 
 a.rss-small:active,
@@ -279,32 +282,32 @@ a.dribbble-big:before {
 
 a.linkedin-small,
 a.linkedin-big {
-    -webkit-box-shadow: 0px 6px 0px #005377;
-    -moz-box-shadow: 0px 6px 0px #005377;
-    box-shadow: 0px 6px 0px #005377;
+    -webkit-box-shadow: 0px 6px 0px #192a48;
+    -moz-box-shadow: 0px 6px 0px #192a48;
+    box-shadow: 0px 6px 0px #192a48;
 }
 
 a.linkedin-small {
-    background: #0073B2 url("../images/social_ico/linkedin.png") no-repeat center center;
+    background: #446CB3 url("../images/social_ico/linkedin.png") no-repeat center center;
 }
 
 a.linkedin-big {
-    background: #0073B2;
+    background: #446CB3;
 }
 
 a.linkedin-small:hover{
-	background: RGBA(0, 115, 178, 0.80) url("../images/social_ico/linkedin.png") no-repeat center center;
+	background: RGBA(68, 108, 179, 0.85) url("../images/social_ico/linkedin.png") no-repeat center center;
 }
 
 a.linkedin-big:hover {
-    background: RGBA(0, 115, 178, 0.80);
+    background: RGBA(68, 108, 179, 0.85);
 }
 
 a.linkedin-small:active,
 a.linkedin-big:active {
-    -webkit-box-shadow: 0px 2px 0px #005377;
-    -moz-box-shadow: 0px 2px 0px #005377;
-    box-shadow: 0px 2px 0px #005377;
+    -webkit-box-shadow: 0px 2px 0px #192a48;
+    -moz-box-shadow: 0px 2px 0px #192a48;
+    box-shadow: 0px 2px 0px #192a48;
 }
 
 a.linkedin-big:before {
@@ -489,19 +492,19 @@ a.researchgate-big {
 }
 
 a.researchgate-small {
-    background: #0cb url("../images/social_ico/researchgate.png") no-repeat center center;
+    background: #36D7B7 url("../images/social_ico/researchgate.png") no-repeat center center;
 }
 
 a.researchgate-big {
-    background: #0cb;
+    background: #36D7B7;
 }
 
 a.researchgate-small:hover{
-	background: rgba(0, 204, 187, 0.7) url("../images/social_ico/researchgate.png") no-repeat center center;
+	background: rgba(54, 215, 183, 0.80) url("../images/social_ico/researchgate.png") no-repeat center center;
 }
 
 a.researchgate-big:hover {
-    background: rgba(0, 204, 187, 0.7);
+    background: rgba(54, 215, 183, 0.80);
 }
 
 a.researchgate-small:active,
@@ -517,32 +520,32 @@ a.researchgate-big:before {
 
 a.personalwebsite-small,
 a.personalwebsite-big {
-    -webkit-box-shadow: 0px 6px 0px #5a181b;
-    -moz-box-shadow: 0px 6px 0px #5a181b;
-    box-shadow: 0px 6px 0px #5a181b;
+    -webkit-box-shadow: 0px 6px 0px #555555;
+    -moz-box-shadow: 0px 6px 0px #555555;
+    box-shadow: 0px 6px 0px #555555;
 }
 
 a.personalwebsite-small {
-    background: #8c151b url("../images/social_ico/website.png") no-repeat center center;
+    background: #9a9a9a url("../images/social_ico/website.png") no-repeat center center;
 }
 
 a.personalwebsite-big {
-    background: #8c151b;
+    background: #9a9a9a;
 }
 
 a.personalwebsite-small:hover{
-	background: rgba(140, 21, 27, 0.8) url("../images/social_ico/website.png") no-repeat center center;
+	background: rgba(154, 154, 154, 0.8) url("../images/social_ico/website.png") no-repeat center center;
 }
 
 a.personalwebsite-big:hover {
-    background: rgba(140, 21, 27, 0.8);
+    background: rgba(154, 154, 154, 0.8);
 }
 
 a.personalwebsite-small:active,
 a.personalwebsite-big:active {
-    -webkit-box-shadow: 0px 2px 0px #5a181b;
-    -moz-box-shadow: 0px 2px 0px #5a181b;
-    box-shadow: 0px 2px 0px #5a181b;
+    -webkit-box-shadow: 0px 2px 0px #555555;
+    -moz-box-shadow: 0px 2px 0px #555555;
+    box-shadow: 0px 2px 0px #555555;
 }
 
 a.personalwebsite-big:before {
@@ -551,32 +554,32 @@ a.personalwebsite-big:before {
 
 a.blog-small,
 a.blog-big {
-    -webkit-box-shadow: 0px 6px 0px #442c79;
-    -moz-box-shadow: 0px 6px 0px #442c79;
-    box-shadow: 0px 6px 0px #442c79;
+    -webkit-box-shadow: 0px 6px 0px #555555;
+    -moz-box-shadow: 0px 6px 0px #555555;
+    box-shadow: 0px 6px 0px #555555;
 }
 
 a.blog-small {
-    background: #5d2ec7 url("../images/social_ico/blog.png") no-repeat center center;
+    background: #9a9a9a url("../images/social_ico/blog.png") no-repeat center center;
 }
 
 a.blog-big {
-    background: #5d2ec7;
+    background: #9a9a9a;
 }
 
 a.blog-small:hover{
-	background: rgba(93, 46, 199, 0.8) url("../images/social_ico/blog.png") no-repeat center center;
+	background: rgba(154, 154, 154, 0.8) url("../images/social_ico/blog.png") no-repeat center center;
 }
 
 a.blog-big:hover {
-    background: rgba(93, 46, 199, 0.8);
+    background: rgba(154, 154, 154, 0.8);
 }
 
 a.blog-small:active,
 a.blog-big:active {
-    -webkit-box-shadow: 0px 2px 0px #442c79;
-    -moz-box-shadow: 0px 2px 0px #442c79;
-    box-shadow: 0px 2px 0px #442c79;
+    -webkit-box-shadow: 0px 2px 0px #555555;
+    -moz-box-shadow: 0px 2px 0px #555555;
+    box-shadow: 0px 2px 0px #555555;
 }
 
 a.blog-big:before {

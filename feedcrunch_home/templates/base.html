@@ -117,7 +117,7 @@
 							{% if '@' in request.path and user.is_authenticated %}
 
 								<li id="li_home">
-									<a href="/">Home</a>
+									<a href="/@{{user.username}}/">Home</a>
 								</li>
 								<li id="li_add">
 									<a href="/@{{user.username}}/admin/add">Add a Post</a>
