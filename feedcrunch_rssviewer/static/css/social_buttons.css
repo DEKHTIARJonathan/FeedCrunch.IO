@@ -586,6 +586,40 @@ a.blog-big:before {
     background: url("../images/social_ico/blog.png") no-repeat center center;
 }
 
+a.git-small,
+a.git-big {
+    -webkit-box-shadow: 0px 6px 0px #3b3b3b;
+    -moz-box-shadow: 0px 6px 0px #3b3b3b;
+    box-shadow: 0px 6px 0px #3b3b3b;
+}
+
+a.git-small {
+    background: #6C7A89 url("../images/social_ico/git.png") no-repeat center center;
+}
+
+a.git-big {
+    background: #6C7A89;
+}
+
+a.git-small:hover{
+	background: rgba(108, 122, 137, 0.8) url("../images/social_ico/git.png") no-repeat center center;
+}
+
+a.git-big:hover {
+    background: rgba(108, 122, 137, 0.8);
+}
+
+a.git-small:active,
+a.git-big:active {
+    -webkit-box-shadow: 0px 2px 0px #3b3b3b;
+    -moz-box-shadow: 0px 2px 0px #3b3b3b;
+    box-shadow: 0px 2px 0px #3b3b3b;
+}
+
+a.git-big:before {
+    background: url("../images/social_ico/git.png") no-repeat center center;
+}
+
 a.button:before{
 	content: "";
 	width: 30px;

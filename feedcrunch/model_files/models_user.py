@@ -264,6 +264,7 @@ class FeedUser(AbstractFeedUser):
 	social_researchgate = models.URLField(max_length=60, default='', blank=True, null=True)
 	social_personalwebsite = models.URLField(max_length=60, default='', blank=True, null=True)
 	social_blog = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_git = models.URLField(max_length=60, default='', blank=True, null=True)
 
 	objects = FeedUserManager()
 
