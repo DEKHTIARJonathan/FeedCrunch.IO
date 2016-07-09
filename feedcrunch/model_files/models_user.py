@@ -22,6 +22,11 @@ from twitter.tw_funcs import *
 from .models_geo import *
 
 from twython import Twython
+from loremipsum import generate_sentences
+
+
+def generateDummyDesc():
+	return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor. Vestibulum tempor sapien id justo molestie imperdiet. Nulla efficitur mattis ante, nec iaculis lorem consequat in. Nullam sit amet diam augue. Nulla ullamcorper imperdiet turpis a maximus. Donec iaculis porttitor ultrices. Morbi lobortis dui molestie ullamcorper varius. Maecenas eu laoreet ipsum orci aliquam."
 
 class FeedUserManager(BaseUserManager):
 
@@ -242,6 +247,11 @@ class FeedUser(AbstractFeedUser):
 	)
 
 	rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
+
+	description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
+	job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
+	company_name = models.CharField(max_length=80, default='Paradise Holy Inc.', blank=True, null=True)
+	company_website = models.URLField(max_length=120, default='http://www.feedcrunch.io/', blank=True, null=True)
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 

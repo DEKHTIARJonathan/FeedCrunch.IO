@@ -50,3 +50,7 @@ th {
  .btn-xl {
 	 padding: 15px 30px;
  }
+
+ span.subscribers-info {
+    color: #323232;
+}

@@ -32,13 +32,13 @@
 				</a>
 			</h1>
 			<p class="hero-description ">
-				Data Scientist Engineer and PhD Student in Computer Vision and Machine Learning for the Manufacturing Industry.
+				{{ requested_user.description }}
 			</p>
 		</header>
 		<div class="label-custom label">
 			<div class="row">
 				<div class="col-md-8">
-					CEO and Founder of <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="https://www.feedcrunch.io/">Feedcrunch.io</a>
+					{{ requested_user.job }} <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="{{ requested_user.company_website }}">{{ requested_user.company_name }}</a>
 					<span class="subscribers-info">
 						~ <b>7504</b> Subscribers ~
 					</span>
@@ -125,7 +125,7 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h2 class="section-heading">RSS Feed Explorer</h2>
-					<h3 class="section-subheading text-muted">Do you have enough data about #Data ?</h3>
+					<h3 class="section-subheading text-muted">{{ requested_user.rss_feed_title }}</h3>
 					<hr>
 				</div>
 			</div>
