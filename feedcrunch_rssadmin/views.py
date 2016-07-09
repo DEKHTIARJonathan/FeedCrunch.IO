@@ -166,7 +166,7 @@ def modify_form_ajax(request, feedname=None, postID=None):
 							raise Exception("Not connected to the Twitter API")
 
 				else:
-					tmp_post.save()
+					post.save()
 					data["status"] = "success"
 					data["postID"] = str(postID)
 
