@@ -219,19 +219,19 @@ a.rss-big {
 }
 
 a.rss-small {
-    background: #F39C12 url("../images/social_ico/rss.png") no-repeat center center;
+    background: #f4860d url("../images/social_ico/rss.png") no-repeat center center;
 }
 
 a.rss-big {
-    background: #F39C12;
+    background: #f4860d;
 }
 
 a.rss-small:hover{
-	background: RGBA(243, 156, 18, 0.75) url("../images/social_ico/rss.png") no-repeat center center;
+	background: RGBA(244, 134, 13, 0.75) url("../images/social_ico/rss.png") no-repeat center center;
 }
 
 a.rss-big:hover {
-    background: RGBA(243, 156, 18, 0.75);
+    background: RGBA(244, 134, 13, 0.75);
 }
 
 a.rss-small:active,

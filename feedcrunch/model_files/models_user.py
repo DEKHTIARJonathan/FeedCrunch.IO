@@ -22,7 +22,6 @@ from twitter.tw_funcs import *
 from .models_geo import *
 
 from twython import Twython
-from loremipsum import generate_sentences
 
 
 def generateDummyDesc():
