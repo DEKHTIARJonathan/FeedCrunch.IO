@@ -59,12 +59,19 @@
 								<select name="gender">
 									<option selected disabled>Select One Gender</option>
 									{% if user.gender == 'M' %}
-										<option value="M" selected>Male</option>
 										<option value="F">Female</option>
-									{% else %}
-										<option value="M">Male</option>
+										<option value="M" selected>Male</option>
+										<option value="O">Other</option>
+									{% elif user.gender == 'F' %}
 										<option value="F" selected>Female</option>
+										<option value="M">Male</option>
+										<option value="O">Other</option>
+									{% else %}
+										<option value="F">Female</option>
+										<option value="M">Male</option>
+										<option value="O" selected>Other</option>
 									{% endif %}
+
 								</select>
 								<div class="clear"></div>
 							</div>

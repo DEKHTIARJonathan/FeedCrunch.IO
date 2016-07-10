@@ -241,7 +241,7 @@ class FeedUser(AbstractFeedUser):
 	birthdate = models.DateField()
 	gender = models.CharField(
 		max_length=1,
-		choices=(('M', 'Male'),('F', 'Female')),
+		choices=(('F', 'Female'),('M', 'Male'),('O', 'Other')),
 		default='M',
 	)
 
