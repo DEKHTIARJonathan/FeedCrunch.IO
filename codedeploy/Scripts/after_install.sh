@@ -5,9 +5,11 @@ sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel sc
 app_dir="/home/ec2-user/feedcrunch"
 image_dir="/home/ec2-user/images"
 image_dest="/home/ec2-user/feedcrunch/"
+old_dir="/home/ec2-user/feedcrunch/images/"
 user="ec2-user"
 
 #Restoring all the saved profile pictures
+sudo rm -rf $old_dir
 sudo mv $image_dir $image_dest
 
 virtualenv $app_dir/venv
