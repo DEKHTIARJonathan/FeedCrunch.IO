@@ -254,7 +254,7 @@ class FeedUser(AbstractFeedUser):
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 
-	profile_picture = models.ImageField(upload_to=os.path.join(settings.BASE_DIR, 'images/user_photos'), default=os.path.join(settings.BASE_DIR,'images/user_photos/dummy_user.png'), blank=True, null=True)
+	profile_picture = models.ImageField(upload_to='images/user_photos', default='images/user_photos/dummy_user.png', blank=True, null=True)
 
 	twitter_token = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 	twitter_token_secret = EncryptedCharField(max_length=500, default='', blank=True, null=True)
