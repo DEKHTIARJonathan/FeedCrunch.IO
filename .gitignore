@@ -96,5 +96,6 @@ fieldkeys/*
 !fieldkeys/__init__.py
 application/fixtures/dataradar.json
 *.sqlite3
-images/user_photos/*.jpg
+!images/user_photos/__init__.py
+!images/user_photos/dummy_user.png
 images/user_photos/
