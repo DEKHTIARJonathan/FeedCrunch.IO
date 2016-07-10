@@ -24,7 +24,7 @@ def format_title(title):
 
 		rslt = re.sub(' +',' ',rslt)
 
-		return rslt
+		return rslt[0].capitalize()+rslt[1:]
 
 	else:
 		raise ValueError("This datatype ( "+ type(title) +" ) is not handled by the application.")
