@@ -29,6 +29,6 @@ sudo chown -R $user:$user $app_dir
 sudo chmod 755 -R $app_dir
 
 python $app_dir/manage.py collectstatic --noinput
-python $app_dir/manage.py makemigrations feedcrunch --noinput
-python $app_dir/manage.py migrate --noinput
+python $app_dir/manage.py makemigrations
+python $app_dir/manage.py migrate
 python $app_dir/manage.py loaddata feedcrunch_dump.json
