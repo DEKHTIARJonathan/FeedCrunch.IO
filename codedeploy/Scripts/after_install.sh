@@ -3,7 +3,12 @@
 sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen libxslt-devel -y
 
 app_dir="/home/ec2-user/feedcrunch"
+image_dir="/home/ec2-user/images"
+image_dest="/home/ec2-user/feedcrunch/"
 user="ec2-user"
+
+#Restoring all the saved profile pictures
+sudo mv $image_dir $image_dest
 
 virtualenv $app_dir/venv
 source $app_dir/venv/bin/activate

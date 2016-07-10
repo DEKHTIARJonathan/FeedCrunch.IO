@@ -1,0 +1,26 @@
+[
+{
+   "model": "feedcrunch.post",
+   "pk": 1,
+   "fields": {
+      "title": "Your first post",
+      "link": "http://www.website.com",
+      "when": "2016-07-10T00:00:00Z",
+      "clicks": 0,
+      "activeLink": true,
+      "user": "widiger_anna"
+   }
+},
+{
+   "model": "feedcrunch.post",
+   "pk": 2,
+   "fields": {
+      "title": "Your second post",
+      "link": "http://www.website.com",
+      "when": "2016-07-10T00:00:00Z",
+      "clicks": 0,
+      "activeLink": true,
+      "user": "widiger_anna"
+   }
+}
+]
