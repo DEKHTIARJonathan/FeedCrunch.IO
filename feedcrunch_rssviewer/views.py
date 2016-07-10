@@ -71,8 +71,8 @@ def photo(request, feedname=None):
 		requested_user = FeedUser.objects.get(username=feedname)
 
 		pathdownloader = PathDownloadView()
-		pathdownloader.path = requested_user.profile_picture
-		
+		pathdownloader.path = str(requested_user.profile_picture)
+
 		return HttpResponse(pathdownloader.get_file(), content_type=pathdownloader.get_mimetype())
 
 def search(request, feedname=None):
