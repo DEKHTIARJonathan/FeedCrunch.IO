@@ -1,5 +1,5 @@
 #login{
-  height: calc(100vh - 350px);
+  height: calc(100vh - 340px);
   background: url('../images/login_bg.jpg') no-repeat fixed center center;
   background-size: cover;
   min-height: 600px;
