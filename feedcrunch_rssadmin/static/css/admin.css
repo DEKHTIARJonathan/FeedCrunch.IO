@@ -16,6 +16,9 @@
 	margin-top: 25%;
 	transform: translateY(-50%);
 }
+.jumbotron {
+	background-color: #f5f5f5;
+}
 
 .login-block h1 {
 	text-align: center;
@@ -86,4 +89,37 @@
 }
 th {
 	text-align: center;
+}
+
+.twitter_button{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	height: 38px;
+	width: 224px;
+}
+
+.password_form{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	height: 230px;
+	width: 350px;
+}
+
+.file_form{
+	margin-top:50px;
+}
+
+.tab_admin>a{
+	font-weight: 900;
+	font-size: 1.1em;
+	color:#555;
+	text-decoration: underline;
 }

@@ -5,184 +5,223 @@
 
 <section class="section" id="admin">
 	<div class="container" id="admin_container">
-		<div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
+		<div class="jumbotron" style="padding-top:32px; overflow:hidden; height:150px">
 
-			<h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
-			<p style="margin-top:-20px">
-			<font size='3' >
-				<br>Please add the article's title and the link in order to add it to the Feed.
-			</font>
-			</p>
+			<h1 style="font-size:300%;">Administration Panel</h1>
 
 		</div>
-
-		<div class="row" style="margin:25px 0;">
-			<div class="col-md-3">
-				{% if auth_url %}
-					<a href="{{ auth_url }}" class="btn btn-primary btn-primary"><span class="socicon-twitter" style="margin-right: 10px;"></span>Link My Twitter Account</a>
-				{% else %}
-					<a href="/oauth/unlink" class="btn btn-primary btn-danger"> <span class="socicon-twitter" style="margin-right: 10px;"></span>Unlink My Twitter Account</a>
-				{% endif %}
-			</div>
-			<div class="col-md-9">
-			</div>
-		</div
-
-		<div class="row" style="margin:25px 0;">
-			<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
-				{% csrf_token %}
-				{% if next %}
-					<input type="hidden" name="next" value="{{ next }}" />
-				{% endif %}
-
-				<div class="col-md-6">
-					<div class="lable">
-						<div class="col_1_of_2 span_1_of_2">
-							<input type="text" name="firstname" class="text" placeholder="First Name" value="{{ user.first_name }}">
+		<!-- tabs -->
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li class="active col-sm-4 tab_admin"><a href="#infos" data-toggle="tab" class="">Personal Information</a></li>
+				<li class="col-sm-4 tab_admin"><a href="#passlink" data-toggle="tab">Password, Photo and Twitter Link</a></li>
+				<li class="col-sm-4 tab_admin"><a href="#social" data-toggle="tab">Social Links</a></li>
+			</ul>
+			<div class="tab-content" style="margin-top: 50px;">
+				<div class="tab-pane active" id="infos">
+					<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
+						<div class="col-md-6">
+							<div class="lable-2">
+								<input type="text" name="firstname" class="text" placeholder="First Name" value="{{ user.first_name }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="lastname" class="text" placeholder="Last Name" value="{{ user.last_name }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="email" class="text" placeholder="Email Address" value="{{ user.email }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2" id="sandbox-container">
+								<div class="input-group date">
+									<input type="text" class="" name="birthdate" placeholder="Date of Birth ~ dd/mm/yyyy" value="{{ user.get_birthdate }}">
+									<span class="input-group-addon">
+										<i class="glyphicon glyphicon-th"></i>
+									</span>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<select name="country">
+									<option selected disabled>Where are you from ?</option>
+									{% for country in countries %}
+										{% if user.country == country %}
+											<option selected >{{ country.name }}</option>
+										{% else %}
+											<option>{{ country.name }}</option>
+										{% endif %}
+									{% endfor %}
+								</select>
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<select name="gender">
+									<option selected disabled>Select One Gender</option>
+									{% if user.gender == 'M' %}
+										<option value="M" selected>Male</option>
+										<option value="F">Female</option>
+									{% else %}
+										<option value="M">Male</option>
+										<option value="F" selected>Female</option>
+									{% endif %}
+								</select>
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="feedtitle" class="text" placeholder="RSS Feed Title" value="{{ user.rss_feed_title }}">
+								<div class="clear"></div>
+							</div>
 						</div>
-						<div class="col_1_of_2 span_1_of_2">
-							<input type="text" name="lastname" class="text" placeholder="Last Name" value="{{ user.last_name }}">
+						<div class="col-md-6">
+							<div class="lable-2">
+								<textarea type="text" rows="10" name="description" class="text desc_area" placeholder="Description">{{ user.description }}</textarea>
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="job" class="text" placeholder="Job Title" value="{{ user.job }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="company_name" class="text" placeholder="Company name" value="{{ user.company_name }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="company_website" class="text" placeholder="Company website" value="{{ user.company_website }}">
+								<div class="clear"></div>
+							</div>
 						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="email" class="text" placeholder="Email Address" value="{{ user.email }}">
-						<div class="clear"></div>
-					</div>
-					<!--
-					<div class="lable-2">
-						<input type="password" name="password1" class="text" placeholder="New Password" autocomplete="new-password">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="password" name="password2" class="text" placeholder="Repeat your new Password" autocomplete="new-password">
-						<div class="clear"></div>
-					</div>
-					-->
-					<div class="lable-2" id="sandbox-container">
-						<div class="input-group date">
-							<input type="text" class="" name="birthdate" placeholder="Date of Birth ~ dd/mm/yyyy" value="{{ user.get_birthdate }}">
-							<span class="input-group-addon">
-								<i class="glyphicon glyphicon-th"></i>
-							</span>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<select name="country">
-							<option selected disabled>Where are you from ?</option>
-							{% for country in countries %}
-								{% if user.country == country %}
-									<option selected >{{ country.name }}</option>
-								{% else %}
-									<option>{{ country.name }}</option>
-								{% endif %}
-							{% endfor %}
-						</select>
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<select name="gender">
-							<option selected disabled>Select One Gender</option>
-							{% if user.gender == 'M' %}
-								<option value="M" selected>Male</option>
-								<option value="F">Female</option>
+						{% csrf_token %}
+						{% if next %}
+							<input type="hidden" name="next" value="{{ next }}" />
+						{% endif %}
+						<input type="submit" onclick="myFunction()" value="Update My Information" style="margin-top:40px;">
+					</form>
+				</div>
+				<div class="tab-pane" id="passlink">
+					<div class="row" style="margin:25px 0; display: flex; flex-wrap: wrap;">
+						<div class="col-md-4" style="display: flex; flex-direction: column; text-align:center">
+							{% if auth_url %}
+								<a href="{{ auth_url }}" class="btn btn-primary btn-primary twitter_button">
+									<span class="socicon-twitter" style="margin-right: 10px;"></span>Link My Twitter Account
+								</a>
 							{% else %}
-								<option value="M">Male</option>
-								<option value="F" selected>Female</option>
+								<a href="/oauth/unlink" class="btn btn-primary btn-danger twitter_button">
+									<span class="socicon-twitter" style="margin-right: 10px;"></span>Unlink My Twitter Account
+								</a>
 							{% endif %}
-						</select>
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="feedtitle" class="text" placeholder="RSS Feed Title" value="{{ user.rss_feed_title }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<textarea type="text" rows="16" name="description" class="text desc_area" placeholder="Description">{{ user.description }}</textarea>
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="job" class="text" placeholder="Job Title" value="{{ user.job }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="company_name" class="text" placeholder="Company name" value="{{ user.company_name }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="company_website" class="text" placeholder="Company website" value="{{ user.company_website }}">
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="lable-2">
-						<input type="text" name="twitter" class="text" placeholder="Twitter Link" value="{{ user.social_twitter }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="facebook" class="text" placeholder="Facebook Link" value="{{ user.social_facebook }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="pinterest" class="text" placeholder="Pinterest Link" value="{{ user.social_pinterest }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="gplus" class="text" placeholder="Google Plus Link" value="{{ user.social_gplus }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="dribbble" class="text" placeholder="Dribbble link" value="{{ user.social_dribbble }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="linkedin" class="text" placeholder="LinkedIn Link" value="{{ user.social_linkedin }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="flickr" class="text" placeholder="FlickR Link" value="{{ user.social_flickr }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="stumble" class="text" placeholder="Stumble Link" value="{{ user.social_stumble }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="vimeo" class="text" placeholder="Vimeo Link" value="{{ user.social_vimeo }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="instagram" class="text" placeholder="Instagram Link" value="{{ user.social_instagram }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="youtube" class="text" placeholder="Youtube Link" value="{{ user.social_youtube }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="research gate" class="text" placeholder="Research Gate Link" value="{{ user.social_researchgate }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="website" class="text" placeholder="Personal Website Link" value="{{ user.social_personalwebsite }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="blog" class="text" placeholder="Personal Blog Link" value="{{ user.social_blog }}">
-						<div class="clear"></div>
-					</div>
-					<div class="lable-2">
-						<input type="text" name="git" class="text" placeholder="Git Platform Link" value="{{ user.social_git }}">
-						<div class="clear"></div>
+						</div>
+						<div class="col-md-4" style="display: flex; flex-direction: column; display: flex; flex-direction: column; text-align:center">
+							<form class="password_form" action="" method="post" autocomplete="off" accept-charset="UTF-8">
+								<div class="lable-2">
+									<input type="password" name="password1" class="text" placeholder="New Password" autocomplete="new-password">
+									<div class="clear"></div>
+								</div>
+								<div class="lable-2">
+									<input type="password" name="password2" class="text" placeholder="Repeat your new Password" autocomplete="new-password">
+									<div class="clear"></div>
+								</div>
+								{% csrf_token %}
+								{% if next %}
+									<input type="hidden" name="next" value="{{ next }}" />
+								{% endif %}
+								<input type="submit" onclick="myFunction()" value="Update My Password" style="margin-top:40px;">
+							</form>
+						</div>
+						<div class="col-md-4" style="display: flex; flex-direction: column;">
+							<div class="hero-avatar u-floatRight js-profileAvatar">
+								<div class="avatar">
+									<img src="../photo/" class="avatar-image u-size100x100 u-xs-size80x80 imagePicker-target">
+								</div>
+							</div>
+							<div class="file_form">
+								<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
+									<input type="file" class="filestyle" data-buttonName="btn-primary">
+									{% csrf_token %}
+									{% if next %}
+										<input type="hidden" name="next" value="{{ next }}" />
+									{% endif %}
+									<input type="submit" onclick="myFunction()" value="Update My Photo" style="margin-top:20px;">
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
-				<input type="submit" onclick="myFunction()" value="Update My Account" style="margin-top:40px;">
-			</form>
-		</div
-
-
-
+				<div class="tab-pane" id="social">
+					<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
+						<div class="col-md-6">
+							<div class="lable-2">
+								<input type="text" name="twitter" class="text" placeholder="Twitter Link" value="{{ user.social_twitter }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="facebook" class="text" placeholder="Facebook Link" value="{{ user.social_facebook }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="pinterest" class="text" placeholder="Pinterest Link" value="{{ user.social_pinterest }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="gplus" class="text" placeholder="Google Plus Link" value="{{ user.social_gplus }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="dribbble" class="text" placeholder="Dribbble link" value="{{ user.social_dribbble }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="linkedin" class="text" placeholder="LinkedIn Link" value="{{ user.social_linkedin }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="flickr" class="text" placeholder="FlickR Link" value="{{ user.social_flickr }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="git" class="text" placeholder="Git Platform Link" value="{{ user.social_git }}">
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="lable-2">
+								<input type="text" name="stumble" class="text" placeholder="Stumble Link" value="{{ user.social_stumble }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="vimeo" class="text" placeholder="Vimeo Link" value="{{ user.social_vimeo }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="instagram" class="text" placeholder="Instagram Link" value="{{ user.social_instagram }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="youtube" class="text" placeholder="Youtube Link" value="{{ user.social_youtube }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="research gate" class="text" placeholder="Research Gate Link" value="{{ user.social_researchgate }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="website" class="text" placeholder="Personal Website Link" value="{{ user.social_personalwebsite }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="blog" class="text" placeholder="Personal Blog Link" value="{{ user.social_blog }}">
+								<div class="clear"></div>
+							</div>
+						</div>
+						{% csrf_token %}
+						{% if next %}
+							<input type="hidden" name="next" value="{{ next }}" />
+						{% endif %}
+						<input type="submit" onclick="myFunction()" value="Update My Information" style="margin-top:40px;">
+					</form>
+				</div>
+			 </div>
+		</div>
 	</div> <!-- end container -->
 </section>
 

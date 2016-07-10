@@ -332,9 +332,12 @@
 		{% if 'admin' in request.path %}
 
 			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/bootstrap-filestyle.min.js" %}"></script>
+
 			<script>
 			$(function() {
 				$("[class='switch-checkbox']").bootstrapSwitch();
+				$(":file").filestyle({buttonName: "btn-primary"});
 			});
 			</script>
 
