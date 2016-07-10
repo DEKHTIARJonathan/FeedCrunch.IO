@@ -64,15 +64,16 @@ def index(request, feedname=None):
 
 def photo(request, feedname=None):
 	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
-		return HttpResponseRedirect("/")
+		OPENID_LOGO_BASE_64 = """R0lGODlhAQABAIAAAP==""" #Smallest GIF as Possible : transparent image 1x1
+		return HttpResponse(OPENID_LOGO_BASE_64.decode('base64'), content_type='image/gif')
 
 	else:
 		requested_user = FeedUser.objects.get(username=feedname)
-		relative_path = requested_user.profile_picture
-		fullpath = os.path.join(settings.BASE_DIR, str(relative_path))
-		a = PathDownloadView()
-		a.path = fullpath
-		return HttpResponse(a.get_file(), content_type=a.get_mimetype())
+
+		pathdownloader = PathDownloadView()
+		pathdownloader.path = requested_user.profile_picture
+		
+		return HttpResponse(pathdownloader.get_file(), content_type=pathdownloader.get_mimetype())
 
 def search(request, feedname=None):
 	result = {}
