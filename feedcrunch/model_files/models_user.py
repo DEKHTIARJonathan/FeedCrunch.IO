@@ -249,7 +249,7 @@ class FeedUser(AbstractFeedUser):
 
 	description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
 	job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
-	company_name = models.CharField(max_length=80, default='Paradise Holy Inc.', blank=True, null=True)
+	company_name = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
 	company_website = models.URLField(max_length=120, default='http://www.feedcrunch.io/', blank=True, null=True)
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
