@@ -47,6 +47,8 @@
 		<link href="{% static "css/admin.css" %}" rel="stylesheet">
 		<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
 		<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
+		<link href="{% static "css/form.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
 
 		{% elif rss_feed_display %}
 
@@ -57,7 +59,7 @@
 
 		{% elif 'signup' in request.path %}
 
-		<link href="{% static "css/signup.css" %}" rel="stylesheet">
+		<link href="{% static "css/form.css" %}" rel="stylesheet">
 		<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
 
 		<script type="application/x-javascript">
@@ -342,6 +344,9 @@
 				<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
 			{% endif %}
 
+			<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+			<script src="{% static "js/datepicker.js" %}"></script>
+
 		{% elif '@' in request.path %}
 
 			<script src="{% static "js/jquery.fittext.js" %}"></script>
@@ -367,17 +372,8 @@
 		{% elif 'signup' in request.path %}
 
 			<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
-			<script>
-				$('#sandbox-container .input-group.date').datepicker({
-					format: "dd/mm/yyyy",
-					startView: 3,
-					maxViewMode: 3,
-					todayBtn: true,
-					autoclose: true,
-					clearBtn: true,
-					defaultViewDate: { year: 1940, month: 04, day: 25 }
-				});
-			</script>
+			<script src="{% static "js/datepicker.js" %}"></script>
+
 		{% endif %}
 
 		<script>

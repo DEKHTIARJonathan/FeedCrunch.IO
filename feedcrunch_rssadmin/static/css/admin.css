@@ -1,6 +1,5 @@
 #admin{
-  height: calc(100vh - 350px);
-  min-height: 800px;
+	min-height: calc(100vh - 350px);
 }
 
 #admin_container{

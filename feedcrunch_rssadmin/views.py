@@ -4,7 +4,7 @@ from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
 
-from feedcrunch.models import Post, FeedUser
+from feedcrunch.models import Post, FeedUser, Country
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from .ap_style import format_title
@@ -28,7 +28,7 @@ def check_admin(feedname, user):
 		return True
 
 def str2bool(v):
-  return v.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
+	return v.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
 
 # Create your views here.
 
@@ -43,7 +43,9 @@ def index(request, feedname=None):
 		else:
 			auth_url = False # False => Don't need to authenticate with Twitter
 
-		return render(request, 'admin_index.html', {'auth_url': auth_url})
+		country_list = Country.objects.all().order_by('name')
+
+		return render(request, 'admin_index.html', {'auth_url': auth_url, 'countries': country_list})
 
 def add_form(request, feedname=None):
 

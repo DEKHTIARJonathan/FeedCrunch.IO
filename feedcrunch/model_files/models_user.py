@@ -283,6 +283,9 @@ class FeedUser(AbstractFeedUser):
 	def __unicode__(self):
 		return self.username
 
+	def get_birthdate(self):
+		return self.birthdate.strftime("%m/%d/%Y")
+
 	def is_twitter_enabled(self):
 		if self.twitter_token != "" and self.twitter_token_secret != "" :
 			return True
