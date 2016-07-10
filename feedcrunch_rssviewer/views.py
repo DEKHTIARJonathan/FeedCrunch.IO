@@ -3,13 +3,54 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
+from django_downloadview import BaseDownloadView
 
 from feedcrunch.models import Post, FeedUser
 
 from feedgen.feed import FeedGenerator
 from .functions import *
 
+import os
+from django.core.files import File
+
+from django_downloadview.exceptions import FileNotFound
+from django_downloadview import BaseDownloadView
+
+from mimetypes import MimeTypes
+
 # Create your views here.
+
+class PathDownloadView(BaseDownloadView):
+	"""Serve a file using filename."""
+	#: Server-side name (including path) of the file to serve.
+	#:
+	#: Filename is supposed to be an absolute filename of a file located on the
+	#: local filesystem.
+	path = None
+
+	def get_path(self):
+		"""Return actual path of the file to serve.
+		Default implementation simply returns view's :py:attr:`path`.
+		Override this method if you want custom implementation.
+		As an example, :py:attr:`path` could be relative and your custom
+		:py:meth:`get_path` implementation makes it absolute.
+		"""
+		return self.path
+
+	def get_file(self):
+		"""Use path to return wrapper around file to serve."""
+		filename = self.get_path()
+		if not os.path.isfile(filename):
+			raise FileNotFound('File "{0}" does not exists'.format(filename))
+		return File(open(filename, 'rb'))
+
+	def get_mimetype(self):
+		filename = self.get_path()
+		mime = MimeTypes()
+		mime_type = mime.guess_type(filename)
+		return mime_type[0]
+
 
 def index(request, feedname=None):
 
@@ -21,6 +62,17 @@ def index(request, feedname=None):
 		requested_user = FeedUser.objects.get(username=feedname)
 		return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user, 'rss_feed_display': True})
 
+def photo(request, feedname=None):
+	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
+		return HttpResponseRedirect("/")
+
+	else:
+		requested_user = FeedUser.objects.get(username=feedname)
+		relative_path = requested_user.profile_picture
+		fullpath = os.path.join(settings.BASE_DIR, str(relative_path))
+		a = PathDownloadView()
+		a.path = fullpath
+		return HttpResponse(a.get_file(), content_type=a.get_mimetype())
 
 def search(request, feedname=None):
 	result = {}

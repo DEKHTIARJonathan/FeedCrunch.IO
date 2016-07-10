@@ -97,3 +97,4 @@ fieldkeys/*
 application/fixtures/dataradar.json
 *.sqlite3
 images/user_photos/*.jpg
+images/user_photos/
