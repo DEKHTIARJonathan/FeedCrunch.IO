@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib.auth import authenticate, login, logout
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
 from feedcrunch.models import Post, FeedUser, Country
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
@@ -55,6 +57,80 @@ def add_form(request, feedname=None):
 	else:
 		return render(request, 'post_form.html')
 
+def social_links_edit(request, feedname=None):
+
+	val = URLValidator()
+
+	data = {}
+	data["operation"] = "social_links_edit"
+
+	if request.method == 'POST':
+
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["feedname"] = str(feedname)
+		else:
+			try:
+				social_networks = [
+					'twitter',
+					'facebook',
+					'pinterest',
+					'gplus',
+					'dribbble',
+					'linkedin',
+					'flickr',
+					'git',
+					'vimeo',
+					'stumble',
+					'instagram',
+					'youtube',
+					'researchgate',
+					'website',
+					'blog'
+				]
+
+				social_data = {}
+				for social in social_networks:
+					url = request.POST[social]
+					if url != '':
+						val(url) #Raise a ValidationError if the URL is invalid.
+					social_data[social] = url
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+
+				tmp_user.social_twitter = social_data['twitter']
+				tmp_user.social_facebook = social_data['facebook']
+				tmp_user.social_pinterest = social_data['pinterest']
+				tmp_user.social_gplus = social_data['gplus']
+				tmp_user.social_dribbble = social_data['dribbble']
+				tmp_user.social_linkedin = social_data['linkedin']
+				tmp_user.social_flickr = social_data['flickr']
+				tmp_user.social_stumble = social_data['stumble']
+				tmp_user.social_vimeo = social_data['vimeo']
+				tmp_user.social_instagram = social_data['instagram']
+				tmp_user.social_youtube = social_data['youtube']
+				tmp_user.social_researchgate = social_data['researchgate']
+				tmp_user.social_personalwebsite = social_data['website']
+				tmp_user.social_blog = social_data['blog']
+				tmp_user.social_git = social_data['git']
+
+				tmp_user.save()
+
+				return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
+			except Exception, e:
+				data["status"] = "error"
+				data["error"] = "An error occured in the process: " + str(e)
+				data["feedname"] = feedname
+
+	else:
+		data["status"] = "error"
+		data["error"] = "Only available with a POST Request"
+		data["feedname"] = feedname
+
+	return JsonResponse(data)
+
 def add_form_ajax(request, feedname=None):
 
 	data = {}
@@ -62,9 +138,10 @@ def add_form_ajax(request, feedname=None):
 
 	if request.method == 'POST':
 
-		check_passed = check_admin(feedname, request.user)
-		if check_passed != True:
-			return check_passed
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["postID"] = str(postID)
 		else:
 			try:
 
@@ -124,9 +201,10 @@ def modify_form_ajax(request, feedname=None, postID=None):
 
 	if request.method == 'POST':
 
-		check_passed = check_admin(feedname, request.user)
-		if check_passed != True:
-			return check_passed
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["postID"] = str(postID)
 
 		elif postID == None:
 			data["status"] = "error"
@@ -219,9 +297,10 @@ def delete_ajax(request, feedname=None):
 
 	if request.method == 'POST':
 
-		check_passed = check_admin(feedname, request.user)
-		if check_passed != True:
-			return check_passed
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["postID"] = str(postID)
 		else:
 			try:
 				postID = int(request.POST['postID'])
