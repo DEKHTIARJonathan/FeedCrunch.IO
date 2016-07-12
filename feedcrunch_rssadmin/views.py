@@ -11,6 +11,8 @@ from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from .ap_style import format_title
 
+import datetime
+
 import json
 
 def check_admin(feedname, user):
@@ -56,6 +58,81 @@ def add_form(request, feedname=None):
 		return check_passed
 	else:
 		return render(request, 'post_form.html')
+
+def update_info(request, feedname=None):
+
+	data = {}
+	data["operation"] = "update_info"
+
+	val = URLValidator()
+
+	if request.method == 'POST':
+
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["feedname"] = str(feedname)
+		else:
+			try:
+				fields = [
+					'firstname',
+					'lastname',
+					'email',
+					'birthdate',
+					'country',
+					'gender',
+					'feedtitle', # not Checked
+					'description', # not Checked
+					'job', # not Checked
+					'company_name', # not Checked
+					'company_website'
+				]
+
+				profile_data = {}
+				for field in fields:
+					profile_data[field] = request.POST[field].encode("utf-8", "ignore")
+
+				print "firstname = " + profile_data["firstname"]
+
+				FeedUser.objects._validate_firstname(profile_data["firstname"])
+				FeedUser.objects._validate_lastname(profile_data["lastname"])
+				FeedUser.objects._validate_email(profile_data["email"])
+				FeedUser.objects._validate_birthdate(profile_data["birthdate"])
+
+				FeedUser.objects._validate_country(profile_data["country"])
+				FeedUser.objects._validate_gender(profile_data["gender"])
+
+				val(profile_data["company_website"])
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+
+				tmp_user.first_name = profile_data["firstname"]
+				tmp_user.last_name = profile_data["lastname"]
+				tmp_user.email = profile_data["email"]
+				tmp_user.birthdate = datetime.datetime.strptime(profile_data["birthdate"], '%d/%m/%Y').date()
+				tmp_user.country = Country.objects.get(name=profile_data["country"])
+				tmp_user.gender = profile_data["gender"]
+				tmp_user.rss_feed_title = profile_data["feedtitle"]
+				tmp_user.description = profile_data["description"]
+				tmp_user.job = profile_data["job"]
+				tmp_user.company_name = profile_data["company_name"]
+				tmp_user.company_website = profile_data["company_website"]
+
+				tmp_user.save()
+
+				return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
+			except Exception, e:
+				data["status"] = "error"
+				data["error"] = "An error occured in the process: " + str(e)
+				data["feedname"] = feedname
+
+	else:
+		data["status"] = "error"
+		data["error"] = "Only available with a POST Request"
+		data["feedname"] = feedname
+
+	return JsonResponse(data)
 
 def update_password(request, feedname=None):
 

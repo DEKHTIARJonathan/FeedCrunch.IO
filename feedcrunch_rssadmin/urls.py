@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^$', index, name='index'),
 	url(r'^edit_profile/social/$', social_links_edit, name='social_links_edit'),
 	url(r'^edit_profile/password/$', update_password, name='update_password'),
+	url(r'^edit_profile/info/$', update_info, name='update_info'),
 	url(r'^add/ajax/$', add_form_ajax, name='add_ajax'),
 	url(r'^add/$', add_form, name='add'),
 	url(r'^modify/(?P<postID>\d+)/ajax/$', modify_form_ajax, name='modify_ajax'),

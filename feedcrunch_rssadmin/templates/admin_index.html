@@ -14,12 +14,12 @@
 		<div class="container">
 			<ul class="nav nav-tabs">
 				<li class="active col-sm-4 tab_admin"><a href="#infos" data-toggle="tab" class="">Personal Information</a></li>
-				<li class="col-sm-4 tab_admin"><a href="#passlink" data-toggle="tab">Password, Photo and Twitter Link</a></li>
-				<li class="col-sm-4 tab_admin"><a href="#social" data-toggle="tab">Social Links</a></li>
+				<li class="col-md-4 tab_admin"><a href="#passlink" data-toggle="tab">Password, Photo and Twitter Link</a></li>
+				<li class="col-md-4 tab_admin"><a href="#social" data-toggle="tab">Social Links</a></li>
 			</ul>
 			<div class="tab-content" style="margin-top: 50px;">
 				<div class="tab-pane active" id="infos">
-					<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
+					<form action="edit_profile/info/" method="post" autocomplete="off" accept-charset="UTF-8">
 						<div class="col-md-6">
 							<div class="lable-2">
 								<input type="text" name="firstname" class="text" placeholder="First Name" value="{{ user.first_name }}">
