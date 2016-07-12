@@ -57,6 +57,47 @@ def add_form(request, feedname=None):
 	else:
 		return render(request, 'post_form.html')
 
+def update_password(request, feedname=None):
+
+	data = {}
+	data["operation"] = "update_password"
+
+	if request.method == 'POST':
+
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["feedname"] = str(feedname)
+		else:
+			try:
+				password1 = request.POST["password1"]
+				password2 = request.POST["password2"]
+
+				if password1 != password2:
+					raise ValueError("The given passwords are different.")
+				else:
+
+					tmp_user = FeedUser.objects.get(username=request.user.username)
+
+					FeedUser.objects._validate_password(password1)
+
+					tmp_user.set_password(password1)
+					tmp_user.save()
+
+					return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
+			except Exception, e:
+				data["status"] = "error"
+				data["error"] = "An error occured in the process: " + str(e)
+				data["feedname"] = feedname
+
+	else:
+		data["status"] = "error"
+		data["error"] = "Only available with a POST Request"
+		data["feedname"] = feedname
+
+	return JsonResponse(data)
+
 def social_links_edit(request, feedname=None):
 
 	val = URLValidator()
