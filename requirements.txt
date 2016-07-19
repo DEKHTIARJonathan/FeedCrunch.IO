@@ -1,12 +1,12 @@
-awscli==1.10.46
-botocore==1.4.36
+awscli==1.10.47
+botocore==1.4.37
 codeclimate-test-reporter==0.1.2
 colorama==0.3.7
 coverage==4.1
 coveralls==1.1
 dateutils==0.6.6
 dj-database-url==0.4.1
-Django==1.9.7
+Django==1.9.8
 django-dotenv==1.4.1
 django-downloadview==1.9
 django-encrypted-fields==1.1.2
@@ -33,9 +33,9 @@ pydns==2.3.6
 python-dateutil==2.5.3
 python-keyczar==0.716
 python-twitter==3.1
-pytz==2016.4
+pytz==2016.6.1
 requests==2.10.0
-requests-oauthlib==0.6.1
+requests-oauthlib==0.6.2
 rsa==3.4.2
 s3transfer==0.0.1
 six==1.10.0

@@ -10,6 +10,7 @@ from feedcrunch.models import Post, FeedUser, Country
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from .ap_style import format_title
+from .image_validation import get_image_dimensions
 
 import datetime
 
@@ -175,12 +176,59 @@ def update_password(request, feedname=None):
 
 	return JsonResponse(data)
 
-def social_links_edit(request, feedname=None):
+def update_photo(request, feedname=None):
+
+	data = {}
+	data["operation"] = "update_photo"
+
+	if request.method == 'POST':
+
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["feedname"] = str(feedname)
+		else:
+			try:
+				photo = request.FILES['photo']
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+				tmp_user.profile_picture = photo
+
+				allowed_mime_types = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png']
+				if request.FILES['photo'].content_type not in allowed_mime_types:
+					raise ValueError("Only Images are allowed.")
+
+				w, h = get_image_dimensions(request.FILES['photo'].read())
+
+				if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 :
+
+					if request.FILES['photo'].size > 1000000: # > 1MB
+						raise ValueError("File size is larger than 1MB.")
+
+					tmp_user.save()
+				else:
+					raise ValueError("The uploaded image is not valid")
+
+				return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
+			except Exception, e:
+				data["status"] = "error"
+				data["error"] = "An error occured in the process: " + str(e)
+				data["feedname"] = feedname
+
+	else:
+		data["status"] = "error"
+		data["error"] = "Only available with a POST Request"
+		data["feedname"] = feedname
+
+	return JsonResponse(data)
+
+def update_social_links(request, feedname=None):
 
 	val = URLValidator()
 
 	data = {}
-	data["operation"] = "social_links_edit"
+	data["operation"] = "update_social_links"
 
 	if request.method == 'POST':
 
@@ -407,7 +455,6 @@ def modify_form(request, feedname=None, postID=None):
 		except:
 			return HttpResponseRedirect("/@"+feedname+"/admin/modify")
 
-
 def delete_ajax(request, feedname=None):
 
 	data = {}
@@ -446,7 +493,6 @@ def delete_ajax(request, feedname=None):
 		data["postID"] = str(postID)
 
 	return JsonResponse(data)
-
 
 def delete_listing(request, feedname=None):
 
