@@ -49,6 +49,7 @@
 		<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
 		<link href="{% static "css/form.css" %}" rel="stylesheet">
 		<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
+		<link href="{% static "css/tooltip.css" %}" rel="stylesheet">
 
 		{% elif rss_feed_display %}
 
@@ -343,6 +344,24 @@
 
 			{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
 				<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("[rel=tooltip]").tooltip({
+							position: {
+								my: "center bottom-20",
+								at: "center top",
+								using: function( position, feedback ) {
+									$( this ).css( position );
+									$( "<div>" )
+										.addClass( "arrow" )
+										.addClass( feedback.vertical )
+										.addClass( feedback.horizontal )
+										.appendTo( this );
+								}
+							}
+						});
+					});
+				</script>
 			{% elif 'admin/delete' in request.path %}
 				<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
 			{% endif %}
@@ -353,7 +372,7 @@
 		{% elif '@' in request.path %}
 
 			<script src="{% static "js/jquery.fittext.js" %}"></script>
-			<script src="{% static "js/wow.min.js" %}"></script>  <!-- Contact Form JavaScript -->
+			<script src="{% static "js/wow.min.js" %}"></script>	<!-- Contact Form JavaScript -->
 
 			<script src="{% static "js/jqBootstrapValidation.js" %}"></script>
 			<script src="{% static "js/contact_me.js" %}"></script> <!-- Custom Theme JavaScript -->
