@@ -149,8 +149,9 @@
 								</div>
 							</div>
 							<div class="file_form">
-								<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
-									<input type="file" class="filestyle" data-buttonName="btn-primary">
+								<form action="edit_profile/photo/" method="post" autocomplete="off" accept-charset="UTF-8" enctype="multipart/form-data">
+									<span style="text-align:left; margin-bottom:5px; display: block;">Max. Upload Size: 1MB.</span>
+									<input type="file" class="filestyle" name="photo" data-buttonName="btn-primary">
 									{% csrf_token %}
 									{% if next %}
 										<input type="hidden" name="next" value="{{ next }}" />
