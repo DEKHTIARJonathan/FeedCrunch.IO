@@ -11,19 +11,19 @@ def index(request):
 		print "freemium_period may not exists."
 		freemium_period = True
 
-	return render(request, 'home.html', {'free_period': freemium_period})
+	return render(request, 'home.html', {'free_period': freemium_period, 'user_count': FeedUser.objects.count()})
 
 def faq(request):
-	return render(request, 'faq.html')
+	return render(request, 'faq.html', {'user_count': FeedUser.objects.count()})
 
 def contact(request):
-	return render(request, 'contact.html')
+	return render(request, 'contact.html', {'user_count': FeedUser.objects.count()})
 
 def about(request):
-	return render(request, 'about.html')
+	return render(request, 'about.html', {'user_count': FeedUser.objects.count()})
 
 def terms(request):
-	return render(request, 'terms.html')
+	return render(request, 'terms.html', {'user_count': FeedUser.objects.count()})
 
 def loginView(request):
 	context = RequestContext(request)
@@ -45,7 +45,7 @@ def loginView(request):
 		if request.user.is_authenticated():
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
 		else:
-			return render(request, 'login.html')
+			return render(request, 'login.html', {'user_count': FeedUser.objects.count()})
 
 def signUPView(request):
 
@@ -64,7 +64,7 @@ def signUPView(request):
 
 			user = authenticate(username=username, password=password)
 			login(request, user)
-			
+
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
 
 		except Exception, e:
@@ -75,7 +75,7 @@ def signUPView(request):
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
 		else:
 			country_list = Country.objects.all().order_by('name')
-			return render(request, 'signup.html', {'countries': country_list})
+			return render(request, 'signup.html', {'countries': country_list, 'user_count': FeedUser.objects.count()})
 
 #@login_required(login_url='/login/')
 def test(request):

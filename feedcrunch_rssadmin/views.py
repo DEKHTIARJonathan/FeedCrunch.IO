@@ -50,7 +50,7 @@ def index(request, feedname=None):
 
 		country_list = Country.objects.all().order_by('name')
 
-		return render(request, 'admin_index.html', {'auth_url': auth_url, 'countries': country_list})
+		return render(request, 'admin_index.html', {'auth_url': auth_url, 'countries': country_list, 'user_count': FeedUser.objects.count()})
 
 def add_form(request, feedname=None):
 
@@ -58,7 +58,7 @@ def add_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'post_form.html')
+		return render(request, 'post_form.html', {'user_count': FeedUser.objects.count()})
 
 def update_info(request, feedname=None):
 
@@ -436,7 +436,7 @@ def modify_listing(request, feedname=None):
 		return check_passed
 	else:
 		posts = Post.objects.filter(user = feedname).order_by('-id')
-		return render(request, 'listing.html', {'posts': posts})
+		return render(request, 'listing.html', {'posts': posts, 'user_count': FeedUser.objects.count()})
 
 def modify_form(request, feedname=None, postID=None):
 
@@ -450,7 +450,7 @@ def modify_form(request, feedname=None, postID=None):
 	else:
 		try:
 			post = Post.objects.get(id=postID, user=feedname)
-			return render(request, 'post_form.html', {"post": post})
+			return render(request, 'post_form.html', {"post": post, 'user_count': FeedUser.objects.count()})
 
 		except:
 			return HttpResponseRedirect("/@"+feedname+"/admin/modify")
@@ -501,4 +501,4 @@ def delete_listing(request, feedname=None):
 		return check_passed
 	else:
 		posts = Post.objects.filter(user = feedname).order_by('-id')
-		return render(request, 'listing.html', {'posts': posts})
+		return render(request, 'listing.html', {'posts': posts, 'user_count': FeedUser.objects.count()})

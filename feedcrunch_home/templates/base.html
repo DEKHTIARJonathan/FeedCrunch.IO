@@ -251,7 +251,7 @@
 										<div class="form-group">
 											<input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
 										</div>
-
+										<br>
 										<button type="submit" class="btn btn-white-fill">Subscribe </button>
 										<br><br>
 										<p class="text-light"><small>You can unsubscribe at any time.</small></p>
@@ -265,10 +265,16 @@
 		{% endif %}
 
 		<!-- FOOTER -->
-		<footer class="section bg-gray footer">
+		<footer class="section bg-gray footer" style="text-align:left;">
 			<div class="container">
 					<div class="row">
-							<div class="col-md-3 col-sm-6">
+							<div class="col-md-6" style="color:#fff">
+								<h2>{{ user_count }} users registred since July 2016</h2>
+								<p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform on a daily basis.<br><br></p>
+								<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io"  data-size="large">Follow @FeedCrunch_io</a>
+								<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+							</div>
+							<div class="col-md-push-2 col-md-2 col-xs-6">
 									<h5>FeedCrunch.IO</h5>
 									<ul class="list-unstyled">
 											<li><a href="">Home</a></li>
@@ -278,17 +284,7 @@
 									</ul>
 							</div>
 
-							<div class="col-md-3 col-sm-6">
-									<h5>Social</h5>
-									<ul class="list-unstyled">
-											<li><a href="">Facebook</a></li>
-											<li><a href="">Twitter</a></li>
-											<li><a href="">Behance</a></li>
-											<li><a href="">Dribbble</a></li>
-									</ul>
-							</div>
-
-							<div class="col-md-3 col-sm-6">
+							<div class="col-md-push-2 col-md-2 col-xs-6">
 									<h5>Support</h5>
 									<ul class="list-unstyled">
 											<li><a href="/contact">Help &amp; Support</a></li>
@@ -297,22 +293,12 @@
 									</ul>
 							</div>
 
-							<div class="col-md-3 col-sm-6">
-									<h5>Contact</h5>
-									<address>
-											795 Folsom Ave, Suite 600<br>
-											San Franciscoo, CA 94107<br>
-											<abbr title="Phone">P:</abbr> (123) 456-7890<br>
-											E: <a href="mailto:#">contact@feedcrunch.io</a>
-									</address>
-							</div>
-
 					</div> <!-- end row -->
 
 					<div class="row">
 							<div class="col-sm-12">
 									<div class="footer-alt text-center">
-											<p class="text-muted_footer m-b-0">2016 © FeedCrunch.io - <a href="https://www.jonathandekhtiar.eu">Jonathan DEKHTIAR</a></p>
+											<p class="text-muted_footer m-b-0">Developed with <span style="color:red; font-size:1.2em;">♥</span> by <a href="https://www.jonathandekhtiar.eu" style="color:#bdbdbd; text-decoration: underline;">Jonathan DEKHTIAR</a> - 2016 © FeedCrunch.io - </p>
 									</div>
 							</div>
 					</div> <!-- end row -->
