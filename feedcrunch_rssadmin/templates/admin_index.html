@@ -17,9 +17,13 @@
 				<li class="col-md-4 tab_admin"><a href="#passlink" data-toggle="tab">Password, Photo and Twitter Link</a></li>
 				<li class="col-md-4 tab_admin"><a href="#social" data-toggle="tab">Social Links</a></li>
 			</ul>
-			<div class="tab-content" style="margin-top: 50px;">
+			<div class="tab-content">
 				<div class="tab-pane active" id="infos">
 					<form action="edit_profile/info/" method="post" autocomplete="off" accept-charset="UTF-8">
+						<div class="col-md-12" style="padding: 40px 0 20px 0; font-size:1.2em;">
+							Please help us to make the platform fitting at best to you by updating your information.
+							<hr style="border-top: 1px solid #a09e9e; width: 250px;">
+						</div>
 						<div class="col-md-6">
 							<div class="lable-2">
 								<input type="text" name="firstname" class="text" placeholder="First Name" value="{{ user.first_name }}">
@@ -107,6 +111,9 @@
 				</div>
 				<div class="tab-pane" id="passlink">
 					<div class="row" style="margin:25px 0; display: flex; flex-wrap: wrap;">
+						<div class="col-md-12" style="padding: 20px 0;">
+						</div>
+
 						<div class="col-md-4" style="display: flex; flex-direction: column; text-align:center">
 							{% if auth_url %}
 								<a href="{{ auth_url }}" class="btn btn-primary btn-primary twitter_button">
@@ -156,6 +163,10 @@
 				</div>
 				<div class="tab-pane" id="social">
 					<form action="edit_profile/social/" method="post" autocomplete="off" accept-charset="UTF-8">
+						<div class="col-md-12" style="padding: 40px 0 20px 0; font-size:1.2em;">
+							Update the social networks you own in order to display them on your feed homepage.
+							<hr style="border-top: 1px solid #a09e9e; width: 250px;">
+						</div>
 						<div class="col-md-6">
 							<div class="lable-2">
 								<input type="text" name="twitter" class="text" placeholder="Twitter Link" value="{{ user.social_twitter }}">

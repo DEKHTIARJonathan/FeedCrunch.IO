@@ -27,8 +27,8 @@ $(function() {
 			$("#title").val("");
 			$("#link").val("");
 			$("#activated_radio").bootstrapSwitch('state', true);
-			$("#twitter_radio").bootstrapSwitch('state', true);
-			$("#auto_format").bootstrapSwitch('state', true);
+			$("#twitter_radio").bootstrapSwitch('state', false);
+			$("#auto_format").bootstrapSwitch('state', false);
 		  }
 		  else if (data.operation == "modification") {
 			window.location.href = "../";
@@ -44,8 +44,8 @@ $(function() {
 	$("#title").val("");
 	$("#link").val("");
 	$("#activated_radio").bootstrapSwitch('state', true);
-	$("#twitter_radio").bootstrapSwitch('state', true);
-	$("#auto_format").bootstrapSwitch('state', true);
+	$("#twitter_radio").bootstrapSwitch('state', false);
+	$("#auto_format").bootstrapSwitch('state', false);
   });
 });
 
@@ -54,7 +54,7 @@ $(function() {
 	$("#title").val($("#title").data("init"));
 	$("#link").val($("#link").data("init"));
 	$("#activated_radio").bootstrapSwitch('state', $("#activated_radio").data("init"));
-	$("#twitter_radio").bootstrapSwitch('state', true);
-	$("#auto_format").bootstrapSwitch('state', true);
+	$("#twitter_radio").bootstrapSwitch('state', false);
+	$("#auto_format").bootstrapSwitch('state', false);
   });
 });

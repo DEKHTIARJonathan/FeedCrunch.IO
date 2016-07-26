@@ -7,98 +7,106 @@
 	<div class="container" id="admin_container">
 		<div class="jumbotron" style="padding-top:15px; overflow:hidden; height:150px">
 
-		  <h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
-		  <p style="margin-top:-20px">
+			<h1 style="font-size:300%;">RSS Feed's Administration Panel</h1>
+			<p style="margin-top:-20px">
 			<font size='3' >
-			  {% if 'admin/add' in request.path %}
-	  				<br>Please add the article's title and the link in order to add it to the Feed.
-	  				{% elif 'admin/modify' in request.path %}
-	  				<br>Please modify the article's title and the link.
-	  				{% endif %}
+				{% if 'admin/add' in request.path %}
+						<br>Please add the article's title and the link in order to add it to the Feed.
+						{% elif 'admin/modify' in request.path %}
+						<br>Please modify the article's title and the link.
+						{% endif %}
 			</font>
-		  </p>
+			</p>
 
 		</div>
 
 
 		<div role="form">
-		  {% csrf_token %}
-		  {% if next %}
-			  <input type="hidden" name="next" value="{{ next }}" />
-		  {% endif %}
-
-		  {% block post %}
-			{% if post %}
-			  <div class="form-group" style="margin-bottom:35px;">
-				<label for="title">Enter the Article's Title</label>
-				<input data-init="{{ post.title }}" type="title" class="form-control" id="title" placeholder="Enter the Title" value="{{ post.title }}">
-			  </div>
-
-			  <div class="form-group" style="margin-bottom:35px;">
-				<label for="link">Enter the Article's Link</label>
-				<input data-init="{{ post.link }}" type="link" class="form-control" id="link" placeholder="Enter the Link" value="{{ post.link }}">
-			  </div>
-
-			  <div class="row" style="margin-bottom:35px;">
-
-				<div class="form-group col-md-4">
-				  <label for="link" style="margin-right:15px;">Link Visible:</label>
-				  <input data-init="{{ post.activeLink }}" class='switch-checkbox' type="checkbox" id="activated_radio" name="activated_radio" {% if post.activeLink %} checked {% endif %}>
-				</div>
-
-				<div class="form-group col-md-4">
-				  <label for="link" style="margin-right:15px;">Publish on Twitter:</label>
-				  <input class='switch-checkbox' type="checkbox" id="twitter_radio" name="twitter_radio" checked>
-				</div>
-
-				<div class="form-group col-md-4">
-				  <label for="link" style="margin-right:15px;">Title Auto Format:</label>
-				  <input class='switch-checkbox' type="checkbox" id="auto_format" name="auto_format" checked>
-				</div>
-
-			  </div>
-
-			{% else %}
-			  <div class="form-group" style="margin-bottom:35px;">
-				<label for="title">Enter the Article's Title</label>
-				<input type="title" class="form-control" id="title" placeholder="Enter the Title">
-			  </div>
-
-			  <div class="form-group" style="margin-bottom:35px;">
-				<label for="link">Enter the Article's Link</label>
-				<input type="link" class="form-control" id="link" placeholder="Enter the Link">
-			  </div>
-
-			  <div class="row" style="margin-bottom:35px;">
-
-				<div class="form-group col-md-4">
-				  <label for="link" style="margin-right:15px;">Link Visible:</label>
-				  <input class='switch-checkbox' type="checkbox" id="activated_radio" name="activated_radio" checked>
-				</div>
-
-				<div class="form-group col-md-4">
-				  <label for="link" style="margin-right:15px;">Publish on Twitter:</label>
-				  <input class='switch-checkbox' type="checkbox" id="twitter_radio" name="twitter_radio" checked>
-				</div>
-
-				<div class="form-group col-md-4">
-				  <label for="link" style="margin-right:15px;">Title Auto Format:</label>
-				  <input class='switch-checkbox' type="checkbox" id="auto_format" name="auto_format" checked>
-				</div>
-
-			  </div>
+			{% csrf_token %}
+			{% if next %}
+				<input type="hidden" name="next" value="{{ next }}" />
 			{% endif %}
 
-		  {% endblock %}
+			{% block post %}
+			{% if post %}
+				<div class="form-group" style="margin-bottom:35px;">
+				<label for="title">Enter the Article's Title</label>
+				<input data-init="{{ post.title }}" type="title" class="form-control" id="title" placeholder="Enter the Title" value="{{ post.title }}">
+				</div>
+
+				<div class="form-group" style="margin-bottom:35px;">
+				<label for="link">Enter the Article's Link</label>
+				<input data-init="{{ post.link }}" type="link" class="form-control" id="link" placeholder="Enter the Link" value="{{ post.link }}">
+				</div>
+
+				<div class="row" style="margin-bottom:35px;">
+
+				<div class="form-group col-md-4">
+					<label for="link" style="margin-right:15px;">Link Visible:</label>
+					<input data-init="{{ post.activeLink }}" class='switch-checkbox' type="checkbox" id="activated_radio" name="activated_radio" {% if post.activeLink %} checked {% endif %}>
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="link" style="margin-right:15px;">Publish on Twitter:</label>
+					{% if user.is_twitter_enabled %}
+						<input class='switch-checkbox' type="checkbox" id="twitter_radio" name="twitter_radio">
+					{% else %}
+						<input class='switch-checkbox' type="checkbox" id="twitter_radio" name="twitter_radio" readonly="readonly">
+					{% endif %}
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="link" style="margin-right:15px;">Title Auto Format:</label>
+					<input class='switch-checkbox' type="checkbox" id="auto_format" name="auto_format">
+				</div>
+
+				</div>
+
+			{% else %}
+				<div class="form-group" style="margin-bottom:35px;">
+				<label for="title">Enter the Article's Title</label>
+				<input type="title" class="form-control" id="title" placeholder="Enter the Title">
+				</div>
+
+				<div class="form-group" style="margin-bottom:35px;">
+				<label for="link">Enter the Article's Link</label>
+				<input type="link" class="form-control" id="link" placeholder="Enter the Link">
+				</div>
+
+				<div class="row" style="margin-bottom:35px;">
+
+				<div class="form-group col-md-4">
+					<label for="link" style="margin-right:15px;">Link Visible:</label>
+					<input class='switch-checkbox' type="checkbox" id="activated_radio" name="activated_radio" checked>
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="link" style="margin-right:15px;">Publish on Twitter:</label>
+					{% if user.is_twitter_enabled %}
+						<input class='switch-checkbox' type="checkbox" id="twitter_radio" name="twitter_radio">
+					{% else %}
+						<input class='switch-checkbox' type="checkbox" id="twitter_radio" name="twitter_radio" readonly="readonly">
+					{% endif %}
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="link" style="margin-right:15px;">Title Auto Format:</label>
+					<input class='switch-checkbox' type="checkbox" id="auto_format" name="auto_format">
+				</div>
+
+				</div>
+			{% endif %}
+
+			{% endblock %}
 
 
-		  {% if 'admin/add' in request.path %}
-		  <button class="btn btn-danger" id="clear">Clear</button>
-		  {% elif 'admin/modify' in request.path %}
-		  <button class="btn btn-danger" id="reset">Reset</button>
-		  {% endif %}
+			{% if 'admin/add' in request.path %}
+			<button class="btn btn-danger" id="clear">Clear</button>
+			{% elif 'admin/modify' in request.path %}
+			<button class="btn btn-danger" id="reset">Reset</button>
+			{% endif %}
 
-		  <button class="btn btn-primary btn-large" id="submit"><i class="icon-white icon-download-alt"></i> Save My Link !</button>
+			<button class="btn btn-primary btn-large" id="submit"><i class="icon-white icon-download-alt"></i> Save My Link !</button>
 
 		</div>
 
