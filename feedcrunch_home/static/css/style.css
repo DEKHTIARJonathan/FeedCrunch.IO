@@ -685,6 +685,14 @@ input.input-subscribe:-ms-input-placeholder {
 	font-size: 13px;
 }
 
+.developed_by{
+	color:#d7d7d7 !important;
+	text-decoration: none;
+}
+
+.developed_by:hover {
+	text-decoration: underline;;
+}
 
 /* == 12. Other pages CSS === */
 

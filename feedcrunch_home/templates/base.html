@@ -304,7 +304,11 @@
 					<div class="row">
 							<div class="col-sm-12">
 									<div class="footer-alt text-center">
-											<p class="text-muted_footer m-b-0">Developed with <span style="color:red; font-size:1.2em;">♥</span> by <a href="https://www.jonathandekhtiar.eu" style="color:#bdbdbd; text-decoration: underline;">Jonathan DEKHTIAR</a> - 2016 © FeedCrunch.io - </p>
+											<p class="text-muted_footer m-b-0">
+												Developed with <span style="color:red; font-size:1.2em;">♥</span> by
+												<a href="https://www.jonathandekhtiar.eu" class="developed_by">Jonathan DEKHTIAR</a>
+												 - 2016 © FeedCrunch.io -
+											 </p>
 									</div>
 							</div>
 					</div> <!-- end row -->
@@ -322,46 +326,47 @@
 
 		<!--common script for all pages-->
 		<!-- <script src="js/jquery.app.js"></script> -->
-		{% if 'admin' in request.path %}
+		{% if template_name == "admin_index.html" %}
 
-			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/bootstrap-filestyle.min.js" %}"></script>
-
-			<script>
-			$(function() {
-				$("[class='switch-checkbox']").bootstrapSwitch();
-				$(":file").filestyle({buttonName: "btn-primary"});
-			});
-			</script>
-
-			{% if 'admin/add' in request.path or 'admin/modify' in request.path %}
-				<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("[rel=tooltip]").tooltip({
-							position: {
-								my: "center bottom-20",
-								at: "center top",
-								using: function( position, feedback ) {
-									$( this ).css( position );
-									$( "<div>" )
-										.addClass( "arrow" )
-										.addClass( feedback.vertical )
-										.addClass( feedback.horizontal )
-										.appendTo( this );
-								}
-							}
-						});
-					});
-				</script>
-			{% elif 'admin/delete' in request.path %}
-				<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
-			{% endif %}
-
 			<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
 			<script src="{% static "js/datepicker.js" %}"></script>
 
-		{% elif '@' in request.path %}
+		{% elif template_name == "post_form.html" %}
+
+			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
+			<script>
+				$(function() {
+					$("[class='switch-checkbox']").bootstrapSwitch();
+					//$(":file").filestyle({buttonName: "btn-primary"});
+				});
+			</script>
+
+			<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("[rel=tooltip]").tooltip({
+						position: {
+							my: "center bottom-20",
+							at: "center top",
+							using: function( position, feedback ) {
+								$( this ).css( position );
+								$( "<div>" )
+									.addClass( "arrow" )
+									.addClass( feedback.vertical )
+									.addClass( feedback.horizontal )
+									.appendTo( this );
+							}
+						}
+					});
+				});
+			</script>
+
+		{% elif 'admin/delete' in request.path %}
+
+			<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
+
+		{% elif template_name == "rssviewer.html" %}
 
 			<script src="{% static "js/jquery.fittext.js" %}"></script>
 			<script src="{% static "js/wow.min.js" %}"></script>	<!-- Contact Form JavaScript -->
@@ -383,7 +388,7 @@
 			});
 			</script>
 
-		{% elif 'signup' in request.path %}
+		{% elif template_name == "signup.html" %}
 
 			<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
 			<script src="{% static "js/datepicker.js" %}"></script>
