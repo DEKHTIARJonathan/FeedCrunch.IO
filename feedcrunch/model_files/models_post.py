@@ -7,6 +7,7 @@ import re, uuid, datetime
 
 from .models_geo import *
 from .models_user import *
+from .models_tag import *
 
 ############################## ARTICLE MODEL ###################################
 
@@ -18,6 +19,7 @@ class Post(models.Model):
 	when = models.DateTimeField(auto_now_add=True)
 	clicks = models.IntegerField()
 	activeLink = models.BooleanField()
+	tags = models.ManyToManyField(Tag, blank=True, related_name='tag')
 
 	def __unicode__(self):
 		return str(self.id)
@@ -33,3 +35,9 @@ class Post(models.Model):
 			return self.link[starts[1]+1:]
 		else:
 			return str("error")
+
+	def get_tags(self):
+		output = ""
+		for tag in self.tags.all():
+			output += str(tag) + " "
+		return str(output)[:-1] # We remove the last space before returning the value

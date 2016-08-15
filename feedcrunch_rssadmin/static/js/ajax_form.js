@@ -6,6 +6,7 @@ $(function() {
 	  data: {
 		title: $("#title").val(),
 		link: $("#link").val(),
+		tags: $("#tagListField").val(),
 		csrfmiddlewaretoken: $('input[name^=csrfmiddlewaretoken]').val(),
 		activated: $("#activated_radio").bootstrapSwitch('state'),
 		twitter: $("#twitter_radio").bootstrapSwitch('state'),
@@ -26,6 +27,7 @@ $(function() {
 		  if (data.operation == "insert"){
 			$("#title").val("");
 			$("#link").val("");
+			$(".tm-input").tagsManager('empty');
 			$("#activated_radio").bootstrapSwitch('state', true);
 			$("#twitter_radio").bootstrapSwitch('state', false);
 			$("#auto_format").bootstrapSwitch('state', false);

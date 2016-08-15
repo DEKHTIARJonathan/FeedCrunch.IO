@@ -278,7 +278,7 @@
 							<div class="col-md-6" style="color:#fff">
 								<h2>{{ user_count }} users registred since July 2016</h2>
 								<p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform on a daily basis.<br><br></p>
-								<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io"  data-size="large">Follow @FeedCrunch_io</a>
+								<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io"	data-size="large">Follow @FeedCrunch_io</a>
 								<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 							</div>
 							<div class="col-md-push-2 col-md-2 col-xs-6">
@@ -338,6 +338,43 @@
 
 			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/tagmanager.js" %}"></script>
+			<script type="text/javascript">
+				prefilled_data = $("#tagInputField").data("init");
+				if (prefilled_data == "")
+					prefilled_data = null;
+
+				$(".tm-input").tagsManager({
+					prefilled: prefilled_data,
+					CapitalizeFirstLetterOnly: true,
+					delimiters: [9, 13, 32],
+					maxTags: 5,
+					maxTagsBehavior: 'disable',
+					/*
+					Default: [9,13,44] (tab, enter, comma). Delimiters should be numeric ASCII char codes.
+					Please note the following:
+						The following values are handled as key codes:
+							9 (tab),
+							13 (enter),
+							16 (shift),
+							17 (ctrl),
+							18 (alt),
+							19 (pause/break),
+							32 (space)
+							37 (leftarrow),
+							38 (uparrow),
+							39 (rightarrow),
+							40 (downarrow)
+					*/
+					deleteTagsOnBackspace: false,
+					hiddenTagListId: 'tagListField',
+					hiddenTagListName: 'tagListField',
+					tagsContainer: tagContainer,
+					tagCloseIcon: '×',
+					tagClass: '',
+					validator: null,
+					onlyTagList: false
+				});
+			</script>
 
 			<script>
 				$(function() {

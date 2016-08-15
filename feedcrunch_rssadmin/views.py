@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 
 from feedcrunch_home.myutils import myrender as render
 
-from feedcrunch.models import Post, FeedUser, Country
+from feedcrunch.models import Post, FeedUser, Country, Tag
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from .ap_style import format_title
@@ -315,6 +315,7 @@ def add_form_ajax(request, feedname=None):
 
 				title = request.POST['title']
 				link = request.POST['link']
+				tags = request.POST['tags'].split() # We separate each tag and create a list out of it.
 
 				activated_bool = str2bool(request.POST['activated'])
 				twitter_bool = str2bool(request.POST['twitter'])
@@ -330,6 +331,9 @@ def add_form_ajax(request, feedname=None):
 					tmp_user = FeedUser.objects.get(username=request.user.username)
 
 					tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
+					for tag in tags:
+						tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+						tmp_post.tags.add(tmp_obj)
 					tmp_post.save()
 
 					if twitter_bool and tmp_user.is_twitter_enabled():
@@ -383,6 +387,7 @@ def modify_form_ajax(request, feedname=None, postID=None):
 			try:
 				title = request.POST['title']
 				link = request.POST['link']
+				tags = request.POST['tags'].split() # We separate each tag and create a list out of it.
 
 				activated_bool = str2bool(request.POST['activated'])
 				twitter_bool = str2bool(request.POST['twitter'])
@@ -398,6 +403,11 @@ def modify_form_ajax(request, feedname=None, postID=None):
 				post.title = title
 				post.link = link
 				post.activeLink = activated_bool
+				post.tags.clear()
+
+				for tag in tags:
+					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+					post.tags.add(tmp_obj)
 
 				tmp_user = FeedUser.objects.get(username=feedname)
 				if twitter_bool and tmp_user.is_twitter_enabled():
