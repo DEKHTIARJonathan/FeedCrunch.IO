@@ -13,19 +13,19 @@ def index(request):
 		print "freemium_period may not exists."
 		freemium_period = True
 
-	return render(request, 'home.html', {'free_period': freemium_period, 'user_count': FeedUser.objects.count()})
+	return render(request, 'home.html', {'free_period': freemium_period})
 
 def faq(request):
-	return render(request, 'faq.html', {'user_count': FeedUser.objects.count()})
+	return render(request, 'faq.html', {})
 
 def contact(request):
-	return render(request, 'contact.html', {'user_count': FeedUser.objects.count()})
+	return render(request, 'contact.html', {})
 
 def about(request):
-	return render(request, 'about.html', {'user_count': FeedUser.objects.count()})
+	return render(request, 'about.html', {})
 
 def terms(request):
-	return render(request, 'terms.html', {'user_count': FeedUser.objects.count()})
+	return render(request, 'terms.html', {})
 
 def loginView(request):
 	context = RequestContext(request)
@@ -47,7 +47,7 @@ def loginView(request):
 		if request.user.is_authenticated():
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
 		else:
-			return render(request, 'login.html', {'user_count': FeedUser.objects.count()})
+			return render(request, 'login.html', {})
 
 def signUPView(request):
 
@@ -77,7 +77,7 @@ def signUPView(request):
 			return HttpResponseRedirect('/@'+request.user.username+'/admin')
 		else:
 			country_list = Country.objects.all().order_by('name')
-			return render(request, 'signup.html', {'countries': country_list, 'user_count': FeedUser.objects.count()})
+			return render(request, 'signup.html', {'countries': country_list})
 
 #@login_required(login_url='/login/')
 def test(request):

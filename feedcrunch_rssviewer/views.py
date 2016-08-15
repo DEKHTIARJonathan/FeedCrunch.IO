@@ -61,7 +61,7 @@ def index(request, feedname=None):
 	else:
 		posts = Post.objects.filter(user = feedname, activeLink=True).order_by('-id')
 		requested_user = FeedUser.objects.get(username=feedname)
-		return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user, 'user_count': FeedUser.objects.count()})
+		return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user})
 
 def photo(request, feedname=None):
 	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
