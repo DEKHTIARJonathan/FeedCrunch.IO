@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
+
+from feedcrunch_home.myutils import myrender as render
 
 from feedcrunch.models import Post, FeedUser, Country
 from twitter.tw_funcs import TwitterAPI, get_authorization_url

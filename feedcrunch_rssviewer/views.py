@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django_downloadview import BaseDownloadView
+
+from feedcrunch_home.myutils import myrender as render
 
 from feedcrunch.models import Post, FeedUser
 
@@ -51,7 +53,6 @@ class PathDownloadView(BaseDownloadView):
 		mime_type = mime.guess_type(filename)
 		return mime_type[0]
 
-
 def index(request, feedname=None):
 
 	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
@@ -60,7 +61,7 @@ def index(request, feedname=None):
 	else:
 		posts = Post.objects.filter(user = feedname, activeLink=True).order_by('-id')
 		requested_user = FeedUser.objects.get(username=feedname)
-		return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user, 'rss_feed_display': True, 'user_count': FeedUser.objects.count()})
+		return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user, 'user_count': FeedUser.objects.count()})
 
 def photo(request, feedname=None):
 	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
@@ -109,7 +110,6 @@ def search(request, feedname=None):
 
 	result["search_str"] = search_str
 	return JsonResponse(result)
-
 
 def redirect(request, feedname=None, postID=None):
 	if postID == None or feedname == None :

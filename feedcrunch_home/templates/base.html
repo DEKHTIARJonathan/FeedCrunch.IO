@@ -12,7 +12,6 @@
 		<link href="{% static "images/favicon.ico" %}" rel="shortcut icon" >
 		<title>FeedCrunch.IO | RSS Feeds to the next level !</title>
 
-
 		{% if rss_feed_display %}
 			<link href="rss/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/rss+xml"> <!-- RSS Feed 2.0 -->
 			<link href="atom/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/atom+xml"> <!-- ATOM Feed 1.0 -->
@@ -38,51 +37,57 @@
 		<!-- General styles for this template -->
 		<link href="{% static "css/style.css" %}" rel="stylesheet">
 
-		{% if 'login' in request.path %}
+		{% if template_name == "login.html" %}
 
-		<link href="{% static "css/login_panel.css" %}" rel="stylesheet">
+			<link href="{% static "css/login_panel.css" %}" rel="stylesheet">
 
-		{% elif 'admin' in request.path %}
+		{% elif template_name == "admin_index.html" %}
 
-		<link href="{% static "css/admin.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
-		<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
-		<link href="{% static "css/form.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/tooltip.css" %}" rel="stylesheet">
+			<link href="{% static "css/admin.css" %}" rel="stylesheet">
+			<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
+			<link href="{% static "css/form.css" %}" rel="stylesheet">
+			<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
 
-		{% elif rss_feed_display %}
+		{% elif template_name == "listing.html" %}
 
-		<link href="{% static "css/animate.min.css" rel="stylesheet" type="text/css" %}">
-		<link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css">
-		<link href="{% static "css/social_buttons.css" %}" rel="stylesheet" type="text/css">
-		<link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
+			<link href="{% static "css/admin.css" %}" rel="stylesheet">
+			<link href="{% static "css/form.css" %}" rel="stylesheet">
 
-		{% elif 'signup' in request.path %}
+		{% elif template_name == "post_form.html" %}
+			<link href="{% static "css/admin.css" %}" rel="stylesheet">
+			<link href="{% static "css/form.css" %}" rel="stylesheet">
+			<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
+			<link href="{% static "css/tooltip.css" %}" rel="stylesheet">
 
-		<link href="{% static "css/form.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
+		{% elif template_name == "rssviewer.html" %}
 
-		<script type="application/x-javascript">
-			addEventListener("load", function() {
-				 setTimeout(hideURLbar, 0);
-			 }, false);
+			<link href="{% static "css/animate.min.css" rel="stylesheet" type="text/css" %}">
+			<link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css">
+			<link href="{% static "css/social_buttons.css" %}" rel="stylesheet" type="text/css">
+			<link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
+			<link href="{% static "css/arrow.css" %}" rel="stylesheet">
+			<link href="{% static "css/viewer.css" %}" rel="stylesheet">
 
-			 function hideURLbar(){
-				 window.scrollTo(0,1);
-			 }
-		</script>
+		{% elif template_name == "signup.html" %}
+
+			<link href="{% static "css/form.css" %}" rel="stylesheet">
+			<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
+
+			<script type="application/x-javascript">
+				addEventListener("load", function() {
+					 setTimeout(hideURLbar, 0);
+				 }, false);
+
+				 function hideURLbar(){
+					 window.scrollTo(0,1);
+				 }
+			</script>
 
 		{% endif %}
 
 		<!-- Color style -->
 		<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
 		<link href="{% static "css/colors/blue_dark.css" %}" rel="stylesheet" id="color-opt_blue_dark">
-
-		{% if rss_feed_display %}
-		<link href="{% static "css/arrow.css" %}" rel="stylesheet">
-		<link href="{% static "css/viewer.css" %}" rel="stylesheet">
-		{% endif %}
 
 	</head>
 
