@@ -54,10 +54,12 @@
 			<link href="{% static "css/form.css" %}" rel="stylesheet">
 
 		{% elif template_name == "post_form.html" %}
+
 			<link href="{% static "css/admin.css" %}" rel="stylesheet">
 			<link href="{% static "css/form.css" %}" rel="stylesheet">
 			<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
 			<link href="{% static "css/tooltip.css" %}" rel="stylesheet">
+			<link href="{% static "css/tagmanager.css" %}" rel="stylesheet">
 
 		{% elif template_name == "rssviewer.html" %}
 
@@ -335,6 +337,8 @@
 		{% elif template_name == "post_form.html" %}
 
 			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/tagmanager.js" %}"></script>
+
 			<script>
 				$(function() {
 					$("[class='switch-checkbox']").bootstrapSwitch();
