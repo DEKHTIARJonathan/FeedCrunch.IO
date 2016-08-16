@@ -2,7 +2,7 @@ FeedCrunch.IO - DJANGO APP
 ====================
 
 [![Build Status](https://travis-ci.com/DataIsTheNewBlack/FeedCrunch.IO.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=master)](https://travis-ci.com/DataIsTheNewBlack/FeedCrunch.IO)
-[![Dependency Status](https://gemnasium.com/badges/04ce4180e33774ce36e41e22b0942ec1.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedCrunch.IO)
+[![Dependency Status](https://gemnasium.com/badges/github.com/DataIsTheNewBlack/FeedCrunch_Dependencies.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedCrunch_Dependencies)
 [![Code Climate](https://codeclimate.com/repos/5772aa87f97096006f001cb4/badges/7ea6335aee9b44fcdc67/gpa.svg)](https://codeclimate.com/repos/5772aa87f97096006f001cb4/feed)
 [![Test Coverage](https://codeclimate.com/repos/5772aa87f97096006f001cb4/badges/7ea6335aee9b44fcdc67/coverage.svg)](https://codeclimate.com/repos/5772aa87f97096006f001cb4/coverage)
 [![Issue Count](https://codeclimate.com/repos/5772aa87f97096006f001cb4/badges/7ea6335aee9b44fcdc67/issue_count.svg)](https://codeclimate.com/repos/5772aa87f97096006f001cb4/feed)
