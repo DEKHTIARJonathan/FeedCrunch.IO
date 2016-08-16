@@ -25,3 +25,7 @@
 .intro-form input:focus {
   border: 1px solid #12415a;
 }
+
+.newsletter-div {
+    background-color: rgba(18, 65, 90, 0.95) !important;
+}

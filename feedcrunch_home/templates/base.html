@@ -242,13 +242,16 @@
 
 		{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
 		<!-- Subscribe -->
-		<section class="section bg-custom">
+		<section class="newsletter-div section bg-custom">
 			<div class="container">
 
 					<div class="row">
 							<div class="col-sm-12 text-center">
-									<h3 class="title text-white">Be engaged Newsletter</h3>
-									<p class="text-light sub-title">The clean and well commented code allows easy customization of the theme.It's <br> designed for describing your app, agency or business.</p>
+									<h3 class="title text-white">Be engaged and subscribe to the Newsletter</h3>
+									<p class="text-light sub-title" style="padding-top:25px;">
+										You want to keep in touch with the team, get the latest news from the platform and the new features upcoming ?<br>
+										Subscribing to newsletter is the way to keep in touch with us.
+									</p>
 							</div>
 					</div><!-- End row -->
 
@@ -260,8 +263,6 @@
 										</div>
 										<br>
 										<button type="submit" class="btn btn-white-fill">Subscribe </button>
-										<br><br>
-										<p class="text-light"><small>You can unsubscribe at any time.</small></p>
 									</form>
 							</div>
 					</div><!-- End row -->
