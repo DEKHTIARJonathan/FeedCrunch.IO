@@ -27,7 +27,7 @@ $(function() {
 		  if (data.operation == "insert"){
 			$("#title").val("");
 			$("#link").val("");
-			$(".tm-input").tagsManager('empty');
+			$("#tagInputField").tagsManager('empty');
 			$("#activated_radio").bootstrapSwitch('state', true);
 			$("#twitter_radio").bootstrapSwitch('state', false);
 			$("#auto_format").bootstrapSwitch('state', false);
@@ -45,7 +45,7 @@ $(function() {
   $("#clear").click( function(){
 	$("#title").val("");
 	$("#link").val("");
-	$(".tm-input").tagsManager('empty');
+	$("#tagInputField").tagsManager('empty');
 	$("#activated_radio").bootstrapSwitch('state', true);
 	$("#twitter_radio").bootstrapSwitch('state', false);
 	$("#auto_format").bootstrapSwitch('state', false);
@@ -56,8 +56,8 @@ $(function() {
   $("#reset").click( function(){
 	$("#title").val($("#title").data("init"));
 	$("#link").val($("#link").data("init"));
-	$(".tm-input").tagsManager('empty');
-	$(".tm-input").tagsManager('pushTag',$("#tagInputField").data("init"));
+	$("#tagInputField").tagsManager('empty');
+	$("#tagInputField").tagsManager('pushTag',$("#tagInputField").data("init"));
 	$("#activated_radio").bootstrapSwitch('state', $("#activated_radio").data("init"));
 	$("#twitter_radio").bootstrapSwitch('state', false);
 	$("#auto_format").bootstrapSwitch('state', false);
