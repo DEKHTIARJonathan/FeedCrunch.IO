@@ -95,8 +95,6 @@ def update_info(request, feedname=None):
 				for field in fields:
 					profile_data[field] = request.POST[field].encode("utf-8", "ignore")
 
-				print "firstname = " + profile_data["firstname"]
-
 				FeedUser.objects._validate_firstname(profile_data["firstname"])
 				FeedUser.objects._validate_lastname(profile_data["lastname"])
 				FeedUser.objects._validate_email(profile_data["email"])
@@ -309,10 +307,8 @@ def add_form_ajax(request, feedname=None):
 		if check_admin(feedname, request.user) != True:
 			data["status"] = "error"
 			data["error"] = "You are not allowed to perform this action"
-			data["postID"] = str(postID)
 		else:
 			try:
-
 				title = request.POST['title']
 				link = request.POST['link']
 				tags = request.POST['tags'].split() # We separate each tag and create a list out of it.
@@ -325,8 +321,8 @@ def add_form_ajax(request, feedname=None):
 
 				if title == "" or link == "":
 					data["status"] = "error"
-					data["error"] = "Title and/or Link is/are issing"
-					data["postID"] = str(postID)
+					data["error"] = "Title and/or Link is/are missing"
+
 				else:
 					tmp_user = FeedUser.objects.get(username=request.user.username)
 
@@ -342,7 +338,7 @@ def add_form_ajax(request, feedname=None):
 
 							if twitter_instance.connection_status():
 								tmp_post.save()
-								twitter_instance.post_twitter(title, tmp_post.id)
+								twitter_instance.post_twitter(title, tmp_post.id, tags)
 								data["status"] = "success"
 								data["postID"] = str(tmp_post.id)
 
@@ -362,7 +358,6 @@ def add_form_ajax(request, feedname=None):
 	else:
 		data["status"] = "error"
 		data["error"] = "Only available with a POST Request"
-		data["postID"] = str(postID)
 
 	return JsonResponse(data)
 
@@ -416,7 +411,7 @@ def modify_form_ajax(request, feedname=None, postID=None):
 
 						if twitter_instance.connection_status():
 							post.save()
-							twitter_instance.post_twitter(title, postID)
+							twitter_instance.post_twitter(title, postID, tags)
 							data["status"] = "success"
 							data["postID"] = str(postID)
 

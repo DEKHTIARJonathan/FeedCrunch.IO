@@ -9,6 +9,7 @@ class TwitterAPI(object):
 	api = False
 	error = ""
 	maxsize_tweet = 140
+	maxsize_hashtags = 27 # Allow to keep 85 char for the post title (95% of the post length is < 85 chars)
 	length_link = 23
 	baseurl = ""
 
@@ -36,19 +37,40 @@ class TwitterAPI(object):
 		print self.error
 		return bool(self.api)
 
-	def post_twitter(self, title, id):
+	def post_twitter(self, title, id, tag_list=[]):
 
 		if self.api != False:
 
 			try:
-				if len(title) <= self.maxsize_tweet - (self.length_link + 1):
-					self.api.update_status(status=title + ' ' + self.baseurl+str(id))
+				if isinstance(tag_list, list) and tag_list:
+					hashtags = ""
+					for tag in tag_list:
+
+						if len(hashtags) + len(tag) + 1 < self.maxsize_hashtags:
+							hashtags += "#" + tag + " "
+						else:
+							hashtags = hashtags[:-1]
+							break
+
+					if len(title) <= self.maxsize_tweet - (self.length_link + 1 + len(hashtags) + 1):
+						self.api.update_status(status=title + ' ' + hashtags + ' ' + self.baseurl+str(id))
+
+					else:
+						title = title[: self.maxsize_tweet - (self.length_link + 1 + len(hashtags) + 1 + len(" [...]"))]
+						self.api.update_status(status=title + ' [...] ' + hashtags + ' ' + self.baseurl+str(id))
+
+					rslt = {'status':True}
 
 				else:
-					title = title[: self.maxsize_tweet - (self.length_link + 1 + len(" [...]"))]
-					self.api.update_status(status=title + ' [...] ' + self.baseurl+str(id))
 
-				rslt = {'status':True}
+					if len(title) <= self.maxsize_tweet - (self.length_link + 1):
+						self.api.update_status(status=title + ' ' + self.baseurl+str(id))
+
+					else:
+						title = title[: self.maxsize_tweet - (self.length_link + 1 + len(" [...]"))]
+						self.api.update_status(status=title + ' [...] ' + self.baseurl+str(id))
+
+					rslt = {'status':True}
 
 			except:
 				rslt = {'status':False, 'error': sys.exc_info()[0]}
