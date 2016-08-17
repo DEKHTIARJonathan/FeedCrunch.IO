@@ -345,12 +345,20 @@
 
 			<script type="text/javascript">
 
+				ajaxURL = ""
+				if (window.location.pathname.slice(-4) == "add/"){
+					ajaxURL = '../tags/json/'
+				}
+				else {
+					ajaxURL = '../../tags/json/'
+				}
+
 				var tags = new Bloodhound({
 					datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
 					queryTokenizer: Bloodhound.tokenizers.whitespace,
 					limit: 10,
 					prefetch: {
-						url: '../tags/json/',
+						url: ajaxURL,
 						filter: function (list) {
 							return $.map(list.tags, function (tag) { return { name: tag }; });
 						},
