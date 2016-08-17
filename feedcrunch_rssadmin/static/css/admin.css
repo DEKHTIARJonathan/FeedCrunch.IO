@@ -123,3 +123,10 @@ th {
 	color:#555;
 	text-decoration: underline;
 }
+
+.twitter-typeahead{
+     width: 100%;
+}
+.tt-dropdown-menu{
+    width: 100%;
+}

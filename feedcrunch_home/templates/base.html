@@ -60,6 +60,7 @@
 			<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
 			<link href="{% static "css/tooltip.css" %}" rel="stylesheet">
 			<link href="{% static "css/tagmanager.css" %}" rel="stylesheet">
+			<link href="{% static "css/typeaheadjs.css" %}" rel="stylesheet">
 
 		{% elif template_name == "rssviewer.html" %}
 
@@ -339,12 +340,29 @@
 
 			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/tagmanager.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/typeahead.bundle.min.js" %}"></script>
 			<script type="text/javascript">
+
+				var tags = new Bloodhound({
+					datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+					queryTokenizer: Bloodhound.tokenizers.whitespace,
+					limit: 10,
+					prefetch: {
+						url: '../tags/json/',
+						filter: function (list) {
+							return $.map(list.tags, function (tag) { return { name: tag }; });
+						},
+						cache: false //NEW!
+					}
+				});
+
+				tags.initialize();
+
 				prefilled_data = $("#tagInputField").data("init");
 				if (prefilled_data == "")
 					prefilled_data = null;
 
-				$(".tm-input").tagsManager({
+				var tagApi = jQuery(".tm-input").tagsManager({
 					prefilled: prefilled_data,
 					CapitalizeFirstLetterOnly: true,
 					delimiters: [9, 13, 32],
@@ -375,12 +393,27 @@
 					validator: null,
 					onlyTagList: false
 				});
+
+
+				tagApi.typeahead(null, {
+					name: 'tags',
+					displayKey: 'name',
+					source: tags.ttAdapter(),
+					autoselect: true,
+				}).on('typeahead:selected', function (e, d) {
+					tagApi.tagsManager("pushTag", d.name);
+					$('.typeahead').typeahead('close');
+					$(this).typeahead("val", "");
+					$(this).typeahead('setQuery', '');
+				}).bind('typeahead:render', function(e) {
+					$('#tagInputField').parent().find('.tt-selectable:first').addClass('tt-cursor');
+				});
+
 			</script>
 
 			<script>
 				$(function() {
 					$("[class='switch-checkbox']").bootstrapSwitch();
-					//$(":file").filestyle({buttonName: "btn-primary"});
 				});
 			</script>
 
@@ -403,6 +436,8 @@
 					});
 				});
 			</script>
+
+
 
 		{% elif 'admin/delete' in request.path %}
 

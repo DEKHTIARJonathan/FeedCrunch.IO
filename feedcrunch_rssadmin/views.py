@@ -135,6 +135,28 @@ def update_info(request, feedname=None):
 
 	return JsonResponse(data)
 
+def tags_ajax_json(request, feedname=None):
+	data = {}
+	data["operation"] = "get_tags"
+
+	if request.method == 'GET':
+
+		if check_admin(feedname, request.user) != True:
+			data["status"] = "error"
+			data["error"] = "You are not allowed to perform this action"
+			data["feedname"] = str(feedname)
+
+		else:
+			tags = Tag.objects.all().order_by('name')
+			data["tags"] = [tag.name for tag in tags]
+
+	else:
+		data["status"] = "error"
+		data["error"] = "Only available with a GET Request"
+		data["feedname"] = feedname
+
+	return JsonResponse(data, safe=False)
+
 def update_password(request, feedname=None):
 
 	data = {}

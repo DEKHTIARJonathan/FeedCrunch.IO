@@ -18,4 +18,5 @@ urlpatterns = [
 	url(r'^modify/$', modify_listing, name='modify_listing'),
 	url(r'^delete/ajax/$', delete_ajax, name='delete_ajax'),
 	url(r'^delete/$', delete_listing, name='delete_listing'),
+	url(r'^tags/json/$', tags_ajax_json, name='add_ajax'),
 ]
