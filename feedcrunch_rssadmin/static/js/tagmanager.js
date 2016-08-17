@@ -31,7 +31,7 @@
 		delimiters: [9, 13, 44],		// tab, enter, comma
 		backspace: [8],
 		maxTags: 0,
-		maxTagsBehavior: 'hide', // 'hide' or 'disable'
+		maxTagsBehavior: 'hide', // 'hide' or 'disable' or false
 		hiddenTagListName: null,		// deprecated
 		hiddenTagListId: null,
 		replace: true,
@@ -244,6 +244,7 @@
 
 			if (opts.maxTags > 0 && tlis.length < opts.maxTags) {
 
+				$self.val('')
 
 				if (opts.maxTagsBehavior != 'hide'){
 					$self.prop('disabled', false);
@@ -257,10 +258,10 @@
 
 			if (opts.maxTags > 0 && tlis.length >= opts.maxTags) {
 
-				if (opts.maxTagsBehavior != 'hide'){
+				if (opts.maxTagsBehavior == 'disable'){
 					$self.prop('disabled', true);
 				}
-				else {
+				else if (opts.maxTagsBehavior == 'hide') {
 					$self.hide();
 				}
 

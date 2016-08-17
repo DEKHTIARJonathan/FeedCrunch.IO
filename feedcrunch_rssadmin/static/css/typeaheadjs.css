@@ -91,3 +91,7 @@ span.twitter-typeahead {
 .input-group.input-group-lg span.twitter-typeahead .tt-dropdown-menu {
   top: 46px !important;
 }
+
+.form-control[disabled] {
+    background-color: #eee !important;
+}

@@ -340,7 +340,9 @@
 
 			<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/tagmanager.js" %}"></script>
-			<script type="text/javascript" src="{% static "js/typeahead.bundle.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/typeahead.bundle.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
+
 			<script type="text/javascript">
 
 				var tags = new Bloodhound({
@@ -358,14 +360,31 @@
 
 				tags.initialize();
 
+				var tagApi = jQuery(".tm-input").typeahead(null, {
+					name: 'tags',
+					displayKey: 'name',
+					source: tags.ttAdapter(),
+					autoselect: true,
+				}).on('typeahead:autocompleted', function (e, datum) {
+					console.log('selected');
+					console.log(datum);
+				}).on('typeahead:selected', function (e, d) {
+					tagApi.tagsManager("pushTag", d.name);
+					tagApi.typeahead('close');
+					tagApi.typeahead("val", '');
+					tagApi.typeahead('setQuery', '');
+				}).bind('typeahead:render', function(e) {
+					$('#tagInputField').parent().find('.tt-selectable:first').addClass('tt-cursor');
+				});
+
 				prefilled_data = $("#tagInputField").data("init");
 				if (prefilled_data == "")
 					prefilled_data = null;
 
-				var tagApi = jQuery(".tm-input").tagsManager({
+				tagApi.tagsManager({
 					prefilled: prefilled_data,
 					CapitalizeFirstLetterOnly: true,
-					delimiters: [9, 13, 32],
+					delimiters: [13, 32],
 					maxTags: 5,
 					maxTagsBehavior: 'disable',
 					/*
@@ -392,33 +411,21 @@
 					tagClass: '',
 					validator: null,
 					onlyTagList: false
+				}).on('keyup', this, function (event) {
+					if (event.keyCode == 13) {
+						if ($('#tagInputField').parent().find('.tt-selectable:first').length == 0){
+							tagApi.tagsManager("pushTag", $('#tagInputField').val());
+						}
+					}
+				}).on('tm:hide', function(e, taglist) {
+					tagApi.typeahead("val", '');
+					tagApi.typeahead('setQuery', '');
 				});
 
-
-				tagApi.typeahead(null, {
-					name: 'tags',
-					displayKey: 'name',
-					source: tags.ttAdapter(),
-					autoselect: true,
-				}).on('typeahead:selected', function (e, d) {
-					tagApi.tagsManager("pushTag", d.name);
-					$('.typeahead').typeahead('close');
-					$(this).typeahead("val", "");
-					$(this).typeahead('setQuery', '');
-				}).bind('typeahead:render', function(e) {
-					$('#tagInputField').parent().find('.tt-selectable:first').addClass('tt-cursor');
-				});
-
-			</script>
-
-			<script>
 				$(function() {
 					$("[class='switch-checkbox']").bootstrapSwitch();
 				});
-			</script>
 
-			<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
-			<script type="text/javascript">
 				$(document).ready(function(){
 					$("[rel=tooltip]").tooltip({
 						position: {
@@ -436,8 +443,6 @@
 					});
 				});
 			</script>
-
-
 
 		{% elif 'admin/delete' in request.path %}
 
