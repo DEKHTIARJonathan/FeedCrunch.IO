@@ -19,7 +19,7 @@ class Post(models.Model):
 	when = models.DateTimeField(auto_now_add=True)
 	clicks = models.IntegerField()
 	activeLink = models.BooleanField()
-	tags = models.ManyToManyField(Tag, blank=True, related_name='tag')
+	tags = models.ManyToManyField(Tag, blank=True, related_name='rel_posts')
 
 	def __unicode__(self):
 		return str(self.id)
