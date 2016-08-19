@@ -360,9 +360,17 @@ def add_form_ajax(request, feedname=None):
 
 							if twitter_instance.connection_status():
 								tmp_post.save()
-								twitter_instance.post_twitter(title, tmp_post.id, tags)
-								data["status"] = "success"
-								data["postID"] = str(tmp_post.id)
+
+								tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+
+								if not tw_rslt['status']:
+									data["status"] = "error"
+									data["postID"] = str(tmp_post.id)
+									data["error"] = "An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error']
+
+								else:
+									data["status"] = "success"
+									data["postID"] = str(tmp_post.id)
 
 							else:
 								raise Exception("Not connected to the Twitter API")
@@ -415,16 +423,16 @@ def modify_form_ajax(request, feedname=None, postID=None):
 				if title == "" or link == "":
 					raise Exception("Data Missing")
 
-				post = Post.objects.get(id=postID, user=feedname)
+				tmp_post = Post.objects.get(id=postID, user=feedname)
 
-				post.title = title
-				post.link = link
-				post.activeLink = activated_bool
-				post.tags.clear()
+				tmp_post.title = title
+				tmp_post.link = link
+				tmp_post.activeLink = activated_bool
+				tmp_post.tags.clear()
 
 				for tag in tags:
 					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-					post.tags.add(tmp_obj)
+					tmp_post.tags.add(tmp_obj)
 
 				tmp_user = FeedUser.objects.get(username=feedname)
 				if twitter_bool and tmp_user.is_twitter_enabled():
@@ -432,16 +440,24 @@ def modify_form_ajax(request, feedname=None, postID=None):
 						twitter_instance = TwitterAPI(tmp_user)
 
 						if twitter_instance.connection_status():
-							post.save()
-							twitter_instance.post_twitter(title, postID, tags)
-							data["status"] = "success"
-							data["postID"] = str(postID)
+							tmp_post.save()
+
+							tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+
+							if not tw_rslt['status']:
+								data["status"] = "error"
+								data["postID"] = str(tmp_post.id)
+								data["error"] = "An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error']
+
+							else:
+								data["status"] = "success"
+								data["postID"] = str(tmp_post.id)
 
 						else:
 							raise Exception("Not connected to the Twitter API")
 
 				else:
-					post.save()
+					tmp_post.save()
 					data["status"] = "success"
 					data["postID"] = str(postID)
 
