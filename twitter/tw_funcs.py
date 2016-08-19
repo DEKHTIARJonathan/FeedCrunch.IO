@@ -37,40 +37,72 @@ class TwitterAPI(object):
 		print self.error
 		return bool(self.api)
 
+	def get_hashtags_strings(self, tags, max_length = -1):
+
+		if max_length < self.maxsize_hashtags:
+			max_length = self.maxsize_hashtags
+
+		hashtags = ""
+
+		for tag in tag_list:
+
+			tag = str(tag)
+
+			if len(hashtags) + len(tag) + 1 < max_length:
+				hashtags += "#" + tag + " "
+
+			else:
+				hashtags = hashtags[:-1]
+				break
+
+		return hashtags
+
 	def post_twitter(self, title, id, tag_list=[]):
 
 		if self.api != False:
 
 			try:
-				if isinstance(tag_list, list) and tag_list:
-					hashtags = ""
-					for tag in tag_list:
+				if isinstance(tag_list, list):
 
-						if len(hashtags) + len(tag) + 1 < self.maxsize_hashtags:
-							hashtags += "#" + tag + " "
+					if tag_list: #  if tag_list is not empty
+
+						if len(title) < self.maxsize_tweet - self.length_link - self.maxsize_hashtags - 2: # we count two white space needed
+
+							# Title doesn't need to be modified, hashtags can be extended over the limit maxsize_hashtags but not over self.maxsize_tweet - self.length_link - len(title) - 2
+
+							hashtags = self.get_hashtags_strings(tags, self.maxsize_tweet - self.length_link - len(title) - 2)
+
 						else:
-							hashtags = hashtags[:-1]
-							break
 
-					if len(title) <= self.maxsize_tweet - (self.length_link + 1 + len(hashtags) + 1):
-						self.api.update_status(status=title + ' ' + hashtags + ' ' + self.baseurl+str(id))
+							hashtags = self.get_hashtags_strings(tags)
 
-					else:
-						title = title[: self.maxsize_tweet - (self.length_link + 1 + len(hashtags) + 1 + len(" [...]"))]
-						self.api.update_status(status=title + ' [...] ' + hashtags + ' ' + self.baseurl+str(id))
+							if len(title) > self.maxsize_tweet - (self.length_link + len(hashtags) + 2):
+
+								# title need to be cutted accorded to the actual size of the hashtags
+								title = title[: self.maxsize_tweet - (self.length_link + len("[...]") + len(hashtags) + 3)] + " [...]" # 3 white space needed in total
+
+							# else the title doesn't need to be modified
+
+						status = title + ' ' + hashtags + ' ' + self.baseurl+str(id)
+
+					else: # no hashtags precised
+
+						if len(title) > self.maxsize_tweet - (self.length_link + 1):
+
+							# title need to be cut : title = title[:140 - self.length_link - len("[…]")  - 2]
+
+							title = title[: self.maxsize_tweet - (self.length_link + len("[...]" + 2))] + " [...]"
+
+						# else nothing need to be changed at all !
+
+						status = title + " "  + self.baseurl+str(id)
+
+					self.api.update_status(status=status)
 
 					rslt = {'status':True}
 
 				else:
-
-					if len(title) <= self.maxsize_tweet - (self.length_link + 1):
-						self.api.update_status(status=title + ' ' + self.baseurl+str(id))
-
-					else:
-						title = title[: self.maxsize_tweet - (self.length_link + 1 + len(" [...]"))]
-						self.api.update_status(status=title + ' [...] ' + self.baseurl+str(id))
-
-					rslt = {'status':True}
+					raise ValueError("The Parameter 'tag_list' is not a list")
 
 			except:
 				rslt = {'status':False, 'error': sys.exc_info()[0]}
