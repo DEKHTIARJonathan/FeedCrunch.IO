@@ -71,7 +71,7 @@ class TwitterAPI(object):
 
 						else:
 
-							hashtags = self.get_hashtags_strings(tags)
+							hashtags = self.get_hashtags_strings(tag_list)
 
 							if len(title) > self.maxsize_tweet - (self.length_link + len(hashtags) + 2):
 
