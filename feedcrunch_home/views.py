@@ -57,14 +57,14 @@ def signUPView(request):
 
 	if request.method == 'POST':
 		try:
-			username = request.POST['username'].encode('utf-8')
-			firstname = request.POST['firstname'].encode('utf-8')
-			lastname = request.POST['lastname'].encode('utf-8')
-			email = request.POST['email'].encode('utf-8')
-			gender = request.POST['gender'].encode('utf-8')
-			country = request.POST['country'].encode('utf-8')
-			password = request.POST['password'].encode('utf-8')
-			birthdate = request.POST['birthdate'].encode('utf-8')
+			username = request.POST['username']
+			firstname = request.POST['firstname']
+			lastname = request.POST['lastname']
+			email = request.POST['email']
+			gender = request.POST['gender']
+			country = request.POST['country']
+			password = request.POST['password']
+			birthdate = request.POST['birthdate']
 
 			tmp_usr = FeedUser.objects.create_user(username, email, password, firstname, lastname, country, gender, birthdate)
 
