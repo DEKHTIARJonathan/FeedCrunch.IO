@@ -1975,5 +1975,40 @@
 	  "code": "ZW",
 	  "continent": "Africa"
    }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "freemium_period",
+   "fields": {
+      "value": "True"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "mailchimp_client_id",
+   "fields": {
+      "value": "############"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "mailchimp_client_secret",
+   "fields": {
+      "value": "################################"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "twitter_consumer_key",
+   "fields": {
+	  "value": "#########################"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "twitter_consumer_secret",
+   "fields": {
+      "value": "##################################################"
+   }
 }
 ]
