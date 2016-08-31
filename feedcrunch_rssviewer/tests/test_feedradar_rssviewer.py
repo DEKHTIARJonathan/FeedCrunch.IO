@@ -1,4 +1,7 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 from feedcrunch.models import Post

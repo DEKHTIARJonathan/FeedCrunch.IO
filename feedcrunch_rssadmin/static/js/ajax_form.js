@@ -3,6 +3,8 @@ $(function() {
 	$.ajax({
 	  url : "ajax/",
 	  type : "POST",
+	  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+	  dataType : "json",
 	  data: {
 		title: $("#title").val(),
 		link: $("#link").val(),
@@ -12,8 +14,6 @@ $(function() {
 		twitter: $("#twitter_radio").bootstrapSwitch('state'),
 		autoformat: $("#auto_format").bootstrapSwitch('state')
 	  },
-	  dataType : "json",
-
 	  success: function(data){
 		if (data.status != "success") {
 		   $("#resultatUpload").attr('class', 'alert alert-warning show');

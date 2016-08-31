@@ -1,4 +1,7 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect
@@ -15,7 +18,7 @@ from .ap_style import format_title
 from .image_validation import get_image_dimensions
 
 import datetime
-
+import unicodedata
 import json
 
 def check_admin(feedname, user):
@@ -331,9 +334,9 @@ def add_form_ajax(request, feedname=None):
 			data["error"] = "You are not allowed to perform this action"
 		else:
 			try:
-				title = request.POST['title']
-				link = request.POST['link']
-				tags = request.POST['tags'].split() # We separate each tag and create a list out of it.
+				title = unicodedata.normalize('NFC', request.POST['title'])
+				link = unicodedata.normalize('NFC', request.POST['link'])
+				tags = unicodedata.normalize('NFC', request.POST['tags']).split() # We separate each tag and create a list out of it.
 
 				activated_bool = str2bool(request.POST['activated'])
 				twitter_bool = str2bool(request.POST['twitter'])

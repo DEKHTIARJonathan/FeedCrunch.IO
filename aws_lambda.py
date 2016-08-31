@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
 '''
 Follow these steps to configure the webhook in Slack:
 
@@ -63,7 +68,7 @@ def pretty(d, indent=0):
 			data += pretty(value, indent+1)
 		else:
 			data += '\t' * (indent+1) + str(value) + " "
-			
+
 	return data
 
 logger = logging.getLogger()
@@ -72,10 +77,10 @@ logger.setLevel(logging.INFO)
 
 def lambda_handler(event, context):
 	logger.info(pretty(event))
-	
+
 	data = event['Records'][0]['Sns']
 	message = json.loads(data['Message'])
-	
+
 	logger.info(pretty(data))
 
 	timestamp = message['createTime']

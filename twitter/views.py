@@ -1,5 +1,7 @@
-# Create your views here.
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 

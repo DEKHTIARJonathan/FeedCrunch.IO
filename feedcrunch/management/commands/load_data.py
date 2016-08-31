@@ -1,4 +1,7 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
 from django.core.management.base import BaseCommand, CommandError
 from feedcrunch.models import *
 from application.settings import *

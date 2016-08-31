@@ -1,6 +1,9 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-######### https://github.com/django/django/blob/master/django/contrib/auth/models.py
+
 from __future__ import unicode_literals
+######### https://github.com/django/django/blob/master/django/contrib/auth/models.py
+
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User, UserManager, PermissionsMixin, AbstractUser

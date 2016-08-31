@@ -1,4 +1,8 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
 from feedcrunch.models import *
 from feedcrunch.model_files.models_options import *
 from twython import Twython
@@ -43,8 +47,6 @@ class TwitterAPI(object):
 
 		for tag in tag_list:
 
-			tag = str(tag)
-
 			if len(hashtags) + len(tag) + 1 < max(max_length,self.maxsize_hashtags):
 				hashtags += "#" + tag + " "
 
@@ -55,9 +57,8 @@ class TwitterAPI(object):
 		return hashtags
 
 	def post_twitter(self, title, id, tag_list=[]):
-		print "start posting"
-		if self.api != False:
 
+		if self.api != False:
 			try:
 				if isinstance(tag_list, list):
 
@@ -66,7 +67,6 @@ class TwitterAPI(object):
 						if len(title) < self.maxsize_tweet - self.length_link - self.maxsize_hashtags - 2: # we count two white space needed
 
 							# Title doesn't need to be modified, hashtags can be extended over the limit maxsize_hashtags but not over self.maxsize_tweet - self.length_link - len(title) - 2
-
 							hashtags = self.get_hashtags_strings(tag_list, self.maxsize_tweet - self.length_link - len(title) - 2)
 
 						else:
@@ -81,7 +81,7 @@ class TwitterAPI(object):
 							# else the title doesn't need to be modified
 
 						status = title + ' ' + hashtags + ' ' + self.baseurl+str(id)
-
+						
 					else: # no hashtags precised
 
 						if len(title) > self.maxsize_tweet - (self.length_link + 1):
@@ -95,7 +95,6 @@ class TwitterAPI(object):
 						status = title + " "  + self.baseurl+str(id)
 
 					self.api.update_status(status=status)
-					print "end posting"
 					rslt = {'status':True}
 
 				else:

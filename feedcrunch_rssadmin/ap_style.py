@@ -6,7 +6,8 @@ def format_title(title):
 
 	if type(title) is unicode:
 		title = title.replace("\u2013", "-") #en dash
-		title = title.encode('utf-8','ignore')
+		#title = title.replace("\u00e0", "à") #en dash
+		title = title.encode('utf-8')
 
 	if type(title) is str:
 		title = title.replace("–", "-") #en dash
@@ -24,7 +25,9 @@ def format_title(title):
 
 		rslt = re.sub(' +',' ',rslt)
 
-		return rslt[0].capitalize()+rslt[1:]
+		output = rslt[0].capitalize()+rslt[1:]
+
+		return output.decode(encoding='UTF-8')
 
 	else:
 		raise ValueError("This datatype ( "+ type(title) +" ) is not handled by the application.")
