@@ -96,7 +96,7 @@ def update_info(request, feedname=None):
 
 				profile_data = {}
 				for field in fields:
-					profile_data[field] = request.POST[field].encode("utf-8", "ignore")
+					profile_data[field] = request.POST[field]
 
 				FeedUser.objects._validate_firstname(profile_data["firstname"])
 				FeedUser.objects._validate_lastname(profile_data["lastname"])
