@@ -81,7 +81,7 @@ class TwitterAPI(object):
 							# else the title doesn't need to be modified
 
 						status = title + ' ' + hashtags + ' ' + self.baseurl+str(id)
-						
+
 					else: # no hashtags precised
 
 						if len(title) > self.maxsize_tweet - (self.length_link + 1):
@@ -169,11 +169,11 @@ def get_authorized_tokens(oauth_verifier, token, token_secret):
 		api = Twython(twitter_consumer_key, twitter_consumer_secret, token, token_secret)
 
 		try:
-			final_step = twitter.get_authorized_tokens(oauth_verifier)
+			final_step = api.get_authorized_tokens(oauth_verifier)
 			return {'status':True, 'tokens': final_step}
 
-		except:
-			return {'status':False, 'error':'Error! Failed to get access token.'}
+		except Exception, e:
+			return {'status':False, 'error':'Error! Failed to get access token: ' + str(e)}
 
 	except Exception, e:
 		return {'status':False, 'error': str(e)}
