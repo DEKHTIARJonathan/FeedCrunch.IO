@@ -96,7 +96,7 @@ def update_info(request, feedname=None):
 
 				profile_data = {}
 				for field in fields:
-					profile_data[field] = request.POST[field]
+					profile_data[field] = unicodedata.normalize('NFC', request.POST[field])
 
 				FeedUser.objects._validate_firstname(profile_data["firstname"])
 				FeedUser.objects._validate_lastname(profile_data["lastname"])
@@ -173,8 +173,8 @@ def update_password(request, feedname=None):
 			data["feedname"] = str(feedname)
 		else:
 			try:
-				password1 = request.POST["password1"]
-				password2 = request.POST["password2"]
+				password1 = unicodedata.normalize('NFC', request.POST["password1"])
+				password2 = unicodedata.normalize('NFC', request.POST["password2"])
 
 				if password1 != password2:
 					raise ValueError("The given passwords are different.")
@@ -283,7 +283,7 @@ def update_social_links(request, feedname=None):
 
 				social_data = {}
 				for social in social_networks:
-					url = request.POST[social]
+					url = unicodedata.normalize('NFC', request.POST[social])
 					if url != '':
 						val(url) #Raise a ValidationError if the URL is invalid.
 					social_data[social] = url
@@ -338,10 +338,10 @@ def add_form_ajax(request, feedname=None):
 				link = unicodedata.normalize('NFC', request.POST['link'])
 				tags = unicodedata.normalize('NFC', request.POST['tags']).split() # We separate each tag and create a list out of it.
 
-				activated_bool = str2bool(request.POST['activated'])
-				twitter_bool = str2bool(request.POST['twitter'])
+				activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
+				twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
 
-				if str2bool(request.POST['autoformat']) :
+				if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
 					title = format_title(title)
 
 				if title == "" or link == "":
@@ -350,12 +350,12 @@ def add_form_ajax(request, feedname=None):
 
 				else:
 					tmp_user = FeedUser.objects.get(username=request.user.username)
-
 					tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
 					for tag in tags:
 						tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
 						tmp_post.tags.add(tmp_obj)
 					tmp_post.save()
+
 
 					if twitter_bool and tmp_user.is_twitter_enabled():
 
@@ -413,14 +413,14 @@ def modify_form_ajax(request, feedname=None, postID=None):
 
 		else:
 			try:
-				title = request.POST['title']
-				link = request.POST['link']
-				tags = request.POST['tags'].split() # We separate each tag and create a list out of it.
+				title = unicodedata.normalize('NFC', request.POST['title'])
+				link = unicodedata.normalize('NFC', request.POST['link'])
+				tags = unicodedata.normalize('NFC', request.POST['tags']).split() # We separate each tag and create a list out of it.
 
-				activated_bool = str2bool(request.POST['activated'])
-				twitter_bool = str2bool(request.POST['twitter'])
+				activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
+				twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
 
-				if str2bool(request.POST['autoformat']) :
+				if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
 					title = format_title(title)
 
 				if title == "" or link == "":
@@ -516,7 +516,7 @@ def delete_ajax(request, feedname=None):
 			data["postID"] = str(postID)
 		else:
 			try:
-				postID = int(request.POST['postID'])
+				postID = int(unicodedata.normalize('NFC', request.POST['postID']))
 
 				if type(postID) is not int or postID < 1:
 					data["status"] = "error"
