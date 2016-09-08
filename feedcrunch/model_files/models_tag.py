@@ -7,7 +7,7 @@ from django.db import models
 ############################## TAG MODEL ###################################
 
 class Tag(models.Model):
-	name = models.CharField(max_length=20, primary_key=True)
+	name = models.CharField(max_length=30, primary_key=True)
 
 	def __unicode__(self):
 		return self.name
