@@ -278,7 +278,11 @@
 			<div class="container">
 					<div class="row">
 							<div class="col-md-6" style="color:#fff">
-								<h2>{{ user_count }} users registred since July 2016</h2>
+								{% if display_user_count %}
+									<h2>{{ user_count }} users registred since July 2016</h2>
+								{% else %}
+									<h2>{{ post_count }} articles posted since July 2016</h2>
+								{% endif %}
 								<p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform on a daily basis.<br><br></p>
 								<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io"	data-size="large">Follow @FeedCrunch_io</a>
 								<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
