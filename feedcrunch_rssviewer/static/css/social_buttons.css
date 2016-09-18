@@ -620,6 +620,41 @@ a.git-big:before {
     background: url("../images/social_ico/git.png") no-repeat center center;
 }
 
+a.gscholar-small,
+a.gscholar-big {
+    -webkit-box-shadow: 0px 6px 0px #1b4282;
+    -moz-box-shadow: 0px 6px 0px #1b4282;
+    box-shadow: 0px 6px 0px #1b4282;
+    position: relative;
+}
+
+a.gscholar-small {
+    background: #357df3 url("../images/social_ico/gscholar.png") no-repeat center center;
+}
+
+a.gscholar-big {
+    background: #357df3;
+}
+
+a.gscholar-small:hover{
+	background: RGB(53, 164, 243) url("../images/social_ico/gscholar.png") no-repeat center center;
+}
+
+a.gscholar-big:hover {
+    background: RGB(53, 164, 243);
+}
+
+a.gscholar-small:active,
+a.gscholar-big:active {
+    -webkit-box-shadow: 0px 2px 0px #1b4282;
+    -moz-box-shadow: 0px 2px 0px #1b4282;
+    box-shadow: 0px 2px 0px #1b4282;
+}
+
+a.gscholar-big:before {
+    background: url("../images/social_ico/gscholar.png") no-repeat center center;
+}
+
 a.button:before{
 	content: "";
 	width: 30px;

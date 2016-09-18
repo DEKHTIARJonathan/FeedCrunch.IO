@@ -114,6 +114,9 @@
 					{% if requested_user.social_blog %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_blog }}" target="_blank" class="button blog-big">Personal Blog</a></li>
 					{% endif %}
+					{% if requested_user.social_google_scholar %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_google_scholar }}" target="_blank" class="button gscholar-big">Google Scholar</a></li>
+					{% endif %}
 				</ul>
 			</div>
 		</div>
