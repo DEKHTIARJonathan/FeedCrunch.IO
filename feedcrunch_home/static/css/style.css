@@ -697,8 +697,8 @@ input.input-subscribe:-ms-input-placeholder {
 /* == 12. Other pages CSS === */
 
 .header-title-box {
-	padding-top: 190px;
-	padding-bottom: 155px
+	padding-top: 90px;
+	padding-bottom: 70px
 }
 
 .header-title-box h3 {
@@ -734,14 +734,16 @@ input.input-subscribe:-ms-input-placeholder {
 
 
 /* == 12.1 Contact ==*/
-textarea {
-	max-width: 100%;
-}
 
 .contact-form .form-control {
 	height: 42px;
 	box-shadow: none;
 	border: 2px solid rgba(40, 40, 46, 0.3);
+}
+
+textarea.form-control {
+	height: auto  !important;
+	max-width: 100%;
 }
 
 .error {
