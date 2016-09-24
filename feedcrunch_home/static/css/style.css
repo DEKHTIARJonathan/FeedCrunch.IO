@@ -150,16 +150,6 @@ a:hover,a:focus,.a:active {
 	width: 100% !important;
 }
 
-/* Background Images */
-.bg-img-1 {
-	background: url("../images/bg4.jpg") no-repeat;
-	background-size: cover;
-}
-.bg-img-2 {
-	background: url("../images/bg1.jpg") center no-repeat;
-	background-size: cover;
-}
-
 /*======= 3.Buttons ======= */
 .btn {
 	border-radius: 2px;
