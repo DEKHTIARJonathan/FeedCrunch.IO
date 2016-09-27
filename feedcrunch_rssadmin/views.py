@@ -277,6 +277,7 @@ def update_social_links(request, feedname=None):
 					'instagram',
 					'youtube',
 					'researchgate',
+					'googlescholar',
 					'website',
 					'blog'
 				]
@@ -302,6 +303,7 @@ def update_social_links(request, feedname=None):
 				tmp_user.social_instagram = social_data['instagram']
 				tmp_user.social_youtube = social_data['youtube']
 				tmp_user.social_researchgate = social_data['researchgate']
+				tmp_user.social_google_scholar = social_data['googlescholar']
 				tmp_user.social_personalwebsite = social_data['website']
 				tmp_user.social_blog = social_data['blog']
 				tmp_user.social_git = social_data['git']
