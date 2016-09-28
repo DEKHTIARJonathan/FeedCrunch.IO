@@ -278,6 +278,37 @@ class FeedUser(AbstractFeedUser):
 	social_blog = models.URLField(max_length=60, default='', blank=True, null=True)
 	social_git = models.URLField(max_length=60, default='', blank=True, null=True)
 	social_google_scholar = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_orcid = models.URLField(max_length=60, default='', blank=True, null=True)
+
+	# Main Social Networks
+	social_twitter = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_facebook = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_pinterest = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_gplus = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_dribbble = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_linkedin = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_flickr = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_stumble = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_vimeo = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_instagram = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_youtube = models.URLField(max_length=60, default='', blank=True, null=True)
+
+	# Computer Science Networks
+	social_git = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_docker = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_kaggle = models.URLField(max_length=60, default='', blank=True, null=True)
+
+	# MooC Profiles
+	social_coursera = models.URLField(max_length=60, default='', blank=True, null=True)
+
+	# Research Social Networks
+	social_researchgate = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_google_scholar = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_orcid = models.URLField(max_length=60, default='', blank=True, null=True)
+
+	# Personal Webpage & Blog
+	social_personalwebsite = models.URLField(max_length=60, default='', blank=True, null=True)
+	social_blog = models.URLField(max_length=60, default='', blank=True, null=True)
 
 	objects = FeedUserManager()
 
