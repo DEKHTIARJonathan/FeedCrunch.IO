@@ -264,22 +264,26 @@ def update_social_links(request, feedname=None):
 		else:
 			try:
 				social_networks = [
-					'twitter',
-					'facebook',
-					'pinterest',
-					'gplus',
 					'dribbble',
-					'linkedin',
+					'facebook',
 					'flickr',
-					'git',
-					'vimeo',
-					'stumble',
+					'gplus',
 					'instagram',
+					'linkedin',
+					'pinterest',
+					'stumble',
+					'twitter',
+					'vimeo',
 					'youtube',
-					'researchgate',
+					'docker',
+					'git',
+					'kaggle',
+					'coursera',
 					'googlescholar',
-					'website',
-					'blog'
+					'orcid',
+					'researchgate',
+					'blog',
+					'website'
 				]
 
 				social_data = {}
@@ -291,25 +295,35 @@ def update_social_links(request, feedname=None):
 
 				tmp_user = FeedUser.objects.get(username=request.user.username)
 
-				tmp_user.social_twitter = social_data['twitter']
-				tmp_user.social_facebook = social_data['facebook']
-				tmp_user.social_pinterest = social_data['pinterest']
-				tmp_user.social_gplus = social_data['gplus']
+				# Main Social Networks
 				tmp_user.social_dribbble = social_data['dribbble']
-				tmp_user.social_linkedin = social_data['linkedin']
+				tmp_user.social_facebook = social_data['facebook']
 				tmp_user.social_flickr = social_data['flickr']
-				tmp_user.social_stumble = social_data['stumble']
-				tmp_user.social_vimeo = social_data['vimeo']
+				tmp_user.social_gplus = social_data['gplus']
 				tmp_user.social_instagram = social_data['instagram']
+				tmp_user.social_linkedin = social_data['linkedin']
+				tmp_user.social_pinterest = social_data['pinterest']
+				tmp_user.social_stumble = social_data['stumble']
+				tmp_user.social_twitter = social_data['twitter']
+				tmp_user.social_vimeo = social_data['vimeo']
 				tmp_user.social_youtube = social_data['youtube']
-				tmp_user.social_researchgate = social_data['researchgate']
-				tmp_user.social_google_scholar = social_data['googlescholar']
-				tmp_user.social_personalwebsite = social_data['website']
-				tmp_user.social_blog = social_data['blog']
+
+				# Computer Science Networks
+				tmp_user.social_docker = social_data['docker']
 				tmp_user.social_git = social_data['git']
+				tmp_user.social_kaggle = social_data['kaggle']
+
+				# MooC Profiles
+				tmp_user.social_coursera = social_data['coursera']
+
+				# Research Social Networks
+				tmp_user.social_google_scholar = social_data['googlescholar']
+				tmp_user.social_orcid = social_data['orcid']
+				tmp_user.social_researchgate = social_data['researchgate']
+				tmp_user.social_blog = social_data['blog']
+				tmp_user.social_personalwebsite = social_data['website']
 
 				tmp_user.save()
-
 				return HttpResponseRedirect('/@'+request.user.username+'/admin')
 
 			except Exception, e:

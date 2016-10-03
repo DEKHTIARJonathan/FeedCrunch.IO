@@ -170,27 +170,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="lable-2">
-								<input type="text" name="twitter" class="text" placeholder="Twitter Link" value="{{ user.social_twitter }}">
-								<div class="clear"></div>
-							</div>
-							<div class="lable-2">
-								<input type="text" name="facebook" class="text" placeholder="Facebook Link" value="{{ user.social_facebook }}">
-								<div class="clear"></div>
-							</div>
-							<div class="lable-2">
-								<input type="text" name="pinterest" class="text" placeholder="Pinterest Link" value="{{ user.social_pinterest }}">
-								<div class="clear"></div>
-							</div>
-							<div class="lable-2">
-								<input type="text" name="gplus" class="text" placeholder="Google Plus Link" value="{{ user.social_gplus }}">
-								<div class="clear"></div>
-							</div>
-							<div class="lable-2">
 								<input type="text" name="dribbble" class="text" placeholder="Dribbble link" value="{{ user.social_dribbble }}">
-								<div class="clear"></div>
-							</div>
-							<div class="lable-2">
-								<input type="text" name="linkedin" class="text" placeholder="LinkedIn Link" value="{{ user.social_linkedin }}">
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
@@ -198,11 +178,51 @@
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
+								<input type="text" name="instagram" class="text" placeholder="Instagram Link" value="{{ user.social_instagram }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="pinterest" class="text" placeholder="Pinterest Link" value="{{ user.social_pinterest }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="twitter" class="text" placeholder="Twitter Link" value="{{ user.social_twitter }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="youtube" class="text" placeholder="Youtube Link" value="{{ user.social_youtube }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
 								<input type="text" name="git" class="text" placeholder="Git Platform Link" value="{{ user.social_git }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="coursera" class="text" placeholder="Coursera Platform Link" value="{{ user.social_coursera }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="orcid" class="text" placeholder="OrcID Profile Link" value="{{ user.social_orcid }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="blog" class="text" placeholder="Personal Blog Link" value="{{ user.social_blog }}">
 								<div class="clear"></div>
 							</div>
 						</div>
 						<div class="col-md-6">
+							<div class="lable-2">
+								<input type="text" name="facebook" class="text" placeholder="Facebook Link" value="{{ user.social_facebook }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="gplus" class="text" placeholder="Google Plus Link" value="{{ user.social_gplus }}">
+								<div class="clear"></div>
+							</div>
+							<div class="lable-2">
+								<input type="text" name="linkedin" class="text" placeholder="LinkedIn Link" value="{{ user.social_linkedin }}">
+								<div class="clear"></div>
+							</div>
 							<div class="lable-2">
 								<input type="text" name="stumble" class="text" placeholder="Stumble Link" value="{{ user.social_stumble }}">
 								<div class="clear"></div>
@@ -212,15 +232,11 @@
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
-								<input type="text" name="instagram" class="text" placeholder="Instagram Link" value="{{ user.social_instagram }}">
+								<input type="text" name="docker" class="text" placeholder="Docker Hub Link" value="{{ user.social_docker }}">
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
-								<input type="text" name="youtube" class="text" placeholder="Youtube Link" value="{{ user.social_youtube }}">
-								<div class="clear"></div>
-							</div>
-							<div class="lable-2">
-								<input type="text" name="researchgate" class="text" placeholder="Research Gate Link" value="{{ user.social_researchgate }}">
+								<input type="text" name="kaggle" class="text" placeholder="Kaggle Link" value="{{ user.social_kaggle }}">
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
@@ -228,14 +244,15 @@
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
-								<input type="text" name="website" class="text" placeholder="Personal Website Link" value="{{ user.social_personalwebsite }}">
+								<input type="text" name="researchgate" class="text" placeholder="Research Gate Link" value="{{ user.social_researchgate }}">
 								<div class="clear"></div>
 							</div>
 							<div class="lable-2">
-								<input type="text" name="blog" class="text" placeholder="Personal Blog Link" value="{{ user.social_blog }}">
+								<input type="text" name="website" class="text" placeholder="Personal Website Link" value="{{ user.social_personalwebsite }}">
 								<div class="clear"></div>
 							</div>
 						</div>
+
 						{% csrf_token %}
 						{% if next %}
 							<input type="hidden" name="next" value="{{ next }}" />
