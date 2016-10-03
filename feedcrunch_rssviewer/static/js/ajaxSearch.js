@@ -44,27 +44,36 @@ $('#search-bar').keyup(function(){
 		success: function(data) {
 				var rslt = $.parseJSON(JSON.stringify(data));
 				if (rslt.status === "OK"){
-				$('#viewer_body').empty();
+					$('#viewer_body').empty();
 
-				var i;
-				var posts = rslt.posts;
-				for (i = 0; i < posts.length; ++i) {
-					var str_search = rslt.search_str;
-					var title = highlight(posts[i]["title"], str_search);
-					var domain_name = highlight(posts[i]["domain_name"], str_search);
-					var published_date = posts[i]["when"];
-					var id = posts[i]["id"];
+					var i;
+					var posts = rslt.posts;
+					var result = "";
+					for (i = 0; i < posts.length; ++i) {
 
+						var str_search = rslt.search_str;
+						var published_date = posts[i]["when"];
+						var id = posts[i]["id"];
 
-					var row = '\
-					<tr>\
-						<td style="vertical-align:middle;" class="hidden_column">'+id+'</td>\
-						<td style="vertical-align:middle;">'+title+'<span class="domain_value"> ~ ('+domain_name+')</span></td>\
-						<td style="vertical-align:middle;" class="hidden_column">'+published_date+'</td>\
-						<td style="vertical-align:middle;"><a href="redirect/'+id+'" target="_blank">Link</a></td>\
-					</tr>';
-					$("#viewer tbody").append(row);
-				}
+						if (str_search != ""){
+							var title = highlight(posts[i]["title"], str_search);
+							var domain_name = highlight(posts[i]["domain_name"], str_search);
+						}
+						else{
+							var title = posts[i]["title"];
+							var domain_name = posts[i]["domain_name"];
+						}						
+
+						result += '\
+						<tr>\
+							<td style="vertical-align:middle;" class="hidden_column">'+id+'</td>\
+							<td style="vertical-align:middle;">'+title+'<span class="domain_value"> ~ ('+domain_name+')</span></td>\
+							<td style="vertical-align:middle;" class="hidden_column">'+published_date+'</td>\
+							<td style="vertical-align:middle;"><a href="redirect/'+id+'" target="_blank">Link</a></td>\
+						</tr>';
+
+					}
+					$("#viewer tbody").append(result);
 				}
 			else
 				alert("Request Error");
