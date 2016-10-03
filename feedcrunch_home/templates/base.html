@@ -360,38 +360,38 @@
 
 		{% elif template_name == "rssviewer.html" %}
 
-			<script src="{% static "js/jquery.fittext.js" %}"></script>
-			<script src="{% static "js/wow.min.js" %}"></script>	<!-- Contact Form JavaScript -->
+			<script type="text/javascript" src="{% static "js/jquery.fittext.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/wow.min.js" %}"></script>	<!-- Contact Form JavaScript -->
 
-			<script src="{% static "js/jqBootstrapValidation.js" %}"></script>
-			<script src="{% static "js/contact_me.js" %}"></script> <!-- Custom Theme JavaScript -->
+			<script type="text/javascript" src="{% static "js/jqBootstrapValidation.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/contact_me.js" %}"></script> <!-- Custom Theme JavaScript -->
 
-			<script src="{% static "js/creative.js" %}"></script> <!-- Custom Ajax Search JavaScript -->
+			<script type="text/javascript" src="{% static "js/creative.js" %}"></script> <!-- Custom Ajax Search JavaScript -->
 
-			<script src="{% static "js/ajaxSearch.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/ajaxSearch.js" %}"></script>
 
 			<script>
-			$('#arrow_down').click(function(){
-				var the_id = $(this).attr("href");
-				$('html, body').animate({
-					scrollTop:$(the_id).offset().top - 50,
-				}, 1300);
-				return false;
-			});
+				$('#arrow_down').click(function(){
+					var the_id = $(this).attr("href");
+					$('html, body').animate({
+						scrollTop:$(the_id).offset().top - 50,
+					}, 1300);
+					return false;
+				});
 			</script>
 
 		{% elif template_name == "signup.html" %}
 
-			<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
-			<script src="{% static "js/datepicker.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/datepicker.js" %}"></script>
 
 		{% elif template_name == "contact.html" %}
 
-			<script src="{% static "js/contact_ajax.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/contact_ajax.js" %}"></script>
 
 		{% endif %}
 
-		<script src="{% static "js/menu.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/menu.js" %}"></script>
 
 	</body>
 </html>
