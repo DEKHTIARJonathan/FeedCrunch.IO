@@ -15,5 +15,6 @@ urlpatterns = [
 	url(r'^search/$', search, name='search'),
 	url(r'^rss/$', rss_feed, name='rss_feed'),
 	url(r'^atom/$', atom_feed, name='atom_feed'),
+	url(r'^dataset/$', dataset, name='dataset'),
 	url(r'^redirect/(?P<postID>\w+)/$', redirect, name='redirect_page'),
 ]

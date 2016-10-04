@@ -67,6 +67,24 @@ def index(request, feedname=None):
 		requested_user = FeedUser.objects.get(username=feedname)
 		return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user})
 
+def dataset(request, feedname=None):
+
+	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
+		return HttpResponseRedirect("/")
+
+	elif not request.user.is_superuser:
+		return HttpResponseRedirect("/@"+feedname)
+
+	else:
+		posts = Post.objects.filter(user = feedname, activeLink=True).order_by('id')
+		data_output = ""
+
+		for post in posts:
+
+			data_output += str(post.id) + "|" + post.title + "|" + post.link + "|" + post.get_domain() + "<br/>"
+
+		return HttpResponse(data_output)
+
 def photo(request, feedname=None):
 	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
 		OPENID_LOGO_BASE_64 = """R0lGODlhAQABAIAAAP==""" #Smallest GIF as Possible : transparent image 1x1
