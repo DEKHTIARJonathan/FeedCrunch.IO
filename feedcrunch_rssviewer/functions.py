@@ -50,7 +50,7 @@ def generateRSS(type="", username=""):
 		for post in listPosts:
 			fe = fg.add_entry()
 			#fe.id(post.link)
-			fe.id('https://www.feedcrunch.io/post/'+str(post.id))
+			fe.id('https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id))
 			fe.title(post.title)
 			"""
 			fe.content('''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tamen
@@ -61,7 +61,7 @@ def generateRSS(type="", username=""):
 				verba.''')
 			"""
 			#fe.summary('Lorem ipsum dolor sit amet, consectetur adipiscing elit...')
-			fe.link( href='https://www.feedcrunch.io/redirect/'+str(post.id), rel='alternate' )
+			fe.link( href='https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id), rel='alternate' )
 			fe.author( name='Jonathan DEKHTIAR', email='contact@feedcrunch.io' )
 			fe.updated(post.when + time_delta)
 
