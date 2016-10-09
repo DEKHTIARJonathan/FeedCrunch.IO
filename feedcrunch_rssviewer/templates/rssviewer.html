@@ -55,68 +55,97 @@
 		<div class="row social_vertical_spacer">
 			<div class="set-2">
 				<ul>
-					{% if requested_user.social_twitter %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_twitter }}" target="_blank" class="button twitter-big">Twitter</a></li>
-					{% endif %}
 
-					{% if requested_user.social_git %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_git }}" target="_blank" class="button git-big">Git</a></li>
+					<!--  Main Social Networks -->
+					{% if requested_user.social_dribbble %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_dribbble }}" target="_blank" class="button dribbble-big">Dribbble</a></li>
 					{% endif %}
 
 					{% if requested_user.social_facebook %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_facebook }}" target="_blank" class="button facebook-big">Facebook</a></li>
 					{% endif %}
 
-					{% if requested_user.social_pinterest %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_pinterest }}" target="_blank" class="button pinterest-big">Pinterest</a></li>
+					{% if requested_user.social_flickr %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_flickr }}" target="_blank" class="button flickr-big">Flickr</a></li>
 					{% endif %}
 
 					{% if requested_user.social_gplus %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_gplus }}" target="_blank" class="button gplus-big">Google Plus</a></li>
 					{% endif %}
 
-					{% if requested_user.social_dribbble %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_dribbble }}" target="_blank" class="button dribbble-big">Dribbble</a></li>
+					{% if requested_user.social_instagram %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_instagram }}" target="_blank" class="button instagram-big">Instagram</a></li>
 					{% endif %}
 
 					{% if requested_user.social_linkedin %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_linkedin }}" target="_blank" class="button linkedin-big">LinkedIn</a></li>
 					{% endif %}
 
-					{% if requested_user.social_flickr %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_flickr }}" target="_blank" class="button flickr-big">Flickr</a></li>
+					{% if requested_user.social_pinterest %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_pinterest }}" target="_blank" class="button pinterest-big">Pinterest</a></li>
 					{% endif %}
 
 					{% if requested_user.social_stumble %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_stumble }}" target="_blank" class="button stumble-big">Stumbleupon</a></li>
 					{% endif %}
 
-					{% if requested_user.social_vimeo %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_vimeo }}" target="_blank" class="button vimeo-big">Vimeo</a></li>
+					{% if requested_user.social_twitter %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_twitter }}" target="_blank" class="button twitter-big">Twitter</a></li>
 					{% endif %}
 
-					{% if requested_user.social_instagram %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_instagram }}" target="_blank" class="button instagram-big">Instagram</a></li>
+					{% if requested_user.social_vimeo %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_vimeo }}" target="_blank" class="button vimeo-big">Vimeo</a></li>
 					{% endif %}
 
 					{% if requested_user.social_youtube %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_youtube }}" target="_blank" class="button youtube-big">Youtube</a></li>
 					{% endif %}
 
+					<!-- Computer Science Networks -->
+
+					{% if requested_user.social_docker %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_docker }}" target="_blank" class="button git-big">Docker</a></li>
+					{% endif %}
+
+					{% if requested_user.social_git %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_git }}" target="_blank" class="button git-big">Git</a></li>
+					{% endif %}
+
+					{% if requested_user.social_kaggle %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_kaggle }}" target="_blank" class="button git-big">Kaggle</a></li>
+					{% endif %}
+
+					<!-- MooC Profiles -->
+
+					{% if requested_user.social_coursera %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_coursera }}" target="_blank" class="button git-big">Coursera</a></li>
+					{% endif %}
+
+					<!-- Research Social Networks -->
+					{% if requested_user.social_google_scholar %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_google_scholar }}" target="_blank" class="button gscholar-big">Google Scholar</a></li>
+					{% endif %}
+
+					{% if requested_user.social_orcid %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_orcid }}" target="_blank" class="button git-big">OrcID</a></li>
+					{% endif %}
+
 					{% if requested_user.social_researchgate %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_researchgate }}" target="_blank" class="button researchgate-big">Research Gate</a></li>
+					{% endif %}
+
+					<!-- Personal Webpage & Blog -->
+
+					{% if requested_user.social_blog %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_blog }}" target="_blank" class="button blog-big">Personal Blog</a></li>
 					{% endif %}
 
 					{% if requested_user.social_personalwebsite %}
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_personalwebsite }}" target="_blank" class="button personalwebsite-big">Website</a></li>
 					{% endif %}
 
-					{% if requested_user.social_blog %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_blog }}" target="_blank" class="button blog-big">Personal Blog</a></li>
-					{% endif %}
-					{% if requested_user.social_google_scholar %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_google_scholar }}" target="_blank" class="button gscholar-big">Google Scholar</a></li>
-					{% endif %}
+
+
 				</ul>
 			</div>
 		</div>
