@@ -73,6 +73,8 @@
     transition: all .2s ease;
 }
 
+/* Twitter */
+
 a.twitter-small,
 a.twitter-big {
     -webkit-box-shadow: 0px 6px 0px #1a566d;
@@ -106,6 +108,8 @@ a.twitter-big:active {
 a.twitter-big:before {
     background: url("../images/social_ico/twitter.png") no-repeat center center;
 }
+
+/* Facebook */
 
 a.facebook-small,
 a.facebook-big {
@@ -142,6 +146,8 @@ a.facebook-big:before {
     background: url("../images/social_ico/facebook.png") no-repeat center center;
 }
 
+/* Pinterest */
+
 a.pinterest-small,
 a.pinterest-big {
     -webkit-box-shadow: 0px 6px 0px #8C151B;
@@ -175,6 +181,8 @@ a.pinterest-big:active {
 a.pinterest-big:before {
     background: url("../images/social_ico/pinterest.png") no-repeat center center;
 }
+
+/* Google Plus */
 
 a.gplus-small,
 a.gplus-big {
@@ -211,6 +219,8 @@ a.gplus-big:before {
     background: url("../images/social_ico/gplus.png") no-repeat center center;
 }
 
+/* RSS */
+
 a.rss-small,
 a.rss-big {
     -webkit-box-shadow: 0px 6px 0px #C64802;
@@ -244,6 +254,8 @@ a.rss-big:active {
 a.rss-big:before {
     background: url("../images/social_ico/rss.png") no-repeat center center;
 }
+
+/* Dribbble */
 
 a.dribbble-small,
 a.dribbble-big {
@@ -280,6 +292,8 @@ a.dribbble-big:before {
     background: url("../images/social_ico/dribbble.png") no-repeat center center;
 }
 
+/* LinkedIn */
+
 a.linkedin-small,
 a.linkedin-big {
     -webkit-box-shadow: 0px 6px 0px #192a48;
@@ -313,6 +327,8 @@ a.linkedin-big:active {
 a.linkedin-big:before {
     background: url("../images/social_ico/linkedin.png") no-repeat center center;
 }
+
+/* Stumble */
 
 a.stumble-small,
 a.stumble-big {
@@ -348,6 +364,8 @@ a.stumble-big:before {
     background: url("../images/social_ico/stumble.png") no-repeat center center;
 }
 
+/* Flickr */
+
 a.flickr-small,
 a.flickr-big {
     -webkit-box-shadow: 0px 6px 0px #C10E78;
@@ -381,6 +399,8 @@ a.flickr-big:active {
 a.flickr-big:before {
     background: url("../images/social_ico/flickr.png") no-repeat center center;
 }
+
+/* Vimeo */
 
 a.vimeo-small,
 a.vimeo-big {
@@ -416,6 +436,8 @@ a.vimeo-big:before {
     background: url("../images/social_ico/vimeo.png") no-repeat center center;
 }
 
+/* Instagram */
+
 a.instagram-small,
 a.instagram-big {
     -webkit-box-shadow: 0px 6px 0px #4A332E;
@@ -449,6 +471,8 @@ a.instagram-big:active {
 a.instagram-big:before {
     background: url("../images/social_ico/instagram.png") no-repeat center center;
 }
+
+/* Youtube */
 
 a.youtube-small,
 a.youtube-big {
@@ -484,6 +508,8 @@ a.youtube-big:before {
     background: url("../images/social_ico/youtube.png") no-repeat center center;
 }
 
+/* ResearchGate */
+
 a.researchgate-small,
 a.researchgate-big {
     -webkit-box-shadow: 0px 6px 0px #06897f;
@@ -517,6 +543,8 @@ a.researchgate-big:active {
 a.researchgate-big:before {
     background: url("../images/social_ico/researchgate.png") no-repeat center center;
 }
+
+/* Personal Website */
 
 a.personalwebsite-small,
 a.personalwebsite-big {
@@ -552,6 +580,8 @@ a.personalwebsite-big:before {
     background: url("../images/social_ico/website.png") no-repeat center center;
 }
 
+/* Personal Blog */
+
 a.blog-small,
 a.blog-big {
     -webkit-box-shadow: 0px 6px 0px #555555;
@@ -585,6 +615,8 @@ a.blog-big:active {
 a.blog-big:before {
     background: url("../images/social_ico/blog.png") no-repeat center center;
 }
+
+/* Git */
 
 a.git-small,
 a.git-big {
@@ -620,6 +652,8 @@ a.git-big:before {
     background: url("../images/social_ico/git.png") no-repeat center center;
 }
 
+/* Google Scholar */
+
 a.gscholar-small,
 a.gscholar-big {
     -webkit-box-shadow: 0px 6px 0px #1b4282;
@@ -654,6 +688,156 @@ a.gscholar-big:active {
 a.gscholar-big:before {
     background: url("../images/social_ico/gscholar.png") no-repeat center center;
 }
+
+/* Kaggle */
+
+a.kaggle-small,
+a.kaggle-big {
+    -webkit-box-shadow: 0px 6px 0px #1b4282;
+    -moz-box-shadow: 0px 6px 0px #1b4282;
+    box-shadow: 0px 6px 0px #1b4282;
+    position: relative;
+}
+
+a.kaggle-small {
+    background: #357df3 url("../images/social_ico/kaggle.png") no-repeat center center;
+}
+
+a.kaggle-big {
+    background: #357df3;
+}
+
+a.kaggle-small:hover{
+	background: RGB(53, 164, 243) url("../images/social_ico/kaggle.png") no-repeat center center;
+}
+
+a.kaggle-big:hover {
+    background: RGB(53, 164, 243);
+}
+
+a.kaggle-small:active,
+a.kaggle-big:active {
+    -webkit-box-shadow: 0px 2px 0px #1b4282;
+    -moz-box-shadow: 0px 2px 0px #1b4282;
+    box-shadow: 0px 2px 0px #1b4282;
+}
+
+a.kaggle-big:before {
+    background: url("../images/social_ico/kaggle.png") no-repeat center center;
+}
+
+/* Docker */
+
+a.docker-small,
+a.docker-big {
+    -webkit-box-shadow: 0px 6px 0px #1b4282;
+    -moz-box-shadow: 0px 6px 0px #1b4282;
+    box-shadow: 0px 6px 0px #1b4282;
+    position: relative;
+}
+
+a.docker-small {
+    background: #357df3 url("../images/social_ico/docker.png") no-repeat center center;
+}
+
+a.docker-big {
+    background: #357df3;
+}
+
+a.docker-small:hover{
+	background: RGB(53, 164, 243) url("../images/social_ico/docker.png") no-repeat center center;
+}
+
+a.docker-big:hover {
+    background: RGB(53, 164, 243);
+}
+
+a.docker-small:active,
+a.docker-big:active {
+    -webkit-box-shadow: 0px 2px 0px #1b4282;
+    -moz-box-shadow: 0px 2px 0px #1b4282;
+    box-shadow: 0px 2px 0px #1b4282;
+}
+
+a.docker-big:before {
+    background: url("../images/social_ico/docker.png") no-repeat center center;
+}
+
+/* Coursera */
+
+a.coursera-small,
+a.coursera-big {
+    -webkit-box-shadow: 0px 6px 0px #1b4282;
+    -moz-box-shadow: 0px 6px 0px #1b4282;
+    box-shadow: 0px 6px 0px #1b4282;
+    position: relative;
+}
+
+a.coursera-small {
+    background: #357df3 url("../images/social_ico/coursera.png") no-repeat center center;
+}
+
+a.coursera-big {
+    background: #357df3;
+}
+
+a.coursera-small:hover{
+	background: RGB(53, 164, 243) url("../images/social_ico/coursera.png") no-repeat center center;
+}
+
+a.coursera-big:hover {
+    background: RGB(53, 164, 243);
+}
+
+a.coursera-small:active,
+a.coursera-big:active {
+    -webkit-box-shadow: 0px 2px 0px #1b4282;
+    -moz-box-shadow: 0px 2px 0px #1b4282;
+    box-shadow: 0px 2px 0px #1b4282;
+}
+
+a.coursera-big:before {
+    background: url("../images/social_ico/coursera.png") no-repeat center center;
+}
+
+/* OrcID */
+
+a.orcid-small,
+a.orcid-big {
+    -webkit-box-shadow: 0px 6px 0px #1b4282;
+    -moz-box-shadow: 0px 6px 0px #1b4282;
+    box-shadow: 0px 6px 0px #1b4282;
+    position: relative;
+}
+
+a.orcid-small {
+    background: #357df3 url("../images/social_ico/orcid.png") no-repeat center center;
+}
+
+a.orcid-big {
+    background: #357df3;
+}
+
+a.orcid-small:hover{
+	background: RGB(53, 164, 243) url("../images/social_ico/orcid.png") no-repeat center center;
+}
+
+a.orcid-big:hover {
+    background: RGB(53, 164, 243);
+}
+
+a.orcid-small:active,
+a.orcid-big:active {
+    -webkit-box-shadow: 0px 2px 0px #1b4282;
+    -moz-box-shadow: 0px 2px 0px #1b4282;
+    box-shadow: 0px 2px 0px #1b4282;
+}
+
+a.orcid-big:before {
+    background: url("../images/social_ico/orcid.png") no-repeat center center;
+}
+
+/* End of Social Buttons */
 
 a.button:before{
 	content: "";
