@@ -49,7 +49,7 @@ class FeedUserManager(BaseUserManager):
 				raise ValueError("The given email is not valid or not doesn''t exist.")
 
 		def _validate_password(self, password):
-			if re.match(r'((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})', password) == None:
+			if re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}', password) == None:
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
 
 		def _validate_firstname(self, firstname):

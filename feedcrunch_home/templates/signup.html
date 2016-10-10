@@ -10,7 +10,7 @@
 			<h1>Join FeedCrunch.IO</h1>
 			<h2>The best way to create, share, and manage RSS Feeds.</h2>
 			<hr style="border-top: 1px solid #e4e3e3;">
-			<form action="" method="post" autocomplete="off" accept-charset="UTF-8">
+			<form action="" method="post" autocomplete="off" accept-charset="UTF-8" name="registration">
 				{% csrf_token %}
 				{% if next %}
 					<input type="hidden" name="next" value="{{ next }}" />
@@ -35,7 +35,12 @@
 					<div class="clear"></div>
 				</div>
 				<div class="lable-2">
-					<input type="password" name="password" class="text" placeholder="Password" autocomplete="new-password">
+					<input type="password" id="password" name="password" class="text" placeholder="Password" autocomplete="new-password">
+					<div class="clear"></div>
+				</div>
+
+				<div class="lable-2">
+					<input type="password" name="password_again" class="text" placeholder="Repeat your Password" autocomplete="new-password">
 					<div class="clear"></div>
 				</div>
 

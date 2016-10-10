@@ -180,6 +180,19 @@ input[type=submit] {
 	font-family: 'Oxygen', sans-serif;
 }
 
+form button {
+  height: 30px;
+  line-height: 30px;
+  background: #e67e22;
+  color: #fff;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+label.error {
+    color: red;
+}
+
 /*----start-responsive design-----*/
 @media (max-width:1024px){
 	.col_1_of_2 {

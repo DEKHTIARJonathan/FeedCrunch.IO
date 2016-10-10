@@ -736,11 +736,13 @@ textarea.form-control {
 	max-width: 100%;
 }
 
+/*
 .error {
 	margin: 8px 0px;
 	display: none;
 	color: red;
 }
+*/
 
 #ajaxsuccess {
 	font-size: 16px;
