@@ -400,7 +400,27 @@
 					rules: {
 						username: {
 							required: true,
-							minlength: 4
+							minlength: 4,
+							remote: {
+								url: "/api/1.0/public/get/validate/username/" ,
+								type: "get",
+								data: {
+									username: function(){ return $("#username").val(); },
+								},
+								dataType: 'json',
+								dataFilter: function(data){
+									data = JSON.parse(data);
+
+									if (data.success && data.available)	{
+										return true;
+									}
+									else{
+										return false;
+									}
+								},
+								complete: function (xhr){
+								}
+							}
 						},
 						firstname: {
 							required: true,
@@ -448,6 +468,9 @@
 							required: "Enter a birthdate",
 							regex : "Enter a valid birthdate format (dd/mm/yyyy)"
 						},
+						username: {
+							remote: "Username already taken ..."
+						}
 					},
 					/*
 					// Specify validation error messages
