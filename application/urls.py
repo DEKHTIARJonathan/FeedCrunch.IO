@@ -29,6 +29,7 @@ admin.autodiscover()
 urlpatterns = [
 	url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
 	url(r'^admin/', include(admin.site.urls)),
+	url(r'^api/1.0/', include('feedcrunch_api_v1.urls')),
 	url(r'', include('feedcrunch_home.urls')),
 	url(r'^twitter/oauth/', include('twitter.urls')),
 	url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),
