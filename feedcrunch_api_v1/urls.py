@@ -10,6 +10,6 @@ import django.contrib.auth.views
 from .views import *
 
 urlpatterns = [
-	url(r'^get/validate/username/(?P<username>\w+)/$', validate_username, name='validate_username'),
-	url(r'^get/validate/username/$', validate_username, name='validate_username'),
+	url(r'^public/get/validate/username/(?P<username>\w+)/$', validate_username, name='validate_username'),
+	url(r'^public/get/validate/username/$', validate_username, name='validate_username'),
 ]
