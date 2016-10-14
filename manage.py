@@ -12,7 +12,7 @@ if __name__ == "__main__":
 	
 	platforms = ["TRAVIS"]
 	if not any(x in os.environ for x in platforms):
-		dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+		dotenv.read_dotenv()
 
 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "application.settings")
 	
