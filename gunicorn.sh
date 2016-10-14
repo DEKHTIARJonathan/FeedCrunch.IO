@@ -1,1 +1,1 @@
-gunicorn feedcrunch.wsgi:application --bind 0.0.0.0:8080
+gunicorn -b 0.0.0.0:8080 feedcrunch.wsgi
