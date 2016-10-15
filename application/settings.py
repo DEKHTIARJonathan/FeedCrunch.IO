@@ -36,10 +36,45 @@ def assign_env_value(var_name):
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
 
+DEBUG = assign_env_value('DEBUG')
 SECRET_KEY = assign_env_value('SECRET_KEY')
-debug_value = assign_env_value('DEBUG')
 
-DEBUG = debug_value
+if DEBUG:
+	AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+		'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+		'Cache-Control': 'max-age=120', #max age in seconds => i.e : 94608000 = 3 years, 3600 = 1 hour, 120 = 2min
+	}
+
+	AWS_STORAGE_BUCKET_NAME = 'feedcrunch'
+	AWS_ACCESS_KEY_ID = assign_env_value('AWS_USER')
+	AWS_SECRET_ACCESS_KEY = assign_env_value('AWS_SECRET_KEY')
+
+	# Tell django-storages that when coming up with the URL for an item in S3 storage, keep
+	# it simple - just use this domain plus the path. (If this isn't set, things get complicated).
+	# This controls how the `static` template tag from `staticfiles` gets expanded, if you're using it.
+	# We also use it in the next setting.
+	AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+	# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
+	# refers directly to STATIC_URL. So it's safest to always set it.
+	STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+
+	# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
+	# you run `collectstatic`).
+	STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+else:
+
+	STATIC_URL = '/static/'
+
+	# Simplified static file serving.
+	# https://warehouse.python.org/project/whitenoise/
+	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+	os.path.join(PROJECT_ROOT, 'static'),
+)
 
 # Application definition
 
@@ -51,6 +86,7 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
+	'storages',
 	'feedcrunch',
 	'feedcrunch_api_v1',
 	'feedcrunch_rssviewer',
@@ -70,6 +106,7 @@ MIDDLEWARE_CLASSES = [
 	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.contrib.staticfiles.storage.StaticFilesStorage',
 ]
 
 ROOT_URLCONF = 'application.urls'
@@ -80,7 +117,7 @@ TEMPLATES = [
 		'DIRS': [],
 		'APP_DIRS': True,
 		'OPTIONS': {
-			'debug': debug_value,
+			'debug': DEBUG,
 			'context_processors': [
 				'django.template.context_processors.debug',
 				'django.template.context_processors.request',
@@ -156,15 +193,3 @@ ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-	os.path.join(PROJECT_ROOT, 'static'),
-)
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
