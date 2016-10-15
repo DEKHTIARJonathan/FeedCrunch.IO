@@ -1,0 +1,426 @@
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+
+body {
+    margin: 0;
+    font-family: "Open sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #404040
+}
+
+a {
+    color: #1f2327;
+    text-decoration: underline;
+}
+
+.rs,
+h1.rs,
+h2.rs,
+h3.rs,
+h4.rs,
+h5.rs,
+h6.rs {
+    margin: 0;
+    padding: 0
+}
+
+ol.rs,
+ul.rs {
+    list-style: none
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic
+}
+
+button,
+input,
+select,
+textarea {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    font-family: inherit;
+    font-size: 100%;
+    outline: 0
+}
+
+button,
+input {
+    line-height: normal
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button,
+input[type=button],
+input[type=checkbox],
+input[type=radio],
+input[type=reset],
+input[type=submit],
+label,
+select {
+    cursor: pointer
+}
+
+footer,
+input[type=search] {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: textfield
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: none
+}
+
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.showintime {
+    display: none
+}
+
+a,
+a:focus,
+a:hover {
+    outline: 0
+}
+
+header {
+    position: relative;
+    text-align: center;
+    display: inline-block
+}
+
+.panda-wrapper {
+    background-color: #58989a;
+    border-width: 8px 0;
+    border-style: solid;
+    border-color: #000;
+    text-align: center;
+    overflow: hidden;
+    padding: 40px 20px 0
+}
+
+.logo img {
+    max-width: 90%
+}
+
+.panda-content {
+    margin: 0 auto;
+    max-width: 100%
+}
+
+.panda-content h2,
+.panda-content p {
+    color: #FFF
+}
+
+.panda-content h2 {
+    text-transform: uppercase
+}
+
+.panda-content h2.title-404 {
+    font-size: 80px;
+    line-height: 120%;
+    max-width: 90%;
+    margin: 0 auto 5px
+}
+
+.panda-content p {
+    font-size: 24px
+}
+
+.dot {
+    width: 26px;
+    height: 24px;
+    background-color: #FFF
+}
+
+.flip-clock-label,
+.flip-clock-wrapper ul li a div div.inn,
+.panda-maintenance p,
+h2 {
+    font-family: bebas_neueregular;
+    font-weight: 400;
+    line-height: 120%
+}
+
+p {
+    font-family: 'Open sans';
+    font-weight: 400;
+    line-height: 120%
+}
+
+p.text-min {
+    font-size: 24px
+}
+
+p.text-medium {
+    font-size: 60px
+}
+
+p.text-big {
+    font-size: 80px
+}
+
+.page-404 p {
+    width: 90%;
+    max-width: 570px;
+    margin: 0 auto
+}
+
+#responsivemenu {
+    display: none
+}
+
+.panda-menu ul li {
+    display: inline-block;
+    transition: all .3s ease-out 0s;
+    overflow: hidden
+}
+
+.panda-menu ul li a {
+    transition: all .3s ease-out 0s
+}
+
+.panda-menu ul li:hover {
+    transform: translateY(-8px)
+}
+
+.panda-menu ul li a {
+    background-color: #000;
+    font-family: bebas_neueregular;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    color: #FFF;
+    text-transform: uppercase;
+    padding: 12px 33px 9px;
+    display: inline-block
+}
+
+.panda-social a {
+    transition: all .3s ease-out 0s;
+    color: #fff;
+    color: rgba(255, 255, 255, .8)
+}
+
+.panda-social a:hover {
+    display: inline-block;
+    color: #fff;
+    transition: all .3s ease-out 0s;
+    transform: translateY(-6px)
+}
+
+[class*=icon-],
+[class^=icon-] {
+    font-size: 40px;
+    line-height: 120%
+}
+
+#page-404-1 .panda-content {
+    padding-top: 100px
+}
+
+.dot,
+.logo-pd-404 {
+    position: absolute
+}
+
+.logo-pd-404 {
+    top: -111px;
+    right: -265px
+}
+
+.dot {
+    top: 71px;
+    right: -10px
+}
+
+.logo-404-2,
+.logo-panda img,
+.logo-pd-404 img {
+    max-width: 100%;
+    height: auto
+}
+
+.panda-content .bg-number {
+    position: absolute;
+    top: -86px;
+    right: -272px
+}
+
+.panda-bg-arrow {
+	background-image: url('../images/bg-arrow-white.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 128px;
+    width: auto
+}
+
+#page-404-1 .panda-menu {
+    margin-top: 21px
+}
+
+.logo-404-2,
+.logo-pd-2 {
+    max-width: 90%;
+    margin-bottom: 60px
+}
+
+.panda-content .bg-404-2 {
+    margin-bottom: 63px
+}
+
+#page-404-2 p {
+    margin: 0 auto 22px
+}
+
+#page-404-2 .panda-menu {
+    margin-top: 58px
+}
+
+.panda-content .logo-pd-2 {
+    margin-bottom: 31px
+}
+
+#page-404-3 .panda-content p {
+    margin-bottom: 74px;
+    width: 100%
+}
+
+#page-maintenance-1 .panda-wrapper {
+    background-image: url(../images/bg-m1.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    min-height: 900px
+}
+
+.panda-wrapper .pull-left {
+    text-align: left
+}
+
+.panda-wrapper h2 {
+    font-size: 150px;
+    line-height: 100%
+}
+
+.pull-left h1.logo {
+    margin-bottom: 80px;
+    padding-top: 20px
+}
+
+.pull-left p {
+    margin: 0;
+    font-size: 60px;
+    width: 100%;
+    max-width: 727px;
+    line-height: 100%
+}
+
+.text-underline {
+    text-transform: uppercase;
+    text-decoration: underline
+}
+
+p.text-opacity {
+    color: rgba(255, 255, 255, .4)
+}
+
+.panda-social a {
+    display: inline-block;
+}
+
+#page-maintenance-1 .panda-social,
+#page-maintenance-3 .panda-social {
+    margin-left: -10px
+}
+
+h1.logo {
+    margin-bottom: 84px
+}
+
+.maintenance-2 p {
+    font-size: 80px;
+    color: #FFF;
+    line-height: 100%
+}
+
+p.text-black {
+    color: #000;
+    line-height: 120%
+}
+
+footer {
+    background-color: #000;
+    padding: 12px 0 20px
+}
+
+footer [class*=icon-],
+footer [class^=icon-] {
+    color: #FFF
+}
+
+.panda-countdown {
+    margin-top: 29px;
+    padding-bottom: 130px
+}
+
+.panda-social {
+    text-align: center;
+    margin-top: 20px
+}
+
+footer .panda-social {
+    margin-top: 0
+}
+
+.pull-left .panda-social {
+    text-align: left;
+    padding-left: 0
+}
+
+.panda-wrapper.not-absolute {
+    position: static
+}
+
+.panda-social.pull-left {
+    text-align: left
+}
+
+.clear {
+    clear: both
+}

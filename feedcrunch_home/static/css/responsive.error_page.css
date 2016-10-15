@@ -1,0 +1,132 @@
+@media screen and (max-width: 1200px) {
+	.flip-clock-wrapper ul {margin-bottom: 108px;}
+	.flip-clock-wrapper span.flip-clock-divider.minutes {
+		clear: left !important;
+		width: 0;
+	}
+	.flip-clock-divider.days .flip-clock-label, 
+	.flip-clock-divider.hours .flip-clock-label,
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label {top: 264px;}
+	.flip-clock-divider.days .flip-clock-label {right: -185px;}
+	.flip-clock-divider.hours .flip-clock-label {right: -182px;}
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label {right: -204px;}
+	.pull-left p {
+		max-width: 100%;
+	}
+	.panda-wrapper .pull-left,
+	.panda-social.pull-left {text-align: center;}
+
+	#page-maintenance-1 .panda-wrapper {
+	    background-image: url('../images/bg-m1b.png');
+	    background-repeat: no-repeat;
+	    background-position: center bottom;
+	    min-height: 1250px;
+	}
+
+	.panda-countdown {
+		padding-bottom: 20px
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.logo-pd-404, .dot {position: static;}
+	.panda-wrapper {
+		overflow: auto;
+	}
+	#responsivemenu {
+		width: 400px;
+		display: block;
+		margin: 10px auto 30px;
+		text-align: left;
+	}
+	.panda-menu {display: none}
+
+	#page-maintenance-1 .panda-wrapper {
+	    background-size:80%;
+	}
+	#page-404-1 .panda-content {
+		padding-top: 30px
+	}
+	
+	.flip-clock-wrapper ul {
+		font-size: 200px;
+		height: 210px ;
+		width: 105px;;
+	}
+	.flip-clock-wrapper ul li a div div.inn {font-size: 200px;}
+	
+	.flip-clock-divider .flip-clock-label {font-size: 50px;}
+	.flip-clock-divider.days .flip-clock-label, 
+	.flip-clock-divider.hours .flip-clock-label,
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label {top: 230px;}
+	
+	.flip-clock-divider.days .flip-clock-label {right: -145px;}
+	.flip-clock-divider.hours .flip-clock-label {right: -156px;}
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label  {right: -172px;}
+}
+
+@media screen and (max-width: 550px) {
+	.flip-clock-wrapper ul {
+		font-size: 160px;
+		height: 180px ;
+		width: 88px;;
+	}
+	.flip-clock-wrapper ul li a div div.inn {font-size: 160px;}
+	.flip-clock-divider {width: 10px;}
+	.flip-clock-divider .flip-clock-label {font-size: 40px;}
+	.flip-clock-divider.days .flip-clock-label, 
+	.flip-clock-divider.hours .flip-clock-label,
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label {top: 195px;}
+	.flip-clock-divider.days .flip-clock-label {right: -120px;}
+	.flip-clock-divider.hours .flip-clock-label {right: -130px;}
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label  {right: -145px;}
+	.flip-clock-wrapper ul {margin-bottom: 83px;}
+	#page-maintenance-1 .panda-wrapper {
+	    background-size:80%;
+	    min-height: 700px
+	}
+	.pull-left h1.logo {margin-bottom: 50px}
+	.panda-wrapper h2 {font-size: 100px;}
+	.panda-content p.text-min,
+	.panda-content p.text-big,
+	.panda-content p.text-medium {font-size: 40px;}
+}
+
+@media screen and (max-width: 500px) {
+	
+	.panda-content h2.title-404 {font-size: 60px;}
+	#responsivemenu {
+		width: 310px;
+	}
+}
+
+
+@media screen and (max-width: 450px) {
+	#page-maintenance-1 .panda-wrapper {
+	    min-height: 600px
+	}
+	.flip-clock-divider .flip-clock-label {font-size: 32px;}
+	.flip-clock-wrapper ul {
+		font-size: 87px ;
+		height: 100px;
+		width: 50px;
+	}
+	.flip-clock-wrapper ul li a div div.inn {font-size: 87px; }
+	.flip-clock-divider {width: 10px;}
+	.flip-clock-divider.days .flip-clock-label, 
+	.flip-clock-divider.hours .flip-clock-label, 
+	.flip-clock-divider.minutes .flip-clock-label, 
+	.flip-clock-divider.seconds .flip-clock-label {top:110px;}
+	.flip-clock-divider.days .flip-clock-label {right: -80px;}
+	.flip-clock-divider.hours .flip-clock-label {right: -90px;}
+	.flip-clock-divider.minutes .flip-clock-label,
+	.flip-clock-divider.seconds .flip-clock-label  {right: -95px;}
+	.flip-clock-wrapper ul {margin-bottom: 60px;}
+	
+}
