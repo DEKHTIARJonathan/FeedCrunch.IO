@@ -40,6 +40,14 @@ DEBUG = assign_env_value('DEBUG')
 SECRET_KEY = assign_env_value('SECRET_KEY')
 
 if DEBUG:
+	STATIC_URL = '/static/'
+
+	# Simplified static file serving.
+	# https://warehouse.python.org/project/whitenoise/
+	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+else:
+
 	AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
 		'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
 		'Cache-Control': 'max-age=120', #max age in seconds => i.e : 94608000 = 3 years, 3600 = 1 hour, 120 = 2min
@@ -62,13 +70,8 @@ if DEBUG:
 	# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
 	# you run `collectstatic`).
 	STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-else:
 
-	STATIC_URL = '/static/'
-
-	# Simplified static file serving.
-	# https://warehouse.python.org/project/whitenoise/
-	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+#######################################################
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 # Extra places for collectstatic to find static files.
