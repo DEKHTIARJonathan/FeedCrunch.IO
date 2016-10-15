@@ -1,12 +1,23 @@
 #!/bin/bash
 
-sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen libxslt-devel -y
+sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen libxslt-devel nginx -y
 
 app_dir="/home/ec2-user/feedcrunch"
 image_dir="/home/ec2-user/images"
 image_dest="/home/ec2-user/feedcrunch/"
 old_dir="/home/ec2-user/feedcrunch/images/"
 user="ec2-user"
+
+nginx_root="/etc/nginx/"
+conf_files_root="/home/ec2-user/feedcrunch/codedeploy/Config_Files/"
+
+sudo service nginx stop
+sudo rm $nginx_root/nginx.conf || true
+sudo rm $nginx_root/conf.d/feedcrunch.conf || true
+sudo cp $conf_files_root/nginx.conf $nginx_root/nginx.conf
+sudo cp $conf_files_root/feedcrunch.conf $nginx_root/conf.d/feedcrunch.conf
+sudo chmod 777 -R /var/lib/nginx/
+sudo service nginx start
 
 #Restoring all the saved profile pictures
 sudo rm -rf $old_dir
