@@ -8,15 +8,15 @@
 			<span style="color: #525252;">
 				Categories:
 			</span>
-			<a class="link u-baseColor--link" href="https://www.feedcrunch.io/category/datascience">
+			<a class="link u-baseColor--link" href="/category/datascience">
 				Data Science
 			</a>
 			,&nbsp;
-			<a class="link u-baseColor--link" href="https://www.feedcrunch.io/category/machinelearning">
+			<a class="link u-baseColor--link" href="/category/machinelearning">
 				Machine Learning
 			</a>
 			and&nbsp;
-			<a class="link u-baseColor--link" href="https://www.feedcrunch.io/category/computervision">
+			<a class="link u-baseColor--link" href="/category/computervision">
 				Computer Vision
 			</a>
 		</div>
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<h1 class="hero-title" style="font-size: 65px;">
-				<a class="link link--darker link--darken u-accentColor--textDarken u-baseColor--link" href="https://www.feedcrunch.io/@dataradar" title="Go to the profile of Jonathan DEKHTIAR" aria-label="Go to the profile of Tim O'Reilly" data-user-id="8bd20f383de4" dir="auto">
+				<a class="link link--darker link--darken u-accentColor--textDarken u-baseColor--link" href="/@dataradar" title="Go to the profile of Jonathan DEKHTIAR" aria-label="Go to the profile of Tim O'Reilly" data-user-id="8bd20f383de4" dir="auto">
 					{{ requested_user.get_full_name_formatted }}
 				</a>
 			</h1>
@@ -152,7 +152,7 @@
 	</div>
 </div>
 <div class="bounce"><a href="#feed" id="arrow_down"><i class="fa fa-angle-double-down"></i></a></div>
-	<section id="feed" style="color:rgb(35, 35, 35)">
+	<section id="feed" style="color:rgb(35, 35, 35); margin-bottom: 70px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
@@ -213,57 +213,5 @@
 			</div>
 		</div>
 	</section><!-- Contact Section -->
-
-	<section class="contact_section" id="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">Contact Me</h2>
-					<h3 class="section-subheading text-muted"></h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<form id="contactForm" name="sentMessage" novalidate="">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<input class="form-control" data-validation-required-message=
-									"Please enter your name." id="name" placeholder="Your Name *"
-									required="" type="text">
-									<p class="help-block text-danger"></p>
-								</div>
-								<div class="form-group">
-									<input class="form-control" data-validation-required-message=
-									"Please enter your email address." id="email" placeholder=
-									"Your Email *" required="" type="email">
-									<p class="help-block text-danger"></p>
-								</div>
-								<div class="form-group">
-									<input class="form-control" data-validation-required-message=
-									"Please enter your phone number." id="phone" placeholder=
-									"Your Phone *" required="" type="tel">
-									<p class="help-block text-danger"></p>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<textarea class="form-control" data-validation-required-message=
-									"Please enter a message." id="message" placeholder="Your Message *"
-									required=""></textarea>
-									<p class="help-block text-danger"></p>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-							<div class="col-lg-12 text-center">
-								<div id="success"></div><button class="btn btn-xl" type="submit">Send
-								Message</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
 
 {% endblock %}
