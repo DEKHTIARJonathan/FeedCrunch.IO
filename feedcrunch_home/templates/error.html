@@ -14,11 +14,16 @@
 	<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+	<style>
+		html, body {
+			height: 100%;
+		}
+	</style>
 </head>
 
 <body>
-	<div id="page-maintenance-1">
-		<div class="panda-wrapper panda-maintenance" style="height: 950px; padding-top: 45px;">
+	<div id="page-maintenance-1" style="height: 100%;">
+		<div class="panda-wrapper panda-maintenance" style="height: 100%; min-height: 920px; padding-top: 45px;">
 			<div class="container">
 				<div class="panda-content pull-left">
 					<h1 class="rs logo"><img src="{% static "images/logo_black.png" %}" alt=""></img></h1>
