@@ -13,7 +13,6 @@ urlpatterns = [
 	url(r'^$', index, name='index'),
 	url(r'^faq/$', faq, name='faq'),
 	url(r'^contact/$', contact, name='contact'),
-	url(r'^about-us/$', about, name='about-us'),
 	url(r'^about/$', about, name='about'),
 	url(r'^login/$', loginView, name='login'),
 	url(r'^signup/$', signUPView, name='signup'),
