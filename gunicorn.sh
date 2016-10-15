@@ -9,7 +9,8 @@ NUM_WORKERS=3                                           # how many worker proces
 DJANGO_SETTINGS_MODULE="application.settings"           # which settings file should Django use
 DJANGO_WSGI_MODULE="application.wsgi"                   # WSGI module name
 TIMEOUT=120                                             # Worker Timeout
-KEEPALIVE=75
+KEEPALIVE=75                                            # Keep Alive Timer
+PID_FILE="/home/ec2-user/feedcrunch/run/gunicorn.pid"   # PID Process file.
 
 echo "Starting $NAME as `whoami`"
 
@@ -29,6 +30,7 @@ exec gunicorn ${DJANGO_WSGI_MODULE}:application \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
   --bind=unix:$SOCKFILE \
+  --pid $PID_FILE \
   --keep-alive $KEEPALIVE \
   --timeout $TIMEOUT \
   --log-level=debug \
