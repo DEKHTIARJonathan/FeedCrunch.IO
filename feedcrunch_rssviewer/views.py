@@ -93,10 +93,14 @@ def photo(request, feedname=None):
 	else:
 		requested_user = FeedUser.objects.get(username=feedname)
 
-		pathdownloader = PathDownloadView()
-		pathdownloader.path = os.path.join(settings.MEDIA_ROOT, str(requested_user.profile_picture))
+		if settings.DEBUG:
+			pathdownloader = PathDownloadView()
+			pathdownloader.path = os.path.join(settings.MEDIA_ROOT, str(requested_user.profile_picture))
 
-		return HttpResponse(pathdownloader.get_file(), content_type=pathdownloader.get_mimetype())
+			return HttpResponse(pathdownloader.get_file(), content_type=pathdownloader.get_mimetype())
+		else:
+			photo_url = "https://%s/%s/%s" % (settings.AWS_S3_CUSTOM_DOMAIN, settings.MEDIAFILES_LOCATION, requested_user.profile_picture)
+			return HttpResponseRedirect(photo_url)
 
 def search(request, feedname=None):
 	result = {}
