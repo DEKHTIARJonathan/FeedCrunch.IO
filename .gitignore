@@ -99,3 +99,5 @@ application/fixtures/dataradar.json
 !images/user_photos/__init__.py
 !images/user_photos/dummy_user.png
 images/user_photos/
+codedeploy/Encrypted/*.zip
+codedeploy/Encrypted/*.txt
