@@ -16,7 +16,7 @@ from django.utils import six, timezone
 
 from django.utils.translation import ugettext_lazy as _
 
-import os, re, uuid, datetime, unicodedata, getenv
+import os, re, uuid, datetime, unicodedata, getenv, random, urllib, string
 from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
@@ -29,6 +29,20 @@ from twython import Twython
 
 def generateDummyDesc():
 	return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor. Vestibulum tempor sapien id justo molestie imperdiet. Nulla efficitur mattis ante, nec iaculis lorem consequat in. Nullam sit amet diam augue. Nulla ullamcorper imperdiet turpis a maximus. Donec iaculis porttitor ultrices. Morbi lobortis dui molestie ullamcorper varius. Maecenas eu laoreet ipsum orci aliquam."
+
+def id_generator(size=20, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits):
+	return ''.join(random.choice(chars) for _ in range(size))
+
+def get_photo_path(instance, filename):
+	ext = filename.split('.')[-1]
+
+	while True:
+		filename = "%s.%s" % (id_generator(), ext)
+
+		if settings.DEBUG or urllib.urlopen("https://s3-eu-west-1.amazonaws.com/feedcrunch/media/images/user_photos/"+filename).getcode() != 200:
+			break
+
+	return os.path.join('images/user_photos', filename)
 
 class FeedUserManager(BaseUserManager):
 
@@ -257,7 +271,7 @@ class FeedUser(AbstractFeedUser):
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 
-	profile_picture = models.ImageField(upload_to='images/user_photos', default='images/user_photos/dummy_user.png', blank=True, null=True)
+	profile_picture = models.ImageField(upload_to=get_photo_path, default='images/user_photos/dummy_user.png', blank=True, null=True)
 
 	twitter_token = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 	twitter_token_secret = EncryptedCharField(max_length=500, default='', blank=True, null=True)
