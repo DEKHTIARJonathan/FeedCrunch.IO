@@ -4,6 +4,7 @@
 from __future__ import unicode_literals
 from django.conf import settings
 from django.conf.urls import include, url
+from django.conf.urls.static import static
 import django.contrib.auth.views
 
 #from .admin import admin_site
@@ -19,3 +20,6 @@ urlpatterns = [
 	url(r'^terms/$', terms, name='terms'),
 	url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
 ]
+
+if settings.DEBUG:
+	urlpatterns.append(url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}))

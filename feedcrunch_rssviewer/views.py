@@ -27,36 +27,6 @@ from mimetypes import MimeTypes
 
 # Create your views here.
 
-class PathDownloadView(BaseDownloadView):
-	"""Serve a file using filename."""
-	#: Server-side name (including path) of the file to serve.
-	#:
-	#: Filename is supposed to be an absolute filename of a file located on the
-	#: local filesystem.
-	path = None
-
-	def get_path(self):
-		"""Return actual path of the file to serve.
-		Default implementation simply returns view's :py:attr:`path`.
-		Override this method if you want custom implementation.
-		As an example, :py:attr:`path` could be relative and your custom
-		:py:meth:`get_path` implementation makes it absolute.
-		"""
-		return self.path
-
-	def get_file(self):
-		"""Use path to return wrapper around file to serve."""
-		filename = self.get_path()
-		if not os.path.isfile(filename):
-			raise FileNotFound('File "{0}" does not exists'.format(filename))
-		return File(open(filename, 'rb'))
-
-	def get_mimetype(self):
-		filename = self.get_path()
-		mime = MimeTypes()
-		mime_type = mime.guess_type(filename)
-		return mime_type[0]
-
 def index(request, feedname=None):
 
 	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
@@ -84,23 +54,6 @@ def dataset(request, feedname=None):
 			data_output += str(post.id) + "|" + post.title + "|" + post.link + "|" + post.get_domain() + "<br/>"
 
 		return HttpResponse(data_output)
-
-def photo(request, feedname=None):
-	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
-		OPENID_LOGO_BASE_64 = """R0lGODlhAQABAIAAAP==""" #Smallest GIF as Possible : transparent image 1x1
-		return HttpResponse(OPENID_LOGO_BASE_64.decode('base64'), content_type='image/gif')
-
-	else:
-		requested_user = FeedUser.objects.get(username=feedname)
-
-		if settings.DEBUG:
-			pathdownloader = PathDownloadView()
-			pathdownloader.path = os.path.join(settings.MEDIA_ROOT, str(requested_user.profile_picture))
-
-			return HttpResponse(pathdownloader.get_file(), content_type=pathdownloader.get_mimetype())
-		else:
-			photo_url = "https://%s/%s/%s" % (settings.AWS_S3_CUSTOM_DOMAIN, settings.MEDIAFILES_LOCATION, requested_user.profile_picture)
-			return HttpResponseRedirect(photo_url)
 
 def search(request, feedname=None):
 	result = {}
@@ -170,3 +123,53 @@ def atom_feed(request, feedname=None):
 			return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
 		else:
 			return HttpResponse("No Entries in this feed yet")
+
+'''
+class PathDownloadView(BaseDownloadView):
+	"""Serve a file using filename."""
+	#: Server-side name (including path) of the file to serve.
+	#:
+	#: Filename is supposed to be an absolute filename of a file located on the
+	#: local filesystem.
+	path = None
+
+	def get_path(self):
+		"""Return actual path of the file to serve.
+		Default implementation simply returns view's :py:attr:`path`.
+		Override this method if you want custom implementation.
+		As an example, :py:attr:`path` could be relative and your custom
+		:py:meth:`get_path` implementation makes it absolute.
+		"""
+		return self.path
+
+	def get_file(self):
+		"""Use path to return wrapper around file to serve."""
+		filename = self.get_path()
+		if not os.path.isfile(filename):
+			raise FileNotFound('File "{0}" does not exists'.format(filename))
+		return File(open(filename, 'rb'))
+
+	def get_mimetype(self):
+		filename = self.get_path()
+		mime = MimeTypes()
+		mime_type = mime.guess_type(filename)
+		return mime_type[0]
+
+
+def photo(request, feedname=None):
+	if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
+		OPENID_LOGO_BASE_64 = """R0lGODlhAQABAIAAAP==""" #Smallest GIF as Possible : transparent image 1x1
+		return HttpResponse(OPENID_LOGO_BASE_64.decode('base64'), content_type='image/gif')
+
+	else:
+		requested_user = FeedUser.objects.get(username=feedname)
+
+		if settings.DEBUG:
+			pathdownloader = PathDownloadView()
+			pathdownloader.path = os.path.join(settings.MEDIA_ROOT, str(requested_user.profile_picture))
+
+			return HttpResponse(pathdownloader.get_file(), content_type=pathdownloader.get_mimetype())
+		else:
+			photo_url = "https://%s/%s/%s" % (settings.AWS_S3_CUSTOM_DOMAIN, settings.MEDIAFILES_LOCATION, requested_user.profile_picture)
+			return HttpResponseRedirect(photo_url)
+'''

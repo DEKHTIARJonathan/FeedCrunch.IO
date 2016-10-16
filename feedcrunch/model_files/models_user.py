@@ -39,10 +39,12 @@ def get_photo_path(instance, filename):
 	while True:
 		filename = "%s.%s" % (id_generator(), ext)
 
-		if settings.DEBUG or urllib.urlopen("https://s3-eu-west-1.amazonaws.com/feedcrunch/media/images/user_photos/"+filename).getcode() != 200:
+		photo_url = "%s%s" % (settings.MEDIA_URL, filename)
+
+		if settings.DEBUG or urllib.urlopen(photo_url).getcode() != 200:
 			break
 
-	return os.path.join('images/user_photos', filename)
+	return settings.USER_PHOTO_PATH + filename
 
 class FeedUserManager(BaseUserManager):
 
@@ -164,7 +166,6 @@ class FeedUserManager(BaseUserManager):
 				except Exception, e:
 					raise Exception(validation['error'])
 
-
 class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
 	"""
 	An abstract base class implementing a fully featured User model with
@@ -246,7 +247,6 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
 		"""
 		send_mail(subject, message, from_email, [self.email], **kwargs)
 
-
 class FeedUser(AbstractFeedUser):
 	"""
 	Users within the Django authentication system are represented by this
@@ -271,7 +271,7 @@ class FeedUser(AbstractFeedUser):
 
 	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
 
-	profile_picture = models.ImageField(upload_to=get_photo_path, default='images/user_photos/dummy_user.png', blank=True, null=True)
+	profile_picture = models.ImageField(upload_to=get_photo_path, default=settings.USER_PHOTO_PATH+'dummy_user.png', blank=True, null=True)
 
 	twitter_token = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 	twitter_token_secret = EncryptedCharField(max_length=500, default='', blank=True, null=True)
@@ -333,3 +333,10 @@ class FeedUser(AbstractFeedUser):
 		self.twitter_token = ""
 		self.twitter_token_secret = ""
 		self.save()
+
+	def get_profile_picture(self):
+		if settings.DEBUG:
+			return self.profile_picture.url
+		else:
+			photo_url = "%s%s" % (settings.MEDIA_URL, self.profile_picture)
+			return photo_url

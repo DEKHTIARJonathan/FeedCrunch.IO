@@ -22,7 +22,14 @@ import getenv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MEDIA_ROOT = os.path.dirname(os.path.dirname(__file__))
+
+STATICFILES_LOCATION = 'static'
+STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'staticfiles')
+
+MEDIAFILES_LOCATION = 'media'
+MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), MEDIAFILES_LOCATION)
+
+
 
 def assign_env_value(var_name):
 	if var_name in os.environ:
@@ -40,11 +47,14 @@ DEBUG = assign_env_value('DEBUG')
 SECRET_KEY = assign_env_value('SECRET_KEY')
 
 if DEBUG:
-	STATIC_URL = '/static/'
 
 	# Simplified static file serving.
 	# https://warehouse.python.org/project/whitenoise/
 	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+	STATIC_URL = "/%s/" % STATICFILES_LOCATION
+
+	DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+	MEDIA_URL = "/%s/" % MEDIAFILES_LOCATION
 
 else:
 
@@ -63,34 +73,19 @@ else:
 	# We also use it in the next setting.
 	AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-
 	################################################################################ STATIC FILES ################################################
-
-	# Subfolder in S3 Bucket to store Static Files
-	STATICFILES_LOCATION = 'static'
 
 	# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when you run `collectstatic`).
 	STATICFILES_STORAGE = 'application.custom_storages.StaticStorage'
-
 	STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
 	################################################################################ STATIC FILES ################################################
 
-	# Subfolder in S3 Bucket to store Static Files
-	MEDIAFILES_LOCATION = 'media'
-
 	# Tell the staticfiles app to use S3Boto storage when serving and uploading media files.
 	DEFAULT_FILE_STORAGE = 'application.custom_storages.MediaStorage'
-
 	MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 #######################################################
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-	os.path.join(PROJECT_ROOT, 'static'),
-)
 
 # Application definition
 
@@ -191,6 +186,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'feedcrunch.FeedUser'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+	os.path.join(PROJECT_ROOT, 'static'),
+)
+
+USER_PHOTO_PATH = "images/user_photos/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

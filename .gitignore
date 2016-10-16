@@ -96,8 +96,8 @@ fieldkeys/*
 !fieldkeys/__init__.py
 application/fixtures/dataradar.json
 *.sqlite3
-!images/user_photos/__init__.py
-!images/user_photos/dummy_user.png
-images/user_photos/
+!media/images/user_photos/__init__.py
+!media/images/user_photos/dummy_user.png
+media/images/user_photos/
 codedeploy/Encrypted/*.zip
 codedeploy/Encrypted/*.txt
