@@ -340,3 +340,6 @@ class FeedUser(AbstractFeedUser):
 		else:
 			photo_url = "%s%s" % (settings.MEDIA_URL, self.profile_picture)
 			return photo_url
+
+	def get_post_count(self):
+		return self.rel_posts.count()

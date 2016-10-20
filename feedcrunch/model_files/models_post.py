@@ -18,7 +18,7 @@ def create_key(size=8):
 
 class Post(models.Model):
 	id = models.AutoField(primary_key=True)
-	user = models.ForeignKey(FeedUser)
+	user = models.ForeignKey(FeedUser, related_name='rel_posts')
 	title = models.CharField(max_length=255)
 	link = models.URLField(max_length=2000)
 	when = models.DateTimeField(auto_now_add=True)
@@ -47,3 +47,6 @@ class Post(models.Model):
 		for tag in self.tags.all():
 			output += str(tag) + " "
 		return str(output)[:-1] # We remove the last space before returning the value
+
+	def get_tags_count(self):
+		return self.tags.count()

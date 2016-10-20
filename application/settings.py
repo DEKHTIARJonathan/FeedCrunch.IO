@@ -29,8 +29,6 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'staticfi
 MEDIAFILES_LOCATION = 'media'
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), MEDIAFILES_LOCATION)
 
-
-
 def assign_env_value(var_name):
 	if var_name in os.environ:
 		return getenv.env(var_name)
@@ -90,7 +88,10 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-	'grappelli',
+	#'grappelli',
+	'material',
+	#'material.frontend',
+	'material.admin',
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
