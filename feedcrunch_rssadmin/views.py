@@ -57,6 +57,21 @@ def index(request, feedname=None):
 
 		return render(request, 'admin_index.html', {'auth_url': auth_url, 'countries': country_list})
 
+def index_dev(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		if not request.user.is_twitter_activated():
+			auth_url = get_authorization_url(request)
+		else:
+			auth_url = False # False => Don't need to authenticate with Twitter
+
+		country_list = Country.objects.all().order_by('name')
+
+		return render(request, 'admin_index_dev.html', {'auth_url': auth_url, 'countries': country_list})
+
 def add_form(request, feedname=None):
 
 	check_passed = check_admin(feedname, request.user)
