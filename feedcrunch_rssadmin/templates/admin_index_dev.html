@@ -508,7 +508,7 @@
 				<div class="side-nav-wrapper">
 					<div class="sidebar-profile">
 						<div class="sidebar-profile-image">
-							<img src="{{ {{ user.get_profile_picture }}" class="circle" alt="">
+							<img src="{{ user.get_profile_picture }}" class="circle" alt="">
 						</div>
 						<div class="sidebar-profile-info">
 							<a href="javascript:void(0);" class="account-settings-link">
@@ -673,9 +673,7 @@
 									<span class="card-title">Articles Posted</span>
 									<span class="stats-counter"><span class="counter">{{ user.get_post_count }}</span><small>Since {{ user.date_joined }}</small></span>
 								</div>
-								<div class="progress stats-card-progress">
-									<div class="determinate" style="width: 70%"></div>
-								</div>
+								<div class="progress stats-card-progress" style="background: #ffffff;"></div>
 							</div>
 						</div>
 						<div class="col s12 m12 l4">
@@ -683,10 +681,14 @@
 								<div class="card-content">
 									<span class="card-title">Articles Posted</span>
 									<span class="stats-counter"><span class="counter">{{ user.get_current_month_post_count }}</span><small>this month</small></span>
-									<div class="percent-info green-text">8% <i class="material-icons">trending_up</i></div>
+									{% if post_trending == "new_releases" %}
+										<div class="percent-info text-blue-grey lighten-1">new subscriber<i class="material-icons">{{ post_trending }}</i></div>
+									{% else %}
+										<div class="percent-info {{ post_trending_color }}">{{ publication_trend }}% <i class="material-icons">{{ post_trending }}</i></div>
+									{% endif %}
 								</div>
 								<div class="progress stats-card-progress">
-									<div class="determinate" style="width: 70%"></div>
+									<div class="determinate" style="width: {{ monthtime_elapsed }}%"></div>
 								</div>
 							</div>
 						</div>
@@ -714,8 +716,8 @@
 											<li><a href="javascript:void(0)" class="card-refresh"><i class="material-icons">refresh</i></a></li>
 										</ul>
 									</div>
-									<span class="card-title">Visitors<span class="secondary-title">Showing stats from the last week</span></span>
-											<div id="flotchart1"></div>
+									<span class="card-title">Publication Rate<span class="secondary-title">Showing publication stats from the last two weeks</span></span>
+									<div id="flotchart1"></div>
 								</div>
 							</div>
 						</div>

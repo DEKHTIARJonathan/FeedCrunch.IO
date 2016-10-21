@@ -18,6 +18,7 @@ from .ap_style import format_title
 from .image_validation import get_image_dimensions
 
 import datetime, unicodedata, json
+from calendar import monthrange
 
 def check_admin(feedname, user):
 	if feedname == None:
@@ -68,7 +69,38 @@ def index_dev(request, feedname=None):
 
 		country_list = Country.objects.all().order_by('name')
 
-		return render(request, 'admin_index_dev.html', {'auth_url': auth_url, 'countries': country_list})
+		d = datetime.datetime.now()
+		monthtime_elapsed = int(round(float(d.day) / monthrange(d.year, d.month)[1] * 100,0))
+
+		try:
+			publication_trend = ((float(request.user.get_current_month_post_count()) / request.user.get_last_month_post_count()) -1 ) * 100.0
+
+			if publication_trend > 0:
+				post_trending = "trending_up"
+				post_trending_color = "green-text"
+			elif publication_trend < 0:
+				post_trending = "trending_down"
+				post_trending_color = "red-text"
+			else :
+				post_trending = "trending_flat"
+				post_trending_color = "blue-grey lighten-1"
+
+			publication_trend = int(round(abs(publication_trend),0))
+
+		except ZeroDivisionError:
+			publication_trend = -1
+			post_trending = "new_releases"
+
+		data = {
+			'auth_url': auth_url,
+			'countries': country_list,
+			'monthtime_elapsed': monthtime_elapsed,
+			'post_trending': post_trending,
+			'publication_trend': publication_trend,
+			'post_trending_color': post_trending_color,
+		}
+
+		return render(request, 'admin_index_dev.html', data)
 
 def add_form(request, feedname=None):
 
