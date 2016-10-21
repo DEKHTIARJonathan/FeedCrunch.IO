@@ -1,6 +1,6 @@
-awscli==1.11.7
+awscli==1.11.8
 boto==2.43.0
-botocore==1.4.64
+botocore==1.4.65
 click==6.6
 codeclimate-test-reporter==0.1.2
 colorama==0.3.7
@@ -40,7 +40,7 @@ pytz==2016.7
 requests==2.11.1
 requests-oauthlib==0.7.0
 rsa==3.4.2
-s3transfer==0.1.8
+s3transfer==0.1.9
 six==1.10.0
 twython==3.4.0
 validate-email==1.3

@@ -343,3 +343,10 @@ class FeedUser(AbstractFeedUser):
 
 	def get_post_count(self):
 		return self.rel_posts.count()
+
+	def get_current_month_post_count(self):
+		d_tmp = datetime.datetime.now()
+		date_1st_day_month = datetime.datetime(d_tmp.year,d_tmp.month,1,0,0,0)
+		date_1st_day_month_with_tmz = timezone.make_aware(date_1st_day_month, timezone.get_current_timezone())
+
+		return self.rel_posts.filter(when__gte=date_1st_day_month_with_tmz).count()

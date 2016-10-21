@@ -17,9 +17,7 @@ from twitter.tw_funcs import TwitterAPI, get_authorization_url
 from .ap_style import format_title
 from .image_validation import get_image_dimensions
 
-import datetime
-import unicodedata
-import json
+import datetime, unicodedata, json
 
 def check_admin(feedname, user):
 	if feedname == None:
@@ -231,20 +229,20 @@ def update_photo(request, feedname=None):
 			try:
 				photo = request.FILES['photo']
 
-				tmp_user = FeedUser.objects.get(username=request.user.username)
-				tmp_user.profile_picture = photo
-
 				allowed_mime_types = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png']
-				if request.FILES['photo'].content_type not in allowed_mime_types:
+
+				if photo.content_type not in allowed_mime_types:
 					raise ValueError("Only Images are allowed.")
 
-				w, h = get_image_dimensions(request.FILES['photo'].read())
+				w, h = get_image_dimensions(photo.read())
 
 				if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 :
 
-					if request.FILES['photo'].size > 1000000: # > 1MB
+					if photo.size > 1000000: # > 1MB
 						raise ValueError("File size is larger than 1MB.")
 
+					tmp_user = FeedUser.objects.get(username=request.user.username)
+					tmp_user.profile_picture = photo
 					tmp_user.save()
 				else:
 					raise ValueError("The uploaded image is not valid")
