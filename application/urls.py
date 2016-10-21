@@ -27,7 +27,7 @@ admin.autodiscover()
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-	url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+	#url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^api/1.0/', include('feedcrunch_api_v1.urls')),
 	url(r'', include('feedcrunch_home.urls')),
