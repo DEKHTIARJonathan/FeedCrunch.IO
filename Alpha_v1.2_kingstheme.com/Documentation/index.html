@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <!-- Title -->
+        <title>Alpha | Responsive Admin Dashboard Template</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Steelcoders" />
+        
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="../source/assets/plugins/materialize/css/materialize.min.css"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
+        <link href="../source/assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+        <link href="../source/assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>
+        	
+        <!-- Theme Styles -->
+        <link href="../source/assets/css/alpha.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/docs.css" rel="stylesheet" type="text/css"/>
+        
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+            <header class="mn-header navbar-fixed">
+                <nav class="blue-grey">
+                    <div class="nav-wrapper row">
+                        <section class="material-design-hamburger navigation-toggle">
+                            <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
+                                <span class="material-design-hamburger__layer"></span>
+                            </a>
+                        </section>
+                        <div class="header-title col s3">      
+                            <span class="chapter-title">Documentation</span>
+                        </div>
+                        <form  action="javascript:void(0);" class="left search col s6 hide-on-small-and-down">
+                            <div class="input-field">
+                                <input id="search" type="search" placeholder="Search" autocomplete="off">
+                                <label for="search"><i class="material-icons search-icon">search</i></label>
+                            </div>
+                            <a href="javascript: void(0)" class="close-search"><i class="material-icons">close</i></a>
+                        </form>
+                        <ul class="right col s9 m3 nav-right-menu">
+                            <li><a href="../Source/index.html" target="_blank"><i class="material-icons">open_in_new</i></a></li>
+                            <li class="hide-on-med-and-up"><a href="javascript:void(0)" class="search-toggle"><i class="material-icons">search</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <aside id="slide-out" class="side-nav fixed white">
+                <div class="side-nav-wrapper">
+                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="#overview"><i class="material-icons">info_outline</i>Overview</a></li>
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">code</i>Structure</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#folderStructure">Folder Structure</a></li>
+                                <li><a href="#htmlStructure">HTML Structure</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">format_paint</i>Customization</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#customCode">Custom Code</a></li>
+                                <li><a href="#fonts">Fonts</a></li>
+                                <li><a href="#colors">Colors</a></li>
+                                <li><a href="#cssUtilities">CSS Utilities</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">layers</i>Themes &amp; Layouts</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#themes">Themes</a></li>
+                                <li><a href="#rightSidebar">Right Sidebar</a></li>
+                                <li><a href="#hiddenSidebar">Hidden Sidebar</a></li>
+                                <li><a href="#boxedLayout">Boxed Layout</a></li>
+                                <li><a href="#staticHeader">Static Header</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="#newPage"><i class="material-icons">create</i>New Page</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="#credits"><i class="material-icons">copyright</i>Sources &amp; Credits</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="#support"><i class="material-icons">near_me</i>Support</a></li>
+                </ul>
+                <div class="footer">
+                    <p class="copyright">Steelcoders ©</p>
+                    <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
+                </div>
+                </div>
+            </aside>
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card" id="overview">
+                            <div class="card-content">
+                                <span class="card-title">Overview</span>
+                                The <b>Alpha UI Framework</b> is a premium Web Application Admin Dashboard built on top of MaterializeCSS Framework. It was created to be the most functional, clean and well designed theme for any types of backend applications. We have carefully designed all common elements.<br><br>We love when all updates are free. Once you’ve purchased Alpha, you’ll be able to download all future updates. If you like our theme don’t forget to rate us five stars. Good rating provides more and better updates in future!
+                                <br><br>If you have any questions that are beyond the scope of this help file, please feel free to email via our user page contact form <a href="http://themeforest.net/user/steelcoders" target="_blank">here</a>. Thanks so much!
+
+
+                            </div>
+                        </div>
+                        <div class="card" id="folderStructure">
+                            <div class="card-content">
+                                <span class="card-title">Folder Structure</span>
+                                            <p>List of folders in Alpha download</p>
+                                            <pre>
+Documentation/
+└── assets/
+    ├── css/
+    ├── js/
+    └── plugins/
+source/
+└── assets/
+    ├── css/
+    ├── images/
+    ├── js/
+    └── plugins/
+</pre>
+
+                            </div>
+                        </div>
+                        <div class="card" id="htmlStructure">
+                            <div class="card-content">
+                                <span class="card-title">HTML Structure</span>
+                                            <p>Page Head</p>
+                                            <pre>
+&lt;head&gt;
+    &lt;!-- Title --&gt;
+    &lt;title&gt;Alpha | Responsive Admin Dashboard Template&lt;/title&gt;
+        
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="description" content="Responsive Admin Dashboard Template" /&gt;
+    &lt;meta name="keywords" content="admin,dashboard" /&gt;
+    &lt;meta name="author" content="Steelcoders" /&gt;
+        
+    &lt;!-- Styles --&gt;
+    &lt;link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/&gt;
+    &lt;link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+    &lt;link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"&gt;        
+
+        	
+    &lt;!-- Theme Styles --&gt;
+    &lt;link href="assets/css/alpha.css" rel="stylesheet" type="text/css"/&gt;
+    &lt;link href="assets/css/custom.css" rel="stylesheet" type="text/css"/&gt;
+        
+        
+    &lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+        
+&lt;/head&gt;
+</pre>
+                                            <p>Page Body</p>
+                                            <pre>
+&lt;body&gt;
+    &lt;div class="loader"&gt;
+        &lt;div class="preloader-wrapper big active"&gt;
+            &lt;div class="spinner-layer spinner-blue"&gt;
+                &lt;div class="circle-clipper left"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="gap-patch"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="circle-clipper right"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="spinner-layer spinner-spinner-teal lighten-1"&gt;
+                &lt;div class="circle-clipper left"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="gap-patch"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="circle-clipper right"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="spinner-layer spinner-yellow"&gt;
+                &lt;div class="circle-clipper left"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="gap-patch"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="circle-clipper right"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="spinner-layer spinner-green"&gt;
+                &lt;div class="circle-clipper left"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="gap-patch"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="circle-clipper right"&gt;
+                    &lt;div class="circle"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="mn-content fixed-sidebar"&gt;
+        &lt;header class="mn-header navbar-fixed"&gt;
+            &lt;nav class="teal lighten-1"&gt;
+                &lt;div class="nav-wrapper row"&gt;
+                    &lt;section class="material-design-hamburger navigation-toggle"&gt;
+                        &lt;a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon"&gt;
+                        &lt;span class="material-design-hamburger__layer"&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/section&gt;
+                    &lt;div class="header-title col s3"&gt;      
+                        &lt;span class="chapter-title"&gt;Alpha&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;form class="left search col s6 hide-on-small-and-down"&gt;
+                        &lt;div class="input-field"&gt;
+                            &lt;input id="search" type="search" placeholder="Search" autocomplete="off"&gt;
+                            &lt;label for="search"&gt;&lt;i class="material-icons search-icon"&gt;search&lt;/i&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;a href="javascript: void(0)" class="close-search"&gt;&lt;i class="material-icons"&gt;close&lt;/i&gt;&lt;/a&gt;
+                    &lt;/form&gt;
+                    &lt;ul class="right col s9 m3 nav-right-menu"&gt;
+                        &lt;li&gt;&lt;a href="javascript:void(0)" data-activates="chat-sidebar" class="chat-button show-on-large"&gt;&lt;i class="material-icons"&gt;more_vert&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class="hide-on-small-and-down"&gt;&lt;a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"&gt;&lt;i class="material-icons"&gt;notifications_none&lt;/i&gt;&lt;span class="badge"&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class="hide-on-med-and-up"&gt;&lt;a href="javascript:void(0)" class="search-toggle"&gt;&lt;i class="material-icons"&gt;search&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;ul id="dropdown1" class="dropdown-content notifications-dropdown"&gt;
+                        &lt;li class="notificatoins-dropdown-container"&gt;
+                            &lt;ul&gt;
+                                &lt;li class="notification-drop-title"&gt;Today&lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle cyan"&gt;&lt;i class="material-icons"&gt;done&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;&lt;b&gt;Alan Grey&lt;/b&gt; uploaded new theme&lt;/p&gt;
+                                                &lt;span&gt;7 min ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle deep-purple"&gt;&lt;i class="material-icons"&gt;cached&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;&lt;b&gt;Tom&lt;/b&gt; updated status&lt;/p&gt;
+                                                &lt;span&gt;14 min ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle red"&gt;&lt;i class="material-icons"&gt;delete&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;&lt;b&gt;Amily Lee&lt;/b&gt; deleted account&lt;/p&gt;
+                                                &lt;span&gt;28 min ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle cyan"&gt;&lt;i class="material-icons"&gt;person_add&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;&lt;b&gt;Tom Simpson&lt;/b&gt; registered&lt;/p&gt;
+                                                &lt;span&gt;2 hrs ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle green"&gt;&lt;i class="material-icons"&gt;file_upload&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;Finished uploading files&lt;/p&gt;
+                                                &lt;span&gt;4 hrs ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="notification-drop-title"&gt;Yestarday&lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle green"&gt;&lt;i class="material-icons"&gt;security&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;Security issues fixed&lt;/p&gt;
+                                                &lt;span&gt;16 hrs ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle indigo"&gt;&lt;i class="material-icons"&gt;file_download&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;Finished downloading files&lt;/p&gt;
+                                                &lt;span&gt;22 hrs ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#!"&gt;
+                                        &lt;div class="notification"&gt;
+                                            &lt;div class="notification-icon circle cyan"&gt;&lt;i class="material-icons"&gt;code&lt;/i&gt;&lt;/div&gt;
+                                            &lt;div class="notification-text"&gt;
+                                                &lt;p&gt;Code changes were saved&lt;/p&gt;
+                                                &lt;span&gt;1 day ago&lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/nav&gt;
+        &lt;/header&gt;
+        &lt;div class="search-results"&gt;
+            &lt;div class="container search-container"&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col s12 search-head"&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col s12"&gt;
+                                &lt;div class="left"&gt;
+                                    &lt;p class="search-results-title"&gt;Quick search results&lt;/p&gt;
+                                    &lt;p class="search-filter left"&gt;
+                                        &lt;input type="checkbox" class="filled-in" id="filled-in-box" checked/&gt;
+                                        &lt;label for="filled-in-box"&gt;Google search&lt;/label&gt;
+                                    &lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="res-not-found"&gt;No results found&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col s12 m4 search-result-container"&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="row valign-wrapper"&gt;
+                                &lt;div class="col s3"&gt;
+                                    &lt;img src="assets/images/profile-image-1.png" alt="" class="circle responsive-img z-depth-1"&gt;
+                                &lt;/div&gt;
+                                &lt;div class="col s9"&gt;
+                                    &lt;span class="search-result-text"&gt;
+                                    Search &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="secondary-search-text"&gt;Last active 2 days ago&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="row valign-wrapper"&gt;
+                                &lt;div class="col s3"&gt;
+                                    &lt;img src="assets/images/profile-image-3.jpg" alt="" class="circle responsive-img z-depth-1"&gt;
+                                &lt;/div&gt;
+                                &lt;div class="col s9"&gt;
+                                    &lt;span class="search-result-text"&gt;
+                                    News about &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="secondary-search-text"&gt;23 Blogs&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="row valign-wrapper"&gt;
+                                &lt;div class="col s3"&gt;
+                                    &lt;img src="assets/images/profile-image.png" alt="" class="circle responsive-img z-depth-1"&gt;
+                                &lt;/div&gt;
+                                &lt;div class="col s9"&gt;
+                                    &lt;span class="search-result-text"&gt;
+                                    Tom King (Works at &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt;)&lt;br&gt;&lt;span class="secondary-search-text"&gt;Avaible for freelance work&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col s12 m4 search-result-container"&gt;
+                        &lt;div class="card card-transparent "&gt;
+                            &lt;div class="row valign-wrapper"&gt;
+                                &lt;div class="col s3"&gt;
+                                    &lt;span class="z-depth-1 circle search-circle indigo lighten-1"&gt;F&lt;/span&gt;
+                                &lt;/div&gt;
+                                &lt;div class="col s9"&gt;
+                                    &lt;span class="search-result-text"&gt;
+                                    &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt; on Facebook&lt;br&gt;&lt;span class="secondary-search-text"&gt;&lt;a href="#"&gt;View website&lt;/a&gt;&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="row valign-wrapper"&gt;
+                                &lt;div class="col s3"&gt;
+                                    &lt;span class="z-depth-1 circle search-circle light-blue lighten-1"&gt;T&lt;/span&gt;
+                                &lt;/div&gt;
+                                &lt;div class="col s9"&gt;
+                                    &lt;span class="search-result-text"&gt;
+                                    &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt; on Twitter&lt;br&gt;&lt;span class="secondary-search-text"&gt;&lt;a href="#"&gt;View website&lt;/a&gt;&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="row valign-wrapper"&gt;
+                                &lt;div class="col s3"&gt;
+                                    &lt;span class="z-depth-1 circle search-circle red darken-1"&gt;G&lt;/span&gt;
+                                &lt;/div&gt;
+                                &lt;div class="col s9"&gt;
+                                    &lt;span class="search-result-text"&gt;
+                                    Google+ &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="secondary-search-text"&gt;&lt;a href="#"&gt;View website&lt;/a&gt;&lt;/span&gt;
+                                    &lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col s12 m4 search-result-container"&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="card-content first"&gt;
+                                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sunt in culpa qui&lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt; quis.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class="card-action"&gt;
+                                &lt;span class="grey-text"&gt;Yesterday, 4:56 PM&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card card-transparent"&gt;
+                            &lt;div class="card-content"&gt;
+                                &lt;p&gt;Sunt in culpa qui &lt;span class="search-text search-result-highlight"&gt;&lt;/span&gt; officia deserunt mollit anim id est laborum. officia deserunt mollit anim id est laborum officia deserunt mollit anim&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class="card-action"&gt;
+                                &lt;span class="grey-text"&gt;27 January 2016&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;aside id="chat-sidebar" class="side-nav white"&gt;
+            &lt;div class="side-nav-wrapper"&gt;
+                &lt;div class="col s12"&gt;
+                    &lt;ul class="tabs tab-demo" style="width: 100%;"&gt;
+                        &lt;li class="tab col s3"&gt;&lt;a href="#sidebar-chat-tab" class="active"&gt;chat&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class="tab col s3"&gt;&lt;a href="#sidebar-more-tab"&gt;settings&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div id="sidebar-chat-tab" class="col s12 sidebar-messages right-sidebar-panel"&gt;
+                    &lt;p class="right-sidebar-heading"&gt;CHAT LIST&lt;/p&gt;
+                    &lt;div class="chat-list"&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image.png" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;John Doe&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;Hello&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image-1.png" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;Tom Simpson&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;How are you?&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image-3.jpg" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;Alan Grey&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;Call me later&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image.png" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;Michael Fisher&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;How's it going?&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image-1.png" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;Amily Lee&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;We're good&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image.png" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;Sandra Smith&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;See you later!&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                        &lt;a href="javascript:void(0)" class="chat-message"&gt;
+                            &lt;div class="chat-item"&gt;
+                                &lt;div class="chat-item-image"&gt;
+                                    &lt;img src="assets/images/profile-image-3.jpg" class="circle" alt=""&gt;
+                                &lt;/div&gt;
+                                &lt;div class="chat-item-info"&gt;
+                                    &lt;p class="chat-name"&gt;Sandra Smith&lt;/p&gt;
+                                    &lt;span class="chat-message"&gt;Can we meet?&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class="chat-sidebar-options"&gt;
+                        &lt;a href="#" class="left"&gt;&lt;i class="material-icons"&gt;edit&lt;/i&gt;&lt;/a&gt;
+                        &lt;a href="#" class="right"&gt;&lt;i class="material-icons"&gt;settings&lt;/i&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div id="sidebar-more-tab" class="col s12 sidebar-more right-sidebar-panel"&gt;
+                    &lt;p class="right-sidebar-heading"&gt;SYSTEM&lt;/p&gt;
+                    &lt;div class="settings-list"&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Notifications&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox" checked&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Quick Results&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox" checked&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Auto Updates&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox"&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;p class="right-sidebar-heading"&gt;ACCOUNT&lt;/p&gt;
+                    &lt;div class="settings-list"&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Offline Mode&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox"&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Location&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox"&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Show Offline Users&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox"&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="setting-item"&gt;
+                            &lt;div class="setting-text"&gt;Save History&lt;/div&gt;
+                            &lt;div class="setting-set"&gt;
+                                &lt;div class="switch"&gt;
+                                    &lt;label&gt;
+                                    &lt;input type="checkbox"&gt;
+                                    &lt;span class="lever"&gt;&lt;/span&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/aside&gt;
+        &lt;aside id="chat-messages" class="side-nav white"&gt;
+            &lt;p class="sidebar-chat-name"&gt;Tom Simpson&lt;a href="#" data-activates="chat-messages" class="chat-message-link"&gt;&lt;i class="material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+            &lt;div class="messages-container"&gt;
+                &lt;div class="message-wrapper them"&gt;
+                    &lt;div class="circle-wrapper"&gt;&lt;img src="assets/images/profile-image-1.png" class="circle" alt=""&gt;&lt;/div&gt;
+                    &lt;div class="text-wrapper"&gt;Lorem Ipsum&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="message-wrapper me"&gt;
+                    &lt;div class="circle-wrapper"&gt;&lt;img src="assets/images/profile-image-3.jpg" class="circle" alt=""&gt;&lt;/div&gt;
+                    &lt;div class="text-wrapper"&gt;Integer in faucibus diam?&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="message-wrapper them"&gt;
+                    &lt;div class="circle-wrapper"&gt;&lt;img src="assets/images/profile-image-1.png" class="circle" alt=""&gt;&lt;/div&gt;
+                    &lt;div class="text-wrapper"&gt;Vivamus quis neque volutpat, hendrerit justo vitae, suscipit dui&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="message-wrapper me"&gt;
+                    &lt;div class="circle-wrapper"&gt;&lt;img src="assets/images/profile-image-3.jpg" class="circle" alt=""&gt;&lt;/div&gt;
+                    &lt;div class="text-wrapper"&gt;Suspendisse condimentum tortor et lorem pretium&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="message-wrapper them"&gt;
+                    &lt;div class="circle-wrapper"&gt;&lt;img src="assets/images/profile-image-1.png" class="circle" alt=""&gt;&lt;/div&gt;
+                    &lt;div class="text-wrapper"&gt;dolore eu fugiat nulla pariatur&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="message-wrapper me"&gt;
+                    &lt;div class="circle-wrapper"&gt;&lt;img src="assets/images/profile-image-3.jpg" class="circle" alt=""&gt;&lt;/div&gt;
+                    &lt;div class="text-wrapper"&gt;Duis maximus leo eget massa porta&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="message-compose-box"&gt;
+                &lt;div class="input-field"&gt;
+                    &lt;input placeholder="Write message" id="message_compose" type="text"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/aside&gt;
+        &lt;aside id="slide-out" class="side-nav white fixed"&gt;
+            &lt;div class="side-nav-wrapper"&gt;
+                &lt;div class="sidebar-profile"&gt;
+                    &lt;div class="sidebar-profile-image"&gt;
+                        &lt;img src="assets/images/profile-image.png" class="circle" alt=""&gt;
+                    &lt;/div&gt;
+                    &lt;div class="sidebar-profile-info"&gt;
+                        &lt;a href="javascript:void(0);" class="account-settings-link"&gt;
+                            &lt;p&gt;David Doe&lt;/p&gt;
+                            &lt;span&gt;david@gmail.com&lt;i class="material-icons right"&gt;arrow_drop_down&lt;/i&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="sidebar-account-settings"&gt;
+                    &lt;ul&gt;
+                        &lt;li class="no-padding"&gt;
+                            &lt;a class="waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;mail_outline&lt;/i&gt;Inbox&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="no-padding"&gt;
+                            &lt;a class="waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;star_border&lt;/i&gt;Starred&lt;span class="new badge"&gt;18&lt;/span&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="no-padding"&gt;
+                            &lt;a class="waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;done&lt;/i&gt;Sent Mail&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="no-padding"&gt;
+                            &lt;a class="waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;history&lt;/i&gt;History&lt;span class="new grey lighten-1 badge"&gt;3 new&lt;/span&gt;&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li class="divider"&gt;&lt;/li&gt;
+                        &lt;li class="no-padding"&gt;
+                            &lt;a class="waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;exit_to_app&lt;/i&gt;Sign Out&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion"&gt;
+                    &lt;li class="no-padding"&gt;&lt;a class="waves-effect waves-grey" href="index.html"&gt;&lt;i class="material-icons"&gt;settings_input_svideo&lt;/i&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="no-padding"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;apps&lt;/i&gt;Apps&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="mailbox.html"&gt;Mailbox&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="search.html"&gt;Search&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="todo.html"&gt;Todo&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="no-padding"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;code&lt;/i&gt;Components&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="ui-accordions.html"&gt;Accordion&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-badges.html"&gt;Badges&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-buttons.html"&gt;Buttons&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-typography.html"&gt;Typography&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-cards.html"&gt;Cards&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-chips.html"&gt;Chips&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-color.html"&gt;Color&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-collections.html"&gt;Collections&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-dropdown.html"&gt;Dropdown&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-dialogs.html"&gt;Dialogs&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-grid.html"&gt;Grid&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-helpers.html"&gt;Helpers&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-modals.html"&gt;Modals&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-media.html"&gt;Media&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-icons.html"&gt;Icons&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-preloader.html"&gt;Preloader&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-shadow.html"&gt;Shadow&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-tabs.html"&gt;Tabs&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="ui-waves.html"&gt;Waves&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="no-padding active"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey active"&gt;&lt;i class="material-icons"&gt;desktop_windows&lt;/i&gt;Layouts&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="layout-blank.html" class="active-page"&gt;Blank Page&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="layout-boxed.html"&gt;Boxed Layout&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="layout-hidden-sidebar.html"&gt;Hidden Sidebar&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="layout-right-sidebar.html"&gt;Right Sidebar&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="no-padding"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;mode_edit&lt;/i&gt;Forms&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="form-elements.html"&gt;Form Elements&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-wizard.html"&gt;Form Wizard&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-upload.html"&gt;File Upload&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-image-crop.html"&gt;Image Crop&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-image-zoom.html"&gt;Image Zoom&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-select2.html"&gt;Select2&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="no-padding"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;grid_on&lt;/i&gt;Tables&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="table-static.html"&gt;Static Tables&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="table-responsive.html"&gt;Responsive Tables&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="table-data.html"&gt;Data Tables&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="no-padding"&gt;&lt;a class="waves-effect waves-grey" href="charts.html"&gt;&lt;i class="material-icons"&gt;trending_up&lt;/i&gt;Charts&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="no-padding"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;my_location&lt;/i&gt;Maps&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="maps-google.html"&gt;Google Maps&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="maps-vector.html"&gt;Vector Maps&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="no-padding"&gt;
+                        &lt;a class="collapsible-header waves-effect waves-grey"&gt;&lt;i class="material-icons"&gt;tag_faces&lt;/i&gt;Extra Pages&lt;i class="nav-drop-icon material-icons"&gt;keyboard_arrow_right&lt;/i&gt;&lt;/a&gt;
+                        &lt;div class="collapsible-body"&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="404.html"&gt;404 Page&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="500.html"&gt;500 Page&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="invoice.html"&gt;Invoice&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="faq.html"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="sign-in.html"&gt;Sign In&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="sign-up.html"&gt;Sign Up&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="lock-screen.html"&gt;Lock Screen&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="pattern-lock-screen.html"&gt;Pattern Lock Screen&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="forgot.html"&gt;Forgot Password&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="pricing-tables.html"&gt;Pricing Tables&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="gallery.html"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="timeline.html"&gt;Timeline&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="calendar.html"&gt;Calendar&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="coming-soon.html"&gt;Coming Soon&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div class="footer"&gt;
+                    &lt;p class="copyright"&gt;Steelcoders ©&lt;/p&gt;
+                    &lt;a href="#!"&gt;Privacy&lt;/a&gt; &amp; &lt;a href="#!"&gt;Terms&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/aside&gt;
+        &lt;main class="mn-inner"&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col s12"&gt;
+                    &lt;div class="page-title"&gt;Blank Page&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+        &lt;div class="page-footer"&gt;
+            &lt;div class="footer-grid container"&gt;
+                &lt;div class="footer-l white"&gt;&nbsp;&lt;/div&gt;
+                &lt;div class="footer-grid-l white"&gt;
+                    &lt;a class="footer-text" href="ui-waves.html"&gt;
+                        &lt;i class="material-icons arrow-l"&gt;arrow_back&lt;/i&gt;
+                        &lt;span class="direction"&gt;Previous&lt;/span&gt;
+                        &lt;div&gt;
+                            Waves
+                        &lt;/div&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="footer-r white"&gt;&nbsp;&lt;/div&gt;
+                &lt;div class="footer-grid-r white"&gt;
+                    &lt;a class="footer-text" href="layout-boxed.html"&gt;
+                        &lt;i class="material-icons arrow-r"&gt;arrow_forward&lt;/i&gt;
+                        &lt;span class="direction"&gt;Next&lt;/span&gt;
+                        &lt;div&gt;
+                            Boxed Layout
+                        &lt;/div&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="left-sidebar-hover"&gt;&lt;/div&gt;
+    &lt;!-- Javascripts --&gt;
+    &lt;script src="assets/plugins/jquery/jquery-2.2.0.min.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/plugins/materialize/js/materialize.min.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/plugins/material-preloader/js/materialPreloader.min.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/plugins/jquery-blockui/jquery.blockui.js"&gt;&lt;/script&gt;
+    &lt;script src="assets/js/alpha.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+</pre>
+
+                            </div>
+                        </div>
+                        <div class="card" id="customCode">
+                            <div class="card-content">
+                                <span class="card-title">Custom Code</span>
+                                All theme CSS files are located in <code>source/assets/css</code> folder. For your CSS customization you can use <code>source/assets/css/custom.css</code>. Keep your custom CSS separate it makes more easier when updating the theme in future.<br><br>All Javascript files are located in <code>source/assets/js/</code> folder. Also Page-level Javascript files are located in <code>source/assets/js/pages/</code> folder and each page has its own Javascript file. For your Javascripts you can use <code>source/assets/js/custom.js</code>. Keep your custom Javascript separate it makes more easier when updating the theme in future.
+                            </div>
+                        </div>
+                        <div class="card" id="fonts">
+                            <div class="card-content">
+                                <span class="card-title">Fonts</span>
+                                The standard font Material Design uses is Roboto. We have included the font files with our framework.<br><br>Font code example:
+                                <pre>
+&lt;link href='http://fonts.googleapis.com/css?family=Material+Icons' rel='stylesheet' type='text/css'&gt;
+</pre>
+                                Alpha also uses Material Design Icons.<br><br>
+                                <span class="red-text">Note!</span> Fonts must be loaded in HTML Head before theme css files.
+
+
+                            </div>
+                        </div>
+                        <div class="card" id="colors">
+                            <div class="card-content">
+                                <span class="card-title">Colors</span>
+                                Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights. Material takes cues from contemporary architecture, road signs, pavement marking tape, and athletic courts. Color should be unexpected and vibrant.<br><br>
+                                <a href="../source/ui-color.html" target="_blank">This</a> color palette comprises primary and accent colors that can be used for illustration or to develop your brand colors. They’ve been designed to work harmoniously with each other.
+                            </div>
+                        </div>
+                        <div class="card" id="cssUtilities">
+                            <div class="card-content">
+                                <span class="card-title">CSS Utilities</span>
+                                
+                                <table class="responsive-table bordered">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="property">Property</th>
+                                            <th data-field="prefix">Prefix</th>
+                                            <th data-field="s-prefix">Second Prefix</th>
+                                            <th data-field="t-prefix">Third Prefix</th>
+                                            <th data-field="suffix">Suffix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Font Size</td>
+                                            <td>f</td>
+                                            <td>s</td>
+                                            <td></td>
+                                            <td>10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 30, 32</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Font Weight</td>
+                                            <td>f</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>thin, normal, bold</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Box Shadow</td>
+                                            <td>bs</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>n, dark, light, t, r, b, l</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Margin</td>
+                                            <td>m</td>
+                                            <td>t, r, b, l, n</td>
+                                            <td>n (only for negative values)</td>
+                                            <td>xxs, xs, sm, md, lg, xxl</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Padding</td>
+                                            <td>p</td>
+                                            <td>v,h</td>
+                                            <td></td>
+                                            <td>xxs, xs, sm, md, lg, xxl</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card" id="themes">
+                            <div class="card-content">
+                                <span class="card-title">Themes</span>
+                                You can change theme very easily, by replacing color class of <code>nav</code> and search form. You can use any of 240+ colors from <a href="../source/ui-color.html">this</a> color pallete. It's recomended using primary(without lighten/darken classes) colors for nav.
+                            </div>
+                        </div>
+                        <div class="card" id="rightSidebar">
+                            <div class="card-content">
+                                <span class="card-title">Right Sidebar</span>
+                                Alpha framework includes layout with right sidebar, to use it you have to add <code>right-sidebar-button</code> class to <code>.button-collapse</code> button in nav on the line 79.
+                            </div>
+                        </div>
+                        <div class="card" id="hiddenSidebar">
+                            <div class="card-content">
+                                <span class="card-title">Hidden Sidebar</span>
+                                By defauly Alpha uses fixed-sidebar sidebar layout, to use hidden sidebar layout you have to remove <code>fixed-sidebar</code> class from <code>.mn-content</code> and <code>fixed</code> class from <code>.side-nav</code>.
+                            </div>
+                        </div>
+                        <div class="card" id="boxedLayout">
+                            <div class="card-content">
+                                <span class="card-title">Boxed Layout</span>
+                                You can use boxed layout by adding <code>container</code> class to <code>.mn-inner</code>.
+                            </div>
+                        </div>
+                        <div class="card" id="staticHeader">
+                            <div class="card-content">
+                                <span class="card-title">Static Header</span>
+                                By default Alpha uses fixed header, but if you want to make it static, you have to remove <code>navbar-fixed</code> class from <code>.mn-header</code>.
+                            </div>
+                        </div>
+                        <div class="card" id="newPage">
+                            <div class="card-content">
+                                <span class="card-title">New Page</span>
+                                It's very easy to create new page with Alpha.<br><br>First of all you have to copy <code>layout-blank.html</code> file and rename it as you want, then you have to choose layout and theme color and change them as explained previously. then you can start creating content of page, you can use all components that are shown in the demo of Alpha. Note, that all content should be placed in <code>.mn-inner</code> to fit the page correctly.<br><br>If you will use component that needs some JS codes which are included in component demo page at the end of the HTML body tag, you can just include the same JS file. If you will use component that needs an extra plugin to work, you have to include files of this plugins as they are included in the demo page.
+                            </div>
+                        </div>
+                        <div class="card" id="credits">
+                            <div class="card-content">
+                                <span class="card-title">sources &amp; Credits</span>
+                                <table class="responsive-table bordered">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="plugin">Plugin</th>
+                                            <th data-field="website">Official Website</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Chart.js</td>
+                                            <td><a href="http://www.chartjs.org/" target="_blank">http://www.chartjs.org/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Counter-Up</td>
+                                            <td><a href="https://github.com/bfintal/Counter-Up/" target="_blank">https://github.com/bfintal/Counter-Up/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>D3.js</td>
+                                            <td><a href="http://d3js.org/" target="_blank">http://d3js.org/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Datatables</td>
+                                            <td><a href="https://www.datatables.net/" target="_blank">https://www.datatables.net/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DropzoneJS</td>
+                                            <td><a href="http://www.dropzonejs.com/" target="_blank">http://www.dropzonejs.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Elevate Zoom</td>
+                                            <td><a href="http://www.elevateweb.co.uk/image-zoom/" target="_blank">http://www.elevateweb.co.uk/image-zoom/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Flot charts</td>
+                                            <td><a href="http://www.flotcharts.org/" target="_blank">http://www.flotcharts.org/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>FullCalendar</td>
+                                            <td><a href="http://www.dropzonejs.com/" target="_blank">http://fullcalendar.io/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Google Code Prettify</td>
+                                            <td><a href="https://github.com/google/code-prettify/" target="_blank">https://github.com/google/code-prettify/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Google Grid Gallery</td>
+                                            <td><a href="http://tympanus.net/codrops/2014/03/21/google-grid-gallery/" target="_blank">http://tympanus.net/codrops/2014/03/21/google-grid-gallery/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Image Cropper</td>
+                                            <td><a href="http://fengyuanchen.github.io/cropper/" target="_blank">http://fengyuanchen.github.io/cropper/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>jQuery</td>
+                                            <td><a href="https://jquery.com/" target="_blank">https://jquery.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Countdown</td>
+                                            <td><a href="http://hilios.github.io/jQuery.countdown/" target="_blank">http://hilios.github.io/jQuery.countdown/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>BlockUI</td>
+                                            <td><a href="http://malsup.com/jquery/block/" target="_blank">http://malsup.com/jquery/block/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>jVectorMap</td>
+                                            <td><a href="http://jvectormap.com/" target="_blank">http://jvectormap.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sparklines</td>
+                                            <td><a href="http://omnipotent.net/jquery.sparkline/" target="_blank">http://omnipotent.net/jquery.sparkline/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>jQuery Steps</td>
+                                            <td><a href="http://www.jquery-steps.com/" target="_blank">http://www.jquery-steps.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jquery Validation</td>
+                                            <td><a href="http://jqueryvalidation.org/" target="_blank">http://jqueryvalidation.org/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Materialize</td>
+                                            <td><a href="http://www.dropzonejs.com/" target="_blank">http://materializecss.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Material Design Preloader</td>
+                                            <td><a href="https://github.com/aarondo/Material-Preloader/" target="_blank">https://github.com/aarondo/Material-Preloader/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>MetroJS</td>
+                                            <td><a href="http://www.drewgreenwell.com/projects/metrojs/" target="_blank">http://www.drewgreenwell.com/projects/metrojs/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>NVD3</td>
+                                            <td><a href="http://nvd3.org/" target="_blank">http://nvd3.org/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PatternLock</td>
+                                            <td><a href="https://github.com/s-yadav/patternLock/" target="_blank">https://github.com/s-yadav/patternLock/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>peity</td>
+                                            <td><a href="http://benpickles.github.io/peity/" target="_blank">http://benpickles.github.io/peity/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pricing Tables</td>
+                                            <td><a href="https://codyhouse.co/gem/pricing-tables/" target="_blank">https://codyhouse.co/gem/pricing-tables/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Select2</td>
+                                            <td><a href="https://select2.github.io/" target="_blank">https://select2.github.io/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Simditor</td>
+                                            <td><a href="https://github.com/mycolorway/simditor/" target="_blank">https://github.com/mycolorway/simditor/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vertical Timeline</td>
+                                            <td><a href="https://codyhouse.co/gem/vertical-timeline/" target="_blank">https://codyhouse.co/gem/vertical-timeline/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Waypoints</td>
+                                            <td><a href="http://imakewebthings.com/waypoints/" target="_blank">http://imakewebthings.com/waypoints/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Weather Icons</td>
+                                            <td><a href="https://erikflowers.github.io/weather-icons/" target="_blank">https://erikflowers.github.io/weather-icons/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sweet Alert</td>
+                                            <td><a href="http://t4t5.github.io/sweetalert/" target="_blank">http://t4t5.github.io/sweetalert/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CodeMirror</td>
+                                            <td><a href="https://codemirror.net/" target="_blank">https://codemirror.net/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nestable</td>
+                                            <td><a href="http://dbushell.github.io/Nestable/" target="_blank">http://dbushell.github.io/Nestable/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Masonry</td>
+                                            <td><a href="http://masonry.desandro.com/" target="_blank">http://masonry.desandro.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Idle Timer</td>
+                                            <td><a href="https://github.com/thorst/jquery-idletimer/" target="_blank">https://github.com/thorst/jquery-idletimer/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Input Masks</td>
+                                            <td><a href="https://github.com/RobinHerbots/jquery.inputmask/" target="_blank">https://github.com/RobinHerbots/jquery.inputmask/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Comparison Table</td>
+                                            <td><a href="https://codyhouse.co/gem/products-comparison-table/" target="_blank">https://codyhouse.co/gem/products-comparison-table/</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card" id="support">
+                            <div class="card-content">
+                                <span class="card-title">Support</span>
+                                Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Javascripts -->
+        <script src="../source/assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script src="../source/assets/plugins/materialize/js/materialize.min.js"></script>
+        <script src="../source/assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+        <script src="assets/plugins/search/highlight.js"></script>
+        <script src="../source/assets/plugins/google-code-prettify/prettify.js"></script>
+        <script src="../source/assets/js/alpha.js"></script>
+        <script src="assets/js/docs.js"></script>
+        
+    </body>
+</html>
