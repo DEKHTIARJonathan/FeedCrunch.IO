@@ -14,14 +14,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os, sys
-import dj_database_url
-
-import getenv
+import os, sys, dj_database_url, getenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# ================== We append to the path the function folder containing generic functions
+
+functions_dir = os.path.join(BASE_DIR, 'functions')
+sys.path.insert(0, functions_dir)
+
+#################################################################################
 
 STATICFILES_LOCATION = 'static'
 STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'staticfiles')
@@ -103,6 +107,7 @@ INSTALLED_APPS = [
 	'feedcrunch_api_v1',
 	'feedcrunch_rssviewer',
 	'feedcrunch_rssadmin',
+	'feedcrunch_rssadmin_dev',
 	'feedcrunch_home',
 	'twitter',
 ]

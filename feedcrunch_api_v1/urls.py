@@ -12,4 +12,6 @@ from .views import *
 urlpatterns = [
 	url(r'^public/get/validate/username/(?P<username>\w+)/$', validate_username, name='validate_username'),
 	url(r'^public/get/validate/username/$', validate_username, name='validate_username'),
+	url(r'^authenticated/get/user/publications_stats/(?P<feedname>\w+)/$', publications_stats, name='publications_stats'),
+	url(r'^authenticated/get/user/subscribers_stats/(?P<feedname>\w+)/$', subscribers_stats, name='subscribers_stats'),
 ]

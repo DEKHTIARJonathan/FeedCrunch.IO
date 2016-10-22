@@ -2,13 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import RequestContext, loader
-from django.shortcuts import render_to_response, redirect
+
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response, redirect
+from django.template import RequestContext, loader
+
 from feedcrunch.models import Country, Option, FeedUser
 
-from feedcrunch_home.myutils import myrender as render
+from custom_render import myrender as render
 
 def index(request):
 	try:
