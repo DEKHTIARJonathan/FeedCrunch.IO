@@ -67,7 +67,88 @@ def index(request, feedname=None):
 			'post_trending_color': post_trending_color,
 		}
 
-		return render(request, 'admin_dev/admin_index.html', data)
+		return render(request, 'admin_dev/admin_dashboard.html', data)
+
+
+def personal_info_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def password_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def picture_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def social_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def services_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def add_article_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def modify_article_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def modify_article_listing(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def delete_article_listing(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
+def contact_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
 
 '''
 def add_form(request, feedname=None):

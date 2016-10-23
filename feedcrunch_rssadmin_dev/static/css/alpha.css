@@ -192,6 +192,7 @@ body:not(.loaded) .mn-content {
     margin-left: 8px;
     position: relative;
     cursor: pointer;
+	padding-top: 3px !important;
 }
 
 .header-title span {
@@ -1504,6 +1505,11 @@ li.active .nav-drop-icon {
     font-weight: 500;
 }
 
+.side-nav .collapsible-body li.active a,
+.side-nav.fixed .collapsible-body li.active a {
+    color: inherit !important;
+}
+
 .side-nav ul li a i {
     font-size: 19px;
     vertical-align: middle;
@@ -1638,6 +1644,10 @@ li.active .nav-drop-icon {
 .left-sidebar-hover.right-sidebar {
     right: 0;
     left: auto;
+}
+
+.no-background{
+	background-color: #fff !important;
 }
 
 
@@ -2464,13 +2474,13 @@ blockquote {
 }
 
 .stats-card-progress {
-    background: #b2ebf2;
+    background: #c5cae9;
     border-bottom-left-radius: 2px!important;
     border-bottom-right-radius: 2px!important;
 }
 
 .stats-card-progress .determinate {
-    background: #26c6da;
+    background: #3d5afe;
     border-bottom-left-radius: 2px;
 }
 
@@ -2930,6 +2940,15 @@ input[type=range]::-ms-thumb {
 
 #materialPreloader {
     z-index: 9999;
+}
+
+.preload_dashboard {
+	width: 120px !important;
+	height: 120px !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -35px 0 0 -60px;
 }
 
 

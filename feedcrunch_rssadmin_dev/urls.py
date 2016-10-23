@@ -9,7 +9,17 @@ from django.conf import settings
 from .views import *
 
 urlpatterns = [
-	url(r'^$', index, name='index'),
+	url(r'^$', index, name='dashboard'),
+	url(r'^account/info/$', personal_info_form, name='personal_info_form'),
+	url(r'^account/password/$', password_form, name='password_form'),
+	url(r'^account/picture/$', picture_form, name='picture_form'),
+	url(r'^account/social/$', social_form, name='social_form'),
+	url(r'^account/services/$', services_form, name='services_form'),
+	url(r'^article/add/$', add_article_form, name='add_article_form'),
+	url(r'^article/edit/$', modify_article_form, name='modify_article_form'),
+	url(r'^article/edit/(?P<postID>\d+)/$', modify_article_listing, name='modify_article_listing'),
+	url(r'^article/delete/$', delete_article_listing, name='delete_article_listing'),
+	url(r'^contact/$', contact_form, name='contact_form'),
 	#url(r'^edit_profile/social/$', update_social_links, name='update_social_links'),
 	#url(r'^edit_profile/password/$', update_password, name='update_password'),
 	#url(r'^edit_profile/info/$', update_info, name='update_info'),

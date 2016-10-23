@@ -1,6 +1,5 @@
 {% load staticfiles %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -10,9 +9,9 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<meta charset="UTF-8">
-		<meta name="description" content="Responsive Admin Dashboard Template" />
-		<meta name="keywords" content="admin,dashboard" />
-		<meta name="author" content="Steelcoders" />
+		<meta name="description" content="FeedCrunch.IO | Administration Dashboard" />
+		<meta name="keywords" content="administration,dashboard, feedcrunch, rss" />
+		<meta name="author" content="Jonathan DEKHTIAR" />
 
 		<!-- Styles -->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -78,7 +77,7 @@
 		</div>
 		<div class="mn-content fixed-sidebar">
 			<header class="mn-header navbar-fixed">
-				<nav class="cyan darken-1">
+				<nav class="indigo accent-3">
 					<div class="nav-wrapper row">
 						<section class="material-design-hamburger navigation-toggle">
 							<a href="javascript:void(0)" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
@@ -86,7 +85,7 @@
 							</a>
 						</section>
 						<div class="header-title col s3 m3">
-							<span class="chapter-title">FeedCrunch.io</span>
+							<img src="{% static "images/logo_.png" %}" style="height:15px;">
 						</div>
 						<form class="left search col s6 hide-on-small-and-down">
 							<div class="input-field">
@@ -227,113 +226,65 @@
 						</div>
 					</div>
 					<ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-						<li class="no-padding active"><a class="waves-effect waves-grey active" href="index.html"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
+						<li class="no-padding"><a class="waves-effect waves-grey" href="#" id="dashboard-link-menu"><i class="material-icons">assessment</i>Dashboard</a></li>
 						<li class="no-padding">
-							<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">perm_identity</i>Account Settings<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-							<div class="collapsible-body">
+							<a class="collapsible-header waves-effect waves-grey no-background"><i class="material-icons">perm_identity</i>Account Settings<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+							<div class="collapsible-body no-background">
 								<ul>
-									<li><a href="mailbox.html">Mailbox</a></li>
-									<li><a href="search.html">Search</a></li>
-									<li><a href="todo.html">Todo</a></li>
+									<li><a href="#" id="personal-info-link-menu"><i class="material-icons">list</i>Personal Information</a></li>
+									<li><a href="#" id="password-link-menu"><i class="material-icons">lock_outline</i>Modify Password</a></li>
+									<li><a href="#" id="profile-pict-link-menu"><i class="material-icons">perm_media</i>Profile Picture</a></li>
+									<li><a href="#" id="social-link-menu"><i class="material-icons">supervisor_account</i>Social Networks</a></li>
+									<li><a href="#" id="services-link-menu"><i class="material-icons">loop</i>External Services</a></li>
 								</ul>
 							</div>
 						</li>
 						<li class="no-padding">
-							<a class="collapsible-header waves-effect waves-grey"><i class="material-icons">library_books</i>Publication Board<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-							<div class="collapsible-body">
+							<a class="collapsible-header waves-effect waves-grey no-background"><i class="material-icons">library_books</i>Publication Board<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+							<div class="collapsible-body no-background">
 								<ul>
-									<li><a href="mailbox.html">Mailbox</a></li>
-									<li><a href="search.html">Search</a></li>
-									<li><a href="todo.html">Todo</a></li>
+									<li><a href="#" id="add-article-link-menu"><i class="material-icons">note_add</i>Add an Article</a></li>
+									<li><a href="#" id="edit-article-link-menu"><i class="material-icons">mode_edit</i>Modify an Article</a></li>
+									<li><a href="#" id="delete-article-link-menu"><i class="material-icons">delete</i>Delete an Article</a></li>
 								</ul>
 							</div>
 						</li>
-						<li class="no-padding"><a class="waves-effect waves-grey active" href="admin/"><i class="material-icons">email</i>Contact Us</a></li>
+						<li class="no-padding"><a class="waves-effect waves-grey" href="#" id="contact-link-menu"><i class="material-icons">email</i>Contact Us</a></li>
 						<li class="divider"></li>
 						<li class="no-padding">
-							<a class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Sign Out</a>
+							<a class="waves-effect waves-grey" href="/logout"><i class="material-icons">exit_to_app</i>Sign Out</a>
 						</li>
 					</ul>
 				</div>
 			</aside>
 			<main class="mn-inner inner-active-sidebar">
 				<div class="middle-content">
-					<div class="row no-m-t no-m-b">
-						<div class="col s12 m12 l4">
-							<div class="card stats-card">
-								<div class="card-content">
-									<span class="card-title">Articles Posted</span>
-									<span class="stats-counter"><span class="counter">{{ user.get_post_count }}</span><small>Article(s) posted since {{ user.date_joined }}</small></span>
-								</div>
-								<div class="progress stats-card-progress no-progress"></div>
-							</div>
-						</div>
-						<div class="col s12 m12 l4">
-							<div class="card stats-card">
-								<div class="card-content">
-									<span class="card-title">Articles Posted</span>
-									<span class="stats-counter"><span class="counter">{{ user.get_current_month_post_count }}</span><small>Article(s) posted this month</small></span>
-									{% if post_trending == "new_releases" %}
-										<div class="percent-info text-blue-grey lighten-1">New subscriber<i class="material-icons">{{ post_trending }}</i></div>
-									{% else %}
-										<div class="percent-info {{ post_trending_color }}">{{ publication_trend }}% <i class="material-icons">{{ post_trending }}</i></div>
-									{% endif %}
-								</div>
-								<div class="progress stats-card-progress">
-									<div class="determinate" style="width: {{ monthtime_elapsed }}%"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m12 l4">
-							<div class="card stats-card">
-								<div class="card-content">
-									<span class="card-title">Clicks on all Articles</span>
-									<span class="stats-counter"><span class="counter">{{ user.get_clicks_count }}</span><small>Clicks since {{ user.date_joined }}</small></span>
-								</div>
-								<div class="progress stats-card-progress no-progress"></div>
-							</div>
-						</div>
-					</div>
-					<div class="row no-m-t no-m-b">
-						<div class="col s12 m12 l6">
-							<div class="card visitors-card">
-								<div class="card-content">
-									<span class="card-title">Publication Rate<span class="secondary-title">Number of Article Published over the last two weeks</span></span>
-									<div id="flotchart1"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m12 l6">
-							<div class="card visitors-card">
-								<div class="card-content">
-									<span class="card-title">Subscribers Flow<span class="secondary-title">Number of Subscribers visiting your feed on a daily-basis</span></span>
-									<div id="flotchart2"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<!-- =================================== ############################################# ==================================== -->
+					{% block body %}
+
+					{% endblock %}
+					<!-- =================================== ############################################# ==================================== -->
 				</div>
 			</main>
 		</div>
 
 		<!-- Javascripts -->
 		<script src="{% static "plugins/jquery/jquery-2.2.0.min.js" %}"></script>
+		<script src="{% static "js/admin-menu.js" %}"></script>
 		<script src="{% static "plugins/materialize/js/materialize.min.js" %}"></script>
 		<script src="{% static "plugins/material-preloader/js/materialPreloader.min.js" %}"></script>
-		<script src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
-		<script src="{% static "plugins/waypoints/jquery.waypoints.min.js" %}"></script>
 		<script src="{% static "plugins/counter-up-master/jquery.counterup.min.js" %}"></script>
-		<script src="{% static "plugins/jquery-sparkline/jquery.sparkline.min.js" %}"></script>
-		<script src="{% static "plugins/chart.js/chart.min.js" %}"></script>
 		<script src="{% static "plugins/flot/jquery.flot.min.js" %}"></script>
 		<script src="{% static "plugins/flot/jquery.flot.time.min.js" %}"></script>
 		<script src="{% static "plugins/flot/jquery.flot.symbol.min.js" %}"></script>
 		<script src="{% static "plugins/flot/jquery.flot.resize.min.js" %}"></script>
 		<script src="{% static "plugins/flot/jquery.flot.tooltip.min.js" %}"></script>
-		<script src="{% static "plugins/curvedlines/curvedLines.js" %}"></script>
-		<script src="{% static "plugins/peity/jquery.peity.min.js" %}"></script>
 		<script src="{% static "js/alpha.min.js" %}"></script>
-		<script src="{% static "js/pages/dashboard.js" %}"></script>
+
+		{% if template_name == "admin_dev/admin_dashboard.html" %}
+			<script src="{% static "js/pages/dashboard.js" %}"></script>
+		{% endif %}
+
 
 	</body>
 </html>

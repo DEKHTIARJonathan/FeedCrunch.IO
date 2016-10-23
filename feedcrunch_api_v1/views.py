@@ -111,4 +111,7 @@ def subscribers_stats(request, feedname=None):
 
 		payload ["timestamp"] = get_timestamp()
 
+		from time import sleep
+		sleep(3)
+
 		return JsonResponse(payload, safe=False)

@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from feedcrunch.models import FeedUser, Post, Option
 
-def myrender(request, template, dictionary):
+def myrender(request, template, dictionary={}):
 	dictionary.update({'template_name': template})
 	dictionary.update({'user_count': FeedUser.objects.count()})
 	dictionary.update({'post_count': Post.objects.count()})
