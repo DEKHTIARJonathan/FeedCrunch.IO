@@ -10,6 +10,7 @@ $( document ).ready(function() {
 
 	$("#dashboard-link-menu").attr("href", dashboard_root_url);
 	$("#personal-info-link-menu").attr("href", dashboard_root_url + "account/info/" );
+	$("#preferences-link-menu").attr("href", dashboard_root_url + "account/preferences/" );
 	$("#password-link-menu").attr("href", dashboard_root_url + "account/password/" );
 	$("#profile-pict-link-menu").attr("href", dashboard_root_url + "account/picture/" );
 	$("#social-link-menu").attr("href", dashboard_root_url + "account/social/" );

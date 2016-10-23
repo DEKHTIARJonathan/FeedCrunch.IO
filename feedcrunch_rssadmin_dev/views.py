@@ -78,6 +78,14 @@ def personal_info_form(request, feedname=None):
 	else:
 		return render(request, 'admin_dev/admin_template.html')
 
+def preferences_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin_dev/admin_template.html')
+
 def password_form(request, feedname=None):
 
 	check_passed = check_admin(feedname, request.user)
@@ -116,7 +124,7 @@ def add_article_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		return render(request, 'admin_dev/admin_add_article_form.html')
 
 def modify_article_form(request, feedname=None):
 

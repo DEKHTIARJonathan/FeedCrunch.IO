@@ -14,11 +14,16 @@
 		<meta name="author" content="Jonathan DEKHTIAR" />
 
 		<!-- Styles -->
+
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
-		<link type="text/css" rel="stylesheet" href="{% static "plugins/weather-icons-master/css/weather-icons.min.css" %}"/>
+
+
+		{% if template_name == "admin_dev/admin_add_article_form.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/material-preloader/css/materialPreloader.min.css" %}">
+		{% endif %}
 
 		<!-- Theme Styles -->
 		<link type="text/css" rel="stylesheet" href="{% static "css/alpha.css" %}"/>
@@ -232,6 +237,7 @@
 							<div class="collapsible-body no-background">
 								<ul>
 									<li><a href="#" id="personal-info-link-menu"><i class="material-icons">list</i>Personal Information</a></li>
+									<li><a href="#" id="preferences-link-menu"><i class="material-icons">settings_input_component</i>My Preferences</a></li>
 									<li><a href="#" id="password-link-menu"><i class="material-icons">lock_outline</i>Modify Password</a></li>
 									<li><a href="#" id="profile-pict-link-menu"><i class="material-icons">perm_media</i>Profile Picture</a></li>
 									<li><a href="#" id="social-link-menu"><i class="material-icons">supervisor_account</i>Social Networks</a></li>
@@ -273,16 +279,23 @@
 		<script src="{% static "js/admin-menu.js" %}"></script>
 		<script src="{% static "plugins/materialize/js/materialize.min.js" %}"></script>
 		<script src="{% static "plugins/material-preloader/js/materialPreloader.min.js" %}"></script>
-		<script src="{% static "plugins/counter-up-master/jquery.counterup.min.js" %}"></script>
-		<script src="{% static "plugins/flot/jquery.flot.min.js" %}"></script>
-		<script src="{% static "plugins/flot/jquery.flot.time.min.js" %}"></script>
-		<script src="{% static "plugins/flot/jquery.flot.symbol.min.js" %}"></script>
-		<script src="{% static "plugins/flot/jquery.flot.resize.min.js" %}"></script>
-		<script src="{% static "plugins/flot/jquery.flot.tooltip.min.js" %}"></script>
 		<script src="{% static "js/alpha.min.js" %}"></script>
 
 		{% if template_name == "admin_dev/admin_dashboard.html" %}
+			<script src="{% static "plugins/counter-up-master/jquery.counterup.min.js" %}"></script>
+			<script src="{% static "plugins/flot/jquery.flot.min.js" %}"></script>
+			<script src="{% static "plugins/flot/jquery.flot.time.min.js" %}"></script>
+			<script src="{% static "plugins/flot/jquery.flot.symbol.min.js" %}"></script>
+			<script src="{% static "plugins/flot/jquery.flot.resize.min.js" %}"></script>
+			<script src="{% static "plugins/flot/jquery.flot.tooltip.min.js" %}"></script>
 			<script src="{% static "js/pages/dashboard.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_add_article_form.html" %}
+			<script src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
+			<script src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
+			<script src="{% static "plugins/jquery-steps/jquery.steps.min.js" %}"></script>
+			<script src="{% static "js/pages/form-wizard.js" %}"></script>
+
 		{% endif %}
 
 

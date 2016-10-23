@@ -11,6 +11,7 @@ from .views import *
 urlpatterns = [
 	url(r'^$', index, name='dashboard'),
 	url(r'^account/info/$', personal_info_form, name='personal_info_form'),
+	url(r'^account/preferences/$', preferences_form, name='preferences_form'),
 	url(r'^account/password/$', password_form, name='password_form'),
 	url(r'^account/picture/$', picture_form, name='picture_form'),
 	url(r'^account/social/$', social_form, name='social_form'),
