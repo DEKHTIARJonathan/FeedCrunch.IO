@@ -1,1 +1,42 @@
-/* Write your custom CSS here */
+.twitter-typeahead{
+	width:100%;
+}
+
+.materialize-tags {
+	border: none;
+	margin-bottom: 30px;
+	padding: 0px;
+	cursor: text;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+.materialize-tags .tt-input:read-only {
+	color: rgba(0,0,0,0.26)!important;
+	border-bottom: 1px dotted rgba(0,0,0,0.26)!important;
+	box-shadow: none;
+}
+
+
+.chip {
+	display: inline-block;
+	height: 32px;
+	font-size: 13px;
+	font-weight: 500;
+	color: rgba(0,0,0,0.6);
+	line-height: 32px;
+	padding: 0 12px;
+	border-radius: 16px;
+	background-color: #e4e4e4;
+	margin-top: 25px;
+}
+
+.chip i.material-icons {
+	cursor: pointer;
+	float: right;
+	font-size: 16px;
+	line-height: 32px;
+	padding-left: 8px;
+}
