@@ -2823,6 +2823,10 @@ input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([re
     background-color: #26a69a;
 }
 
+.switch{
+	height: 3em;
+}
+
 [type="checkbox"]:checked+label:before {
     border-right: 2px solid #26a69a;
     border-bottom: 2px solid #26a69a;
@@ -2922,9 +2926,18 @@ input[type=range]::-ms-thumb {
     padding: 50px 0;
 }
 
+.add-form-content {
+    padding-top: 50px;
+}
+
 .wizard-content img {
     display: block;
     width: 100%;
+}
+
+.row-submit{
+	margin-top: 60px;
+	margin-bottom: 0px;
 }
 
 .wizardTerms {

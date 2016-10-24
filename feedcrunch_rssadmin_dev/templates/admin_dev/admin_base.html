@@ -23,6 +23,11 @@
 
 		{% if template_name == "admin_dev/admin_add_article_form.html" %}
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/material-preloader/css/materialPreloader.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
+		{% elif template_name == "admin_dev/admin_form_template.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/material-preloader/css/materialPreloader.min.css" %}">
+			
 		{% endif %}
 
 		<!-- Theme Styles -->
@@ -288,9 +293,16 @@
 			<script src="{% static "plugins/flot/jquery.flot.symbol.min.js" %}"></script>
 			<script src="{% static "plugins/flot/jquery.flot.resize.min.js" %}"></script>
 			<script src="{% static "plugins/flot/jquery.flot.tooltip.min.js" %}"></script>
-			<script src="{% static "js/pages/dashboard.js" %}"></script>
+			<script src="{% static "js/dashboard.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_add_article_form.html" %}
+			<script src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
+			<script src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
+			<script src="{% static "plugins/jquery-steps/jquery.steps.min.js" %}"></script>
+			<script src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script src="{% static "js/admin-add-article.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_form_template.html" %}
 			<script src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
 			<script src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
 			<script src="{% static "plugins/jquery-steps/jquery.steps.min.js" %}"></script>
