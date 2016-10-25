@@ -20,7 +20,7 @@ $( document ).ready(function() {
 		var api_route = flotdiv.data("api-route");
 		var legend = flotdiv.data("legend");
 		var username = window.location.pathname.substr(1).split("/")[0].slice(1)+"/";
-		var api_url = api_route + username;
+		var api_url = api_route;
 
 		var flotchart_generator = function (data_flot, ticks_flot) {
 

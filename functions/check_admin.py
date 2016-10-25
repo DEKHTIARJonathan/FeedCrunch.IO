@@ -20,3 +20,14 @@ def check_admin(feedname, user):
 
 	else:
 		return True
+
+def check_admin_api(user):
+
+	if not user.is_authenticated():
+		return 'User Not authenticated'
+
+	elif not user.is_active:
+		return "We are sorry... You account is inactive. Please contact our support"
+
+	else:
+		return True
