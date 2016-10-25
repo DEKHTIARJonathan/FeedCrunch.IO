@@ -48,31 +48,45 @@ $( document ).ready(function() {
 	tags.initialize();
 
 	var input_typeahead = $("#example-typeahead");
-	var max_tags = 2;
+	var max_tags = 5;
 
 	input_typeahead.materialtags({
-		itemValue	: 'name',
-		itemText	: 'name',
-		maxTags: max_tags,
-		maxTagsBehavior: 'disable',
-		typeaheadjs : {
+		maxTags						: max_tags,
+		trimValue					: true,
+		confirmKeys					: [9, 13, 32, 44, 188],
+		deleteTagsOnBackspace		: false,
+		deleteTagsOnDeleteKey		: false,
+		MoveTagOnLeftArrow			: false,
+		MoveTagOnRightArrow 		: false,
+		CapitalizeFirstLetterOnly	: true,
+		typeaheadjs : [{
+			autoselect: true,
+			highlight: true,
+		},
+		{
 			name: 'tags',
-				displayKey: 'name',
-				source: tags.ttAdapter(),
-				autoselect: true,
-		}
+			displayKey: 'name',
+			valueKey: 'name',
+			source: tags.ttAdapter(),
+		}]
 	});
+	/*
 
 	input_typeahead.materialtags('input').blur(function() {
-		 $(this).val("");
+		//$(this).val("");
+		console.log("ok");
 	}).keyup(function(e){
-		/*
-		************ Keycodes ************
-		Space = 32
-		Enter = 13
-		Comma = 188
-		************ Keycodes ************
-		*/
+		console.log("mat = " + $(this).val());
+		console.log("input = " + input_typeahead.val());
+		console.log("data = " + $(".tt-dataset-tags").val());
+		console.log("##########");
+
+		// ************ Keycodes ************
+		// Space = 32
+		// Enter = 13
+		// Comma = 188
+		// ************ Keycodes ************
+
 		var code = e.which; // recommended to use e.which, it's normalized across browsers
 		var tag = "";
 
@@ -83,8 +97,11 @@ $( document ).ready(function() {
 			tag = tag.split(',')[0] // we remove any existing comma
 			tag = tag.split(' ')[0] // we stop after any space
 			tag.trim();
-			input_typeahead.materialtags('add', { name: tag });
+
+			if (tag !=  "")
+				input_typeahead.materialtags('add', { name: tag });
 		}
+
 	});
 
 	input_typeahead.on('itemAdded', function(event) {
@@ -100,5 +117,6 @@ $( document ).ready(function() {
 		input_typeahead.prop('readOnly', false);
 		input_typeahead.siblings().first().next().removeClass( "looks-inactive" );
 	});
+	*/
 
 });
