@@ -13,12 +13,17 @@
 	padding: 0px;
 }
 
+materialize-tags .tt-input {
+	border-bottom: 1px solid #BCBCBC;
+	box-shadow: 0 1px 0 0 #BCBCBC;
+}
+
+
 .materialize-tags .tt-input:read-only {
 	color: rgba(0,0,0,0.26)!important;
 	border-bottom: 1px dotted rgba(0,0,0,0.26)!important;
 	box-shadow: none;
 }
-
 
 .chip {
 	display: inline-block;
@@ -39,4 +44,20 @@
 	font-size: 16px;
 	line-height: 32px;
 	padding-left: 8px;
+}
+
+.materialize-tags.active{
+  border-bottom-color: #26a69a;
+  -webkit-box-shadow: 0 2px 0 0 #26a69a;
+  -moz-box-shadow: 0 2px 0 0 #26a69a;
+  box-shadow: 0 2px 0 0 #26a69a;
+  outline: none;
+}
+
+
+.looks-inactive.active {
+  border-bottom: 1px solid #BCBCBC;
+  border: none;
+  box-shadow: 0 0px 0 0 #BCBCBC;
+  outline: none;
 }

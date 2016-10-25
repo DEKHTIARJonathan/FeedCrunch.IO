@@ -29,98 +29,13 @@ $( document ).ready(function() {
 		});
 	});
 
-	var citynames_json = [
-	 {
-		"value": 1,
-		"text": "Amsterdam",
-		"continent": "Europe"
-	 },
-	 {
-		"value": 2,
-		"text": "London",
-		"continent": "Europe"
-	 },
-	 {
-		"value": 3,
-		"text": "Paris",
-		"continent": "Europe"
-	 },
-	 {
-		"value": 4,
-		"text": "Washington",
-		"continent": "America"
-	 },
-	 {
-		"value": 5,
-		"text": "Mexico City",
-		"continent": "America"
-	 },
-	 {
-		"value": 6,
-		"text": "Buenos Aires",
-		"continent": "America"
-	 },
-	 {
-		"value": 7,
-		"text": "Sydney",
-		"continent": "Australia"
-	 },
-	 {
-		"value": 8,
-		"text": "Wellington",
-		"continent": "Australia"
-	 },
-	 {
-		"value": 9,
-		"text": "Canberra",
-		"continent": "Australia"
-	 },
-	 {
-		"value": 10,
-		"text": "Beijing",
-		"continent": "Asia"
-	 },
-	 {
-		"value": 11,
-		"text": "New Delhi",
-		"continent": "Asia"
-	 },
-	 {
-		"value": 12,
-		"text": "Kathmandu",
-		"continent": "Asia"
-	 },
-	 {
-		"value": 13,
-		"text": "Cairo",
-		"continent": "Africa"
-	 },
-	 {
-		"value": 14,
-		"text": "Cape Town",
-		"continent": "Africa"
-	 },
-	 {
-		"value": 15,
-		"text": "Kinshasa",
-		"continent": "Africa"
-	 }
-	]
-
-/*
-	var cities = new Bloodhound({
-		datumTokenizer : Bloodhound.tokenizers.obj.whitespace('text'),
-		queryTokenizer : Bloodhound.tokenizers.whitespace,
-		local: citynames_json
-	});
-	cities.initialize();
-*/
 	var ajaxURL = "http://localhost:5000/@dataradar/admin/tags/json/";
+	var max_suggestion_display = 5;
 
 	var tags = new Bloodhound({
 		datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
 		queryTokenizer: Bloodhound.tokenizers.whitespace,
-		limit: 10,
+		limit: max_suggestion_display,
 		prefetch: {
 			url: ajaxURL,
 			filter: function (list) {
@@ -161,29 +76,29 @@ $( document ).ready(function() {
 		var code = e.which; // recommended to use e.which, it's normalized across browsers
 		var tag = "";
 
-		if(code==32||code==13)
-			tag = $(this).val();
-
-		else if (code==188)
-			tag = $(this).val().slice(0, -1); // We remove the comma
-
-		if (tag != "") {
+		if(code==32||code==13||code==188){
 			e.preventDefault();
-			input_typeahead.materialtags('add', { name: tag });
+			tag = $(this).val();
 			$(this).val("");
-			var tag_count = input_typeahead.materialtags('items').length;
-			if (tag_count == max_tags){
-				input_typeahead.materialtags('input').prop('readOnly', true);
-				input_typeahead.prop('readOnly', true);
-				$(this).blur();
-			}
+			tag = tag.split(',')[0] // we remove any existing comma
+			tag = tag.split(' ')[0] // we stop after any space
+			tag.trim();
+			input_typeahead.materialtags('add', { name: tag });
 		}
-
 	});
 
-	input_typeahead.on('itemRemoved', function(event) {
+	input_typeahead.on('itemAdded', function(event) {
+		var tag_count = $(this).materialtags('items').length;
+		if (tag_count == max_tags){
+			input_typeahead.materialtags('input').prop('readOnly', true);
+			input_typeahead.prop('readOnly', true);
+			$(this).blur();
+			input_typeahead.siblings().first().next().addClass( "looks-inactive" );
+		}
+	}).on('itemRemoved', function(event) {
 		input_typeahead.materialtags('input').prop('readOnly', false);
 		input_typeahead.prop('readOnly', false);
+		input_typeahead.siblings().first().next().removeClass( "looks-inactive" );
 	});
 
 });
