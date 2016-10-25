@@ -1,20 +1,25 @@
 .twitter-typeahead{
-	width:100%;
+    width:100%;
 }
 
 .materialize-tags {
-	border: none;
-	margin-bottom: 30px;
-	padding: 0px;
-	cursor: text;
+    border: none;
+    margin-bottom: 30px;
+    padding: 0px;
+    cursor: text;
 }
 
 .materialize-tags.active{
-	-webkit-box-shadow: 0 2px 0 0 #26a69a;
-	-moz-box-shadow: 0 2px 0 0 #26a69a;
-	box-shadow: 0 2px 0 0 #26a69a;
+    -webkit-box-shadow: 0 2px 0 0 #26a69a;
+    -moz-box-shadow: 0 2px 0 0 #26a69a;
+    box-shadow: 0 2px 0 0 #26a69a;
 }
 
 .no-padding {
-	padding: 0px;
+    padding: 0px;
+}
+
+input.valid{
+    border-bottom: 1px solid #BCBCBC !important;
+    box-shadow: none !important;
 }

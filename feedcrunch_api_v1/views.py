@@ -7,9 +7,15 @@ from django.http import JsonResponse
 
 from feedcrunch.models import Post, FeedUser, Tag
 
+from twitter.tw_funcs import TwitterAPI, get_authorization_url
+
+import datetime, unicodedata, json, sys, os
+
 from check_admin import check_admin_api
 from time_funcs import get_timestamp
 from date_manipulation import get_N_time_period
+from data_convert import str2bool
+from ap_style import format_title
 
 def validate_username(request, username=None):
 
@@ -111,11 +117,10 @@ def subscribers_stats(request):
 		payload ["data"] = data
 		payload ["ticks"] = ticks
 
-	payload ["timestamp"] = get_timestamp()
-
 	from time import sleep
 	sleep(3)
 
+	payload ["timestamp"] = get_timestamp()
 	return JsonResponse(payload, safe=False)
 
 def tags_as_json(request):
@@ -133,9 +138,86 @@ def tags_as_json(request):
 	else:
 		payload ["success"] = True
 		payload ["username"] = request.user.username
-		payload ["timestamp"] = get_timestamp()
 
 		tags = Tag.objects.all().order_by('name')
 		payload["tags"] = [tag.name for tag in tags]
 
+
+	payload ["timestamp"] = get_timestamp()
+	return JsonResponse(payload, safe=False)
+
+def submit_article(request):
+	try:
+		payload = dict()
+		check_passed = check_admin_api(request.user)
+
+		if request.method != 'POST':
+				payload ["success"] = False
+				payload ["error"] = "Only POST Requests accepted"
+
+		elif check_passed != True:
+			payload ["success"] = False
+			payload ["error"] = check_passed
+
+		else:
+			payload ["username"] = request.user.username
+
+
+			title = unicodedata.normalize('NFC', request.POST['title'])
+			link = unicodedata.normalize('NFC', request.POST['link'])
+			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
+
+			activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
+			twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+
+			if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
+				title = format_title(title)
+
+			if title == "" or link == "":
+				payload["success"] = False
+				payload["error"] = "Title and/or Link is/are missing"
+
+			else:
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+				tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
+
+				for tag in tags:
+					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+					tmp_post.tags.add(tmp_obj)
+				tmp_post.save()
+
+				if twitter_bool and tmp_user.is_twitter_enabled():
+
+						twitter_instance = TwitterAPI(tmp_user)
+
+						if twitter_instance.connection_status():
+							tmp_post.save()
+
+							tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+
+							if not tw_rslt['status']:
+								payload["success"] = False
+								payload["postID"] = str(tmp_post.id)
+								payload["error"] = "An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error']
+
+							else:
+								payload["success"] = True
+								payload["postID"] = str(tmp_post.id)
+
+						else:
+							raise Exception("Not connected to the Twitter API")
+
+				else:
+					tmp_post.save()
+					payload["success"] = True
+					payload["postID"] = str(tmp_post.id)
+
+	except Exception, e:
+		payload["status"] = "error"
+		payload["error"] = "An error occured in the process: " + str(e)
+		payload["postID"] = None
+
+	payload["operation"] = "submit article"
+	payload ["timestamp"] = get_timestamp()
 	return JsonResponse(payload, safe=False)

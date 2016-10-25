@@ -15,4 +15,5 @@ urlpatterns = [
 	url(r'^authenticated/get/user/publications_stats/$', publications_stats, name='publications_stats'),
 	url(r'^authenticated/get/user/subscribers_stats/$', subscribers_stats, name='subscribers_stats'),
 	url(r'^authenticated/get/tags/$', tags_as_json, name='tags_as_json'),
+	url(r'^authenticated/post/article/$', submit_article, name='submit_article'),
 ]
