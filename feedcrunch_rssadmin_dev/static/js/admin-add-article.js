@@ -51,9 +51,9 @@ $( document ).ready(function() {
         $("#title").val('').removeClass("valid").siblings().removeClass("active");
         $("#link").val('').removeClass("valid").siblings().removeClass("active");
         $("#tags").materialtags('removeAll');
-        $('#twitter').prop('checked', false);
+        $('#twitter').prop('checked', true);
         $('#auto-format').prop('checked', false);
-        $('#link-visible').prop('checked', false);
+        $('#link-visible').prop('checked', true);
     }
 
     $("#submit").click(function() {
@@ -77,7 +77,7 @@ $( document ).ready(function() {
                   swal({
                       title: "Good job!",
                       text: "Article Submitted!",
-                      type: "success",
+					  imageUrl: "/static/images/thumbs-up.jpg",
                       timer: 1500,
                       showConfirmButton: false,
                   });
