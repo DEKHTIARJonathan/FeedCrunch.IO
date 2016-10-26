@@ -23,3 +23,7 @@ input.valid{
     border-bottom: 1px solid #BCBCBC !important;
     box-shadow: none !important;
 }
+
+.sidebar-profile {
+    padding: 25px 15px;
+}
