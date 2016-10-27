@@ -48,12 +48,27 @@ $( document ).ready(function() {
     /* ################################################# Sweet Alert ####################################################### */
 
     function clearFields(){
-        $("#title").val('').removeClass("valid").siblings().removeClass("active");
-        $("#link").val('').removeClass("valid").siblings().removeClass("active");
-        $("#tags").materialtags('removeAll');
-        $('#twitter').prop('checked', true);
-        $('#auto-format').prop('checked', false);
-        $('#link-visible').prop('checked', true);
+
+		var title = $("#title").data( "init");
+		var link = $("#link").data( "init");
+		$("#tags").materialtags('removeAll');
+
+		if (title == "" || link == "") { // Creating a new article
+			$("#title").val('').removeClass("valid").siblings().removeClass("active");
+	        $("#link").val('').removeClass("valid").siblings().removeClass("active");
+	        $('#link-visible').prop('checked', true);
+		}
+
+		else{ // Modifying an article
+			$("#title").val(title);
+	        $("#link").val(link);
+			$('#link-visible').prop('checked', $('#link-visible').data( "init"));
+			$("#tags").materialtags('add', $("#tags").data( "init"));
+		}
+
+		$('#twitter').prop('checked', false);
+		$('#auto-format').prop('checked', false);
+
     }
 
     $("#submit").click(function() {

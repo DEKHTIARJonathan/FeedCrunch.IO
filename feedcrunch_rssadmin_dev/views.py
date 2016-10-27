@@ -124,15 +124,26 @@ def add_article_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_add_article_form.html')
+		return render(request, 'admin_dev/admin_article_form.html')
 
-def modify_article_form(request, feedname=None):
+def modify_article_form(request, feedname=None, postID=None):
 
 	check_passed = check_admin(feedname, request.user)
 	if check_passed != True:
 		return check_passed
+
+	elif postID == None:
+		return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		try:
+			post = Post.objects.get(id=postID, user=feedname)
+			print request.user.is_twitter_enabled()
+			return render(request, 'admin_dev/admin_article_form.html', {"post": post})
+
+		except:
+			return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
 
 def modify_article_listing(request, feedname=None):
 
@@ -140,7 +151,8 @@ def modify_article_listing(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		posts = Post.objects.filter(user = feedname).order_by('-id')
+		return render(request, 'admin_dev/admin_post_listing.html', {'posts': posts})
 
 def delete_article_listing(request, feedname=None):
 

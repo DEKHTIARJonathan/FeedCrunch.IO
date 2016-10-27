@@ -33,6 +33,9 @@ class Post(models.Model):
 	def get_date(self):
 		return self.when.strftime("%Y/%m/%d %H:%M")
 
+	def get_shortdate(self):
+		return self.when.strftime("%Y/%m/%d")
+
 	def get_domain(self):
 		starts = [match.start() for match in re.finditer(re.escape("/"), self.link)]
 		if len(starts) > 2:
@@ -45,7 +48,7 @@ class Post(models.Model):
 	def get_tags(self):
 		output = ""
 		for tag in self.tags.all():
-			output += str(tag) + " "
+			output += str(tag) + ","
 		return str(output)[:-1] # We remove the last space before returning the value
 
 	def get_tags_count(self):

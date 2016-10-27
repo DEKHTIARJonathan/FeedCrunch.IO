@@ -21,16 +21,29 @@
 										<div class="row">
 											<div class="input-field col s12">
 												<label for="title">Enter the Article's Title</label>
-												<input id="title" name="title" type="text" class="required validate">
+												{% if post %}
+													<input id="title" name="title" type="text" class="required validate" data-init="{{ post.title }}" value="{{ post.title }}">
+												{% else %}
+													<input id="title" name="title" type="text" class="required validate" data-init="" value="">
+												{% endif %}
 											</div>
 											<div class="input-field col s12">
 												<label for="link">Enter the Article's Link</label>
-												<input id="link" name="link" type="text" class="required validate">
+												{% if post %}
+													<input id="link" name="link" type="text" class="required validate" data-init="{{ post.title }}" value="{{ post.link }}">
+												{% else %}
+													<input id="link" name="link" type="text" class="required validate" data-init="" value="">
+												{% endif %}
 											</div>
 											<div class="input-field col s12 no-padding">
 												<div class="input-field col s12">
 													<label for="tags">Enter up to 5 tags to improve social impact and search effiency</label>
-													<input type="text" name="tags" id="tags" class="typehead-input" value=""/>
+													{% if post %}
+														<input type="text" name="tags" id="tags" class="typehead-input" data-init="{{ post.get_tags }}" value="{{ post.get_tags }}"/>
+													{% else %}
+														<input type="text" name="tags" id="tags" class="typehead-input" data-init="" value=""/>
+													{% endif %}
+
 												</div>
 											</div>
 											<div class="input-field col s12 m6 l4">
@@ -38,7 +51,11 @@
 												<div class="switch m-b-md">
 													<label>
 														<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Link Visible:</span>
-														<input type="checkbox" id="link-visible" name="link-visible" checked>
+														{% if post %}
+															<input type="checkbox" id="link-visible" name="link-visible"  data-init="{{ post.activeLink }}" {% if post.activeLink %} checked {% endif %}>
+														{% else %}
+															<input type="checkbox" id="link-visible" name="link-visible"  data-init="True" checked>
+														{% endif %}
 														<span class="lever"></span>
 													</label>
 												</div>
@@ -48,7 +65,11 @@
 												<div class="switch m-b-md">
 													<label>
 														<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Twitter:</span>
-														<input type="checkbox" id="twitter" name="twitter" checked>
+														{% if user.is_twitter_enabled %}
+															<input type="checkbox" id="twitter" name="twitter">
+														{% else %}
+															<input type="checkbox" id="twitter" name="twitter" disabled>
+														{% endif %}
 														<span class="lever"></span>
 													</label>
 												</div>
