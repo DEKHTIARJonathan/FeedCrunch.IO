@@ -1,0 +1,120 @@
+{% extends 'admin_dev/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="card">
+            <div class="card-content">
+                <form>
+                    <div class="wizard clearfix">
+                        <div class="steps clearfix">
+                            <ul style="width: 100%;" class="tabs">
+                                <li class="tab">
+                                    <a class="active">Personal Info</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                        <section>
+                            <div class="row" style="margin-top:70px;">
+                                <div class="col m6">
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <label for="firstName">First name</label>
+                                            <input id="firstName" name="firstName" type="text" class="required validate" aria-required="true" value="{{ user.first_name }}">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="lastName">Last name</label>
+                                            <input id="lastName" name="lastName" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="email">Email Address</label>
+                                            <input id="email" name="email" type="email" class="required validate" aria-required="true" value="{{ user.email }}">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <select id="gender" class="required validate" aria-required="true">
+                                                <option selected disabled>Select One Gender</option>
+                                                {% if user.gender == 'M' %}
+                                                    <option value="F">Female</option>
+                                                    <option value="M" selected>Male</option>
+                                                    <option value="O">Other</option>
+                                                {% elif user.gender == 'F' %}
+                                                    <option value="F" selected>Female</option>
+                                                    <option value="M">Male</option>
+                                                    <option value="O">Other</option>
+                                                {% else %}
+                                                    <option value="F">Female</option>
+                                                    <option value="M">Male</option>
+                                                    <option value="O" selected>Other</option>
+                                                {% endif %}
+                                            </select>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <select id="country" class="required validate" aria-required="true">
+                                                <option selected disabled>Where are you from ?</option>
+                                                {% for country in countries %}
+                                                    {% if user.country == country %}
+                                                        <option selected >{{ country.name }}</option>
+                                                    {% else %}
+                                                        <option>{{ country.name }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="birthdate">Birthdate</label>
+                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" data-init="{{ user.get_birthdate }}">
+                                        </div>
+                                        <div class="input-field col m12">
+                                            <label for="rss_title">RSS Feed Title</label>
+                                            <input id="rss_title" name="rss_title" type="text">
+                                        </div>
+                                        <div class="input-field col s12" style="margin-top:60px;">
+                                            <div class="switch m-b-md">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span class="lever"></span>
+                                                    Get news and updates from FeedCrunch
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m6">
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <label for="company_name">Company name</label>
+                                            <input id="company_name" name="company_name" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="company_website">Company Website</label>
+                                            <input id="company_website" name="company_website" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label for="job_title">Job Title</label>
+                                            <input id="job_title" name="job_title" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <textarea id="description" class="required validate materialize-textarea" rows="10" style="height:200px;"></textarea>
+                                            <label for="description" class="">Description</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </form>
+                <div class="row" style="text-align:right;">
+                    <a class="waves-effect waves-light btn red m-b-xs">Reset</a>
+                    <a class="waves-effect waves-light btn blue m-b-xs">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

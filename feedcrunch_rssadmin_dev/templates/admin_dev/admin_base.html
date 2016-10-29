@@ -248,10 +248,10 @@
 								<ul>
 									<li><a href="#" id="personal-info-link-menu"><i class="material-icons">list</i>Personal Information</a></li>
 									<li><a href="#" id="preferences-link-menu"><i class="material-icons">settings_input_component</i>My Preferences</a></li>
-									<li><a href="#" id="password-link-menu"><i class="material-icons">lock_outline</i>Modify Password</a></li>
-									<li><a href="#" id="profile-pict-link-menu"><i class="material-icons">perm_media</i>Profile Picture</a></li>
-									<li><a href="#" id="social-link-menu"><i class="material-icons">supervisor_account</i>Social Networks</a></li>
-									<li><a href="#" id="services-link-menu"><i class="material-icons">loop</i>External Services</a></li>
+									<li><a href="#" id="password-link-menu"><i class="material-icons">lock_outline</i>Modify My Password</a></li>
+									<li><a href="#" id="profile-pict-link-menu"><i class="material-icons">local_see</i>My Profile Picture</a></li>
+									<li><a href="#" id="social-link-menu"><i class="material-icons">supervisor_account</i>My Social Networks</a></li>
+									<li><a href="#" id="services-link-menu"><i class="material-icons">share</i>Social Sharing</a></li>
 								</ul>
 							</div>
 						</li>
@@ -318,11 +318,11 @@
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/post-listing.js" %}"></script>
 
-		{% elif template_name == "admin_dev/admin_form_template.html" %}
+		{% elif template_name == "admin_dev/admin_personal.html" %}
 			<script type="text/javascript" src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-steps/jquery.steps.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "js/pages/form-wizard.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-personal.js" %}"></script>
 
 		{% endif %}
 

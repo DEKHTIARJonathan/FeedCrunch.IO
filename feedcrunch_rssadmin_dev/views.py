@@ -75,8 +75,11 @@ def personal_info_form(request, feedname=None):
 	check_passed = check_admin(feedname, request.user)
 	if check_passed != True:
 		return check_passed
+
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+
+		country_list = Country.objects.all().order_by('name')
+		return render(request, 'admin_dev/admin_personal.html', {'countries': country_list})
 
 def preferences_form(request, feedname=None):
 
@@ -116,7 +119,11 @@ def services_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		if not request.user.is_twitter_activated():
+			twitter_auth_url = get_authorization_url(request)
+		else:
+			twitter_auth_url = False # False => Don't need to authenticate with Twitter
+		return render(request, 'admin_dev/admin_services.html', {'twitter_auth_url': twitter_auth_url})
 
 def add_article_form(request, feedname=None):
 
@@ -144,7 +151,6 @@ def modify_article_form(request, feedname=None, postID=None):
 		except:
 			return HttpResponseRedirect("/@"+feedname+"/admin/modify")
 
-
 def modify_article_listing(request, feedname=None):
 
 	check_passed = check_admin(feedname, request.user)
@@ -169,7 +175,7 @@ def contact_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		return render(request, 'admin_dev/admin_contact.html')
 
 '''
 def add_form(request, feedname=None):

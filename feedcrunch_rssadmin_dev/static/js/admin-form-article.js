@@ -121,6 +121,7 @@ $( document ).ready(function() {
                           showConfirmButton: false,
                       }, function(){
                           window.location = request_url.split("/", 5).join("/")+"/"
+						  swal.close();
                       });
                   }
 
@@ -152,6 +153,7 @@ $( document ).ready(function() {
             closeOnCancel: true
         }, function(){
             clearFields();
+			swal.close();
         });
     });
 
