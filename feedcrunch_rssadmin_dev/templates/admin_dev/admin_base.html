@@ -31,6 +31,7 @@
 
 		{% elif template_name == "admin_dev/admin_post_listing.html" %}
 			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
 		{% endif %}
 
@@ -301,17 +302,20 @@
 			<script type="text/javascript" src="{% static "js/dashboard.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_article_form.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/typeahead-js-corejs/typeahead.bundle.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/materialize-tags/js/materialize-tags.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "js/admin-add-article.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-form-article.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_post_listing.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/post-listing.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_form_template.html" %}

@@ -8,10 +8,6 @@
 		<div class="card">
 			<div class="card-content">
 				<form id="add-form" action="#">
-					{% csrf_token %}
-					{% if next %}
-						<input type="hidden" name="next" value="{{ next }}" />
-					{% endif %}
 					<div>
 						<h3>Submit a new Article</h3>
 						<section>
@@ -30,7 +26,7 @@
 											<div class="input-field col s12">
 												<label for="link">Enter the Article's Link</label>
 												{% if post %}
-													<input id="link" name="link" type="text" class="required validate" data-init="{{ post.title }}" value="{{ post.link }}">
+													<input id="link" name="link" type="text" class="required validate" data-init="{{ post.link }}" value="{{ post.link }}">
 												{% else %}
 													<input id="link" name="link" type="text" class="required validate" data-init="" value="">
 												{% endif %}

@@ -160,7 +160,8 @@ def delete_article_listing(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		posts = Post.objects.filter(user = feedname).order_by('-id')
+		return render(request, 'admin_dev/admin_post_listing.html', {'posts': posts})
 
 def contact_form(request, feedname=None):
 

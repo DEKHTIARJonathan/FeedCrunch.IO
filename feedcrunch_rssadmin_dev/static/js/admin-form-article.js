@@ -49,31 +49,43 @@ $( document ).ready(function() {
 
     function clearFields(){
 
-		var title = $("#title").data( "init");
-		var link = $("#link").data( "init");
-		$("#tags").materialtags('removeAll');
+        var title = $("#title").data( "init");
+        var link = $("#link").data( "init");
+        $("#tags").materialtags('removeAll');
 
-		if (title == "" || link == "") { // Creating a new article
-			$("#title").val('').removeClass("valid").siblings().removeClass("active");
-	        $("#link").val('').removeClass("valid").siblings().removeClass("active");
-	        $('#link-visible').prop('checked', true);
-		}
+        if (title == "" || link == "") { // Creating a new article
+            $("#title").val('').removeClass("valid").siblings().removeClass("active");
+            $("#link").val('').removeClass("valid").siblings().removeClass("active");
+            $('#link-visible').prop('checked', true);
+        }
 
-		else{ // Modifying an article
-			$("#title").val(title);
-	        $("#link").val(link);
-			$('#link-visible').prop('checked', $('#link-visible').data( "init"));
-			$("#tags").materialtags('add', $("#tags").data( "init"));
-		}
+        else{ // Modifying an article
+            $("#title").val(title);
+            $("#link").val(link);
+            $('#link-visible').prop('checked', $('#link-visible').data( "init"));
+            $("#tags").materialtags('add', $("#tags").data( "init"));
+        }
 
-		$('#twitter').prop('checked', false);
-		$('#auto-format').prop('checked', false);
+        $('#twitter').prop('checked', false);
+        $('#auto-format').prop('checked', false);
 
     }
 
+    var request_url = window.location.pathname;
+
+    if (request_url.indexOf("article/add") != -1) // Add Form
+        var api_url = "/api/1.0/authenticated/post/article/";
+    else{
+        var article_id = request_url.split("/", 6)[5];
+        var api_url = "/api/1.0/authenticated/modify/article/"+article_id+"/";
+    }
+
+    console.log(api_url);
+
     $("#submit").click(function() {
+		var csrftoken = Cookies.get('csrftoken');
         $.ajax({
-    	  url : "/api/1.0/authenticated/post/article/",
+    	  url : api_url,
     	  type : "POST",
     	  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     	  dataType : "json",
@@ -81,21 +93,37 @@ $( document ).ready(function() {
     		title: $("#title").val(),
     		link: $("#link").val(),
     		tags: $("#tags").val(),
-    		csrfmiddlewaretoken: $('input[name^=csrfmiddlewaretoken]').val(),
     		activated: $('#link-visible').prop('checked'),
     		twitter: $('#twitter').prop('checked'),
     		autoformat: $('#auto-format').prop('checked'),
     	  },
+		  beforeSend: function(xhr) {
+			  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		  },
           success: function(data){
               if (data.success) {
-                  clearFields();
-                  swal({
-                      title: "Good job!",
-                      text: "Article Submitted!",
-					  imageUrl: "/static/images/thumbs-up.jpg",
-                      timer: 1500,
-                      showConfirmButton: false,
-                  });
+                  if (data.operation == "submit article"){
+                      clearFields();
+                      swal({
+                          title: "Good job!",
+                          text: "Article Submitted!",
+                          imageUrl: "/static/images/thumbs-up.jpg",
+                          timer: 1500,
+                          showConfirmButton: false,
+                      });
+                  }
+                  else{
+                      swal({
+                          title: "Article Modified!",
+                          text: "Redirecting you to the edit listing in 3 seconds.",
+                          imageUrl: "/static/images/thumbs-up.jpg",
+                          timer: 3000,
+                          showConfirmButton: false,
+                      }, function(){
+                          window.location = request_url.split("/", 5).join("/")+"/"
+                      });
+                  }
+
       		}
             else{
                 swal({
