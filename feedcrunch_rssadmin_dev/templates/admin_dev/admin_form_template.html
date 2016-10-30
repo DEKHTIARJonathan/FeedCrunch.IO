@@ -1,0 +1,100 @@
+{% extends 'admin_dev/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="card">
+            <div class="card-content">
+                <form>
+                    <div class="wizard clearfix">
+						<div class="steps clearfix">
+                            <ul style="width: 100%;" class="tabs">
+                                <li class="tab">
+                                    <a class="active">Personal Info</a>
+                                </li>
+                            </ul>
+                        </div>
+						<div>
+                        <section>
+                            <div class="row" style="margin-top:70px;">
+                                <div class="col m6">
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <label for="firstName">First name</label>
+                                            <input id="firstName" name="firstName" type="text" class="required validate" aria-required="true">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="lastName">Last name</label>
+                                            <input id="lastName" name="lastName" type="text" class="required validate" aria-required="true">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label for="email">Email</label>
+                                            <input id="email" name="email" type="email" class="required validate" aria-required="true">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label for="password">Password</label>
+                                            <input id="password" name="password" type="password" class="required validate" aria-required="true">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label for="confirm">Confirm password</label>
+                                            <input id="confirm" name="confirm" type="password" class="required validate" aria-required="true">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m6">
+                                    <div class="row">
+										<div class="input-field col m6 s12">
+	                                        <select id="countrySelect">
+	                                            <option value="">Country...</option>
+												<option value="AF">Afghanistan</option>
+												<option value="AL">Albania</option>
+												<option value="DZ">Algeria</option>
+												<option value="AS">American Samoa</option>
+												<option value="AD">Andorra</option>
+												<option value="AG">Angola</option>
+                                            </select>
+                                        </div>
+										<div class="input-field col m6 s12">
+                                            <label for="address">Address</label>
+                                            <input id="address" name="address" type="text">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="birthdate">Birthdate</label>
+                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required">
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <label for="city">City/Town</label>
+                                            <input id="city" name="city" type="text">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label for="phone">Phone number</label>
+                                            <input id="phone" name="phone" type="tel" class="required validate">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <div class="switch m-b-md">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span class="lever"></span>
+                                                    Get news and updates from Alpha
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+				</form>
+				<div class="row" style="text-align:right;">
+					<a class="waves-effect waves-light btn red m-b-xs">Reset</a>
+					<a class="waves-effect waves-light btn blue m-b-xs">Save</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

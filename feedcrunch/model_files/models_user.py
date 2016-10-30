@@ -4,27 +4,25 @@
 from __future__ import unicode_literals
 ######### https://github.com/django/django/blob/master/django/contrib/auth/models.py
 
-from django.db import models
+import os, re, uuid, datetime, unicodedata, getenv, random, urllib, string
+
 from django.conf import settings
 from django.contrib.auth.models import User, UserManager, PermissionsMixin, AbstractUser
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-
-#from django.contrib.auth.validators import *
-from .validators import ASCIIUsernameValidator, UnicodeUsernameValidator
-from django.utils.encoding import force_text
+from django.db import models
 from django.utils import six, timezone
-
+from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
-import os, re, uuid, datetime, unicodedata, getenv, random, urllib, string
 from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
+from feedcrunch.models import Continent, Country
 from twitter.tw_funcs import *
 
-from .models_geo import *
-
 from twython import Twython
+
+from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
 
 def generateDummyDesc():
@@ -343,3 +341,28 @@ class FeedUser(AbstractFeedUser):
 
 	def get_post_count(self):
 		return self.rel_posts.count()
+
+	def get_current_month_post_count(self):
+		d_tmp = datetime.datetime.now()
+		date_1st_day_month = datetime.datetime(d_tmp.year,d_tmp.month,1,0,0,0)
+		date_1st_day_month_with_tmz = timezone.make_aware(date_1st_day_month, timezone.get_current_timezone())
+
+		return self.rel_posts.filter(when__gte=date_1st_day_month_with_tmz).count()
+
+	def get_last_month_post_count(self):
+		d_tmp = datetime.datetime.now()
+
+		if d_tmp.month != 1:
+			date_1_month_ago = datetime.datetime(d_tmp.year,d_tmp.month-1,d_tmp.day,0,0,0)
+			date_1st_day_last_month = datetime.datetime(d_tmp.year,d_tmp.month-1,1,0,0,0)
+		else:
+			date_1_month_ago = datetime.datetime(d_tmp.year-1,12,d_tmp.day,0,0,0)
+			date_1st_day_last_month = datetime.datetime(d_tmp.year-1,12,1,0,0,0)
+
+		date_1_month_ago_with_tmz = timezone.make_aware(date_1_month_ago, timezone.get_current_timezone())
+		date_1st_day_last_month_with_tmz = timezone.make_aware(date_1st_day_last_month, timezone.get_current_timezone())
+
+		return self.rel_posts.filter(when__lte=date_1_month_ago_with_tmz, when__gte=date_1st_day_last_month_with_tmz).count()
+
+	def get_clicks_count(self):
+		return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']

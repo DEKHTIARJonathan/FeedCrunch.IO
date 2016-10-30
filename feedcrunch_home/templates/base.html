@@ -226,10 +226,17 @@
 	<!-- End navbar-custom -->
 
 	{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
-	<div style="min-height:calc(100vh - 346px - 452px);">
-		{% else %}
+		<div style="min-height:calc(100vh - 346px - 452px);">
+	{% else %}
 		<div style="min-height:calc(100vh - 346px);">
-			{% endif %} {% block body %} {% endblock %}
+	{% endif %}
+
+			<!-- =================================== ############################################# ==================================== -->
+			{% block body %}
+			
+			{% endblock %}
+			<!-- =================================== ############################################# ==================================== -->
+
 		</div>
 
 		{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}

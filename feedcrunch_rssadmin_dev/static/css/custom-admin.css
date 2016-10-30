@@ -1,0 +1,113 @@
+.twitter-typeahead{
+	width:100%;
+}
+
+.materialize-tags {
+	border: none;
+	margin-bottom: 30px;
+	padding: 0px;
+	cursor: text;
+}
+
+.materialize-tags.active{
+	-webkit-box-shadow: 0 2px 0 0 #26a69a;
+	-moz-box-shadow: 0 2px 0 0 #26a69a;
+	box-shadow: 0 2px 0 0 #26a69a;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+input.valid{
+	border-bottom: 1px solid #BCBCBC !important;
+	box-shadow: none !important;
+}
+
+.sidebar-profile {
+	padding: 25px 15px;
+}
+
+.highlight {
+	background-color: yellow;
+}
+
+.dataTables_paginate.paging_simple_numbers{
+	margin-top: 30px;
+}
+
+#article-searchbar-div{
+	margin: 40px 0;
+}
+
+table.dataTable thead .sorting {
+	background-image: url(../plugins/datatables/images/sort_both.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+
+}
+
+table.dataTable thead .sorting_asc {
+	background-image: url(../plugins/datatables/images/sort_asc.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+table.dataTable thead .sorting_desc {
+	background-image: url(../plugins/datatables/images/sort_desc.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.description-textarea{
+	min-height: 200px !important;
+}
+
+.contact-textarea{
+	min-height: 140px !important;
+}
+
+#profile-page-header .card-profile-image {
+    width: 110px;
+    position: absolute;
+    top: 190px;
+    z-index: 1;
+    left: 40px;
+    cursor: pointer;
+    margin: 0;
+}
+
+#profile-page-header .card-image {
+    height: 250px;
+	overflow: hidden;
+}
+
+#profile-page-header .card-content .card-title {
+    margin-bottom: 0;
+}
+
+#profile-page-header .card-content {
+    margin-top: -5px;
+	padding: 10px;
+}
+
+.no-margin-bottom{
+	margin-bottom: 0px;
+}
+
+.social-card{
+	height:250px;
+}
+
+.title-interest{
+	margin-top: 14%;
+	font-size: 1.4em !important;
+}
+
+.profile-card-picture{
+	max-height: 200px;
+}
+.social-networks-category-title{
+	font-weight: 600 !important;
+    font-size: 1.25em !important;
+}

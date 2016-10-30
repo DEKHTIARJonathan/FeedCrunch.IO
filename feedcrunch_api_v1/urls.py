@@ -10,6 +10,19 @@ import django.contrib.auth.views
 from .views import *
 
 urlpatterns = [
-	url(r'^public/get/validate/username/(?P<username>\w+)/$', validate_username, name='validate_username'),
-	url(r'^public/get/validate/username/$', validate_username, name='validate_username'),
+	#Public API Routes
+	url(r'^public/get/validate/username/(?P<username>\w+)/$', Username_Validation.as_view(), name='validate_username'),
+	url(r'^public/get/validate/username/$', Username_Validation.as_view(), name='validate_username'),
+
+	#Authentication Required API Routes
+	url(r'^authenticated/get/user/publications_stats/$', User_Stats_Publications.as_view(), name='publications_stats'),
+	url(r'^authenticated/get/user/subscribers_stats/$', User_Stats_Subscribers.as_view(), name='subscribers_stats'),
+	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),
+	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
+	url(r'^authenticated/modify/article/(?P<postID>\d+)/$', Article.as_view(), name='modify_article'),
+	url(r'^authenticated/delete/article/(?P<postID>\d+)/$', Article.as_view(), name='delete_article'),
+	url(r'^authenticated/modify/social-networks/$', Modify_Social_Networks.as_view(), name='modify_social_networks'),
+
+	#Private API Routes - API KEY REQUIRED
+	url(r'^private/get/article/(?P<postID>\d+)/$', Article.as_view(), name='get_article'),
 ]

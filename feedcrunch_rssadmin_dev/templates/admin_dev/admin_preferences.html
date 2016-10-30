@@ -1,0 +1,97 @@
+{% extends 'admin_dev/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col s12 l10 offset-l1">
+        <div class="card">
+            <div class="card-content">
+				<div class="row no-margin-bottom">
+					<div class="col s12 l4" style="text-align:center">
+						<figure class="card-profile-image">
+					        <img src="{{ user.get_profile_picture }}" alt="profile image" class="circle z-depth-2 responsive-img profile-card-picture" >
+					    </figure>
+						<p>
+							<span style="font-size:1.7em;">{{ user.get_full_name }}</span><br>
+							(@{{ user.username }})
+						</p>
+					</div>
+					<div class="col s12 l8">
+						<div class="row no-margin-bottom">
+							<div class="col s12">
+							    <h4 class="card-title grey-text text-darken-4">Set your default posting preferences</h4>
+							</div>
+							<span class="card-title col s12 social-networks-category-title">Posting Preferences</span>
+							<div class="col s12">
+								<div class="input-field col s12 l6">
+									<div class="switch m-b-md">
+										<label>
+											<input type="checkbox">
+											<span class="lever"></span>
+											Article Publicly Visible
+										</label>
+									</div>
+								</div>
+								<div class="input-field col s12 l6" >
+									<div class="switch m-b-md">
+										<label>
+											<input type="checkbox">
+											<span class="lever"></span>
+											Article's Title AutoFormat
+										</label>
+									</div>
+								</div>
+							</div>
+							<span class="card-title col s12 social-networks-category-title">Social Sharing Preferences</span>
+							<div class="col s12">
+								<div class="input-field col s12 l6">
+									<div class="switch m-b-md">
+										<label>
+											<input type="checkbox">
+											<span class="lever"></span>
+											RePost on Twitter
+										</label>
+									</div>
+								</div>
+								<div class="input-field col s12 l6">
+									<div class="switch m-b-md">
+										<label>
+											<input type="checkbox">
+											<span class="lever"></span>
+											RePost on Facebook
+										</label>
+									</div>
+								</div>
+								<div class="input-field col s12 l6">
+									<div class="switch m-b-md">
+										<label>
+											<input type="checkbox">
+											<span class="lever"></span>
+											RePost on LinkedIn
+										</label>
+									</div>
+								</div>
+								<div class="input-field col s12 l6">
+									<div class="switch m-b-md">
+										<label>
+											<input type="checkbox">
+											<span class="lever"></span>
+											RePost on Google Plus
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col s12" style="text-align:right; margin-top:40px;">
+								<a class="waves-effect waves-light btn red m-b-xs">Reset</a>
+								<a class="waves-effect waves-light btn blue m-b-xs">Save</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

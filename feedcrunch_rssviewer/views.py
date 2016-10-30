@@ -3,27 +3,20 @@
 
 from __future__ import unicode_literals
 
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.template import RequestContext, loader
-from django.shortcuts import render_to_response, redirect
-from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
-from django_downloadview import BaseDownloadView
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import render_to_response, redirect
+from django.template import RequestContext, loader
 
-from feedcrunch_home.myutils import myrender as render
+import sys, os
+
+from mimetypes import MimeTypes
 
 from feedcrunch.models import Post, FeedUser
 
-from feedgen.feed import FeedGenerator
-from .functions import *
-
-import os
-from django.core.files import File
-
-from django_downloadview.exceptions import FileNotFound
-from django_downloadview import BaseDownloadView
-
-from mimetypes import MimeTypes
+from custom_render import myrender as render
+from rss_generator import generateRSS
 
 # Create your views here.
 
@@ -125,6 +118,11 @@ def atom_feed(request, feedname=None):
 			return HttpResponse("No Entries in this feed yet")
 
 '''
+
+from django.core.files import File
+from django_downloadview.exceptions import FileNotFound
+from django_downloadview import BaseDownloadView
+
 class PathDownloadView(BaseDownloadView):
 	"""Serve a file using filename."""
 	#: Server-side name (including path) of the file to serve.
