@@ -7,11 +7,12 @@ from django.core.urlresolvers import reverse
 from feedcrunch.models import Post
 from application.settings import *
 
-from feedcrunch_rssviewer.functions import *
 from feedcrunch.factories import *
 
 import factory
 from feedparser import parse
+
+from rss_generator import generateRSS
 # Create your tests here.
 
 class feedcrunch_rssviewer_TestCase(TestCase):
