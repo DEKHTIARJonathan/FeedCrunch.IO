@@ -3,7 +3,11 @@
 
 from __future__ import unicode_literals
 
-from django.http import JsonResponse
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from feedcrunch.models import Post, FeedUser, Tag
 
@@ -17,154 +21,226 @@ from date_manipulation import get_N_time_period
 from data_convert import str2bool
 from ap_style import format_title
 
-def validate_username(request, username=None):
+class Username_Validation(APIView):
 
-	payload = dict()
+	def get(self, request, username=None):
 
-	username_get = request.GET.get('username')
+		try:
 
-	if request.method != 'GET':
-		payload ["success"] = False
-		payload ["error"] = "Only GET Requests accepted"
+			payload = dict()
+			username_get = request.GET.get('username')
 
-	elif username == None and username_get == None:
-		payload ["success"] = False
-		payload ["error"] = "Username not provided"
+			if username == None and username_get == None:
+				raise Exception("Username not provided")
 
-	else:
-		payload ["success"] = True
-		if username == None:
-			payload ["username"] = username_get
-		else :
-			payload ["username"] = username
+			else:
 
-		payload ["available"] = not FeedUser.objects.filter(username = payload ["username"]).exists()
+				if username == None:
+					payload ["username"] = username_get
+				else :
+					payload ["username"] = username
 
-	payload ["timestamp"] = get_timestamp()
+				payload ["available"] = not FeedUser.objects.filter(username = payload ["username"]).exists()
+				payload ["success"] = True
 
-	return JsonResponse(payload, safe=False)
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
 
-def publications_stats(request):
-	payload = dict()
-	check_passed = check_admin_api(request.user)
+		payload["operation"] = "Username Validation"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
 
-	if request.method != 'GET':
-			payload ["success"] = False
-			payload ["error"] = "Only GET Requests accepted"
+class User_Stats_Publications(APIView):
 
-	elif check_passed != True:
-		payload ["success"] = False
-		payload ["error"] = check_passed
+	def get(self, request):
+		try:
 
-	else:
-		feedname = request.user.username
-		payload ["success"] = True
-		payload ["username"] = feedname
+			payload = dict()
+			check_passed = check_admin_api(request.user)
 
-		user = FeedUser.objects.get(username=feedname)
+			if check_passed != True:
+				raise Exception(check_passed)
 
-		date_array = get_N_time_period(21)
+			feedname = request.user.username
+			payload ["success"] = True
+			payload ["username"] = feedname
 
-		ticks = []
-		data = []
+			date_array = get_N_time_period(21, 14)
 
-		for i, d in enumerate(date_array):
+			ticks = []
+			data = []
 
-			count = user.rel_posts.filter(when__year=d.year, when__month=d.month, when__day=d.day).count()
-			data.append([i, count])
-			ticks.append([i, d.strftime("%d. %b")])
+			from random import randint
 
-		payload ["data"] = data
-		payload ["ticks"] = ticks
+			for i, d in enumerate(date_array):
 
-	payload ["timestamp"] = get_timestamp()
-	return JsonResponse(payload, safe=False)
+				#count = request.user.rel_posts.filter(when__year=d.year, when__month=d.month, when__day=d.day).count()
+				#data.append([i, count])
+				data.append([i, randint(5000,12000)])
+				ticks.append([i, d.strftime("%d. %b")])
 
-def subscribers_stats(request):
-	payload = dict()
-	check_passed = check_admin_api(request.user)
+			payload ["data"] = data
+			payload ["ticks"] = ticks
 
-	if request.method != 'GET':
-			payload ["success"] = False
-			payload ["error"] = "Only GET Requests accepted"
+			from time import sleep
+			sleep(3)
 
-	elif check_passed != True:
-		payload ["success"] = False
-		payload ["error"] = check_passed
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
 
-	else:
+		payload["operation"] = "Get User Publication Stats"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
 
-		feedname = request.user.username
-		payload ["success"] = True
-		payload ["username"] = feedname
+class User_Stats_Subscribers(APIView):
+	def get(self, request):
+		try:
 
-		user = FeedUser.objects.get(username=feedname)
+			payload = dict()
+			check_passed = check_admin_api(request.user)
 
-		date_array = get_N_time_period(21, 14)
+			if check_passed != True:
+				raise Exception(check_passed)
 
-		ticks = []
-		data = []
+			feedname = request.user.username
+			payload ["success"] = True
+			payload ["username"] = feedname
 
-		from random import randint
+			date_array = get_N_time_period(21)
 
-		for i, d in enumerate(date_array):
+			ticks = []
+			data = []
 
-			#count = user.rel_posts.filter(when__year=d.year, when__month=d.month, when__day=d.day).count()
-			#data.append([i, count])
-			data.append([i, randint(5000,12000)])
-			ticks.append([i, d.strftime("%d. %b")])
+			for i, d in enumerate(date_array):
 
-		payload ["data"] = data
-		payload ["ticks"] = ticks
+				count = request.user.rel_posts.filter(when__year=d.year, when__month=d.month, when__day=d.day).count()
+				data.append([i, count])
+				ticks.append([i, d.strftime("%d. %b")])
 
-	from time import sleep
-	sleep(3)
+			payload ["data"] = data
+			payload ["ticks"] = ticks
 
-	payload ["timestamp"] = get_timestamp()
-	return JsonResponse(payload, safe=False)
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
 
-def tags_as_json(request):
-	payload = dict()
-	check_passed = check_admin_api(request.user)
+		payload["operation"] = "Get User Subscriber Stats"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
 
-	if request.method != 'GET':
-			payload ["success"] = False
-			payload ["error"] = "Only GET Requests accepted"
+class Tags(APIView):
+	def get(self, request):
+		try:
 
-	elif check_passed != True:
-		payload ["success"] = False
-		payload ["error"] = check_passed
+			payload = dict()
+			check_passed = check_admin_api(request.user)
 
-	else:
-		payload ["success"] = True
-		payload ["username"] = request.user.username
+			if check_passed != True:
+				raise Exception(check_passed)
 
-		tags = Tag.objects.all().order_by('name')
-		payload["tags"] = [tag.name for tag in tags]
+			tags = Tag.objects.all().order_by('name')
+			payload["tags"] = [tag.name for tag in tags]
 
-
-	payload ["timestamp"] = get_timestamp()
-	return JsonResponse(payload, safe=False)
-
-def submit_article(request):
-	try:
-		payload = dict()
-		check_passed = check_admin_api(request.user)
-
-		if request.method != 'POST':
-				payload ["success"] = False
-				payload ["error"] = "Only POST Requests accepted"
-
-		elif check_passed != True:
-			payload ["success"] = False
-			payload ["error"] = check_passed
-
-		else:
+			payload ["success"] = True
 			payload ["username"] = request.user.username
 
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "Get All Tags"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article  (PUT), DELETE Article (DELETE)
+
+	def get(self, request):
+		payload = dict()
+		payload["success"] = True
+		return Response(payload)
+
+	def post(self, request):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			else:
+				payload ["username"] = request.user.username
+
+				title = unicodedata.normalize('NFC', request.POST['title'])
+				link = unicodedata.normalize('NFC', request.POST['link'])
+				tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
+
+				activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
+				twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+
+				if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
+					title = format_title(title)
+
+				if title == "" or link == "":
+					raise Exception("Title and/or Link is/are missing")
+
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+				tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
+
+				for tag in tags:
+					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+					tmp_post.tags.add(tmp_obj)
+
+				tmp_post.save()
+
+				if twitter_bool and tmp_user.is_twitter_enabled():
+
+						twitter_instance = TwitterAPI(tmp_user)
+
+						if twitter_instance.connection_status():
+
+							tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+
+							if not tw_rslt['status']:
+								payload["postID"] = str(tmp_post.id)
+								raise Exception("An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error'])
+
+						else:
+							raise Exception("Not connected to the Twitter API")
+
+				payload["success"] = True
+				payload["postID"] = str(tmp_post.id)
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "submit article"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+	def put(self, request, postID=None):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if type(postID) is not int or postID < 1:
+				raise Exception("postID parameter is not valid")
+
+			if check_passed != True:
+				raise Exception(check_passed)
+			else:
+				feedname = request.user.username
+				payload ["username"] = request.user.username
 
 			title = unicodedata.normalize('NFC', request.POST['title'])
 			link = unicodedata.normalize('NFC', request.POST['link'])
+
+			if title == "" or link == "":
+				raise Exception("Title and/or Link is/are missing")
+
 			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
 
 			activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
@@ -173,161 +249,169 @@ def submit_article(request):
 			if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
 				title = format_title(title)
 
-			if title == "" or link == "":
-				payload["success"] = False
-				payload["error"] = "Title and/or Link is/are missing"
 
-			else:
+			tmp_post = Post.objects.get(id=postID, user=feedname)
 
-				tmp_user = FeedUser.objects.get(username=request.user.username)
-				tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
+			tmp_post.title = title
+			tmp_post.link = link
+			tmp_post.activeLink = activated_bool
+			tmp_post.tags.clear()
 
-				for tag in tags:
-					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-					tmp_post.tags.add(tmp_obj)
-				tmp_post.save()
+			for tag in tags:
+				tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+				tmp_post.tags.add(tmp_obj)
 
-				if twitter_bool and tmp_user.is_twitter_enabled():
+			tmp_user = FeedUser.objects.get(username=feedname)
 
-						twitter_instance = TwitterAPI(tmp_user)
+			if twitter_bool and tmp_user.is_twitter_enabled():
 
-						if twitter_instance.connection_status():
-							tmp_post.save()
+				twitter_instance = TwitterAPI(tmp_user)
 
-							tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+				if twitter_instance.connection_status():
+					tmp_post.save()
 
-							if not tw_rslt['status']:
-								payload["success"] = False
-								payload["postID"] = str(tmp_post.id)
-								payload["error"] = "An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error']
+					tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
 
-							else:
-								payload["success"] = True
-								payload["postID"] = str(tmp_post.id)
-
-						else:
-							raise Exception("Not connected to the Twitter API")
+					if not tw_rslt['status']:
+						payload["postID"] = str(tmp_post.id)
+						raise Exception("Twitter posting error, however the post was saved: " + tw_rslt['error'])
 
 				else:
-					tmp_post.save()
-					payload["success"] = True
-					payload["postID"] = str(tmp_post.id)
+					raise Exception("Not connected to the Twitter API")
 
-	except Exception, e:
-		payload["status"] = "error"
-		payload["error"] = "An error occured in the process: " + str(e)
-		payload["postID"] = None
+			tmp_post.save()
+			payload["success"] = True
+			payload["postID"] = str(postID)
 
-	payload["operation"] = "submit article"
-	payload ["timestamp"] = get_timestamp()
-	return JsonResponse(payload, safe=False)
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["postID"] = None
 
-def modify_article(request, postID=None):
-	try:
-		payload = dict()
-		check_passed = check_admin_api(request.user)
 
-		if request.method != 'POST':
-			raise Exception("Only POST Requests accepted")
+		payload["operation"] = "modify article"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
 
-		if type(postID) is not int or postID < 1:
-			raise Exception("postID parameter is not valid")
+	def delete(self, request, postID=None):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
 
-		if check_passed != True:
-			raise Exception(check_passed)
-		else:
+			postID = int(unicodedata.normalize('NFC', postID))
+			if type(postID) is not int or postID < 1:
+				raise Exception("postID parameter is not valid")
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
 			feedname = request.user.username
 			payload ["username"] = request.user.username
 
-		title = unicodedata.normalize('NFC', request.POST['title'])
-		link = unicodedata.normalize('NFC', request.POST['link'])
+			post = Post.objects.filter(id=postID, user=feedname)
+			if post.count() == 0:
+				raise Exception("Post does not exist")
 
-		if title == "" or link == "":
-			raise Exception("Title and/or Link is/are missing")
+			post.delete()
+			payload ["success"] = True
+			payload["postID"] = postID
 
-		tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["postID"] = None
 
-		activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
-		twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+		payload ["operation"] = "delete article"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
 
-		if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
-			title = format_title(title)
+class Modify_Social_Networks(APIView):
+
+	def put(self, request):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			feedname = request.user.username
+			payload ["username"] = request.user.username
+
+			val = URLValidator()
+
+			social_networks = [
+				'dribbble',
+				'facebook',
+				'flickr',
+				'gplus',
+				'instagram',
+				'linkedin',
+				'pinterest',
+				'stumble',
+				'twitter',
+				'vimeo',
+				'youtube',
+				'docker',
+				'git',
+				'kaggle',
+				'coursera',
+				'googlescholar',
+				'orcid',
+				'researchgate',
+				'blog',
+				'website'
+			]
+
+			social_data = {}
+			for social in social_networks:
+				url = unicodedata.normalize('NFC', request.data[social])
+				if url != '':
+					try:
+						val(url) #Raise a ValidationError if the URL is invalid.
+					except:
+						raise Exception("URL Not Valid: "+social)
+				social_data[social] = url
+
+			tmp_user = FeedUser.objects.get(username=request.user.username)
+
+			# Main Social Networks
+			tmp_user.social_dribbble = social_data['dribbble']
+			tmp_user.social_facebook = social_data['facebook']
+			tmp_user.social_flickr = social_data['flickr']
+			tmp_user.social_gplus = social_data['gplus']
+			tmp_user.social_instagram = social_data['instagram']
+			tmp_user.social_linkedin = social_data['linkedin']
+			tmp_user.social_pinterest = social_data['pinterest']
+			tmp_user.social_stumble = social_data['stumble']
+			tmp_user.social_twitter = social_data['twitter']
+			tmp_user.social_vimeo = social_data['vimeo']
+			tmp_user.social_youtube = social_data['youtube']
+
+			# Computer Science Networks
+			tmp_user.social_docker = social_data['docker']
+			tmp_user.social_git = social_data['git']
+			tmp_user.social_kaggle = social_data['kaggle']
+
+			# MooC Profiles
+			tmp_user.social_coursera = social_data['coursera']
+
+			# Research Social Networks
+			tmp_user.social_google_scholar = social_data['googlescholar']
+			tmp_user.social_orcid = social_data['orcid']
+			tmp_user.social_researchgate = social_data['researchgate']
+			tmp_user.social_blog = social_data['blog']
+			tmp_user.social_personalwebsite = social_data['website']
+
+			tmp_user.save()
+			payload["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["postID"] = None
 
 
-		tmp_post = Post.objects.get(id=postID, user=feedname)
-
-		tmp_post.title = title
-		tmp_post.link = link
-		tmp_post.activeLink = activated_bool
-		tmp_post.tags.clear()
-
-		for tag in tags:
-			tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-			tmp_post.tags.add(tmp_obj)
-
-		tmp_user = FeedUser.objects.get(username=feedname)
-
-		if twitter_bool and tmp_user.is_twitter_enabled():
-
-			twitter_instance = TwitterAPI(tmp_user)
-
-			if twitter_instance.connection_status():
-				tmp_post.save()
-
-				tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
-
-				if not tw_rslt['status']:
-					payload["postID"] = str(tmp_post.id)
-					raise Exception("Twitter posting error, however the post was saved: " + tw_rslt['error'])
-
-			else:
-				raise Exception("Not connected to the Twitter API")
-
-		tmp_post.save()
-		payload["success"] = True
-		payload["postID"] = str(postID)
-
-	except Exception, e:
-		payload["success"] = False
-		payload["error"] = "An error occured in the process: " + str(e)
-		payload["postID"] = None
-
-
-	payload["operation"] = "modify article"
-	payload ["timestamp"] = get_timestamp()
-	return JsonResponse(payload, safe=False)
-
-def delete_article (request, postID=None):
-	try:
-		payload = dict()
-		check_passed = check_admin_api(request.user)
-
-		if request.method != "DELETE":
-			raise Exception("Only DELETE Requests accepted")
-
-		postID = int(unicodedata.normalize('NFC', postID))
-		if type(postID) is not int or postID < 1:
-			raise Exception("postID parameter is not valid")
-
-		if check_passed != True:
-			raise Exception(check_passed)
-
-		feedname = request.user.username
-		payload ["username"] = request.user.username
-
-		post = Post.objects.filter(id=postID, user=feedname)
-		if post.count() == 0:
-			raise Exception("Post does not exist")
-
-		post.delete()
-		payload ["success"] = True
-		payload["postID"] = postID
-
-	except Exception, e:
-		payload["success"] = False
-		payload["error"] = "An error occured in the process: " + str(e)
-		payload["postID"] = None
-
-	payload ["operation"] = "delete article"
-	payload ["timestamp"] = get_timestamp()
-	return JsonResponse(payload, safe=False)
+		payload ["operation"] = "modify social networks"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)

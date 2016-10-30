@@ -94,3 +94,20 @@ table.dataTable thead .sorting_desc {
 .no-margin-bottom{
 	margin-bottom: 0px;
 }
+
+.social-card{
+	height:250px;
+}
+
+.title-interest{
+	margin-top: 14%;
+	font-size: 1.4em !important;
+}
+
+.profile-card-picture{
+	max-height: 200px;
+}
+.social-networks-category-title{
+	font-weight: 600 !important;
+    font-size: 1.25em !important;
+}

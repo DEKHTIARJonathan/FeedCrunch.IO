@@ -23,18 +23,18 @@
                                     <div class="row">
                                         <div class="input-field col m6 s12">
                                             <label for="firstName">First name</label>
-                                            <input id="firstName" name="firstName" type="text" class="required validate" aria-required="true" value="{{ user.first_name }}">
+                                            <input id="firstName" name="firstName" type="text" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.first_name }}">
                                         </div>
                                         <div class="input-field col m6 s12">
                                             <label for="lastName">Last name</label>
-                                            <input id="lastName" name="lastName" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                            <input id="lastName" name="lastName" type="text" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.last_name }}">
                                         </div>
                                         <div class="input-field col m6 s12">
                                             <label for="email">Email Address</label>
-                                            <input id="email" name="email" type="email" class="required validate" aria-required="true" value="{{ user.email }}">
+                                            <input id="email" name="email" type="email" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.email }}">
                                         </div>
                                         <div class="input-field col m6 s12">
-                                            <select id="gender" class="required validate" aria-required="true">
+                                            <select id="gender" class="required validate" aria-required="true" data-init="{{ user.email }}" >
                                                 <option selected disabled>Select One Gender</option>
                                                 {% if user.gender == 'M' %}
                                                     <option value="F">Female</option>
@@ -69,12 +69,12 @@
                                         </div>
                                         <div class="input-field col m12">
                                             <label for="rss_title">RSS Feed Title</label>
-                                            <input id="rss_title" name="rss_title" type="text">
+                                            <input id="rss_title" name="rss_title" type="text" data-init="{{ user.rss_feed_title }}" value="{{ user.rss_feed_title }}">
                                         </div>
                                         <div class="input-field col s12" style="margin-top:60px;">
                                             <div class="switch m-b-md">
                                                 <label>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="newsletter_subscribtion">
                                                     <span class="lever"></span>
                                                     Get news and updates from FeedCrunch
                                                 </label>
@@ -86,18 +86,18 @@
                                     <div class="row">
                                         <div class="input-field col m6 s12">
                                             <label for="company_name">Company name</label>
-                                            <input id="company_name" name="company_name" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                            <input id="company_name" name="company_name" type="text" class="validate" data-init="{{ user.company_name }}" value="{{ user.company_name }}">
                                         </div>
                                         <div class="input-field col m6 s12">
                                             <label for="company_website">Company Website</label>
-                                            <input id="company_website" name="company_website" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                            <input id="company_website" name="company_website" type="text" class="validate" data-init="{{ user.company_website }}"  value="{{ user.company_website }}">
                                         </div>
                                         <div class="input-field col s12">
                                             <label for="job_title">Job Title</label>
-                                            <input id="job_title" name="job_title" type="text" class="required validate" aria-required="true" value="{{ user.last_name }}">
+                                            <input id="job_title" name="job_title" type="text" class="validate" data-init="{{ user.job }}" value="{{ user.job }}">
                                         </div>
                                         <div class="input-field col s12">
-                                            <textarea id="description" class="required validate materialize-textarea description-textarea"></textarea>
+                                            <textarea id="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">{{ user.description }}</textarea>
                                             <label for="description" class="">Description</label>
                                         </div>
 

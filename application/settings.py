@@ -110,6 +110,7 @@ INSTALLED_APPS = [
 	'feedcrunch_rssadmin_dev',
 	'feedcrunch_home',
 	'twitter',
+	'rest_framework',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'

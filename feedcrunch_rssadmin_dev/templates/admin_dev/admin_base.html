@@ -20,28 +20,39 @@
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
 
-
-		{% if template_name == "admin_dev/admin_article_form.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/material-preloader/css/materialPreloader.min.css" %}">
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
+		{% if template_name == "admin_dev/admin_dashboard.html" %}
 
 		{% elif template_name == "admin_dev/admin_form_template.html" %}
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/material-preloader/css/materialPreloader.min.css" %}">
+
+
+		{% elif template_name == "admin_dev/admin_article_form.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/material-preloader/css/materialPreloader.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
 
 		{% elif template_name == "admin_dev/admin_post_listing.html" %}
 			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
+		{% elif template_name == "admin_dev/admin_personal.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
+		{% elif template_name == "admin_dev/admin_preferences.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
+		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
+		{% elif template_name == "admin_dev/admin_password.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
+		{% elif template_name == "admin_dev/admin_social_accounts.html" %}
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
 		{% elif template_name == "admin_dev/admin-coming-soon.html" %}
 			<link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway:400,200,600|Open+Sans:400,300,600,700|Montserrat:400,700" rel="stylesheet">
 			<link rel="stylesheet" type="text/css" href="{% static "css/admin-coming-soon.css" %}">
-
-		{% elif template_name == "admin_dev/admin_preferences.html" %}
-
-		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
-
-		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
 
 		{% endif %}
 
@@ -301,14 +312,9 @@
 		<script type="text/javascript" src="{% static "js/alpha.min.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/admin-menu.js" %}"></script>
 
-
 		{% if template_name == "admin_dev/admin_dashboard.html" %}
 			<script type="text/javascript" src="{% static "plugins/counter-up-master/jquery.counterup.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/flot/jquery.flot.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/flot/jquery.flot.time.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/flot/jquery.flot.symbol.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/flot/jquery.flot.resize.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/flot/jquery.flot.tooltip.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/dashboard.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_article_form.html" %}
@@ -316,32 +322,46 @@
 			<script type="text/javascript" src="{% static "plugins/typeahead-js-corejs/typeahead.bundle.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/materialize-tags/js/materialize-tags.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-form-article.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_post_listing.html" %}
 			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/post-listing.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin_personal.html" %}
-			<script type="text/javascript" src="{% static "plugins/jquery-blockui/jquery.blockui.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-steps/jquery.steps.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-personal.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_preferences.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-preferences.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-profile-picture.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_password.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-password.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_social_accounts.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-social-accounts.js" %}"></script>
 
 		{% elif template_name == "admin_dev/admin-coming-soon.html" %}
 			<script type="text/javascript" src="{% static "js/admin-coming-soon.js" %}"></script>
-
-		{% elif template_name == "admin_dev/admin_preferences.html" %}
-
-		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
-
-		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
 
 		{% endif %}
 

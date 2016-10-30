@@ -86,8 +86,7 @@ def preferences_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		#return render(request, 'admin_dev/admin_preferences.html')
-		return render(request, 'admin_dev/admin-coming-soon.html')
+		return render(request, 'admin_dev/admin_preferences.html')
 
 def password_form(request, feedname=None):
 
@@ -96,7 +95,6 @@ def password_form(request, feedname=None):
 		return check_passed
 	else:
 		return render(request, 'admin_dev/admin_password.html')
-		#return render(request, 'admin_dev/admin-coming-soon.html')
 
 def picture_form(request, feedname=None):
 
@@ -113,8 +111,7 @@ def social_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		# return render(request, 'admin_dev/admin_social_account.html')
-		return render(request, 'admin_dev/admin-coming-soon.html')
+		return render(request, 'admin_dev/admin_social_accounts.html')
 
 def services_form(request, feedname=None):
 
