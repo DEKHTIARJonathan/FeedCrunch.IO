@@ -344,7 +344,8 @@ class FeedUser(AbstractFeedUser):
 
 	def get_current_month_post_count(self):
 		d_tmp = datetime.datetime.now()
-		date_1st_day_month = datetime.datetime(d_tmp.year,d_tmp.month,1,0,0,0)
+
+		date_1st_day_month = d_tmp.replace(day=1)
 		date_1st_day_month_with_tmz = timezone.make_aware(date_1st_day_month, timezone.get_current_timezone())
 
 		return self.rel_posts.filter(when__gte=date_1st_day_month_with_tmz).count()
@@ -352,12 +353,10 @@ class FeedUser(AbstractFeedUser):
 	def get_last_month_post_count(self):
 		d_tmp = datetime.datetime.now()
 
-		if d_tmp.month != 1:
-			date_1_month_ago = datetime.datetime(d_tmp.year,d_tmp.month-1,d_tmp.day,0,0,0)
-			date_1st_day_last_month = datetime.datetime(d_tmp.year,d_tmp.month-1,1,0,0,0)
-		else:
-			date_1_month_ago = datetime.datetime(d_tmp.year-1,12,d_tmp.day,0,0,0)
-			date_1st_day_last_month = datetime.datetime(d_tmp.year-1,12,1,0,0,0)
+		time_delta = datetime.timedelta(days=31)
+
+		date_1_month_ago = d_tmp - time_delta
+		date_1st_day_last_month = date_1_month_ago.replace(day=1)
 
 		date_1_month_ago_with_tmz = timezone.make_aware(date_1_month_ago, timezone.get_current_timezone())
 		date_1st_day_last_month_with_tmz = timezone.make_aware(date_1st_day_last_month, timezone.get_current_timezone())

@@ -92,7 +92,7 @@ $(document).ready(function() {
                     swal({
                         title: "Good job!",
                         text: "Article deleted with success!",
-                        imageUrl: "/static/images/thumbs-up.jpg",
+                        type: "success",
                         timer: 1500,
                         showConfirmButton: false,
                         cache: false,

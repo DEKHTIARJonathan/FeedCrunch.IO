@@ -78,7 +78,7 @@ $( document ).ready(function() {
 					swal({
 						title: "Good job!",
 						text: "Social Networks modified with success!",
-						imageUrl: "/static/images/thumbs-up.jpg",
+						type: "success",
 						timer: 1500,
 						showConfirmButton: false,
 						cache: false,

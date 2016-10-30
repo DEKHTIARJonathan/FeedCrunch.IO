@@ -107,7 +107,7 @@ $( document ).ready(function() {
                       swal({
                           title: "Good job!",
                           text: "Article Submitted!",
-                          imageUrl: "/static/images/thumbs-up.jpg",
+                          type: "success",
                           timer: 1500,
                           showConfirmButton: false,
                       });
@@ -116,7 +116,7 @@ $( document ).ready(function() {
                       swal({
                           title: "Article Modified!",
                           text: "Redirecting you to the edit listing in 3 seconds.",
-                          imageUrl: "/static/images/thumbs-up.jpg",
+                          type: "success",
                           timer: 3000,
                           showConfirmButton: false,
                       }, function(){

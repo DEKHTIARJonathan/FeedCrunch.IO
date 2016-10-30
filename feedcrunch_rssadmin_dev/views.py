@@ -57,6 +57,7 @@ def index(request, feedname=None):
 		except ZeroDivisionError:
 			publication_trend = -1
 			post_trending = "new_releases"
+			post_trending_color = "blue-grey lighten-1"
 
 		data = {
 			'auth_url': auth_url,
