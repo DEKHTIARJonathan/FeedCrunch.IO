@@ -51,7 +51,7 @@ class Username_Validation(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-class User_Stats_Publications(APIView):
+class User_Stats_Subscribers(APIView):
 
 	def get(self, request):
 		try:
@@ -94,7 +94,8 @@ class User_Stats_Publications(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-class User_Stats_Subscribers(APIView):
+
+class User_Stats_Publications(APIView):
 	def get(self, request):
 		try:
 
