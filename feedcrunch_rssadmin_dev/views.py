@@ -95,8 +95,8 @@ def password_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		#return render(request, 'admin_dev/admin_template.html')
-		return render(request, 'admin_dev/admin-coming-soon.html')
+		return render(request, 'admin_dev/admin_password.html')
+		#return render(request, 'admin_dev/admin-coming-soon.html')
 
 def picture_form(request, feedname=None):
 

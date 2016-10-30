@@ -90,3 +90,7 @@ table.dataTable thead .sorting_desc {
     margin-top: -5px;
 	padding: 10px;
 }
+
+.no-margin-bottom{
+	margin-bottom: 0px;
+}
