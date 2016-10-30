@@ -69,7 +69,6 @@ def index(request, feedname=None):
 
 		return render(request, 'admin_dev/admin_dashboard.html', data)
 
-
 def personal_info_form(request, feedname=None):
 
 	check_passed = check_admin(feedname, request.user)
@@ -87,7 +86,8 @@ def preferences_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		#return render(request, 'admin_dev/admin_preferences.html')
+		return render(request, 'admin_dev/admin-coming-soon.html')
 
 def password_form(request, feedname=None):
 
@@ -95,7 +95,8 @@ def password_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		#return render(request, 'admin_dev/admin_template.html')
+		return render(request, 'admin_dev/admin-coming-soon.html')
 
 def picture_form(request, feedname=None):
 
@@ -103,7 +104,8 @@ def picture_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		#return render(request, 'admin_dev/admin_profile_picture.html')
+		return render(request, 'admin_dev/admin-coming-soon.html')
 
 def social_form(request, feedname=None):
 
@@ -111,7 +113,8 @@ def social_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin_dev/admin_template.html')
+		# return render(request, 'admin_dev/admin_social_account.html')
+		return render(request, 'admin_dev/admin-coming-soon.html')
 
 def services_form(request, feedname=None):
 
@@ -123,7 +126,7 @@ def services_form(request, feedname=None):
 			twitter_auth_url = get_authorization_url(request)
 		else:
 			twitter_auth_url = False # False => Don't need to authenticate with Twitter
-		return render(request, 'admin_dev/admin_services.html', {'twitter_auth_url': twitter_auth_url})
+		return render(request, 'admin_dev/admin_social_sharing.html', {'twitter_auth_url': twitter_auth_url})
 
 def add_article_form(request, feedname=None):
 

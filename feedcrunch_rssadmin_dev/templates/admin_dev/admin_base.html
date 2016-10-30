@@ -33,11 +33,21 @@
 			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
+		{% elif template_name == "admin_dev/admin-coming-soon.html" %}
+			<link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway:400,200,600|Open+Sans:400,300,600,700|Montserrat:400,700" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="{% static "css/admin-coming-soon.css" %}">
+
+		{% elif template_name == "admin_dev/admin_preferences.html" %}
+
+		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
+
+		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
+
 		{% endif %}
 
 		<!-- Theme Styles -->
 		<link type="text/css" rel="stylesheet" href="{% static "css/alpha.css" %}"/>
-		<link type="text/css" rel="stylesheet" href="{% static "css/custom-admin.css" %}"/>
+		<link type="text/css" rel="stylesheet" href="{% static "css/custom-admin.css?a=12" %}"/>
 
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -323,6 +333,15 @@
 			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-steps/jquery.steps.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-personal.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin-coming-soon.html" %}
+			<script type="text/javascript" src="{% static "js/admin-coming-soon.js" %}"></script>
+
+		{% elif template_name == "admin_dev/admin_preferences.html" %}
+
+		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
+
+		{% elif template_name == "admin_dev/admin_profile_picture.html" %}
 
 		{% endif %}
 
