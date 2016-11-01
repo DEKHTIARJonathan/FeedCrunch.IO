@@ -31,7 +31,7 @@ script:
 - coverage run manage.py test
 
 after_success:
-- codeclimate-test-reporter
+- codeclimate-test-reporter --debug
 - commitID="$(git rev-parse HEAD)"
 - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
@@ -48,7 +48,6 @@ notifications:
   slack:
     rooms:
       secure: qu653B/BOfdY3BZ6IXFa1lQxkQMubFtnoMT9mtsrNOlgF1dFI0LlUBqapqApsiitvYU257LFJqdzbp7YyS8gFSgAdtY4wDRsPg9Atl9wwfGXqGFTrbpKJBiTULKgRWqWCwTFAQRO79tqB5VMf93pu5dzD1gK9qJpD7nLahob7hb2F+gW+vbDHsn9sjz5KautpGr5JN5EGzo46ghthqS2oL4tCKQWN0+JT1sEoaU0/31bvrD1HelKO8xLMzR+6eZ1rg950Qgg1qk3SWHi2HwzGcp34GG3TRLKEXCGpNHLJXumqWuneuPjEL0kYqJkLSyIwL49eND5T+l99IX4cdJlgLJsJcLNV+LxXurkxbW+z3R2AsJBgdZA/58dSjhghze8Fgp2FBVnoLPjR0jDKX7T4C84EbY3gRaYTCvAaEeQHgmkRD8GbsYPV81jIQrG8RARadlPPSW5dtVxz/LvkOUtccG7hQ8agWvuHc79iYwX1ahsJIQ7/xETSYmGQw4nAXbUFtsDm2h5OBJzphUxvp10xUP/prAg7mVW4NwQUAurHBBCCvW1LhDDbP2ZKtcEz4OqnN4hFSlwv0aPFi0wEQqGWPaZua8TgO2DzHdke4ECjt8pr7TsqA92O+E2iV4zApgjS6kuY3R8vxAgvPRNDW5GeR/0JKNd1ZtskPTTK+c9iPM=
-    email: false
     
 cache:
   directories:

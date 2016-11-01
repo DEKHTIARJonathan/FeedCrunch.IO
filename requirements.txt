@@ -2,7 +2,7 @@ awscli==1.11.8
 boto==2.43.0
 botocore==1.4.65
 click==6.6
-codeclimate-test-reporter==0.1.2
+codeclimate-test-reporter==0.2.0
 colorama==0.3.7
 coverage==4.2
 coveralls==1.1
