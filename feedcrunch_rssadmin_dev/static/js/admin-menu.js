@@ -21,7 +21,14 @@ $( document ).ready(function() {
 	$("#contact-link-menu").attr("href", dashboard_root_url + "contact/" );
 
 	var item = $('li a[href^="' + location.pathname + '"]').first();
+
+	if (item.length == 0){
+		if (location.pathname.indexOf("/article/edit/") != -1 )
+			item = $('li a[href^="/@dataradar/admin_dev/article/edit/"]').first()
+	}
+
 	item.parent().addClass("active");
+
 	if(!item.filter(':visible').length){
 		var category_item = item.parents('div').first();
 		category_item.parent().addClass('active');
