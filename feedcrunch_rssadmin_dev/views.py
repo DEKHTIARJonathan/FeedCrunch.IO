@@ -104,7 +104,7 @@ def picture_form(request, feedname=None):
 		return check_passed
 	else:
 		#return render(request, 'admin_dev/admin_profile_picture.html')
-		return render(request, 'admin_dev/admin-coming-soon.html')
+		return render(request, 'admin_dev/admin_photo.html')
 
 def social_form(request, feedname=None):
 
