@@ -10,22 +10,30 @@ import django.contrib.auth.views
 from .views import *
 
 urlpatterns = [
-	#Public API Routes
+
+	# ====================== Public API Routes ====================== #
+
 	url(r'^public/get/validate/username/(?P<username>\w+)/$', Username_Validation.as_view(), name='validate_username'),
 	url(r'^public/get/validate/username/$', Username_Validation.as_view(), name='validate_username'),
 
-	#Authentication Required API Routes
+	# ====================== Authentication Required API Routes ====================== #
+
+	# User Routes
 	url(r'^authenticated/get/user/publications_stats/$', User_Stats_Publications.as_view(), name='publications_stats'),
 	url(r'^authenticated/get/user/subscribers_stats/$', User_Stats_Subscribers.as_view(), name='subscribers_stats'),
 	url(r'^authenticated/modify/user/social-networks/$', Modify_Social_Networks.as_view(), name='modify_social_networks'),
 	url(r'^authenticated/modify/user/personal-info/$', Modify_Personal_info.as_view(), name='Modify_Personal_info'),
 
+	# Tag Routes
 	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),
+
+	# Article Routes
 	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
 	url(r'^authenticated/modify/article/(?P<postID>\d+)/$', Article.as_view(), name='modify_article'),
 	url(r'^authenticated/delete/article/(?P<postID>\d+)/$', Article.as_view(), name='delete_article'),
 
+	# ====================== Private API Routes - API KEY REQUIRED ====================== #
 
-	#Private API Routes - API KEY REQUIRED
+	# Article Routes
 	url(r'^private/get/article/(?P<postID>\d+)/$', Article.as_view(), name='get_article'),
 ]
