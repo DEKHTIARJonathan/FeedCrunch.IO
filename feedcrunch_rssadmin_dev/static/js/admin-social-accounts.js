@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-	var social_networks = social_networks = [
+	var form_fields = [
 		'dribbble',
 		'facebook',
 		'flickr',
@@ -24,19 +24,19 @@ $( document ).ready(function() {
 	];
 
 	function clearFields(){
-		for (field in social_networks){
+		for (field in form_fields){
 			//console.log(social_networks[field]+ " = " +$("#"+social_networks[field]).val());
-			var input = $("#"+social_networks[field]);
+			var input = $("#"+form_fields[field]);
 			input.val(input.data("init"));
 		}
 	}
 
 	function get_fields(){
 		var rslt = {};
-		for (field in social_networks){
+		for (field in form_fields){
 			//console.log(social_networks[field]+ " = " +$("#"+social_networks[field]).val());
-			var input = $("#"+social_networks[field]);
-			rslt[social_networks[field]] = input.val();
+			var input = $("#"+form_fields[field]);
+			rslt[form_fields[field]] = input.val();
 		}
 		return rslt;
 	}
@@ -60,10 +60,8 @@ $( document ).ready(function() {
 
 
 	$("#save-btn").click(function() {
-		var api_url = "/api/1.0/authenticated/modify/social-networks/";
+		var api_url = "/api/1.0/authenticated/modify/user/social-networks/";
 		var csrftoken = Cookies.get('csrftoken');
-
-		console.log();
 
 		$.ajax({
 			url : api_url,

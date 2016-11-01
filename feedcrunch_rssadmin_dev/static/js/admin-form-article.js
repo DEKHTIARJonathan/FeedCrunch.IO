@@ -73,20 +73,21 @@ $( document ).ready(function() {
 
     var request_url = window.location.pathname;
 
-    if (request_url.indexOf("article/add") != -1) // Add Form
-        var api_url = "/api/1.0/authenticated/post/article/";
+    if (request_url.indexOf("article/add") != -1){  // Add Form
+		var api_url = "/api/1.0/authenticated/post/article/";
+		var query_type = "POST";
+	}
     else{
         var article_id = request_url.split("/", 6)[5];
         var api_url = "/api/1.0/authenticated/modify/article/"+article_id+"/";
+		var query_type = "PUT";
     }
-
-    console.log(api_url);
 
     $("#submit").click(function() {
 		var csrftoken = Cookies.get('csrftoken');
         $.ajax({
     	  url : api_url,
-    	  type : "POST",
+    	  type : query_type,
     	  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     	  dataType : "json",
     	  data: {

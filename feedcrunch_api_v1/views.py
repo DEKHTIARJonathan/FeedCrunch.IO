@@ -9,7 +9,7 @@ from django.core.validators import URLValidator
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from feedcrunch.models import Post, FeedUser, Tag
+from feedcrunch.models import Post, FeedUser, Tag, Country
 
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
@@ -93,7 +93,6 @@ class User_Stats_Subscribers(APIView):
 		payload["operation"] = "Get User Publication Stats"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
-
 
 class User_Stats_Publications(APIView):
 	def get(self, request):
@@ -227,6 +226,8 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 			payload = dict()
 			check_passed = check_admin_api(request.user)
 
+			postID = int(postID)
+
 			if type(postID) is not int or postID < 1:
 				raise Exception("postID parameter is not valid")
 
@@ -236,20 +237,19 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 				feedname = request.user.username
 				payload ["username"] = request.user.username
 
-			title = unicodedata.normalize('NFC', request.POST['title'])
-			link = unicodedata.normalize('NFC', request.POST['link'])
+			title = unicodedata.normalize('NFC', request.data['title'])
+			link = unicodedata.normalize('NFC', request.data['link'])
 
 			if title == "" or link == "":
 				raise Exception("Title and/or Link is/are missing")
 
-			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
+			tags = unicodedata.normalize('NFC', request.data['tags']).split(',') # We separate each tag and create a list out of it.
 
-			activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
-			twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+			activated_bool = str2bool(unicodedata.normalize('NFC', request.data['activated']))
+			twitter_bool = str2bool(unicodedata.normalize('NFC', request.data['twitter']))
 
-			if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
+			if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
 				title = format_title(title)
-
 
 			tmp_post = Post.objects.get(id=postID, user=feedname)
 
@@ -414,5 +414,96 @@ class Modify_Social_Networks(APIView):
 
 
 		payload ["operation"] = "modify social networks"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+class Modify_Personal_info(APIView):
+	def put(self, request):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			feedname = request.user.username
+			payload ["username"] = request.user.username
+
+			val = URLValidator()
+
+			fields = [
+				'firstname',
+				'lastname',
+				'email',
+				'birthdate',
+				'country',
+				'gender',
+				'feedtitle', # not Checked
+				'description', # not Checked
+				'job', # not Checked
+				'company_name', # not Checked
+				'company_website',
+				"newsletter_subscribtion", # Not Saved yet !
+			]
+
+			profile_data = {}
+			for field in fields:
+				profile_data[field] = unicodedata.normalize('NFC', request.POST[field])
+
+			FeedUser.objects._validate_firstname(profile_data["firstname"])
+			FeedUser.objects._validate_lastname(profile_data["lastname"])
+			FeedUser.objects._validate_email(profile_data["email"])
+			FeedUser.objects._validate_birthdate(profile_data["birthdate"])
+
+			FeedUser.objects._validate_country(profile_data["country"])
+			FeedUser.objects._validate_gender(profile_data["gender"])
+
+			val(profile_data["company_website"])
+
+			request.user.first_name = profile_data["firstname"]
+			request.user.last_name = profile_data["lastname"]
+			request.user.email = profile_data["email"]
+			request.user.birthdate = datetime.datetime.strptime(profile_data["birthdate"], '%d/%m/%Y').date()
+			request.user.country = Country.objects.get(name=profile_data["country"])
+			request.user.gender = profile_data["gender"]
+			request.user.rss_feed_title = profile_data["feedtitle"]
+			request.user.description = profile_data["description"]
+			request.user.job = profile_data["job"]
+			request.user.company_name = profile_data["company_name"]
+			request.user.company_website = profile_data["company_website"]
+
+			request.user.save()
+			payload["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["postID"] = None
+
+		payload ["operation"] = "modify personal Information"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+class Modify_Password(APIView):
+	def put(self, request):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			feedname = request.user.username
+			payload ["username"] = request.user.username
+
+
+			payload["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["postID"] = None
+
+		payload ["operation"] = "modify personal Information"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
