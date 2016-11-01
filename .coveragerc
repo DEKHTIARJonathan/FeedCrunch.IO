@@ -2,3 +2,4 @@
 omit =
 	*/migrations/*
 	venv/*
+	/home/travis/virtualenv/*/lib/*/site-packages/*
