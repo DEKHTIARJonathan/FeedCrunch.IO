@@ -32,7 +32,9 @@ sudo chown $user:$user $app_dir/.env
 sudo chown -R $user:$user $app_dir
 sudo chmod 755 -R $app_dir
 
-python $app_dir/manage.py collectstatic --noinput
+#python $app_dir/manage.py collectstatic --noinput // Future use : Must run it manually.
+chmod +x $app_dir/collectStatic.sh
+
 python $app_dir/manage.py makemigrations
 python $app_dir/manage.py migrate
 #python $app_dir/manage.py loaddata feedcrunch_dump.json
