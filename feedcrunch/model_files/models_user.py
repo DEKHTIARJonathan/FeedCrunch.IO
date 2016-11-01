@@ -343,7 +343,7 @@ class FeedUser(AbstractFeedUser):
 		return self.rel_posts.count()
 
 	def get_current_month_post_count(self):
-		d_tmp = datetime.datetime.now()
+		d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
 		date_1st_day_month = d_tmp.replace(day=1)
 		date_1st_day_month_with_tmz = timezone.make_aware(date_1st_day_month, timezone.get_current_timezone())
@@ -351,17 +351,17 @@ class FeedUser(AbstractFeedUser):
 		return self.rel_posts.filter(when__gte=date_1st_day_month_with_tmz).count()
 
 	def get_last_month_post_count(self):
-		d_tmp = datetime.datetime.now()
+		d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
-		time_delta = datetime.timedelta(days=31)
+		time_delta = datetime.timedelta(days=1)
 
-		date_1_month_ago = d_tmp - time_delta
-		date_1st_day_last_month = date_1_month_ago.replace(day=1)
+		date_last_day_last_month = d_tmp.replace(day=1) - time_delta
+		date_1st_day_last_month = date_last_day_last_month.replace(day=1)
 
-		date_1_month_ago_with_tmz = timezone.make_aware(date_1_month_ago, timezone.get_current_timezone())
+		date_last_day_last_month_with_tmz = timezone.make_aware(date_last_day_last_month, timezone.get_current_timezone())
 		date_1st_day_last_month_with_tmz = timezone.make_aware(date_1st_day_last_month, timezone.get_current_timezone())
 
-		return self.rel_posts.filter(when__lte=date_1_month_ago_with_tmz, when__gte=date_1st_day_last_month_with_tmz).count()
+		return self.rel_posts.filter(when__lte=date_last_day_last_month_with_tmz, when__gte=date_1st_day_last_month_with_tmz).count()
 
 	def get_clicks_count(self):
 		return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
