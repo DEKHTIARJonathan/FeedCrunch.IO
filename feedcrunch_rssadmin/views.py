@@ -2,86 +2,191 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-
-from django.conf import settings
-from django.contrib.auth import authenticate, login, logout
-from django.core.exceptions import ValidationError
-from django.core.validators import URLValidator
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext, loader
+from django.shortcuts import render_to_response, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
-import datetime, unicodedata, json, sys, os
+import datetime, unicodedata, json
 from calendar import monthrange
 
 from feedcrunch.models import Post, FeedUser, Country, Tag
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
-from custom_render import myrender as render
 from check_admin import check_admin
 from data_convert import str2bool
 from ap_style import format_title
 from image_validation import get_image_dimensions
+from custom_render import myrender as render
 
 # Create your views here.
 
-def dummy(request, feedname=None, postID=None):
-	return HttpResponse("Dummy")
+def index(request, feedname=None):
 
-def update_password(request, feedname=None):
-
-	data = {}
-	data["operation"] = "update_password"
-
-	if request.method == 'POST':
-
-		if check_admin(feedname, request.user) != True:
-			data["status"] = "error"
-			data["error"] = "You are not allowed to perform this action"
-			data["feedname"] = str(feedname)
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		if not request.user.is_twitter_activated():
+			auth_url = get_authorization_url(request)
 		else:
-			try:
-				password1 = unicodedata.normalize('NFC', request.POST["password1"])
-				password2 = unicodedata.normalize('NFC', request.POST["password2"])
+			auth_url = False # False => Don't need to authenticate with Twitter
 
-				if password1 != password2:
-					raise ValueError("The given passwords are different.")
-				else:
+		country_list = Country.objects.all().order_by('name')
 
-					tmp_user = FeedUser.objects.get(username=request.user.username)
+		d = datetime.datetime.now()
+		monthtime_elapsed = int(round(float(d.day) / monthrange(d.year, d.month)[1] * 100,0))
 
-					FeedUser.objects._validate_password(password1)
+		try:
+			publication_trend = ((float(request.user.get_current_month_post_count()) / request.user.get_last_month_post_count()) -1 ) * 100.0
 
-					tmp_user.set_password(password1)
-					tmp_user.save()
+			if publication_trend > 0:
+				post_trending = "trending_up"
+				post_trending_color = "green-text"
+			elif publication_trend < 0:
+				post_trending = "trending_down"
+				post_trending_color = "red-text"
+			else :
+				post_trending = "trending_flat"
+				post_trending_color = "blue-grey lighten-1"
 
-					return HttpResponseRedirect('/@'+request.user.username+'/admin')
+			publication_trend = int(round(abs(publication_trend),0))
 
-			except Exception, e:
-				data["status"] = "error"
-				data["error"] = "An error occured in the process: " + str(e)
-				data["feedname"] = feedname
+		except ZeroDivisionError:
+			publication_trend = -1
+			post_trending = "new_releases"
+			post_trending_color = "blue-grey lighten-1"
+
+		data = {
+			'auth_url': auth_url,
+			'countries': country_list,
+			'monthtime_elapsed': monthtime_elapsed,
+			'post_trending': post_trending,
+			'publication_trend': publication_trend,
+			'post_trending_color': post_trending_color,
+		}
+
+		return render(request, 'admin/admin_dashboard.html', data)
+
+def personal_info_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
 
 	else:
-		data["status"] = "error"
-		data["error"] = "Only available with a POST Request"
-		data["feedname"] = feedname
 
-	return JsonResponse(data)
+		country_list = Country.objects.all().order_by('name')
+		return render(request, 'admin/admin_personal.html', {'countries': country_list})
 
-def update_photo(request, feedname=None):
+def preferences_form(request, feedname=None):
 
-	data = {}
-	data["operation"] = "update_photo"
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin/admin_preferences.html')
 
-	if request.method == 'POST':
+def password_form(request, feedname=None):
 
-		if check_admin(feedname, request.user) != True:
-			data["status"] = "error"
-			data["error"] = "You are not allowed to perform this action"
-			data["feedname"] = str(feedname)
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin/admin_password.html')
+
+def picture_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		#return render(request, 'admin/admin_profile_picture.html')
+		return render(request, 'admin/admin_photo.html')
+
+def social_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin/admin_social_accounts.html')
+
+def services_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		if not request.user.is_twitter_activated():
+			twitter_auth_url = get_authorization_url(request)
 		else:
-			try:
+			twitter_auth_url = False # False => Don't need to authenticate with Twitter
+		return render(request, 'admin/admin_social_sharing.html', {'twitter_auth_url': twitter_auth_url})
+
+def add_article_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin/admin_article_form.html')
+
+def modify_article_form(request, feedname=None, postID=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+
+	elif postID == None:
+		return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
+	else:
+		try:
+			post = Post.objects.get(id=postID, user=feedname)
+			print request.user.is_twitter_enabled()
+			return render(request, 'admin/admin_article_form.html', {"post": post})
+
+		except:
+			return HttpResponseRedirect("/@"+feedname+"/admin/modify")
+
+def modify_article_listing(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		posts = Post.objects.filter(user = feedname).order_by('-id')
+		return render(request, 'admin/admin_post_listing.html', {'posts': posts})
+
+def delete_article_listing(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		posts = Post.objects.filter(user = feedname).order_by('-id')
+		return render(request, 'admin/admin_post_listing.html', {'posts': posts})
+
+def contact_form(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin/admin_contact.html')
+
+def upload_picture(request, feedname=None):
+	try:
+
+		if request.method == 'POST':
+
+			if check_admin(feedname, request.user) != True:
+				raise Exception("You are not allowed to perform this action")
+
+			else:
 				photo = request.FILES['photo']
 
 				allowed_mime_types = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png']
@@ -93,25 +198,22 @@ def update_photo(request, feedname=None):
 
 				if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 :
 
-					if photo.size > 1000000: # > 1MB
+					if photo.size > 1048576: # > 1MB
 						raise ValueError("File size is larger than 1MB.")
 
 					tmp_user = FeedUser.objects.get(username=request.user.username)
 					tmp_user.profile_picture = photo
 					tmp_user.save()
+
 				else:
 					raise ValueError("The uploaded image is not valid")
+		else:
+			raise Exception("Only POST Requests Allowed.")
 
-				return HttpResponseRedirect('/@'+request.user.username+'/admin')
-
-			except Exception, e:
-				data["status"] = "error"
-				data["error"] = "An error occured in the process: " + str(e)
-				data["feedname"] = feedname
-
-	else:
+	except Exception, e:
 		data["status"] = "error"
-		data["error"] = "Only available with a POST Request"
+		data["error"] = "An error occured in the process: " + str(e)
 		data["feedname"] = feedname
+		return JsonResponse(data)
 
-	return JsonResponse(data)
+	return HttpResponseRedirect('/@'+request.user.username+'/admin/account/picture/')

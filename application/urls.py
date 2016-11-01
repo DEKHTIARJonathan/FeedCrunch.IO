@@ -33,7 +33,6 @@ urlpatterns = [
 	url(r'', include('feedcrunch_home.urls')),
 	url(r'^twitter/oauth/', include('twitter.urls')),
 	url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),
-	url(r'^@(?P<feedname>\w+)/admin_dev/', include('feedcrunch_rssadmin_dev.urls')),
 	url(r'^@(?P<feedname>\w+)/', include('feedcrunch_rssviewer.urls')),
 	url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 	#url(r'^$', feedcrunch_home.views.index, name='index'),

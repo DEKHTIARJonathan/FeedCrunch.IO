@@ -1,0 +1,54 @@
+{% extends 'admin/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col s12 l10 offset-l1">
+		<div class="card">
+			<div class="card-content">
+				<div class="row no-margin-bottom">
+					<div class="col s12 l4" style="text-align:center">
+						<figure class="card-profile-image">
+							<img src="{{ user.get_profile_picture }}" alt="profile image" class="circle z-depth-2 responsive-img profile-card-picture" >
+						</figure>
+						<p>
+							<span style="font-size:1.7em;">{{ user.get_full_name }}</span><br>
+							(@{{ user.username }})
+						</p>
+					</div>
+					<div class="col s12 l8">
+						<div class="row no-margin-bottom">
+							<div class="col s12">
+								<h4 class="card-title grey-text text-darken-4">Upload a new Profile Picture</h4>
+							</div>
+							<div class="col s12">
+								<form action="upload/" method="POST" autocomplete="off" accept-charset="UTF-8" enctype="multipart/form-data" id="form-photo">
+									<div class="file-field input-field">
+										<div class="btn teal lighten-1">
+											<span>File</span>
+											{% csrf_token %}
+											{% if next %}
+												<input type="hidden" name="next" value="{{ next }}" />
+											{% endif %}
+											<input type="file" id="photo" name="photo">
+										</div>
+										<div class="file-path-wrapper">
+											<input class="file-path validate" type="text">
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="col s12" style="text-align:right; margin-top:120px;">
+								<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn">Reset</a>
+								<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn">Save</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -8,6 +8,7 @@ from django.core.validators import URLValidator
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.parsers import FileUploadParser
 
 from feedcrunch.models import Post, FeedUser, Tag, Country
 
@@ -20,6 +21,7 @@ from time_funcs import get_timestamp
 from date_manipulation import get_N_time_period
 from data_convert import str2bool
 from ap_style import format_title
+from image_validation import get_image_dimensions
 
 class Username_Validation(APIView):
 
@@ -448,7 +450,7 @@ class Modify_Personal_info(APIView):
 
 			form_data = {}
 			for field in fields:
-				form_data[field] = unicodedata.normalize('NFC', request.POST[field])
+				form_data[field] = unicodedata.normalize('NFC', request.data[field])
 
 			FeedUser.objects._validate_firstname(form_data["firstname"])
 			FeedUser.objects._validate_lastname(form_data["lastname"])
@@ -496,7 +498,6 @@ class Modify_Password(APIView):
 			feedname = request.user.username
 			payload ["username"] = request.user.username
 
-
 			form_fields = [
 				'old_password',
 				'new_password_1',
@@ -504,9 +505,9 @@ class Modify_Password(APIView):
 			]
 
 			form_data = {}
-			
+
 			for field in form_fields:
-				form_data[field] = unicodedata.normalize('NFC', request.POST[field])
+				form_data[field] = unicodedata.normalize('NFC', request.data[field])
 
 			if (not request.user.check_password(form_data['old_password'])):
 				raise Exception("Old Password is incorrect")
@@ -526,3 +527,51 @@ class Modify_Password(APIView):
 		payload ["operation"] = "modify password"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
+
+'''
+class Modify_Photo(APIView):
+	parser_classes = (FileUploadParser,)
+
+	def put(self, request, filename=""):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			feedname = request.user.username
+			payload ["username"] = request.user.username
+
+			#unicodedata.normalize('NFC', request.data["photo"])
+			photo = request.data['photo']
+
+			allowed_mime_types = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png']
+
+			if photo.content_type not in allowed_mime_types:
+				raise ValueError("Only Images are allowed.")
+
+			w, h = get_image_dimensions(photo.read())
+
+			if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 :
+
+				if photo.size > 1000000: # > 1MB
+					raise ValueError("File size is larger than 1MB.")
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+				tmp_user.profile_picture = photo
+				tmp_user.save()
+			else:
+				raise ValueError("The uploaded image is not valid")
+
+			payload["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["postID"] = None
+
+		payload ["operation"] = "modify profile picture"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+'''
