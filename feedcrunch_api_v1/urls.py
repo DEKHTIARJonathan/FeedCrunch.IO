@@ -23,6 +23,7 @@ urlpatterns = [
 	url(r'^authenticated/get/user/subscribers_stats/$', User_Stats_Subscribers.as_view(), name='subscribers_stats'),
 	url(r'^authenticated/modify/user/social-networks/$', Modify_Social_Networks.as_view(), name='modify_social_networks'),
 	url(r'^authenticated/modify/user/personal-info/$', Modify_Personal_info.as_view(), name='Modify_Personal_info'),
+	url(r'^authenticated/modify/user/password/$', Modify_Password.as_view(), name='Modify_Password'),
 
 	# Tag Routes
 	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),

@@ -446,31 +446,31 @@ class Modify_Personal_info(APIView):
 				"newsletter_subscribtion", # Not Saved yet !
 			]
 
-			profile_data = {}
+			form_data = {}
 			for field in fields:
-				profile_data[field] = unicodedata.normalize('NFC', request.POST[field])
+				form_data[field] = unicodedata.normalize('NFC', request.POST[field])
 
-			FeedUser.objects._validate_firstname(profile_data["firstname"])
-			FeedUser.objects._validate_lastname(profile_data["lastname"])
-			FeedUser.objects._validate_email(profile_data["email"])
-			FeedUser.objects._validate_birthdate(profile_data["birthdate"])
+			FeedUser.objects._validate_firstname(form_data["firstname"])
+			FeedUser.objects._validate_lastname(form_data["lastname"])
+			FeedUser.objects._validate_email(form_data["email"])
+			FeedUser.objects._validate_birthdate(form_data["birthdate"])
 
-			FeedUser.objects._validate_country(profile_data["country"])
-			FeedUser.objects._validate_gender(profile_data["gender"])
+			FeedUser.objects._validate_country(form_data["country"])
+			FeedUser.objects._validate_gender(form_data["gender"])
 
-			val(profile_data["company_website"])
+			val(form_data["company_website"])
 
-			request.user.first_name = profile_data["firstname"]
-			request.user.last_name = profile_data["lastname"]
-			request.user.email = profile_data["email"]
-			request.user.birthdate = datetime.datetime.strptime(profile_data["birthdate"], '%d/%m/%Y').date()
-			request.user.country = Country.objects.get(name=profile_data["country"])
-			request.user.gender = profile_data["gender"]
-			request.user.rss_feed_title = profile_data["feedtitle"]
-			request.user.description = profile_data["description"]
-			request.user.job = profile_data["job"]
-			request.user.company_name = profile_data["company_name"]
-			request.user.company_website = profile_data["company_website"]
+			request.user.first_name = form_data["firstname"]
+			request.user.last_name = form_data["lastname"]
+			request.user.email = form_data["email"]
+			request.user.birthdate = datetime.datetime.strptime(form_data["birthdate"], '%d/%m/%Y').date()
+			request.user.country = Country.objects.get(name=form_data["country"])
+			request.user.gender = form_data["gender"]
+			request.user.rss_feed_title = form_data["feedtitle"]
+			request.user.description = form_data["description"]
+			request.user.job = form_data["job"]
+			request.user.company_name = form_data["company_name"]
+			request.user.company_website = form_data["company_website"]
 
 			request.user.save()
 			payload["success"] = True
@@ -497,6 +497,25 @@ class Modify_Password(APIView):
 			payload ["username"] = request.user.username
 
 
+			form_fields = [
+				'old_password',
+				'new_password_1',
+				'new_password_2',
+			]
+
+			form_data = {}
+			
+			for field in form_fields:
+				form_data[field] = unicodedata.normalize('NFC', request.POST[field])
+
+			if (not request.user.check_password(form_data['old_password'])):
+				raise Exception("Old Password is incorrect")
+
+			if ( form_data['new_password_1'] != form_data['new_password_2'] ):
+				raise Exception("Your have input two different passwords, please retry.")
+
+			request.user.set_password(form_data['new_password_1'])
+
 			payload["success"] = True
 
 		except Exception, e:
@@ -504,6 +523,6 @@ class Modify_Password(APIView):
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None
 
-		payload ["operation"] = "modify personal Information"
+		payload ["operation"] = "modify password"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
