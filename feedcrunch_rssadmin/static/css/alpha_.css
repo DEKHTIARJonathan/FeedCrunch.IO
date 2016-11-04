@@ -192,6 +192,7 @@ body:not(.loaded) .mn-content {
     margin-left: 8px;
     position: relative;
     cursor: pointer;
+	padding-top: 3px !important;
 }
 
 .header-title span {
@@ -261,7 +262,7 @@ nav .nav-wrapper .dropdown-content {
 
 @media (min-width: 993px) {
     .mn-content.fixed-sidebar .mn-inner {
-        padding-left: 245px;
+        padding-left: 285px;
         width: 100%;
     }
 
@@ -1388,6 +1389,7 @@ nav .nav-wrapper ul li span.badge {
     min-height: 100%!important;
     padding-bottom: 96px;
     position: relative;
+
 }
 
 .side-nav ul li,
@@ -1501,6 +1503,11 @@ li.active .nav-drop-icon {
 .side-nav.fixed ul li.active > a.collapsible-header,
 .side-nav.fixed ul li.active > a {
     font-weight: 500;
+}
+
+.side-nav .collapsible-body li.active a,
+.side-nav.fixed .collapsible-body li.active a {
+    color: inherit !important;
 }
 
 .side-nav ul li a i {
@@ -1639,6 +1646,10 @@ li.active .nav-drop-icon {
     left: auto;
 }
 
+.no-background{
+	background-color: #fff !important;
+}
+
 
 /* Content */
 
@@ -1646,7 +1657,7 @@ li.active .nav-drop-icon {
     padding-top: 25px;
     padding-right: 25px;
     float: left;
-    width: calc(100% - 220px)!important;
+    width: 100% !important;
 }
 
 .mn-inner {
@@ -1810,6 +1821,10 @@ li.active .nav-drop-icon {
     margin-bottom: 20px;
     text-transform: uppercase;
     color: rgba(0,0,0,0.54);
+}
+
+.card .card-content {
+	padding: 40px;
 }
 
 .card .card-image .card-title {
@@ -2459,14 +2474,18 @@ blockquote {
 }
 
 .stats-card-progress {
-    background: #b2ebf2;
+    background: #c5cae9;
     border-bottom-left-radius: 2px!important;
     border-bottom-right-radius: 2px!important;
 }
 
 .stats-card-progress .determinate {
-    background: #26c6da;
+    background: #3d5afe;
     border-bottom-left-radius: 2px;
+}
+
+.no-progress {
+	background: #ffffff;
 }
 
 .stats-card .card-content {
@@ -2556,11 +2575,13 @@ input.expand-search[type=text]:focus:not([readonly]), input.expand-search[type=p
 #flotchart1 {
     width: 100%;
     height: 330px;
+	padding-right: 15px !important;
 }
 
 #flotchart2 {
     width: 100%;
-    height: 120px;
+    height: 330px;
+	padding-right: 15px !important;
 }
 
 #flotTip {
@@ -2570,6 +2591,14 @@ input.expand-search[type=text]:focus:not([readonly]), input.expand-search[type=p
     padding: 5px;
     font-size: 13px!important;
     z-index: 999;
+}
+
+.flot-x1-axis{
+	margin-top: 20px;
+}
+
+.flot-y1-axis{
+	margin-left: -15px;
 }
 
 .server-load > .server-stat {
@@ -2794,6 +2823,10 @@ input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([re
     background-color: #26a69a;
 }
 
+.switch{
+	height: 3em;
+}
+
 [type="checkbox"]:checked+label:before {
     border-right: 2px solid #26a69a;
     border-bottom: 2px solid #26a69a;
@@ -2893,9 +2926,18 @@ input[type=range]::-ms-thumb {
     padding: 50px 0;
 }
 
+.add-form-content {
+    padding-top: 50px;
+}
+
 .wizard-content img {
     display: block;
     width: 100%;
+}
+
+.row-submit{
+	margin-top: 60px;
+	margin-bottom: 0px;
 }
 
 .wizardTerms {
@@ -2911,6 +2953,15 @@ input[type=range]::-ms-thumb {
 
 #materialPreloader {
     z-index: 9999;
+}
+
+.preload_dashboard {
+	width: 120px !important;
+	height: 120px !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -35px 0 0 -60px;
 }
 
 
