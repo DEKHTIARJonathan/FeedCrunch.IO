@@ -641,7 +641,7 @@ input.input-subscribe:-ms-input-placeholder {
 .footer {
 	padding-top: 60px;
 	padding-bottom: 60px;
-	background-color: #12415a;
+	background-color: #3d5afe;
 }
 
 .footer h5{
@@ -791,6 +791,8 @@ textarea.form-control {
 	max-width: 240px;
 	margin: 0px auto;
 	background-color: #fafafa;
+	width: 240px;
+	height: 240px;
 }
 
 .team .team-member {
