@@ -223,7 +223,7 @@ def reading_sub_management(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin/admin_contact.html')
+		return render(request, 'admin/admin-coming-soon.html')
 
 def reading_recommendation(request, feedname=None):
 	check_passed = check_admin(feedname, request.user)
@@ -234,7 +234,12 @@ def reading_recommendation(request, feedname=None):
 
 		posts_data = []
 
-		for i in range(30):
+		max_size = len(posts)
+
+		if max_size > 30:
+			max_size = 30
+
+		for i in range(max_size):
 
 			tmp = {
 				'id': posts[i].id,
