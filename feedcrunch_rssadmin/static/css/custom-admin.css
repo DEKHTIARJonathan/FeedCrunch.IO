@@ -111,3 +111,7 @@ table.dataTable thead .sorting_desc {
 	font-weight: 600 !important;
     font-size: 1.25em !important;
 }
+
+.KPI-Card{
+	height: 160px;
+}

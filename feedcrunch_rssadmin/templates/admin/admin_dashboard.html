@@ -33,18 +33,18 @@
 		</div>
 
 
-		<div class="col s12 m12 l4">
+		<div class="col s12 m12 l4 KPI-Card">
 			<div class="card stats-card">
-				<div class="card-content">
+				<div class="card-content KPI-Card">
 					<span class="card-title">Articles Posted</span>
 					<span class="stats-counter"><span class="counter">{{ user.get_post_count }}</span><small>Article(s) posted since {{ user.date_joined }}</small></span>
 				</div>
 				<div class="progress stats-card-progress no-progress"></div>
 			</div>
 		</div>
-		<div class="col s12 m12 l4">
+		<div class="col s12 m12 l4 KPI-Card">
 			<div class="card stats-card">
-				<div class="card-content">
+				<div class="card-content KPI-Card">
 					<span class="card-title">Articles Posted</span>
 					<span class="stats-counter"><span class="counter">{{ user.get_current_month_post_count }}</span><small>Article(s) posted this month</small></span>
 					{% if post_trending == "new_releases" %}
@@ -60,7 +60,7 @@
 		</div>
 		<div class="col s12 m12 l4">
 			<div class="card stats-card">
-				<div class="card-content">
+				<div class="card-content KPI-Card">
 					<span class="card-title">Clicks on all Articles</span>
 					<span class="stats-counter"><span class="counter">{{ user.get_clicks_count }}</span><small>Clicks since {{ user.date_joined }}</small></span>
 				</div>

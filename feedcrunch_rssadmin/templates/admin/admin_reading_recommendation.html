@@ -1,0 +1,49 @@
+{% extends 'admin/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col s12 m12 l12">
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">
+					Select the article you would like to republish in your feed.
+				</span>
+
+				<div class="input-field col s6" id="article-searchbar-div">
+					<i class="material-icons prefix" style="padding-top: 10px;">search</i>
+					<input id="article-searchbar" type="text" >
+					<label for="article-searchbar">Search in your recommendations</label>
+				</div>
+
+				<table class="display responsive-table" id="post-listing" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Domain</th>
+							<th>Hotness</th>
+							<th>Link</th>
+							<th>Publish</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						{% for post in posts %}
+						<tr>
+							<td>{{ post.title }}</td>
+							<td>{{ post.get_domain }}</span>
+							<td style="color: rgb({{ post.color }},0,0)">{{ post.score }}%</td>
+							<td><a href="{{ post.link }}" target="_blank">Open</a></td>
+							<td><a class="success-btn" href="#{{ post.id }}">Publish</a></td>
+						</tr>
+						{% endfor %}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

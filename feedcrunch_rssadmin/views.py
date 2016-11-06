@@ -217,3 +217,34 @@ def upload_picture(request, feedname=None):
 		return JsonResponse(data)
 
 	return HttpResponseRedirect('/@'+request.user.username+'/admin/account/picture/')
+
+def reading_sub_management(request, feedname=None):
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		return render(request, 'admin/admin_contact.html')
+
+def reading_recommendation(request, feedname=None):
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+	else:
+		posts = Post.objects.filter(user = feedname).order_by('-id')
+
+		posts_data = []
+
+		for i in range(30):
+
+			tmp = {
+				'id': posts[i].id,
+				'title': posts[i].title,
+				'get_domain': posts[i].get_domain(),
+				'link': posts[i].link,
+				'score': 97.3 - 1.2*i,
+				'color': int(255 - 4.7*i),
+				'get_shortdate': posts[i].get_shortdate(),
+			}
+			posts_data.append(tmp)
+
+		return render(request, 'admin/admin_reading_recommendation.html', {'posts': posts_data})

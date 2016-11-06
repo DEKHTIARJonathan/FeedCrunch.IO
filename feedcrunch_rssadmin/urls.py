@@ -21,5 +21,7 @@ urlpatterns = [
 	url(r'^article/edit/$', modify_article_listing, name='modify_article_form'),
 	url(r'^article/edit/(?P<postID>\d+)/$', modify_article_form, name='modify_article_listing'),
 	url(r'^article/delete/$', delete_article_listing, name='delete_article_listing'),
+	url(r'^reading/subscription/$', reading_sub_management, name='reading-sub-management'),
+	url(r'^reading/recommendation/$', reading_recommendation, name='reading-recommendation'),
 	url(r'^contact/$', contact_form, name='contact_form'),
 ]

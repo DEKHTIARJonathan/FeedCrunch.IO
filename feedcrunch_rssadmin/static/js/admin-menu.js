@@ -19,6 +19,8 @@ $( document ).ready(function() {
 	$("#edit-article-link-menu").attr("href", dashboard_root_url + "article/edit/" );
 	$("#delete-article-link-menu").attr("href", dashboard_root_url + "article/delete/" );
 	$("#contact-link-menu").attr("href", dashboard_root_url + "contact/" );
+	$("#reading-sub-management").attr("href", dashboard_root_url + "reading/subscription/" );
+	$("#reading-recommendation").attr("href", dashboard_root_url + "reading/recommendation/" );
 	$("#my-feed-menu").attr("href", uri.substring(0,getPosition(uri, '/', 2) + 1));
 
 	var item = $('li a[href^="' + location.pathname + '"]').first();
