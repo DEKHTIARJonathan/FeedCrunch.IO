@@ -146,6 +146,13 @@ TEMPLATES = [
 	},
 ]
 
+EMAIL_HOST = assign_env_value('EMAIL_HOST')
+EMAIL_HOST_USER = assign_env_value('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = assign_env_value('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 WSGI_APPLICATION = 'application.wsgi.application'
 
 FIXTURE_DIRS = (

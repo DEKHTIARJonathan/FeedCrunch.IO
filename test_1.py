@@ -3,22 +3,22 @@ from datetime import timedelta
 from django.utils import timezone
 from django_q.tasks import async, schedule
 from django_q.models import Schedule
-
+from django.conf import settings
 
 def welcome_mail(user):
   msg = 'Welcome to our website'
   # send this message right away
   async('django.core.mail.send_mail',
-      'Welcome',
-      msg,
-      'from@example.com',
-      [user.email])
+        'Welcome',
+         msg,
+         settings.EMAIL_HOST_USER,
+         [user.email])
   # and this follow up email in one hour
   msg = 'Here are some tips to get you started...'
   schedule('django.core.mail.send_mail',
        'Follow up',
        msg,
-       'from@example.com',
+       settings.EMAIL_HOST_USER,
        [user.email],
        schedule_type=Schedule.ONCE,
        next_run=timezone.now() + timedelta(minutes=1))
