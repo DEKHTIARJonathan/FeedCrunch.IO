@@ -1,0 +1,4354 @@
+{
+   "feed":{
+      "updated":"Wed, 09 Nov 2016 17:10:13 GMT",
+      "subtitle":"Data Innovation News",
+      "generator":"Ghost 0.11",
+      "links":[
+         {
+            "href":"http://blog.asidatascience.com/",
+            "type":"text/html",
+            "rel":"alternate"
+         },
+         {
+            "href":"http://blog.asidatascience.com/rss/",
+            "type":"application/rss+xml",
+            "rel":"self"
+         }
+      ],
+      "title":"ASI News and Events",
+      "generator_detail":{
+         "name":"Ghost 0.11"
+      },
+      "subtitle_detail":{
+         "base":"http://blog.asidatascience.com/rss/",
+         "type":"text/html",
+         "value":"Data Innovation News",
+         "language":"NULL"
+      },
+      "title_detail":{
+         "base":"http://blog.asidatascience.com/rss/",
+         "type":"text/plain",
+         "value":"ASI News and Events",
+         "language":"NULL"
+      },
+      "link":"http://blog.asidatascience.com/",
+      "ttl":"60",
+      "updated_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=9, tm_hour=17, tm_min=10, tm_sec=13, tm_wday=2, tm_yday=314, tm_isdst=0)"
+   },
+   "status":200,
+   "version":"rss20",
+   "encoding":"utf-8",
+   "bozo":0,
+   "headers":{
+      "status":"200 OK",
+      "content-encoding":"gzip",
+      "transfer-encoding":"chunked",
+      "set-cookie":"__cfduid=d48dee80fe5a44c9e79bf4a6bf0e136d11478717514; expires=Thu, 09-Nov-17 18:51:54 GMT; path=/; domain=.asidatascience.com; HttpOnly",
+      "x-powered-by":"Express",
+      "vary":"Accept-Encoding",
+      "server":"cloudflare-nginx",
+      "connection":"close",
+      "cache-control":"public, max-age=0",
+      "date":"Wed, 09 Nov 2016 18:51:54 GMT",
+      "x-ghost-cache-status":"From Cache",
+      "content-type":"text/xml; charset=utf-8",
+      "cf-ray":"2ff3756fb1ce5fbd-MRS",
+      "cf-railgun":"be9f2d4af0 0.00 0.037585 0030 fe49"
+   },
+   "href":"http://blog.asidatascience.com/rss/",
+   "namespaces":{
+      "content":"http://purl.org/rss/1.0/modules/content/",
+      "":"http://www.w3.org/2005/Atom",
+      "dc":"http://purl.org/dc/elements/1.1/",
+      "media":"http://search.yahoo.com/mrss/"
+   },
+   "entries":[
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki's Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=14, tm_min=55, tm_sec=23, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/tell-me-more-tell-me-better/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Tell me more. Tell me better.",
+         "author":"alessandra",
+         "summary":"<p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki's Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":{
+   "feed":{
+      "updated":"Wed, 09 Nov 2016 17:10:13 GMT",
+      "subtitle":"Data Innovation News",
+      "generator":"Ghost 0.11",
+      "links":[
+         {
+            "href":"http://blog.asidatascience.com/",
+            "type":"text/html",
+            "rel":"alternate"
+         },
+         {
+            "href":"http://blog.asidatascience.com/rss/",
+            "type":"application/rss+xml",
+            "rel":"self"
+         }
+      ],
+      "title":"ASI News and Events",
+      "generator_detail":{
+         "name":"Ghost 0.11"
+      },
+      "subtitle_detail":{
+         "base":"http://blog.asidatascience.com/rss/",
+         "type":"text/html",
+         "value":"Data Innovation News",
+         "language":"NULL"
+      },
+      "title_detail":{
+         "base":"http://blog.asidatascience.com/rss/",
+         "type":"text/plain",
+         "value":"ASI News and Events",
+         "language":"NULL"
+      },
+      "link":"http://blog.asidatascience.com/",
+      "ttl":"60",
+      "updated_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=9, tm_hour=17, tm_min=10, tm_sec=13, tm_wday=2, tm_yday=314, tm_isdst=0)"
+   },
+   "status":200,
+   "version":"rss20",
+   "encoding":"utf-8",
+   "bozo":0,
+   "headers":{
+      "status":"200 OK",
+      "content-encoding":"gzip",
+      "transfer-encoding":"chunked",
+      "set-cookie":"__cfduid=d48dee80fe5a44c9e79bf4a6bf0e136d11478717514; expires=Thu, 09-Nov-17 18:51:54 GMT; path=/; domain=.asidatascience.com; HttpOnly",
+      "x-powered-by":"Express",
+      "vary":"Accept-Encoding",
+      "server":"cloudflare-nginx",
+      "connection":"close",
+      "cache-control":"public, max-age=0",
+      "date":"Wed, 09 Nov 2016 18:51:54 GMT",
+      "x-ghost-cache-status":"From Cache",
+      "content-type":"text/xml; charset=utf-8",
+      "cf-ray":"2ff3756fb1ce5fbd-MRS",
+      "cf-railgun":"be9f2d4af0 0.00 0.037585 0030 fe49"
+   },
+   "href":"http://blog.asidatascience.com/rss/",
+   "namespaces":{
+      "content":"http://purl.org/rss/1.0/modules/content/",
+      "":"http://www.w3.org/2005/Atom",
+      "dc":"http://purl.org/dc/elements/1.1/",
+      "media":"http://search.yahoo.com/mrss/"
+   },
+   "entries":[
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki's Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=14, tm_min=55, tm_sec=23, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/tell-me-more-tell-me-better/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Tell me more. Tell me better.",
+         "author":"alessandra",
+         "summary":"<p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki's Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":{
+   "feed":{
+      "updated":"Wed, 09 Nov 2016 17:10:13 GMT",
+      "subtitle":"Data Innovation News",
+      "generator":"Ghost 0.11",
+      "links":[
+         {
+            "href":"http://blog.asidatascience.com/",
+            "type":"text/html",
+            "rel":"alternate"
+         },
+         {
+            "href":"http://blog.asidatascience.com/rss/",
+            "type":"application/rss+xml",
+            "rel":"self"
+         }
+      ],
+      "title":"ASI News and Events",
+      "generator_detail":{
+         "name":"Ghost 0.11"
+      },
+      "subtitle_detail":{
+         "base":"http://blog.asidatascience.com/rss/",
+         "type":"text/html",
+         "value":"Data Innovation News",
+         "language":"NULL"
+      },
+      "title_detail":{
+         "base":"http://blog.asidatascience.com/rss/",
+         "type":"text/plain",
+         "value":"ASI News and Events",
+         "language":"NULL"
+      },
+      "link":"http://blog.asidatascience.com/",
+      "ttl":"60",
+      "updated_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=9, tm_hour=17, tm_min=10, tm_sec=13, tm_wday=2, tm_yday=314, tm_isdst=0)"
+   },
+   "status":200,
+   "version":"rss20",
+   "encoding":"utf-8",
+   "bozo":0,
+   "headers":{
+      "status":"200 OK",
+      "content-encoding":"gzip",
+      "transfer-encoding":"chunked",
+      "set-cookie":"__cfduid=d48dee80fe5a44c9e79bf4a6bf0e136d11478717514; expires=Thu, 09-Nov-17 18:51:54 GMT; path=/; domain=.asidatascience.com; HttpOnly",
+      "x-powered-by":"Express",
+      "vary":"Accept-Encoding",
+      "server":"cloudflare-nginx",
+      "connection":"close",
+      "cache-control":"public, max-age=0",
+      "date":"Wed, 09 Nov 2016 18:51:54 GMT",
+      "x-ghost-cache-status":"From Cache",
+      "content-type":"text/xml; charset=utf-8",
+      "cf-ray":"2ff3756fb1ce5fbd-MRS",
+      "cf-railgun":"be9f2d4af0 0.00 0.037585 0030 fe49"
+   },
+   "href":"http://blog.asidatascience.com/rss/",
+   "namespaces":{
+      "content":"http://purl.org/rss/1.0/modules/content/",
+      "":"http://www.w3.org/2005/Atom",
+      "dc":"http://purl.org/dc/elements/1.1/",
+      "media":"http://search.yahoo.com/mrss/"
+   },
+   "entries":[
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki's Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=14, tm_min=55, tm_sec=23, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/tell-me-more-tell-me-better/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Tell me more. Tell me better.",
+         "author":"alessandra",
+         "summary":"<p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki's Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"<img alt=\"Tell me more. Tell me better.\" src=\"http://blog.asidatascience.com/content/images/2016/11/blue-crowd.jpeg\" /><p><em>\u201cOnly someone who understands something absolutely\ncan explain it so no one else can understand it.\u201d</em> <br />\n    -- Rudnicki\'s Nobel Prize Principle</p>\n\n<p>Academic research is wonderful and absolutely fundamental to the progress of humanity in every field. I used to be a researcher myself, and I remember the frustration when, after talking with excitement about the incredible results achieved in my field (not by me, but by other amazing researchers), the people I was talking to would ask the feared question, in an unimpressed tone: \u201cCool, but what is that useful for?\u201d. </p>\n\n<p>When I decided to leave academia I joined ASI Data Science and I think the transition has been smooth: the best part of my current job is that I\u2019m required to keep up-to-date with the latest research trends and to keep studying and experimenting.  That said, after turning to industry, it quickly became clear to me that I need to change the way I worked. </p>\n\n<p>The main area that I needed to improve was communication. A couple of years ago, I remember thinking about why I had to spend so much time writing a paper or worrying about presentations instead of conducting more experiments and getting more results. But after having spent time on this side of the barrier, it is now much clearer to me how important it is to communicate the results in the correct way so that others can understand it. </p>\n\n<p>Industry needs academic research. But research needs industry too, and I am very sorry to see so many missed opportunities due to a lack of communication. </p>\n\n<p>Academic talks are usually incredibly dense, full of content but also often inscrutable and impossible for others to understand. I see slides and slides crammed full with words, formulas and plots. None of the slides are designed to convey a clear message to others. It\u2019s almost as if whoever put the slides together thought: \u201cWell, they won\u2019t understand anyway, so why bother trying?\u201d From the other side, I know the real reason is more likely that the researcher doesn\u2019t think they have the time to be bothered with these kinds of details, but this type of attitude towards presentations is a real put off for audiences, whether technical or not. </p>\n\n<p>I\u2019m not talking about giving amazing and inspirational talks. I\u2019m talking more about covering the basics and caring about the audience who will be listening. Who are they? What\u2019s their background? What are they interested in? And simple things to fix such as: are my plots readable? Are the labels clear and big enough to be seen? Is there a legend that is legible or should I explain all of the details so my audience will understand, or perhaps even both? And how long will it take for a human to read and understand all of the words I put in this slide whilst I talk over it?</p>\n\n<p>Of course, the content of your presentation won\u2019t be accessible to everyone, especially if you\u2019re talking about cutting edge research. However, an audience composed of other academics will have the tools and ability to understand what you are talking about if you put them in conditions to do so. And this applies for other audience settings too. If you can communicate your research at a level appropriate for industry, the research is much likely to be picked up by companies, leading to possible collaborations and funding.</p>\n\n<p>The output of research is not only the results you get to write in a paper, but also includes the way the results are disseminated, shared with other researchers and put into practice in the real world. Academia and Industry should go hand in hand, and my hope is that even a little bit more effort in trying to speak a similar language will help reduce the gap between them. If this does not happen we will keep on living in two different worlds separated by a glass wall, and cutting edge research will take much longer to find practical applications, leading to a much slower progress. And that would be a shame for everyone. </p>",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Tell me more. Tell me better.",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/tell-me-more-tell-me-better/",
+         "authors":[
+            {
+               "name":"alessandra"
+            }
+         ],
+         "author_detail":{
+            "name":"alessandra"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/blue-crowd.jpeg",
+               "medium":"image"
+            }
+         ],
+         "id":"3e008376-4ae1-4b49-afca-26b0d03f21b3",
+         "published":"Tue, 08 Nov 2016 14:55:23 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>It's been over half a century since a record audience of 32.3 million people watched England's triumph over West Germany in the 1966 World Cup final, and Britain remains a nation of avid TV watchers. According to Ofcom\u2019s most recent statistics, 95% of households contain a working television</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=14, tm_min=23, tm_sec=43, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/adjusting-your-set/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Adjusting your set: Predicting rare TV-watching behaviour with machine learning",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science projects",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Artificial Intelligence",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"sky",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"TV",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>It's been over half a century since a record audience of 32.3 million people watched England's triumph over West Germany in the 1966 World Cup final, and Britain remains a nation of avid TV watchers. According to Ofcom\u2019s most recent statistics, 95% of households contain a working television</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Adjusting your set: Predicting rare TV-watching behaviour with machine learning",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/adjusting-your-set/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/Pasted-image-at-2016_11_08-02_09-PM.png",
+               "medium":"image"
+            }
+         ],
+         "id":"b02758a4-8d0a-40b1-a530-bae460bc97d4",
+         "published":"Tue, 08 Nov 2016 14:23:43 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Join us for the last Meetup for 2016!</p>\n\n<p>7th December</p>\n\n<p><strong>Data Science Lab: Understanding Data &amp; Graphs</strong></p>\n\n<p>An evening with three data scientists who have used graphs in their work on both theory and practical applications. </p>\n\n<p>Sheldon Hall is a software engineer working at Grakn Labs where a distributed knowledge</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=13, tm_min=57, tm_sec=7, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/last-meetup-2016/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Last Meetup of 2016",
+         "tags":[
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graphs",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graph Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graph Database",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Join us for the last Meetup for 2016!</p>\n\n<p>7th December</p>\n\n<p><strong>Data Science Lab: Understanding Data &amp; Graphs</strong></p>\n\n<p>An evening with three data scientists who have used graphs in their work on both theory and practical applications. </p>\n\n<p>Sheldon Hall is a software engineer working at Grakn Labs where a distributed knowledge</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Last Meetup of 2016",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/last-meetup-2016/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/Fotolia_122153988_S.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"ade8202f-9f6e-41d4-8e83-ecce456d40f8",
+         "published":"Tue, 08 Nov 2016 13:57:07 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>I was never able to pull off a wheelie with the bike, or to do a walk-the-dog with the yoyo. As many of us have learned at the playground, not knowing these tricks usually means that you won\u2019t be able to hang around with the bigger kids. Not even</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=10, tm_mday=3, tm_hour=18, tm_min=39, tm_sec=23, tm_wday=0, tm_yday=277, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/coding-stunts-job-interviews-and-sorting-algorithms/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Coding stunts, job interviews, and sorting algorithms",
+         "author":"Alberto Favaro",
+         "summary":"<p>I was never able to pull off a wheelie with the bike, or to do a walk-the-dog with the yoyo. As many of us have learned at the playground, not knowing these tricks usually means that you won\u2019t be able to hang around with the bigger kids. Not even</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Coding stunts, job interviews, and sorting algorithms",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/coding-stunts-job-interviews-and-sorting-algorithms/",
+         "authors":[
+            {
+               "name":"Alberto Favaro"
+            }
+         ],
+         "author_detail":{
+            "name":"Alberto Favaro"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/yoyo1866.png",
+               "medium":"image"
+            }
+         ],
+         "id":"07e42d7e-dba3-4bb2-8bde-49d90e79fe59",
+         "published":"Mon, 03 Oct 2016 18:39:23 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=29, tm_hour=15, tm_min=54, tm_sec=54, tm_wday=3, tm_yday=273, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/find-out-more-about-the-asi-fellowship/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Find out more about the ASI Fellowship",
+         "tags":[
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Engineering",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"PhD",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Post-doc",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Future Technologies",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Find out more about the ASI Fellowship",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/find-out-more-about-the-asi-fellowship/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Fotolia_108900637_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"00e1c67e-0046-451e-8178-f7a6619fe65a",
+         "published":"Thu, 29 Sep 2016 15:54:54 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=29, tm_hour=15, tm_min=15, tm_sec=21, tm_wday=3, tm_yday=273, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/events-in-october/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Events in October!",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Lab",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Pascal Bugnion",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Plotly",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Richard Sargeant",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p><strong>Transforming Large Organisations</strong></p>\n\n<p>3rd Oct</p>\n\n<p>Richard Sargeant, Director of Transformation at ASI Data Science and founding director of the Government Digital Service, will be hosting a fireside chat with current and past fellows about the work he's been doing in government and Google. Places are strictly limited so please message</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Events in October!",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/events-in-october/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Analytics_4.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"b66dab88-e453-4ab3-821f-99b525fc1afb",
+         "published":"Thu, 29 Sep 2016 15:15:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p><strong>Training neural networks</strong> involves quite a few tricky bits. We try to make everything clear and easy to understand, to get you training your neural networks as quickly as possible.</p>  \n<p><strong>Theano</strong> allows us to write relatively concise code that follows the structure of the underlying maths. To run the code</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=14, tm_hour=11, tm_min=8, tm_sec=13, tm_wday=2, tm_yday=258, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/training-neural-networks-with-theano/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Training Neural Networks with Theano",
+         "author":"Nick Robinson",
+         "summary":"<p><strong>Training neural networks</strong> involves quite a few tricky bits. We try to make everything clear and easy to understand, to get you training your neural networks as quickly as possible.</p>  \n<p><strong>Theano</strong> allows us to write relatively concise code that follows the structure of the underlying maths. To run the code</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Training Neural Networks with Theano",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/training-neural-networks-with-theano/",
+         "authors":[
+            {
+               "name":"Nick Robinson"
+            }
+         ],
+         "author_detail":{
+            "name":"Nick Robinson"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Screenshot-2016-09-14-16.14.14.png",
+               "medium":"image"
+            }
+         ],
+         "id":"72a192a8-f65b-4a76-b4c2-61b3effdf290",
+         "published":"Wed, 14 Sep 2016 11:08:13 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=1, tm_hour=8, tm_min=15, tm_sec=55, tm_wday=3, tm_yday=245, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/q-a-with-asi-alumna-fellow-lorna-from-mathematics-to-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Q&A with ASI Alumna Fellow Lorna - From Mathematics to Data Science",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science projects",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"alumni",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Mathematics",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"PhD",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Post-doc",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Opportunities",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Tails",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Q&A with ASI Alumna Fellow Lorna - From Mathematics to Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/q-a-with-asi-alumna-fellow-lorna-from-mathematics-to-data-science/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/lorna-b-w.png",
+               "medium":"image"
+            }
+         ],
+         "id":"96b9aa91-6bdf-4036-9af3-c465389ea775",
+         "published":"Thu, 01 Sep 2016 08:15:55 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>ASI Data Science is working with the Greater London Authority (GLA) and Nesta on a pilot project to pave the way to create a permanent London Office of Data Analytics (LODA). The model is inspired by the Mayor\u2019s Office of Data Analytics (MODA) in New York City, founded under</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=23, tm_hour=9, tm_min=18, tm_sec=43, tm_wday=1, tm_yday=236, tm_isdst=0)",
+         "author":"Aida Mehonic",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/a-bright-data-future-for-london/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"A brighter data future for London",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London Datastore",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Impactful",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"NESTA",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science for good",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Actionable",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>ASI Data Science is working with the Greater London Authority (GLA) and Nesta on a pilot project to pave the way to create a permanent London Office of Data Analytics (LODA). The model is inspired by the Mayor\u2019s Office of Data Analytics (MODA) in New York City, founded under</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"A brighter data future for London",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/a-bright-data-future-for-london/",
+         "authors":[
+            {
+               "name":"Aida Mehonic"
+            }
+         ],
+         "author_detail":{
+            "name":"Aida Mehonic"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/a-bright-data-future-for-london.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"94f4945b-03bc-40e7-9257-d853a5ddbbc1",
+         "published":"Tue, 23 Aug 2016 09:18:43 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=22, tm_hour=13, tm_min=16, tm_sec=30, tm_wday=0, tm_yday=235, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/welcoming-richard-sargeant-to-asi-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Welcoming Richard Sargeant to ASI Data Science",
+         "author":"Marc Warner",
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Welcoming Richard Sargeant to ASI Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/welcoming-richard-sargeant-to-asi-data-science/",
+         "authors":[
+            {
+               "name":"Marc Warner"
+            }
+         ],
+         "author_detail":{
+            "name":"Marc Warner"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Richard_BW.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"34679388-0778-4f9d-b90f-b8a66061444f",
+         "published":"Mon, 22 Aug 2016 13:16:30 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Being a great data scientist is mostly about the way in which you approach problems. Data scientists apply the scientific method in the commercial environment, which is why scientists can often successfully transition into the field. This sounds simple enough in theory, yet many scientists with superb academic backgrounds find</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=22, tm_hour=13, tm_min=7, tm_sec=0, tm_wday=0, tm_yday=235, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/from-academia-to-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"From Academia to Data Science",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Being a great data scientist is mostly about the way in which you approach problems. Data scientists apply the scientific method in the commercial environment, which is why scientists can often successfully transition into the field. This sounds simple enough in theory, yet many scientists with superb academic backgrounds find</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"From Academia to Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/from-academia-to-data-science/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/fotolia_92720688.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"9bd841d8-b305-4539-bc36-fd7839241308",
+         "published":"Mon, 22 Aug 2016 13:07:00 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Charlotte Werger, a recent Fellow on the latest ASI Data Science Fellowship in May 2016 reflects on her journey, transitioning into a new Data Science career by taking part in the Fellowship. </p>\n\n<p><strong>Tell us about your background, before you decided to move into Data Science?</strong></p>\n\n<p>My background is perhaps a</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=12, tm_hour=10, tm_min=53, tm_sec=33, tm_wday=4, tm_yday=225, tm_isdst=0)",
+         "author":"Rebecca Way",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/charlottes-experience-on-the-asi-data-science-fellowship-2/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Charlotte's Experience on the ASI Data Science Fellowship",
+         "tags":[
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Finance",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Getting Started",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"alumni",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Economics",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ManAHL",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Lab",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Charlotte Werger, a recent Fellow on the latest ASI Data Science Fellowship in May 2016 reflects on her journey, transitioning into a new Data Science career by taking part in the Fellowship. </p>\n\n<p><strong>Tell us about your background, before you decided to move into Data Science?</strong></p>\n\n<p>My background is perhaps a</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Charlotte's Experience on the ASI Data Science Fellowship",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/charlottes-experience-on-the-asi-data-science-fellowship-2/",
+         "authors":[
+            {
+               "name":"Rebecca Way"
+            }
+         ],
+         "author_detail":{
+            "name":"Rebecca Way"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/1c9d073.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"57141867-3cac-4769-875c-c4a626ef681c",
+         "published":"Fri, 12 Aug 2016 10:53:33 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=10, tm_hour=12, tm_min=56, tm_sec=21, tm_wday=2, tm_yday=223, tm_isdst=0)",
+         "author":"Rebecca Way",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/londons-most-polluted-parks-identified-by-new-asi-data-science-project/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"London's most polluted parks identified by new ASI Data Science Project",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Policy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Pollution",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Park",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Air Quality",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"E",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Nitrogen oxide",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Open Data",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London Datastore",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Bloomberg",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":""bla bla"",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"London's most polluted parks identified by new ASI Data Science Project",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/londons-most-polluted-parks-identified-by-new-asi-data-science-project/",
+         "authors":[
+            {
+               "name":"Rebecca Way"
+            }
+         ],
+         "author_detail":{
+            "name":"Rebecca Way"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/-1x-1.png",
+               "medium":"image"
+            }
+         ],
+         "id":"7dcbab76-c0eb-403b-b957-e03e9dc278d6",
+         "published":"Wed, 10 Aug 2016 12:56:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Marc Warner, Co-founder and CEO at ASI Data Science spoke to City A.M. about the future of Artificial Intelligence. Marc discusses the debates around creating new policy and strategy to manage the vast amount of technologies developing and becoming more commonplace in society and what can science fiction tell</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=4, tm_hour=14, tm_min=28, tm_sec=21, tm_wday=3, tm_yday=217, tm_isdst=0)",
+         "author":"Marc Warner",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/asi-data-science-featured-in-city-a-m-today/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"ASI Data Science Featured in City A.M. Today",
+         "tags":[
+            {
+               "term":"Artificial Intelligence",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Future Technologies",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Policy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"science Fiction",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Marc Warner, Co-founder and CEO at ASI Data Science spoke to City A.M. about the future of Artificial Intelligence. Marc discusses the debates around creating new policy and strategy to manage the vast amount of technologies developing and becoming more commonplace in society and what can science fiction tell</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"ASI Data Science Featured in City A.M. Today",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/asi-data-science-featured-in-city-a-m-today/",
+         "authors":[
+            {
+               "name":"Marc Warner"
+            }
+         ],
+         "author_detail":{
+            "name":"Marc Warner"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Fotolia_108954795_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"362923f0-40b7-4363-974c-edfd4563fb13",
+         "published":"Thu, 04 Aug 2016 14:28:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>The internet is rife with bad metrics for comparing programming languages. This blog post adds another dubious measure: how often developers swear in open source projects. This may serve as a proxy for how frustrated people get when developing in a particular language.</p>\n\n<p>First of all, credit where It's due:</p>",
+            "language":"NULL"
+         },
+         "published_parsed":""         time.struct_time(tm_year=2016,
+         tm_mon=8,
+         tm_mday=4,
+         tm_hour=14,
+         tm_min=23,
+         tm_sec=59,
+         tm_wday=3,
+         tm_yday=217,
+         tm_isdst=0)"",
+         "author":"Pascal Bugnion",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/how-frustrating-is-your-programming-language/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"How frustrating is your programming language?",
+         "tags":[
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"scala",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Coding",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Developing",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Open source software",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Plotly",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Java",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Matplotlib",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"GitHub",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>The internet is rife with bad metrics for comparing programming languages. This blog post adds another dubious measure: how often developers swear in open source projects. This may serve as a proxy for how frustrated people get when developing in a particular language.</p>\n\n<p>First of all, credit where It's due:</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"How frustrating is your programming language?",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/how-frustrating-is-your-programming-language/",
+         "authors":[
+            {
+               "name":"Pascal Bugnion"
+            }
+         ],
+         "author_detail":{
+            "name":"Pascal Bugnion"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Fotolia_79161764_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"949393fc-0c1c-4078-a7cd-83210250e32e",
+         "published":"Thu, 04 Aug 2016 14:23:59 GMT"
+      }
+   ]
+},
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Tell me more. Tell me better.",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/tell-me-more-tell-me-better/",
+         "authors":[
+            {
+               "name":"alessandra"
+            }
+         ],
+         "author_detail":{
+            "name":"alessandra"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/blue-crowd.jpeg",
+               "medium":"image"
+            }
+         ],
+         "id":"3e008376-4ae1-4b49-afca-26b0d03f21b3",
+         "published":"Tue, 08 Nov 2016 14:55:23 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>It's been over half a century since a record audience of 32.3 million people watched England's triumph over West Germany in the 1966 World Cup final, and Britain remains a nation of avid TV watchers. According to Ofcom\u2019s most recent statistics, 95% of households contain a working television</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=14, tm_min=23, tm_sec=43, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/adjusting-your-set/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Adjusting your set: Predicting rare TV-watching behaviour with machine learning",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science projects",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Artificial Intelligence",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"sky",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"TV",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>It's been over half a century since a record audience of 32.3 million people watched England's triumph over West Germany in the 1966 World Cup final, and Britain remains a nation of avid TV watchers. According to Ofcom\u2019s most recent statistics, 95% of households contain a working television</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Adjusting your set: Predicting rare TV-watching behaviour with machine learning",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/adjusting-your-set/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/Pasted-image-at-2016_11_08-02_09-PM.png",
+               "medium":"image"
+            }
+         ],
+         "id":"b02758a4-8d0a-40b1-a530-bae460bc97d4",
+         "published":"Tue, 08 Nov 2016 14:23:43 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Join us for the last Meetup for 2016!</p>\n\n<p>7th December</p>\n\n<p><strong>Data Science Lab: Understanding Data &amp; Graphs</strong></p>\n\n<p>An evening with three data scientists who have used graphs in their work on both theory and practical applications. </p>\n\n<p>Sheldon Hall is a software engineer working at Grakn Labs where a distributed knowledge</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=13, tm_min=57, tm_sec=7, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/last-meetup-2016/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Last Meetup of 2016",
+         "tags":[
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graphs",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graph Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graph Database",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Join us for the last Meetup for 2016!</p>\n\n<p>7th December</p>\n\n<p><strong>Data Science Lab: Understanding Data &amp; Graphs</strong></p>\n\n<p>An evening with three data scientists who have used graphs in their work on both theory and practical applications. </p>\n\n<p>Sheldon Hall is a software engineer working at Grakn Labs where a distributed knowledge</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Last Meetup of 2016",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/last-meetup-2016/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/Fotolia_122153988_S.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"ade8202f-9f6e-41d4-8e83-ecce456d40f8",
+         "published":"Tue, 08 Nov 2016 13:57:07 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>I was never able to pull off a wheelie with the bike, or to do a walk-the-dog with the yoyo. As many of us have learned at the playground, not knowing these tricks usually means that you won\u2019t be able to hang around with the bigger kids. Not even</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=10, tm_mday=3, tm_hour=18, tm_min=39, tm_sec=23, tm_wday=0, tm_yday=277, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/coding-stunts-job-interviews-and-sorting-algorithms/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Coding stunts, job interviews, and sorting algorithms",
+         "author":"Alberto Favaro",
+         "summary":"<p>I was never able to pull off a wheelie with the bike, or to do a walk-the-dog with the yoyo. As many of us have learned at the playground, not knowing these tricks usually means that you won\u2019t be able to hang around with the bigger kids. Not even</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Coding stunts, job interviews, and sorting algorithms",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/coding-stunts-job-interviews-and-sorting-algorithms/",
+         "authors":[
+            {
+               "name":"Alberto Favaro"
+            }
+         ],
+         "author_detail":{
+            "name":"Alberto Favaro"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/yoyo1866.png",
+               "medium":"image"
+            }
+         ],
+         "id":"07e42d7e-dba3-4bb2-8bde-49d90e79fe59",
+         "published":"Mon, 03 Oct 2016 18:39:23 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=29, tm_hour=15, tm_min=54, tm_sec=54, tm_wday=3, tm_yday=273, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/find-out-more-about-the-asi-fellowship/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Find out more about the ASI Fellowship",
+         "tags":[
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Engineering",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"PhD",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Post-doc",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Future Technologies",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Find out more about the ASI Fellowship",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/find-out-more-about-the-asi-fellowship/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Fotolia_108900637_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"00e1c67e-0046-451e-8178-f7a6619fe65a",
+         "published":"Thu, 29 Sep 2016 15:54:54 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=29, tm_hour=15, tm_min=15, tm_sec=21, tm_wday=3, tm_yday=273, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/events-in-october/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Events in October!",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Lab",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Pascal Bugnion",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Plotly",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Richard Sargeant",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p><strong>Transforming Large Organisations</strong></p>\n\n<p>3rd Oct</p>\n\n<p>Richard Sargeant, Director of Transformation at ASI Data Science and founding director of the Government Digital Service, will be hosting a fireside chat with current and past fellows about the work he's been doing in government and Google. Places are strictly limited so please message</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Events in October!",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/events-in-october/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Analytics_4.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"b66dab88-e453-4ab3-821f-99b525fc1afb",
+         "published":"Thu, 29 Sep 2016 15:15:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p><strong>Training neural networks</strong> involves quite a few tricky bits. We try to make everything clear and easy to understand, to get you training your neural networks as quickly as possible.</p>  \n<p><strong>Theano</strong> allows us to write relatively concise code that follows the structure of the underlying maths. To run the code</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=14, tm_hour=11, tm_min=8, tm_sec=13, tm_wday=2, tm_yday=258, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/training-neural-networks-with-theano/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Training Neural Networks with Theano",
+         "author":"Nick Robinson",
+         "summary":"<p><strong>Training neural networks</strong> involves quite a few tricky bits. We try to make everything clear and easy to understand, to get you training your neural networks as quickly as possible.</p>  \n<p><strong>Theano</strong> allows us to write relatively concise code that follows the structure of the underlying maths. To run the code</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Training Neural Networks with Theano",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/training-neural-networks-with-theano/",
+         "authors":[
+            {
+               "name":"Nick Robinson"
+            }
+         ],
+         "author_detail":{
+            "name":"Nick Robinson"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Screenshot-2016-09-14-16.14.14.png",
+               "medium":"image"
+            }
+         ],
+         "id":"72a192a8-f65b-4a76-b4c2-61b3effdf290",
+         "published":"Wed, 14 Sep 2016 11:08:13 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=1, tm_hour=8, tm_min=15, tm_sec=55, tm_wday=3, tm_yday=245, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/q-a-with-asi-alumna-fellow-lorna-from-mathematics-to-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Q&A with ASI Alumna Fellow Lorna - From Mathematics to Data Science",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science projects",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"alumni",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Mathematics",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"PhD",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Post-doc",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Opportunities",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Tails",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Q&A with ASI Alumna Fellow Lorna - From Mathematics to Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/q-a-with-asi-alumna-fellow-lorna-from-mathematics-to-data-science/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/lorna-b-w.png",
+               "medium":"image"
+            }
+         ],
+         "id":"96b9aa91-6bdf-4036-9af3-c465389ea775",
+         "published":"Thu, 01 Sep 2016 08:15:55 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>ASI Data Science is working with the Greater London Authority (GLA) and Nesta on a pilot project to pave the way to create a permanent London Office of Data Analytics (LODA). The model is inspired by the Mayor\u2019s Office of Data Analytics (MODA) in New York City, founded under</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=23, tm_hour=9, tm_min=18, tm_sec=43, tm_wday=1, tm_yday=236, tm_isdst=0)",
+         "author":"Aida Mehonic",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/a-bright-data-future-for-london/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"A brighter data future for London",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London Datastore",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Impactful",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"NESTA",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science for good",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Actionable",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>ASI Data Science is working with the Greater London Authority (GLA) and Nesta on a pilot project to pave the way to create a permanent London Office of Data Analytics (LODA). The model is inspired by the Mayor\u2019s Office of Data Analytics (MODA) in New York City, founded under</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"A brighter data future for London",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/a-bright-data-future-for-london/",
+         "authors":[
+            {
+               "name":"Aida Mehonic"
+            }
+         ],
+         "author_detail":{
+            "name":"Aida Mehonic"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/a-bright-data-future-for-london.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"94f4945b-03bc-40e7-9257-d853a5ddbbc1",
+         "published":"Tue, 23 Aug 2016 09:18:43 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=22, tm_hour=13, tm_min=16, tm_sec=30, tm_wday=0, tm_yday=235, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/welcoming-richard-sargeant-to-asi-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Welcoming Richard Sargeant to ASI Data Science",
+         "author":"Marc Warner",
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Welcoming Richard Sargeant to ASI Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/welcoming-richard-sargeant-to-asi-data-science/",
+         "authors":[
+            {
+               "name":"Marc Warner"
+            }
+         ],
+         "author_detail":{
+            "name":"Marc Warner"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Richard_BW.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"34679388-0778-4f9d-b90f-b8a66061444f",
+         "published":"Mon, 22 Aug 2016 13:16:30 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Being a great data scientist is mostly about the way in which you approach problems. Data scientists apply the scientific method in the commercial environment, which is why scientists can often successfully transition into the field. This sounds simple enough in theory, yet many scientists with superb academic backgrounds find</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=22, tm_hour=13, tm_min=7, tm_sec=0, tm_wday=0, tm_yday=235, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/from-academia-to-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"From Academia to Data Science",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Being a great data scientist is mostly about the way in which you approach problems. Data scientists apply the scientific method in the commercial environment, which is why scientists can often successfully transition into the field. This sounds simple enough in theory, yet many scientists with superb academic backgrounds find</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"From Academia to Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/from-academia-to-data-science/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/fotolia_92720688.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"9bd841d8-b305-4539-bc36-fd7839241308",
+         "published":"Mon, 22 Aug 2016 13:07:00 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Charlotte Werger, a recent Fellow on the latest ASI Data Science Fellowship in May 2016 reflects on her journey, transitioning into a new Data Science career by taking part in the Fellowship. </p>\n\n<p><strong>Tell us about your background, before you decided to move into Data Science?</strong></p>\n\n<p>My background is perhaps a</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=12, tm_hour=10, tm_min=53, tm_sec=33, tm_wday=4, tm_yday=225, tm_isdst=0)",
+         "author":"Rebecca Way",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/charlottes-experience-on-the-asi-data-science-fellowship-2/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Charlotte's Experience on the ASI Data Science Fellowship",
+         "tags":[
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Finance",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Getting Started",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"alumni",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Economics",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ManAHL",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Lab",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Charlotte Werger, a recent Fellow on the latest ASI Data Science Fellowship in May 2016 reflects on her journey, transitioning into a new Data Science career by taking part in the Fellowship. </p>\n\n<p><strong>Tell us about your background, before you decided to move into Data Science?</strong></p>\n\n<p>My background is perhaps a</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Charlotte's Experience on the ASI Data Science Fellowship",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/charlottes-experience-on-the-asi-data-science-fellowship-2/",
+         "authors":[
+            {
+               "name":"Rebecca Way"
+            }
+         ],
+         "author_detail":{
+            "name":"Rebecca Way"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/1c9d073.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"57141867-3cac-4769-875c-c4a626ef681c",
+         "published":"Fri, 12 Aug 2016 10:53:33 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=10, tm_hour=12, tm_min=56, tm_sec=21, tm_wday=2, tm_yday=223, tm_isdst=0)",
+         "author":"Rebecca Way",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/londons-most-polluted-parks-identified-by-new-asi-data-science-project/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"London's most polluted parks identified by new ASI Data Science Project",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Policy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Pollution",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Park",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Air Quality",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"E",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Nitrogen oxide",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Open Data",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London Datastore",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Bloomberg",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":""bla bla"",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"London's most polluted parks identified by new ASI Data Science Project",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/londons-most-polluted-parks-identified-by-new-asi-data-science-project/",
+         "authors":[
+            {
+               "name":"Rebecca Way"
+            }
+         ],
+         "author_detail":{
+            "name":"Rebecca Way"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/-1x-1.png",
+               "medium":"image"
+            }
+         ],
+         "id":"7dcbab76-c0eb-403b-b957-e03e9dc278d6",
+         "published":"Wed, 10 Aug 2016 12:56:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Marc Warner, Co-founder and CEO at ASI Data Science spoke to City A.M. about the future of Artificial Intelligence. Marc discusses the debates around creating new policy and strategy to manage the vast amount of technologies developing and becoming more commonplace in society and what can science fiction tell</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=4, tm_hour=14, tm_min=28, tm_sec=21, tm_wday=3, tm_yday=217, tm_isdst=0)",
+         "author":"Marc Warner",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/asi-data-science-featured-in-city-a-m-today/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"ASI Data Science Featured in City A.M. Today",
+         "tags":[
+            {
+               "term":"Artificial Intelligence",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Future Technologies",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Policy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"science Fiction",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Marc Warner, Co-founder and CEO at ASI Data Science spoke to City A.M. about the future of Artificial Intelligence. Marc discusses the debates around creating new policy and strategy to manage the vast amount of technologies developing and becoming more commonplace in society and what can science fiction tell</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"ASI Data Science Featured in City A.M. Today",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/asi-data-science-featured-in-city-a-m-today/",
+         "authors":[
+            {
+               "name":"Marc Warner"
+            }
+         ],
+         "author_detail":{
+            "name":"Marc Warner"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Fotolia_108954795_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"362923f0-40b7-4363-974c-edfd4563fb13",
+         "published":"Thu, 04 Aug 2016 14:28:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>The internet is rife with bad metrics for comparing programming languages. This blog post adds another dubious measure: how often developers swear in open source projects. This may serve as a proxy for how frustrated people get when developing in a particular language.</p>\n\n<p>First of all, credit where It's due:</p>",
+            "language":"NULL"
+         },
+         "published_parsed":""         time.struct_time(tm_year=2016,
+         tm_mon=8,
+         tm_mday=4,
+         tm_hour=14,
+         tm_min=23,
+         tm_sec=59,
+         tm_wday=3,
+         tm_yday=217,
+         tm_isdst=0)"",
+         "author":"Pascal Bugnion",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/how-frustrating-is-your-programming-language/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"How frustrating is your programming language?",
+         "tags":[
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"scala",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Coding",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Developing",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Open source software",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Plotly",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Java",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Matplotlib",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"GitHub",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>The internet is rife with bad metrics for comparing programming languages. This blog post adds another dubious measure: how often developers swear in open source projects. This may serve as a proxy for how frustrated people get when developing in a particular language.</p>\n\n<p>First of all, credit where It's due:</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"How frustrating is your programming language?",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/how-frustrating-is-your-programming-language/",
+         "authors":[
+            {
+               "name":"Pascal Bugnion"
+            }
+         ],
+         "author_detail":{
+            "name":"Pascal Bugnion"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Fotolia_79161764_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"949393fc-0c1c-4078-a7cd-83210250e32e",
+         "published":"Thu, 04 Aug 2016 14:23:59 GMT"
+      }
+   ]
+},
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Tell me more. Tell me better.",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/tell-me-more-tell-me-better/",
+         "authors":[
+            {
+               "name":"alessandra"
+            }
+         ],
+         "author_detail":{
+            "name":"alessandra"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/blue-crowd.jpeg",
+               "medium":"image"
+            }
+         ],
+         "id":"3e008376-4ae1-4b49-afca-26b0d03f21b3",
+         "published":"Tue, 08 Nov 2016 14:55:23 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>It's been over half a century since a record audience of 32.3 million people watched England's triumph over West Germany in the 1966 World Cup final, and Britain remains a nation of avid TV watchers. According to Ofcom\u2019s most recent statistics, 95% of households contain a working television</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=14, tm_min=23, tm_sec=43, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/adjusting-your-set/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Adjusting your set: Predicting rare TV-watching behaviour with machine learning",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science projects",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Artificial Intelligence",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"sky",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"TV",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>It's been over half a century since a record audience of 32.3 million people watched England's triumph over West Germany in the 1966 World Cup final, and Britain remains a nation of avid TV watchers. According to Ofcom\u2019s most recent statistics, 95% of households contain a working television</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Adjusting your set: Predicting rare TV-watching behaviour with machine learning",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/adjusting-your-set/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/Pasted-image-at-2016_11_08-02_09-PM.png",
+               "medium":"image"
+            }
+         ],
+         "id":"b02758a4-8d0a-40b1-a530-bae460bc97d4",
+         "published":"Tue, 08 Nov 2016 14:23:43 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Join us for the last Meetup for 2016!</p>\n\n<p>7th December</p>\n\n<p><strong>Data Science Lab: Understanding Data &amp; Graphs</strong></p>\n\n<p>An evening with three data scientists who have used graphs in their work on both theory and practical applications. </p>\n\n<p>Sheldon Hall is a software engineer working at Grakn Labs where a distributed knowledge</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=11, tm_mday=8, tm_hour=13, tm_min=57, tm_sec=7, tm_wday=1, tm_yday=313, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/last-meetup-2016/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Last Meetup of 2016",
+         "tags":[
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graphs",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graph Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Graph Database",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Join us for the last Meetup for 2016!</p>\n\n<p>7th December</p>\n\n<p><strong>Data Science Lab: Understanding Data &amp; Graphs</strong></p>\n\n<p>An evening with three data scientists who have used graphs in their work on both theory and practical applications. </p>\n\n<p>Sheldon Hall is a software engineer working at Grakn Labs where a distributed knowledge</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Last Meetup of 2016",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/last-meetup-2016/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/11/Fotolia_122153988_S.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"ade8202f-9f6e-41d4-8e83-ecce456d40f8",
+         "published":"Tue, 08 Nov 2016 13:57:07 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>I was never able to pull off a wheelie with the bike, or to do a walk-the-dog with the yoyo. As many of us have learned at the playground, not knowing these tricks usually means that you won\u2019t be able to hang around with the bigger kids. Not even</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=10, tm_mday=3, tm_hour=18, tm_min=39, tm_sec=23, tm_wday=0, tm_yday=277, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/coding-stunts-job-interviews-and-sorting-algorithms/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Coding stunts, job interviews, and sorting algorithms",
+         "author":"Alberto Favaro",
+         "summary":"<p>I was never able to pull off a wheelie with the bike, or to do a walk-the-dog with the yoyo. As many of us have learned at the playground, not knowing these tricks usually means that you won\u2019t be able to hang around with the bigger kids. Not even</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Coding stunts, job interviews, and sorting algorithms",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/coding-stunts-job-interviews-and-sorting-algorithms/",
+         "authors":[
+            {
+               "name":"Alberto Favaro"
+            }
+         ],
+         "author_detail":{
+            "name":"Alberto Favaro"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/yoyo1866.png",
+               "medium":"image"
+            }
+         ],
+         "id":"07e42d7e-dba3-4bb2-8bde-49d90e79fe59",
+         "published":"Mon, 03 Oct 2016 18:39:23 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=29, tm_hour=15, tm_min=54, tm_sec=54, tm_wday=3, tm_yday=273, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/find-out-more-about-the-asi-fellowship/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Find out more about the ASI Fellowship",
+         "tags":[
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Engineering",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"PhD",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Post-doc",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Future Technologies",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Find out more about the ASI Fellowship",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/find-out-more-about-the-asi-fellowship/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Fotolia_108900637_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"00e1c67e-0046-451e-8178-f7a6619fe65a",
+         "published":"Thu, 29 Sep 2016 15:54:54 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=29, tm_hour=15, tm_min=15, tm_sec=21, tm_wday=3, tm_yday=273, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/events-in-october/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Events in October!",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Lab",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Pascal Bugnion",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Plotly",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Richard Sargeant",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p><strong>Transforming Large Organisations</strong></p>\n\n<p>3rd Oct</p>\n\n<p>Richard Sargeant, Director of Transformation at ASI Data Science and founding director of the Government Digital Service, will be hosting a fireside chat with current and past fellows about the work he's been doing in government and Google. Places are strictly limited so please message</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Events in October!",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/events-in-october/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Analytics_4.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"b66dab88-e453-4ab3-821f-99b525fc1afb",
+         "published":"Thu, 29 Sep 2016 15:15:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p><strong>Training neural networks</strong> involves quite a few tricky bits. We try to make everything clear and easy to understand, to get you training your neural networks as quickly as possible.</p>  \n<p><strong>Theano</strong> allows us to write relatively concise code that follows the structure of the underlying maths. To run the code</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=14, tm_hour=11, tm_min=8, tm_sec=13, tm_wday=2, tm_yday=258, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/training-neural-networks-with-theano/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Training Neural Networks with Theano",
+         "author":"Nick Robinson",
+         "summary":"<p><strong>Training neural networks</strong> involves quite a few tricky bits. We try to make everything clear and easy to understand, to get you training your neural networks as quickly as possible.</p>  \n<p><strong>Theano</strong> allows us to write relatively concise code that follows the structure of the underlying maths. To run the code</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Training Neural Networks with Theano",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/training-neural-networks-with-theano/",
+         "authors":[
+            {
+               "name":"Nick Robinson"
+            }
+         ],
+         "author_detail":{
+            "name":"Nick Robinson"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/Screenshot-2016-09-14-16.14.14.png",
+               "medium":"image"
+            }
+         ],
+         "id":"72a192a8-f65b-4a76-b4c2-61b3effdf290",
+         "published":"Wed, 14 Sep 2016 11:08:13 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=9, tm_mday=1, tm_hour=8, tm_min=15, tm_sec=55, tm_wday=3, tm_yday=245, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/q-a-with-asi-alumna-fellow-lorna-from-mathematics-to-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Q&A with ASI Alumna Fellow Lorna - From Mathematics to Data Science",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science projects",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"alumni",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Mathematics",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"PhD",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Post-doc",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellow",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Opportunities",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Tails",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Q&A with ASI Alumna Fellow Lorna - From Mathematics to Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/q-a-with-asi-alumna-fellow-lorna-from-mathematics-to-data-science/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/lorna-b-w.png",
+               "medium":"image"
+            }
+         ],
+         "id":"96b9aa91-6bdf-4036-9af3-c465389ea775",
+         "published":"Thu, 01 Sep 2016 08:15:55 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>ASI Data Science is working with the Greater London Authority (GLA) and Nesta on a pilot project to pave the way to create a permanent London Office of Data Analytics (LODA). The model is inspired by the Mayor\u2019s Office of Data Analytics (MODA) in New York City, founded under</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=23, tm_hour=9, tm_min=18, tm_sec=43, tm_wday=1, tm_yday=236, tm_isdst=0)",
+         "author":"Aida Mehonic",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/a-bright-data-future-for-london/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"A brighter data future for London",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London Datastore",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Impactful",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"NESTA",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data science for good",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Actionable",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>ASI Data Science is working with the Greater London Authority (GLA) and Nesta on a pilot project to pave the way to create a permanent London Office of Data Analytics (LODA). The model is inspired by the Mayor\u2019s Office of Data Analytics (MODA) in New York City, founded under</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"A brighter data future for London",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/a-bright-data-future-for-london/",
+         "authors":[
+            {
+               "name":"Aida Mehonic"
+            }
+         ],
+         "author_detail":{
+            "name":"Aida Mehonic"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/09/a-bright-data-future-for-london.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"94f4945b-03bc-40e7-9257-d853a5ddbbc1",
+         "published":"Tue, 23 Aug 2016 09:18:43 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=22, tm_hour=13, tm_min=16, tm_sec=30, tm_wday=0, tm_yday=235, tm_isdst=0)",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/welcoming-richard-sargeant-to-asi-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Welcoming Richard Sargeant to ASI Data Science",
+         "author":"Marc Warner",
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Welcoming Richard Sargeant to ASI Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/welcoming-richard-sargeant-to-asi-data-science/",
+         "authors":[
+            {
+               "name":"Marc Warner"
+            }
+         ],
+         "author_detail":{
+            "name":"Marc Warner"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Richard_BW.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"34679388-0778-4f9d-b90f-b8a66061444f",
+         "published":"Mon, 22 Aug 2016 13:16:30 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Being a great data scientist is mostly about the way in which you approach problems. Data scientists apply the scientific method in the commercial environment, which is why scientists can often successfully transition into the field. This sounds simple enough in theory, yet many scientists with superb academic backgrounds find</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=22, tm_hour=13, tm_min=7, tm_sec=0, tm_wday=0, tm_yday=235, tm_isdst=0)",
+         "author":"Yuelin Li",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/from-academia-to-data-science/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"From Academia to Data Science",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Being a great data scientist is mostly about the way in which you approach problems. Data scientists apply the scientific method in the commercial environment, which is why scientists can often successfully transition into the field. This sounds simple enough in theory, yet many scientists with superb academic backgrounds find</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"From Academia to Data Science",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/from-academia-to-data-science/",
+         "authors":[
+            {
+               "name":"Yuelin Li"
+            }
+         ],
+         "author_detail":{
+            "name":"Yuelin Li"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/fotolia_92720688.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"9bd841d8-b305-4539-bc36-fd7839241308",
+         "published":"Mon, 22 Aug 2016 13:07:00 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Charlotte Werger, a recent Fellow on the latest ASI Data Science Fellowship in May 2016 reflects on her journey, transitioning into a new Data Science career by taking part in the Fellowship. </p>\n\n<p><strong>Tell us about your background, before you decided to move into Data Science?</strong></p>\n\n<p>My background is perhaps a</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=12, tm_hour=10, tm_min=53, tm_sec=33, tm_wday=4, tm_yday=225, tm_isdst=0)",
+         "author":"Rebecca Way",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/charlottes-experience-on-the-asi-data-science-fellowship-2/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"Charlotte's Experience on the ASI Data Science Fellowship",
+         "tags":[
+            {
+               "term":"Fellowship",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Finance",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Getting Started",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"alumni",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Careers",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Meetup",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Economics",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ManAHL",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Lab",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science Community",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Fellows Network",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Charlotte Werger, a recent Fellow on the latest ASI Data Science Fellowship in May 2016 reflects on her journey, transitioning into a new Data Science career by taking part in the Fellowship. </p>\n\n<p><strong>Tell us about your background, before you decided to move into Data Science?</strong></p>\n\n<p>My background is perhaps a</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"Charlotte's Experience on the ASI Data Science Fellowship",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/charlottes-experience-on-the-asi-data-science-fellowship-2/",
+         "authors":[
+            {
+               "name":"Rebecca Way"
+            }
+         ],
+         "author_detail":{
+            "name":"Rebecca Way"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/1c9d073.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"57141867-3cac-4769-875c-c4a626ef681c",
+         "published":"Fri, 12 Aug 2016 10:53:33 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"bla bla",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=10, tm_hour=12, tm_min=56, tm_sec=21, tm_wday=2, tm_yday=223, tm_isdst=0)",
+         "author":"Rebecca Way",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/londons-most-polluted-parks-identified-by-new-asi-data-science-project/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"London's most polluted parks identified by new ASI Data Science Project",
+         "tags":[
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Policy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Pollution",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Park",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Air Quality",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"E",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Nitrogen oxide",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Open Data",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"London Datastore",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Bloomberg",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"bla bla",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":""bla bla"",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"London's most polluted parks identified by new ASI Data Science Project",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/londons-most-polluted-parks-identified-by-new-asi-data-science-project/",
+         "authors":[
+            {
+               "name":"Rebecca Way"
+            }
+         ],
+         "author_detail":{
+            "name":"Rebecca Way"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/-1x-1.png",
+               "medium":"image"
+            }
+         ],
+         "id":"7dcbab76-c0eb-403b-b957-e03e9dc278d6",
+         "published":"Wed, 10 Aug 2016 12:56:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>Marc Warner, Co-founder and CEO at ASI Data Science spoke to City A.M. about the future of Artificial Intelligence. Marc discusses the debates around creating new policy and strategy to manage the vast amount of technologies developing and becoming more commonplace in society and what can science fiction tell</p>",
+            "language":"NULL"
+         },
+         "published_parsed":"time.struct_time(tm_year=2016, tm_mon=8, tm_mday=4, tm_hour=14, tm_min=28, tm_sec=21, tm_wday=3, tm_yday=217, tm_isdst=0)",
+         "author":"Marc Warner",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/asi-data-science-featured-in-city-a-m-today/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"ASI Data Science Featured in City A.M. Today",
+         "tags":[
+            {
+               "term":"Artificial Intelligence",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Science",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Machine Learning",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"ASI",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data in Society",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Future Technologies",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Policy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Data Strategy",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"science Fiction",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>Marc Warner, Co-founder and CEO at ASI Data Science spoke to City A.M. about the future of Artificial Intelligence. Marc discusses the debates around creating new policy and strategy to manage the vast amount of technologies developing and becoming more commonplace in society and what can science fiction tell</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"ASI Data Science Featured in City A.M. Today",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/asi-data-science-featured-in-city-a-m-today/",
+         "authors":[
+            {
+               "name":"Marc Warner"
+            }
+         ],
+         "author_detail":{
+            "name":"Marc Warner"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Fotolia_108954795_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"362923f0-40b7-4363-974c-edfd4563fb13",
+         "published":"Thu, 04 Aug 2016 14:28:21 GMT"
+      },
+      {
+         "summary_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/html",
+            "value":"<p>The internet is rife with bad metrics for comparing programming languages. This blog post adds another dubious measure: how often developers swear in open source projects. This may serve as a proxy for how frustrated people get when developing in a particular language.</p>\n\n<p>First of all, credit where It's due:</p>",
+            "language":"NULL"
+         },
+         "published_parsed":""         time.struct_time(tm_year=2016,
+         tm_mon=8,
+         tm_mday=4,
+         tm_hour=14,
+         tm_min=23,
+         tm_sec=59,
+         tm_wday=3,
+         tm_yday=217,
+         tm_isdst=0)"",
+         "author":"Pascal Bugnion",
+         "links":[
+            {
+               "href":"http://blog.asidatascience.com/how-frustrating-is-your-programming-language/",
+               "type":"text/html",
+               "rel":"alternate"
+            }
+         ],
+         "title":"How frustrating is your programming language?",
+         "tags":[
+            {
+               "term":"Programming Languages",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"scala",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Coding",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Developing",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Open source software",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Plotly",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Java",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"Matplotlib",
+               "scheme":"NULL",
+               "label":"NULL"
+            },
+            {
+               "term":"GitHub",
+               "scheme":"NULL",
+               "label":"NULL"
+            }
+         ],
+         "summary":"<p>The internet is rife with bad metrics for comparing programming languages. This blog post adds another dubious measure: how often developers swear in open source projects. This may serve as a proxy for how frustrated people get when developing in a particular language.</p>\n\n<p>First of all, credit where It's due:</p>",
+         "content":[
+            {
+               "base":"http://blog.asidatascience.com/rss/",
+               "type":"text/html",
+               "value":"bla bla",
+               "language":"NULL"
+            }
+         ],
+         "guidislink":"False",
+         "title_detail":{
+            "base":"http://blog.asidatascience.com/rss/",
+            "type":"text/plain",
+            "value":"How frustrating is your programming language?",
+            "language":"NULL"
+         },
+         "link":"http://blog.asidatascience.com/how-frustrating-is-your-programming-language/",
+         "authors":[
+            {
+               "name":"Pascal Bugnion"
+            }
+         ],
+         "author_detail":{
+            "name":"Pascal Bugnion"
+         },
+         "media_content":[
+            {
+               "url":"http://blog.asidatascience.com/content/images/2016/08/Fotolia_79161764_Subscription_Monthly_XL.jpg",
+               "medium":"image"
+            }
+         ],
+         "id":"949393fc-0c1c-4078-a7cd-83210250e32e",
+         "published":"Thu, 04 Aug 2016 14:23:59 GMT"
+      }
+   ]
+}

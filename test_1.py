@@ -26,8 +26,15 @@ def welcome_mail(user):
   # since the `repeats` defaults to -1
   # this schedule will erase itself after having run
 
+
+def check_rss_subscribtion(username):
+	from feedcrunch.models import FeedUser
+	usr = FeedUser.objects.get(username=username)
+	usr.check_rss_subscribtion()
+
+"""
 from feedcrunch.models import FeedUser
-
 a = FeedUser.objects.get(username="dataradar")
-
 welcome_mail(a)
+"""
+schedule('check_rss_subscribtion', 'dataradar', schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))

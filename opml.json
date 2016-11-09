@@ -1,0 +1,1914 @@
+{
+  "opml": {
+    "-version": "1.1",
+    "head": { "title": "Feedreader Online Subscriptions" },
+    "body": {
+      "outline": [
+        {
+          "-type": "rss",
+          "-title": "FlowingData",
+          "-text": "FlowingData",
+          "-htmlUrl": "https://flowingdata.com/feed/",
+          "-xmlUrl": "https://flowingdata.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Pete Warden's blog",
+          "-text": "Pete Warden's blog",
+          "-htmlUrl": "http://feeds.feedburner.com/typepad/petewarden",
+          "-xmlUrl": "http://feeds.feedburner.com/typepad/petewarden"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Mining Research",
+          "-text": "Data Mining Research",
+          "-htmlUrl": "http://feeds.feedburner.com/dataminingblog",
+          "-xmlUrl": "http://feeds.feedburner.com/dataminingblog"
+        },
+        {
+          "-type": "rss",
+          "-title": "Highly Scalable Blog",
+          "-text": "Highly Scalable Blog",
+          "-htmlUrl": "https://highlyscalable.wordpress.com/feed/",
+          "-xmlUrl": "https://highlyscalable.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "m.e.driscoll: data utopian",
+          "-text": "m.e.driscoll: data utopian",
+          "-htmlUrl": "http://medriscoll.com/rss",
+          "-xmlUrl": "http://medriscoll.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Machine Learning (Theory)",
+          "-text": "Machine Learning (Theory)",
+          "-htmlUrl": "http://hunch.net/?feed=rss2",
+          "-xmlUrl": "http://hunch.net/?feed=rss2"
+        },
+        {
+          "-type": "rss",
+          "-title": "StreamHacker",
+          "-text": "StreamHacker",
+          "-htmlUrl": "http://feeds.feedburner.com/StreamHacker",
+          "-xmlUrl": "http://feeds.feedburner.com/StreamHacker"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Mining: Text Mining, Visualization and Social Media",
+          "-text": "Data Mining: Text Mining, Visualization and Social Media",
+          "-htmlUrl": "http://feeds.feedburner.com/DataMining",
+          "-xmlUrl": "http://feeds.feedburner.com/DataMining"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Science 101",
+          "-text": "Data Science 101",
+          "-htmlUrl": "http://101.datascience.community/feed/",
+          "-xmlUrl": "http://101.datascience.community/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Math n Programming",
+          "-text": "Math n Programming",
+          "-htmlUrl": "https://jeremykun.com/feed/",
+          "-xmlUrl": "https://jeremykun.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Simply Statistics",
+          "-text": "Simply Statistics",
+          "-htmlUrl": "http://simplystatistics.org/feed/",
+          "-xmlUrl": "http://simplystatistics.org/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataGenetics",
+          "-text": "DataGenetics",
+          "-htmlUrl": "http://datagenetics.com/feed/rss.xml",
+          "-xmlUrl": "http://datagenetics.com/feed/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Beautiful Data",
+          "-text": "Beautiful Data",
+          "-htmlUrl": "http://beautifuldata.net/feed/",
+          "-xmlUrl": "http://beautifuldata.net/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sean J. Taylor",
+          "-text": "Sean J. Taylor",
+          "-htmlUrl": "http://seanjtaylor.com/rss",
+          "-xmlUrl": "http://seanjtaylor.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Deep Learning",
+          "-text": "Deep Learning",
+          "-htmlUrl": "http://deeplearning.net/feed/",
+          "-xmlUrl": "http://deeplearning.net/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "John Myles White",
+          "-text": "John Myles White",
+          "-htmlUrl": "http://www.johnmyleswhite.com/feed/",
+          "-xmlUrl": "http://www.johnmyleswhite.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "FastML",
+          "-text": "FastML",
+          "-htmlUrl": "http://fastml.com/atom.xml",
+          "-xmlUrl": "http://fastml.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "brain of mat kelcey",
+          "-text": "brain of mat kelcey",
+          "-htmlUrl": "http://matpalm.com/blog/feed/",
+          "-xmlUrl": "http://matpalm.com/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Hacker News",
+          "-text": "Hacker News",
+          "-htmlUrl": "https://news.ycombinator.com/rss",
+          "-xmlUrl": "https://news.ycombinator.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Stories",
+          "-text": "Data Stories",
+          "-htmlUrl": "http://datastori.es/feed/",
+          "-xmlUrl": "http://datastori.es/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "natural language processing blog",
+          "-text": "natural language processing blog",
+          "-htmlUrl": "http://nlpers.blogspot.com/feeds/posts/default",
+          "-xmlUrl": "http://nlpers.blogspot.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "OkTrends",
+          "-text": "OkTrends",
+          "-htmlUrl": "https://blog.okcupid.com/index.php/feed/",
+          "-xmlUrl": "https://blog.okcupid.com/index.php/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Revolutions",
+          "-text": "Revolutions",
+          "-htmlUrl": "http://blog.revolutionanalytics.com/atom.xml",
+          "-xmlUrl": "http://blog.revolutionanalytics.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Probably Overthinking It",
+          "-text": "Probably Overthinking It",
+          "-htmlUrl": "http://feeds.feedburner.com/ProbablyOverthinkingIt",
+          "-xmlUrl": "http://feeds.feedburner.com/ProbablyOverthinkingIt"
+        },
+        {
+          "-type": "rss",
+          "-title": "TechnoCalifornia",
+          "-text": "TechnoCalifornia",
+          "-htmlUrl": "http://technocalifornia.blogspot.com/feeds/posts/default",
+          "-xmlUrl": "http://technocalifornia.blogspot.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "Blog – Idibon",
+          "-text": "Blog – Idibon",
+          "-htmlUrl": "http://idibon.com/blog/feed/",
+          "-xmlUrl": "http://idibon.com/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Engineering",
+          "-text": "Engineering",
+          "-htmlUrl": "https://blog.twitter.com/api/blog.rss?name=engineering",
+          "-xmlUrl": "https://blog.twitter.com/api/blog.rss?name=engineering"
+        },
+        {
+          "-type": "rss",
+          "-title": "Win-Vector Blog",
+          "-text": "Win-Vector Blog",
+          "-htmlUrl": "http://www.win-vector.com/blog/feed/",
+          "-xmlUrl": "http://www.win-vector.com/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "KDnuggets",
+          "-text": "KDnuggets",
+          "-htmlUrl": "http://feeds.feedburner.com/kdnuggets-data-mining-analytics",
+          "-xmlUrl": "http://feeds.feedburner.com/kdnuggets-data-mining-analytics"
+        },
+        {
+          "-type": "rss",
+          "-title": "R-bloggers",
+          "-text": "R-bloggers",
+          "-htmlUrl": "http://feeds.feedburner.com/RBloggers",
+          "-xmlUrl": "http://feeds.feedburner.com/RBloggers"
+        },
+        {
+          "-type": "rss",
+          "-title": "Nuit Blanche",
+          "-text": "Nuit Blanche",
+          "-htmlUrl": "http://feeds.feedburner.com/blogspot/wCeDd",
+          "-xmlUrl": "http://feeds.feedburner.com/blogspot/wCeDd"
+        },
+        {
+          "-type": "rss",
+          "-title": "feeder",
+          "-text": "feeder",
+          "-htmlUrl": "http://blog.feeder.co/rss",
+          "-xmlUrl": "http://blog.feeder.co/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Adventures in Data Land",
+          "-text": "Adventures in Data Land",
+          "-htmlUrl": "http://blog.smola.org/rss",
+          "-xmlUrl": "http://blog.smola.org/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "cs.AI updates on arXiv.org",
+          "-text": "cs.AI updates on arXiv.org",
+          "-htmlUrl": "http://export.arxiv.org/rss/cs.AI",
+          "-xmlUrl": "http://export.arxiv.org/rss/cs.AI"
+        },
+        {
+          "-type": "rss",
+          "-title": "cs.CV updates on arXiv.org",
+          "-text": "cs.CV updates on arXiv.org",
+          "-htmlUrl": "http://export.arxiv.org/rss/cs.CV",
+          "-xmlUrl": "http://export.arxiv.org/rss/cs.CV"
+        },
+        {
+          "-type": "rss",
+          "-title": "Chris Stucchio",
+          "-text": "Chris Stucchio",
+          "-htmlUrl": "https://www.chrisstucchio.com/blog/atom.xml",
+          "-xmlUrl": "https://www.chrisstucchio.com/blog/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Airbnb Engineering",
+          "-text": "Airbnb Engineering",
+          "-htmlUrl": "http://nerds.airbnb.com/feed/",
+          "-xmlUrl": "http://nerds.airbnb.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "No Free Hunch",
+          "-text": "No Free Hunch",
+          "-htmlUrl": "http://blog.kaggle.com/feed/",
+          "-xmlUrl": "http://blog.kaggle.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Julia Evans",
+          "-text": "Julia Evans",
+          "-htmlUrl": "http://jvns.ca/atom.xml",
+          "-xmlUrl": "http://jvns.ca/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "p-value.info",
+          "-text": "p-value.info",
+          "-htmlUrl": "http://www.p-value.info/feeds/posts/default",
+          "-xmlUrl": "http://www.p-value.info/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "Greg Reda",
+          "-text": "Greg Reda",
+          "-htmlUrl": "http://www.gregreda.com/feeds/all.atom.xml",
+          "-xmlUrl": "http://www.gregreda.com/feeds/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Marginally Interesting by Mikio L. Braun",
+          "-text": "Marginally Interesting by Mikio L. Braun",
+          "-htmlUrl": "http://feeds.feedburner.com/MarginallyInteresting",
+          "-xmlUrl": "http://feeds.feedburner.com/MarginallyInteresting"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataTau",
+          "-text": "DataTau",
+          "-htmlUrl": "http://www.datatau.com/rss",
+          "-xmlUrl": "http://www.datatau.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Plotly Blog",
+          "-text": "Plotly Blog",
+          "-htmlUrl": "http://blog.plot.ly/rss",
+          "-xmlUrl": "http://blog.plot.ly/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Large Scale Machine Learning and Other Animals",
+          "-text": "Large Scale Machine Learning and Other Animals",
+          "-htmlUrl": "http://feeds.feedburner.com/blogspot/sYXZE",
+          "-xmlUrl": "http://feeds.feedburner.com/blogspot/sYXZE"
+        },
+        {
+          "-type": "rss",
+          "-title": "Dr. Randal S. Olson",
+          "-text": "Dr. Randal S. Olson",
+          "-htmlUrl": "http://www.randalolson.com/feed/",
+          "-xmlUrl": "http://www.randalolson.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Yhat | Blog",
+          "-text": "Yhat | Blog",
+          "-htmlUrl": "http://blog.yhat.com/rss.xml",
+          "-xmlUrl": "http://blog.yhat.com/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Docker Blog",
+          "-text": "Docker Blog",
+          "-htmlUrl": "https://blog.docker.com/feed/",
+          "-xmlUrl": "https://blog.docker.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Science London",
+          "-text": "Data Science London",
+          "-htmlUrl": "http://datasciencelondon.org/feed/",
+          "-xmlUrl": "http://datasciencelondon.org/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Jason Toy",
+          "-text": "Jason Toy",
+          "-htmlUrl": "http://www.jtoy.net/atom.xml",
+          "-xmlUrl": "http://www.jtoy.net/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Machined Learnings",
+          "-text": "Machined Learnings",
+          "-htmlUrl": "http://www.machinedlearnings.com/feeds/posts/default",
+          "-xmlUrl": "http://www.machinedlearnings.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "minimaxir | Max Woolf's Blog",
+          "-text": "minimaxir | Max Woolf's Blog",
+          "-htmlUrl": "http://minimaxir.com/rss.xml",
+          "-xmlUrl": "http://minimaxir.com/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Takipi Blog",
+          "-text": "Takipi Blog",
+          "-htmlUrl": "http://blog.takipi.com/feed/",
+          "-xmlUrl": "http://blog.takipi.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Algorithmia",
+          "-text": "Algorithmia",
+          "-htmlUrl": "http://blog.algorithmia.com/feed/",
+          "-xmlUrl": "http://blog.algorithmia.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The DataCamp Blog",
+          "-text": "The DataCamp Blog",
+          "-htmlUrl": "http://blog.datacamp.com/feed/",
+          "-xmlUrl": "http://blog.datacamp.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "AYLIEN",
+          "-text": "AYLIEN",
+          "-htmlUrl": "http://blog.aylien.com/feed/",
+          "-xmlUrl": "http://blog.aylien.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "PayPal Engineering Blog",
+          "-text": "PayPal Engineering Blog",
+          "-htmlUrl": "https://www.paypal-engineering.com/feed/",
+          "-xmlUrl": "https://www.paypal-engineering.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "prooffreader.com",
+          "-text": "prooffreader.com",
+          "-htmlUrl": "http://www.prooffreader.com/feeds/posts/default",
+          "-xmlUrl": "http://www.prooffreader.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "I Quant NY",
+          "-text": "I Quant NY",
+          "-htmlUrl": "http://iquantny.tumblr.com/rss",
+          "-xmlUrl": "http://iquantny.tumblr.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "CleverTap Blog",
+          "-text": "CleverTap Blog",
+          "-htmlUrl": "https://blog.clevertap.com/feed/",
+          "-xmlUrl": "https://blog.clevertap.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "I’m a bandit",
+          "-text": "I’m a bandit",
+          "-htmlUrl": "https://blogs.princeton.edu/imabandit/feed/",
+          "-xmlUrl": "https://blogs.princeton.edu/imabandit/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Labs",
+          "-text": "Labs",
+          "-htmlUrl": "https://labs.spotify.com/feed/",
+          "-xmlUrl": "https://labs.spotify.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Clever Machine",
+          "-text": "The Clever Machine",
+          "-htmlUrl": "https://theclevermachine.wordpress.com/feed/",
+          "-xmlUrl": "https://theclevermachine.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "MLWave",
+          "-text": "MLWave",
+          "-htmlUrl": "http://mlwave.com/feed/",
+          "-xmlUrl": "http://mlwave.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "WebEngage Engineering Blog",
+          "-text": "WebEngage Engineering Blog",
+          "-htmlUrl": "http://engineering.webengage.com/feed/",
+          "-xmlUrl": "http://engineering.webengage.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Machine Learning, etc",
+          "-text": "Machine Learning, etc",
+          "-htmlUrl": "http://yaroslavvb.blogspot.com/feeds/posts/default",
+          "-xmlUrl": "http://yaroslavvb.blogspot.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "Analytical Worlds Blog – Predictive Analytics and Text Analytics – by Eric Siegel, Ph.D.",
+          "-text": "Analytical Worlds Blog – Predictive Analytics and Text Analytics – by Eric Siegel, Ph.D.",
+          "-htmlUrl": "http://feeds.feedburner.com/predictiveanalyticsworld/GXRy",
+          "-xmlUrl": "http://feeds.feedburner.com/predictiveanalyticsworld/GXRy"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataRobot",
+          "-text": "DataRobot",
+          "-htmlUrl": "https://www.datarobot.com/feed/",
+          "-xmlUrl": "https://www.datarobot.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Blog | Machinalis",
+          "-text": "Blog | Machinalis",
+          "-htmlUrl": "http://www.machinalis.com/blog/feeds/rss/",
+          "-xmlUrl": "http://www.machinalis.com/blog/feeds/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Garbled Notes",
+          "-text": "Garbled Notes",
+          "-htmlUrl": "http://www.chioka.in/feed/",
+          "-xmlUrl": "http://www.chioka.in/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "A Blog From Human-engineer-being",
+          "-text": "A Blog From Human-engineer-being",
+          "-htmlUrl": "http://www.erogol.com/feed/",
+          "-xmlUrl": "http://www.erogol.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Angry Statistician",
+          "-text": "The Angry Statistician",
+          "-htmlUrl": "http://angrystatistician.blogspot.com/feeds/posts/default",
+          "-xmlUrl": "http://angrystatistician.blogspot.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "Daniel Forsyth",
+          "-text": "Daniel Forsyth",
+          "-htmlUrl": "http://www.danielforsyth.me/rss/",
+          "-xmlUrl": "http://www.danielforsyth.me/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "blog.RDataMining.com",
+          "-text": "blog.RDataMining.com",
+          "-htmlUrl": "https://rdatamining.wordpress.com/feed/",
+          "-xmlUrl": "https://rdatamining.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Cortana Intelligence and Machine Learning Blog",
+          "-text": "Cortana Intelligence and Machine Learning Blog",
+          "-htmlUrl": "https://blogs.technet.microsoft.com/machinelearning/feed/",
+          "-xmlUrl": "https://blogs.technet.microsoft.com/machinelearning/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Subconscious Musings",
+          "-text": "Subconscious Musings",
+          "-htmlUrl": "http://feeds.feedburner.com/advanalytics",
+          "-xmlUrl": "http://feeds.feedburner.com/advanalytics"
+        },
+        {
+          "-type": "rss",
+          "-title": "Real Python",
+          "-text": "Real Python",
+          "-htmlUrl": "https://realpython.com/atom.xml",
+          "-xmlUrl": "https://realpython.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Mic Farris",
+          "-text": "Mic Farris",
+          "-htmlUrl": "http://www.micfarris.com/feed/",
+          "-xmlUrl": "http://www.micfarris.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Twilio Engineering Blog",
+          "-text": "Twilio Engineering Blog",
+          "-htmlUrl": "https://www.twilio.com/engineering/feed",
+          "-xmlUrl": "https://www.twilio.com/engineering/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Entrepreneurial Geekiness",
+          "-text": "Entrepreneurial Geekiness",
+          "-htmlUrl": "http://ianozsvald.com/feed/",
+          "-xmlUrl": "http://ianozsvald.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Trevor Stephens",
+          "-text": "Trevor Stephens",
+          "-htmlUrl": "http://trevorstephens.com/rss",
+          "-xmlUrl": "http://trevorstephens.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sebastian Raschka's Website",
+          "-text": "Sebastian Raschka's Website",
+          "-htmlUrl": "http://sebastianraschka.com/rss_feed.xml",
+          "-xmlUrl": "http://sebastianraschka.com/rss_feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Shape of Data",
+          "-text": "The Shape of Data",
+          "-htmlUrl": "https://shapeofdata.wordpress.com/feed/",
+          "-xmlUrl": "https://shapeofdata.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "colah's blog",
+          "-text": "colah's blog",
+          "-htmlUrl": "https://colah.github.io/rss.xml",
+          "-xmlUrl": "https://colah.github.io/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Statistical Modeling, Causal Inference, and Social Science",
+          "-text": "Statistical Modeling, Causal Inference, and Social Science",
+          "-htmlUrl": "http://andrewgelman.com/feed/",
+          "-xmlUrl": "http://andrewgelman.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Dataiku - Articles",
+          "-text": "Dataiku - Articles",
+          "-htmlUrl": "http://www.dataiku.com/feed.xml",
+          "-xmlUrl": "http://www.dataiku.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Matthew Rocklin",
+          "-text": "Matthew Rocklin",
+          "-htmlUrl": "http://matthewrocklin.com/blog/atom.xml",
+          "-xmlUrl": "http://matthewrocklin.com/blog/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "PyImageSearch",
+          "-text": "PyImageSearch",
+          "-htmlUrl": "http://feeds.feedburner.com/Pyimagesearch",
+          "-xmlUrl": "http://feeds.feedburner.com/Pyimagesearch"
+        },
+        {
+          "-type": "rss",
+          "-title": "Andrej Karpathy blog",
+          "-text": "Andrej Karpathy blog",
+          "-htmlUrl": "http://karpathy.github.io/feed.xml",
+          "-xmlUrl": "http://karpathy.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Edwin Chen's Blog",
+          "-text": "Edwin Chen's Blog",
+          "-htmlUrl": "http://blog.echen.me/feeds/all.rss.xml",
+          "-xmlUrl": "http://blog.echen.me/feeds/all.rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Turi Blog",
+          "-text": "Turi Blog",
+          "-htmlUrl": "http://blog.dato.com/rss.xml",
+          "-xmlUrl": "http://blog.dato.com/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Facebook Code",
+          "-text": "Facebook Code",
+          "-htmlUrl": "https://code.facebook.com/posts/rss/",
+          "-xmlUrl": "https://code.facebook.com/posts/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "AirPair Software Coding Tutorials &#38; More",
+          "-text": "AirPair Software Coding Tutorials &#38; More",
+          "-htmlUrl": "https://www.airpair.com/rss",
+          "-xmlUrl": "https://www.airpair.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Publishable Stuff",
+          "-text": "Publishable Stuff",
+          "-htmlUrl": "http://www.sumsar.net/atom.xml",
+          "-xmlUrl": "http://www.sumsar.net/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "District Data Labs",
+          "-text": "District Data Labs",
+          "-htmlUrl": "http://districtdatalabs.silvrback.com/feed",
+          "-xmlUrl": "http://districtdatalabs.silvrback.com/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Fast Forward Labs",
+          "-text": "Fast Forward Labs",
+          "-htmlUrl": "http://blog.fastforwardlabs.com/rss",
+          "-xmlUrl": "http://blog.fastforwardlabs.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Tim Dettmers",
+          "-text": "Tim Dettmers",
+          "-htmlUrl": "http://timdettmers.com/feed/",
+          "-xmlUrl": "http://timdettmers.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Blog - Louis Dorard",
+          "-text": "Blog - Louis Dorard",
+          "-htmlUrl": "http://www.louisdorard.com/blog?format=RSS",
+          "-xmlUrl": "http://www.louisdorard.com/blog?format=RSS"
+        },
+        {
+          "-type": "rss",
+          "-title": "Quantitative Steezing",
+          "-text": "Quantitative Steezing",
+          "-htmlUrl": "https://www.simple.com/engineering-rss.xml",
+          "-xmlUrl": "https://www.simple.com/engineering-rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "dataaspirant",
+          "-text": "dataaspirant",
+          "-htmlUrl": "https://dataaspirant.com/feed/",
+          "-xmlUrl": "https://dataaspirant.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data School",
+          "-text": "Data School",
+          "-htmlUrl": "http://www.dataschool.io/rss/",
+          "-xmlUrl": "http://www.dataschool.io/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Science Blog by Domino",
+          "-text": "Data Science Blog by Domino",
+          "-htmlUrl": "https://blog.dominodatalab.com/feed/",
+          "-xmlUrl": "https://blog.dominodatalab.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Erik Bernhardsson",
+          "-text": "Erik Bernhardsson",
+          "-htmlUrl": "http://erikbern.com/feed/",
+          "-xmlUrl": "http://erikbern.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Intent HQ Engineering blog",
+          "-text": "Intent HQ Engineering blog",
+          "-htmlUrl": "http://engineering.intenthq.com/feed.xml",
+          "-xmlUrl": "http://engineering.intenthq.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sense Blog",
+          "-text": "Sense Blog",
+          "-htmlUrl": "http://blog.sense.io/rss/",
+          "-xmlUrl": "http://blog.sense.io/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "GameChanger Tech Blog",
+          "-text": "GameChanger Tech Blog",
+          "-htmlUrl": "http://tech.gc.com/atom.xml",
+          "-xmlUrl": "http://tech.gc.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Periscope High-Performance SQL Blog",
+          "-text": "Periscope High-Performance SQL Blog",
+          "-htmlUrl": "https://www.periscopedata.com/blog/atom.xml",
+          "-xmlUrl": "https://www.periscopedata.com/blog/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Tombone's Computer Vision Blog",
+          "-text": "Tombone's Computer Vision Blog",
+          "-htmlUrl": "http://www.computervisionblog.com/feeds/posts/default",
+          "-xmlUrl": "http://www.computervisionblog.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "Text Mining Online | Text Analysis Online | Text Processing Online",
+          "-text": "Text Mining Online | Text Analysis Online | Text Processing Online",
+          "-htmlUrl": "http://textminingonline.com/feed",
+          "-xmlUrl": "http://textminingonline.com/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Jesse Steinweg-Woods, Ph.D.",
+          "-text": "Jesse Steinweg-Woods, Ph.D.",
+          "-htmlUrl": "https://jessesw.com/feed.xml",
+          "-xmlUrl": "https://jessesw.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Data Science Lab",
+          "-text": "The Data Science Lab",
+          "-htmlUrl": "https://datasciencelab.wordpress.com/feed/",
+          "-xmlUrl": "https://datasciencelab.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Elixir",
+          "-text": "Data Elixir",
+          "-htmlUrl": "http://dataelixir.com/issues.rss",
+          "-xmlUrl": "http://dataelixir.com/issues.rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "GitHub Engineering",
+          "-text": "GitHub Engineering",
+          "-htmlUrl": "http://githubengineering.com/atom.xml",
+          "-xmlUrl": "http://githubengineering.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Big Data Feed",
+          "-text": "Big Data Feed",
+          "-htmlUrl": "https://www.mapr.com/bigdata.xml",
+          "-xmlUrl": "https://www.mapr.com/bigdata.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Becoming A Data Scientist",
+          "-text": "Becoming A Data Scientist",
+          "-htmlUrl": "http://www.becomingadatascientist.com/feed/",
+          "-xmlUrl": "http://www.becomingadatascientist.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Trey Causey",
+          "-text": "Trey Causey",
+          "-htmlUrl": "http://treycausey.com/feeds/all.atom.xml",
+          "-xmlUrl": "http://treycausey.com/feeds/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "rayli.net",
+          "-text": "rayli.net",
+          "-htmlUrl": "https://rayli.net/blog/feed/",
+          "-xmlUrl": "https://rayli.net/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "zacstewart.com",
+          "-text": "zacstewart.com",
+          "-htmlUrl": "http://zacstewart.com/feed.xml",
+          "-xmlUrl": "http://zacstewart.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Lateral",
+          "-text": "Lateral",
+          "-htmlUrl": "https://blog.lateral.io/feed/",
+          "-xmlUrl": "https://blog.lateral.io/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "University of Wisconsin Data Science Degree",
+          "-text": "University of Wisconsin Data Science Degree",
+          "-htmlUrl": "http://datasciencedegree.wisconsin.edu/feed/",
+          "-xmlUrl": "http://datasciencedegree.wisconsin.edu/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Research at Facebook",
+          "-text": "Research at Facebook",
+          "-htmlUrl": "https://research.facebook.com/blog/rss",
+          "-xmlUrl": "https://research.facebook.com/blog/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Engineering at Monsanto",
+          "-text": "Engineering at Monsanto",
+          "-htmlUrl": "http://engineering.monsanto.com/feed.xml",
+          "-xmlUrl": "http://engineering.monsanto.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "EFavDB",
+          "-text": "EFavDB",
+          "-htmlUrl": "http://efavdb.com/feed/",
+          "-xmlUrl": "http://efavdb.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Spectator",
+          "-text": "The Spectator",
+          "-htmlUrl": "http://blog.shakirm.com/feed/",
+          "-xmlUrl": "http://blog.shakirm.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stitch Fix Technology – Multithreaded",
+          "-text": "Stitch Fix Technology – Multithreaded",
+          "-htmlUrl": "http://multithreaded.stitchfix.com/feed.xml",
+          "-xmlUrl": "http://multithreaded.stitchfix.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Models are illuminating and wrong",
+          "-text": "Models are illuminating and wrong",
+          "-htmlUrl": "https://peadarcoyle.wordpress.com/feed/",
+          "-xmlUrl": "https://peadarcoyle.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "alexhwoods",
+          "-text": "alexhwoods",
+          "-htmlUrl": "http://alexhwoods.com/feed/",
+          "-xmlUrl": "http://alexhwoods.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Machine Learning",
+          "-text": "Machine Learning",
+          "-htmlUrl": "https://charlesmartin14.wordpress.com/feed/",
+          "-xmlUrl": "https://charlesmartin14.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Sopranos, Silicon Valley, and Summer Afternoons",
+          "-text": "The Sopranos, Silicon Valley, and Summer Afternoons",
+          "-htmlUrl": "http://aakashjapi.com/feed.xml",
+          "-xmlUrl": "http://aakashjapi.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Beckerfuffle",
+          "-text": "Beckerfuffle",
+          "-htmlUrl": "http://beckerfuffle.com/atom.xml",
+          "-xmlUrl": "http://beckerfuffle.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Carl Shan",
+          "-text": "Carl Shan",
+          "-htmlUrl": "http://feeds.feedburner.com/carlshan",
+          "-xmlUrl": "http://feeds.feedburner.com/carlshan"
+        },
+        {
+          "-type": "rss",
+          "-title": "joy of data",
+          "-text": "joy of data",
+          "-htmlUrl": "http://www.joyofdata.de/blog/feed/",
+          "-xmlUrl": "http://www.joyofdata.de/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataLook | Blog",
+          "-text": "DataLook | Blog",
+          "-htmlUrl": "http://blog.datalook.io/feed/",
+          "-xmlUrl": "http://blog.datalook.io/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Analytics Vidhya",
+          "-text": "Analytics Vidhya",
+          "-htmlUrl": "http://feeds.feedburner.com/AnalyticsVidhya",
+          "-xmlUrl": "http://feeds.feedburner.com/AnalyticsVidhya"
+        },
+        {
+          "-type": "rss",
+          "-title": "wellecks",
+          "-text": "wellecks",
+          "-htmlUrl": "https://wellecks.wordpress.com/feed/",
+          "-xmlUrl": "https://wellecks.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "i am trask",
+          "-text": "i am trask",
+          "-htmlUrl": "http://iamtrask.github.io/feed.xml",
+          "-xmlUrl": "http://iamtrask.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Jonas Degrave",
+          "-text": "Jonas Degrave",
+          "-htmlUrl": "http://317070.github.io/feed.xml",
+          "-xmlUrl": "http://317070.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Life, Language, Learning",
+          "-text": "Life, Language, Learning",
+          "-htmlUrl": "http://daoudclarke.github.io/atom.xml",
+          "-xmlUrl": "http://daoudclarke.github.io/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Yanir Seroussi",
+          "-text": "Yanir Seroussi",
+          "-htmlUrl": "https://yanirseroussi.com/feed/",
+          "-xmlUrl": "https://yanirseroussi.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Christophe Bourguignat on Medium",
+          "-text": "Stories by Christophe Bourguignat on Medium",
+          "-htmlUrl": "https://medium.com/feed/@chris_bour",
+          "-xmlUrl": "https://medium.com/feed/@chris_bour"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by samim on Medium",
+          "-text": "Stories by samim on Medium",
+          "-htmlUrl": "https://medium.com/feed/@samim",
+          "-xmlUrl": "https://medium.com/feed/@samim"
+        },
+        {
+          "-type": "rss",
+          "-title": "Will do stuff for stuff",
+          "-text": "Will do stuff for stuff",
+          "-htmlUrl": "https://rinzewind.org/blog-en/feeds/all.rss.xml",
+          "-xmlUrl": "https://rinzewind.org/blog-en/feeds/all.rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Dataquest Blog",
+          "-text": "Dataquest Blog",
+          "-htmlUrl": "https://www.dataquest.io/blog/feed.xml",
+          "-xmlUrl": "https://www.dataquest.io/blog/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "DayneBatten.com",
+          "-text": "DayneBatten.com",
+          "-htmlUrl": "http://daynebatten.com/feed/",
+          "-xmlUrl": "http://daynebatten.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Kevin Davenport",
+          "-text": "Kevin Davenport",
+          "-htmlUrl": "http://kldavenport.com/feed/",
+          "-xmlUrl": "http://kldavenport.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Codementor Data Science Tutorials",
+          "-text": "Codementor Data Science Tutorials",
+          "-htmlUrl": "https://www.codementor.io/data-science/tutorial/feed",
+          "-xmlUrl": "https://www.codementor.io/data-science/tutorial/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Kenny Bastani",
+          "-text": "Kenny Bastani",
+          "-htmlUrl": "http://www.kennybastani.com/feeds/posts/default?alt=rss",
+          "-xmlUrl": "http://www.kennybastani.com/feeds/posts/default?alt=rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Emilio Ferrara, Ph.D.",
+          "-text": "Emilio Ferrara, Ph.D.",
+          "-htmlUrl": "http://www.emilio.ferrara.name/feed/",
+          "-xmlUrl": "http://www.emilio.ferrara.name/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Rocket-Powered Data Science",
+          "-text": "Rocket-Powered Data Science",
+          "-htmlUrl": "http://rocketdatascience.org/?feed=rss2",
+          "-xmlUrl": "http://rocketdatascience.org/?feed=rss2"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stigler Diet",
+          "-text": "Stigler Diet",
+          "-htmlUrl": "http://stiglerdiet.com/feeds/all.atom.xml",
+          "-xmlUrl": "http://stiglerdiet.com/feeds/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Machine Learning Mastery",
+          "-text": "Machine Learning Mastery",
+          "-htmlUrl": "http://machinelearningmastery.com/feed/",
+          "-xmlUrl": "http://machinelearningmastery.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Unofficial Google Data Science Blog",
+          "-text": "The Unofficial Google Data Science Blog",
+          "-htmlUrl": "http://www.unofficialgoogledatascience.com/feeds/posts/default",
+          "-xmlUrl": "http://www.unofficialgoogledatascience.com/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "PocketCluster",
+          "-text": "PocketCluster",
+          "-htmlUrl": "https://pocketcluster.wordpress.com/feed/",
+          "-xmlUrl": "https://pocketcluster.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Diving into data",
+          "-text": "Diving into data",
+          "-htmlUrl": "http://blog.datadive.net/feed/",
+          "-xmlUrl": "http://blog.datadive.net/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "BinaryEdge - Science and Technology",
+          "-text": "BinaryEdge - Science and Technology",
+          "-htmlUrl": "https://blog.binaryedge.io/rss/",
+          "-xmlUrl": "https://blog.binaryedge.io/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Denny's Blog",
+          "-text": "Denny's Blog",
+          "-htmlUrl": "http://blog.dennybritz.com/feed/",
+          "-xmlUrl": "http://blog.dennybritz.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "LearnDataSci",
+          "-text": "LearnDataSci",
+          "-htmlUrl": "http://www.learndatasci.com/feed/",
+          "-xmlUrl": "http://www.learndatasci.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "WildML",
+          "-text": "WildML",
+          "-htmlUrl": "http://www.wildml.com/feed/",
+          "-xmlUrl": "http://www.wildml.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Full Stack ML",
+          "-text": "Full Stack ML",
+          "-htmlUrl": "https://fullstackml.com/feed/",
+          "-xmlUrl": "https://fullstackml.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Etz-Files",
+          "-text": "The Etz-Files",
+          "-htmlUrl": "https://alexanderetz.com/feed/",
+          "-xmlUrl": "https://alexanderetz.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Data Science Bowl | Passion. Curiosity. Purpose.",
+          "-text": "The Data Science Bowl | Passion. Curiosity. Purpose.",
+          "-htmlUrl": "http://www.datasciencebowl.com/feed/",
+          "-xmlUrl": "http://www.datasciencebowl.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Opiate for the masses",
+          "-text": "Opiate for the masses",
+          "-htmlUrl": "http://opiateforthemass.es/feed.xml",
+          "-xmlUrl": "http://opiateforthemass.es/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "inFERENCe",
+          "-text": "inFERENCe",
+          "-htmlUrl": "http://www.inference.vc/rss/",
+          "-xmlUrl": "http://www.inference.vc/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Yahoo Engineering",
+          "-text": "Yahoo Engineering",
+          "-htmlUrl": "https://yahooeng.tumblr.com/rss",
+          "-xmlUrl": "https://yahooeng.tumblr.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Erik Bernhardsson",
+          "-text": "Erik Bernhardsson",
+          "-htmlUrl": "https://erikbern.com/atom.xml",
+          "-xmlUrl": "https://erikbern.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Chris Albon",
+          "-text": "Chris Albon",
+          "-htmlUrl": "http://chrisalbon.com/feeds/all.rss.xml",
+          "-xmlUrl": "http://chrisalbon.com/feeds/all.rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Labs",
+          "-text": "Data Labs",
+          "-htmlUrl": "http://blog.insightdatalabs.com/rss/",
+          "-xmlUrl": "http://blog.insightdatalabs.com/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataRadar.IO - Do you have enough data about your #data?",
+          "-text": "DataRadar.IO - Do you have enough data about your #data?",
+          "-htmlUrl": "https://www.dataradar.io/rss/",
+          "-xmlUrl": "https://www.dataradar.io/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Skeptic",
+          "-text": "Data Skeptic",
+          "-htmlUrl": "http://dataskeptic.com/feed.rss",
+          "-xmlUrl": "http://dataskeptic.com/feed.rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Mitch Crowe",
+          "-text": "Mitch Crowe",
+          "-htmlUrl": "http://www.mitchcrowe.com/feed.xml",
+          "-xmlUrl": "http://www.mitchcrowe.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "David Mimno",
+          "-text": "David Mimno",
+          "-htmlUrl": "http://www.mimno.org/feed.xml",
+          "-xmlUrl": "http://www.mimno.org/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Machine Learning, Maths and Physics",
+          "-text": "Machine Learning, Maths and Physics",
+          "-htmlUrl": "https://mlopezm.wordpress.com/feed/",
+          "-xmlUrl": "https://mlopezm.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Learning with Data",
+          "-text": "Learning with Data",
+          "-htmlUrl": "http://learningwithdata.com/rss_feed.xml",
+          "-xmlUrl": "http://learningwithdata.com/rss_feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Datascope",
+          "-text": "Datascope",
+          "-htmlUrl": "https://datascopeanalytics.com/rss/all.atom.xml",
+          "-xmlUrl": "https://datascopeanalytics.com/rss/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Peekaboo",
+          "-text": "Peekaboo",
+          "-htmlUrl": "http://peekaboo-vision.blogspot.com/atom.xml",
+          "-xmlUrl": "http://peekaboo-vision.blogspot.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "John's Soapbox",
+          "-text": "John's Soapbox",
+          "-htmlUrl": "http://joschu.github.io/feed.xml",
+          "-xmlUrl": "http://joschu.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "prooffreader plus",
+          "-text": "prooffreader plus",
+          "-htmlUrl": "http://prooffreaderplus.blogspot.ca/feeds/posts/default",
+          "-xmlUrl": "http://prooffreaderplus.blogspot.ca/feeds/posts/default"
+        },
+        {
+          "-type": "rss",
+          "-title": "deepdish",
+          "-text": "deepdish",
+          "-htmlUrl": "http://deepdish.io/atom.xml",
+          "-xmlUrl": "http://deepdish.io/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Primary Company Blog",
+          "-text": "Primary Company Blog",
+          "-htmlUrl": "http://www.exaptive.com/blog/rss.xml",
+          "-xmlUrl": "http://www.exaptive.com/blog/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Mirror Image",
+          "-text": "Mirror Image",
+          "-htmlUrl": "https://mirror2image.wordpress.com/feed/",
+          "-xmlUrl": "https://mirror2image.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Learn Analytics",
+          "-text": "Learn Analytics",
+          "-htmlUrl": "https://learnanalyticshere.wordpress.com/feed/",
+          "-xmlUrl": "https://learnanalyticshere.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Alex Castrounis on Medium",
+          "-text": "Stories by Alex Castrounis on Medium",
+          "-htmlUrl": "https://medium.com/feed/@innoarchitech",
+          "-xmlUrl": "https://medium.com/feed/@innoarchitech"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Analytics &#38; R",
+          "-text": "Data Analytics &#38; R",
+          "-htmlUrl": "https://advanceddataanalytics.net/feed/",
+          "-xmlUrl": "https://advanceddataanalytics.net/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Blog – Open Data Science",
+          "-text": "Blog – Open Data Science",
+          "-htmlUrl": "https://www.opendatascience.com/category/blog/feed/",
+          "-xmlUrl": "https://www.opendatascience.com/category/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Robert Chang on Medium",
+          "-text": "Stories by Robert Chang on Medium",
+          "-htmlUrl": "https://medium.com/feed/@rchang",
+          "-xmlUrl": "https://medium.com/feed/@rchang"
+        },
+        {
+          "-type": "rss",
+          "-title": "Will's Noise",
+          "-text": "Will's Noise",
+          "-htmlUrl": "http://www.willmcginnis.com/feed/",
+          "-xmlUrl": "http://www.willmcginnis.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Andrey Kurenkov's Web World",
+          "-text": "Andrey Kurenkov's Web World",
+          "-htmlUrl": "http://www.andreykurenkov.com/writing/feed.xml/",
+          "-xmlUrl": "http://www.andreykurenkov.com/writing/feed.xml/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Lazy Programmer",
+          "-text": "Lazy Programmer",
+          "-htmlUrl": "https://lazyprogrammer.me/feed/",
+          "-xmlUrl": "https://lazyprogrammer.me/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Hyon S Chu on Medium",
+          "-text": "Hyon S Chu on Medium",
+          "-htmlUrl": "https://medium.com/feed/@adailyventure",
+          "-xmlUrl": "https://medium.com/feed/@adailyventure"
+        },
+        {
+          "-type": "rss",
+          "-title": "Number 2147483647",
+          "-text": "Number 2147483647",
+          "-htmlUrl": "https://no2147483647.wordpress.com/feed/",
+          "-xmlUrl": "https://no2147483647.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Drew Conway on Medium",
+          "-text": "Stories by Drew Conway on Medium",
+          "-htmlUrl": "https://medium.com/feed/@drewconway",
+          "-xmlUrl": "https://medium.com/feed/@drewconway"
+        },
+        {
+          "-type": "rss",
+          "-title": "Alex Perrier - Learning Machine",
+          "-text": "Alex Perrier - Learning Machine",
+          "-htmlUrl": "http://alexperrier.github.io/feed.xml",
+          "-xmlUrl": "http://alexperrier.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "korbonits | Math n Data",
+          "-text": "korbonits | Math n Data",
+          "-htmlUrl": "http://korbonits.github.io/feed.xml",
+          "-xmlUrl": "http://korbonits.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Florian Hartl",
+          "-text": "Florian Hartl",
+          "-htmlUrl": "https://florianhartl.com/feed/",
+          "-xmlUrl": "https://florianhartl.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sachin Joglekar's blog",
+          "-text": "Sachin Joglekar's blog",
+          "-htmlUrl": "https://codesachin.wordpress.com/feed/",
+          "-xmlUrl": "https://codesachin.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Vademecum of Practical Data Science",
+          "-text": "Vademecum of Practical Data Science",
+          "-htmlUrl": "https://datasciencevademecum.wordpress.com/feed/",
+          "-xmlUrl": "https://datasciencevademecum.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Ahmed El Deeb on Medium",
+          "-text": "Stories by Ahmed El Deeb on Medium",
+          "-htmlUrl": "https://medium.com/feed/@D33B",
+          "-xmlUrl": "https://medium.com/feed/@D33B"
+        },
+        {
+          "-type": "rss",
+          "-title": "Storytelling with Statistics on Quora",
+          "-text": "Storytelling with Statistics on Quora",
+          "-htmlUrl": "https://datastories.quora.com/rss",
+          "-xmlUrl": "https://datastories.quora.com/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Delip Rao",
+          "-text": "Delip Rao",
+          "-htmlUrl": "http://deliprao.com/feed",
+          "-xmlUrl": "http://deliprao.com/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "RNDuja Blog",
+          "-text": "RNDuja Blog",
+          "-htmlUrl": "http://rnduja.github.io/feed.xml",
+          "-xmlUrl": "http://rnduja.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Swan Intelligence",
+          "-text": "Swan Intelligence",
+          "-htmlUrl": "http://swanintelligence.com/feeds/all.rss.xml",
+          "-xmlUrl": "http://swanintelligence.com/feeds/all.rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "RaRe Technologies",
+          "-text": "RaRe Technologies",
+          "-htmlUrl": "https://rare-technologies.com/feed/",
+          "-xmlUrl": "https://rare-technologies.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Lab41",
+          "-text": "Lab41",
+          "-htmlUrl": "http://www.lab41.org/feed/",
+          "-xmlUrl": "http://www.lab41.org/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Mike Tyka",
+          "-text": "Mike Tyka",
+          "-htmlUrl": "http://mtyka.github.io//feed.xml",
+          "-xmlUrl": "http://mtyka.github.io//feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Jeremy D. Jackson, PhD",
+          "-text": "Jeremy D. Jackson, PhD",
+          "-htmlUrl": "http://www.jeremydjacksonphd.com/feed/",
+          "-xmlUrl": "http://www.jeremydjacksonphd.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Christopher Nguyen on Medium",
+          "-text": "Stories by Christopher Nguyen on Medium",
+          "-htmlUrl": "https://medium.com/feed/@ctn",
+          "-xmlUrl": "https://medium.com/feed/@ctn"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sebastian Nowozins slow blog",
+          "-text": "Sebastian Nowozins slow blog",
+          "-htmlUrl": "http://www.nowozin.net/sebastian/blog/feeds/all.atom.xml",
+          "-xmlUrl": "http://www.nowozin.net/sebastian/blog/feeds/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Marek Rei",
+          "-text": "Marek Rei",
+          "-htmlUrl": "http://www.marekrei.com/blog/feed/",
+          "-xmlUrl": "http://www.marekrei.com/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Big-Ish Data",
+          "-text": "Big-Ish Data",
+          "-htmlUrl": "https://bigishdata.com/feed/",
+          "-xmlUrl": "https://bigishdata.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Avi Singh's blog",
+          "-text": "Avi Singh's blog",
+          "-htmlUrl": "http://avisingh599.github.io/feed.xml",
+          "-xmlUrl": "http://avisingh599.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "William Lyon",
+          "-text": "William Lyon",
+          "-htmlUrl": "http://www.lyonwj.com/atom.xml",
+          "-xmlUrl": "http://www.lyonwj.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Joe Cauteruccio",
+          "-text": "Joe Cauteruccio",
+          "-htmlUrl": "http://www.joecjr.com/feed/",
+          "-xmlUrl": "http://www.joecjr.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "I say things",
+          "-text": "I say things",
+          "-htmlUrl": "http://fa.bianp.net/blog/feed/",
+          "-xmlUrl": "http://fa.bianp.net/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Science – randyzwitch.com",
+          "-text": "Data Science – randyzwitch.com",
+          "-htmlUrl": "http://randyzwitch.com/category/data-science/feed/",
+          "-xmlUrl": "http://randyzwitch.com/category/data-science/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataLab.lu",
+          "-text": "DataLab.lu",
+          "-htmlUrl": "http://datalab.lu/atom.xml",
+          "-xmlUrl": "http://datalab.lu/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Keeping Up With The Latest Techniques",
+          "-text": "Keeping Up With The Latest Techniques",
+          "-htmlUrl": "https://colinpriest.com/feed/",
+          "-xmlUrl": "https://colinpriest.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Anton Lebedevich's Blog",
+          "-text": "Anton Lebedevich's Blog",
+          "-htmlUrl": "http://mabrek.github.io/feed.xml",
+          "-xmlUrl": "http://mabrek.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "The Data Incubator",
+          "-text": "The Data Incubator",
+          "-htmlUrl": "http://blog.thedataincubator.com/feed/",
+          "-xmlUrl": "http://blog.thedataincubator.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Melody Wolk",
+          "-text": "Melody Wolk",
+          "-htmlUrl": "https://melodywolk.com/feed/",
+          "-xmlUrl": "https://melodywolk.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Algobeans",
+          "-text": "Algobeans",
+          "-htmlUrl": "https://algobeans.com/feed/",
+          "-xmlUrl": "https://algobeans.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Eder Santana",
+          "-text": "Eder Santana",
+          "-htmlUrl": "http://edersantana.github.io/feed.xml",
+          "-xmlUrl": "http://edersantana.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "On Machine Intelligence",
+          "-text": "On Machine Intelligence",
+          "-htmlUrl": "https://aimatters.wordpress.com/feed/",
+          "-xmlUrl": "https://aimatters.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sebastian Ruder",
+          "-text": "Sebastian Ruder",
+          "-htmlUrl": "http://sebastianruder.com/rss/",
+          "-xmlUrl": "http://sebastianruder.com/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Gandi.net Status RSS Feed",
+          "-text": "Gandi.net Status RSS Feed",
+          "-htmlUrl": "https://status.gandi.net/rss/",
+          "-xmlUrl": "https://status.gandi.net/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Erin Shellman",
+          "-text": "Erin Shellman",
+          "-htmlUrl": "http://www.erinshellman.com/feed/",
+          "-xmlUrl": "http://www.erinshellman.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Born2Data",
+          "-text": "Born2Data",
+          "-htmlUrl": "https://www.born2data.com/feed.xml",
+          "-xmlUrl": "https://www.born2data.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "DatasFrame",
+          "-text": "DatasFrame",
+          "-htmlUrl": "http://tomaugspurger.github.io/feeds/all.rss.xml",
+          "-xmlUrl": "http://tomaugspurger.github.io/feeds/all.rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Notebook | Ramiro.org",
+          "-text": "Notebook | Ramiro.org",
+          "-htmlUrl": "http://ramiro.org/notebook/rss.xml",
+          "-xmlUrl": "http://ramiro.org/notebook/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Peekaboo",
+          "-text": "Peekaboo",
+          "-htmlUrl": "http://peekaboo-vision.blogspot.fr/atom.xml",
+          "-xmlUrl": "http://peekaboo-vision.blogspot.fr/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Science with Julia - Startup.ML",
+          "-text": "Data Science with Julia - Startup.ML",
+          "-htmlUrl": "http://startup.ml/blog?format=RSS",
+          "-xmlUrl": "http://startup.ml/blog?format=RSS"
+        },
+        {
+          "-type": "rss",
+          "-title": "inverseprobability.com",
+          "-text": "inverseprobability.com",
+          "-htmlUrl": "http://inverseprobability.com/rss.xml",
+          "-xmlUrl": "http://inverseprobability.com/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Miners Blog",
+          "-text": "Data Miners Blog",
+          "-htmlUrl": "http://blog.data-miners.com/feeds/posts/default?alt=rss",
+          "-xmlUrl": "http://blog.data-miners.com/feeds/posts/default?alt=rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Dustin Tran",
+          "-text": "Dustin Tran",
+          "-htmlUrl": "http://dustintran.com/blog/rss",
+          "-xmlUrl": "http://dustintran.com/blog/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Jonathan DEKHTIAR's Teaching Feed",
+          "-text": "Jonathan DEKHTIAR's Teaching Feed",
+          "-htmlUrl": "http://teaching.jonathandekhtiar.eu/rss/",
+          "-xmlUrl": "http://teaching.jonathandekhtiar.eu/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "My thoughts &#38; learnings",
+          "-text": "My thoughts &#38; learnings",
+          "-htmlUrl": "http://shahramabyari.com/feed/",
+          "-xmlUrl": "http://shahramabyari.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Datanice",
+          "-text": "Datanice",
+          "-htmlUrl": "https://datanice.wordpress.com/feed/",
+          "-xmlUrl": "https://datanice.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "YerevaNN",
+          "-text": "YerevaNN",
+          "-htmlUrl": "http://yerevann.github.io/atom.xml",
+          "-xmlUrl": "http://yerevann.github.io/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Daniel Homola | RSS Feed",
+          "-text": "Daniel Homola | RSS Feed",
+          "-htmlUrl": "http://danielhomola.com/feed/",
+          "-xmlUrl": "http://danielhomola.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "DataQuo.net (beta)",
+          "-text": "DataQuo.net (beta)",
+          "-htmlUrl": "http://dataquo.net/rss",
+          "-xmlUrl": "http://dataquo.net/rss"
+        },
+        {
+          "-type": "rss",
+          "-title": "Inspiration Information",
+          "-text": "Inspiration Information",
+          "-htmlUrl": "http://myinspirationinformation.com/feed/",
+          "-xmlUrl": "http://myinspirationinformation.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Martin Goodson",
+          "-text": "Martin Goodson",
+          "-htmlUrl": "http://www.martingoodson.com/rss/",
+          "-xmlUrl": "http://www.martingoodson.com/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Cloudera Engineering Blog » Data Science",
+          "-text": "Cloudera Engineering Blog » Data Science",
+          "-htmlUrl": "http://blog.cloudera.com/blog/category/data-science/feed/",
+          "-xmlUrl": "http://blog.cloudera.com/blog/category/data-science/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Rinu Boney",
+          "-text": "Rinu Boney",
+          "-htmlUrl": "http://rinuboney.github.io/feed.xml",
+          "-xmlUrl": "http://rinuboney.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Ira Korshunova",
+          "-text": "Ira Korshunova",
+          "-htmlUrl": "http://irakorshunova.github.io/feed.xml",
+          "-xmlUrl": "http://irakorshunova.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Blog – Formidable",
+          "-text": "Blog – Formidable",
+          "-htmlUrl": "https://formidable.com/blog/feed/",
+          "-xmlUrl": "https://formidable.com/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Requests for Startups",
+          "-text": "Requests for Startups",
+          "-htmlUrl": "http://requestsforstartups.com/feed/",
+          "-xmlUrl": "http://requestsforstartups.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Jean-Nicholas Hould",
+          "-text": "Jean-Nicholas Hould",
+          "-htmlUrl": "http://www.jeannicholashould.com/atom.xml",
+          "-xmlUrl": "http://www.jeannicholashould.com/atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "InnoArchiTech | Innovation, enterprise and SaaS cloud-based software and data solutions, machine learning, artificial intelligence, data science, and big data",
+          "-text": "InnoArchiTech | Innovation, enterprise and SaaS cloud-based software and data solutions, machine learning, artificial intelligence, data science, and big data",
+          "-htmlUrl": "http://www.innoarchitech.com/feed.xml",
+          "-xmlUrl": "http://www.innoarchitech.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Mapping Babel",
+          "-text": "Mapping Babel",
+          "-htmlUrl": "https://jack-clark.net/feed/",
+          "-xmlUrl": "https://jack-clark.net/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Alex G. on Medium",
+          "-text": "Stories by Alex G. on Medium",
+          "-htmlUrl": "https://medium.com/feed/@Alexander.G",
+          "-xmlUrl": "https://medium.com/feed/@Alexander.G"
+        },
+        {
+          "-type": "rss",
+          "-title": "Beyond the lines",
+          "-text": "Beyond the lines",
+          "-htmlUrl": "http://www.beyondthelines.net/feed/",
+          "-xmlUrl": "http://www.beyondthelines.net/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "inverseprobability.com",
+          "-text": "inverseprobability.com",
+          "-htmlUrl": "http://inverseprobability.com/feed.xml",
+          "-xmlUrl": "http://inverseprobability.com/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "ASI News and Events",
+          "-text": "ASI News and Events",
+          "-htmlUrl": "http://blog.asidatascience.com/rss/",
+          "-xmlUrl": "http://blog.asidatascience.com/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Aaqib Saeed",
+          "-text": "Aaqib Saeed",
+          "-htmlUrl": "http://aqibsaeed.github.io/feed",
+          "-xmlUrl": "http://aqibsaeed.github.io/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Abhay Harpale",
+          "-text": "Abhay Harpale",
+          "-htmlUrl": "http://abhay.harpale.net/blog/feed/",
+          "-xmlUrl": "http://abhay.harpale.net/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Regress to Impress",
+          "-text": "Regress to Impress",
+          "-htmlUrl": "https://dansaber.wordpress.com/feed/",
+          "-xmlUrl": "https://dansaber.wordpress.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Lewis Gavin",
+          "-text": "Lewis Gavin",
+          "-htmlUrl": "http://www.lewisgavin.co.uk/feed",
+          "-xmlUrl": "http://www.lewisgavin.co.uk/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Imanol Schlag - Articles",
+          "-text": "Imanol Schlag - Articles",
+          "-htmlUrl": "http://ischlag.github.io/feed.xml",
+          "-xmlUrl": "http://ischlag.github.io/feed.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "blog.taadeem.net",
+          "-text": "blog.taadeem.net",
+          "-htmlUrl": "http://blog.taadeem.net/rss.xml",
+          "-xmlUrl": "http://blog.taadeem.net/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Another Datum",
+          "-text": "Another Datum",
+          "-htmlUrl": "http://anotherdatum.com/feeds/all.atom.xml",
+          "-xmlUrl": "http://anotherdatum.com/feeds/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Fortscale",
+          "-text": "Fortscale",
+          "-htmlUrl": "https://insider.fortscale.com/feed/",
+          "-xmlUrl": "https://insider.fortscale.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "indico",
+          "-text": "indico",
+          "-htmlUrl": "https://indico.io/blog/feed/",
+          "-xmlUrl": "https://indico.io/blog/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Shahramabyari.com",
+          "-text": "Shahramabyari.com",
+          "-htmlUrl": "http://shahramabyari.com/2016/01/19/detecting-outliers-in-high-dimensional-data-sets/shahramabyari.com/feed/",
+          "-xmlUrl": "http://shahramabyari.com/2016/01/19/detecting-outliers-in-high-dimensional-data-sets/shahramabyari.com/feed/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Sebastian Ruder",
+          "-text": "Sebastian Ruder",
+          "-htmlUrl": "http://sebastianruder.com/rss/index.html",
+          "-xmlUrl": "http://sebastianruder.com/rss/index.html"
+        },
+        {
+          "-type": "rss",
+          "-title": "Blog | API Builder",
+          "-text": "Blog | API Builder",
+          "-htmlUrl": "http://www.restapibuilder.com/blog/feeds/atom/",
+          "-xmlUrl": "http://www.restapibuilder.com/blog/feeds/atom/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Adit Deshpande",
+          "-text": "Adit Deshpande",
+          "-htmlUrl": "https://adeshpande3.github.io/feed",
+          "-xmlUrl": "https://adeshpande3.github.io/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Triskell's wanderings",
+          "-text": "Triskell's wanderings",
+          "-htmlUrl": "https://triskell.github.io/rss/",
+          "-xmlUrl": "https://triskell.github.io/rss/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Insight Data - Medium",
+          "-text": "Insight Data - Medium",
+          "-htmlUrl": "https://blog.insightdatascience.com/feed",
+          "-xmlUrl": "https://blog.insightdatascience.com/feed"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Xavier Amatriain on Medium",
+          "-text": "Stories by Xavier Amatriain on Medium",
+          "-htmlUrl": "https://medium.com/feed/@xamat/",
+          "-xmlUrl": "https://medium.com/feed/@xamat/"
+        },
+        {
+          "-type": "rss",
+          "-title": "Lettier Blog RSS Feed",
+          "-text": "Lettier Blog RSS Feed",
+          "-htmlUrl": "https://lettier.github.io/rss.xml",
+          "-xmlUrl": "https://lettier.github.io/rss.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Data Piques",
+          "-text": "Data Piques",
+          "-htmlUrl": "http://blog.ethanrosenthal.com/feeds/all.atom.xml",
+          "-xmlUrl": "http://blog.ethanrosenthal.com/feeds/all.atom.xml"
+        },
+        {
+          "-type": "rss",
+          "-title": "Stories by Karlijn Willems on Medium",
+          "-text": "Stories by Karlijn Willems on Medium",
+          "-htmlUrl": "https://medium.com/feed/@kacawi",
+          "-xmlUrl": "https://medium.com/feed/@kacawi"
+        }
+      ]
+    }
+  }
+}

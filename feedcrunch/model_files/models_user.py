@@ -24,6 +24,8 @@ from twython import Twython
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
+import feedparser
+
 
 def generateDummyDesc():
 	return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor. Vestibulum tempor sapien id justo molestie imperdiet. Nulla efficitur mattis ante, nec iaculis lorem consequat in. Nullam sit amet diam augue. Nulla ullamcorper imperdiet turpis a maximus. Donec iaculis porttitor ultrices. Morbi lobortis dui molestie ullamcorper varius. Maecenas eu laoreet ipsum orci aliquam."
@@ -365,3 +367,54 @@ class FeedUser(AbstractFeedUser):
 
 	def get_clicks_count(self):
 		return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
+
+	def load_opml(self, data):
+		from feedcrunch.models import RSSFeed
+		import untangle
+
+		feed_added = 0
+
+		obj = untangle.parse('subscriptions.xml')
+
+		for feed in obj.opml.body.outline:
+
+			title = feed["title"]
+
+			if feed["htmlUrl"] is not None:
+				link = feed["htmlUrl"]
+			elif feed["xmlUrl"] is not None:
+				link = feed["xmlUrl"]
+			else:
+				continue # Go to next Feed
+
+			if not RSSFeed.objects.filter(user=self, link=link).exists():
+				feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
+				feed_tmp.save()
+				feed_added = feed_added + 1
+
+		print "Feed Added = " + str(feed_added)
+
+	def check_rss_subscribtion(self):
+
+		from feedcrunch.models import RSSArticle
+		feeds = self.rel_feeds.all()
+
+		rslt = []
+
+		feed_read = 0
+		article_added = 0
+
+		for feed in feeds:
+			feed_content = feedparser.parse(feed.link)
+
+			for entry in feed_content['entries']:
+
+				if not RSSArticle.objects.filter(user=self, rssfeed=feed, title=entry["title"], link=entry["links"][0]["href"]).exists():
+					article_tmp = RSSArticle.objects.create(user=self, rssfeed=feed, title=entry["title"], link=entry["links"][0]["href"])
+					article_tmp.save()
+					article_added = article_added + 1
+
+			feed_read = feed_read + 1
+
+		print "Feed Read = " + str(feed_read)
+		print "Article Added = " + str(article_added)

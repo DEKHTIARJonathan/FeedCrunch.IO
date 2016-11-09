@@ -13,6 +13,8 @@ from .model_files.models_user import *
 from .model_files.models_tag import *
 from .model_files.models_post import *
 from .model_files.models_options import *
+from .model_files.models_rssfeed import *
+from .model_files.models_rssarticle import *
 
 admin.site.register(Continent)
 admin.site.register(Country)
@@ -61,3 +63,19 @@ class PostAdmin(admin.ModelAdmin):
 	_get_tags_count.short_description="Tag Count"
 
 admin.site.register(Post, PostAdmin)
+
+# ==================== RSS Feed ============================
+class RSSFeedAdmin(admin.ModelAdmin):
+	list_display = ('id', 'user', 'title', 'get_domain', 'link', 'added_date')
+	ordering = ('-id',)
+
+admin.site.register(RSSFeed, RSSFeedAdmin)
+
+# ==================== RSSArticles =========================
+class RSSArticlesAdmin(admin.ModelAdmin):
+	list_display = ('id', 'user', 'rssfeed', 'title', 'get_domain', 'link', 'added_date')
+	ordering = ('-id',)
+
+admin.site.register(RSSArticle, RSSArticlesAdmin)
+
+#admin.site.register(RSSArticle)
