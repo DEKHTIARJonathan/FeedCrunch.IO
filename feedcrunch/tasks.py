@@ -32,3 +32,17 @@ def check_rss_subscribtion(username):
 	from feedcrunch.models import FeedUser
 	usr = FeedUser.objects.get(username=username)
 	usr.check_rss_subscribtion()
+
+
+def check_allUsers_rss_subscribtions():
+	from feedcrunch.models import FeedUser
+	user_list = FeedUser.objects.all()
+
+	for user in user_list:
+		schedule('feedcrunch.tasks.check_rss_subscribtion', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+
+
+def launch_recurrent_tasks():
+	execution_time = timezone.now()
+	execution_time = execution_time.replace(hour=3, minute=0, second=0, microsecond=0) + timedelta(days=1)
+	schedule('feedcrunch.tasks.check_allUsers_rss_subscribtions', schedule_type=Schedule.DAILY, next_run=execution_time)
