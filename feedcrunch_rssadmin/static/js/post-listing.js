@@ -33,6 +33,7 @@ $(document).ready(function() {
         if ( table.rows( { filter: 'applied' } ).data().length ) {
             body.highlight( table.search() );
         }
+		reset_click_delete();
     } );
 
     $("#article-searchbar").on('input',function(e){
@@ -69,50 +70,57 @@ $(document).ready(function() {
 
     $('.dataTables_length select').addClass('browser-default');
 
-    $(".delete-link").click( function(){
-        // $("#test").parent().parent().remove()
-        var current_row = $(this);
-        var post_id = $(this).data("id");
 
-        var api_url = "/api/1.0/authenticated/delete/article/"+post_id+"/";
-        var csrftoken = Cookies.get('csrftoken');
+	function reset_click_delete(){
+		$(".delete-link").off("click");
+		$(".delete-link").click( function(){
+	        // $("#test").parent().parent().remove()
+	        var current_row = $(this);
+	        var post_id = $(this).data("id");
 
-        $.ajax({
-            url : api_url,
-            type : "DELETE",
-            data: {
-                postID: post_id,
-            },
-            dataType : "json",
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            },
-            success: function(data){
-                if (data.success) {
-                    swal({
-                        title: "Good job!",
-                        text: "Article deleted with success!",
-                        type: "success",
-                        timer: 1500,
-                        showConfirmButton: false,
-                        cache: false,
-                    }, function() {
-                        table.row( current_row.parents('tr') ).remove().draw();
-                        swal.close();
-                    });
-                }
-                else {
-                    swal({
-                        title: "Something went wrong!",
-                        text: data.error,
-                        type: "error",
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "I'll retry later",
-                        closeOnConfirm: true
-                    });
-                }
-            }
-        });
-    });
+	        var api_url = "/api/1.0/authenticated/delete/article/"+post_id+"/";
+	        var csrftoken = Cookies.get('csrftoken');
+
+	        $.ajax({
+	            url : api_url,
+	            type : "DELETE",
+	            data: {
+	                postID: post_id,
+	            },
+	            dataType : "json",
+	            beforeSend: function(xhr) {
+	                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+	            },
+	            success: function(data){
+	                if (data.success) {
+	                    swal({
+	                        title: "Good job!",
+	                        text: "Article deleted with success!",
+	                        type: "success",
+	                        timer: 1000,
+	                        showConfirmButton: false,
+	                        cache: false,
+	                    }, function() {
+	                        table.row( current_row.parents('tr') ).remove().draw();
+	                        swal.close();
+	                    });
+	                }
+	                else {
+	                    swal({
+	                        title: "Something went wrong!",
+	                        text: data.error,
+	                        type: "error",
+	                        confirmButtonColor: "#DD6B55",
+	                        confirmButtonText: "I'll retry later",
+	                        closeOnConfirm: true
+	                    });
+	                }
+	            }
+	        });
+	    });
+	}
+
+	reset_click_delete();
+
 
 });
