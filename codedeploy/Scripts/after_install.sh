@@ -37,4 +37,5 @@ chmod +x $app_dir/collectStatic.sh
 
 python $app_dir/manage.py makemigrations
 python $app_dir/manage.py migrate
+python $app_dir/manage.py createcachetable
 #python $app_dir/manage.py loaddata feedcrunch_dump.json

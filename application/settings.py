@@ -221,7 +221,7 @@ Q_CLUSTER = {
 	'name': 'FeedCrunch', # Used to differentiate between projects using the same broker. On most broker types this will be used as the queue name.
 	'workers': 4, # The number of workers to use in the cluster. Defaults to CPU count of the current host, but can be set to a custom number.
 	'recycle': 500, # The number of tasks a worker will process before recycling . Useful to release memory resources on a regular basis.
-	'timeout': 60, # The number of seconds a worker is allowed to spend on a task before it’s terminated. Defaults to None, meaning it will never time out. Set this to something that makes sense for your project. Can be overridden for individual tasks.
+	'timeout': 900, # 900 = 15min // The number of seconds a worker is allowed to spend on a task before it’s terminated. Defaults to None, meaning it will never time out. Set this to something that makes sense for your project. Can be overridden for individual tasks.
 	'compress': False, # Compresses task packages to the broker. Useful for large payloads, but can add overhead when used with many small packages.
 	'retry': 90, # The number of seconds a broker will wait for a cluster to finish a task, before it’s presented again. Only works with brokers that support delivery receipts.
 	'save_limit': 250, # Limits the amount of successful tasks saved to Django. Set to 0 for unlimited. Set to -1 for no success storage at all. Defaults to 250. Failures are always saved.

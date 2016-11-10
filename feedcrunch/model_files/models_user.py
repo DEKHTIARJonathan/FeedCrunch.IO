@@ -372,8 +372,6 @@ class FeedUser(AbstractFeedUser):
 		from feedcrunch.models import RSSFeed
 		import untangle
 
-		feed_added = 0
-
 		obj = untangle.parse('subscriptions.xml')
 
 		for feed in obj.opml.body.outline:
@@ -390,9 +388,6 @@ class FeedUser(AbstractFeedUser):
 			if not RSSFeed.objects.filter(user=self, link=link).exists():
 				feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
 				feed_tmp.save()
-				feed_added = feed_added + 1
-
-		print "Feed Added = " + str(feed_added)
 
 	def check_rss_subscribtion(self):
 
@@ -401,20 +396,23 @@ class FeedUser(AbstractFeedUser):
 
 		rslt = []
 
-		feed_read = 0
-		article_added = 0
-
 		for feed in feeds:
 			feed_content = feedparser.parse(feed.link)
 
 			for entry in feed_content['entries']:
 
-				if not RSSArticle.objects.filter(user=self, rssfeed=feed, title=entry["title"], link=entry["links"][0]["href"]).exists():
-					article_tmp = RSSArticle.objects.create(user=self, rssfeed=feed, title=entry["title"], link=entry["links"][0]["href"])
+				if 'title' in entry:
+					title = entry["title"]
+				else:
+					continue
+
+				if 'link' in entry:
+					link = entry["link"]
+				elif 'links' in entry:
+					link = entry["links"][0]["href"]
+				else:
+					continue
+
+				if not RSSArticle.objects.filter(user=self, rssfeed=feed, title=title, link=link).exists():
+					article_tmp = RSSArticle.objects.create(user=self, rssfeed=feed, title=title, link=link)
 					article_tmp.save()
-					article_added = article_added + 1
-
-			feed_read = feed_read + 1
-
-		print "Feed Read = " + str(feed_read)
-		print "Article Added = " + str(article_added)
