@@ -36,8 +36,15 @@ input.valid{
 	margin-top: 30px;
 }
 
-#article-searchbar-div{
+.table-head-bar {
 	margin: 40px 0;
+	display: block;
+	overflow-y: hidden;
+}
+
+.btn-table-head-bar{
+	margin-top: 8px;
+	width:100%;
 }
 
 table.dataTable thead .sorting {

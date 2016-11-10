@@ -32,6 +32,10 @@
 			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
+		{% elif template_name == "admin/admin_sub_listing.html" %}
+			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+
 		{% elif template_name == "admin/admin_reading_recommendation.html" %}
 			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
@@ -349,6 +353,13 @@
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/post-listing.js" %}"></script>
+
+		{% elif template_name == "admin/admin_sub_listing.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/sub-listing.js" %}"></script>
 
 		{% elif template_name == "admin/admin_personal.html" %}
 			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>

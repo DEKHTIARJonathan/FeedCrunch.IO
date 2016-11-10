@@ -1,0 +1,66 @@
+{% extends 'admin/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col s12 m12 l12">
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">
+					Select the feed you would like to edit or delete
+				</span>
+				<span class="card-title">
+					Total Subscribtions : {{ feeds.count }}
+				</span>
+
+				<div class="table-head-bar">
+
+					<div class="input-field col s12 l6" id="datatable-searchbar-div">
+						<i class="material-icons prefix" style="padding-top: 10px;">search</i>
+						<input id="sub-searchbar" type="text" >
+						<label for="sub-searchbar">Search in your subscribtions</label>
+					</div>
+
+					<div class="input-field col s12 m6 l3">
+						<a class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar">Add a RSS Feed</a>
+					</div>
+
+					<div class="input-field col s12 m6 l3">
+						<a class="waves-effect waves-light btn green m-b-xs btn-table-head-bar">Import an OPML File</a>
+					</div>
+
+				</div>
+
+				<table class="display responsive-table" id="sub-listing" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th>Domain</th>
+							<th>Link</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						{% for feed in feeds %}
+						<tr>
+							<td>{{ feed.id }}</td>
+							<td>{{ feed.title }}</td>
+							<td>{{ feed.get_domain }}</span>
+							<td>{{ feed.link }}</td>
+							<td><a href="#{{ feed.id }}">Edit</a></td>
+							<td><a class="delete-link" data-id="{{ feed.id }}" href="#">Delete</a></td>
+						</tr>
+						{% endfor %}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

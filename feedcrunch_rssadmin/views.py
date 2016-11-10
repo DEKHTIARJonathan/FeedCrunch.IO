@@ -12,7 +12,7 @@ from django.core.exceptions import ValidationError
 import datetime, unicodedata, json
 from calendar import monthrange
 
-from feedcrunch.models import Post, FeedUser, Country, Tag
+from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from check_admin import check_admin
@@ -218,12 +218,13 @@ def upload_picture(request, feedname=None):
 
 	return HttpResponseRedirect('/@'+request.user.username+'/admin/account/picture/')
 
-def reading_sub_management(request, feedname=None):
+def sub_management(request, feedname=None):
 	check_passed = check_admin(feedname, request.user)
 	if check_passed != True:
 		return check_passed
 	else:
-		return render(request, 'admin/admin-coming-soon.html')
+		feeds = RSSFeed.objects.filter(user=feedname).order_by("title")
+		return render(request, 'admin/admin_sub_listing.html', {'feeds': feeds})
 
 def reading_recommendation(request, feedname=None):
 	check_passed = check_admin(feedname, request.user)
