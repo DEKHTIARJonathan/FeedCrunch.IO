@@ -5,8 +5,9 @@ from django_q.tasks import async, schedule
 from django_q.models import Schedule
 from django.conf import settings
 
+from feedcrunch.models import FeedUser, RSSFeed
+
 def welcome_mail(username):
-  from feedcrunch.models import FeedUser
   user = FeedUser.objects.get(username=username)
   msg = 'Welcome to our website'
   # send this message right away
@@ -28,21 +29,24 @@ def welcome_mail(username):
   # since the `repeats` defaults to -1
   # this schedule will erase itself after having run
 
-def check_rss_subscribtion(username):
-	from feedcrunch.models import FeedUser
+def check_rss_feed(rss_id):
+	feed = RSSFeed.objects.get(id=rss_id)
+	feed.refresh_feed()
+
+def check_user_rss_subscribtion(username):
 	usr = FeedUser.objects.get(username=username)
-	usr.check_rss_subscribtion()
+
+	for feed in usr.rel_feeds.all():
+		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 
 def check_allUsers_rss_subscribtions():
-	from feedcrunch.models import FeedUser
-	user_list = FeedUser.objects.all()
-
-	for user in user_list:
-		schedule('feedcrunch.tasks.check_rss_subscribtion', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+	for user in FeedUser.objects.all():
+		schedule('feedcrunch.tasks.check_user_rss_subscribtion', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 
 def launch_recurrent_tasks():
 	execution_time = timezone.now()
 	execution_time = execution_time.replace(hour=3, minute=0, second=0, microsecond=0) + timedelta(days=1)
+
 	schedule('feedcrunch.tasks.check_allUsers_rss_subscribtions', schedule_type=Schedule.DAILY, next_run=execution_time)

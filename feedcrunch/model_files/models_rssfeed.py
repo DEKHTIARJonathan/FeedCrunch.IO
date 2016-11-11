@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 from django.db import models
 
-import datetime, string, re
+import datetime, string, re, unicodedata
 
 from .models_user import *
 
@@ -32,3 +32,31 @@ class RSSFeed(models.Model):
 			return self.link[starts[1]+1:]
 		else:
 			return str("error")
+
+	def refresh_feed(self):
+		from .models_rssarticle import RSSArticle
+
+		feed_content = feedparser.parse(self.link)
+
+		if (feed_content.bozo == 0):
+
+			for entry in feed_content['entries']:
+
+				if 'title' in entry:
+					title = unicodedata.normalize('NFKD', entry["title"]).encode('ascii','ignore')
+				else:
+					continue
+
+				if 'link' in entry:
+					link = entry["link"]
+				elif 'links' in entry:
+					link = entry["links"][0]["href"]
+				else:
+					continue
+
+				print "link: " + link
+
+				if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
+					article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
+					article_tmp.save()
+					print title

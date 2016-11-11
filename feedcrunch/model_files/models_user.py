@@ -385,34 +385,6 @@ class FeedUser(AbstractFeedUser):
 			else:
 				continue # Go to next Feed
 
-			if not RSSFeed.objects.filter(user=self, link=link).exists():
-				feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
-				feed_tmp.save()
-
-	def check_rss_subscribtion(self):
-
-		from feedcrunch.models import RSSArticle
-		feeds = self.rel_feeds.all()
-
-		rslt = []
-
-		for feed in feeds:
-			feed_content = feedparser.parse(feed.link)
-
-			for entry in feed_content['entries']:
-
-				if 'title' in entry:
-					title = entry["title"]
-				else:
-					continue
-
-				if 'link' in entry:
-					link = entry["link"]
-				elif 'links' in entry:
-					link = entry["links"][0]["href"]
-				else:
-					continue
-
-				if not RSSArticle.objects.filter(user=self, rssfeed=feed, title=title, link=link).exists():
-					article_tmp = RSSArticle.objects.create(user=self, rssfeed=feed, title=title, link=link)
-					article_tmp.save()
+			if not RSSFeed.objects.filter(user=self, link=link).exists() and feedparser.parse(link).bozo == 0: # Feed is Valid
+					feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
+					feed_tmp.save()
