@@ -398,8 +398,8 @@
 							required: true,
 							minlength: 4,
 							remote: {
-								url: "/api/1.0/public/get/validate/username/",
-								type: "get",
+								url: "/api/1.0/public/post/validate/username/",
+								type: "post",
 								data: {
 									username: function() {
 										return $("#username").val();

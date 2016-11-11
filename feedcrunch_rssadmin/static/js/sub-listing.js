@@ -72,6 +72,143 @@ $(document).ready(function() {
 
     $('.dataTables_length select').addClass('browser-default');
 
+	function isUrlValid(url) {
+	    return /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url);
+	}
+
+
+	$('#rssfeed_link').on('paste', function (){
+		setTimeout($.proxy(function () {
+			$(this).blur();
+		}, this), 100);
+	});
+
+	$('#rssfeed_link').on('change',function (){
+
+		var rss_link_input = $(this).val();
+
+		if (! isUrlValid(rss_link_input) ) // URL empty or not valid
+			return false;
+
+		var api_url = "/api/1.0/public/post/validate/rssfeed/";
+		var csrftoken = Cookies.get('csrftoken');
+
+		var info_div = $("#link-ajax-rslt");
+		var label = $("#rssfeed_title").siblings('label');
+		var title_div = $("#rssfeed_title");
+
+		$.ajax({
+            url : api_url,
+            type : "POST",
+            data: {
+                rssfeed: rss_link_input,
+            },
+			timeout: 3000, // sets timeout to 3 seconds
+            dataType : "json",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+				info_div.text("Validating your input ...");
+				info_div.attr("class", "green-text text-darken-2");
+				if (label.hasClass( "active" )){
+					label.removeClass("active");
+					title_div.val("");
+				}
+            },
+			error: function(jqXHR, textStatus){
+		        if(textStatus === 'timeout')
+		        {
+					info_div.text("Request Timeout, please try again...");
+					info_div.attr("class", "red-text text-darken-2");
+		        }
+		    },
+            success: function(data){
+                if (data.success && data.valid) {
+					if (! label.hasClass( "active" ))
+						label.addClass("active");
+
+					title_div.val(data.title);
+
+					info_div.html("&emsp;");
+					info_div.attr("class", "");
+                }
+                else {
+					info_div.text("The feed is not valid. Please check your link");
+					info_div.attr("class", "red-text text-darken-2");
+                }
+            }
+        });
+
+	});
+
+	form_fields_rssfeed = [
+		'rssfeed_link',
+		'rssfeed_title',
+	]
+
+	function clearFields_rssfeed(){
+		for (field in form_fields_rssfeed){
+			var input = $("#"+form_fields_rssfeed[field]);
+			var label = input.siblings('label');
+			if (label.hasClass( "active" )){
+				label.removeClass("active");
+				input.val("");
+			}
+		}
+	}
+
+	$("#close-btn-rssfeed").click(function(){
+		clearFields_rssfeed();
+	});
+
+	$("#reset-btn-rssfeed").click(function() {
+        swal({
+            title: "Are you sure ?",
+            text: "Do you really want to reset all the fields ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, please reset!",
+            cancelButtonText: "Please No!",
+            closeOnConfirm: true,
+            closeOnCancel: true
+        }, function(){
+            clearFields_rssfeed();
+			swal.close();
+        });
+    });
+
+	form_fields_opml = [
+		'opml-file',
+		'opml-text-file',
+	]
+
+	function clearFields_opml(){
+		for (field in form_fields_opml){
+			$("#"+form_fields_opml[field]).val("");
+		}
+	}
+
+	$("#close-btn-opml").click(function(){
+		clearFields_opml();
+	});
+
+	$("#reset-btn-opml").click(function() {
+        swal({
+            title: "Are you sure ?",
+            text: "Do you really want to reset all the fields ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, please reset!",
+            cancelButtonText: "Please No!",
+            closeOnConfirm: true,
+            closeOnCancel: true
+        }, function(){
+            clearFields_opml();
+			swal.close();
+        });
+    });
+
 	/*
 	function reset_click_delete(){
 		$(".delete-link").off("click");

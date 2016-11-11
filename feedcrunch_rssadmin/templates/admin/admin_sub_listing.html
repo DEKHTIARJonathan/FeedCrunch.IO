@@ -23,11 +23,11 @@
 					</div>
 
 					<div class="input-field col s12 m6 l3">
-						<a class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar">Add a RSS Feed</a>
+						<a class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar modal-trigger" href="#modal-addfeed">Add a RSS Feed</a>
 					</div>
 
 					<div class="input-field col s12 m6 l3">
-						<a class="waves-effect waves-light btn green m-b-xs btn-table-head-bar">Import an OPML File</a>
+						<a class="waves-effect waves-light btn green m-b-xs btn-table-head-bar modal-trigger" href="#modal-opml">Import an OPML File</a>
 					</div>
 
 				</div>
@@ -62,5 +62,66 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Modal Add RSS Feed -->
+<div id="modal-addfeed" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header - ADD RSS</h4>
+		<form>
+
+			<div class="row">
+
+				<div class="input-field col m6 s12">
+					<label for="rssfeed_link">RSS Feed Link</label>
+					<input id="rssfeed_link" name="rssfeed_link" type="text" class="validate">
+					<div id="link-ajax-rslt">&emsp;</div>
+				</div>
+
+				<div class="input-field col m6 s12">
+					<label for="rssfeed_title">RSS Feed Title</label>
+					<input id="rssfeed_title" name="rssfeed_title" type="text" class="validate">
+				</div>
+
+			</div>
+
+			<div class="row" style="text-align:right;">
+				<a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-rssfeed">Close Modal</a>
+				<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-rssfeed">Reset</a>
+				<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-rssfeed">Save</a>
+			</div>
+
+		</form>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-opml" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header - Import OPML</h4>
+
+		<form>
+
+			<div class="row">
+				<div class="file-field input-field">
+					<div class="btn teal lighten-1">
+						<span>OPML File</span>
+						<input type="file" id="opml-file" name="opml-file">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text" id="opml-text-file" name="opml-text-file">
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="text-align:right;">
+				<a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-opml">Close Modal</a>
+				<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-opml">Reset</a>
+				<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-opml">Save</a>
+			</div>
+
+		</form>
+
+    </div>
 </div>
 {% endblock %}

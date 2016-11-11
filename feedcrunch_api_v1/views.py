@@ -14,7 +14,7 @@ from feedcrunch.models import Post, FeedUser, Tag, Country
 
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
-import datetime, unicodedata, json, sys, os
+import datetime, unicodedata, json, sys, os, feedparser
 
 from check_admin import check_admin_api
 from time_funcs import get_timestamp
@@ -25,24 +25,20 @@ from image_validation import get_image_dimensions
 
 class Username_Validation(APIView):
 
-	def get(self, request, username=None):
+	def post(self, request):
 
 		try:
 
 			payload = dict()
-			username_get = request.GET.get('username')
+			username = request.POST.get('username')
+			payload ["username"] = username
 
-			if username == None and username_get == None:
+			if username == None:
 				raise Exception("Username not provided")
 
 			else:
 
-				if username == None:
-					payload ["username"] = username_get
-				else :
-					payload ["username"] = username
-
-				payload ["available"] = not FeedUser.objects.filter(username = payload ["username"]).exists()
+				payload ["available"] = not FeedUser.objects.filter(username = username).exists()
 				payload ["success"] = True
 
 		except Exception, e:
@@ -50,6 +46,38 @@ class Username_Validation(APIView):
 			payload["error"] = "An error occured in the process: " + str(e)
 
 		payload["operation"] = "Username Validation"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+class rssfeed_Validation(APIView):
+
+	def post(self, request):
+
+		try:
+
+			payload = dict()
+			rssfeed = request.POST.get('rssfeed')
+			payload ["rssfeed"] = rssfeed
+
+			if rssfeed == None:
+				raise Exception("Link for the RSS Feed not provided")
+
+			else:
+				rss_data = feedparser.parse(rssfeed)
+
+				if rss_data.bozo == 0:
+					payload ["valid"] = True
+					payload ["title"] = rss_data.feed.title
+				else:
+					payload ["valid"] = False
+
+				payload ["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "RSS Feed Validation"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 

@@ -33,17 +33,15 @@ def check_rss_feed(rss_id):
 	feed = RSSFeed.objects.get(id=rss_id)
 	feed.refresh_feed()
 
-def check_user_rss_subscribtion(username):
+def check_user_rss_subscribtions(username):
 	usr = FeedUser.objects.get(username=username)
 
 	for feed in usr.rel_feeds.all():
 		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
-
 def check_allUsers_rss_subscribtions():
 	for user in FeedUser.objects.all():
-		schedule('feedcrunch.tasks.check_user_rss_subscribtion', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
-
+		schedule('feedcrunch.tasks.check_user_rss_subscribtions', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 def launch_recurrent_tasks():
 	execution_time = timezone.now()

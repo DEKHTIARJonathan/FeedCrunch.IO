@@ -13,8 +13,8 @@ urlpatterns = [
 
 	# ====================== Public API Routes ====================== #
 
-	url(r'^public/get/validate/username/(?P<username>\w+)/$', Username_Validation.as_view(), name='validate_username'),
-	url(r'^public/get/validate/username/$', Username_Validation.as_view(), name='validate_username'),
+	url(r'^public/post/validate/username/$', Username_Validation.as_view(), name='validate_username'),
+	url(r'^public/post/validate/rssfeed/$', rssfeed_Validation.as_view(), name='validate_username'),
 
 	# ====================== Authentication Required API Routes ====================== #
 
