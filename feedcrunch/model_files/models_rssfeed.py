@@ -54,9 +54,6 @@ class RSSFeed(models.Model):
 				else:
 					continue
 
-				print "link: " + link
-
 				if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
 					article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
 					article_tmp.save()
-					print title
