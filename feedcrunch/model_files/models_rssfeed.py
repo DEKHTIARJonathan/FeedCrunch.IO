@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 from django.db import models
 
-import datetime, string, re, unicodedata
+import datetime, string, re, unicodedata, feedparser
 
 from .models_user import FeedUser
 
