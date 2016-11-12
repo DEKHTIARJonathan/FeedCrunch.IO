@@ -28,6 +28,9 @@ urlpatterns = [
 	# Tag Routes
 	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),
 
+	# RSSFeed Routes
+	url(r'^authenticated/post/rssfeed/$', RSSFeed_View.as_view(), name='rssfeed_as_json'),
+
 	# Article Routes
 	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
 	url(r'^authenticated/modify/article/(?P<postID>\d+)/$', Article.as_view(), name='modify_article'),

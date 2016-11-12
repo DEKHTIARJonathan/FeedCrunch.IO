@@ -76,6 +76,7 @@ $(document).ready(function() {
 	    return /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url);
 	}
 
+	// ================================================================ RSS Feed MODAL ========================================================
 
 	$('#rssfeed_link').on('paste', function (){
 		setTimeout($.proxy(function () {
@@ -87,8 +88,6 @@ $(document).ready(function() {
 
 		var rss_link_input = $(this).val();
 
-		if (! isUrlValid(rss_link_input) ) // URL empty or not valid
-			return false;
 
 		var api_url = "/api/1.0/public/post/validate/rssfeed/";
 		var csrftoken = Cookies.get('csrftoken');
@@ -97,13 +96,19 @@ $(document).ready(function() {
 		var label = $("#rssfeed_title").siblings('label');
 		var title_div = $("#rssfeed_title");
 
+		if (! isUrlValid(rss_link_input) ){ // URL empty or not valid
+			info_div.html("&emsp;");
+			info_div.attr("class", "");
+			return false;
+		}
+
 		$.ajax({
             url : api_url,
             type : "POST",
             data: {
                 rssfeed: rss_link_input,
             },
-			timeout: 3000, // sets timeout to 3 seconds
+			timeout: 4500, // sets timeout to 3 seconds
             dataType : "json",
             beforeSend: function(xhr) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
@@ -132,7 +137,7 @@ $(document).ready(function() {
 					info_div.attr("class", "");
                 }
                 else {
-					info_div.text("The feed is not valid. Please check your link");
+					info_div.text(data.error);
 					info_div.attr("class", "red-text text-darken-2");
                 }
             }
@@ -154,6 +159,18 @@ $(document).ready(function() {
 				input.val("");
 			}
 		}
+		$("#link-ajax-rslt").text("Verifying and subscribing to the feed ...");
+		$("#link-ajax-rslt").attr("class", "");
+	}
+
+	function get_fields_rssfeed(){
+		var rslt = {};
+		for (field in form_fields_rssfeed){
+			//console.log(social_networks[field]+ " = " +$("#"+social_networks[field]).val());
+			var input = $("#"+form_fields_rssfeed[field]);
+			rslt[form_fields_rssfeed[field]] = input.val();
+		}
+		return rslt;
 	}
 
 	$("#close-btn-rssfeed").click(function(){
@@ -176,6 +193,51 @@ $(document).ready(function() {
 			swal.close();
         });
     });
+
+	$("#save-btn-rssfeed").click(function() {
+		var api_url = "/api/1.0/authenticated/post/rssfeed/";
+		var csrftoken = Cookies.get('csrftoken');
+		var info_div = $("#link-ajax-rslt");
+
+		$.ajax({
+			url : api_url,
+			type : "POST",
+			data: get_fields_rssfeed(),
+			dataType : "json",
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("X-CSRFToken", csrftoken);
+				info_div.text("Verifying and subscribing to the feed ...");
+				info_div.attr("class", "green-text text-darken-2");
+			},
+			success: function(data){
+				if (data.success) {
+					swal({
+						title: "Good job!",
+						text: "RSS Feed Added with success!",
+						type: "success",
+						timer: 3000,
+						showConfirmButton: false,
+						cache: false,
+					}, function(){
+			            clearFields_rssfeed();
+						swal.close();
+			        });
+				}
+				else {
+					swal({
+						title: "Something went wrong!",
+						text: data.error,
+						type: "error",
+						confirmButtonColor: "#DD6B55",
+						confirmButtonText: "I'll retry later",
+						closeOnConfirm: true
+					});
+				}
+			}
+		});
+    });
+
+	// ================================================================ OPML MODAL ========================================================
 
 	form_fields_opml = [
 		'opml-file',

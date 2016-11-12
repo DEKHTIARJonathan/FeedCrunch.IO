@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser
 
-from feedcrunch.models import Post, FeedUser, Tag, Country
+from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed
 
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
@@ -63,13 +63,22 @@ class rssfeed_Validation(APIView):
 				raise Exception("Link for the RSS Feed not provided")
 
 			else:
-				rss_data = feedparser.parse(rssfeed)
+				tmp_user = FeedUser.objects.get(username=request.user.username)
 
-				if rss_data.bozo == 0:
-					payload ["valid"] = True
-					payload ["title"] = rss_data.feed.title
-				else:
+				if RSSFeed.objects.filter(link=rssfeed, user=tmp_user).exists():
 					payload ["valid"] = False
+					payload ["error"] = "You already subscribed to this RSS Feed"
+
+				else:
+					rss_data = feedparser.parse(rssfeed)
+
+					if rss_data.bozo != 0:
+						payload ["valid"] = False
+						payload ["error"] = "The RSS Feed is not valid. Please check your link"
+
+					else:
+						payload ["valid"] = True
+						payload ["title"] = rss_data.feed.title
 
 				payload ["success"] = True
 
@@ -181,6 +190,52 @@ class Tags(APIView):
 			payload["error"] = "An error occured in the process: " + str(e)
 
 		payload["operation"] = "Get All Tags"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Article  (PUT), DELETE Article (DELETE)
+
+	def get(self, request):
+		payload = dict()
+		payload["success"] = True
+		return Response(payload)
+
+	def post(self, request):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			else:
+				payload ["username"] = request.user.username
+
+				title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
+				link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
+
+				if title == "" or link == "":
+					raise Exception("Title and/or Link is/are missing")
+
+				tmp_user = FeedUser.objects.get(username=request.user.username)
+				if RSSFeed.objects.filter(link=link, user=tmp_user).exists():
+					raise Exception("Already subscribed to this feed")
+
+				if feedparser.parse(link).bozo != 0:
+					raise Exception("RSS Feed is not valid")
+
+				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=tmp_user)
+
+				tmp_rssfeed.save()
+
+				payload["success"] = True
+				payload["RSSFeedID"] = str(tmp_rssfeed.id)
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "subscribe to RSS Feed"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
