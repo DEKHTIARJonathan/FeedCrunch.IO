@@ -234,6 +234,10 @@ Q_CLUSTER = {
 	}
 }
 
+if DEBUG:
+	Q_CLUSTER['workers'] = 4
+	Q_CLUSTER['recycle'] = 500
+
 # MAXIMUM RSS retry
 
 MAX_RSS_RETRIES = 5
