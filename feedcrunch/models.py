@@ -66,8 +66,12 @@ admin.site.register(Post, PostAdmin)
 
 # ==================== RSS Feed ============================
 class RSSFeedAdmin(admin.ModelAdmin):
-	list_display = ('id', 'user', 'title', 'get_domain', 'link', 'added_date')
+	list_display = ('id', 'user', 'title', 'get_domain', 'link', '_get_articles_count')
 	ordering = ('-id',)
+
+	def _get_articles_count(self, obj):
+		return obj.count_articles()
+	_get_articles_count.short_description="Articles Count"
 
 admin.site.register(RSSFeed, RSSFeedAdmin)
 

@@ -234,6 +234,10 @@ Q_CLUSTER = {
 	}
 }
 
+# MAXIMUM RSS retry
+
+MAX_RSS_RETRIES = 5
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 

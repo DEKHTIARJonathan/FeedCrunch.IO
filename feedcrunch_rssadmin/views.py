@@ -223,7 +223,7 @@ def sub_management(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		feeds = RSSFeed.objects.filter(user=feedname).order_by("title")
+		feeds = RSSFeed.objects.filter(user=feedname, active=True).order_by("title")
 		return render(request, 'admin/admin_sub_listing.html', {'feeds': feeds})
 
 def reading_recommendation(request, feedname=None):

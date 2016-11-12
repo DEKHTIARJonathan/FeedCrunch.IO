@@ -30,13 +30,22 @@ def welcome_mail(username):
   # this schedule will erase itself after having run
 
 def check_rss_feed(rss_id):
-	feed = RSSFeed.objects.get(id=rss_id)
-	feed.refresh_feed()
+	try:
+		feed = RSSFeed.objects.get(id=rss_id)
+		feed.refresh_feed()
+		feed.bad_attempts = 0
+		
+	except:
+		feed.bad_attempts += 1
+		if (feed.bad_attempts >= settings.MAX_RSS_RETRIES):
+			feed.active = False
+
+	feed.save()
 
 def check_user_rss_subscribtions(username):
 	usr = FeedUser.objects.get(username=username)
 
-	for feed in usr.rel_feeds.all():
+	for feed in usr.rel_feeds.filter(active=True):
 		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 def check_allUsers_rss_subscribtions():

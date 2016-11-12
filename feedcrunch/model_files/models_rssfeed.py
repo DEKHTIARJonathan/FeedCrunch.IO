@@ -16,6 +16,8 @@ class RSSFeed(models.Model):
 	title = models.CharField(max_length=255)
 	link = models.URLField(max_length=2000)
 	added_date = models.DateTimeField(auto_now_add=True)
+	active = models.BooleanField(default=True)
+	bad_attempts = models.SmallIntegerField(default=0)
 
 	def __unicode__(self):
 		return self.title
@@ -29,27 +31,33 @@ class RSSFeed(models.Model):
 	def get_domain(self):
 		return get_domain(self.link)
 
+	def count_articles(self):
+		return self.rel_rss_feed_articles.count()
+
 	def refresh_feed(self):
-		from .models_rssarticle import RSSArticle
+		if (self.active):
+			from .models_rssarticle import RSSArticle
 
-		feed_content = feedparser.parse(self.link)
+			feed_content = feedparser.parse(self.link)
 
-		if (feed_content.bozo == 0):
+			if (feed_content.bozo == 0):
 
-			for entry in feed_content['entries']:
+				for entry in feed_content['entries']:
 
-				if 'title' in entry:
-					title = unicodedata.normalize('NFKD', entry["title"]).encode('ascii','ignore')
-				else:
-					continue
+					if 'title' in entry:
+						title = unicodedata.normalize('NFKD', entry["title"]).encode('ascii','ignore')
+					else:
+						continue
 
-				if 'link' in entry:
-					link = entry["link"]
-				elif 'links' in entry:
-					link = entry["links"][0]["href"]
-				else:
-					continue
+					if 'link' in entry:
+						link = entry["link"]
+					elif 'links' in entry:
+						link = entry["links"][0]["href"]
+					else:
+						continue
 
-				if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
-					article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
-					article_tmp.save()
+					if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
+						article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
+						article_tmp.save()
+		else:
+			raise Exception("Feed ID = " + str(self.id) + " is not active.")
