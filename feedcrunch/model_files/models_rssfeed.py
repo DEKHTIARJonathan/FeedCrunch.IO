@@ -6,7 +6,9 @@ from django.db import models
 
 import datetime, string, re, unicodedata
 
-from .models_user import *
+from .models_user import FeedUser
+
+from get_domain import get_domain
 
 class RSSFeed(models.Model):
 	id = models.AutoField(primary_key=True)
@@ -25,13 +27,7 @@ class RSSFeed(models.Model):
 		return self.added_date.strftime("%Y/%m/%d")
 
 	def get_domain(self):
-		starts = [match.start() for match in re.finditer(re.escape("/"), self.link)]
-		if len(starts) > 2:
-			return self.link[starts[1]+1:starts[2]]
-		elif len(starts) == 2:
-			return self.link[starts[1]+1:]
-		else:
-			return str("error")
+		return get_domain(self.link)
 
 	def refresh_feed(self):
 		from .models_rssarticle import RSSArticle

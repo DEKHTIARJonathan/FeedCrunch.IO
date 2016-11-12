@@ -11,6 +11,8 @@ from .models_geo import *
 from .models_user import *
 from .models_tag import *
 
+from get_domain import get_domain
+
 def create_key(size=8):
 	return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(size))
 
@@ -37,13 +39,7 @@ class Post(models.Model):
 		return self.when.strftime("%Y/%m/%d")
 
 	def get_domain(self):
-		starts = [match.start() for match in re.finditer(re.escape("/"), self.link)]
-		if len(starts) > 2:
-			return self.link[starts[1]+1:starts[2]]
-		elif len(starts) == 2:
-			return self.link[starts[1]+1:]
-		else:
-			return str("error")
+		return get_domain(self.link)
 
 	def get_tags(self):
 		output = ""
