@@ -159,7 +159,7 @@ $(document).ready(function() {
 				input.val("");
 			}
 		}
-		$("#link-ajax-rslt").text("Verifying and subscribing to the feed ...");
+		$("#link-ajax-rslt").html("&emsp;");
 		$("#link-ajax-rslt").attr("class", "");
 	}
 
