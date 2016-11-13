@@ -53,7 +53,7 @@ class RSSArticle(models.Model):
 	added_date = models.DateTimeField(auto_now_add=True)
 
 	def __unicode__(self):
-		return str(self.title)
+		return self.title
 
 	def save(self, *args, **kwargs):
 		self.title = clean_html(self.title)

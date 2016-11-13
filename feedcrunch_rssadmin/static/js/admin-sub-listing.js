@@ -239,7 +239,7 @@ $(document).ready(function() {
 						title: "Good job!",
 						text: "RSS Feed Added with success!",
 						type: "success",
-						timer: 5000,
+						timer: 2000,
 						showConfirmButton: false,
 						cache: false,
 					}, function(){
