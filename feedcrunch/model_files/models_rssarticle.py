@@ -16,7 +16,7 @@ class RSSArticleManager(models.Manager):
 	def create(self, *args, **kwargs):
 
 		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
-			kwargs['title'] = clean_html(title)
+			kwargs['title'] = clean_html(kwargs['title'])
 
 		return super(RSSArticleManager, self).create(*args, **kwargs)
 
