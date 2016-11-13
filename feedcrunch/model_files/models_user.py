@@ -109,7 +109,7 @@ class FeedUserManager(BaseUserManager):
 				return {'status': False, 'error': str(e)}
 
 		def _normalize_username(self, username):
-			return unicodedata.normalize('NFKC', force_text(username))
+			return unicodedata.normalize('NFKC', force_text(username).lower())
 
 		def _create_user(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
 				"""

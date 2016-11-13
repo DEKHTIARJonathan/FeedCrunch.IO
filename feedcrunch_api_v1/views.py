@@ -37,7 +37,7 @@ class Username_Validation(APIView):
 				raise Exception("Username not provided")
 
 			else:
-
+				username = username.lower() # Make it Lowercase
 				payload ["available"] = not FeedUser.objects.filter(username = username).exists()
 				payload ["success"] = True
 

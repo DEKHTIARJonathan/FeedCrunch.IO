@@ -37,7 +37,7 @@ def terms(request):
 def loginView(request):
 	context = RequestContext(request)
 	if request.method == 'POST':
-		username = request.POST['username']
+		username = request.POST['username'].lower()
 		password = request.POST['password']
 
 		user = authenticate(username=username, password=password)
@@ -60,7 +60,7 @@ def signUPView(request):
 
 	if request.method == 'POST':
 		try:
-			username = request.POST['username']
+			username = request.POST['username'].lower()
 			firstname = request.POST['firstname']
 			lastname = request.POST['lastname']
 			email = request.POST['email']
