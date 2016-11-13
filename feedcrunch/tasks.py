@@ -30,17 +30,8 @@ def welcome_mail(username):
   # this schedule will erase itself after having run
 
 def check_rss_feed(rss_id):
-	try:
-		feed = RSSFeed.objects.get(id=rss_id)
-		feed.refresh_feed()
-		feed.bad_attempts = 0
-		
-	except:
-		feed.bad_attempts += 1
-		if (feed.bad_attempts >= settings.MAX_RSS_RETRIES):
-			feed.active = False
-
-	feed.save()
+	feed = RSSFeed.objects.get(id=rss_id)
+	feed.refresh_feed()
 
 def check_user_rss_subscribtions(username):
 	usr = FeedUser.objects.get(username=username)

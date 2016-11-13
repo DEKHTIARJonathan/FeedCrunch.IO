@@ -24,9 +24,6 @@ from twython import Twython
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
-import feedparser
-
-
 def generateDummyDesc():
 	return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor. Vestibulum tempor sapien id justo molestie imperdiet. Nulla efficitur mattis ante, nec iaculis lorem consequat in. Nullam sit amet diam augue. Nulla ullamcorper imperdiet turpis a maximus. Donec iaculis porttitor ultrices. Morbi lobortis dui molestie ullamcorper varius. Maecenas eu laoreet ipsum orci aliquam."
 
@@ -385,6 +382,14 @@ class FeedUser(AbstractFeedUser):
 			else:
 				continue # Go to next Feed
 
-			if not RSSFeed.objects.filter(user=self, link=link).exists() and feedparser.parse(link).bozo == 0: # Feed is Valid
-					feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
-					feed_tmp.save()
+			if not RSSFeed.objects.filter(user=self, link=link).exists(): # Feed is Valid
+				feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
+
+				if feed_tmp != False:
+					schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed_tmp.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+
+	def refresh_user_feed(self):
+		launch_time = timezone.now() + timedelta(minutes=1)
+
+		for feed in self.rel_feeds.filter(active=True):
+			schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)

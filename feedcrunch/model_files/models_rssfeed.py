@@ -3,6 +3,7 @@
 
 from __future__ import unicode_literals
 from django.db import models
+from django.conf import settings
 
 import datetime, string, re, unicodedata, feedparser, HTMLParser
 
@@ -11,13 +12,23 @@ from .models_user import FeedUser
 from get_domain import get_domain
 from clean_html import clean_html
 
+from feed_validation import validate_feed
+
 class RSSFeedManager(models.Manager):
 	def create(self, *args, **kwargs):
 
-		if 'title' in kwargs and kwargs['title'] is str:
-			kwargs['title'] = clean_html(title)
+		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
+			kwargs['title'] = clean_html(kwargs['title'])
+		else:
+			raise Exception("Title is missing - RSSFeed Manager")
 
-		super(HardwareManager, self).create(*args, **kwargs)
+		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
+			if not validate_feed(kwargs['link']):
+				raise Exception("RSS Feed is not valid")
+		else:
+			raise Exception("Link is missing - RSSFeed Manager")
+
+		return super(RSSFeedManager, self).create(*args, **kwargs)
 
 class RSSFeed(models.Model):
 	objects = RSSFeedManager()
@@ -49,30 +60,52 @@ class RSSFeed(models.Model):
 	def count_articles(self):
 		return self.rel_rss_feed_articles.count()
 
+	def _trigger_bad_attempt(self):
+		self.bad_attempts += 1
+		if self.bad_attempts >= settings.MAX_RSS_RETRIES:
+			self.active = False
+		self.save()
+
+	def _reset_bad_attempts(self):
+		if (self.bad_attempts != 0 or self.active == False):
+			self.bad_attempts = 0
+			self.active = True
+			self.save()
+
 	def refresh_feed(self):
-		if (self.active):
-			from .models_rssarticle import RSSArticle
+		try:
+			if (self.active):
+				from .models_rssarticle import RSSArticle
 
-			feed_content = feedparser.parse(self.link)
+				feed_content = feedparser.parse(self.link)
 
-			if (feed_content.bozo == 0):
+				if feed_content.status == 200:
 
-				for entry in feed_content['entries']:
+					for entry in feed_content['entries']:
 
-					if 'title' in entry:
-						title = unicodedata.normalize('NFKD', entry["title"]).encode('ascii','ignore')
-					else:
-						continue
+						if 'title' in entry:
+							title = unicodedata.normalize('NFKD', entry["title"]).encode('ascii','ignore')
+						else:
+							continue
 
-					if 'link' in entry:
-						link = entry["link"]
-					elif 'links' in entry:
-						link = entry["links"][0]["href"]
-					else:
-						continue
+						if 'link' in entry:
+							link = entry["link"]
+						elif 'links' in entry:
+							link = entry["links"][0]["href"]
+						else:
+							continue
 
-					if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
-						article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
-						article_tmp.save()
-		else:
-			raise Exception("Feed ID = " + str(self.id) + " is not active.")
+						if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
+							article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
+							article_tmp.save()
+					self._reset_bad_attempts()
+
+				else:
+					raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
+
+			else:
+				raise Exception("Feed ID = " + str(self.id) + " is not active.")
+
+		except Exception, e:
+			print "An error occured in the process: " + str(e)
+			self._trigger_bad_attempt()

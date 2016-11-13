@@ -22,6 +22,7 @@ from date_manipulation import get_N_time_period
 from data_convert import str2bool
 from ap_style import format_title
 from image_validation import get_image_dimensions
+from feed_validation import validate_feed
 
 class Username_Validation(APIView):
 
@@ -72,13 +73,13 @@ class rssfeed_Validation(APIView):
 				else:
 					rss_data = feedparser.parse(rssfeed)
 
-					if rss_data.bozo != 0:
-						payload ["valid"] = False
-						payload ["error"] = "The RSS Feed is not valid. Please check your link"
-
-					else:
+					if validate_feed(rss_data):
 						payload ["valid"] = True
 						payload ["title"] = rss_data.feed.title
+
+					else:
+						payload ["valid"] = False
+						payload ["error"] = "The RSS Feed is not valid. Please check your link"
 
 				payload ["success"] = True
 
@@ -218,11 +219,9 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 					raise Exception("Title and/or Link is/are missing")
 
 				tmp_user = FeedUser.objects.get(username=request.user.username)
+
 				if RSSFeed.objects.filter(link=link, user=tmp_user).exists():
 					raise Exception("Already subscribed to this feed")
-
-				if feedparser.parse(link).bozo != 0:
-					raise Exception("RSS Feed is not valid")
 
 				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=tmp_user)
 

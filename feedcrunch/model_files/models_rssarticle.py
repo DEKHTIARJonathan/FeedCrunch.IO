@@ -15,10 +15,10 @@ from clean_html import clean_html
 class RSSArticleManager(models.Manager):
 	def create(self, *args, **kwargs):
 
-		if 'title' in kwargs and kwargs['title'] is str:
+		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
 			kwargs['title'] = clean_html(title)
 
-		super(HardwareManager, self).create(*args, **kwargs)
+		return super(RSSArticleManager, self).create(*args, **kwargs)
 
 class RSSArticle(models.Model):
 	objects = RSSArticleManager()

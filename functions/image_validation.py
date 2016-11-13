@@ -1,9 +1,7 @@
 #!/usr/bin/env python
-#
-# Corey Goldberg, 2013
-#
-# Python 2.7
+# -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
 
 """validate and analyze dimensions of image files.  Supports: PNG, JPG, GIF."""
 

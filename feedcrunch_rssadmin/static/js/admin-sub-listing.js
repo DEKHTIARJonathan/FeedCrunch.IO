@@ -108,7 +108,7 @@ $(document).ready(function() {
             data: {
                 rssfeed: rss_link_input,
             },
-			timeout: 4500, // sets timeout to 3 seconds
+			timeout: 5000, // sets timeout to 5 seconds
             dataType : "json",
             beforeSend: function(xhr) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
@@ -199,23 +199,43 @@ $(document).ready(function() {
 		var csrftoken = Cookies.get('csrftoken');
 		var info_div = $("#link-ajax-rslt");
 
+		if (! isUrlValid($("#rssfeed_link").val()) ){ // URL empty or not valid
+			info_div.text("Link is empty or not Valid");
+			info_div.attr("class", "red-text text-darken-2");
+			return false;
+		}
+
+		if ( $("#rssfeed_title").val() == "" ){ // Title empty
+			info_div.text("Title is empty");
+			info_div.attr("class", "red-text text-darken-2");
+			return false;
+		}
+
 		$.ajax({
 			url : api_url,
 			type : "POST",
 			data: get_fields_rssfeed(),
+			timeout: 5000, // sets timeout to 5 seconds
 			dataType : "json",
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("X-CSRFToken", csrftoken);
 				info_div.text("Verifying and subscribing to the feed ...");
 				info_div.attr("class", "green-text text-darken-2");
 			},
+			error: function(jqXHR, textStatus){
+		        if(textStatus === 'timeout')
+		        {
+					info_div.text("Request Timeout, please try again...");
+					info_div.attr("class", "red-text text-darken-2");
+		        }
+		    },
 			success: function(data){
 				if (data.success) {
 					swal({
 						title: "Good job!",
 						text: "RSS Feed Added with success!",
 						type: "success",
-						timer: 3000,
+						timer: 5000,
 						showConfirmButton: false,
 						cache: false,
 					}, function(){
@@ -231,7 +251,10 @@ $(document).ready(function() {
 						confirmButtonColor: "#DD6B55",
 						confirmButtonText: "I'll retry later",
 						closeOnConfirm: true
-					});
+					}, function(){
+						info_div.html("&emsp;");
+						info_div.attr("class", "");
+			        });
 				}
 			}
 		});
