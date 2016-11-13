@@ -30,13 +30,13 @@
 
 					<tbody>
 
-						{% for post in posts %}
+						{% for rssarticle in rssarticles %}
 						<tr>
-							<td>{{ post.title }}</td>
-							<td>{{ post.get_domain }}</span>
-							<td style="color: rgb({{ post.color }},0,0)">{{ post.score }}%</td>
-							<td><a href="{{ post.link }}" target="_blank">Open</a></td>
-							<td><a class="success-btn" href="#{{ post.id }}">Publish</a></td>
+							<td>{{ rssarticle.title }}</td>
+							<td>{{ rssarticle.get_domain }}</span>
+							<td style="color: rgb({{ rssarticle.color }},0,0)">{{ rssarticle.score }}%</td>
+							<td><a href="{{ rssarticle.link }}" target="_blank">Open</a></td>
+							<td><a class="success-btn" href="#{{ rssarticle.id }}">Publish</a></td>
 						</tr>
 						{% endfor %}
 

@@ -12,7 +12,7 @@ from django.core.exceptions import ValidationError
 import datetime, unicodedata, json
 from calendar import monthrange
 
-from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed
+from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from check_admin import check_admin
@@ -231,11 +231,11 @@ def reading_recommendation(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		posts = Post.objects.filter(user = feedname).order_by('-id')
+		rssarticles = RSSArticle.objects.filter(user = feedname).order_by('-added_date')
 
-		posts_data = []
+		rssarticles_data = []
 
-		max_size = len(posts)
+		max_size = len(rssarticles)
 
 		if max_size > 30:
 			max_size = 30
@@ -243,14 +243,14 @@ def reading_recommendation(request, feedname=None):
 		for i in range(max_size):
 
 			tmp = {
-				'id': posts[i].id,
-				'title': posts[i].title,
-				'get_domain': posts[i].get_domain(),
-				'link': posts[i].link,
+				'id': rssarticles[i].id,
+				'title': rssarticles[i].title,
+				'get_domain': rssarticles[i].get_domain(),
+				'link': rssarticles[i].link,
 				'score': 97.3 - 1.2*i,
 				'color': int(255 - 4.7*i),
-				'get_shortdate': posts[i].get_shortdate(),
+				'get_shortdate': rssarticles[i].get_shortdate(),
 			}
-			posts_data.append(tmp)
+			rssarticles_data.append(tmp)
 
-		return render(request, 'admin/admin_reading_recommendation.html', {'posts': posts_data})
+		return render(request, 'admin/admin_reading_recommendation.html', {'rssarticles': rssarticles_data})

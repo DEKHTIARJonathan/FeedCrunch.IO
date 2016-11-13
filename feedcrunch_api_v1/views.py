@@ -5,10 +5,14 @@ from __future__ import unicode_literals
 
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
+from django.utils import timezone
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser
+
+from django_q.tasks import async, schedule
+from django_q.models import Schedule
 
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed
 
@@ -225,7 +229,7 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 
 				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=tmp_user)
 
-				tmp_rssfeed.save()
+				schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
 
 				payload["success"] = True
 				payload["RSSFeedID"] = str(tmp_rssfeed.id)

@@ -6,7 +6,6 @@ from __future__ import unicode_literals
 import feedparser
 
 def validate_feed(feed):
-	print "FEED !!!!!!!!!!!!!!!!!!!!!!!!"
 	if isinstance(feed, str) or isinstance(feed, unicode):
 		feed = feedparser.parse(feed)
 

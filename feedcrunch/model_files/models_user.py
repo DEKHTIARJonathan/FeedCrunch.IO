@@ -14,6 +14,9 @@ from django.utils import six, timezone
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
+from django_q.tasks import async, schedule
+from django_q.models import Schedule
+
 from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
@@ -386,10 +389,10 @@ class FeedUser(AbstractFeedUser):
 				feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
 
 				if feed_tmp != False:
-					schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed_tmp.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+					schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed_tmp.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
 
 	def refresh_user_feed(self):
-		launch_time = timezone.now() + timedelta(minutes=1)
+		launch_time = timezone.now() + datetime.timedelta(minutes=1)
 
 		for feed in self.rel_feeds.filter(active=True):
 			schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)
