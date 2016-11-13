@@ -8,9 +8,7 @@ import re, HTMLParser, unicodedata
 def clean_html(raw_html):
 	# Normalizarion
 	if isinstance(raw_html, unicode):
-		cleantext = unicodedata.normalize('NFC', raw_html).encode('ascii','ignore')
-	else:
-		cleantext = raw_html.encode('ascii','ignore')
+		cleantext = unicodedata.normalize('NFC', raw_html)
 
 	# Removing all HTML Tags
 	cleanr = re.compile('<.*?>')
