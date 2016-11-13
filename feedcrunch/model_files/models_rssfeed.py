@@ -23,8 +23,13 @@ class RSSFeedManager(models.Manager):
 			raise Exception("Title is missing - RSSFeed Manager")
 
 		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
+
 			if not validate_feed(kwargs['link']):
 				raise Exception("RSS Feed is not valid")
+
+			elif RSSFeed.objects.filter(link=kwargs['link'], user=kwargs['user']).exists():
+				raise Exception("User already subscribed to this feed.")
+
 		else:
 			raise Exception("Link is missing - RSSFeed Manager")
 
@@ -84,20 +89,19 @@ class RSSFeed(models.Model):
 					for entry in feed_content['entries']:
 
 						if 'title' in entry:
-							title = unicodedata.normalize('NFKD', entry["title"]).encode('ascii','ignore')
+							title = unicodedata.normalize('NFC', entry["title"])
 						else:
 							continue
 
 						if 'link' in entry:
-							link = entry["link"]
+							link = unicodedata.normalize('NFC', entry["link"])
 						elif 'links' in entry:
-							link = entry["links"][0]["href"]
+							link = unicodedata.normalize('NFC', entry["links"][0]["href"])
 						else:
 							continue
 
-						if not RSSArticle.objects.filter(user=self.user, rssfeed=self, title=title, link=link).exists():
-							article_tmp = RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
-							article_tmp.save()
+						RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
+
 					self._reset_bad_attempts()
 
 				else:

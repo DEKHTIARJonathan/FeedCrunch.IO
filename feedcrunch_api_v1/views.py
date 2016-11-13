@@ -27,6 +27,7 @@ from data_convert import str2bool
 from ap_style import format_title
 from image_validation import get_image_dimensions
 from feed_validation import validate_feed
+from clean_html import clean_html
 
 class Username_Validation(APIView):
 
@@ -79,7 +80,7 @@ class rssfeed_Validation(APIView):
 
 					if validate_feed(rss_data):
 						payload ["valid"] = True
-						payload ["title"] = rss_data.feed.title
+						payload ["title"] = clean_html(rss_data.feed.title)
 
 					else:
 						payload ["valid"] = False
@@ -219,13 +220,7 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 				title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
 				link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
 
-				if title == "" or link == "":
-					raise Exception("Title and/or Link is/are missing")
-
 				tmp_user = FeedUser.objects.get(username=request.user.username)
-
-				if RSSFeed.objects.filter(link=link, user=tmp_user).exists():
-					raise Exception("Already subscribed to this feed")
 
 				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=tmp_user)
 

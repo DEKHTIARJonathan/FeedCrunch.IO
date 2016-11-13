@@ -17,6 +17,22 @@ class RSSArticleManager(models.Manager):
 
 		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
 			kwargs['title'] = clean_html(kwargs['title'])
+		else:
+			raise Exception("Title is missing - RSSArticle Manager")
+
+		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
+
+			"""
+			if not validate_feed(kwargs['link']): # IF VALIDATE LINK
+				raise Exception("RSS Feed is not valid")
+
+			elif RSSFeed.objects.filter(link=link, user=kwargs['user']).exists():
+			"""
+			if RSSArticle.objects.filter(user=kwargs['user'], rssfeed=kwargs['rssfeed'], title=kwargs['title'], link=kwargs['link']).exists():
+				return False
+
+		else:
+			raise Exception("Link is missing - RSSFeed Manager")
 
 		return super(RSSArticleManager, self).create(*args, **kwargs)
 
