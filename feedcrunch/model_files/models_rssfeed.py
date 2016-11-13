@@ -4,13 +4,24 @@
 from __future__ import unicode_literals
 from django.db import models
 
-import datetime, string, re, unicodedata, feedparser
+import datetime, string, re, unicodedata, feedparser, HTMLParser
 
 from .models_user import FeedUser
 
 from get_domain import get_domain
+from clean_html import clean_html
+
+class RSSFeedManager(models.Manager):
+	def create(self, *args, **kwargs):
+
+		if 'title' in kwargs and kwargs['title'] is str:
+			kwargs['title'] = clean_html(title)
+
+		super(HardwareManager, self).create(*args, **kwargs)
 
 class RSSFeed(models.Model):
+	objects = RSSFeedManager()
+
 	id = models.AutoField(primary_key=True)
 	user = models.ForeignKey(FeedUser, related_name='rel_feeds')
 	title = models.CharField(max_length=255)
@@ -21,6 +32,10 @@ class RSSFeed(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	def save(self, *args, **kwargs):
+		self.title = clean_html(self.title)
+		super(RSSFeed, self).save(*args, **kwargs) # Call the "real" save() method.
 
 	def get_date(self):
 		return self.added_date.strftime("%Y/%m/%d %H:%M")

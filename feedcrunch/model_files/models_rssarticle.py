@@ -10,8 +10,19 @@ from .models_user import *
 from .models_rssfeed import *
 
 from get_domain import get_domain
+from clean_html import clean_html
+
+class RSSArticleManager(models.Manager):
+	def create(self, *args, **kwargs):
+
+		if 'title' in kwargs and kwargs['title'] is str:
+			kwargs['title'] = clean_html(title)
+
+		super(HardwareManager, self).create(*args, **kwargs)
 
 class RSSArticle(models.Model):
+	objects = RSSArticleManager()
+
 	id = models.AutoField(primary_key=True)
 	user = models.ForeignKey(FeedUser, related_name='rel_rss_user_articles')
 	rssfeed = models.ForeignKey(RSSFeed, related_name='rel_rss_feed_articles')
@@ -27,6 +38,10 @@ class RSSArticle(models.Model):
 
 	def __unicode__(self):
 		return str(self.title)
+
+	def save(self, *args, **kwargs):
+		self.title = clean_html(self.title)
+		super(RSSArticle, self).save(*args, **kwargs) # Call the "real" save() method.
 
 	def get_date(self):
 		return self.added_date.strftime("%Y/%m/%d %H:%M")
