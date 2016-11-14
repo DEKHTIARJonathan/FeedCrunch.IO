@@ -48,9 +48,6 @@
 		{% elif template_name == "admin/admin_preferences.html" %}
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
-		{% elif template_name == "admin/admin_profile_picture.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
-
 		{% elif template_name == "admin/admin_password.html" %}
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
@@ -374,11 +371,6 @@
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-preferences.js" %}"></script>
 
-		{% elif template_name == "admin/admin_profile_picture.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "js/admin-profile-picture.js" %}"></script>
-
 		{% elif template_name == "admin/admin_password.html" %}
 			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
@@ -392,6 +384,7 @@
 			<script type="text/javascript" src="{% static "js/admin-social-accounts.js" %}"></script>
 
 		{% elif template_name == "admin/admin_photo.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-photo.js" %}"></script>
 

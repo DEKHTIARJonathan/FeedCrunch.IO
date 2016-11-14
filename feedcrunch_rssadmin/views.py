@@ -103,7 +103,6 @@ def picture_form(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		#return render(request, 'admin/admin_profile_picture.html')
 		return render(request, 'admin/admin_photo.html')
 
 def social_form(request, feedname=None):
@@ -194,13 +193,15 @@ def upload_picture(request, feedname=None):
 				if photo.content_type not in allowed_mime_types:
 					raise ValueError("Only Images are allowed.")
 
+				"""
 				w, h = get_image_dimensions(photo.read())
 
 				if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 :
 
 					if photo.size > 1048576: # > 1MB
 						raise ValueError("File size is larger than 1MB.")
-
+				"""
+				if True:
 					tmp_user = FeedUser.objects.get(username=request.user.username)
 					tmp_user.profile_picture = photo
 					tmp_user.save()
@@ -211,6 +212,7 @@ def upload_picture(request, feedname=None):
 			raise Exception("Only POST Requests Allowed.")
 
 	except Exception, e:
+		data = {}
 		data["status"] = "error"
 		data["error"] = "An error occured in the process: " + str(e)
 		data["feedname"] = feedname
