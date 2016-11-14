@@ -14,6 +14,7 @@ before_install:
 - export PIP_USE_MIRRORS=true
 
 install:
+- pip install --upgrade pip
 - pip install --only-binary=numpy,scipy numpy scipy
 - pip install -r requirements.txt
 - pip install django==$DJANGO --quiet
