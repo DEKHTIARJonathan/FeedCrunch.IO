@@ -19,6 +19,7 @@ sudo service nginx start
 virtualenv $app_dir/venv
 source $app_dir/venv/bin/activate
 pip install --upgrade pip
+pip install $app_dir/lib_bin/linux/*.whl
 pip install -r $app_dir/requirements.txt
 
 wget -q https://s3-eu-west-1.amazonaws.com/feedcrunch/codedeploy/data_crypt.zip -O $app_dir/fieldkeys/data.zip
