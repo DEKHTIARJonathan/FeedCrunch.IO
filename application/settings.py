@@ -33,6 +33,9 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'staticfi
 MEDIAFILES_LOCATION = 'media'
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), MEDIAFILES_LOCATION)
 
+ESTIMATOR_LOCATION = 'estimators'
+ESTIMATOR_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), ESTIMATOR_LOCATION)
+
 def assign_env_value(var_name):
 	if var_name in os.environ:
 		return getenv.env(var_name)
@@ -57,6 +60,9 @@ if DEBUG:
 
 	DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 	MEDIA_URL = "/%s/" % MEDIAFILES_LOCATION
+	
+	# ESTIMATOR_ DIRS
+	ESTIMATOR_DIR = "/%s/" % ESTIMATOR_LOCATION
 
 else:
 
@@ -111,6 +117,7 @@ INSTALLED_APPS = [
 	'twitter',
 	'rest_framework',
 	'django_q',
+	'estimators',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'
