@@ -14,8 +14,7 @@ before_install:
 - export PIP_USE_MIRRORS=true
 
 install:
-- uname -a
-- pip install lib_bin/travis/*.whl
+- pip install --only-binary=numpy,scipy,lxml numpy scipy lxml
 - pip install -r requirements.txt
 - pip install django==$DJANGO --quiet
 - pip install psycopg2 --quiet
