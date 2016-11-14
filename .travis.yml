@@ -14,6 +14,7 @@ before_install:
 - export PIP_USE_MIRRORS=true
 
 install:
+- uname -a
 - pip install lib_bin/travis/*.whl
 - pip install -r requirements.txt
 - pip install django==$DJANGO --quiet
