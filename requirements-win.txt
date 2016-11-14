@@ -46,7 +46,7 @@ kombu==4.0.0
 lxml==3.6.4
 Markdown==2.6.7
 mock==2.0.0
-numpy==1.11.2
+numpy==1.11.2+mkl
 oauthlib==2.0.0
 pandas==0.19.1
 pbr==1.10.0
