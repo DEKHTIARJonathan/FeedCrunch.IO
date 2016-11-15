@@ -20,7 +20,7 @@ from django_q.models import Schedule
 from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
-from feedcrunch.models import Continent, Country
+from feedcrunch.models import Continent, Country, Estimator
 from twitter.tw_funcs import *
 
 from twython import Twython
@@ -275,6 +275,8 @@ class FeedUser(AbstractFeedUser):
 
 	twitter_token = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 	twitter_token_secret = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+
+	recommendation_engine = models.OneToOneField(Estimator, on_delete=models.CASCADE, unique=True, default=None, blank=True, null=True)
 
 	# Main Social Networks
 	social_dribbble = models.URLField(max_length=60, default='', blank=True, null=True)
