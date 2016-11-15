@@ -94,7 +94,7 @@ class Estimator(models.Model):
 		buf.seek(0, 2)  # Seek to the end of the stream, so we can get its length with `buf.tell()`
 		temp_filename = str(uuid.uuid4())
 		file = InMemoryUploadedFile(buf, "Scikit Model", temp_filename, "application/octet-stream", buf.tell(), None)
-		self.object_file.save(file.name, file)  # `photo` is an instance of `MyModel`
+		self.object_file.save(file.name, file)  # `object_file` is an instance of `Estimator`
 		self.save()
 
 	def save(self, *args, **kwargs):
