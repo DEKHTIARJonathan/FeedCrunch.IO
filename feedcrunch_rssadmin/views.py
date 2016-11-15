@@ -193,21 +193,22 @@ def upload_picture(request, feedname=None):
 				if photo.content_type not in allowed_mime_types:
 					raise ValueError("Only Images are allowed.")
 
+
 				"""
+				# Not functioning at the time
 				w, h = get_image_dimensions(photo.read())
+				if not(isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0):
+					raise ValueError("Picture dimensions are not correct.")
 
-				if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0 :
-
-					if photo.size > 1048576: # > 1MB
-						raise ValueError("File size is larger than 1MB.")
 				"""
-				if True:
+				if photo.size > 1048576: # > 1MB
+					raise ValueError("File size is larger than 1MB.")
+
+				else:
 					tmp_user = FeedUser.objects.get(username=request.user.username)
 					tmp_user.profile_picture = photo
 					tmp_user.save()
 
-				else:
-					raise ValueError("The uploaded image is not valid")
 		else:
 			raise Exception("Only POST Requests Allowed.")
 

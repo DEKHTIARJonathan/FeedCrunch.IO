@@ -33,9 +33,6 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'staticfi
 MEDIAFILES_LOCATION = 'media'
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), MEDIAFILES_LOCATION)
 
-ESTIMATOR_LOCATION = 'estimators'
-ESTIMATOR_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), ESTIMATOR_LOCATION)
-
 def assign_env_value(var_name):
 	if var_name in os.environ:
 		return getenv.env(var_name)
@@ -59,10 +56,9 @@ if DEBUG:
 	STATIC_URL = "/%s/" % STATICFILES_LOCATION
 
 	DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+	# Storage URL
 	MEDIA_URL = "/%s/" % MEDIAFILES_LOCATION
-	
-	# ESTIMATOR_ DIRS
-	ESTIMATOR_DIR = "/%s/" % ESTIMATOR_LOCATION
 
 else:
 
@@ -98,10 +94,9 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-	#'grappelli',
 	'material',
-	#'material.frontend',
 	'material.admin',
+	'admin_view_permission',
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -117,7 +112,6 @@ INSTALLED_APPS = [
 	'twitter',
 	'rest_framework',
 	'django_q',
-	'estimators',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'
@@ -221,6 +215,7 @@ STATICFILES_DIRS = (
 )
 
 USER_PHOTO_PATH = "images/user_photos/"
+USER_ESTIMATOR_PATH = "estimators/"
 
 # QCluster config
 

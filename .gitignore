@@ -94,3 +94,4 @@ application/fixtures/dataradar.json
 media/images/user_photos/
 codedeploy/Encrypted/*.zip
 codedeploy/Encrypted/*.txt
+*.model

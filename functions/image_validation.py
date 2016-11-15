@@ -28,7 +28,7 @@ def is_jpeg(data):
 
 def get_image_dimensions(data):
 	if len(data) < 16:
-		raise Exception('not valid image data')
+		raise Exception('not valid image data1')
 
 	elif is_gif(data):
 		w, h = struct.unpack('<HH', data[6:10])
@@ -68,6 +68,6 @@ def get_image_dimensions(data):
 			pass
 
 	else:
-		raise Exception('not valid image data')
+		raise Exception('not valid image data2')
 
 	return width, height
