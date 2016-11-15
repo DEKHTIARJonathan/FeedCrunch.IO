@@ -47,4 +47,4 @@ def launch_recurrent_tasks():
 	execution_time = timezone.now()
 	execution_time = execution_time.replace(hour=3, minute=0, second=0, microsecond=0) + timedelta(days=1)
 
-	schedule('feedcrunch.tasks.check_allUsers_rss_subscribtions', schedule_type=Schedule.DAILY, next_run=execution_time)
+	schedule('feedcrunch.tasks.check_allUsers_rss_subscribtions', schedule_type=Schedule.HOURLY, next_run=execution_time)
