@@ -81,41 +81,52 @@ $(document).ready(function() {
 	        var api_url = "/api/1.0/authenticated/delete/article/"+post_id+"/";
 	        var csrftoken = Cookies.get('csrftoken');
 
-	        $.ajax({
-	            url : api_url,
-	            type : "DELETE",
-	            data: {
-	                postID: post_id,
-	            },
-	            dataType : "json",
-	            beforeSend: function(xhr) {
-	                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-	            },
-	            success: function(data){
-	                if (data.success) {
-	                    swal({
-	                        title: "Good job!",
-	                        text: "Article deleted with success!",
-	                        type: "success",
-	                        timer: 1000,
-	                        showConfirmButton: false,
-	                        cache: false,
-	                    }, function() {
-	                        table.row( current_row.parents('tr') ).remove().draw();
-	                        swal.close();
-	                    });
-	                }
-	                else {
-	                    swal({
-	                        title: "Something went wrong!",
-	                        text: data.error,
-	                        type: "error",
-	                        confirmButtonColor: "#DD6B55",
-	                        confirmButtonText: "I'll retry later",
-	                        closeOnConfirm: true
-	                    });
-	                }
-	            }
+			swal({
+	            title: "Are you sure ?",
+	            text: "Do you really want to delete this RSS Feed ?",
+	            type: "warning",
+	            showCancelButton: true,
+	            confirmButtonColor: "#DD6B55",
+	            confirmButtonText: "Yes, please delete!",
+	            cancelButtonText: "Please No!",
+	            closeOnConfirm: true,
+	            closeOnCancel: true
+	        }, function(){
+		        $.ajax({
+		            url : api_url,
+		            type : "DELETE",
+		            data: {},
+		            dataType : "json",
+		            beforeSend: function(xhr) {
+		                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		            },
+		            success: function(data){
+		                if (data.success) {
+		                    swal({
+		                        title: "Good job!",
+		                        text: "Article deleted with success!",
+		                        type: "success",
+		                        timer: 1000,
+		                        showConfirmButton: false,
+		                        cache: false,
+		                    }, function() {
+		                        table.row( current_row.parents('tr') ).remove().draw();
+		                        swal.close();
+		                    });
+		                }
+		                else {
+		                    swal({
+		                        title: "Something went wrong!",
+		                        text: data.error,
+		                        type: "error",
+		                        confirmButtonColor: "#DD6B55",
+		                        confirmButtonText: "I'll retry later",
+		                        closeOnConfirm: true
+		                    });
+		                }
+		            }
+		        });
+				swal.close();
 	        });
 	    });
 	}

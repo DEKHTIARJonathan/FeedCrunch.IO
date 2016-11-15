@@ -29,7 +29,9 @@ urlpatterns = [
 	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),
 
 	# RSSFeed Routes
-	url(r'^authenticated/post/rssfeed/$', RSSFeed_View.as_view(), name='rssfeed_as_json'),
+	url(r'^authenticated/post/rssfeed/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
+	url(r'^authenticated/delete/rssfeed/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='delete_RSSFeed'),
+	url(r'^authenticated/modify/rssfeed/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='modify_RSSFeed'),
 
 	# Article Routes
 	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
