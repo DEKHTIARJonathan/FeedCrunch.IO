@@ -69,9 +69,8 @@ class rssfeed_Validation(APIView):
 				raise Exception("Link for the RSS Feed not provided")
 
 			else:
-				tmp_user = FeedUser.objects.get(username=request.user.username)
 
-				if RSSFeed.objects.filter(link=rssfeed, user=tmp_user).exists():
+				if RSSFeed.objects.filter(link=rssfeed, user=request.user).exists():
 					payload ["valid"] = False
 					payload ["error"] = "You already subscribed to this RSS Feed"
 
@@ -107,9 +106,8 @@ class User_Stats_Subscribers(APIView):
 			if check_passed != True:
 				raise Exception(check_passed)
 
-			feedname = request.user.username
 			payload ["success"] = True
-			payload ["username"] = feedname
+			payload ["username"] = request.user.username
 
 			date_array = get_N_time_period(21, 14)
 
@@ -149,9 +147,8 @@ class User_Stats_Publications(APIView):
 			if check_passed != True:
 				raise Exception(check_passed)
 
-			feedname = request.user.username
 			payload ["success"] = True
-			payload ["username"] = feedname
+			payload ["username"] = request.user.username
 
 			date_array = get_N_time_period(21)
 
@@ -220,9 +217,7 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 				title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
 				link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
 
-				tmp_user = FeedUser.objects.get(username=request.user.username)
-
-				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=tmp_user)
+				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=request.user)
 
 				schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
 
@@ -237,68 +232,43 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-	def put(self, request, postID=None):
+	def put(self, request, feedID=None):
 		try:
 			payload = dict()
 			check_passed = check_admin_api(request.user)
 
-			postID = int(postID)
+			feedID = int(unicodedata.normalize('NFC', feedID))
 
-			if type(postID) is not int or postID < 1:
-				raise Exception("postID parameter is not valid")
+			if type(feedID) is not int or feedID < 1:
+				raise Exception("feedID parameter is not valid")
 
 			if check_passed != True:
 				raise Exception(check_passed)
-			else:
-				feedname = request.user.username
-				payload ["username"] = request.user.username
 
-			title = unicodedata.normalize('NFC', request.data['title'])
-			link = unicodedata.normalize('NFC', request.data['link'])
+			payload ["username"] = request.user.username
+
+			query_set = RSSFeed.objects.filter(id=feedID, user=request.user)
+
+			if query_set.count() == 0:
+				raise Exception("Feed ID = "+ feedID +" does not exist for the user: " + payload ["username"])
+
+			feed = query_set[0]
+
+			title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
+			link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
 
 			if title == "" or link == "":
 				raise Exception("Title and/or Link is/are missing")
 
-			tags = unicodedata.normalize('NFC', request.data['tags']).split(',') # We separate each tag and create a list out of it.
+			feed.title = title
+			feed.link = link
 
-			activated_bool = str2bool(unicodedata.normalize('NFC', request.data['activated']))
-			twitter_bool = str2bool(unicodedata.normalize('NFC', request.data['twitter']))
+			feed.save()
 
-			if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
-				title = format_title(title)
+			schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
 
-			tmp_post = Post.objects.get(id=postID, user=feedname)
-
-			tmp_post.title = title
-			tmp_post.link = link
-			tmp_post.activeLink = activated_bool
-			tmp_post.tags.clear()
-
-			for tag in tags:
-				tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-				tmp_post.tags.add(tmp_obj)
-
-			tmp_user = FeedUser.objects.get(username=feedname)
-
-			if twitter_bool and tmp_user.is_twitter_enabled():
-
-				twitter_instance = TwitterAPI(tmp_user)
-
-				if twitter_instance.connection_status():
-					tmp_post.save()
-
-					tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
-
-					if not tw_rslt['status']:
-						payload["postID"] = str(tmp_post.id)
-						raise Exception("Twitter posting error, however the post was saved: " + tw_rslt['error'])
-
-				else:
-					raise Exception("Not connected to the Twitter API")
-
-			tmp_post.save()
 			payload["success"] = True
-			payload["postID"] = str(postID)
+			payload["feedID"] = str(feedID)
 
 		except Exception, e:
 			payload["success"] = False
@@ -306,7 +276,7 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 			payload["postID"] = None
 
 
-		payload["operation"] = "modify article"
+		payload["operation"] = "modify RSSFeed"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
@@ -316,6 +286,7 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 			check_passed = check_admin_api(request.user)
 
 			feedID = int(unicodedata.normalize('NFC', feedID))
+
 			if type(feedID) is not int or feedID < 1:
 				raise Exception("feedID parameter is not valid")
 
@@ -324,11 +295,13 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 
 			payload ["username"] = request.user.username
 
-			feed = RSSFeed.objects.filter(id=feedID, user=payload ["username"])
-			if feed.count() == 0:
-				raise Exception("Feed does not exist")
+			query_set = RSSFeed.objects.filter(id=feedID, user=payload ["username"])
 
-			feed.delete()
+			if query_set.count() == 0:
+				raise Exception("Feed ID = "+ feedID +" does not exist for the user: " + payload ["username"])
+
+			query_set[0].delete()
+
 			payload ["success"] = True
 			payload["postID"] = feedID
 
@@ -356,49 +329,46 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 			if check_passed != True:
 				raise Exception(check_passed)
 
-			else:
-				payload ["username"] = request.user.username
+			payload ["username"] = request.user.username
 
-				title = unicodedata.normalize('NFC', request.POST['title'])
-				link = unicodedata.normalize('NFC', request.POST['link'])
-				tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
+			title = unicodedata.normalize('NFC', request.POST['title'])
+			link = unicodedata.normalize('NFC', request.POST['link'])
+			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
 
-				activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
-				twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+			activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
+			twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
 
-				if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
-					title = format_title(title)
+			if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
+				title = format_title(title)
 
-				if title == "" or link == "":
-					raise Exception("Title and/or Link is/are missing")
+			if title == "" or link == "":
+				raise Exception("Title and/or Link is/are missing")
 
+			tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=request.user, activeLink=activated_bool)
 
-				tmp_user = FeedUser.objects.get(username=request.user.username)
-				tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=tmp_user, activeLink=activated_bool)
+			for tag in tags:
+				tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+				tmp_post.tags.add(tmp_obj)
 
-				for tag in tags:
-					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-					tmp_post.tags.add(tmp_obj)
+			tmp_post.save()
 
-				tmp_post.save()
+			if twitter_bool and request.user.is_twitter_enabled():
 
-				if twitter_bool and tmp_user.is_twitter_enabled():
+					twitter_instance = TwitterAPI(request.user)
 
-						twitter_instance = TwitterAPI(tmp_user)
+					if twitter_instance.connection_status():
 
-						if twitter_instance.connection_status():
+						tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
 
-							tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+						if not tw_rslt['status']:
+							payload["postID"] = str(tmp_post.id)
+							raise Exception("An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error'])
 
-							if not tw_rslt['status']:
-								payload["postID"] = str(tmp_post.id)
-								raise Exception("An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error'])
+					else:
+						raise Exception("Not connected to the Twitter API")
 
-						else:
-							raise Exception("Not connected to the Twitter API")
-
-				payload["success"] = True
-				payload["postID"] = str(tmp_post.id)
+			payload["success"] = True
+			payload["postID"] = str(tmp_post.id)
 
 		except Exception, e:
 			payload["success"] = False
@@ -420,9 +390,8 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 
 			if check_passed != True:
 				raise Exception(check_passed)
-			else:
-				feedname = request.user.username
-				payload ["username"] = request.user.username
+
+			payload ["username"] = request.user.username
 
 			title = unicodedata.normalize('NFC', request.data['title'])
 			link = unicodedata.normalize('NFC', request.data['link'])
@@ -438,7 +407,7 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 			if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
 				title = format_title(title)
 
-			tmp_post = Post.objects.get(id=postID, user=feedname)
+			tmp_post = Post.objects.get(id=postID, user=request.user)
 
 			tmp_post.title = title
 			tmp_post.link = link
@@ -449,11 +418,9 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 				tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
 				tmp_post.tags.add(tmp_obj)
 
-			tmp_user = FeedUser.objects.get(username=feedname)
+			if twitter_bool and request.user.is_twitter_enabled():
 
-			if twitter_bool and tmp_user.is_twitter_enabled():
-
-				twitter_instance = TwitterAPI(tmp_user)
+				twitter_instance = TwitterAPI(request.user)
 
 				if twitter_instance.connection_status():
 					tmp_post.save()
@@ -495,7 +462,7 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 
 			payload ["username"] = request.user.username
 
-			post = Post.objects.filter(id=postID, user=payload ["username"])
+			post = Post.objects.filter(id=postID, user=request.user)
 			if post.count() == 0:
 				raise Exception("Post does not exist")
 
@@ -522,7 +489,6 @@ class Modify_Social_Networks(APIView):
 			if check_passed != True:
 				raise Exception(check_passed)
 
-			feedname = request.user.username
 			payload ["username"] = request.user.username
 
 			val = URLValidator()
@@ -560,37 +526,35 @@ class Modify_Social_Networks(APIView):
 						raise Exception("URL Not Valid: "+social)
 				social_data[social] = url
 
-			tmp_user = FeedUser.objects.get(username=request.user.username)
-
 			# Main Social Networks
-			tmp_user.social_dribbble = social_data['dribbble']
-			tmp_user.social_facebook = social_data['facebook']
-			tmp_user.social_flickr = social_data['flickr']
-			tmp_user.social_gplus = social_data['gplus']
-			tmp_user.social_instagram = social_data['instagram']
-			tmp_user.social_linkedin = social_data['linkedin']
-			tmp_user.social_pinterest = social_data['pinterest']
-			tmp_user.social_stumble = social_data['stumble']
-			tmp_user.social_twitter = social_data['twitter']
-			tmp_user.social_vimeo = social_data['vimeo']
-			tmp_user.social_youtube = social_data['youtube']
+			request.user.social_dribbble = social_data['dribbble']
+			request.user.social_facebook = social_data['facebook']
+			request.user.social_flickr = social_data['flickr']
+			request.user.social_gplus = social_data['gplus']
+			request.user.social_instagram = social_data['instagram']
+			request.user.social_linkedin = social_data['linkedin']
+			request.user.social_pinterest = social_data['pinterest']
+			request.user.social_stumble = social_data['stumble']
+			request.user.social_twitter = social_data['twitter']
+			request.user.social_vimeo = social_data['vimeo']
+			request.user.social_youtube = social_data['youtube']
 
 			# Computer Science Networks
-			tmp_user.social_docker = social_data['docker']
-			tmp_user.social_git = social_data['git']
-			tmp_user.social_kaggle = social_data['kaggle']
+			request.user.social_docker = social_data['docker']
+			request.user.social_git = social_data['git']
+			request.user.social_kaggle = social_data['kaggle']
 
 			# MooC Profiles
-			tmp_user.social_coursera = social_data['coursera']
+			request.user.social_coursera = social_data['coursera']
 
 			# Research Social Networks
-			tmp_user.social_google_scholar = social_data['googlescholar']
-			tmp_user.social_orcid = social_data['orcid']
-			tmp_user.social_researchgate = social_data['researchgate']
-			tmp_user.social_blog = social_data['blog']
-			tmp_user.social_personalwebsite = social_data['website']
+			request.user.social_google_scholar = social_data['googlescholar']
+			request.user.social_orcid = social_data['orcid']
+			request.user.social_researchgate = social_data['researchgate']
+			request.user.social_blog = social_data['blog']
+			request.user.social_personalwebsite = social_data['website']
 
-			tmp_user.save()
+			request.user.save()
 			payload["success"] = True
 
 		except Exception, e:
@@ -612,7 +576,6 @@ class Modify_Personal_info(APIView):
 			if check_passed != True:
 				raise Exception(check_passed)
 
-			feedname = request.user.username
 			payload ["username"] = request.user.username
 
 			val = URLValidator()
@@ -679,7 +642,6 @@ class Modify_Password(APIView):
 			if check_passed != True:
 				raise Exception(check_passed)
 
-			feedname = request.user.username
 			payload ["username"] = request.user.username
 
 			form_fields = [
@@ -723,8 +685,6 @@ class Modify_Photo(APIView):
 
 			if check_passed != True:
 				raise Exception(check_passed)
-
-			feedname = request.user.username
 			payload ["username"] = request.user.username
 
 			#unicodedata.normalize('NFC', request.data["photo"])
@@ -742,9 +702,9 @@ class Modify_Photo(APIView):
 				if photo.size > 1000000: # > 1MB
 					raise ValueError("File size is larger than 1MB.")
 
-				tmp_user = FeedUser.objects.get(username=request.user.username)
-				tmp_user.profile_picture = photo
-				tmp_user.save()
+				request.user = FeedUser.objects.get(username=request.user.username)
+				request.user.profile_picture = photo
+				request.user.save()
 			else:
 				raise ValueError("The uploaded image is not valid")
 

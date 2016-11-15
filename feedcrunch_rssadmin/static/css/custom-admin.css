@@ -122,3 +122,7 @@ table.dataTable thead .sorting_desc {
 .KPI-Card{
 	height: 160px;
 }
+
+.modal .modal-content h4 {
+	font-size: 18px;
+}

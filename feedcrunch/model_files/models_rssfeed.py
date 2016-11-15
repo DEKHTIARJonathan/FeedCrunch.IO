@@ -51,6 +51,13 @@ class RSSFeed(models.Model):
 
 	def save(self, *args, **kwargs):
 		self.title = clean_html(self.title)
+
+		if not validate_feed(self.link):
+			raise Exception("RSS Feed is not valid")
+
+		if RSSFeed.objects.filter(user=self.user, link=self.link).exclude(id=self.id).exists():
+			raise Exception("User already subscribed to this feed.")
+
 		super(RSSFeed, self).save(*args, **kwargs) # Call the "real" save() method.
 
 	def get_date(self):
