@@ -35,13 +35,7 @@ class FeedUserAdmin(admin.ModelAdmin):
 	"""
 
 	search_fields = ('username', 'country', 'email')
-	readonly_fields = ['username']
 	list_filter = ('country',)
-
-	def get_readonly_fields(self, request, obj=None):
-		"""Set all fields readonly."""
-		#return list(self.readonly_fields) + [field.name for field in obj._meta.fields]
-		return self.readonly_fields
 
 admin.site.register(FeedUser, FeedUserAdmin)
 
@@ -51,11 +45,6 @@ class OptionAdmin(admin.ModelAdmin):
 	ordering = ('parameter',)
 
 	search_fields = ('parameter',)
-
-	def get_readonly_fields(self, request, obj=None):
-		"""Set all fields readonly."""
-		#return list(self.readonly_fields) + [field.name for field in obj._meta.fields]
-		return self.readonly_fields
 
 admin.site.register(Option, OptionAdmin)
 
@@ -70,12 +59,6 @@ class TagAdmin(admin.ModelAdmin):
 	_get_post_count.short_description="Post Count"
 
 	search_fields = ('name',)
-	readonly_fields = ['name']
-
-	def get_readonly_fields(self, request, obj=None):
-		"""Set all fields readonly."""
-		#return list(self.readonly_fields) + [field.name for field in obj._meta.fields]
-		return self.readonly_fields
 
 admin.site.register(Tag, TagAdmin)
 
