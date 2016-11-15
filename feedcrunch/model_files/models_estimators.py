@@ -71,10 +71,6 @@ class Estimator(models.Model):
 		return '<Estimator <Id %s>: %s>' % (self.id, self.estimator)
 
 	@property
-	def is_persisted(self):
-		return self.object_file.name is not None
-
-	@property
 	def estimator(self):
 		"""return the estimator, and load it into memory if it hasn't been loaded yet"""
 		return self.get_object()
@@ -99,10 +95,12 @@ class Estimator(models.Model):
 		temp_filename = str(uuid.uuid4())
 		file = InMemoryUploadedFile(buf, "Scikit Model", temp_filename, "application/octet-stream", buf.tell(), None)
 		self.object_file.save(file.name, file)  # `photo` is an instance of `MyModel`
-
 		self.save()
 
 	def save(self, *args, **kwargs):
-
 		self.last_modified_date = timezone.now()
 		super(Estimator, self).save(*args, **kwargs)
+
+	def delete(self, *args, **kwargs):
+		self.object_file.delete(save=True)
+		super(Estimator, self).delete(*args, **kwargs)

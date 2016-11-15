@@ -3,14 +3,7 @@ from django.contrib import admin
 
 import re, uuid, datetime
 
-from .model_files.models_geo import Continent, Country
-from .model_files.models_user import FeedUser
-from .model_files.models_tag import Tag
-from .model_files.models_post import Post
-from .model_files.models_options import Option
-from .model_files.models_rssfeed import RSSFeed
-from .model_files.models_rssarticle import RSSArticle
-from .model_files.estimators import Estimator
+from models import *
 
 admin.site.register(Continent)
 admin.site.register(Country)

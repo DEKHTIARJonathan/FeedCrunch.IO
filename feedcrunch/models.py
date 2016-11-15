@@ -10,4 +10,4 @@ from .model_files.models_post import Post
 from .model_files.models_options import Option
 from .model_files.models_rssfeed import RSSFeed
 from .model_files.models_rssarticle import RSSArticle
-from .model_files.estimators import Estimator
+from .model_files.models_estimators import Estimator
