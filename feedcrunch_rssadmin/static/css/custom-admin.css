@@ -126,3 +126,7 @@ table.dataTable thead .sorting_desc {
 .modal .modal-content h4 {
 	font-size: 18px;
 }
+
+.small-icon-listing {
+    font-size: 1.4rem !important;
+}

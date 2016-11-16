@@ -17,14 +17,14 @@
 					<label for="article-searchbar">Search in your recommendations</label>
 				</div>
 
-				<table class="display responsive-table" id="post-listing" cellspacing="0" width="100%">
+				<table class="display responsive-table" id="recommendation-listing" cellspacing="0" width="100%">
 					<thead>
 						<tr>
-							<th>Title</th>
-							<th>Domain</th>
-							<th>Hotness</th>
-							<th>Link</th>
-							<th>Publish</th>
+							<th style="text-align: center;">Title</th>
+							<th style="text-align: center;">Feed</th>
+							<th style="text-align: center;">Domain</th>
+							<th style="text-align: center;">Hotness</th>
+							<th style="text-align: center;">Publish</th>
 						</tr>
 					</thead>
 
@@ -33,10 +33,16 @@
 						{% for rssarticle in rssarticles %}
 						<tr>
 							<td>{{ rssarticle.title }}</td>
-							<td>{{ rssarticle.get_domain }}</span>
-							<td style="color: rgb({{ rssarticle.color }},0,0)">{{ rssarticle.score }}%</td>
-							<td><a href="{{ rssarticle.link }}" target="_blank">Open</a></td>
-							<td><a class="success-btn" href="#{{ rssarticle.id }}">Publish</a></td>
+							<td style="text-align: center;">{{ rssarticle.rssfeed }}</td>
+							<td style="text-align: center;">{{ rssarticle.get_domain }}</td>
+							<td style="color: rgb({{ rssarticle.color }},0,0); text-align: center;">{{ rssarticle.score }}%</td>
+							<td style="text-align: center;">
+								<a class="btn-floating btn waves-effect waves-light red delete-btn"><i class="material-icons small-icon-listing">delete_forever</i></a>
+								<a class="btn-floating btn waves-effect waves-light blue" href="{{ rssarticle.link }}" target="_blank"><i class="material-icons small-icon-listing">open_in_new</i></a>
+								<a class="btn-floating btn waves-effect waves-light green share-btn modal-trigger" href="#article-publication-modal" data-id="{{ rssarticle.id }}" data-title="{{ rssarticle.title }}" data-link="{{ frssarticle.link }}">
+									<i class="material-icons small-icon-listing">share</i>
+								</a>
+							</td>
 						</tr>
 						{% endfor %}
 
@@ -44,6 +50,42 @@
 				</table>
 			</div>
 		</div>
+	</div>
+</div>
+
+<!-- Modal RSS Feed -->
+<div id="article-publication-modal" class="modal">
+	<div class="modal-content">
+		<h4 id="modal-rss-header"></h4>
+		<form>
+
+			<div class="row">
+
+				<div class="input-field col m6 s12">
+					<label for="rssfeed_link">RSS Feed Link</label>
+					<input id="rssfeed_link" name="rssfeed_link" data-init="" type="text" class="validate">
+					<div id="link-ajax-rslt">&emsp;</div>
+				</div>
+
+				<div class="input-field col m6 s12">
+					<label for="rssfeed_title">RSS Feed Title</label>
+					<input id="rssfeed_title" name="rssfeed_title" data-init="" type="text" class="validate">
+				</div>
+
+				<input type="hidden" id="rssfeed_id" data-init="" value="-1">
+
+				<div class="input-field col m12">
+					<span id="reload-info"></span>
+				</div>
+			</div>
+
+			<div class="row" style="text-align:right;">
+				<a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-rssfeed">Close Modal</a>
+				<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-rssfeed">Reset</a>
+				<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-rssfeed">Save</a>
+			</div>
+
+		</form>
 	</div>
 </div>
 {% endblock %}

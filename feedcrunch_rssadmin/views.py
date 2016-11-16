@@ -234,7 +234,7 @@ def reading_recommendation(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		rssarticles = RSSArticle.objects.filter(user = feedname).order_by('-added_date')
+		rssarticles = RSSArticle.objects.filter(user = feedname, marked_read = False).order_by('-added_date')
 
 		rssarticles_data = []
 
@@ -248,6 +248,7 @@ def reading_recommendation(request, feedname=None):
 			tmp = {
 				'id': rssarticles[i].id,
 				'title': rssarticles[i].title,
+				'rssfeed': rssarticles[i].rssfeed.title,
 				'get_domain': rssarticles[i].get_domain(),
 				'link': rssarticles[i].link,
 				'score': 97.3 - 1.2*i,
