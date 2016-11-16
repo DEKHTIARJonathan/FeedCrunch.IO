@@ -47,22 +47,16 @@ $(document).ready(function() {
 		width = $( window ).width();
 
 		if (width < 1200) {
-			table.column( 0 ).visible( false ); // hide ID
+			table.column( 1 ).visible( false ); // hide feed
 			table.column( 2 ).visible( false ); // hide domain
-			table.column( 3 ).visible( false ); // hide link
-			table.column( 4 ).visible( false ); // hide articles count
 		}
 		else if (width < 1500) {
-			table.column( 0 ).visible( false ); // hide ID
-			table.column( 2 ).visible( true ); // show domain
-			table.column( 3 ).visible( false ); // hide link
-			table.column( 4 ).visible( false ); // hide articles count
+			table.column( 1 ).visible( false ); // hide feed
+			table.column( 2 ).visible( true ); // hide domain
 		}
 		else {
-			table.column( 0 ).visible( true ); // show ID
-			table.column( 2 ).visible( true ); // show domain
-			table.column( 3 ).visible( true ); // show link
-			table.column( 4 ).visible( true ); // show articles count
+			table.column( 1 ).visible( true ); // hide feed
+			table.column( 2 ).visible( true ); // hide domain
 		}
 		table.responsive.rebuild();
 		table.responsive.recalc();
