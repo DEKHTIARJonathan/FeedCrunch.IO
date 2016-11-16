@@ -52,6 +52,11 @@ class RSSArticle(models.Model):
 	pub_date = models.CharField(max_length=255, default='', blank=True, null=True)
 	added_date = models.DateTimeField(auto_now_add=True)
 
+	open_count = models.SmallIntegerField(default=0)
+	marked_read = models.BooleanField(default=False)
+	reposted = models.BooleanField(default=False)
+	recommendation_score = models.FloatField(default=0)
+
 	def __unicode__(self):
 		return self.title
 
