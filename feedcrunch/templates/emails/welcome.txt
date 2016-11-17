@@ -1,0 +1,27 @@
+Hi {{firstname}}, thanks for signing up to FeedCrunch
+
+Let's dive into FeedCrunch : https://www.feedcrunch.io/signup/
+
+Feeling Bored of reading 100s of news a day ?
+We have the exact same problem and none of the existing platforms and solutions are accurate enough for us.
+
+We had to do something about this ! And finally launch our idea a few days ago during the amazing "Startup Weekend Artificial Intelligence" event in Paris.
+
+Today, we want to keep up with the fun and we believe that we are on the right track to provide you the best contents, articles and news curated right for you.
+
+
+So now, Feedcrunch is waiting for you, it's completely free!
+We need you to help us designing the best curation platform ever.
+
+
+"Our super smart monkeys can't wait to read and sort your articles."
+
+-----------
+
+Laurent & the FeedCrunch team
+
+
+Let's dive into FeedCrunch : https://www.feedcrunch.io/signup/
+
+
+Developed with ♥ at SWAI - 2016 - © FeedCrunch.io -

@@ -147,12 +147,18 @@ TEMPLATES = [
 	},
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 EMAIL_HOST = assign_env_value('EMAIL_HOST')
-EMAIL_HOST_USER = assign_env_value('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = assign_env_value('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = assign_env_value('EMAIL_HOST_USER')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = False
+TEMPLATED_EMAIL_BACKEND = EMAIL_BACKEND
+#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 WSGI_APPLICATION = 'application.wsgi.application'
 

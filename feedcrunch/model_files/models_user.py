@@ -14,7 +14,7 @@ from django.utils import six, timezone
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
-from django_q.tasks import async, schedule
+from django_q.tasks import schedule
 from django_q.models import Schedule
 
 from validate_email import validate_email
@@ -137,6 +137,8 @@ class FeedUserManager(BaseUserManager):
 					)
 					user.set_password(password)
 					user.save(using=self._db)
+
+					schedule('feedcrunch.tasks.send_welcome_email', user_name=user.username, schedule_type=Schedule.HOURLY, next_run=timezone.now() + datetime.timedelta(minutes=1))
 
 					return user
 
