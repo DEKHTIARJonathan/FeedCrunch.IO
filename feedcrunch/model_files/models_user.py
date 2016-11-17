@@ -25,6 +25,8 @@ from twitter.tw_funcs import *
 
 from twython import Twython
 
+from feedcrunch.tasks import send_welcome_email
+
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
 def generateDummyDesc():
@@ -138,7 +140,8 @@ class FeedUserManager(BaseUserManager):
 					user.set_password(password)
 					user.save(using=self._db)
 
-					schedule('feedcrunch.tasks.send_welcome_email', user_name=user.username, schedule_type=Schedule.HOURLY, next_run=timezone.now() + datetime.timedelta(minutes=1))
+					#schedule('feedcrunch.tasks.send_welcome_email', user_name=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+					send_welcome_email(user.username)
 
 					return user
 
