@@ -98,6 +98,7 @@ INSTALLED_APPS = [
 	'material.admin',
 	'admin_view_permission',
 	'django.contrib.admin',
+	'django_ses',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
@@ -147,18 +148,14 @@ TEMPLATES = [
 	},
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+AWS_SES_ACCESS_KEY_ID = assign_env_value('AWS_USER')
+AWS_SES_SECRET_ACCESS_KEY = assign_env_value('AWS_SECRET_KEY')
+AWS_SES_REGION_NAME = "eu-west-1"
+AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
+AWS_SES_SENDER = assign_env_value('EMAIL_DEFAULT_SENDER')
 
-#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-MAILER_EMAIL_BACKEND = EMAIL_BACKEND
-EMAIL_HOST = assign_env_value('EMAIL_HOST')
-EMAIL_HOST_PASSWORD = assign_env_value('EMAIL_HOST_PASSWORD')
-EMAIL_HOST_USER = assign_env_value('EMAIL_HOST_USER')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-TEMPLATED_EMAIL_BACKEND = EMAIL_BACKEND
-#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 WSGI_APPLICATION = 'application.wsgi.application'
 

@@ -78,7 +78,7 @@ def send_welcome_email(user_name):
 	send_mail(
 		'Welcome at Feedcrunch.io - Start sharing your expertise with the world',
 		msg_plain,
-		settings.EMAIL_HOST_USER,
+		settings.AWS_SES_SENDER,
 		[usr.email],
 		html_message=msg_html,
 	)
