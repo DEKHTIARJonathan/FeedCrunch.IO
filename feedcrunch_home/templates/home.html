@@ -148,7 +148,7 @@
 		<!--=================================
 		= Content section
 		==================================-->
-		<div class="pd-tb-medium pos-rel z2 typo-light" style="overflow: hidden;">
+		<div class="pd-t-150 pd-b-60 pos-rel z2 typo-light" style="overflow: hidden;">
 			<div class="container pos-rel z2">
 
 				<div class="flex-row gt20 middle-md">
@@ -164,10 +164,18 @@
 							<p class="title-sub italic mr-0 mini pd-t-30">
 								FeedCrunch.io allows you to store, manage, publish, share and organize thousands of links with RSS Feeds.
 							</p>
-							<div class="pd-t-40">
+							<div class="pd-t-80 align-c">
+								<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalIOS">
+									<i class="fa fa-apple fs28 btn-icon"></i> <span class="btn-txt txt-upper">App Store</span>
+								</button>
+
 								<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
 									<i class="pe-7s-paper-plane fs28 btn-icon"></i> <span class="btn-txt txt-upper">Sign Up Now and Get Started</span>
 								</a>
+
+								<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalAndroid">
+									<i class="fa fa-android fs28 btn-icon"></i> <span class="btn-txt txt-upper">Google Play</span>
+								</button>
 							</div>
 						</div>
 					</div><!-- // END : column //	-->
@@ -175,24 +183,10 @@
 
 				</div><!-- // END : row //	-->
 
-				<hr class="mr-tb-60 light">
-
 				<!--=================================
 				= Buttons
 				==================================-->
-				<div class="align-c">
-					<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalIOS">
-						<i class="fa fa-apple fs28 btn-icon"></i> <span class="btn-txt txt-upper">App Store</span>
-					</button>
 
-					<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalAndroid">
-						<i class="fa fa-android fs28 btn-icon"></i> <span class="btn-txt txt-upper">Google Play</span>
-					</button>
-
-					<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
-						<i class="fa fa-cloud fs28 btn-icon"></i> <span class="btn-txt txt-upper">Cloud Application</span>
-					</a>
-				</div>
 			</div><!-- // END : Container //	-->
 		</div>
 		<!-- ======= END : Content section =======	-->
@@ -202,7 +196,7 @@
 		==================================-->
 		<div class="pos-rel z2" style="position: inherit;">
 			<div class="container pos-rel z2">
-				<img src="{% static "home/images/iphone-img-01.png" %}" class="mr-auto -mr-t-100" alt="phone image">
+				<img src="{% static "home/images/application_preview.png" %}" class="mr-auto w80" alt="phone image">
 			</div><!-- // END : Container //	-->
 			<b class="bg-color1 full-wh"></b>
 		</div>
@@ -629,12 +623,12 @@
 			<h2 class="title large">Get the App Now!</h2>
 			<p class="title-sub">FeedCrunch is now available for download. Join us and make your life easy.</p>
 
-			<button type="button" class="appstore-btn app-google-play btn-color4 bg-glass bdr-2" data-toggle="modal" data-target="#modalIOS">
-				<i class="fa fa-apple"></i><small>Download on the</small>App Store
+			<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalIOS">
+				<i class="fa fa-apple fs28 btn-icon"></i> <span class="btn-txt txt-upper">App Store</span>
 			</button>
 
-			<button type="button" class="appstore-btn app-google-play btn-color4 bg-glass bdr-2" data-toggle="modal" data-target="#modalAndroid">
-				<i class="fa fa-android"></i><small>Get it on</small>Google play
+			<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalAndroid">
+				<i class="fa fa-android fs28 btn-icon"></i> <span class="btn-txt txt-upper">Google Play</span>
 			</button>
 
 		</div>
