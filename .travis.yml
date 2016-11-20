@@ -26,7 +26,7 @@ script:
 - python manage.py collectstatic --noinput
 - python manage.py makemigrations feedcrunch
 - python manage.py migrate
-#- python manage.py createcachetable
+- python manage.py createcachetable
 #- python manage.py loaddata feedcrunch_dump.json
 #- coverage run manage.py test
 
