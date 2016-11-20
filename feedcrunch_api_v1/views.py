@@ -383,7 +383,7 @@ class Article(APIView):
 
 					if twitter_instance.connection_status():
 
-						tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, final_tag_list)
+						tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
 
 						if not tw_rslt['status']:
 							payload["postID"] = str(tmp_post.id)
