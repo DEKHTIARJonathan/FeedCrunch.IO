@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en" data-demomenu="y">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -11,6 +11,19 @@
 	<!-- Lib CSS -->
 	<link href="{% static "home/css/rgen.css" %}" rel="stylesheet">
 	<link href="{% static "home/css/custom.css" %}" rel="stylesheet">
+
+	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		#mc_embed_signup{
+			background:#fff;
+			clear:left;
+			font:14px Helvetica,Arial,sans-serif;
+			color: #323232;
+		}
+		#mc_embed_signup .button {
+			background-color: #6c6c6c;
+		}
+	</style>
 
 	<!-- Favicons -->
 	<link rel="icon" href="{% static "home/images/favicons/favicon.ico" %}">
@@ -60,8 +73,8 @@
 	************************************************************
 	* Navigation
 	************************************************************ -->
-	<nav class="nav-wrp nav-1 light navbar-fixed-top nav-hide nav-sticky nav-show">
-		<div class="container pd-0 bdr-b flex-cc">
+	<nav class="nav-wrp nav-1 light navbar-fixed-top nav-show z3">
+		<div class="container pd-0 bdr-b flex-cc z3">
 			<div class="flex-row gt0 middle-md">
 
 				<!--=================================
@@ -72,75 +85,65 @@
 						<a class="navbar-brand" href="#"><img src="{% static "home/images/logo1.png" %}" alt="Brand logo" class="pd-tb-3"></a>
 						<a class="nav-handle" data-nav=".nav" data-navopen="pe-7s-more" data-navclose="pe-7s-close"><i class="pe-7s-more"></i></a>
 					</div>
-				</div><!-- // END : Column //  -->
+				</div><!-- // END : Column //	-->
 
 				<!--=================================
 				= Navigation links
 				==================================-->
 				<div class="flex-col-md-9">
-					<div class="nav flex-row">
+					<div class="nav">
 
-						<div class="nav-other align-c flex-col-md-8">
-							<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
-								<li><a href="#home">Home</a></li>
-								<li><a href="#solution">Our Solution</a></li>
-								<li><a href="#mobile">Mobile</a></li>
-								<li><a href="#howWorks">How It Works</a></li>
-								<li><a href="#pricing">Pricing</a></li>
-								<li><a href="#team">Team</a></li>
-								<li><a href="/contact/">Contact</a></li>
-							</ul><!-- // END : Navigation links //  -->
-						</div><!-- // END : Contact button //  -->
+						<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
+							<li><a href="#home">Home</a></li>
+							<li><a href="#solution">Our Solution</a></li>
+							<li><a href="#mobile">Mobile</a></li>
+							<li><a href="#howWorks">How It Works</a></li>
+							<li><a href="#pricing">Pricing</a></li>
+							<li><a href="#team">Team</a></li>
+							<li><a href="/contact/">Contact</a></li>
+						</ul><!-- // END : Navigation links //	-->
+							<!-- <li class="nav-divider"></li> -->
 
-						<div class="nav-other align-r flex-col-md-4">
-
-
+						<div class="nav-other">
 							{% if user.is_authenticated %}
-
 								<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
 									<li><a href="/logout/">Logout</a></li>
-								</ul><!-- // END : Navigation links //  -->
-
+								</ul><!-- // END : Navigation links //	-->
 
 								<a href="/@{{user.username}}/admin/" class="btn btn-white small bdr-2 round mr-6">
 									<span class="btn-txt txt-upper">Admin Panel</span>
 								</a>
-
 							{% else %}
-
 								<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
 									<li><a href="/login/">Login</a></li>
-								</ul><!-- // END : Navigation links //  -->
+								</ul><!-- // END : Navigation links //	-->
 
 								{% if 'signup' not in request.path %}
-									<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
-										<span class="btn-txt txt-upper">Try for Free</span>
-									</a>
+								<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
+									<span class="btn-txt txt-upper">Try for free</span>
+								</a>
 								{% endif %}
-
 							{% endif %}
+						</div><!-- // END : Contact button //	-->
+
+					</div><!-- // END : Nav //	-->
 
 
+				</div><!-- // END : Column //	-->
 
+			</div><!-- // END : row //	-->
 
-						</div><!-- // END : Contact button //  -->
-
-					</div><!-- // END : Nav //  -->
-				</div><!-- // END : Column //  -->
-
-			</div><!-- // END : row //  -->
-
-		</div><!-- // END : container //  -->
+		</div><!-- // END : container //	-->
 	</nav>
 
-	<!-- ************** END : Navigation **************  -->
+	<!-- ************** END : Navigation **************	-->
 
 
 
 	<!-- ***********************************************************
 	* Header section
 	************************************************************ -->
-	<section class="pd-tb-40 full-size" id="home">
+	<section class="pd-tb-0" id="home">
 
 		<!--=================================
 		= Content section
@@ -148,7 +151,7 @@
 		<div class="pd-tb-medium pos-rel z2 typo-light" style="overflow: hidden;">
 			<div class="container pos-rel z2">
 
-				<div class="flex-row gt20 middle-md" data-rgen-sm="align-c">
+				<div class="flex-row gt20 middle-md">
 					<div class="flex-col-md-12">
 						<!--=================================
 						= Content
@@ -162,15 +165,15 @@
 								FeedCrunch.io allows you to store, manage, publish, share and organize thousands of links with RSS Feeds.
 							</p>
 							<div class="pd-t-40">
-								<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+								<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
 									<i class="pe-7s-paper-plane fs28 btn-icon"></i> <span class="btn-txt txt-upper">Sign Up Now and Get Started</span>
 								</a>
 							</div>
 						</div>
-					</div><!-- // END : column //  -->
+					</div><!-- // END : column //	-->
 
 
-				</div><!-- // END : row //  -->
+				</div><!-- // END : row //	-->
 
 				<hr class="mr-tb-60 light">
 
@@ -178,37 +181,37 @@
 				= Buttons
 				==================================-->
 				<div class="align-c">
-					<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+					<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalIOS">
 						<i class="fa fa-apple fs28 btn-icon"></i> <span class="btn-txt txt-upper">App Store</span>
-					</a>
+					</button>
 
-					<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+					<button type="button" class="btn btn-white small bdr-2 round mr-6" data-toggle="modal" data-target="#modalAndroid">
 						<i class="fa fa-android fs28 btn-icon"></i> <span class="btn-txt txt-upper">Google Play</span>
-					</a>
+					</button>
 
-					<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+					<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
 						<i class="fa fa-cloud fs28 btn-icon"></i> <span class="btn-txt txt-upper">Cloud Application</span>
 					</a>
 				</div>
-			</div><!-- // END : Container //  -->
+			</div><!-- // END : Container //	-->
 
 			<b class="bg-dark1 op-03 full-wh z1"></b>
-			<div class="full-vh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/blur-bg3.jpg" %}&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
+			<div class="full-wh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/blur-bg3.jpg" %}&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
 		</div>
-		<!-- ======= END : Content section =======  -->
+		<!-- ======= END : Content section =======	-->
 
 		<!--=================================
 		= Phone image and logo
 		==================================-->
-		<div class="pos-rel z2 sticky-iphone">
+		<div class="pos-rel z2">
 			<div class="container pos-rel z2">
 				<img src="{% static "home/images/iphone-img-01-01.png" %}" class="mr-auto -mr-t-100" alt="phone image">
-			</div><!-- // END : Container //  -->
+			</div><!-- // END : Container //	-->
 			<b class="bg-color1 full-wh"></b>
 		</div>
-		<!-- ======= END : Phone image and logo =======  -->
+		<!-- ======= END : Phone image and logo =======	-->
 	</section>
-	<!-- ************** END : Header section **************  -->
+	<!-- ************** END : Header section **************	-->
 
 	<!-- ***********************************************************
 	* Our Solution section
@@ -217,11 +220,11 @@
 		<div class="container pos-rel z1 typo-light align-c">
 
 			<div class="mr-auto mr-b-60">
-				<h2 class="txt-upper fs44" data-rgen-sm="large">Complete Curration solution</h2>
+				<h2 class="txt-upper fs44">Complete Curration solution</h2>
 				<p class="fs18 pd-t-20">We believe in high quality content paired with simple and effective design for knowledge management and communication.</p>
 			</div>
 
-			<span class="btn btn-color4 large round bdr-2 mr-b-20" data-rgen-sm="medium bold-n">FeedCrunch Suite</span>
+			<a href="/signup/" class="btn btn-color4 large round bdr-2 mr-b-20">FeedCrunch Suite</a>
 
 			<div class="bdr-l bdr-op-2 light mr-auto w0 min-px-h50"></div>
 			<div class="bdr-t bdr-l bdr-r bdr-op-2 light min-px-h50 mr-auto mr-b-20"></div>
@@ -239,7 +242,7 @@
 							<h3 class="bold-n fs16 mr-0">Subscribe to all your favourite websites</h3>
 						</div>
 					</div>
-				</div><!-- // END : column //  -->
+				</div><!-- // END : column //	-->
 
 				<div class="flex-col-md-2">
 					<div class="info-obj img-t g10 mini align-c">
@@ -252,7 +255,7 @@
 							<h3 class="bold-n fs16 mr-0">We process your Newsletters for you</h3>
 						</div>
 					</div>
-				</div><!-- // END : column //  -->
+				</div><!-- // END : column //	-->
 
 				<div class="flex-col-md-2">
 					<div class="info-obj img-t g10 mini align-c">
@@ -265,7 +268,7 @@
 							<h3 class="bold-n fs16 mr-0">Personalised Recommendation</h3>
 						</div>
 					</div>
-				</div><!-- // END : column //  -->
+				</div><!-- // END : column //	-->
 
 				<div class="flex-col-md-2">
 					<div class="info-obj img-t g10 mini align-c">
@@ -278,7 +281,7 @@
 							<h3 class="bold-n fs16 mr-0">Connect to all major Social Networks</h3>
 						</div>
 					</div>
-				</div><!-- // END : column //  -->
+				</div><!-- // END : column //	-->
 
 				<div class="flex-col-md-2">
 					<div class="info-obj img-t g10 mini align-c">
@@ -291,7 +294,7 @@
 							<h3 class="bold-n fs16 mr-0">Mobile Experience (iOS &amp; Android)</h3>
 						</div>
 					</div>
-				</div><!-- // END : column //  -->
+				</div><!-- // END : column //	-->
 
 				<div class="flex-col-md-2">
 					<div class="info-obj img-t g10 mini align-c">
@@ -304,12 +307,12 @@
 							<h3 class="bold-n fs16 mr-0">Empowered by Amazon Cloud</h3>
 						</div>
 					</div>
-				</div><!-- // END : column //  -->
-			</div><!-- // END : row //  -->
+				</div><!-- // END : column //	-->
+			</div><!-- // END : row //	-->
 
-		</div><!-- // END : Container //  -->
+		</div><!-- // END : Container //	-->
 	</section>
-	<!-- ************** END : Our Solution section **************  -->
+	<!-- ************** END : Our Solution section **************	-->
 
 
 	<!-- ************************************************************
@@ -319,7 +322,7 @@
 		<div class="container">
 
 			<!--=========================================
-			=            Content section - 1            =
+			=						Content section - 1						=
 			==========================================-->
 			<div class="w75 mr-auto align-c">
 				<h2 class="title">Unique and Simple Experience</h2>
@@ -436,7 +439,7 @@
 
 		</div><!-- / container -->
 	</section><!-- / Content section -->
-	<!-- ************** END : Mobile Experience section **************  -->
+	<!-- ************** END : Mobile Experience section **************	-->
 
 	<!-- ************************************************************
 	* How it works section
@@ -449,10 +452,10 @@
 					<p class="title-sub">Based on State of the Art Machine Learning Technology, we are able to provide you the very best content based on your previous readings and shares.</p>
 				</div>
 
-				<div class="flex-row gt20 mb20 middle-md mr-b-70" data-rgen-sm="mr-b-0">
+				<div class="flex-row gt20 mb20 middle-md mr-b-70">
 					<div class="flex-col-md-5">
 						<img src="{% static "home/images/process-img.svg" %}" alt="Process">
-					</div><!-- // END : column //  -->
+					</div><!-- // END : column //	-->
 
 					<div class="flex-col-md-6 flex-col-md-offset-1">
 						<div class="info-obj img-l g20 mini align-l mr-b-30">
@@ -488,27 +491,27 @@
 							</div>
 						</div><!-- info box -->
 
-					</div><!-- // END : column //  -->
-				</div><!-- // END : row //  -->
+					</div><!-- // END : column //	-->
+				</div><!-- // END : row //	-->
 
 				<div class="flex-row gt20 mb20 align-c middle-md">
 					<div class="flex-col-md-4">
 						<hr class="light">
-					</div><!-- // END : column //  -->
+					</div><!-- // END : column //	-->
 					<div class="flex-col-md-4">
 						<a href="/signup/" class="btn btn-color4 bold-n mr-auto large round">GET STARTED NOW</a>
-					</div><!-- // END : column //  -->
+					</div><!-- // END : column //	-->
 					<div class="flex-col-md-4">
 						<hr class="light">
-					</div><!-- // END : column //  -->
-				</div><!-- // END : row //  -->
+					</div><!-- // END : column //	-->
+				</div><!-- // END : row //	-->
 
 			</div><!-- container -->
 		</section>
-	<!-- ************** END : How it works section **************  -->
+	<!-- ************** END : How it works section **************	-->
 
 	<!-- ***************************************************************************
-	*                              Pricing section                             *
+	*															Pricing section														 *
 	**************************************************************************** -->
 	<section class="pd-tb-small pos-rel" id="pricing">
 		<div class="container pos-rel z1">
@@ -522,7 +525,7 @@
 				</div>
 
 				<!--=====================================
-				=            Pricing details            =
+				=						Pricing details						=
 				======================================-->
 
 				<div class="flex-col-md-7 flex-col-md-offset-1 align-c">
@@ -575,7 +578,7 @@
 
 								<hr>
 
-								<a href="#" class="btn btn-default solid mr-tb-20">GET STARTED</a>
+								<a href="/signup/" class="btn btn-default solid mr-tb-20">GET STARTED</a>
 							</div>
 							<!-- Price block -->
 						</div><!-- column -->
@@ -587,7 +590,7 @@
 			<hr class="mr-tb-50">
 
 			<!--=================================
-			=            FAQ section            =
+			=						FAQ section						=
 			==================================-->
 
 			<h2 class="title small mr-b-40 align-c">Frequently Asked Questions</h2>
@@ -616,32 +619,38 @@
 
 		</div><!-- container -->
 	</section>
-	<!-- ************** END : Pricing section **************  -->
+	<!-- ************** END : Pricing section **************	-->
 
 	<!-- ****************************************************************************
-	*                             Download section                             *
+	*														 Download section														 *
 	**************************************************************************** -->
-	<section class="pd-t-200 pd-tb-medium pos-rel" id="download" style="overflow: hidden;">
+	<section class="pd-tb-small pos-rel" id="download" style="overflow: hidden;">
 		<div class="container pos-rel z1 align-c typo-light">
 			<img src="{% static "home/images/logo-full.png" %}" class="max-px-h120 mr-auto mr-b-50" alt="icon">
 
-			<h2 class="title large" data-rgen-sm="large">Get the App Now!</h2>
+			<h2 class="title large">Get the App Now!</h2>
 			<p class="title-sub">FeedCrunch is now available for download. Join us and make your life easy.</p>
 
-			<a href="#" class="appstore-btn app-apple btn-color4 bg-glass bdr-2"><i class="fa fa-apple"></i><small>Download on the</small>App Store</a>
-			<a href="#" class="appstore-btn app-google-play btn-color4 bg-glass bdr-2"><i class="fa fa-android"></i><small>Get it on</small>Google play</a>
+			<button type="button" class="appstore-btn app-google-play btn-color4 bg-glass bdr-2" data-toggle="modal" data-target="#modalIOS">
+				<i class="fa fa-apple"></i><small>Download on the</small>App Store
+			</button>
+
+			<button type="button" class="appstore-btn app-google-play btn-color4 bg-glass bdr-2" data-toggle="modal" data-target="#modalAndroid">
+				<i class="fa fa-android"></i><small>Get it on</small>Google play
+			</button>
+
 		</div>
-		<div class="full-vh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/bg2.jpg" %}&quot;); transform: translate3d(0px, -23px, 0px);">
+		<div class="full-wh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/bg2.jpg" %}&quot;); transform: translate3d(0px, -23px, 0px);">
 			<b class="full-wh bg-dark1 op-07"></b>
 		</div>
 	</section>
 
 	<!-- ****************************************************************************
-	*                             Team section                                  *
+	*														 Team section																	*
 	**************************************************************************** -->
 	<section class="team-section team-section-3 edit-item" id="team">
 		<div class="container align-c">
-			<h2 class="title medium edit-item edit-content">Our Team</h2>
+			<h2 class="title medium edit-item edit-content">Our Amazing Team</h2>
 			<hr class="w50 mr-tb-40 mr-auto edit-item">
 			<div class="row">
 				<div class="col-sm-12 col-md-6 col-lg-4 col-lg-push-2">
@@ -649,28 +658,28 @@
 						<div class="img edit-item"><img src="{% static "home/images/team/laurent.jpg" %}" class="rd edit-item" alt="image"></div>
 						<div class="info edit-item">
 							<h3 class="bold-1 fs20 edit-item edit-content">
-								Laurent Dunys
-								<br><span class="fs16">CEO - Co-Founder</span>
+								<b>Laurent Dunys</b>
+								<br><span class="fs16 italic">CEO - Co-Founder</span>
 							</h3>
 							<p class="edit-item edit-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
 							<hr class="w50 mr-auto edit-item">
 							<div class="social-links fs26">
-								<a href="https://twitter.com/ldunys" class="edit-item edit-content"><i class="fa fa-twitter edit-item"></i></a>
-								<a href="https://www.linkedin.com/in/laurentdunys" class="edit-item edit-content"><i class="fa fa-linkedin edit-item"></i></a>
-								<a href="https://www.facebook.com/ldunys" class="edit-item edit-content"><i class="fa fa-facebook edit-item"></i></a>
-								<a href="https://www.feedcrunch.io/@laurent/" class="edit-item edit-content"><i class="fa fa-rss edit-item"></i></a>
+								<a target="_blank" href="https://twitter.com/ldunys" class="edit-item edit-content"><i class="fa fa-twitter edit-item"></i></a>
+								<a target="_blank" href="https://www.linkedin.com/in/laurentdunys" class="edit-item edit-content"><i class="fa fa-linkedin edit-item"></i></a>
+								<a target="_blank" href="https://www.facebook.com/ldunys" class="edit-item edit-content"><i class="fa fa-facebook edit-item"></i></a>
+								<a target="_blank" href="https://www.feedcrunch.io/@laurent/" class="edit-item edit-content"><i class="fa fa-rss edit-item"></i></a>
 							</div><!-- /.social-links -->
 						</div>
 					</div><!-- / info object -->
 				</div><!-- / column -->
 
-				<div class="col-sm-12 col-md-6 col-lg-4 col-lg-push-2">
+				<div class="col-sm-12 col-md-6 col-lg-4 col-lg-push-2 mobile-pd-t-100">
 					<div class="info-obj img-t g20 large align-c edit-item w30">
-						<div class="img edit-item"><img src="{% static "home/images/team/jonathan.jpg" %}" class="rd edit-item" alt="image" data-sandboxid="tmp-18"></div>
+						<div class="img edit-item"><img src="{% static "home/images/team/jonathan.jpg" %}" class="rd edit-item" alt="image"></div>
 						<div class="info edit-item">
 							<h3 class="bold-1 fs20 edit-item edit-content">
-								Jonathan DEKHTIAR
-								<br><span class="fs16">CTO - Co-Founder</span>
+								<b>Jonathan DEKHTIAR</b>
+								<br><span class="fs16 italic">CTO - Co-Founder</span>
 							</h3>
 							<p class="edit-item edit-content">
 								I believe in challenging the status-quo on a daily basis.<br>
@@ -678,10 +687,10 @@
 							</p>
 							<hr class="w50 mr-auto edit-item">
 							<div class="social-links fs26">
-								<a href="https://twitter.com/born2data" class="edit-item edit-content"><i class="fa fa-twitter edit-item"></i></a>
-								<a href="https://fr.linkedin.com/in/jonathandekhtiar" class="edit-item edit-content"><i class="fa fa-linkedin edit-item"></i></a>
-								<a href="https://github.com/DEKHTIARJonathan" class="edit-item edit-content"><i class="fa fa-github edit-item"></i></a>
-								<a href="https://www.feedcrunch.io/@dataradar/" class="edit-item edit-content"><i class="fa fa-rss edit-item"></i></a>
+								<a target="_blank" href="https://twitter.com/born2data" class="edit-item edit-content"><i class="fa fa-twitter edit-item"></i></a>
+								<a target="_blank" href="https://fr.linkedin.com/in/jonathandekhtiar" class="edit-item edit-content"><i class="fa fa-linkedin edit-item"></i></a>
+								<a target="_blank" href="https://github.com/DEKHTIARJonathan" class="edit-item edit-content"><i class="fa fa-github edit-item"></i></a>
+								<a target="_blank" href="https://www.feedcrunch.io/@dataradar/" class="edit-item edit-content"><i class="fa fa-rss edit-item"></i></a>
 							</div><!-- /.social-links -->
 						</div>
 					</div><!-- / info object -->
@@ -695,10 +704,10 @@
 
 	<!--
 	****************************************************************************
-	*                              Footer section                              *
+	*															Footer section															*
 	**************************************************************************** -->
 	<!-- FOOTER -->
-	<footer class="pos-rel pd-tb-medium bg-dark1" style="text-align:left;">
+	<footer class="pos-rel pd-tb-50 bg-dark1" style="text-align:left;">
 		<div class="container pos-rel z1 typo-light">
 			<div class="row">
 				<div class="col-sm-12 col-md-6" style="color:#fff">
@@ -707,10 +716,11 @@
 					{% else %}
 						<h2 class="fs26">{{ post_count }} articles posted since November 2016</h2>
 					{% endif %}
-					<p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform.<br><br></p>
-					<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io" data-size="large">Follow @FeedCrunch_io</a>
+					<p style="margin-bottom:10px;">We are proud to have everyday many more users adopting our platform.<br><br></p>
+					<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io">Follow @FeedCrunch_io</a>
 					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
+				<div class='mobile-pd-t-100'></div>
 				<div class="col-md-push-2 col-md-2 col-xs-6 ">
 					<h5>FeedCrunch.IO</h5>
 					<ul class="list-unstyled" style="color:#bebebe">
@@ -740,7 +750,7 @@
 				<div class="col-sm-12">
 					<div class="footer-alt text-center">
 						<p class="text-muted_footer m-b-0">
-							Developed with <span style="color:red; font-size:1.2em;">♥</span> at SWAI by - 2016 © FeedCrunch.io -
+							Developed with <span style="color:red; font-size:1.2em;"><i class="fa fa-heart" aria-hidden="true"></i></span> at SWAI - 2016 © FeedCrunch.io
 						</p>
 					</div>
 				</div>
@@ -750,14 +760,96 @@
 		</div>
 		<!-- end container -->
 	</footer>
-	<!-- ************** END : footer **************  -->
+	<!-- ************** END : footer **************	-->
 
 
 </div>
 <!-- /#page -->
 
+<!-- Modal -->
+<div class="modal fade" id="modalIOS" tabindex="-1" role="dialog" aria-labelledby="modalIOSLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title fs24">Thanks for supporting us !</h4>
+			</div>
+			<div class="modal-body">
+				<div id="mc_embed_signup">
+					<form action="//feedcrunch.us13.list-manage.com/subscribe/post?u=cdde65b7c674cb065563b331d&amp;id=91f4c4bc6b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						<div id="mc_embed_signup_scroll">
+							<p class="fs16 align-c italic">
+								Our dev-monkeys are currently busy playing with bananas...<br>
+								We hope they will finish the mobile apps as soon as possible.
+							</p>
+							<p class="fs16 pd-tb-30">Subscribe to be alerted as soon as the application is available.</p>
+							<div class="mc-field-group">
+								<label for="mce-EMAIL">
+									Email Address:
+								</label>
+								<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+							</div>
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;" aria-hidden="true">
+								<input type="text" name="b_cdde65b7c674cb065563b331d_91f4c4bc6b" tabindex="-1" value="">
+							</div>
+							<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalAndroid" tabindex="-1" role="dialog" aria-labelledby="modalAndroidLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title fs24">Thanks for supporting us !</h4>
+			</div>
+			<div class="modal-body">
+				<div id="mc_embed_signup">
+					<form action="//feedcrunch.us13.list-manage.com/subscribe/post?u=cdde65b7c674cb065563b331d&amp;id=91af58f5bd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						<div id="mc_embed_signup_scroll">
+							<p class="fs16 align-c italic">
+								Our dev-monkeys are currently busy playing with bananas...<br>
+								We hope they will finish the mobile apps as soon as possible.
+							</p>
+							<p class="fs16 pd-tb-30">Subscribe to be alerted as soon as the application is available.</p>
+							<div class="mc-field-group">
+								<label for="mce-EMAIL">
+									Email Address:
+								</label>
+								<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+							</div>
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;" aria-hidden="true">
+								<input type="text" name="b_cdde65b7c674cb065563b331d_91af58f5bd" tabindex="-1" value="">
+							</div>
+							<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 <script src="{% static "home/lib/pace/pace.min.js" %}"></script>
+<script src="{% static "home/minify/rgen_min.js" %}"></script>
+<script async src="{% static "home/js/menu.js" %}"></script>
+
 
 </body>
 </html>

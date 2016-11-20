@@ -6,10 +6,17 @@
 	background-size:105% 105%;
 }
 
+.nav-wrp .navbar-brand img {
+    max-width: 80%;
+}
+
 @media (min-width: 1200px) {
 	.sticky-iphone{
 		width: 100%;
 		position: inherit;
+	}
+	.nav-other{
+		padding-left: 40px;
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -24,13 +31,12 @@
 /*	MOBILE & TABLET COMMON
 /*===========================================*/
 @media (min-width: 200px) and (max-width: 991px) {
-	.sticky-iphone{
-		padding-top: 100px;
-		padding-bottom: 20px;
+	.nav-wrp .flex-row {
+		width: 90%;
 	}
-	.full-size{
-		padding-top: 40px;
-		padding-bottom: 0px;
+
+	.mobile-pd-t-100{
+		padding-top: 100px;
 	}
 }
 
