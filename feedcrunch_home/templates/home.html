@@ -33,15 +33,15 @@
 	<meta property="og:title" content="FeedCrunch | RSS Feeds to the next level.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.feedcrunch.io/">
-	<meta property="og:image" content="{% static "home2/images/social-share-images/social-img.png" %}">
+	<meta property="og:image" content="{% static "home/images/social-share-images/social-img.png" %}">
 	<meta property="og:image:type" content"image="" jpeg"="">
 	<meta property="og:description" content="FeedCrunch is an intuitive news recommendation platform">
-	<meta property="og:site_name" content="BulletSend">
+	<meta property="og:site_name" content="FeedCrunch">
 
-	      <!-- Schema.org markup for Google+ -->
+	<!-- Schema.org markup for Google+ -->
 	<meta itemprop="name" content="FeedCrunch | RSS Feeds to the next level.">
 	<meta itemprop="description" content="FeedCrunch is an intuitive news recommendation platform">
-	<meta itemprop="image" src="{% static "home2/images/social-share-images/social-img.png" %}">
+	<meta itemprop="image" src="{% static "home/images/social-share-images/social-img.png" %}">
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@feedcrunch_io">
@@ -50,7 +50,7 @@
 	<meta name="twitter:creator" content="@feedcrunch_io">
 
 	<!-- Twitter summary card with large image must be at least 280x150px -->
-	<meta name="twitter:image:src" content="{% static "home2/images/social-share-images/social-img.png" %}">
+	<meta name="twitter:image:src" content="{% static "home/images/social-share-images/social-img.png" %}">
 
 </head>
 <body>
@@ -193,7 +193,7 @@
 			</div><!-- // END : Container //  -->
 
 			<b class="bg-dark1 op-03 full-wh z1"></b>
-			<div class="full-vh bg-cc bg-cover" style="background-image: url(&quot;/static/home/images/blur-bg3.jpg&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
+			<div class="full-vh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/blur-bg3.jpg" %}&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
 		</div>
 		<!-- ======= END : Content section =======  -->
 
@@ -202,7 +202,7 @@
 		==================================-->
 		<div class="pos-rel z2 sticky-iphone">
 			<div class="container pos-rel z2">
-				<img src="/static/home/images/iphone-img-01-01.png" class="mr-auto -mr-t-100" alt="phone image">
+				<img src="{% static "home/images/iphone-img-01-01.png" %}" class="mr-auto -mr-t-100" alt="phone image">
 			</div><!-- // END : Container //  -->
 			<b class="bg-color1 full-wh"></b>
 		</div>
@@ -757,7 +757,7 @@
 <!-- /#page -->
 
 
-<script src="{% static "home/dist/pace/pace.min.js" %}"></script>
+<script src="{% static "home/lib/pace/pace.min.js" %}"></script>
 
 </body>
 </html>
