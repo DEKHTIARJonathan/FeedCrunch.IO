@@ -6,6 +6,11 @@
 	background-size:105% 105%;
 }
 
+.nav-links>li>a.active{
+	text-decoration:underline;
+	color: rgba(255, 255, 255, 0.8);
+}
+
 .nav-wrp .navbar-brand img {
     max-width: 80%;
 }
@@ -33,6 +38,11 @@
 @media (min-width: 200px) and (max-width: 991px) {
 	.nav-wrp .flex-row {
 		width: 90%;
+	}
+
+
+	.nav-wrp {
+		position: fixed;
 	}
 
 	.mobile-pd-t-100{

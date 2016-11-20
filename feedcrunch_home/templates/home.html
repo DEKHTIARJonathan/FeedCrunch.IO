@@ -143,7 +143,7 @@
 	<!-- ***********************************************************
 	* Header section
 	************************************************************ -->
-	<section class="pd-tb-0" id="home">
+	<section class="pd-tb-0" id="home" style="min-height: 100vh;">
 
 		<!--=================================
 		= Content section
@@ -194,22 +194,22 @@
 					</a>
 				</div>
 			</div><!-- // END : Container //	-->
-
-			<b class="bg-dark1 op-03 full-wh z1"></b>
-			<div class="full-wh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/blur-bg3.jpg" %}&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
 		</div>
 		<!-- ======= END : Content section =======	-->
 
 		<!--=================================
 		= Phone image and logo
 		==================================-->
-		<div class="pos-rel z2">
+		<div class="pos-rel z2" style="position: inherit;">
 			<div class="container pos-rel z2">
 				<img src="{% static "home/images/iphone-img-01.png" %}" class="mr-auto -mr-t-100" alt="phone image">
 			</div><!-- // END : Container //	-->
 			<b class="bg-color1 full-wh"></b>
 		</div>
 		<!-- ======= END : Phone image and logo =======	-->
+
+		<b class="bg-dark1 op-03 full-wh z1"></b>
+		<div class="full-wh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/blur-bg3.jpg" %}&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
 	</section>
 	<!-- ************** END : Header section **************	-->
 
