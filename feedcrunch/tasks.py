@@ -72,7 +72,7 @@ def send_mass_welcome_email():
 def send_welcome_email(user_name):
 	usr = FeedUser.objects.get(username=user_name)
 
-	msg_plain = render_to_string('emails/welcome.html', {'firstname': usr.get_short_name()})
+	msg_plain = render_to_string('emails/welcome.txt', {'firstname': usr.get_short_name()})
 	msg_html = render_to_string('emails/welcome.html', {'firstname': usr.get_short_name()})
 
 	send_mail(
