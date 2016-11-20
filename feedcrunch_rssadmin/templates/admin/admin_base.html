@@ -41,6 +41,7 @@
 		{% elif template_name == "admin/admin_reading_recommendation.html" %}
 			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
 
 		{% elif template_name == "admin/admin_personal.html" %}
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
@@ -394,11 +395,14 @@
 
 		{% elif template_name == "admin/admin_reading_recommendation.html" %}
 			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/typeahead-js-corejs/typeahead.bundle.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/materialize-tags/js/materialize-tags.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-post-recommendations.js" %}"></script>
-
+			
 		{% endif %}
 
 

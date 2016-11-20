@@ -23,5 +23,6 @@ urlpatterns = [
 	url(r'^article/delete/$', delete_article_listing, name='delete_article_listing'),
 	url(r'^reading/subscription/$', sub_management, name='sub_management'),
 	url(r'^reading/recommendation/$', reading_recommendation, name='reading-recommendation'),
+	url(r'^reading/recommendation/redirect/(?P<postID>\d+)/$', redirect_recommendation, name='redirect-recommendation'),
 	url(r'^contact/$', contact_form, name='contact_form'),
 ]

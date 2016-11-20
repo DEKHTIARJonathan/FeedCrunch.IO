@@ -258,3 +258,18 @@ def reading_recommendation(request, feedname=None):
 			rssarticles_data.append(tmp)
 
 		return render(request, 'admin/admin_reading_recommendation.html', {'rssarticles': rssarticles_data})
+
+def redirect_recommendation(request, feedname=None, postID=None):
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+
+	try:
+		article = RSSArticle.objects.get(id=postID, user=feedname)
+
+		article.open_count += 1
+		article.save()
+
+		return HttpResponseRedirect(article.link)
+	except:
+		return HttpResponseRedirect("/@"+feedname+"/admin/reading/recommendation/")

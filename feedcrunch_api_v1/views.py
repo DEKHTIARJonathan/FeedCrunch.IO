@@ -14,7 +14,7 @@ from rest_framework.parsers import FileUploadParser
 from django_q.tasks import async, schedule
 from django_q.models import Schedule
 
-from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed
+from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle
 
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
@@ -196,7 +196,7 @@ class Tags(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Article  (PUT), DELETE Article (DELETE)
+class RSSFeed_View(APIView):
 
 	def get(self, request):
 		payload = dict()
@@ -314,7 +314,7 @@ class RSSFeed_View(APIView): # Add Article (POST), Get Article  (GET), Modify Ar
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article  (PUT), DELETE Article (DELETE)
+class Article(APIView):
 
 	def get(self, request):
 		payload = dict()
@@ -331,6 +331,18 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 
 			payload ["username"] = request.user.username
 
+			if 'article_id' in request.POST:
+				RSSArticle_id = unicodedata.normalize('NFC', request.POST['article_id'])
+				RSSArticle_QuerySet = RSSArticle.objects.filter(id=RSSArticle_id, user=request.user)
+
+				if not RSSArticle_QuerySet.exists():
+					raise Exception("The given RSSArticle (id = '" + str(RSSArticle_id) + "' with the given user (username = " + request.user.username + ") doesn't exist.")
+
+				RSSArticle_obj = RSSArticle_QuerySet[0]
+
+			else:
+				RSSArticle_id = -1
+
 			title = unicodedata.normalize('NFC', request.POST['title'])
 			link = unicodedata.normalize('NFC', request.POST['link'])
 			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
@@ -346,11 +358,24 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 
 			tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=request.user, activeLink=activated_bool)
 
-			for tag in tags:
-				tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-				tmp_post.tags.add(tmp_obj)
+			for i, tag in enumerate(tags):
+
+				tag = tag.replace(" ", "")
+				tags[i] = tag
+
+				if tag != "":
+					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+					tmp_post.tags.add(tmp_obj)
+
+				else:
+					tags.pop(i)
 
 			tmp_post.save()
+
+			if RSSArticle_id != -1:
+				RSSArticle_obj.reposted = True
+				RSSArticle_obj.marked_read = True
+				RSSArticle_obj.save()
 
 			if twitter_bool and request.user.is_twitter_enabled():
 
@@ -358,7 +383,7 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 
 					if twitter_instance.connection_status():
 
-						tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+						tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, final_tag_list)
 
 						if not tw_rslt['status']:
 							payload["postID"] = str(tmp_post.id)
@@ -414,9 +439,17 @@ class Article(APIView): # Add Article (POST), Get Article  (GET), Modify Article
 			tmp_post.activeLink = activated_bool
 			tmp_post.tags.clear()
 
-			for tag in tags:
-				tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
-				tmp_post.tags.add(tmp_obj)
+			for i, tag in enumerate(tags):
+
+				tag = tag.replace(" ", "")
+				tags[i] = tag
+
+				if tag != "":
+					tmp_obj, created_bool = Tag.objects.get_or_create(name=tag)
+					tmp_post.tags.add(tmp_obj)
+
+				else:
+					tags.pop(i)
 
 			if twitter_bool and request.user.is_twitter_enabled():
 
@@ -671,6 +704,57 @@ class Modify_Password(APIView):
 			payload["postID"] = None
 
 		payload ["operation"] = "modify password"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+def mark_RSSArticle_as_read(RSSArticleID, user):
+	RSSArticle_QuerySet = RSSArticle.objects.filter(id=RSSArticleID, user=user)
+
+	if not RSSArticle_QuerySet.exists():
+		raise Exception("The given RSSArticle (id = '" + str(RSSArticle_id) + "') with the given user (username = " + request.user.username + ") doesn't exist.")
+
+	RSSArticle_obj = RSSArticle_QuerySet[0]
+
+	RSSArticle_obj.marked_read = True
+	RSSArticle_obj.save()
+
+class RSSArticle_View(APIView):
+	def put(self, request, rssArticleID=None):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			payload ["username"] = request.user.username
+
+			if rssArticleID is not None:
+				mark_RSSArticle_as_read(rssArticleID, request.user)
+
+				payload ["operation"] = "Mark RSSArticle as Read"
+
+			elif 'listing' in request.data:
+				RSSArticle_listing = unicodedata.normalize('NFC', request.POST['listing']).split(',') # We separate each tag and create a list out of it.
+				RSSArticle_listing.pop() # We remove the last element which is empty
+
+				for article in RSSArticle_listing:
+					mark_RSSArticle_as_read(article, request.user)
+
+				payload ["operation"] = "Mark RSSArticles Listing as Read"
+
+			else:
+				raise Exception("Some Parameters are missing (rssArticleID or listing)")
+
+			payload["success"] = True
+			payload["rssArticleID"] = rssArticleID
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["rssArticleID"] = None
+
+
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 

@@ -28,6 +28,11 @@ urlpatterns = [
 	# Tag Routes
 	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),
 
+	# RSSArticle Routes
+	url(r'^authenticated/mark_as_read/rssarticle/(?P<rssArticleID>\d+)/$', RSSArticle_View.as_view(), name='Mark_As_Read_RSSFeed'),
+	url(r'^authenticated/mark_list_as_read/rssarticle/$', RSSArticle_View.as_view(), name='Mark_As_Read_RSSFeed'),
+
+
 	# RSSFeed Routes
 	url(r'^authenticated/post/rssfeed/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
 	url(r'^authenticated/delete/rssfeed/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='delete_RSSFeed'),
