@@ -174,6 +174,7 @@ $(document).ready(function() {
 		var field_link = $("#post-link");
 		var label_link = field_link.siblings('label');
 
+		$("#post-tags").materialtags('removeAll');
 
 		$("#post-id").val(id);
 
