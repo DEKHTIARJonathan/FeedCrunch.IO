@@ -1,278 +1,738 @@
-{% extends 'base.html' %}
 {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" data-demomenu="y">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FeedCrunch.io | Share your expertise with the world</title>
 
-{% block body %}
+	<!--pageMeta-->
 
-<!-- HOME -->
-<section class="home bg-img-1" id="home" style="height:100vh;">
-		<div class="container">
-				<div class="row">
-						<div class="col-sm-12 text-center">
-								<div class="home-fullscreen" id="home-fullscreen">
-										<div class="full-screen">
-												<div class="home-wrapper home-wrapper-alt">
-														<h1 class="font-light">FeedCrunch.io - RSS Feeds to the next level !</h1>
-														<h4>FeedCrunch.io allows you to <b>store, manage, publish, share and organize</b> thousands of links with RSS Feeds.</h4>
-														<a href="/signup" class="btn btn-custom">Get Started for Free</a>
-												</div>
-										</div>
-								</div>
+	<!-- Lib CSS -->
+	<link href="{% static "home/css/rgen.css" %}" rel="stylesheet">
+	<link href="{% static "home/css/custom.css" %}" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="icon" href="{% static "home/images/favicons/favicon.ico" %}">
+	<link rel="apple-touch-icon" href="{% static "home/images/favicons/apple-touch-icon.png" %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static "home/images/favicons/apple-touch-icon-72x72.png" %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static "home/images/favicons/apple-touch-icon-114x114.png" %}">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+	<!--[if lt IE 9]>
+	<script src="{% static "home/js/html5shiv.js" %}"></script>
+	<script src="{% static "home/js/respond.min.js" %}"></script>
+	<![endif]-->
+	<!--[if IE 9 ]>
+	<script src="{% static "home/js/ie-matchmedia.js" %}"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+<div id="page">
+	<!--
+	************************************************************
+	* Navigation
+	************************************************************ -->
+	<nav class="nav-wrp nav-1 light navbar-fixed-top nav-hide nav-sticky nav-show">
+		<div class="container pd-0 bdr-b flex-cc">
+			<div class="flex-row gt0 middle-md">
+
+				<!--=================================
+				= Logo section
+				==================================-->
+				<div class="flex-col-md-3">
+					<div class="nav-header">
+						<a class="navbar-brand" href="#"><img src="{% static "home/images/logo1.png" %}" alt="Brand logo" class="pd-tb-3"></a>
+						<a class="nav-handle" data-nav=".nav" data-navopen="pe-7s-more" data-navclose="pe-7s-close"><i class="pe-7s-more"></i></a>
+					</div>
+				</div><!-- // END : Column //  -->
+
+				<!--=================================
+				= Navigation links
+				==================================-->
+				<div class="flex-col-md-9">
+					<div class="nav flex-row">
+
+						<div class="nav-other align-c flex-col-md-8">
+							<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
+								<li><a href="#home">Home</a></li>
+								<li><a href="#solution">Our Solution</a></li>
+								<li><a href="#mobile">Mobile</a></li>
+								<li><a href="#howWorks">How It Works</a></li>
+								<li><a href="#pricing">Pricing</a></li>
+								<li><a href="#team">Team</a></li>
+								<li><a href="/contact/">Contact</a></li>
+							</ul><!-- // END : Navigation links //  -->
+						</div><!-- // END : Contact button //  -->
+
+						<div class="nav-other align-r flex-col-md-4">
+
+
+							{% if user.is_authenticated %}
+
+								<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
+									<li><a href="/logout/">Logout</a></li>
+								</ul><!-- // END : Navigation links //  -->
+
+
+								<a href="/@{{user.username}}/admin/" class="btn btn-white small bdr-2 round mr-6">
+									<span class="btn-txt txt-upper">Admin Panel</span>
+								</a>
+
+							{% else %}
+
+								<ul class="nav-links sf-menu sf-js-enabled sf-arrows pd-tb-5" style="touch-action: pan-y;">
+									<li><a href="/login/">Login</a></li>
+								</ul><!-- // END : Navigation links //  -->
+
+								{% if 'signup' not in request.path %}
+									<a href="/signup/" class="btn btn-white small bdr-2 round mr-6">
+										<span class="btn-txt txt-upper">Try for Free</span>
+									</a>
+								{% endif %}
+
+							{% endif %}
+
+
+
+
+						</div><!-- // END : Contact button //  -->
+
+					</div><!-- // END : Nav //  -->
+				</div><!-- // END : Column //  -->
+
+			</div><!-- // END : row //  -->
+
+		</div><!-- // END : container //  -->
+	</nav>
+
+	<!-- ************** END : Navigation **************  -->
+
+
+
+	<!-- ***********************************************************
+	* Header section
+	************************************************************ -->
+	<section class="pd-tb-40 full-size" id="home">
+
+		<!--=================================
+		= Content section
+		==================================-->
+		<div class="pd-tb-medium pos-rel z2 typo-light" style="overflow: hidden;">
+			<div class="container pos-rel z2">
+
+				<div class="flex-row gt20 middle-md" data-rgen-sm="align-c">
+					<div class="flex-col-md-12">
+						<!--=================================
+						= Content
+						==================================-->
+						<h2 class="title fs38 lh-2 align-c">
+							Introducing FeedCrunch.io - RSS Feeds to the next level
+						</h2>
+
+						<div class="align-c">
+							<p class="title-sub italic mr-0 mini pd-t-30">
+								FeedCrunch.io allows you to store, manage, publish, share and organize thousands of links with RSS Feeds.
+							</p>
+							<div class="pd-t-40">
+								<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+									<i class="pe-7s-paper-plane fs28 btn-icon"></i> <span class="btn-txt txt-upper">Sign Up Now and Get Started</span>
+								</a>
+							</div>
 						</div>
+					</div><!-- // END : column //  -->
+
+
+				</div><!-- // END : row //  -->
+
+				<hr class="mr-tb-60 light">
+
+				<!--=================================
+				= Buttons
+				==================================-->
+				<div class="align-c">
+					<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+						<i class="fa fa-apple fs28 btn-icon"></i> <span class="btn-txt txt-upper">App Store</span>
+					</a>
+
+					<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+						<i class="fa fa-android fs28 btn-icon"></i> <span class="btn-txt txt-upper">Google Play</span>
+					</a>
+
+					<a href="/signup/" target="_blank" class="btn btn-white small bdr-2 round mr-6">
+						<i class="fa fa-cloud fs28 btn-icon"></i> <span class="btn-txt txt-upper">Cloud Application</span>
+					</a>
 				</div>
+			</div><!-- // END : Container //  -->
+
+			<b class="bg-dark1 op-03 full-wh z1"></b>
+			<div class="full-vh bg-cc bg-cover" style="background-image: url(&quot;/static/home/images/blur-bg3.jpg&quot;); transform: translate3d(0px, 0.1px, 0px);"></div>
 		</div>
-</section>
-<!-- END HOME -->
+		<!-- ======= END : Content section =======  -->
+
+		<!--=================================
+		= Phone image and logo
+		==================================-->
+		<div class="pos-rel z2 sticky-iphone">
+			<div class="container pos-rel z2">
+				<img src="/static/home/images/iphone-img-01-01.png" class="mr-auto -mr-t-100" alt="phone image">
+			</div><!-- // END : Container //  -->
+			<b class="bg-color1 full-wh"></b>
+		</div>
+		<!-- ======= END : Phone image and logo =======  -->
+	</section>
+	<!-- ************** END : Header section **************  -->
+
+	<!-- ***********************************************************
+	* Our Solution section
+	************************************************************ -->
+	<section class="pos-rel pd-tb-large bg-dark1 pd-tb-small" id="solution">
+		<div class="container pos-rel z1 typo-light align-c">
+
+			<div class="mr-auto mr-b-60">
+				<h2 class="txt-upper fs44" data-rgen-sm="large">Complete Curration solution</h2>
+				<p class="fs18 pd-t-20">We believe in high quality content paired with simple and effective design for knowledge management and communication.</p>
+			</div>
+
+			<span class="btn btn-color4 large round bdr-2 mr-b-20" data-rgen-sm="medium bold-n">FeedCrunch Suite</span>
+
+			<div class="bdr-l bdr-op-2 light mr-auto w0 min-px-h50"></div>
+			<div class="bdr-t bdr-l bdr-r bdr-op-2 light min-px-h50 mr-auto mr-b-20"></div>
 
 
+			<div class="flex-row gt40 mb20">
+				<div class="flex-col-md-2">
+					<div class="info-obj img-t g10 mini align-c">
+						<div class="img">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-rss btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="bold-n fs16 mr-0">Subscribe to all your favourite websites</h3>
+						</div>
+					</div>
+				</div><!-- // END : column //  -->
 
-<!-- Features Alt -->
-<section class="section"  id="design">
+				<div class="flex-col-md-2">
+					<div class="info-obj img-t g10 mini align-c">
+						<div class="img">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-envelope btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="bold-n fs16 mr-0">We process your Newsletters for you</h3>
+						</div>
+					</div>
+				</div><!-- // END : column //  -->
+
+				<div class="flex-col-md-2">
+					<div class="info-obj img-t g10 mini align-c">
+						<div class="img">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-user btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="bold-n fs16 mr-0">Personalised Recommendation</h3>
+						</div>
+					</div>
+				</div><!-- // END : column //  -->
+
+				<div class="flex-col-md-2">
+					<div class="info-obj img-t g10 mini align-c">
+						<div class="img">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-share-alt btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="bold-n fs16 mr-0">Connect to all major Social Networks</h3>
+						</div>
+					</div>
+				</div><!-- // END : column //  -->
+
+				<div class="flex-col-md-2">
+					<div class="info-obj img-t g10 mini align-c">
+						<div class="img">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-mobile btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="bold-n fs16 mr-0">Mobile Experience (iOS &amp; Android)</h3>
+						</div>
+					</div>
+				</div><!-- // END : column //  -->
+
+				<div class="flex-col-md-2">
+					<div class="info-obj img-t g10 mini align-c">
+						<div class="img">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-cloud btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="bold-n fs16 mr-0">Empowered by Amazon Cloud</h3>
+						</div>
+					</div>
+				</div><!-- // END : column //  -->
+			</div><!-- // END : row //  -->
+
+		</div><!-- // END : Container //  -->
+	</section>
+	<!-- ************** END : Our Solution section **************  -->
+
+
+	<!-- ************************************************************
+	* Mobile Experience section
+	************************************************************ -->
+	<section class="pos-rel pd-tb-small" id="mobile">
 		<div class="container">
 
-				<div class="row">
-						<div class="col-sm-12">
-								<div class="text-center">
-										<div class="title-box-icon">
-												<!-- <i class="pe-7s-medal"></i> -->
-												<h3 class="title">Simple Design, Yet Effective.</h3>
-										</div>
-								</div>
+			<!--=========================================
+			=            Content section - 1            =
+			==========================================-->
+			<div class="w75 mr-auto align-c">
+				<h2 class="title">Unique and Simple Experience</h2>
+				<p class="title-sub small">Get the smoothest experience, reading your news in a distraction-free environment</p>
+				<hr class="mr-tb-50">
+			</div>
+
+			<div class="flex-row middle-md mb20">
+
+				<div class="flex-col-md-3">
+					<div class="info-obj img-t g10 mini align-c mr-b-20">
+						<div class="img txt-color1">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-newspaper-o btn-icon"></i>
+							</span>
 						</div>
-				</div><!-- end row -->
-				<h4 class="text-muted" style="text-align:center; font-weight: 400;">We believe in high quality content paired with simple, effective design for knowledge management and communication.</h4>
-				<div class="row" style="margin-top:50px;">
-						<div class="col-sm-6" style="float: none; display: table-cell; vertical-align: top;">
-								<div class="feat-description">
-
-										<p class="text-muted"><h4 class="text-muted" style="font-weight: 500; margin-top:35px;">With Feedcrunch, you can: </h4><br><br>
-											<ul>
-												<li>
-													<b>Publish</b> and <b>Share</b> your bookmarks in one handy RSS list<br><br>
-												</li>
-												<li>
-													<b>Find</b> relevant topics with an integrated <b>search engine</b> and <b>categorize</b> new documents, links, webpage, etc.<br><br>
-												</li>
-												<li>
-													<b>Showcase</b> your skill portfolio and share your <b>knowledge in a community</b>.<br><br>
-												</li>
-											</ul>
-										</p>
-
-										<a href="/@dataradar/" class="btn btn-custom"  style="margin-top:40px">Show me the platform in action.</a>
-								</div>
+						<div class="info">
+							<h3 class="title tiny bold-n">Read your news everywhere</h3>
+							<p class="mr-0">
+								No more excuse not to stay informed. Get the best news when you need them.
+							</p>
 						</div>
+					</div><!-- info box -->
 
-						<div class="col-sm-6" style="float: none; display: table-cell; vertical-align: top;">
-								<img src="{% static "images/macbook.png" %}" alt="img" class="img-responsive" style="position: absolute; top: 0; bottom: 0; margin: auto;">
+					<hr class="mr-t-30 mr-b-20">
+
+					<div class="info-obj img-t g10 mini align-c mr-b-20">
+						<div class="img txt-color1">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-envelope-o btn-icon"></i>
+							</span>
 						</div>
+						<div class="info">
+							<h3 class="title tiny bold-n">Newsletters</h3>
+							<p class="mr-0">
+								You want to subscribe to Newsletter, but never have time to read them ? We can process them for you.
+							</p>
+						</div>
+					</div><!-- info box -->
 
-				</div><!-- end row -->
+					<hr class="mr-t-30 mr-b-20">
 
-		</div> <!-- end container -->
-</section>
-<!-- end features alt -->
+					<div class="info-obj img-t g10 mini align-c mr-b-20">
+						<div class="img txt-color1">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-rss btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="title tiny bold-n">RSS Feeds</h3>
+							<p class="mr-0">
+								Almost every blogs and news websites have at least one RSS Feed. We can also process them for you.
+							</p>
+						</div>
+					</div><!-- info box -->
+				</div><!-- column -->
 
+				<div class="flex-col-md-6 align-c">
+					<img src="{% static "home/images/iphone-img-11.png" %}" class="mr-auto" alt="image">
+				</div><!-- / column -->
 
-<!-- Features -->
-<section class="section bg-light" id="features">
-		<div class="container">
+				<div class="flex-col-md-3">
+					<div class="info-obj img-t g10 mini align-c mr-b-20">
+						<div class="img txt-color1">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-paper-plane-o btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="title tiny bold-n">Social Shares</h3>
+							<p class="mr-0">
+								You just found a fantastic article ?<br>
+								Why not sharing it on social networks ?
+							</p>
+						</div>
+					</div><!-- info box -->
 
-				<div class="row">
-						<div class="col-sm-12 text-center">
-								<h3 class="title">
-									Intelligently designed to promote your content and provide the best user experience.
-								</h3>
-								<p class="text-muted sub-title" style="padding-top: 35px; margin-bottom: 0px;">
-									The clean and soft design has been thought to provide the best user experience as possible.<br>
-									We believe that a simple design, yet elegant, will allow our users to focus on creating great content.
+					<hr class="mr-t-30 mr-b-20">
+
+					<div class="info-obj img-t g10 mini align-c mr-b-20">
+						<div class="img txt-color1">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-cogs btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="title tiny bold-n">Recommendation Engine</h3>
+							<p class="mr-0">
+								Bored about reading irrelevant news ?<br>
+								Our engine is designed to fit you at best.
+							</p>
+						</div>
+					</div><!-- info box -->
+
+					<hr class="mr-t-30 mr-b-20">
+
+					<div class="info-obj img-t g10 mini align-c mr-b-20">
+						<div class="img txt-color1">
+							<span class="iconwrp txt-color4">
+								<i class="fa fa-cloud btn-icon"></i>
+							</span>
+						</div>
+						<div class="info">
+							<h3 class="title tiny bold-n">Cloud Computing</h3>
+							<p class="mr-0">
+								Our Application relies on the power of Cloud Computing.
+								Blazing Fast and no Down time.
+							</p>
+						</div>
+					</div><!-- info box -->
+				</div><!-- column -->
+
+			</div><!-- / row -->
+
+		</div><!-- / container -->
+	</section><!-- / Content section -->
+	<!-- ************** END : Mobile Experience section **************  -->
+
+	<!-- ************************************************************
+	* How it works section
+	************************************************************ -->
+	<section class="pos-rel pd-tb-medium bg-dark1" id="howWorks">
+			<div class="container pos-rel z1 typo-light">
+
+				<div class="w75 mr-auto align-c mr-b-60">
+					<h2 class="title">How it works</h2>
+					<p class="title-sub">Based on State of the Art Machine Learning Technology, we are able to provide you the very best content based on your previous readings and shares.</p>
+				</div>
+
+				<div class="flex-row gt20 mb20 middle-md mr-b-70" data-rgen-sm="mr-b-0">
+					<div class="flex-col-md-5">
+						<img src="{% static "home/images/process-img.svg" %}" alt="Process">
+					</div><!-- // END : column //  -->
+
+					<div class="flex-col-md-6 flex-col-md-offset-1">
+						<div class="info-obj img-l g20 mini align-l mr-b-30">
+							<div class="img txt-dark2"><span class="iconwrp txt-color4"><i class="pe-7s-science"></i></span></div>
+							<div class="info">
+								<h3 class="title mini mr-b-10 bold-n txt-color4">Machine Learning</h3>
+								<p>
+									We compute on a daily basis precise models that fits to you at best.
+									Our Recommendation Technology based on Cutting Edge Deep Learning Research will provide you the best curation experience.
 								</p>
+							</div>
+						</div><!-- info box -->
+
+						<div class="info-obj img-l g20 mini align-l mr-b-30">
+							<div class="img txt-dark2"><span class="iconwrp txt-color4"><i class="pe-7s-share"></i></span></div>
+							<div class="info">
+								<h3 class="title mini mr-b-10 bold-n txt-color4">Connect your with all your networks</h3>
+								<p>
+									We are able to process: RSS Feeds, Newsletters and Major Social Networks.
+									Definetely the only tool to rule them all !
+								</p>
+							</div>
+						</div><!-- info box -->
+
+						<div class="info-obj img-l g20 mini align-l">
+							<div class="img txt-dark2"><span class="iconwrp txt-color4"><i class="pe-7s-user"></i></span></div>
+							<div class="info">
+								<h3 class="title mini mr-b-10 bold-n txt-color4">Personalisation</h3>
+								<p>
+									Say goodbye to generic content based on keyword.<br>
+									Our engine will adapt itself to your specific readings and likes.
+								</p>
+							</div>
+						</div><!-- info box -->
+
+					</div><!-- // END : column //  -->
+				</div><!-- // END : row //  -->
+
+				<div class="flex-row gt20 mb20 align-c middle-md">
+					<div class="flex-col-md-4">
+						<hr class="light">
+					</div><!-- // END : column //  -->
+					<div class="flex-col-md-4">
+						<a href="/signup/" class="btn btn-color4 bold-n mr-auto large round">GET STARTED NOW</a>
+					</div><!-- // END : column //  -->
+					<div class="flex-col-md-4">
+						<hr class="light">
+					</div><!-- // END : column //  -->
+				</div><!-- // END : row //  -->
+
+			</div><!-- container -->
+		</section>
+	<!-- ************** END : How it works section **************  -->
+
+	<!-- ***************************************************************************
+	*                              Pricing section                             *
+	**************************************************************************** -->
+	<section class="pd-tb-small pos-rel" id="pricing">
+		<div class="container pos-rel z1">
+			<div class="flex-row middle-md">
+				<div class="flex-col-md-4">
+					<h2 class="title">Easy Pricing</h2>
+					<p class="title-sub">
+						You can try the platform and our tools freely and upgrade whenever you like.<br>
+						We bet you will love it !
+					</p>
+				</div>
+
+				<!--=====================================
+				=            Pricing details            =
+				======================================-->
+
+				<div class="flex-col-md-7 flex-col-md-offset-1 align-c">
+					<div class="flex-row gt40 mb20">
+						<div class="flex-col-md-6">
+							<!-- Price block -->
+							<div class="align-c bdr-1 bdr-op-1 pd-30 strikeout" disabled>
+
+								<h2 class="title small pd-10">FREE</h2>
+
+								<hr>
+
+								<h3 class="fs40 bold-n mr-0">$0</h3>
+								<p>Per Month</p>
+
+								<hr>
+
+								<p>100 Posts / Month</p>
+								<p>20 Social Shares / Month</p>
+								<p>5 Recommendations / Day</p>
+								<p>Email Support</p>
+
+								<hr>
+
+								<a href="#" class="btn btn-default solid mr-tb-20" disabled>GET STARTED</a>
+							</div>
+							<!-- Price block -->
+						</div><!-- column -->
+
+						<div class="flex-col-md-6">
+							<!-- Price block -->
+							<div class="price-table-1 anim align-c bdr-1 bdr-color4 pd-30 rd-5 ">
+								<span class="tag-text bg-color4">100% Free during public Beta</span>
+								<h2 class="title small pd-10 txt-color4">PREMIUM</h2>
+
+								<hr>
+
+								<h3 class="fs40 bold-n mr-0">100% Free</h3>
+								<p>No hidden cost</p>
+
+
+								<hr>
+
+								<p>Unlimited Posts</p>
+								<p>Unlimited Social Shares</p>
+								<p>Unlimited Recommendations</p>
+								<p>Advanced Analytics</p>
+								<p>Full API Access</p>
+								<p>Email Support</p>
+
+								<hr>
+
+								<a href="#" class="btn btn-default solid mr-tb-20">GET STARTED</a>
+							</div>
+							<!-- Price block -->
+						</div><!-- column -->
+
+					</div><!-- row -->
+				</div><!-- column -->
+			</div><!-- row -->
+
+			<hr class="mr-tb-50">
+
+			<!--=================================
+			=            FAQ section            =
+			==================================-->
+
+			<h2 class="title small mr-b-40 align-c">Frequently Asked Questions</h2>
+
+			<div class="flex-row gt40 mb40">
+				<div class="flex-col-md-6">
+					<h3 class="mr-b-10 fs18 bold-n">Lorem ipsum dolor sit amet</h3>
+					<p>consectetur adipisicing elit. Minima vero incidunt vitae totam perferendis, facere esse explicabo corporis, fuga iure? distero modi commodi quis eligendi, veniam quidem ab quam repellat</p>
+				</div>
+
+				<div class="flex-col-md-6">
+					<h3 class="mr-b-10 fs18 bold-n">Lorem ipsum dolor sit amet</h3>
+					<p>consectetur adipisicing elit. Minima vero incidunt vitae totam perferendis, facere esse explicabo corporis, fuga iure? distero modi commodi quis eligendi, veniam quidem ab quam repellat</p>
+				</div>
+
+				<div class="flex-col-md-6">
+					<h3 class="mr-b-10 fs18 bold-n">Lorem ipsum dolor sit amet</h3>
+					<p>consectetur adipisicing elit. Minima vero incidunt vitae totam perferendis, facere esse explicabo corporis, fuga iure? distero modi commodi quis eligendi, veniam quidem ab quam repellat</p>
+				</div>
+
+				<div class="flex-col-md-6">
+					<h3 class="mr-b-10 fs18 bold-n">Lorem ipsum dolor sit amet</h3>
+					<p>consectetur adipisicing elit. Minima vero incidunt vitae totam perferendis, facere esse explicabo corporis, fuga iure? distero modi commodi quis eligendi, veniam quidem ab quam repellat</p>
+				</div>
+			</div>
+
+		</div><!-- container -->
+	</section>
+	<!-- ************** END : Pricing section **************  -->
+
+	<!-- ****************************************************************************
+	*                             Download section                             *
+	**************************************************************************** -->
+	<section class="pd-t-200 pd-tb-medium pos-rel" id="download" style="overflow: hidden;">
+		<div class="container pos-rel z1 align-c typo-light">
+			<img src="{% static "home/images/logo-full.png" %}" class="max-px-h120 mr-auto mr-b-50" alt="icon">
+
+			<h2 class="title large" data-rgen-sm="large">Get the App Now!</h2>
+			<p class="title-sub">FeedCrunch is now available for download. Join us and make your life easy.</p>
+
+			<a href="#" class="appstore-btn app-apple btn-color4 bg-glass bdr-2"><i class="fa fa-apple"></i><small>Download on the</small>App Store</a>
+			<a href="#" class="appstore-btn app-google-play btn-color4 bg-glass bdr-2"><i class="fa fa-android"></i><small>Get it on</small>Google play</a>
+		</div>
+		<div class="full-vh bg-cc bg-cover" style="background-image: url(&quot;{% static "home/images/bg2.jpg" %}&quot;); transform: translate3d(0px, -23px, 0px);">
+			<b class="full-wh bg-dark1 op-07"></b>
+		</div>
+	</section>
+
+	<!-- ****************************************************************************
+	*                             Team section                                  *
+	**************************************************************************** -->
+	<section class="team-section team-section-3 edit-item" id="team">
+		<div class="container align-c">
+			<h2 class="title medium edit-item edit-content">Our Team</h2>
+			<hr class="w50 mr-tb-40 mr-auto edit-item">
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-4 col-lg-push-2">
+					<div class="info-obj img-t g20 large align-c edit-item">
+						<div class="img edit-item"><img src="{% static "home/images/team/laurent.jpg" %}" class="rd edit-item" alt="image"></div>
+						<div class="info edit-item">
+							<h3 class="bold-1 fs20 edit-item edit-content">
+								Laurent Dunys
+								<br><span class="fs16">CEO - Co-Founder</span>
+							</h3>
+							<p class="edit-item edit-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+							<hr class="w50 mr-auto edit-item">
+							<div class="social-links fs26">
+								<a href="https://twitter.com/ldunys" class="edit-item edit-content"><i class="fa fa-twitter edit-item"></i></a>
+								<a href="https://www.linkedin.com/in/laurentdunys" class="edit-item edit-content"><i class="fa fa-linkedin edit-item"></i></a>
+								<a href="https://www.facebook.com/ldunys" class="edit-item edit-content"><i class="fa fa-facebook edit-item"></i></a>
+								<a href="https://www.feedcrunch.io/@laurent/" class="edit-item edit-content"><i class="fa fa-rss edit-item"></i></a>
+							</div><!-- /.social-links -->
 						</div>
-				</div> <!-- end row -->
+					</div><!-- / info object -->
+				</div><!-- / column -->
 
-				<div class="row">
-						<div class="col-sm-4">
-								<div class="features-box">
-										<i class="pe-7s-search"></i>
-										<h4>Powerful Search Engine</h4>
-										<p class="text-muted">
-											We want to help our users to find as fast as possible the right data at the right moment.<br> Faster the better !
-										</p>
-								</div>
+				<div class="col-sm-12 col-md-6 col-lg-4 col-lg-push-2">
+					<div class="info-obj img-t g20 large align-c edit-item w30">
+						<div class="img edit-item"><img src="{% static "home/images/team/jonathan.jpg" %}" class="rd edit-item" alt="image" data-sandboxid="tmp-18"></div>
+						<div class="info edit-item">
+							<h3 class="bold-1 fs20 edit-item edit-content">
+								Jonathan DEKHTIAR
+								<br><span class="fs16">CTO - Co-Founder</span>
+							</h3>
+							<p class="edit-item edit-content">
+								I believe in challenging the status-quo on a daily basis.<br>
+								With FeedCrunch, I hope helping more people to stop wasting time reading news.
+							</p>
+							<hr class="w50 mr-auto edit-item">
+							<div class="social-links fs26">
+								<a href="https://twitter.com/born2data" class="edit-item edit-content"><i class="fa fa-twitter edit-item"></i></a>
+								<a href="https://fr.linkedin.com/in/jonathandekhtiar" class="edit-item edit-content"><i class="fa fa-linkedin edit-item"></i></a>
+								<a href="https://github.com/DEKHTIARJonathan" class="edit-item edit-content"><i class="fa fa-github edit-item"></i></a>
+								<a href="https://www.feedcrunch.io/@dataradar/" class="edit-item edit-content"><i class="fa fa-rss edit-item"></i></a>
+							</div><!-- /.social-links -->
 						</div>
+					</div><!-- / info object -->
+				</div><!-- / column -->
 
-						<div class="col-sm-4">
-								<div class="features-box">
-										<i class="pe-7s-like2"></i>
-										<h4>Social Networking</h4>
-										<p class="text-muted">
-											The platform connects with a wide variety of social networks and allows you to relay information with your communities.
-										</p>
-								</div>
-						</div>
+			</div>
 
-						<div class="col-sm-4">
-								<div class="features-box">
-										<i class="pe-7s-display1"></i>
-										<h4>Analytics Solutions</h4>
-										<p class="text-muted">
-											Real time analytics about your publications, visitors and social impact.
-										</p>
-								</div>
-						</div>
-
-				</div> <!-- end row -->
+		</div><!-- / container -->
+	</section><!-- / Team section -->
 
 
-				<div class="row">
-						<div class="col-sm-4">
-								<div class="features-box">
-										<i class="pe-7s-ticket"></i>
-										<h4>Tagging system</h4>
-										<p class="text-muted">
-											A tagging system has been implemented to improve search efficiency and social network impact (#hastags).
-										</p>
-								</div>
-						</div>
+	<!--
+	****************************************************************************
+	*                              Footer section                              *
+	**************************************************************************** -->
+	<!-- FOOTER -->
+	<footer class="pos-rel pd-tb-medium bg-dark1" style="text-align:left;">
+		<div class="container pos-rel z1 typo-light">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" style="color:#fff">
+					{% if display_user_count %}
+						<h2 class="fs26">{{ user_count }} users registred since November 2016</h2>
+					{% else %}
+						<h2 class="fs26">{{ post_count }} articles posted since November 2016</h2>
+					{% endif %}
+					<p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform.<br><br></p>
+					<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io" data-size="large">Follow @FeedCrunch_io</a>
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
+				<div class="col-md-push-2 col-md-2 col-xs-6 ">
+					<h5>FeedCrunch.IO</h5>
+					<ul class="list-unstyled" style="color:#bebebe">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#solution">Our Solution</a></li>
+						<li><a href="#mobile">Mobile</a></li>
+						<li><a href="#howWorks">How It Works</a></li>
+						<li><a href="#pricing">Pricing</a></li>
+						<li><a href="#team">Our Team</a></li>
+					</ul>
+				</div>
 
-						<div class="col-sm-4">
-								<div class="features-box">
-										<i class="pe-7s-cloud"></i>
-										<h4>Accessible from anywhere</h4>
-										<p class="text-muted">
-											No need to rely on complex synchronisation between devices. We provide you a unified solution that works on all devices.
-										</p>
-								</div>
-						</div>
+				<div class="col-md-push-2 col-md-2 col-xs-6">
+					<h5>Support</h5>
+					<ul class="list-unstyled" style="color:#bebebe">
+						<li><a href="/contact/">Help &amp; Support</a></li>
+						<li><a href="/terms/">Privacy Policy</a></li>
+						<li><a href="/terms/">Terms &amp; Conditions</a></li>
+						<li><a href="/contact/">Contact Us</a></li>
+					</ul>
+				</div>
 
-						<div class="col-sm-4">
-								<div class="features-box">
-										<i class="pe-7s-users"></i>
-										<h4>Building a Community</h4>
-										<p class="text-muted">
-											Our tool will allow you to create a community around your knowledge and shares.<br> RSS and ATOM Feeds are automaticly generated in this purpose.
-										</p>
-								</div>
-						</div>
-
-				</div> <!-- end row -->
-
-		</div> <!-- end container -->
-</section>
-<!-- end Features -->
-
-
-
-<!-- PRICING -->
-<section class="section" id="pricing">
-		<div class="container">
-
-				<div class="row">
-						<div class="col-sm-12 text-center">
-								<h3 class="title">Choose your perfect plan</h3>
-								<p class="text-muted sub-title">The clean and well commented code allows easy customization of the theme.It's <br> designed for describing your app, agency or business.</p>
-						</div>
-				</div> <!-- end row -->
-
-				<div class="row">
-						<div class="col-lg-10 col-lg-offset-1">
-								<div class="row">
-
-								{% block free_period %}
-									{% if free_period %}
-												<!--Pricing Column-->
-												<article class="pricing-column col-md-push-4 col-md-4">
-														<div class="inner-box">
-																<div class="plan-header text-center">
-																		<h3 class="plan-title">Time Limited Offer</h3>
-																		<h2 class="plan-price">100 %Free</h2>
-																</div>
-																<ul class="plan-stats list-unstyled">
-																	<li> <i class="pe-7s-ticket"></i>Unlimited Posts</li>
-																	<li> <i class="pe-7s-share"></i>Unlimited Social Shares</li>
-																	<li> <i class="pe-7s-display1"></i>Advanced Analytics</li>
-																	<li> <i class="pe-7s-refresh-cloud"></i>Full Web API Access</li>
-																	<li> <i class="pe-7s-mail-open"></i>Email Support</li>
-																</ul>
-
-																<div class="text-center">
-																		<a href="/signup" class="btn btn-sm btn-custom">Signup Now</a>
-																</div>
-														</div>
-												</article>
-									{% else %}
-
-												<!--Pricing Column-->
-												<article class="pricing-column col-lg-4 col-md-4">
-														<div class="inner-box">
-																<div class="plan-header text-center">
-																		<h3 class="plan-title">Basic</h3>
-																		<h2 class="plan-price">Free</h2>
-																</div>
-																<ul class="plan-stats list-unstyled">
-																		<li> <i class="pe-7s-ticket"></i>100 Posts/Month</li>
-																		<li> <i class="pe-7s-share"></i>20 Social Shares/Month</li>
-																		<li> <i class="pe-7s-mail-open"></i>Email Support</li>
-																</ul>
-
-																<div class="text-center">
-																		<a href="/signup" class="btn btn-sm btn-custom">Signup Now</a>
-																</div>
-														</div>
-												</article>
-
-												<!--Pricing Column-->
-												<article class="pricing-column col-lg-4 col-md-4">
-														<div class="inner-box">
-																<div class="plan-header text-center">
-																		<h3 class="plan-title">Premium</h3>
-																		<h2 class="plan-price">$5</h2>
-																		<div class="plan-duration">Per Month</div>
-																</div>
-																<ul class="plan-stats list-unstyled">
-																	<li> <i class="pe-7s-ticket"></i>Unlimited Posts</li>
-																	<li> <i class="pe-7s-share"></i>Unlimited Social Shares</li>
-																	<li> <i class="pe-7s-display1"></i>Advanced Analytics</li>
-																	<li> <i class="pe-7s-mail-open"></i>Email Support</li>
-																</ul>
-
-																<div class="text-center">
-																		<a href="/signup" class="btn btn-sm btn-custom">Signup Now</a>
-																</div>
-														</div>
-												</article>
-
-												<!--Pricing Column-->
-												<article class="pricing-column col-lg-4 col-md-4">
-														<div class="inner-box">
-																<div class="plan-header text-center">
-																		<h3 class="plan-title">Developer</h3>
-																		<h2 class="plan-price">$15</h2>
-																		<div class="plan-duration">Per Month</div>
-																</div>
-																<ul class="plan-stats list-unstyled">
-																	<li> <i class="pe-7s-ticket"></i>Unlimited Posts</li>
-																	<li> <i class="pe-7s-share"></i>Unlimited Social Shares</li>
-																	<li> <i class="pe-7s-display1"></i>Advanced Analytics</li>
-																	<li> <i class="pe-7s-refresh-cloud"></i>Full Web API Access</li>
-																	<li> <i class="pe-7s-mail-open"></i>Email Support</li>
-																</ul>
-
-																<div class="text-center">
-																		<a href="/signup" class="btn btn-sm btn-custom">Signup Now</a>
-																</div>
-														</div>
-												</article>
-
-											{% endif %}
-										{% endblock %}
-								</div>
-						</div><!-- end col -->
+			</div>
+			<!-- end row -->
+			<hr class="mr-tb-30 light">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="footer-alt text-center">
+						<p class="text-muted_footer m-b-0">
+							Developed with <span style="color:red; font-size:1.2em;">♥</span> at SWAI by - 2016 © FeedCrunch.io -
+						</p>
+					</div>
+				</div>
 			</div>
 			<!-- end row -->
 
+		</div>
+		<!-- end container -->
+	</footer>
+	<!-- ************** END : footer **************  -->
 
-		</div> <!-- end container -->
-</section>
-<!-- End Pricing -->
 
-{% endblock %}
+</div>
+<!-- /#page -->
+
+
+<script src="{% static "home/dist/pace/pace.min.js" %}"></script>
+
+</body>
+</html>

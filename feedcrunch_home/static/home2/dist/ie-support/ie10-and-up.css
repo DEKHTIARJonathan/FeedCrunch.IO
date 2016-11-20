@@ -1,0 +1,11 @@
+@media screen and (min-width:0{{ content }}), (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+}
+
+@media screen and (min-width:0{{ content }}), (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 768px) and (max-width: 1249px) {
+
+}
+
+@media screen and (min-width:0{{ content }}), (-ms-high-contrast: active), (-ms-high-contrast: none) and (max-width: 767px) {
+  
+}

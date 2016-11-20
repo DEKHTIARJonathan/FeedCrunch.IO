@@ -1,0 +1,59 @@
+/*===========================================*/
+/*	DESKTOP LAYOUT
+/*===========================================*/
+.strikeout {
+	background:url(../images/strikeout.png);
+	background-size:105% 105%;
+}
+
+@media (min-width: 1200px) {
+	.sticky-iphone{
+		width: 100%;
+		position: inherit;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+/*===========================================*/
+/*	MOBILE & TABLET COMMON
+/*===========================================*/
+@media (min-width: 200px) and (max-width: 991px) {
+	.sticky-iphone{
+		padding-top: 100px;
+		padding-bottom: 20px;
+	}
+	.full-size{
+		padding-top: 40px;
+		padding-bottom: 0px;
+	}
+}
+
+
+/*===========================================*/
+/*	TABLET
+/*===========================================*/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+
+/*===========================================*/
+/*	MOBILE
+/*===========================================*/
+@media (min-width: 200px) and (max-width: 767px) {
+
+}
+@media (min-width: 600px) and (max-width: 767px) {
+}
+@media (min-width: 480px) and (max-width: 599px) {
+
+}
+@media (min-width: 200px) and (max-width: 479px) {
+
+}

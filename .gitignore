@@ -6,10 +6,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
-build/
-develop-eggs/
-dist/
-downloads/
+build/adsi
 eggs/
 .eggs/
 lib/
@@ -96,3 +93,4 @@ codedeploy/Encrypted/*.zip
 codedeploy/Encrypted/*.txt
 *.model
 FeedCrunch.IO.zip
+boto-develop/build/
