@@ -107,7 +107,8 @@ class RSSFeed(models.Model):
 						else:
 							continue
 
-						RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
+						if not RSSArticle.objects.filter(user=self.user, rssfeed=self, link=link).exists():
+							RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
 
 					self._reset_bad_attempts()
 
