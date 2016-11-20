@@ -15,6 +15,10 @@
     max-width: 80%;
 }
 
+.bg-full-vh {
+    height:200vh;
+}
+
 @media (min-width: 1200px) {
 	.sticky-iphone{
 		width: 100%;
