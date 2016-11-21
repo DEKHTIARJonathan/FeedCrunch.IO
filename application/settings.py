@@ -229,15 +229,19 @@ Q_CLUSTER = {
 	'timeout': 60, # The number of seconds a worker is allowed to spend on a task before it’s terminated. Defaults to None, meaning it will never time out. Set this to something that makes sense for your project. Can be overridden for individual tasks.
 	'compress': False, # Compresses task packages to the broker. Useful for large payloads, but can add overhead when used with many small packages.
 	'retry': 90, # The number of seconds a broker will wait for a cluster to finish a task, before it’s presented again. Only works with brokers that support delivery receipts.
-	'save_limit': 0, # Limits the amount of successful tasks saved to Django. Set to 0 for unlimited. Set to -1 for no success storage at all. Defaults to 250. Failures are always saved.
+	'save_limit': 250, # Limits the amount of successful tasks saved to Django. Set to 0 for unlimited. Set to -1 for no success storage at all. Defaults to 250. Failures are always saved.
 	'queue_limit': 10, # This does not limit the amount of tasks that can be queued on the broker, but rather how many tasks are kept in memory by a single cluster. Setting this to a reasonable number, can help balance the workload and the memory overhead of each individual cluster.
 	'bulk': 5, # Amazon SQS only supports a bulk setting between 1 and 10, with the total payload not exceeding 256kb.
-	'sqs': {
-		'aws_region': 'eu-west-1',
-		'aws_access_key_id': assign_env_value('AWS_USER'),
-		'aws_secret_access_key': assign_env_value('AWS_SECRET_KEY')
-	}
+	'orm': 'default',
 }
+'''
+'sqs': {
+	'aws_region': 'eu-west-1',
+	'aws_access_key_id': assign_env_value('AWS_USER'),
+	'aws_secret_access_key': assign_env_value('AWS_SECRET_KEY')
+}
+'''
+
 
 if DEBUG:
 	Q_CLUSTER['workers'] = 4
