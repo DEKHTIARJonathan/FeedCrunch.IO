@@ -9,8 +9,11 @@ nginx_root="/etc/nginx/"
 conf_files_root="/home/ec2-user/feedcrunch/codedeploy/Config_Files/"
 
 sudo service nginx stop
+
+sudo rm -rf /tmp/* || true # Cleaning logs
 sudo rm $nginx_root/nginx.conf || true
 sudo rm $nginx_root/conf.d/feedcrunch.conf || true
+
 sudo cp $conf_files_root/nginx.conf $nginx_root/nginx.conf
 sudo cp $conf_files_root/feedcrunch.conf $nginx_root/conf.d/feedcrunch.conf
 sudo chmod 777 -R /var/lib/nginx/
@@ -34,7 +37,6 @@ sudo chown -R $user:$user $app_dir
 sudo chmod 755 -R $app_dir
 
 #python $app_dir/manage.py collectstatic --noinput // Future use : Must run it manually.
-chmod +x $app_dir/collectStatic.sh
 
 python $app_dir/manage.py makemigrations
 python $app_dir/manage.py migrate

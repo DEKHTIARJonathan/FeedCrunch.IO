@@ -9,8 +9,8 @@
 	<!--pageMeta-->
 
 	<!-- Lib CSS -->
-	<link href="{% static "home/css/rgen.css" %}" rel="stylesheet">
-	<link href="{% static "home/css/custom.css" %}" rel="stylesheet">
+	<link href="{% static "home/css/rgen.min.css" %}" rel="stylesheet">
+	<link href="{% static "home/css/custom.min.css" %}" rel="stylesheet">
 
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 	<style type="text/css">
@@ -35,9 +35,7 @@
 	<!--[if lt IE 9]>
 	<script src="{% static "home/js/html5shiv.js" %}"></script>
 	<script src="{% static "home/js/respond.min.js" %}"></script>
-	<![endif]-->
-	<!--[if IE 9 ]>
-	<script src="{% static "home/js/ie-matchmedia.js" %}"></script>
+	<script src="{% static "home/js/matchMedia.js" %}"></script>
 	<![endif]-->
 
 	<meta name="description" content="FeedCrunch is an intuitive news recommendation platform">
@@ -839,7 +837,7 @@
 
 
 <script src="{% static "home/lib/pace/pace.min.js" %}"></script>
-<script src="{% static "home/minify/rgen_min.js" %}"></script>
+<script src="{% static "home/js/rgen.engine.min.js" %}"></script>
 <script async src="{% static "home/js/menu.js" %}"></script>
 
 
