@@ -2,13 +2,13 @@ $(document).ready(function() {
 
 	var table = $('#sub-listing').DataTable({
 		"columns": [
-			{ "searchable": false},
-			null,
-			null,
-			null,
-			{ "searchable": false},
-			{ "searchable": false},
-			{ "searchable": false},
+			{ "width": "40px", "searchable": false}, // ID
+			{ "width": "auto", "searchable": true},  // TITLE
+			{ "width": "250px", "searchable": true}, // DOMAIN
+			{ "width": "250px", "searchable": true}, // LINK
+			{ "width": "80px", "searchable": false}, // ARTICLES RETRIEVED
+			{ "width": "30px", "searchable": false}, // EDIT
+			{ "width": "45px", "searchable": false}, // DELETE
 		],
 		"pageLength": 50, // 50 values display by page
 		"lengthChange": false, // no dropdown displayed

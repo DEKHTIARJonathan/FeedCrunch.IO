@@ -1,12 +1,12 @@
 $(document).ready(function() {
     var table = $('#post-listing').DataTable({
         "columns": [
-            { "searchable": false},
-            null,
-            null,
-            { "searchable": false},
-            { "searchable": false},
-        ],
+			{ "width": "35px", "searchable": false},  // ID
+			{ "width": "auto", "searchable": true},  // TITLE
+			{ "width": "240px", "searchable": true},  // DOMAIN
+			{ "width": "75px", "searchable": false},  // DATE
+			{ "width": "30px", "searchable": false}, // LINK
+		],
         "pageLength": 50, // 50 values display by page
         "lengthChange": false, // no dropdown displayed
         responsive: true,
