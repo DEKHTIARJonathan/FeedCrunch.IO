@@ -39,7 +39,6 @@ class RSSFeed(models.Model):
 	objects = RSSFeedManager()
 
 	id = models.AutoField(primary_key=True)
-	user = models.ForeignKey(FeedUser, related_name='rel_feeds')
 	title = models.CharField(max_length=255)
 	link = models.URLField(max_length=2000)
 	added_date = models.DateTimeField(auto_now_add=True)
@@ -107,8 +106,9 @@ class RSSFeed(models.Model):
 						else:
 							continue
 
-						if not RSSArticle.objects.filter(user=self.user, rssfeed=self, link=link).exists():
-							RSSArticle.objects.create(user=self.user, rssfeed=self, title=title, link=link)
+						if not RSSArticle.objects.filter(rssfeed=self, link=link).exists():
+							RSSArticle.objects.create(rssfeed=self, title=title, link=link)
+							subscribers = self.rel_sub_feed_assoc.all()
 
 					self._reset_bad_attempts()
 

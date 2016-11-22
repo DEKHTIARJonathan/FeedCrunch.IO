@@ -6,8 +6,8 @@ from django.db import models
 
 import datetime, string, re, uuid
 
-from .models_user import *
-from .models_rssfeed import *
+from .models_user import FeedUser
+from .models_rssfeed import RSSFeed
 
 from get_domain import get_domain
 from clean_html import clean_html
@@ -40,7 +40,6 @@ class RSSArticle(models.Model):
 	objects = RSSArticleManager()
 
 	id = models.AutoField(primary_key=True)
-	user = models.ForeignKey(FeedUser, related_name='rel_rss_user_articles')
 	rssfeed = models.ForeignKey(RSSFeed, related_name='rel_rss_feed_articles')
 	title = models.CharField(max_length=255)
 	link = models.URLField(max_length=2000)
@@ -51,11 +50,6 @@ class RSSArticle(models.Model):
 	media = models.CharField(max_length=255, default='', blank=True, null=True)
 	pub_date = models.CharField(max_length=255, default='', blank=True, null=True)
 	added_date = models.DateTimeField(auto_now_add=True)
-
-	open_count = models.SmallIntegerField(default=0)
-	marked_read = models.BooleanField(default=False)
-	reposted = models.BooleanField(default=False)
-	recommendation_score = models.FloatField(default=0)
 
 	def __unicode__(self):
 		return self.title

@@ -226,7 +226,7 @@ def sub_management(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		feeds = RSSFeed.objects.filter(user=feedname, active=True).order_by("title")
+		feeds = RSSFeed.objects.filter(rel_sub_feed_assoc__user=feedname, active=True).order_by("title")
 		return render(request, 'admin/admin_sub_listing.html', {'feeds': feeds})
 
 def reading_recommendation(request, feedname=None):
@@ -234,7 +234,7 @@ def reading_recommendation(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		rssarticles = RSSArticle.objects.filter(user = feedname, marked_read = False).order_by('-added_date')
+		rssarticles = RSSArticle.objects.filter(rel_sub_article_assoc__user="dataradar", rel_sub_article_assoc__marked_read = False).order_by('-added_date')
 
 		rssarticles_data = []
 
