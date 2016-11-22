@@ -1,0 +1,164 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+	<title>FeedCrunch - Onboarding</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<link rel="icon" type="image/png" href="{% static "onboarding/img/favicon-32x32.png" %}" sizes="32x32">
+	<link rel="icon" type="image/png" href="{% static "onboarding/img/favicon-16x16.png" %}" sizes="16x16">
+
+	<link rel="apple-touch-icon" sizes="60x60" href="{% static "onboarding/img/icons/touch-icon-iphone-60x60.png" %}">
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static "onboarding/img/icons/touch-icon-ipad-76x76.png" %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static "onboarding/img/icons/touch-icon-iphone-retina-120x120.png" %}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{% static "onboarding/img/icons/touch-icon-ipad-retina-152x152.png" %}">
+
+	<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static "onboarding/css/styles.css" %}">
+
+	<style>
+		.logo-img{
+			height: 30px;
+		}
+		.btn-blog:hover{
+			transform: scale(1.05);
+  			transition: all 0.1s ease;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="root">
+		<div class="getting-started">
+
+			<header class="simple-header">
+
+				<div>
+					<img src="{% static "images/logo-dark.png" %}" class="logo-img">
+				</div>
+
+
+				<div>
+					<!--  <button class="continue" disabled="">Select 3 to Continue</button> -->
+					<!--  <button class="continue">Continue</button> -->
+					<button class="continue" disabled>Select 3 to Continue</button>
+				</div>
+
+			</header>
+			<main class="container-fluid">
+				<aside class="col-lg-3 hidden-md-down">
+					<div class="header text-center">
+						<h1>
+							Personalization<br>
+							Explained
+						</h1>
+					</div>
+					<div class="explainer">
+						<h2>Follow</h2>
+						<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
+						<h2>Reading and Reading</h2>
+						<p>Next, we track which content you read and share</p>
+						<h2>Learn</h2>
+						<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+					</div>
+					<div class="read-blog">
+						<div class="aligner">
+							<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
+					</div>
+				</aside>
+				<main class="topics col-lg-9 col-md-12 padding-strip">
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd5">
+						<label for="topic-581bb826435b057c246ccbd5" style="background-image: url('{% static "onboarding/img/app/design-bg.jpg" %}');">
+							<span>Interest1</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd6">
+						<label for="topic-581bb826435b057c246ccbd6" style="background-image: url('{% static "onboarding/img/app/startups-bg.jpg" %}');">
+							<span>Interest2</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd7">
+						<label for="topic-581bb826435b057c246ccbd7" style="background-image: url('{% static "onboarding/img/app/programming-bg.jpg" %}');">
+							<span>Interest3</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd8">
+						<label for="topic-581bb826435b057c246ccbd8" style="background-image: url('{% static "onboarding/img/app/gaming-bg.jpg" %}');">
+							<span>Interest4</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd9">
+						<label for="topic-581bb826435b057c246ccbd9" style="background-image: url('{% static "onboarding/img/app/lifehacks-bg.jpg" %}');">
+							<span>Interest5</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbda">
+						<label for="topic-581bb826435b057c246ccbda" style="background-image: url('{% static "onboarding/img/app/venture-capital-bg.jpg" %}');">
+							<span>Interest6</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdb">
+						<label for="topic-581bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-&amp;-machine-learning-bg.jpg" %}');">
+							<span>Interest7</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdc">
+						<label for="topic-581bb826435b057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
+							<span>Interest8</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdd">
+						<label for="topic-581bb826435b057c246ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
+							<span>Interest9</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-5fdsfds81bb826435b057c246ccbdb">
+						<label for="topic-5fdsfds81bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-&amp;-machine-learning-bg.jpg" %}');">
+							<span>Interest10</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435bdsqdsq057c246ccbdc">
+						<label for="topic-581bb826435bdsqdsq057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
+							<span>Interest11</span>
+						</label>
+					</div>
+					<div class="topic col-lg-3 col-md-6 col-sm-12">
+						<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c2fdsdsq46ccbdd">
+						<label for="topic-581bb826435b057c2fdsdsq46ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
+							<span>Interest12</span>
+						</label>
+					</div>
+				</main>
+			</main>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="{% static "onboarding/js/page-1.js" %}"></script>
+
+	</body>
+
+</html>

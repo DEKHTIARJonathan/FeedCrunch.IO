@@ -273,3 +273,12 @@ def redirect_recommendation(request, feedname=None, postID=None):
 		return HttpResponseRedirect(article.link)
 	except:
 		return HttpResponseRedirect("/@"+feedname+"/admin/reading/recommendation/")
+
+def onboarding_interests(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+
+	else:
+		return render(request, 'onboarding/interests.html')
