@@ -44,10 +44,14 @@
                                                     <option value="F" selected>Female</option>
                                                     <option value="M">Male</option>
                                                     <option value="O">Other</option>
-                                                {% else %}
+                                                {% elif user.gender == 'O' %}
                                                     <option value="F">Female</option>
                                                     <option value="M">Male</option>
                                                     <option value="O" selected>Other</option>
+												{% else %}
+                                                    <option value="F">Female</option>
+                                                    <option value="M">Male</option>
+                                                    <option value="O">Other</option>
                                                 {% endif %}
                                             </select>
                                         </div>
