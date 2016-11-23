@@ -7,8 +7,6 @@ from django.conf import settings
 
 import datetime, string, re, unicodedata, feedparser, HTMLParser
 
-from .models_user import FeedUser
-
 from get_domain import get_domain
 from clean_html import clean_html
 
@@ -24,11 +22,11 @@ class RSSFeedManager(models.Manager):
 
 		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
 
-			if not validate_feed(kwargs['link']):
-				raise Exception("RSS Feed is not valid")
+			if RSSFeed.objects.filter(link=kwargs['link']).exists():
+				raise Exception("RSSFeed already exists in the database.")
 
-			elif RSSFeed.objects.filter(link=kwargs['link'], user=kwargs['user']).exists():
-				raise Exception("User already subscribed to this feed.")
+			elif not validate_feed(kwargs['link']):
+				raise Exception("RSS Feed is not valid")
 
 		else:
 			raise Exception("Link is missing - RSSFeed Manager")
@@ -49,13 +47,12 @@ class RSSFeed(models.Model):
 		return self.title
 
 	def save(self, *args, **kwargs):
-		self.title = clean_html(self.title)
+		if self.id is not None:
+			self.title = clean_html(self.title)
 
-		if not validate_feed(self.link):
-			raise Exception("RSS Feed is not valid")
-
-		if RSSFeed.objects.filter(user=self.user, link=self.link).exclude(id=self.id).exists():
-			raise Exception("User already subscribed to this feed.")
+			old_version = RSSFeed.objects.get(id=self.id)
+			if (self.link != old_version.link) and (not validate_feed(self.link)):
+				raise Exception("RSS Feed is not valid")
 
 		super(RSSFeed, self).save(*args, **kwargs) # Call the "real" save() method.
 
@@ -71,6 +68,18 @@ class RSSFeed(models.Model):
 	def count_articles(self):
 		return self.rel_rss_feed_articles.count()
 
+	def count_subscribers(self):
+		return self.rel_sub_feed_assoc.count()
+
+	def get_subscribers(self):
+		RSSFeed_Sub_queryset = self.rel_sub_feed_assoc.all()
+
+		rslt = []
+		for sub in RSSFeed_Sub_queryset:
+			rslt.append(sub.user)
+
+		return rslt
+
 	def _trigger_bad_attempt(self):
 		self.bad_attempts += 1
 		if self.bad_attempts >= settings.MAX_RSS_RETRIES:
@@ -84,8 +93,11 @@ class RSSFeed(models.Model):
 			self.save()
 
 	def refresh_feed(self):
+		from models_rss_assocs import RSSArticle_Assoc
+
 		try:
-			if (self.active):
+			if (self.active and self.count_subscribers > 0):
+
 				from .models_rssarticle import RSSArticle
 
 				feed_content = feedparser.parse(self.link)
@@ -106,18 +118,24 @@ class RSSFeed(models.Model):
 						else:
 							continue
 
-						if not RSSArticle.objects.filter(rssfeed=self, link=link).exists():
-							RSSArticle.objects.create(rssfeed=self, title=title, link=link)
-							subscribers = self.rel_sub_feed_assoc.all()
+						try:
+							tmp_article = RSSArticle.objects.create(rssfeed=self, title=title, link=link)
+							subscribers = self.get_subscribers()
+
+							for subscriber in subscribers:
+								try:
+									RSSArticle_Assoc.objects.create(user=subscriber, article=tmp_article)
+								except Exception, e:
+									print str(e)
+									pass
+						except:
+							pass
 
 					self._reset_bad_attempts()
 
 				else:
 					raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
 
-			else:
-				raise Exception("Feed ID = " + str(self.id) + " is not active.")
-
 		except Exception, e:
 			print "An error occured in the process: " + str(e)
-			self._trigger_bad_attempt()
+			#self._trigger_bad_attempt()

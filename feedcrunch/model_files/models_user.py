@@ -91,17 +91,12 @@ class FeedUserManager(BaseUserManager):
 			if datetime.datetime.strptime(birthdate, '%d/%m/%Y').date() > today:
 				raise ValueError("The given birthdate can't be in the future. Please provide a correct date.")
 
-		def _validate_parameters(self, username, email, password, firstname, lastname, country, gender, birthdate):
+		def _validate_parameters(self, username, email, password):
 
 			try:
 				self._validate_username(username)
 				self._validate_email(email)
 				self._validate_password(password)
-				self._validate_firstname(firstname)
-				self._validate_lastname(lastname)
-				self._validate_country(country)
-				self._validate_gender(gender)
-				self._validate_birthdate(birthdate)
 
 				return {'status': True}
 
@@ -111,7 +106,7 @@ class FeedUserManager(BaseUserManager):
 		def _normalize_username(self, username):
 			return unicodedata.normalize('NFKC', force_text(username).lower())
 
-		def _create_user(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
+		def _create_user(self, username, email, password, **extra_fields):
 				"""
 				Creates and saves a User with the given username, email and password.
 				"""
@@ -119,19 +114,54 @@ class FeedUserManager(BaseUserManager):
 				is_staff = extra_fields.get('is_staff')
 				is_superuser = extra_fields.get('is_superuser')
 
-				validation = self._validate_parameters(username, email, password, firstname, lastname, country, gender, birthdate)
+				username = self._normalize_username(username)
+				email = self.normalize_email(email)
+
+				validation = self._validate_parameters(username, email, password)
 
 				if validation['status']:
 
+					if 'firstname' in extra_fields:
+						firstname = extra_fields.get('firstname')
+						self._validate_firstname(firstname)
+					else:
+						firstname = ""
+
+					if 'lastname' in extra_fields:
+						lastname = extra_fields.get('lastname')
+						self._validate_lastname(lastname)
+					else:
+						lastname = ""
+
+					if 'country' in extra_fields:
+						country = extra_fields.get('country')
+						self._validate_country(country)
+						country = Country.objects.get(name=country)
+					else:
+						country = None
+
+					if 'gender' in extra_fields:
+						gender = extra_fields.get('gender')
+						self._validate_gender(gender)
+					else:
+						gender = None
+
+					if 'birthdate' in extra_fields:
+						birthdate = extra_fields.get('birthdate')
+						self._validate_birthdate(birthdate)
+						birthdate = datetime.datetime.strptime(birthdate, '%d/%m/%Y').date()
+					else:
+						birthdate = None
+
 					user = self.model(
-						username=self._normalize_username(username),
-						email=self.normalize_email(email),
+						username=username,
+						email=email,
 						password="###", #Temporary value replaced below
 						first_name=firstname,
 						last_name=lastname,
-						country=Country.objects.get(name=country),
+						country=country,
 						gender=gender,
-						birthdate = datetime.datetime.strptime(birthdate, '%d/%m/%Y').date(),
+						birthdate = birthdate,
 						is_staff = is_staff,
 						is_superuser = is_superuser
 					)
@@ -145,16 +175,14 @@ class FeedUserManager(BaseUserManager):
 				else:
 					raise Exception(validation['error'])
 
-		def create_user(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
+		def create_user(self, username, email, password, **extra_fields):
 				extra_fields.setdefault('is_staff', False)
 				extra_fields.setdefault('is_superuser', False)
 
-				try:
-					return self._create_user(username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields)
-				except Exception, e:
-					raise Exception(str(e))
+				return self._create_user(username, email, password, **extra_fields)
 
-		def create_superuser(self, username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields):
+
+		def create_superuser(self, username, email, password, **extra_fields):
 				extra_fields.setdefault('is_staff', True)
 				extra_fields.setdefault('is_superuser', True)
 
@@ -163,10 +191,8 @@ class FeedUserManager(BaseUserManager):
 				if extra_fields.get('is_superuser') is not True:
 						raise ValueError('Superuser must have is_superuser=True.')
 
-				try:
-					return self._create_user(username, email, password, firstname, lastname, country, gender, birthdate, **extra_fields)
-				except Exception, e:
-					raise Exception(validation['error'])
+				return self._create_user(username, email, password, **extra_fields)
+
 
 class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
 	"""
@@ -186,8 +212,8 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
 			'unique': _("A user with that username already exists."),
 		},
 	)
-	first_name = models.CharField(_('first name'), max_length=30, blank=True)
-	last_name = models.CharField(_('last name'), max_length=30, blank=True)
+	first_name = models.CharField(_('first name'), max_length=30, default='', blank=True, null=True )
+	last_name = models.CharField(_('last name'), max_length=30, default='', blank=True, null=True )
 	email = models.EmailField(
 		_('email address'),
 		unique=True,
@@ -256,12 +282,14 @@ class FeedUser(AbstractFeedUser):
 
 	Username, password and email are required. Other fields are optional.
 	"""
-	country = models.ForeignKey(Country, on_delete=models.CASCADE)
-	birthdate = models.DateField()
+	country = models.ForeignKey(Country, on_delete=models.CASCADE, default=None, blank=True, null=True )
+	birthdate = models.DateField( default=None, blank=True, null=True )
 	gender = models.CharField(
 		max_length=1,
 		choices=(('F', 'Female'),('M', 'Male'),('O', 'Other')),
-		default='M',
+		default=None,
+		blank=True,
+		null=True
 	)
 
 	rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
@@ -319,7 +347,10 @@ class FeedUser(AbstractFeedUser):
 		return self.username
 
 	def get_birthdate(self):
-		return self.birthdate.strftime("%d/%m/%Y")
+		if self.birthdate is not None:
+			return self.birthdate.strftime("%d/%m/%Y")
+		else:
+			return
 
 	def is_twitter_enabled(self):
 		if self.twitter_token != "" and self.twitter_token_secret != "" :

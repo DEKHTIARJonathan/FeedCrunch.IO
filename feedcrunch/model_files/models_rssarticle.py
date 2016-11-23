@@ -6,7 +6,6 @@ from django.db import models
 
 import datetime, string, re, uuid
 
-from .models_user import FeedUser
 from .models_rssfeed import RSSFeed
 
 from get_domain import get_domain
@@ -21,15 +20,8 @@ class RSSArticleManager(models.Manager):
 			raise Exception("Title is missing - RSSArticle Manager")
 
 		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
-
-			"""
-			if not validate_feed(kwargs['link']): # IF VALIDATE LINK
-				raise Exception("RSS Feed is not valid")
-
-			elif RSSFeed.objects.filter(link=link, user=kwargs['user']).exists():
-			"""
-			if RSSArticle.objects.filter(user=kwargs['user'], rssfeed=kwargs['rssfeed'], title=kwargs['title'], link=kwargs['link']).exists():
-				return False
+			if RSSArticle.objects.filter(rssfeed=kwargs['rssfeed'], link=kwargs['link']).exists():
+				raise Exception("RSS Article already exists in database - RSSArticle Manager")
 
 		else:
 			raise Exception("Link is missing - RSSFeed Manager")
@@ -55,7 +47,8 @@ class RSSArticle(models.Model):
 		return self.title
 
 	def save(self, *args, **kwargs):
-		self.title = clean_html(self.title)
+		if self.id is not None:
+			self.title = clean_html(self.title)
 		super(RSSArticle, self).save(*args, **kwargs) # Call the "real" save() method.
 
 	def get_date(self):

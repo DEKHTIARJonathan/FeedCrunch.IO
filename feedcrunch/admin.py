@@ -7,6 +7,8 @@ from models import *
 
 admin.site.register(Continent)
 admin.site.register(Country)
+admin.site.register(RSSFeed_Sub)
+admin.site.register(RSSArticle_Assoc)
 
 # ==================== FEEDUSER ============================
 class FeedUserAdmin(admin.ModelAdmin):
