@@ -433,7 +433,7 @@ $(document).ready(function() {
 			url : api_url,
 			type : request_type,
 			data: feed_data,
-			timeout: 5000, // sets timeout to 5 seconds
+			timeout: 8000, // sets timeout to 5 seconds
 			dataType : "json",
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("X-CSRFToken", csrftoken);
@@ -462,7 +462,7 @@ $(document).ready(function() {
 
 							row = $('#feed-id-' + feed_id);
 							edit_btn = $('#edit-btn-id-' + feed_id);
-							
+
 							// Edit Title
 							var title = feed_data['rssfeed_title'];
 							$(row.children()[1]).text(title);
