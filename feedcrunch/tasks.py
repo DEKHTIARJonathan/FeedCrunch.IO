@@ -52,7 +52,7 @@ def refresh_user_rss_subscribtions(username):
 	for feed in RSSFeed.objects.filter(rel_sub_feed_assoc__user=username):
 		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
-def rss_all_rss_feeds():
+def refresh_all_rss_feeds():
 	for feed in RSSFeeds.objects.all():
 		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
@@ -60,7 +60,7 @@ def launch_recurrent_rss_job():
 	execution_time = timezone.now()
 	execution_time = execution_time.replace(hour=3, minute=0, second=0, microsecond=0) + timedelta(days=1)
 
-	schedule('feedcrunch.tasks.rss_all_rss_feeds', schedule_type=Schedule.HOURLY, next_run=execution_time)
+	schedule('feedcrunch.tasks.refresh_all_rss_feeds', schedule_type=Schedule.HOURLY, next_run=execution_time)
 
 def send_mass_welcome_email():
 	for user in FeedUser.objects.all():
