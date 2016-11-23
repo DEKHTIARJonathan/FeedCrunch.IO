@@ -59,25 +59,23 @@ def loginView(request):
 def signUPView(request):
 
 	if request.method == 'POST':
-		try:
-			username = request.POST['username'].lower()
-			firstname = request.POST['firstname']
-			lastname = request.POST['lastname']
-			email = request.POST['email']
-			gender = request.POST['gender']
-			country = request.POST['country']
-			password = request.POST['password']
-			birthdate = request.POST['birthdate']
 
-			tmp_usr = FeedUser.objects.create_user(username, email, password, firstname, lastname, country, gender, birthdate)
+		username = request.POST['username'].lower()
+		firstname = request.POST['firstname']
+		lastname = request.POST['lastname']
+		email = request.POST['email']
+		gender = request.POST['gender']
+		country = request.POST['country']
+		password = request.POST['password']
+		birthdate = request.POST['birthdate']
 
-			user = authenticate(username=username, password=password)
-			login(request, user)
+		tmp_usr = FeedUser.objects.create_user(username, email, password, firstname=firstname, lastname=lastname, country=country, gender=gender, birthdate=birthdate)
 
-			return HttpResponseRedirect('/@'+request.user.username+'/admin')
+		user = authenticate(username=username, password=password)
+		login(request, user)
 
-		except Exception, e:
-			return HttpResponse(str(e))
+		return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
 	else:
 
 		if request.user.is_authenticated():
