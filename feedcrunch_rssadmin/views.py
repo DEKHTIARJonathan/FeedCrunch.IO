@@ -12,7 +12,7 @@ from django.core.exceptions import ValidationError
 import datetime, unicodedata, json
 from calendar import monthrange
 
-from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle
+from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from check_admin import check_admin
@@ -234,7 +234,8 @@ def reading_recommendation(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
-		rssarticles = RSSArticle.objects.filter(rel_sub_article_assoc__user="dataradar", rel_sub_article_assoc__marked_read = False).order_by('-added_date')
+		#rssarticles = RSSArticle_Assoc.objects.filter(rel_sub_article_assoc__user=request.user, rel_sub_article_assoc__marked_read = False).order_by('-added_date')
+		rssarticles = RSSArticle_Assoc.objects.filter(user=request.user, marked_read = False).order_by('-article__added_date')
 
 		rssarticles_data = []
 
@@ -244,33 +245,33 @@ def reading_recommendation(request, feedname=None):
 			max_size = 30
 
 		for i in range(max_size):
-
+			recommendation_score = 97.3 - 1.2*i
 			tmp = {
 				'id': rssarticles[i].id,
-				'title': rssarticles[i].title,
-				'rssfeed': rssarticles[i].rssfeed.title,
-				'get_domain': rssarticles[i].get_domain(),
-				'link': rssarticles[i].link,
-				'score': 97.3 - 1.2*i,
-				'color': int(255 - 4.7*i),
-				'get_shortdate': rssarticles[i].get_shortdate(),
+				'title': rssarticles[i].article.title,
+				'rssfeed': rssarticles[i].article.rssfeed.title,
+				'get_domain': rssarticles[i].article.get_domain(),
+				'link': rssarticles[i].article.link,
+				'score': recommendation_score,
+				'color': int(2.55*recommendation_score),
+				'get_shortdate': rssarticles[i].article.get_shortdate(),
 			}
 			rssarticles_data.append(tmp)
 
 		return render(request, 'admin/admin_reading_recommendation.html', {'rssarticles': rssarticles_data})
 
-def redirect_recommendation(request, feedname=None, postID=None):
+def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
 	check_passed = check_admin(feedname, request.user)
 	if check_passed != True:
 		return check_passed
 
 	try:
-		article = RSSArticle.objects.get(id=postID, user=feedname)
+		tmp_article = RSSArticle_Assoc.objects.get(id=RSSArticle_AssocID, user=feedname)
 
-		article.open_count += 1
-		article.save()
+		tmp_article.open_count += 1
+		tmp_article.save()
 
-		return HttpResponseRedirect(article.link)
+		return HttpResponseRedirect(tmp_article.article.link)
 	except:
 		return HttpResponseRedirect("/@"+feedname+"/admin/reading/recommendation/")
 
