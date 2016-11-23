@@ -120,11 +120,11 @@ class RSSFeed(models.Model):
 
 						try:
 							tmp_article = RSSArticle.objects.create(rssfeed=self, title=title, link=link)
-							subscribers = self.get_subscribers()
+							subscribtions = self.rel_sub_feed_assoc.all()
 
-							for subscriber in subscribers:
+							for subscribtion in subscribtions:
 								try:
-									RSSArticle_Assoc.objects.create(user=subscriber, article=tmp_article)
+									RSSArticle_Assoc.objects.create(subscribtion=subscribtion, user=subscribtion.user, article=tmp_article)
 								except Exception, e:
 									print str(e)
 									pass

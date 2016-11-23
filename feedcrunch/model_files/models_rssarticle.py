@@ -32,7 +32,7 @@ class RSSArticle(models.Model):
 	objects = RSSArticleManager()
 
 	id = models.AutoField(primary_key=True)
-	rssfeed = models.ForeignKey(RSSFeed, related_name='rel_rss_feed_articles')
+	rssfeed = models.ForeignKey(RSSFeed, related_name='rel_rss_feed_articles', on_delete=models.SET_NULL, null=True)
 	title = models.CharField(max_length=255)
 	link = models.URLField(max_length=2000)
 	description = models.TextField(default='', blank=True, null=True)

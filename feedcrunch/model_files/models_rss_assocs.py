@@ -29,8 +29,8 @@ class RSSFeed_Sub(models.Model):
 	objects = RSSFeed_SubManager()
 
 	id = models.AutoField(primary_key=True)
-	user = models.ForeignKey(FeedUser, related_name='rel_sub_user')
-	feed = models.ForeignKey(RSSFeed, related_name='rel_sub_feed_assoc')
+	user = models.ForeignKey(FeedUser, related_name='rel_sub_feed', on_delete=models.CASCADE)
+	feed = models.ForeignKey(RSSFeed, related_name='rel_sub_feed_assoc', on_delete=models.CASCADE)
 
 	title = models.CharField(max_length=255, blank=False, null=False)
 	added_date = models.DateTimeField(auto_now_add=True)
@@ -45,6 +45,15 @@ class RSSFeed_Sub(models.Model):
 		if self.id is not None:
 			self.title = clean_html(self.title)
 		super(RSSFeed_Sub, self).save(*args, **kwargs) # Call the "real" save() method.
+
+	def count_articles(self):
+		return self.rel_sub_feedsub_article.count()
+
+	def link(self):
+		return self.feed.link
+
+	def get_domain(self):
+		return self.feed.get_domain()
 
 
 ###################################################################################################################################
@@ -61,8 +70,9 @@ class RSSArticle_Assoc(models.Model):
 	objects = RSSArticle_AssocManager()
 
 	id = models.AutoField(primary_key=True)
-	user = models.ForeignKey(FeedUser, related_name='rel_sub_article')
-	article = models.ForeignKey(RSSArticle, related_name='rel_sub_article_assoc')
+	user = models.ForeignKey(FeedUser, related_name='rel_sub_article', on_delete=models.CASCADE)
+	article = models.ForeignKey(RSSArticle, related_name='rel_sub_article_assoc', on_delete=models.CASCADE)
+	subscribtion = models.ForeignKey(RSSFeed_Sub, related_name='rel_sub_feedsub_article', on_delete=models.SET_NULL, null=True)
 
 	open_count = models.SmallIntegerField(default=0)
 	marked_read = models.BooleanField(default=False)
@@ -73,7 +83,22 @@ class RSSArticle_Assoc(models.Model):
 		unique_together = ("user", "article")
 
 	def __unicode__(self):
-		return self.get_title()
+		return self.title()
 
-	def get_title(self):
+	def title(self):
 		return self.article.title
+
+	def link(self):
+		return self.article.link
+
+	def get_domain(self):
+		return self.article.get_domain()
+
+	def rssfeed(self):
+		if self.subscribtion is not None: # Subscribed to the RSSFeed
+			return self.subscribtion.title
+		else: # Not subscribed anymore to the RSSFeed
+			return self.article.rssfeed.title
+
+	def get_shortdate(self):
+		return self.article.get_shortdate()
