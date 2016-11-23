@@ -202,12 +202,6 @@ class Tags(APIView):
 		return Response(payload)
 
 class RSSFeed_View(APIView):
-
-	def get(self, request):
-		payload = dict()
-		payload["success"] = True
-		return Response(payload)
-
 	def post(self, request):
 		try:
 			payload = dict()
@@ -226,14 +220,22 @@ class RSSFeed_View(APIView):
 					tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
 					schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
 
-					payload["RSSFeedID"] = str(tmp_rssfeed.id)
+					old_articles = None
 
 				else:
 					tmp_rssfeed = rssfeed_queryset[0]
+					old_articles = RSSArticle_Assoc.objects.filter(article__rssfeed=tmp_rssfeed)
+
 
 				tmp_sub = RSSFeed_Sub.objects.create(user= request.user, feed=tmp_rssfeed, title=title)
-				payload["RSSFeed_Sub_ID"] = str(tmp_sub.id)
 
+				if ((old_articles is not None) and (old_articles.count() > 0 )):
+					for article in old_articles:
+						article.subscribtion = tmp_sub
+						article.save()
+
+				payload["RSSFeed_Sub_ID"] = str(tmp_sub.id)
+				payload["RSSFeedID"] = str(tmp_rssfeed.id)
 				payload["success"] = True
 
 		except Exception, e:
@@ -244,83 +246,80 @@ class RSSFeed_View(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-	def put(self, request, feedID=None):
+class RSSFeed_Sub_View(APIView):
+	def put(self, request, RSSFeed_SubID=None):
 		try:
 			payload = dict()
 			check_passed = check_admin_api(request.user)
 
-			feedID = int(unicodedata.normalize('NFC', feedID))
+			RSSFeed_SubID = int(unicodedata.normalize('NFC', RSSFeed_SubID))
 
-			if type(feedID) is not int or feedID < 1:
-				raise Exception("feedID parameter is not valid")
+			if type(RSSFeed_SubID) is not int or RSSFeed_SubID < 1:
+				raise Exception("RSSFeed_SubID parameter is not valid")
 
 			if check_passed != True:
 				raise Exception(check_passed)
 
 			payload ["username"] = request.user.username
 
-			query_set = RSSFeed.objects.filter(id=feedID, user=request.user)
+			RSSFeed_Sub_queryset = RSSFeed_Sub.objects.filter(id=RSSFeed_SubID, user=request.user)
 
-			if query_set.count() == 0:
-				raise Exception("Feed ID = "+ feedID +" does not exist for the user: " + payload ["username"])
+			if RSSFeed_Sub_queryset.count() == 0:
+				raise Exception("RSSFeed_Sub (id: "+ RSSFeed_SubID +") does not exist for the user: " + request.user.username)
 
-			feed = query_set[0]
+			RSSFeed_Sub_obj = RSSFeed_Sub_queryset[0]
 
 			title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
-			link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
 
-			if title == "" or link == "":
+			if title == "":
 				raise Exception("Title and/or Link is/are missing")
 
-			feed.title = title
-			feed.link = link
+			RSSFeed_Sub_obj.title = title
 
-			feed.save()
-
-			schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+			RSSFeed_Sub_obj.save()
 
 			payload["success"] = True
-			payload["feedID"] = str(feedID)
+			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
 		except Exception, e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
-			payload["postID"] = None
+			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
 
 		payload["operation"] = "modify RSSFeed"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-	def delete(self, request, feedID=None):
+	def delete(self, request, RSSFeed_SubID=None):
 		try:
 			payload = dict()
 			check_passed = check_admin_api(request.user)
 
-			feedID = int(unicodedata.normalize('NFC', feedID))
+			RSSFeed_SubID = int(unicodedata.normalize('NFC', RSSFeed_SubID))
 
-			if type(feedID) is not int or feedID < 1:
-				raise Exception("feedID parameter is not valid")
+			if type(RSSFeed_SubID) is not int or RSSFeed_SubID < 1:
+				raise Exception("RSSFeed_SubID parameter is not valid")
 
 			if check_passed != True:
 				raise Exception(check_passed)
 
 			payload ["username"] = request.user.username
 
-			query_set = RSSFeed.objects.filter(id=feedID, user=payload ["username"])
+			RSSFeed_Sub_queryset = RSSFeed_Sub.objects.filter(id=RSSFeed_SubID, user=request.user)
 
-			if query_set.count() == 0:
-				raise Exception("Feed ID = "+ feedID +" does not exist for the user: " + payload ["username"])
+			if RSSFeed_Sub_queryset.count() == 0:
+				raise Exception("RSSFeed_Sub (id: "+ RSSFeed_SubID +") does not exist for the user: " + request.user.username)
 
-			query_set[0].delete()
+			RSSFeed_Sub_queryset[0].delete()
 
 			payload ["success"] = True
-			payload["postID"] = feedID
+			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
 		except Exception, e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
-			payload["postID"] = None
+			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
 		payload ["operation"] = "delete RSS Feed"
 		payload ["timestamp"] = get_timestamp()
@@ -344,16 +343,16 @@ class Article(APIView):
 			payload ["username"] = request.user.username
 
 			if 'article_id' in request.POST:
-				RSSArticle_id = unicodedata.normalize('NFC', request.POST['article_id'])
-				RSSArticle_QuerySet = RSSArticle.objects.filter(id=RSSArticle_id, user=request.user)
+				RSSArticle_Assoc_id = unicodedata.normalize('NFC', request.POST['article_id'])
+				RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_Assoc_id, user=request.user)
 
-				if not RSSArticle_QuerySet.exists():
-					raise Exception("The given RSSArticle (id = '" + str(RSSArticle_id) + "' with the given user (username = " + request.user.username + ") doesn't exist.")
+				if not RSSArticle_Assoc_QuerySet.exists():
+					raise Exception("The given RSSArticle (id = '" + str(RSSArticle_Assoc_id) + "' with the given user (username = " + request.user.username + ") doesn't exist.")
 
-				RSSArticle_obj = RSSArticle_QuerySet[0]
+				RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
 
 			else:
-				RSSArticle_id = -1
+				RSSArticle_Assoc_id = -1
 
 			title = unicodedata.normalize('NFC', request.POST['title'])
 			link = unicodedata.normalize('NFC', request.POST['link'])
@@ -384,10 +383,10 @@ class Article(APIView):
 
 			tmp_post.save()
 
-			if RSSArticle_id != -1:
-				RSSArticle_obj.reposted = True
-				RSSArticle_obj.marked_read = True
-				RSSArticle_obj.save()
+			if RSSArticle_Assoc_id != -1:
+				RSSArticle_Assoc_obj.reposted = True
+				RSSArticle_Assoc_obj.marked_read = True
+				RSSArticle_Assoc_obj.save()
 
 			if twitter_bool and request.user.is_twitter_enabled():
 

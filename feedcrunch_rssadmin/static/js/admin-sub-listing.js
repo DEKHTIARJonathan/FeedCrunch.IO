@@ -237,6 +237,9 @@ $(document).ready(function() {
 
 			if (label_link.hasClass( "active" ))
 				label_link.removeClass("active");
+
+			$("#rssfeed_link").prop('disabled', false);
+
 		} else {
 			$("#modal-rss-header").text("Edit your RSS Subscribtion !");
 
@@ -248,6 +251,8 @@ $(document).ready(function() {
 
 			if (! label_link.hasClass( "active" ))
 				label_link.addClass("active");
+
+			$("#rssfeed_link").prop('disabled', true);
 		}
 
 	}
@@ -392,6 +397,8 @@ $(document).ready(function() {
 
 		var feed_id = $("#rssfeed_id").val();
 
+		var feed_data = get_fields_rssfeed();
+
 		if (feed_id == "-1"){
 			var api_url = "/api/1.0/authenticated/post/rssfeed_subscribtion/";
 			var request_type = "POST";
@@ -403,6 +410,8 @@ $(document).ready(function() {
 			var request_type = "PUT";
 			var await_text = "Verifying and modifying the RSS Feed ...";
 			var success_text = "RSS Feed Modified with success!";
+
+			delete feed_data["rssfeed_link"]; // We remove the link that we don't need to update the RSS Feed. Only modifying the title of the feed.
 		}
 
 		var csrftoken = Cookies.get('csrftoken');
@@ -419,8 +428,6 @@ $(document).ready(function() {
 			info_div.attr("class", "red-text text-darken-2");
 			return false;
 		}
-
-		var feed_data = get_fields_rssfeed();
 
 		$.ajax({
 			url : api_url,
@@ -455,19 +462,12 @@ $(document).ready(function() {
 
 							row = $('#feed-id-' + feed_id);
 							edit_btn = $('#edit-btn-id-' + feed_id);
+							
 							// Edit Title
 							var title = feed_data['rssfeed_title'];
 							$(row.children()[1]).text(title);
 							edit_btn.data("title", title);
 
-							// Edit Domain
-							var domain = feed_data['rssfeed_link'].split('//')[1].split('/')[0];
-							$(row.children()[2]).text(domain);
-
-							// Edit Link
-							var link = feed_data['rssfeed_link'];
-							$(row.children()[3]).text(link);
-							edit_btn.data("link", link);
 						}
 						/*
 						else {

@@ -35,8 +35,10 @@ urlpatterns = [
 
 	# RSSFeed Subscribtions Routes
 	url(r'^authenticated/post/rssfeed_subscribtion/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
-	url(r'^authenticated/delete/rssfeed_subscribtion/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='delete_RSSFeed'),
-	url(r'^authenticated/modify/rssfeed_subscribtion/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='modify_RSSFeed'),
+
+	# RSSFeed_Sub Subscribtions Routes
+	url(r'^authenticated/delete/rssfeed_subscribtion/(?P<RSSFeed_SubID>\d+)/$', RSSFeed_Sub_View.as_view(), name='delete_RSSFeed'),
+	url(r'^authenticated/modify/rssfeed_subscribtion/(?P<RSSFeed_SubID>\d+)/$', RSSFeed_Sub_View.as_view(), name='modify_RSSFeed'),
 
 	# Article Routes
 	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
