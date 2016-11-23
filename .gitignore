@@ -94,3 +94,4 @@ codedeploy/Encrypted/*.txt
 FeedCrunch.IO.zip
 boto-develop/build/
 application/fixtures/feedcrunch_dump8.json
+application/fixtures/feedcrunch_dump9.json
