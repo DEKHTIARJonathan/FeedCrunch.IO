@@ -22,7 +22,10 @@ $( document ).ready(function() {
   //
 
   	var picker = birthdate.pickadate('picker');
-	picker.set('select', birthdate_input.data("init"), { format: 'dd/mm/yyyy' });
+	var user_birthdate = birthdate_input.data("init");
+	
+	if (user_birthdate != "None")
+		picker.set('select', user_birthdate, { format: 'dd/mm/yyyy' });
 
 	form_fields = [
 		'firstname',
