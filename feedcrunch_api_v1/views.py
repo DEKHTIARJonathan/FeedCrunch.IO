@@ -14,7 +14,7 @@ from rest_framework.parsers import FileUploadParser
 from django_q.tasks import async, schedule
 from django_q.models import Schedule
 
-from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle
+from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
@@ -70,9 +70,14 @@ class rssfeed_Validation(APIView):
 
 			else:
 
-				if RSSFeed.objects.filter(link=rssfeed, user=request.user).exists():
-					payload ["valid"] = False
-					payload ["error"] = "You already subscribed to this RSS Feed"
+				rssfeed_queryset = RSSFeed.objects.filter(link=rssfeed)
+				if rssfeed_queryset.exists():
+					if RSSFeed.objects.filter(link=rssfeed, rel_sub_feed_assoc__user=request.user):
+						payload ["valid"] = False
+						payload ["error"] = "You already subscribed to this RSS Feed"
+					else:
+						payload ["valid"] = True
+						payload ["title"] = rssfeed_queryset[0].title
 
 				else:
 					rss_data = feedparser.parse(rssfeed)
@@ -91,7 +96,7 @@ class rssfeed_Validation(APIView):
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
-		payload["operation"] = "RSS Feed Validation"
+		payload ["operation"] = "RSS Feed Validation"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
@@ -212,23 +217,30 @@ class RSSFeed_View(APIView):
 				raise Exception(check_passed)
 
 			else:
-				payload ["username"] = request.user.username
-
 				title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
 				link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
 
-				tmp_rssfeed = RSSFeed.objects.create(title=title, link=link, user=request.user)
+				rssfeed_queryset = RSSFeed.objects.filter(link=link)
 
-				schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+				if not rssfeed_queryset.exists():
+					tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
+					schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+
+					payload["RSSFeedID"] = str(tmp_rssfeed.id)
+
+				else:
+					tmp_rssfeed = rssfeed_queryset[0]
+
+				tmp_sub = RSSFeed_Sub.objects.create(user= request.user, feed=tmp_rssfeed, title=title)
+				payload["RSSFeed_Sub_ID"] = str(tmp_sub.id)
 
 				payload["success"] = True
-				payload["RSSFeedID"] = str(tmp_rssfeed.id)
 
 		except Exception, e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
-		payload["operation"] = "subscribe to RSS Feed"
+		payload ["operation"] = "subscribe to RSS Feed"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
@@ -707,19 +719,19 @@ class Modify_Password(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-def mark_RSSArticle_as_read(RSSArticleID, user):
-	RSSArticle_QuerySet = RSSArticle.objects.filter(id=RSSArticleID, user=user)
+def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
+	RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_AssocID, user=user)
 
-	if not RSSArticle_QuerySet.exists():
-		raise Exception("The given RSSArticle (id = '" + str(RSSArticle_id) + "') with the given user (username = " + request.user.username + ") doesn't exist.")
+	if not RSSArticle_Assoc_QuerySet.exists():
+		raise Exception("The given RSSArticle_Assoc (id = '" + str(RSSArticle_AssocID) + "') with the given user (username = " + user.username + ") doesn't exist.")
 
-	RSSArticle_obj = RSSArticle_QuerySet[0]
+	RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
 
-	RSSArticle_obj.marked_read = True
-	RSSArticle_obj.save()
+	RSSArticle_Assoc_obj.marked_read = True
+	RSSArticle_Assoc_obj.save()
 
-class RSSArticle_View(APIView):
-	def put(self, request, rssArticleID=None):
+class RSSArticle_Assoc_View(APIView):
+	def put(self, request, RSSArticle_AssocID=None):
 		try:
 			payload = dict()
 			check_passed = check_admin_api(request.user)
@@ -729,17 +741,17 @@ class RSSArticle_View(APIView):
 
 			payload ["username"] = request.user.username
 
-			if rssArticleID is not None:
-				mark_RSSArticle_as_read(rssArticleID, request.user)
+			if RSSArticle_AssocID is not None:
+				mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, request.user)
 
-				payload ["operation"] = "Mark RSSArticle as Read"
+				payload ["operation"] = "Mark RSSArticle_Assoc as Read"
 
 			elif 'listing' in request.data:
-				RSSArticle_listing = unicodedata.normalize('NFC', request.POST['listing']).split(',') # We separate each tag and create a list out of it.
-				RSSArticle_listing.pop() # We remove the last element which is empty
+				RSSArticle_Assoc_listing = unicodedata.normalize('NFC', request.POST['listing']).split(',') # We separate each tag and create a list out of it.
+				RSSArticle_Assoc_listing.pop() # We remove the last element which is empty
 
-				for article in RSSArticle_listing:
-					mark_RSSArticle_as_read(article, request.user)
+				for article in RSSArticle_Assoc_listing:
+					mark_RSSArticle_Assoc_as_read(article, request.user)
 
 				payload ["operation"] = "Mark RSSArticles Listing as Read"
 
@@ -747,7 +759,7 @@ class RSSArticle_View(APIView):
 				raise Exception("Some Parameters are missing (rssArticleID or listing)")
 
 			payload["success"] = True
-			payload["rssArticleID"] = rssArticleID
+			payload["RSSArticle_AssocID"] = RSSArticle_AssocID
 
 		except Exception, e:
 			payload["success"] = False

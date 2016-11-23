@@ -29,14 +29,14 @@ urlpatterns = [
 	url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),
 
 	# RSSArticle Routes
-	url(r'^authenticated/mark_as_read/rssarticle/(?P<rssArticleID>\d+)/$', RSSArticle_View.as_view(), name='Mark_As_Read_RSSFeed'),
-	url(r'^authenticated/mark_list_as_read/rssarticle/$', RSSArticle_View.as_view(), name='Mark_As_Read_RSSFeed'),
+	url(r'^authenticated/mark_as_read/rssarticle/(?P<RSSArticle_AssocID>\d+)/$', RSSArticle_Assoc_View.as_view(), name='Mark_As_Read_RSSArticle_Assoc'),
+	url(r'^authenticated/mark_list_as_read/rssarticle/$', RSSArticle_Assoc_View.as_view(), name='Mark_List_As_Read_RSSArticle_Assoc'),
 
 
-	# RSSFeed Routes
-	url(r'^authenticated/post/rssfeed/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
-	url(r'^authenticated/delete/rssfeed/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='delete_RSSFeed'),
-	url(r'^authenticated/modify/rssfeed/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='modify_RSSFeed'),
+	# RSSFeed Subscribtions Routes
+	url(r'^authenticated/post/rssfeed_subscribtion/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
+	url(r'^authenticated/delete/rssfeed_subscribtion/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='delete_RSSFeed'),
+	url(r'^authenticated/modify/rssfeed_subscribtion/(?P<feedID>\d+)/$', RSSFeed_View.as_view(), name='modify_RSSFeed'),
 
 	# Article Routes
 	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
