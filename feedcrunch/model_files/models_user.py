@@ -379,6 +379,9 @@ class FeedUser(AbstractFeedUser):
 	def get_post_count(self):
 		return self.rel_posts.count()
 
+	def get_rss_subscribtion_count(self):
+		return self.rel_sub_feed.count()
+
 	def get_current_month_post_count(self):
 		d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 

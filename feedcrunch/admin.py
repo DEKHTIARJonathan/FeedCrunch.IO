@@ -12,12 +12,16 @@ admin.site.register(RSSArticle_Assoc)
 
 # ==================== FEEDUSER ============================
 class FeedUserAdmin(admin.ModelAdmin):
-	list_display = ('username', 'date_joined', 'country', 'is_staff', '_get_post_count')
+	list_display = ('username', 'date_joined', 'country', 'is_staff', '_get_post_count', '_get_rss_subscribtion_count')
 	ordering = ('-date_joined',)
 
 	def _get_post_count(self, obj):
 		return obj.get_post_count()
 	_get_post_count.short_description = "Post Count"
+
+	def _get_rss_subscribtion_count(self, obj):
+		return obj.get_rss_subscribtion_count()
+	_get_rss_subscribtion_count.short_description = "RSS Count"
 	#_get_post_count.admin_order_field = 'get_post_count'
 
 	"""
