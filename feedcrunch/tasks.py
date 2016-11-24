@@ -53,7 +53,7 @@ def refresh_user_rss_subscribtions(username):
 		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 def refresh_all_rss_feeds():
-	for feed in RSSFeeds.objects.all():
+	for feed in RSSFeed.objects.all():
 		schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 def launch_recurrent_rss_job():
