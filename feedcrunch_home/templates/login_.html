@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<!-- Contact Form -->
+<section class="section" id="login">
+	<div class="container" id="login_container">
+
+	  <div class="login-block">
+		<form class="form-horizontal" name="LoginForm" action="/login/" method="post">
+		{% csrf_token %}
+		{% if next %}
+			<input type="hidden" name="next" value="{{ next }}" />
+		{% endif %}
+
+		<div class="control-group">
+		  <label class="control-label" for="username">Username</label>
+		  <div class="col-md-12" style="margin-top: 15px;">
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="pe-7s-users"></i></span>
+			  <input id="username" name="username" class="form-control" placeholder="Username" type="text">
+			</div>
+		  </div>
+		</div>
+		<div class="control-group" style="margin-top: 90px;">
+		  <label class="control-label" for="username">Password</label>
+		  <div class="col-md-12" style="margin-top: 15px;">
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="pe-7s-key"></i></span>
+			  <input id="password" name="password" class="form-control" placeholder="Password" type="password">
+			</div>
+		  </div>
+		</div>
+
+		<div class="control-group col-md-12" style="margin-top: 70px;">
+			<div class="controls">
+				<button type="submit" class="btn">Login</button>
+			</div>
+		</div>
+		</form>
+	</div>
+
+	</div> <!-- end container -->
+</section>
+<!-- End Contact Form -->
+
+{% endblock %}

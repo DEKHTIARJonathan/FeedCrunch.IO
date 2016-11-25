@@ -1,48 +1,125 @@
-{% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
 
-<!-- Contact Form -->
-<section class="section" id="login">
-	<div class="container" id="login_container">
+		<!-- Title -->
+		<title>FeedCrunch.IO | Administration Dashboard</title>
 
-	  <div class="login-block">
-		<form class="form-horizontal" name="LoginForm" action="/login/" method="post">
-		{% csrf_token %}
-		{% if next %}
-			<input type="hidden" name="next" value="{{ next }}" />
-		{% endif %}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta charset="UTF-8">
+		<meta name="description" content="FeedCrunch.IO | Administration Dashboard" />
+		<meta name="keywords" content="administration,dashboard, feedcrunch, rss" />
+		<meta name="author" content="Jonathan DEKHTIAR" />
 
-		<div class="control-group">
-		  <label class="control-label" for="username">Username</label>
-		  <div class="col-md-12" style="margin-top: 15px;">
-			<div class="input-group">
-			  <span class="input-group-addon"><i class="pe-7s-users"></i></span>
-			  <input id="username" name="username" class="form-control" placeholder="Username" type="text">
-			</div>
-		  </div>
+		<link href="{% static "images/favicon.ico" %}" rel="shortcut icon">
+
+		<!-- Styles -->
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<!-- <link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/> -->
+		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"/>
+
+		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
+
+		<!-- Theme Styles -->
+		<link type="text/css" rel="stylesheet" href="{% static "css/alpha_.css" %}"/>
+		<link type="text/css" rel="stylesheet" href="{% static "css/custom-admin.css" %}"/>
+
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<style>
+			input:-webkit-autofill {
+				-webkit-box-shadow: 0 0 0 1000px white inset !important;
+			}
+			.mn-header {
+				z-index: 999;
+				height: 60px!important;
+				position: fixed;
+				top: 0;
+			}
+		</style>
+
+	</head>
+	<body class="signin-page loaded">
+		<div class="mn-content valign-wrapper">
+			<header class="mn-header navbar-fixed">
+				<nav class="indigo accent-3">
+					<div class="nav-wrapper row">
+						<div class="header-title col s3 m3">
+							<a href="/"><img src="{% static "images/logo-white.png" %}" style="height:15px;"></a>
+						</div>
+						<form class="left search col s6 hide-on-small-and-down">
+							<div class="input-field">
+								<input id="search" type="search" placeholder="Search" autocomplete="off">
+								<label for="search"><i class="material-icons search-icon">search</i></label>
+							</div>
+							<a href="javascript: void(0)" class="close-search"><i class="material-icons">close</i></a>
+						</form>
+					</div>
+				</nav>
+			</header>
+			<main class="mn-inner container">
+				<div class="valign">
+					  <div class="row">
+						  <div class="col s12 m6 l4 offset-l4 offset-m3">
+							  <div class="card white darken-1">
+								  <div class="card-content ">
+									  <span class="card-title">Welcome Back in FeedCrunch!</span>
+										<div class="row">
+											<form class="col s12" name="LoginForm" action="/login/" method="post">
+												{% csrf_token %}
+												{% if next %}
+													<input type="hidden" name="next" value="{{ next }}" />
+												{% endif %}
+												<div class="input-field col s12">
+													<input id="username" name="username" type="text" class="validate">
+													<label for="username">Username</label>
+												</div>
+												<div class="input-field col s12">
+													<input id="password" name="password" type="password" class="validate">
+													<label for="password">Password</label>
+												</div>
+												<div class="col s12 right-align m-t-sm">
+													<a href="/signup/" class="waves-effect waves-grey btn-flat">Sign Up</a>
+													<input type="submit" class="waves-effect waves-light btn teal" value="Login">
+												</div>
+											</form>
+									  </div>
+								  </div>
+							  </div>
+						  </div>
+					</div>
+				</div>
+			</main>
 		</div>
-		<div class="control-group" style="margin-top: 90px;">
-		  <label class="control-label" for="username">Password</label>
-		  <div class="col-md-12" style="margin-top: 15px;">
-			<div class="input-group">
-			  <span class="input-group-addon"><i class="pe-7s-key"></i></span>
-			  <input id="password" name="password" class="form-control" placeholder="Password" type="password">
-			</div>
-		  </div>
-		</div>
 
-		<div class="control-group col-md-12" style="margin-top: 70px;">
-			<div class="controls">
-				<button type="submit" class="btn">Login</button>
-			</div>
-		</div>
-		</form>
-	</div>
-
-	</div> <!-- end container -->
-</section>
-<!-- End Contact Form -->
-
-{% endblock %}
+		<!-- Javascripts -->
+		<script type="text/javascript" src="{% static "plugins/jquery/jquery-2.2.0.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/jquery.ba-throttle-debounce.min.js" %}"></script>
+		<!-- <script type="text/javascript" src="{% static "plugins/materialize/js/materialize.min.js" %}"></script> -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+		<script>
+			$(document).ready(function (e) {
+				$(window).load($.debounce(200, function () {
+					if ($('input:-webkit-autofill')) {
+						// We know that this form has autofill on its way. Let's check this again after a delay as its not always done on window.load
+						$('input:-webkit-autofill').each(function () {
+							var label = $(this).siblings("label");
+							if (! label.hasClass("active"))
+								label.addClass("active");
+						});
+					}
+				}));
+			});
+		</script>
+	</body>
+</html>

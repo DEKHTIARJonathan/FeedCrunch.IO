@@ -75,26 +75,26 @@ table.dataTable thead .sorting_desc {
 }
 
 #profile-page-header .card-profile-image {
-    width: 110px;
-    position: absolute;
-    top: 190px;
-    z-index: 1;
-    left: 40px;
-    cursor: pointer;
-    margin: 0;
+	width: 110px;
+	position: absolute;
+	top: 190px;
+	z-index: 1;
+	left: 40px;
+	cursor: pointer;
+	margin: 0;
 }
 
 #profile-page-header .card-image {
-    height: 250px;
+	height: 250px;
 	overflow: hidden;
 }
 
 #profile-page-header .card-content .card-title {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 #profile-page-header .card-content {
-    margin-top: -5px;
+	margin-top: -5px;
 	padding: 10px;
 }
 
@@ -116,7 +116,7 @@ table.dataTable thead .sorting_desc {
 }
 .social-networks-category-title{
 	font-weight: 600 !important;
-    font-size: 1.25em !important;
+	font-size: 1.25em !important;
 }
 
 .KPI-Card{
@@ -128,5 +128,16 @@ table.dataTable thead .sorting_desc {
 }
 
 .small-icon-listing {
-    font-size: 1.4rem !important;
+	font-size: 1.4rem !important;
+}
+
+
+.signin-page {
+	height: 100%;
+	width: 100%;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/flat_bg.jpg) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size:  cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
