@@ -141,3 +141,44 @@ table.dataTable thead .sorting_desc {
 	-o-background-size: cover;
 	background-size: cover;
 }
+
+.side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a>[class*="mdi-"], .side-nav li>a>i.material-icons {
+	height: auto;
+}
+
+.centered-cell{
+	text-align: center !important;
+}
+
+.tabs .tab {
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	display: block;
+	float: left;
+	text-align: center;
+	line-height: 48px;
+	height: 48px;
+	padding: 0;
+	margin: 0;
+	text-transform: uppercase;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	letter-spacing: .8px;
+	width: 100%;
+	min-width: 80px;
+}
+
+.tabs .tab a {
+	color: #ee6e73;
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	transition: color .28s ease;
+	padding: 0;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+	color: inherit;
+}

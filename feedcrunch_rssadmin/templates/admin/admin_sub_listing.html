@@ -39,7 +39,7 @@
 							<th>Title</th>
 							<th>Domain</th>
 							<th>Link</th>
-							<th>Articles Retrieved</th>
+							<th class='centered-cell'># Articles</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
@@ -51,9 +51,9 @@
 						<tr id="feed-id-{{ feed.id }}">
 							<td>{{ feed.id }}</td>
 							<td>{{ feed.title }}</td>
-							<td>{{ feed.get_domain }}</span>
-							<td>{{ feed.link }}</td>
-							<td>{{ feed.count_articles }}</td>
+							<td>{{ feed.short_domain }}</span>
+							<td>{{ feed.short_link }}</td>
+							<td class='centered-cell'>{{ feed.count_articles }}</td>
 							<td><a id="edit-btn-id-{{ feed.id }}" class="modal-trigger edit-rssfeed-btn"  data-id="{{ feed.id }}" data-title="{{ feed.title }}" data-link="{{ feed.link }}" href="#modal-rss-feed">Edit</a></td>
 							<td><a class="delete-feed" data-id="{{ feed.id }}" href="#">Delete</a></td>
 						</tr>

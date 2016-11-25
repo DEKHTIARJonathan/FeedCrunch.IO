@@ -248,9 +248,10 @@ def reading_recommendation(request, feedname=None):
 			recommendation_score = 97.3 - 1.2*i
 			tmp = {
 				'id': rssarticles[i].id,
+				'short_title': rssarticles[i].short_title(),
 				'title': rssarticles[i].title(),
-				'rssfeed': rssarticles[i].rssfeed(),
-				'get_domain': rssarticles[i].get_domain(),
+				'rssfeed': rssarticles[i].short_rssfeed(),
+				'get_domain': rssarticles[i].short_domain(),
 				'link': rssarticles[i].link(),
 				'score': recommendation_score,
 				'color': int(2.55*recommendation_score),

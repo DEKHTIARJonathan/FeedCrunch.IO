@@ -4,7 +4,7 @@ $(document).ready(function() {
 		"columns": [
 			{ "width": "40px", "searchable": false}, // ID
 			{ "width": "auto", "searchable": true},  // TITLE
-			{ "width": "250px", "searchable": true}, // DOMAIN
+			{ "width": "200px", "searchable": true}, // DOMAIN
 			{ "width": "250px", "searchable": true}, // LINK
 			{ "width": "80px", "searchable": false}, // ARTICLES RETRIEVED
 			{ "width": "30px", "searchable": false}, // EDIT
@@ -506,5 +506,9 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	/* =========================================== MODAL Initialization ====================================	*/
+
+	$('.modal').modal();
 
 });

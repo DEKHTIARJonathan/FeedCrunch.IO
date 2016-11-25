@@ -12,6 +12,14 @@ from .models_rssarticle import RSSArticle
 
 from clean_html import clean_html
 
+def shorten_string(string, max_size):
+	if max_size < 7:
+		max_size = 7
+	if (len(string) > max_size):
+		return string[:max_size-6] + " [...]"
+	else:
+		return string
+
 class RSSFeed_SubManager(models.Manager):
 	def create(self, *args, **kwargs):
 
@@ -52,8 +60,17 @@ class RSSFeed_Sub(models.Model):
 	def link(self):
 		return self.feed.link
 
+	def short_link(self):
+		return shorten_string(self.feed.link, 35)
+
 	def get_domain(self):
 		return self.feed.get_domain()
+
+	def short_domain(self):
+		return shorten_string(self.get_domain(), 25)
+
+	def short_title(self):
+		return shorten_string(self.title, 75)
 
 
 ###################################################################################################################################
@@ -88,17 +105,26 @@ class RSSArticle_Assoc(models.Model):
 	def title(self):
 		return self.article.title
 
+	def short_title(self):
+		return shorten_string(self.article.title, 75)
+
 	def link(self):
 		return self.article.link
 
 	def get_domain(self):
 		return self.article.get_domain()
 
+	def short_domain(self):
+		return shorten_string(self.article.get_domain(), 35)
+
 	def rssfeed(self):
 		if self.subscribtion is not None: # Subscribed to the RSSFeed
 			return self.subscribtion.title
 		else: # Not subscribed anymore to the RSSFeed
 			return self.article.rssfeed.title
+
+	def short_rssfeed(self):
+		return shorten_string(self.rssfeed(), 35)
 
 	def get_shortdate(self):
 		return self.article.get_shortdate()
