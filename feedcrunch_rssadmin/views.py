@@ -12,7 +12,7 @@ from django.core.exceptions import ValidationError
 import datetime, unicodedata, json
 from calendar import monthrange
 
-from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
+from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc, Interest
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from check_admin import check_admin
@@ -276,11 +276,12 @@ def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
 	except:
 		return HttpResponseRedirect("/@"+feedname+"/admin/reading/recommendation/")
 
-def onboarding_interests(request, feedname=None):
+def onboarding_view(request, feedname=None):
 
 	check_passed = check_admin(feedname, request.user)
 	if check_passed != True:
 		return check_passed
 
 	else:
-		return render(request, 'onboarding/interests.html')
+		interest_list = Interest.objects.all().order_by('name')
+		return render(request, 'admin/onboarding.html', {'interests': interest_list})
