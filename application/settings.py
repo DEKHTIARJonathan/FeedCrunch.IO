@@ -219,6 +219,7 @@ STATICFILES_DIRS = (
 
 USER_PHOTO_PATH = "images/user_photos/"
 USER_ESTIMATOR_PATH = "estimators/"
+INTEREST_PHOTO_PATH = "images/interest_photos/"
 
 # QCluster config
 

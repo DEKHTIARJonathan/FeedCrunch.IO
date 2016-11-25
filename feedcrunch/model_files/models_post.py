@@ -16,7 +16,7 @@ from get_domain import get_domain
 def create_key(size=8):
 	return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(size))
 
-############################## ARTICLE MODEL ###################################
+############################## Post MODEL ###################################
 
 class Post(models.Model):
 	id = models.AutoField(primary_key=True)
