@@ -406,28 +406,59 @@ class FeedUser(AbstractFeedUser):
 	def get_clicks_count(self):
 		return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
 
-	def load_opml(self, data):
-		from feedcrunch.models import RSSFeed
+	def load_opml(self, opml_file):
+		from feedcrunch.models import RSSFeed, RSSArticle_Assoc, RSSFeed_Sub
 		import untangle
 
-		obj = untangle.parse('subscriptions.xml')
+		obj = untangle.parse(opml_file)
 
+		errors = []
 		for feed in obj.opml.body.outline:
 
-			title = feed["title"]
+			if feed["title"] != "" and feed["title"] is not None:
+				title = feed["title"]
+			elif feed["text"] != "" and feed["text"] is not None:
+				title = feed["text"]
+			else:
+				continue
 
-			if feed["htmlUrl"] is not None:
+			if feed["htmlUrl"] != "" and feed["htmlUrl"] is not None:
 				link = feed["htmlUrl"]
-			elif feed["xmlUrl"] is not None:
+			elif feed["xmlUrl"] != "" and feed["xmlUrl"] is not None:
 				link = feed["xmlUrl"]
 			else:
+				print "##############"
 				continue # Go to next Feed
 
-			if not RSSFeed.objects.filter(user=self, link=link).exists(): # Feed is Valid
-				feed_tmp = RSSFeed.objects.create(user=self, title=title, link=link)
 
-				if feed_tmp != False:
-					schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed_tmp.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+			rssfeed_queryset = RSSFeed.objects.filter(link=link)
+
+			if not rssfeed_queryset.exists():
+				try:
+					tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
+				except:
+					errors.append(link)
+					continue
+				schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+
+				old_articles = None
+
+			else:
+				tmp_rssfeed = rssfeed_queryset[0]
+				old_articles = RSSArticle_Assoc.objects.filter(article__rssfeed=tmp_rssfeed)
+
+			try:
+				tmp_sub = RSSFeed_Sub.objects.create(user= self, feed=tmp_rssfeed, title=title)
+
+				if ((old_articles is not None) and (old_articles.count() > 0 )):
+					for article in old_articles:
+						article.subscribtion = tmp_sub
+						article.save()
+			except:
+				continue
+
+
+		return errors
 
 	def refresh_user_feed(self):
 		launch_time = timezone.now() + datetime.timedelta(minutes=1)
