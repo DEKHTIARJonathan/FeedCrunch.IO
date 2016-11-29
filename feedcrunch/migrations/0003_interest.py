@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255, primary_key=True, serialize=False)),
                 ('picture', models.ImageField(blank=True, default='images/interest_photos/dummy_stock.jpg', null=True, upload_to=feedcrunch.model_files.models_interest.get_photo_path)),
                 ('guid', models.UUIDField(default=uuid.uuid4)),
-                ('rssfeeds', models.ManyToManyField(blank=True, null=True, related_name='rel_interests', to='feedcrunch.RSSFeed')),
+                ('rssfeeds', models.ManyToManyField(blank=True, related_name='rel_interests', to='feedcrunch.RSSFeed')),
             ],
         ),
     ]
