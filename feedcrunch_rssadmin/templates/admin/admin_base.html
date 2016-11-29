@@ -32,15 +32,16 @@
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
 
 		{% elif template_name == "admin/admin_post_listing.html" %}
-			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
 		{% elif template_name == "admin/admin_sub_listing.html" %}
-			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/jquery-upload-file/css/uploadfile.css" %}"></script>
 
 		{% elif template_name == "admin/admin_reading_recommendation.html" %}
-			<link rel="stylesheet" type="text/css" href="{% static "plugins/datatables/css/datatables.min.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "plugins/datatables/css/datatables.min.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
 
@@ -61,7 +62,7 @@
 
 		{% elif template_name == "admin/admin-coming-soon.html" %}
 			<link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway:400,200,600|Open+Sans:400,300,600,700|Montserrat:400,700" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" href="{% static "css/admin-coming-soon.css" %}">
+			<link type="text/css" rel="stylesheet" href="{% static "css/admin-coming-soon.css" %}">
 
 		{% endif %}
 
@@ -360,6 +361,7 @@
 			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/jquery-upload-file/js/jquery.uploadfile.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-sub-listing.js" %}"></script>
 
 		{% elif template_name == "admin/admin_personal.html" %}

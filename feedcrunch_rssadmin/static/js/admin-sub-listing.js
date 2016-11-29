@@ -112,6 +112,72 @@ $(document).ready(function() {
 		});
 	});
 
+	var extraObj = $("#fileuploader").uploadFile({
+		url:"/api/1.0/authenticated/import/opml_file/",
+		multiple:false,
+		dragDrop:true,
+		maxFileCount:1,
+		fileName:"opml_file",
+		autoSubmit:false,
+		formData: {"name":"Ravi","age":31},
+		headers: {
+			'X-CSRFToken': Cookies.get('csrftoken')
+		},
+		showProgress: false,
+		showCancel: false,
+		showAbort: false,
+		showDone: false,
+		showStatusAfterSuccess: false,
+		showError: false,
+		showFileCounter: false,
+		onSuccess:function(files,data,xhr,pd)
+		{
+			if (data.success) {
+				swal({
+					title: "Good job!",
+					text: "OPML File Correctly Imported!",
+					type: "success",
+					timer: 1500,
+					showConfirmButton: false,
+					cache: false,
+				}, function() {
+					location.reload();
+					swal.close();
+				});
+			}
+			else {
+				swal({
+					title: "Something went wrong!",
+					text: data.error,
+					type: "error",
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "I'll retry later",
+					closeOnConfirm: true
+				});
+			}
+		}
+
+
+
+	});
+
+	$("#save-btn-opml").click(function() {
+		/*
+		$.ajax({
+			url: '/api/1.0/authenticated/import/opml_file/',
+			type: 'POST',
+			data: {
+				'opml_file':$('#opml-file').files
+			},
+			cache: false,
+			processData: false, // Don't process the files
+			contentType: 'multipart/form-data', // Set content type to false as jQuery will tell the server its a query string request
+		});
+		*/
+		extraObj.startUpload();
+	});
+
+
 	// ================================================== DELETE Feed ==================================================
 
 	function reset_click_delete(){
