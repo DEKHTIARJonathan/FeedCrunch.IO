@@ -40,6 +40,38 @@
 		<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+		<style>
+		.header-img{
+			overflow: hidden;
+			vertical-align: middle;
+			z-index: 1;
+		}
+		.responsive-imgMod{
+		height: 110px;
+		width: 110px;
+		}
+
+		#profile-page-header .card-image {
+		height: 150px;
+		}
+		#profile-page-header .card-profile-image img {
+
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		right: 0;
+		top:90px;
+		bottom: 0;
+		margin-left: auto;
+		margin-right:auto
+		}
+
+		.activator{
+    		bottom: 20px;
+		}
+
+		</style>
+
 	</head>
 	<body>
 		<div class="loader-bg"></div>
@@ -112,130 +144,153 @@
 						</ul>
 						<!-- fieldsets -->
 						<fieldset>
-							<div class="col-lg-3 hidden-md-down side-panel">
-								<div class="header text-center">
-									<h1>
-										How does it work ?
-									</h1>
+							<div class="col-md-12">
+								<div class="col-lg-3 hidden-md-down side-panel">
+									<div class="header text-center">
+										<h1>
+											How does it work ?
+										</h1>
+									</div>
+									<div class="explainer">
+										<h2>Follow</h2>
+										<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
+										<h2>Reading and Reading</h2>
+										<p>Next, we track which content you read and share</p>
+										<h2>Learn</h2>
+										<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+									</div>
+									<div class="read-blog">
+										<div class="aligner">
+											<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
+									</div>
 								</div>
-								<div class="explainer">
-									<h2>Follow</h2>
-									<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
-									<h2>Reading and Reading</h2>
-									<p>Next, we track which content you read and share</p>
-									<h2>Learn</h2>
-									<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
-								</div>
-								<div class="read-blog">
-									<div class="aligner">
-										<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
-								</div>
-							</div>
-							<div class="topics col-lg-9 col-md-12">
-								{% for interest in interests %}
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}">
-									<label for="topic-{{ interest.guid }}" style='background-image: url("{{ interest.get_photo_path }}");'>
-										<span>{{ interest.name }}</span>
-									</label>
-								</div>
-								{% endfor %}
+								<div class="topics col-lg-9 col-md-12">
+									{% for interest in interests %}
+									<div class="topic col-lg-3 col-md-6 col-sm-12">
+										<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}">
+										<label for="topic-{{ interest.guid }}" style='background-image: url("{{ interest.get_photo_path }}");'>
+											<span>{{ interest.name }}</span>
+										</label>
+									</div>
+									{% endfor %}
 
+								</div>
 							</div>
 							<a type="button" name="next" class="btn blue darken-2 m-b-xs next action-button hover">Next Step</a>
 						</fieldset>
 						<fieldset>
-							<div class="col-lg-3 hidden-md-down side-panel">
-								<div class="header text-center">
-									<h1>
-										How does it work ?
-									</h1>
+							<div class="col-md-12">
+								<div class="col-lg-3 hidden-md-down side-panel">
+									<div class="header text-center">
+										<h1>
+											How does it work ?
+										</h1>
+									</div>
+									<div class="explainer">
+										<h2>Follow</h2>
+										<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
+										<h2>Reading and Reading</h2>
+										<p>Next, we track which content you read and share</p>
+										<h2>Learn</h2>
+										<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+									</div>
+									<div class="read-blog">
+										<div class="aligner">
+											<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
+									</div>
 								</div>
-								<div class="explainer">
-									<h2>Follow</h2>
-									<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
-									<h2>Reading and Reading</h2>
-									<p>Next, we track which content you read and share</p>
-									<h2>Learn</h2>
-									<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
-								</div>
-								<div class="read-blog">
-									<div class="aligner">
-										<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
-								</div>
-							</div>
-							<div class="topics col-lg-9 col-md-12">
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd5">
-									<label for="topic-581bb826435b057c246ccbd5" style="background-image: url('{% static "onboarding/img/app/design-bg.jpg" %}');">
-										<span>Interest1</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd6">
-									<label for="topic-581bb826435b057c246ccbd6" style="background-image: url('{% static "onboarding/img/app/startups-bg.jpg" %}');">
-										<span>Interest2</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd7">
-									<label for="topic-581bb826435b057c246ccbd7" style="background-image: url('{% static "onboarding/img/app/programming-bg.jpg" %}');">
-										<span>Interest3</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd8">
-									<label for="topic-581bb826435b057c246ccbd8" style="background-image: url('{% static "onboarding/img/app/gaming-bg.jpg" %}');">
-										<span>Interest4</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd9">
-									<label for="topic-581bb826435b057c246ccbd9" style="background-image: url('{% static "onboarding/img/app/lifehacks-bg.jpg" %}');">
-										<span>Interest5</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbda">
-									<label for="topic-581bb826435b057c246ccbda" style="background-image: url('{% static "onboarding/img/app/venture-capital-bg.jpg" %}');">
-										<span>Interest6</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdb">
-									<label for="topic-581bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-and-machine-learning-bg.jpg" %}');">
-										<span>Interest7</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdc">
-									<label for="topic-581bb826435b057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
-										<span>Interest8</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdd">
-									<label for="topic-581bb826435b057c246ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
-										<span>Interest9</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-5fdsfds81bb826435b057c246ccbdb">
-									<label for="topic-5fdsfds81bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-and-machine-learning-bg.jpg" %}');">
-										<span>Interest10</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435bdsqdsq057c246ccbdc">
-									<label for="topic-581bb826435bdsqdsq057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
-										<span>Interest11</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c2fdsdsq46ccbdd">
-									<label for="topic-581bb826435b057c2fdsdsq46ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
-										<span>Interest12</span>
-									</label>
+								<div class="topics col-lg-9 col-md-12">
+									<div class="row">
+
+										<!-- Twitter Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-tw.jpg" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/twitter.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12">
+																<button class="btn waves-effect waves-light indigo accent-3" type="submit" name="action" style="font-size: 12px;">Link your Twitter Account</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Facebook Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-fb.png" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/facebook.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12" style="text-align: center;">
+																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- LinkedIn Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-lk.jpg" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/linkedin.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12" style="text-align: center;">
+																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- GooglePlus Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-gp.jpg" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/gplus.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12" style="text-align: center;">
+																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 							<a type="button" name="next" class="btn blue darken-2 m-b-xs next action-button hover">Next Step</a>
