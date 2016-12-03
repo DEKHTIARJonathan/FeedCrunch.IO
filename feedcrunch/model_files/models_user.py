@@ -426,10 +426,10 @@ class FeedUser(AbstractFeedUser):
 			else:
 				continue
 
-			if feed["htmlUrl"] != "" and feed["htmlUrl"] is not None:
-				link = feed["htmlUrl"]
-			elif feed["xmlUrl"] != "" and feed["xmlUrl"] is not None:
+			if feed["xmlUrl"] != "" and feed["xmlUrl"] is not None:
 				link = feed["xmlUrl"]
+			elif feed["htmlUrl"] != "" and feed["htmlUrl"] is not None:
+				link = feed["htmlUrl"]
 			else:
 				print "##############"
 				continue # Go to next Feed
