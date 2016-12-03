@@ -155,8 +155,6 @@ AWS_SES_REGION_NAME = "eu-west-1"
 AWS_SES_REGION_ENDPOINT = 'email.eu-west-1.amazonaws.com'
 AWS_SES_SENDER = assign_env_value('EMAIL_DEFAULT_SENDER')
 
-
-
 WSGI_APPLICATION = 'application.wsgi.application'
 
 FIXTURE_DIRS = (

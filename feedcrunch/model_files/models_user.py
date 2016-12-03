@@ -359,8 +359,12 @@ class FeedUser(AbstractFeedUser):
 			return False
 
 	def is_twitter_activated(self):
-		if self.is_twitter_enabled() and TwitterAPI(self).verify_credentials()['status']:
-			return True
+		if self.is_twitter_enabled():
+		 	if TwitterAPI(self).verify_credentials()['status']:
+				return True
+			else:
+				self.reset_twitter_credentials()
+				return False
 		else:
 			return False
 
