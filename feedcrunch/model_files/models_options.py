@@ -6,7 +6,7 @@ from django.db import models
 
 from encrypted_fields import EncryptedCharField
 
-############################## ARTICLE MODEL ###################################
+############################## Option MODEL ###################################
 
 class Option(models.Model):
 	parameter = models.CharField(max_length=255, primary_key=True)

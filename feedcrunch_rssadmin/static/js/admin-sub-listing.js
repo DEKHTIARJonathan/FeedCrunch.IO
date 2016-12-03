@@ -4,7 +4,7 @@ $(document).ready(function() {
 		"columns": [
 			{ "width": "40px", "searchable": false}, // ID
 			{ "width": "auto", "searchable": true},  // TITLE
-			{ "width": "250px", "searchable": true}, // DOMAIN
+			{ "width": "200px", "searchable": true}, // DOMAIN
 			{ "width": "250px", "searchable": true}, // LINK
 			{ "width": "80px", "searchable": false}, // ARTICLES RETRIEVED
 			{ "width": "30px", "searchable": false}, // EDIT
@@ -111,6 +111,72 @@ $(document).ready(function() {
 			swal.close();
 		});
 	});
+
+	var extraObj = $("#fileuploader").uploadFile({
+		url:"/api/1.0/authenticated/import/opml_file/",
+		multiple:false,
+		dragDrop:true,
+		maxFileCount:1,
+		fileName:"opml_file",
+		autoSubmit:false,
+		formData: {"name":"Ravi","age":31},
+		headers: {
+			'X-CSRFToken': Cookies.get('csrftoken')
+		},
+		showProgress: false,
+		showCancel: false,
+		showAbort: false,
+		showDone: false,
+		showStatusAfterSuccess: false,
+		showError: false,
+		showFileCounter: false,
+		onSuccess:function(files,data,xhr,pd)
+		{
+			if (data.success) {
+				swal({
+					title: "Good job!",
+					text: "OPML File Correctly Imported!",
+					type: "success",
+					timer: 1500,
+					showConfirmButton: false,
+					cache: false,
+				}, function() {
+					location.reload();
+					swal.close();
+				});
+			}
+			else {
+				swal({
+					title: "Something went wrong!",
+					text: data.error,
+					type: "error",
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "I'll retry later",
+					closeOnConfirm: true
+				});
+			}
+		}
+
+
+
+	});
+
+	$("#save-btn-opml").click(function() {
+		/*
+		$.ajax({
+			url: '/api/1.0/authenticated/import/opml_file/',
+			type: 'POST',
+			data: {
+				'opml_file':$('#opml-file').files
+			},
+			cache: false,
+			processData: false, // Don't process the files
+			contentType: 'multipart/form-data', // Set content type to false as jQuery will tell the server its a query string request
+		});
+		*/
+		extraObj.startUpload();
+	});
+
 
 	// ================================================== DELETE Feed ==================================================
 
@@ -506,5 +572,9 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	/* =========================================== MODAL Initialization ====================================	*/
+
+	$('.modal').modal();
 
 });

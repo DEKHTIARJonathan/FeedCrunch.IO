@@ -9,7 +9,7 @@ from django.utils import timezone
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import FileUploadParser
+from rest_framework.parsers import FileUploadParser, MultiPartParser
 
 from django_q.tasks import async, schedule
 from django_q.models import Schedule
@@ -99,6 +99,36 @@ class rssfeed_Validation(APIView):
 		payload ["operation"] = "RSS Feed Validation"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
+
+class OPML_Import(APIView):
+	parser_classes = (MultiPartParser,)
+
+	def post(self, request, filename=''):
+
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			if not 'opml_file' in request.data:
+				raise Exception("opml_file not received")
+
+			opml_file = request.data["opml_file"].read().decode('iso-8859-1').encode('ascii', 'ignore').replace("  ", " ")
+
+			payload["feed_errors"] = request.user.load_opml(opml_file)
+
+			payload ["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "OPML Import"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
 
 class User_Stats_Subscribers(APIView):
 

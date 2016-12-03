@@ -4,9 +4,9 @@ $(document).ready(function() {
 		"columns": [
 			{ "width": "auto", "searchable": true},   // TITLE
 			{ "width": "190px", "searchable": true},  // FEED
-			{ "width": "170px", "searchable": true},  // DOMAIN
+			{ "width": "190px", "searchable": true},  // DOMAIN
 			{ "width": "55px", "searchable": false},  // HOTNESS
-			{ "width": "125px", "searchable": false}, // PUBLISH
+			{ "width": "140px", "searchable": false}, // PUBLISH
 		],
 		"pageLength": 50, // 50 values display by page
 		"lengthChange": false, // no dropdown displayed
@@ -343,5 +343,9 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	/* =========================================== MODAL Initialization ====================================	*/
+
+	$('.modal').modal();
 
 });

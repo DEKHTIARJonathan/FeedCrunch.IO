@@ -30,113 +30,123 @@
 			</div>
 		</div>
 	</div>
-    <div class="col s12">
-        <div class="card">
-            <div class="card-content">
-				<div class="row no-margin-bottom">
-					<div class="col s12">
-						<div class="row no-margin-bottom">
-							<div class="col s12">
-							    <h4 class="card-title grey-text text-darken-4">Show your social accounts on your FeedCrunch Profile</h4>
-							</div>
-							<div class="col s12">
-								<span class="card-title col s12 social-networks-category-title">Main Social Networks</span>
-								<div class="input-field col s12 l6">
-									<label for="dribbble">Dribbble</label>
-									<input id="dribbble" name="dribbble" type="text" class="validate" data-init="{{ user.social_dribbble }}" value="{{ user.social_dribbble }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="facebook">Facebook</label>
-									<input id="facebook" name="facebook" type="text" class="validate" data-init="{{ user.social_facebook }}" value="{{ user.social_facebook }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="flickr">Flickr</label>
-									<input id="flickr" name="flickr" type="text" class="validate" data-init="{{ user.social_flickr }}" value="{{ user.social_flickr }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="gplus">Google Plus</label>
-									<input id="gplus" name="gplus" type="text" class="validate" data-init="{{ user.social_gplus }}" value="{{ user.social_gplus }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="instagram">Instagram</label>
-									<input id="instagram" name="instagram" type="text" class="validate" data-init="{{ user.social_instagram }}" value="{{ user.social_instagram }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="linkedin">LinkedIn</label>
-									<input id="linkedin" name="linkedin" type="text" class="validate" data-init="{{ user.social_linkedin }}" value="{{ user.social_linkedin }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="pinterest">Pinterest</label>
-									<input id="pinterest" name="pinterest" type="text" class="validate" data-init="{{ user.social_pinterest }}" value="{{ user.social_pinterest }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="stumble">Stumble Upon</label>
-									<input id="stumble" name="stumble" type="text" class="validate" data-init="{{ user.social_stumble }}" value="{{ user.social_stumble }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="twitter">Twitter</label>
-									<input id="twitter" name="twitter" type="text" class="validate" data-init="{{ user.social_twitter }}" value="{{ user.social_twitter }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="vimeo">Vimeo</label>
-									<input id="vimeo" name="vimeo" type="text" class="validate" data-init="{{ user.social_vimeo }}" value="{{ user.social_vimeo }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="youtube">Youtube</label>
-									<input id="youtube" name="youtube" type="text" class="validate" data-init="{{ user.social_youtube }}" value="{{ user.social_youtube }}">
-								</div>
-
-								<span class="card-title col s12 social-networks-category-title">Computer Science Social Networks</span>
-								<div class="input-field col s12 l6">
-									<label for="docker">Docker</label>
-									<input id="docker" name="docker" type="text" class="validate" data-init="{{ user.social_docker }}" value="{{ user.social_docker }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="git">Git</label>
-									<input id="git" name="git" type="text" class="validate" data-init="{{ user.social_git }}" value="{{ user.social_git }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="kaggle">Kaggle</label>
-									<input id="kaggle" name="kaggle" type="text" class="validate" data-init="{{ user.social_kaggle }}" value="{{ user.social_kaggle }}">
-								</div>
-
-								<span class="card-title col s12 social-networks-category-title">MooCs</span>
-								<div class="input-field col s12 l6">
-									<label for="coursera">Coursera</label>
-									<input id="coursera" name="coursera" type="text" class="validate" data-init="{{ user.social_coursera }}" value="{{ user.social_coursera }}">
-								</div>
-
-								<span class="card-title col s12 social-networks-category-title">Research Social Networks</span>
-								<div class="input-field col s12 l6">
-									<label for="googlescholar">Google Scholar</label>
-									<input id="googlescholar" name="googlescholar" type="text" class="validate" data-init="{{ user.social_google_scholar }}" value="{{ user.social_google_scholar }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="orcid">OrcID</label>
-									<input id="orcid" name="orcid" type="text" class="validate" data-init="{{ user.social_orcid }}" value="{{ user.social_orcid }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="researchgate">Research Gate</label>
-									<input id="researchgate" name="researchgate" type="text" class="validate" data-init="{{ user.social_researchgate }}" value="{{ user.social_researchgate }}">
-								</div>
-
-
-								<span class="card-title col s12 social-networks-category-title">Personal Pages</span>
-								<div class="input-field col s12 l6">
-									<label for="blog">Personal Blog</label>
-									<input id="blog" name="blog" type="text" class="validate" data-init="{{ user.social_blog }}" value="{{ user.social_blog }}">
-								</div>
-								<div class="input-field col s12 l6">
-									<label for="website">Personal Website</label>
-									<input id="website" name="website" type="text" class="validate" data-init="{{ user.social_personalwebsite }}" value="{{ user.social_personalwebsite }}">
-								</div>
-							</div>
-							<div class="col s12" style="text-align:right; margin-top:40px;">
-								<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn">Reset</a>
-								<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn">Save</a>
-							</div>
+	<div class="col s12">
+		<div class="card">
+			<div class="card-content">
+				<form>
+					<div class="wizard clearfix">
+						<div class="steps clearfix">
+							<ul style="width: 100%;" class="tabs">
+								<li class="tab">
+									<a class="active">Show your social accounts on your FeedCrunch Profile</a>
+								</li>
+							</ul>
 						</div>
+						<section style="margin:40px 0;">
+							<div class="row no-margin-bottom">
+								<div class="col s12">
+									<div class="row no-margin-bottom">
+										<div class="col s12">
+											<span class="card-title col s12 social-networks-category-title">Main Social Networks</span>
+											<div class="input-field col s12 l6">
+												<label for="dribbble">Dribbble</label>
+												<input id="dribbble" name="dribbble" type="text" class="validate" data-init="{{ user.social_dribbble }}" value="{{ user.social_dribbble }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="facebook">Facebook</label>
+												<input id="facebook" name="facebook" type="text" class="validate" data-init="{{ user.social_facebook }}" value="{{ user.social_facebook }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="flickr">Flickr</label>
+												<input id="flickr" name="flickr" type="text" class="validate" data-init="{{ user.social_flickr }}" value="{{ user.social_flickr }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="gplus">Google Plus</label>
+												<input id="gplus" name="gplus" type="text" class="validate" data-init="{{ user.social_gplus }}" value="{{ user.social_gplus }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="instagram">Instagram</label>
+												<input id="instagram" name="instagram" type="text" class="validate" data-init="{{ user.social_instagram }}" value="{{ user.social_instagram }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="linkedin">LinkedIn</label>
+												<input id="linkedin" name="linkedin" type="text" class="validate" data-init="{{ user.social_linkedin }}" value="{{ user.social_linkedin }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="pinterest">Pinterest</label>
+												<input id="pinterest" name="pinterest" type="text" class="validate" data-init="{{ user.social_pinterest }}" value="{{ user.social_pinterest }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="stumble">Stumble Upon</label>
+												<input id="stumble" name="stumble" type="text" class="validate" data-init="{{ user.social_stumble }}" value="{{ user.social_stumble }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="twitter">Twitter</label>
+												<input id="twitter" name="twitter" type="text" class="validate" data-init="{{ user.social_twitter }}" value="{{ user.social_twitter }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="vimeo">Vimeo</label>
+												<input id="vimeo" name="vimeo" type="text" class="validate" data-init="{{ user.social_vimeo }}" value="{{ user.social_vimeo }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="youtube">Youtube</label>
+												<input id="youtube" name="youtube" type="text" class="validate" data-init="{{ user.social_youtube }}" value="{{ user.social_youtube }}">
+											</div>
+
+											<span class="card-title col s12 social-networks-category-title">Computer Science Social Networks</span>
+											<div class="input-field col s12 l6">
+												<label for="docker">Docker</label>
+												<input id="docker" name="docker" type="text" class="validate" data-init="{{ user.social_docker }}" value="{{ user.social_docker }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="git">Git</label>
+												<input id="git" name="git" type="text" class="validate" data-init="{{ user.social_git }}" value="{{ user.social_git }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="kaggle">Kaggle</label>
+												<input id="kaggle" name="kaggle" type="text" class="validate" data-init="{{ user.social_kaggle }}" value="{{ user.social_kaggle }}">
+											</div>
+
+											<span class="card-title col s12 social-networks-category-title">MooCs</span>
+											<div class="input-field col s12 l6">
+												<label for="coursera">Coursera</label>
+												<input id="coursera" name="coursera" type="text" class="validate" data-init="{{ user.social_coursera }}" value="{{ user.social_coursera }}">
+											</div>
+
+											<span class="card-title col s12 social-networks-category-title">Research Social Networks</span>
+											<div class="input-field col s12 l6">
+												<label for="googlescholar">Google Scholar</label>
+												<input id="googlescholar" name="googlescholar" type="text" class="validate" data-init="{{ user.social_google_scholar }}" value="{{ user.social_google_scholar }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="orcid">OrcID</label>
+												<input id="orcid" name="orcid" type="text" class="validate" data-init="{{ user.social_orcid }}" value="{{ user.social_orcid }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="researchgate">Research Gate</label>
+												<input id="researchgate" name="researchgate" type="text" class="validate" data-init="{{ user.social_researchgate }}" value="{{ user.social_researchgate }}">
+											</div>
+
+
+											<span class="card-title col s12 social-networks-category-title">Personal Pages</span>
+											<div class="input-field col s12 l6">
+												<label for="blog">Personal Blog</label>
+												<input id="blog" name="blog" type="text" class="validate" data-init="{{ user.social_blog }}" value="{{ user.social_blog }}">
+											</div>
+											<div class="input-field col s12 l6">
+												<label for="website">Personal Website</label>
+												<input id="website" name="website" type="text" class="validate" data-init="{{ user.social_personalwebsite }}" value="{{ user.social_personalwebsite }}">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
 					</div>
+				</form>
+				<div class="row" style="text-align:right;">
+					<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn">Reset</a>
+					<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn">Save</a>
 				</div>
 			</div>
 		</div>

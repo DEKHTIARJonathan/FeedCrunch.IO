@@ -10,7 +10,7 @@ from .views import *
 
 urlpatterns = [
 	url(r'^$', index, name='dashboard'),
-	url(r'^onboarding/1/$', onboarding_interests, name='onboarding_interests'),
+	url(r'^onboarding/$', onboarding_view, name='onboarding_test'),
 	url(r'^account/info/$', personal_info_form, name='personal_info_form'),
 	url(r'^account/preferences/$', preferences_form, name='preferences_form'),
 	url(r'^account/password/$', password_form, name='password_form'),

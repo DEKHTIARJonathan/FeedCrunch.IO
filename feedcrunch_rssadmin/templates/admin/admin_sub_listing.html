@@ -39,7 +39,7 @@
 							<th>Title</th>
 							<th>Domain</th>
 							<th>Link</th>
-							<th>Articles Retrieved</th>
+							<th class='centered-cell'># Articles</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
@@ -51,9 +51,9 @@
 						<tr id="feed-id-{{ feed.id }}">
 							<td>{{ feed.id }}</td>
 							<td>{{ feed.title }}</td>
-							<td>{{ feed.get_domain }}</span>
-							<td>{{ feed.link }}</td>
-							<td>{{ feed.count_articles }}</td>
+							<td>{{ feed.short_domain }}</span>
+							<td>{{ feed.short_link }}</td>
+							<td class='centered-cell'>{{ feed.count_articles }}</td>
 							<td><a id="edit-btn-id-{{ feed.id }}" class="modal-trigger edit-rssfeed-btn"  data-id="{{ feed.id }}" data-title="{{ feed.title }}" data-link="{{ feed.link }}" href="#modal-rss-feed">Edit</a></td>
 							<td><a class="delete-feed" data-id="{{ feed.id }}" href="#">Delete</a></td>
 						</tr>
@@ -71,17 +71,18 @@
 	<div class="modal-content">
 		<h4>Modal Header - Import OPML</h4>
 
-		<form>
+		<form id='opml_form'>
 
 			<div class="row">
-				<div class="file-field input-field">
-					<div class="btn teal lighten-1">
-						<span>OPML File</span>
-						<input type="file" id="opml-file" name="opml-file">
+				<div class="file-field input-field col  s12 m6">
+					<div id="fileuploader">Upload</div>
+				</div>
+				<div class="file-field input-field col s12 m6" style="height: 170px;">
+					<div style="text-align:center; margin-bottom: 25px;">
+						<img src="{% static "images/please-wait.png" %}" style="height: 90px;">
 					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text" id="opml-text-file" name="opml-text-file">
-					</div>
+					The upload may be quite long depending on the size of your OPML file.<br>
+					<b>Please wait for the confirmation.</b>
 				</div>
 			</div>
 

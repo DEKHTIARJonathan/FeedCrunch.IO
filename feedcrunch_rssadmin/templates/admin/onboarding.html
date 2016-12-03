@@ -1,0 +1,488 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<!-- Title -->
+		<title>FeedCrunch.IO | Administration Dashboard</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta charset="UTF-8">
+		<meta name="description" content="FeedCrunch.IO | Administration Dashboard" />
+		<meta name="keywords" content="administration,dashboard, feedcrunch, rss" />
+		<meta name="author" content="Jonathan DEKHTIAR" />
+
+		<link href="{% static "images/favicon.ico" %}" rel="shortcut icon">
+
+		<link rel="apple-touch-icon" sizes="60x60" href="{% static "onboarding/img/icons/touch-icon-iphone-60x60.png" %}">
+		<link rel="apple-touch-icon" sizes="76x76" href="{% static "onboarding/img/icons/touch-icon-ipad-76x76.png" %}">
+		<link rel="apple-touch-icon" sizes="114x114" href="{% static "onboarding/img/icons/touch-icon-iphone-retina-120x120.png" %}">
+		<link rel="apple-touch-icon" sizes="144x144" href="{% static "onboarding/img/icons/touch-icon-ipad-retina-152x152.png" %}">
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
+		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
+
+		<!-- Theme Styles -->
+		<link type="text/css" rel="stylesheet" href="{% static "css/alpha.min.css" %}"/>
+		<link rel="stylesheet" href="{% static "onboarding/css/onboarding.css" %}">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<style>
+		.header-img{
+			overflow: hidden;
+			vertical-align: middle;
+			z-index: 1;
+		}
+		.responsive-imgMod{
+		height: 110px;
+		width: 110px;
+		}
+
+		#profile-page-header .card-image {
+		height: 150px;
+		}
+		#profile-page-header .card-profile-image img {
+
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		right: 0;
+		top:90px;
+		bottom: 0;
+		margin-left: auto;
+		margin-right:auto
+		}
+
+		.activator{
+    		bottom: 20px;
+		}
+
+		</style>
+
+	</head>
+	<body>
+		<div class="loader-bg"></div>
+		<div class="loader">
+			<div class="preloader-wrapper big active">
+				<div class="spinner-layer spinner-blue">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+					<div class="circle"></div>
+					</div><div class="circle-clipper right">
+					<div class="circle"></div>
+					</div>
+				</div>
+				<div class="spinner-layer spinner-spinner-teal lighten-1">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+					<div class="circle"></div>
+					</div><div class="circle-clipper right">
+					<div class="circle"></div>
+					</div>
+				</div>
+				<div class="spinner-layer spinner-yellow">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+					<div class="circle"></div>
+					</div><div class="circle-clipper right">
+					<div class="circle"></div>
+					</div>
+				</div>
+				<div class="spinner-layer spinner-green">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+					<div class="circle"></div>
+					</div><div class="circle-clipper right">
+					<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mn-content valign-wrapper">
+			<header class="mn-header navbar-fixed">
+				<nav class="indigo accent-3">
+					<div class="nav-wrapper row">
+						<div class="header-title col s3 m3">
+							<a href="/"><img src="{% static "images/logo-white.png" %}" style="height:15px;"></a>
+						</div>
+						<form class="left search col s6 hide-on-small-and-down">
+							<div class="input-field">
+								<input id="search" type="search" placeholder="Search" autocomplete="off">
+								<label for="search"><i class="material-icons search-icon">search</i></label>
+							</div>
+							<a href="javascript: void(0)" class="close-search"><i class="material-icons">close</i></a>
+						</form>
+					</div>
+				</nav>
+			</header>
+			<main class="mn-inner">
+				<div class="row">
+					<!-- multistep form -->
+					<form >
+						<!-- progressbar -->
+						<ul id="progressbar" class="msform">
+							<li class="active">Interests Selection</li>
+							<li>Social Profiles</li>
+							<li>Personal Details</li>
+						</ul>
+						<!-- fieldsets -->
+						<fieldset>
+							<div class="col-md-12">
+								<div class="col-lg-3 hidden-md-down side-panel">
+									<div class="header text-center">
+										<h1>
+											How does it work ?
+										</h1>
+									</div>
+									<div class="explainer">
+										<h2>Follow</h2>
+										<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
+										<h2>Reading and Reading</h2>
+										<p>Next, we track which content you read and share</p>
+										<h2>Learn</h2>
+										<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+									</div>
+									<div class="read-blog">
+										<div class="aligner">
+											<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
+									</div>
+								</div>
+								<div class="topics col-lg-9 col-md-12">
+									{% for interest in interests %}
+									<div class="topic col-lg-3 col-md-6 col-sm-12">
+										<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}">
+										<label for="topic-{{ interest.guid }}" style='background-image: url("{{ interest.get_photo_path }}");'>
+											<span>{{ interest.name }}</span>
+										</label>
+									</div>
+									{% endfor %}
+
+								</div>
+							</div>
+							<a type="button" name="next" class="btn blue darken-2 m-b-xs next action-button hover">Next Step</a>
+						</fieldset>
+						<fieldset>
+							<div class="col-md-12">
+								<div class="col-lg-3 hidden-md-down side-panel">
+									<div class="header text-center">
+										<h1>
+											How does it work ?
+										</h1>
+									</div>
+									<div class="explainer">
+										<h2>Follow</h2>
+										<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
+										<h2>Reading and Reading</h2>
+										<p>Next, we track which content you read and share</p>
+										<h2>Learn</h2>
+										<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+									</div>
+									<div class="read-blog">
+										<div class="aligner">
+											<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
+									</div>
+								</div>
+								<div class="topics col-lg-9 col-md-12">
+									<div class="row">
+
+										<!-- Twitter Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-tw.jpg" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/twitter.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12">
+																<button class="btn waves-effect waves-light indigo accent-3" type="submit" name="action" style="font-size: 12px;">Link your Twitter Account</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Facebook Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-fb.png" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/facebook.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12" style="text-align: center;">
+																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- LinkedIn Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-lk.jpg" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/linkedin.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12" style="text-align: center;">
+																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- GooglePlus Card -->
+										<div class="col s12 m6 l3">
+											<div class="white">
+												<div class="card" id="profile-page-header">
+													<div class="card-image header-img">
+														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-gp.jpg" %}">
+													</div>
+													<figure class="card-profile-image">
+														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/gplus.png" %}">
+													</figure>
+													<div class="card-content">
+														<br>
+														<div class="row" style="margin: 40px auto;">
+															<div class="col s12" style="text-align: center;">
+																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<a type="button" name="next" class="btn blue darken-2 m-b-xs next action-button hover">Next Step</a>
+						</fieldset>
+						<fieldset>
+							<div class="col-lg-3 hidden-md-down side-panel">
+								<div class="header text-center">
+									<h1>
+										How does it work ?
+									</h1>
+								</div>
+								<div class="explainer">
+									<h2>Follow</h2>
+									<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
+									<h2>Reading and Reading</h2>
+									<p>Next, we track which content you read and share</p>
+									<h2>Learn</h2>
+									<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+								</div>
+								<div class="read-blog">
+									<div class="aligner">
+										<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
+								</div>
+							</div>
+							<div class="topics col-lg-9 col-md-12">
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd5">
+									<label for="topic-581bb826435b057c246ccbd5" style="background-image: url('{% static "onboarding/img/app/design-bg.jpg" %}');">
+										<span>Interest1</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd6">
+									<label for="topic-581bb826435b057c246ccbd6" style="background-image: url('{% static "onboarding/img/app/startups-bg.jpg" %}');">
+										<span>Interest2</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd7">
+									<label for="topic-581bb826435b057c246ccbd7" style="background-image: url('{% static "onboarding/img/app/programming-bg.jpg" %}');">
+										<span>Interest3</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd8">
+									<label for="topic-581bb826435b057c246ccbd8" style="background-image: url('{% static "onboarding/img/app/gaming-bg.jpg" %}');">
+										<span>Interest4</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd9">
+									<label for="topic-581bb826435b057c246ccbd9" style="background-image: url('{% static "onboarding/img/app/lifehacks-bg.jpg" %}');">
+										<span>Interest5</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbda">
+									<label for="topic-581bb826435b057c246ccbda" style="background-image: url('{% static "onboarding/img/app/venture-capital-bg.jpg" %}');">
+										<span>Interest6</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdb">
+									<label for="topic-581bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-and-machine-learning-bg.jpg" %}');">
+										<span>Interest7</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdc">
+									<label for="topic-581bb826435b057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
+										<span>Interest8</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdd">
+									<label for="topic-581bb826435b057c246ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
+										<span>Interest9</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-5fdsfds81bb826435b057c246ccbdb">
+									<label for="topic-5fdsfds81bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-and-machine-learning-bg.jpg" %}');">
+										<span>Interest10</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435bdsqdsq057c246ccbdc">
+									<label for="topic-581bb826435bdsqdsq057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
+										<span>Interest11</span>
+									</label>
+								</div>
+								<div class="topic col-lg-3 col-md-6 col-sm-12">
+									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c2fdsdsq46ccbdd">
+									<label for="topic-581bb826435b057c2fdsdsq46ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
+										<span>Interest12</span>
+									</label>
+								</div>
+							</div>
+							<a name="submit" class="btn light-blue darken-2 m-b-xs submit action-button">Finish</a>
+						</fieldset>
+					</form>
+				</div>
+			</main>
+		</div>
+
+		<!-- Javascripts -->
+		<script type="text/javascript" src="{% static "plugins/jquery/jquery-2.2.0.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "plugins/materialize/js/materialize.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "plugins/material-preloader/js/materialPreloader.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/alpha.min.js" %}"></script>
+
+		<script>
+			$(document).ready(function (e) {
+				//jQuery time
+				var current_fs, next_fs, previous_fs; //fieldsets
+				var left, opacity, scale; //fieldset properties which we will animate
+				var animating; //flag to prevent quick multi-click glitches
+
+				$(".next").click(function(){
+					if(animating) return false;
+					animating = true;
+
+					current_fs = $(this).parent();
+					next_fs = $(this).parent().next();
+
+					//activate next step on progressbar using the index of next_fs
+					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+					//show the next fieldset
+					next_fs.show();
+					//hide the current fieldset with style
+					current_fs.animate({opacity: 0}, {
+						step: function(now, mx) {
+							//as the opacity of current_fs reduces to 0 - stored in "now"
+							//1. scale current_fs down to 80%
+							scale = 1 - (1 - now) * 0.2;
+							//2. bring next_fs from the right(50%)
+							left = (now * 50)+"%";
+							//3. increase opacity of next_fs to 1 as it moves in
+							opacity = 1 - now;
+							current_fs.css({'transform': 'scale('+scale+')'});
+							next_fs.css({'left': left, 'opacity': opacity});
+						},
+						duration: 800,
+						complete: function(){
+							current_fs.hide();
+							animating = false;
+						},
+						//this comes from the custom easing plugin
+						easing: 'easeInOutBack'
+					});
+				});
+
+				$(".previous").click(function(){
+					if(animating) return false;
+					animating = true;
+
+					current_fs = $(this).parent();
+					previous_fs = $(this).parent().prev();
+
+					//de-activate current step on progressbar
+					$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+					//show the previous fieldset
+					previous_fs.show();
+					//hide the current fieldset with style
+					current_fs.animate({opacity: 0}, {
+						step: function(now, mx) {
+							//as the opacity of current_fs reduces to 0 - stored in "now"
+							//1. scale previous_fs from 80% to 100%
+							scale = 0.8 + (1 - now) * 0.2;
+							//2. take current_fs to the right(50%) - from 0%
+							left = ((1-now) * 50)+"%";
+							//3. increase opacity of previous_fs to 1 as it moves in
+							opacity = 1 - now;
+							current_fs.css({'left': left});
+							previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+						},
+						duration: 800,
+						complete: function(){
+							//current_fs.hide();
+							animating = false;
+						},
+						//this comes from the custom easing plugin
+						easing: 'easeInOutBack'
+					});
+				});
+
+				$(".submit").click(function(){
+					return false;
+				})
+			});
+		</script>
+	</body>
+</html>
