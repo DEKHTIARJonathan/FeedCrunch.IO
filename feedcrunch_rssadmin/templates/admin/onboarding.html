@@ -21,17 +21,17 @@
 		<link rel="apple-touch-icon" sizes="144x144" href="{% static "onboarding/img/icons/touch-icon-ipad-retina-152x152.png" %}">
 
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
 
 		<!-- Theme Styles -->
 		<link type="text/css" rel="stylesheet" href="{% static "css/alpha.min.css" %}"/>
-		<link rel="stylesheet" href="{% static "onboarding/css/onboarding.css" %}">
+		<link type="text/css" rel="stylesheet" href="{% static "onboarding/css/onboarding.css" %}">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,6 +68,15 @@
 
 		.activator{
     		bottom: 20px;
+		}
+
+		.interest-lbl{
+			background-size: cover;
+		}
+
+		.social-btn-row{
+			margin: 45px auto 12px auto;
+    		text-align: center;
 		}
 
 		</style>
@@ -168,7 +177,7 @@
 									{% for interest in interests %}
 									<div class="topic col-lg-3 col-md-6 col-sm-12">
 										<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}">
-										<label for="topic-{{ interest.guid }}" style='background-image: url("{{ interest.get_photo_path }}");'>
+										<label for="topic-{{ interest.guid }}" class="interest-lbl" style='background-image: url("{{ interest.get_photo_path }}");'>
 											<span>{{ interest.name }}</span>
 										</label>
 									</div>
@@ -183,16 +192,18 @@
 								<div class="col-lg-3 hidden-md-down side-panel">
 									<div class="header text-center">
 										<h1>
-											How does it work ?
+											Why Linking Your Accounts
 										</h1>
 									</div>
 									<div class="explainer">
-										<h2>Follow</h2>
-										<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
-										<h2>Reading and Reading</h2>
-										<p>Next, we track which content you read and share</p>
-										<h2>Learn</h2>
-										<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+										<h2>Social Sharing</h2>
+										<p>You have the opportunity to share your daily readings on the most famous social platforms.</p>
+
+										<h2>Create a Community</h2>
+										<p>Position yourself as an authority in your domain and build a community around your shares.</p>
+
+										<h2>Create Opportunities</h2>
+										<p>Help your followers to find the best contents everyday, it will be rewardful.</p>
 									</div>
 									<div class="read-blog">
 										<div class="aligner">
@@ -203,7 +214,7 @@
 									<div class="row">
 
 										<!-- Twitter Card -->
-										<div class="col s12 m6 l3">
+										<div class="col s12 m6">
 											<div class="white">
 												<div class="card" id="profile-page-header">
 													<div class="card-image header-img">
@@ -213,10 +224,13 @@
 														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/twitter.png" %}">
 													</figure>
 													<div class="card-content">
-														<br>
-														<div class="row" style="margin: 40px auto;">
+														<div class="row social-btn-row">
 															<div class="col s12">
-																<button class="btn waves-effect waves-light indigo accent-3" type="submit" name="action" style="font-size: 12px;">Link your Twitter Account</button>
+																{% if twitter_auth_url %}
+																	<a href="{{ twitter_auth_url }}" target="_target" class="btn waves-effect waves-light indigo accent-3" style="font-size: 12px;">Link My Twitter Account</a>
+																{% else %}
+																	<a href="/twitter/oauth/unlink" class="waves-effect waves-light btn red ">Unlink My Twitter Account</a>
+																{% endif %}
 															</div>
 														</div>
 													</div>
@@ -225,7 +239,7 @@
 										</div>
 
 										<!-- Facebook Card -->
-										<div class="col s12 m6 l3">
+										<div class="col s12 m6">
 											<div class="white">
 												<div class="card" id="profile-page-header">
 													<div class="card-image header-img">
@@ -235,8 +249,7 @@
 														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/facebook.png" %}">
 													</figure>
 													<div class="card-content">
-														<br>
-														<div class="row" style="margin: 40px auto;">
+														<div class="row social-btn-row">
 															<div class="col s12" style="text-align: center;">
 																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
 															</div>
@@ -247,7 +260,7 @@
 										</div>
 
 										<!-- LinkedIn Card -->
-										<div class="col s12 m6 l3">
+										<div class="col s12 m6">
 											<div class="white">
 												<div class="card" id="profile-page-header">
 													<div class="card-image header-img">
@@ -257,8 +270,7 @@
 														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/linkedin.png" %}">
 													</figure>
 													<div class="card-content">
-														<br>
-														<div class="row" style="margin: 40px auto;">
+														<div class="row social-btn-row">
 															<div class="col s12" style="text-align: center;">
 																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
 															</div>
@@ -269,7 +281,7 @@
 										</div>
 
 										<!-- GooglePlus Card -->
-										<div class="col s12 m6 l3">
+										<div class="col s12 m6">
 											<div class="white">
 												<div class="card" id="profile-page-header">
 													<div class="card-image header-img">
@@ -279,8 +291,7 @@
 														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/gplus.png" %}">
 													</figure>
 													<div class="card-content">
-														<br>
-														<div class="row" style="margin: 40px auto;">
+														<div class="row social-btn-row">
 															<div class="col s12" style="text-align: center;">
 																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
 															</div>

@@ -36,7 +36,7 @@
 		        </div>
 		        <div class="card-action" style="text-align: center;">
 					{% if facebook_auth_url %}
-						<a href="{{ twitter_auth_url }}" class="waves-effect waves-light btn blue" disabled>Link My LinkedIn Account</a>
+						<a href="{{ facebook_auth_url }}" class="waves-effect waves-light btn blue" disabled>Link My Facebook Account</a>
 					{% else %}
 						<!-- <a href="/facebook/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
 						<a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
@@ -57,7 +57,7 @@
 		        </div>
 		        <div class="card-action" style="text-align: center;">
 					{% if linkedin_auth_url %}
-						<a href="{{ twitter_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My LinkedIn Account</a>
+						<a href="{{ linkedin_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My LinkedIn Account</a>
 					{% else %}
 						<!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
 						<a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
@@ -78,7 +78,7 @@
 		        </div>
 		        <div class="card-action" style="text-align: center;">
 					{% if gplus_auth_url %}
-						<a href="{{ twitter_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My Google Plus Account</a>
+						<a href="{{ gplus_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My Google Plus Account</a>
 					{% else %}
 						<!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My Google Plus Account</a> -->
 						<a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
