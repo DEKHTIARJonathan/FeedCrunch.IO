@@ -79,6 +79,15 @@
     		text-align: center;
 		}
 
+		.btn:disabled, .btn[disabled] {
+		    background-color: #646464  !important;
+		    color: #ffffff !important;
+		}
+
+		a:focus, a:hover {
+		    color: #ffffff !important;
+		}
+
 		</style>
 
 	</head>
@@ -185,7 +194,9 @@
 
 								</div>
 							</div>
-							<a type="button" name="next" class="btn blue darken-2 m-b-xs next action-button hover">Next Step</a>
+							<div class="col-md-12">
+								<button type="button" id="interests-btn" class="btn blue darken-2 m-b-xs next" disabled>Select 3 Interests to Continue ...</button>
+							</div>
 						</fieldset>
 						<fieldset>
 							<div class="col-md-12">
@@ -304,7 +315,9 @@
 									</div>
 								</div>
 							</div>
-							<a type="button" name="next" class="btn blue darken-2 m-b-xs next action-button hover">Next Step</a>
+							<div class="col-md-12">
+								<a type="button" name="next" class="btn blue darken-2 m-b-xs next">Next Step</a>
+							</div>
 						</fieldset>
 						<fieldset>
 							<div class="col-lg-3 hidden-md-down side-panel">
@@ -400,7 +413,9 @@
 									</label>
 								</div>
 							</div>
-							<a name="submit" class="btn light-blue darken-2 m-b-xs submit action-button">Finish</a>
+							<div class="col-md-12">
+								<a name="submit" class="btn light-blue darken-2 m-b-xs submit">Finish</a>
+							</div>
 						</fieldset>
 					</form>
 				</div>
@@ -424,8 +439,8 @@
 					if(animating) return false;
 					animating = true;
 
-					current_fs = $(this).parent();
-					next_fs = $(this).parent().next();
+					current_fs = $(this).parent().parent();
+					next_fs = $(this).parent().parent().next();
 
 					//activate next step on progressbar using the index of next_fs
 					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
@@ -455,44 +470,25 @@
 					});
 				});
 
-				$(".previous").click(function(){
-					if(animating) return false;
-					animating = true;
-
-					current_fs = $(this).parent();
-					previous_fs = $(this).parent().prev();
-
-					//de-activate current step on progressbar
-					$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-					//show the previous fieldset
-					previous_fs.show();
-					//hide the current fieldset with style
-					current_fs.animate({opacity: 0}, {
-						step: function(now, mx) {
-							//as the opacity of current_fs reduces to 0 - stored in "now"
-							//1. scale previous_fs from 80% to 100%
-							scale = 0.8 + (1 - now) * 0.2;
-							//2. take current_fs to the right(50%) - from 0%
-							left = ((1-now) * 50)+"%";
-							//3. increase opacity of previous_fs to 1 as it moves in
-							opacity = 1 - now;
-							current_fs.css({'left': left});
-							previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-						},
-						duration: 800,
-						complete: function(){
-							//current_fs.hide();
-							animating = false;
-						},
-						//this comes from the custom easing plugin
-						easing: 'easeInOutBack'
-					});
-				});
-
 				$(".submit").click(function(){
 					return false;
-				})
+				});
+
+				$('.interest-checkbox').on('change', function(evt) {
+					var limit = 3;
+					var amount_checked = $('.interest-checkbox:checked').length;
+					if(amount_checked > limit) {
+						this.checked = false;
+					}
+					else if (amount_checked == limit) {
+						$("#interests-btn").prop("disabled", false);
+						$("#interests-btn").html("Next Step");
+					}
+					else{
+						$("#interests-btn").prop("disabled", true);
+						$("#interests-btn").html("Select 3 Interests to Continue ...");
+					}
+				});
 			});
 		</script>
 	</body>

@@ -284,4 +284,10 @@ def onboarding_view(request, feedname=None):
 
 	else:
 		interest_list = Interest.objects.all().order_by('name')
-		return render(request, 'admin/onboarding.html', {'interests': interest_list})
+
+		if not request.user.is_twitter_activated():
+			twitter_auth_url = get_authorization_url(request)
+		else:
+			twitter_auth_url = False # False => Don't need to authenticate with Twitter
+
+		return render(request, 'admin/onboarding.html', {'interests': interest_list, 'twitter_auth_url': twitter_auth_url})
