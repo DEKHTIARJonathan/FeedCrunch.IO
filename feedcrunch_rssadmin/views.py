@@ -241,11 +241,11 @@ def reading_recommendation(request, feedname=None):
 
 		max_size = len(rssarticles)
 
-		if max_size > 30:
-			max_size = 30
+		if max_size > 100:
+			max_size = 100
 
 		for i in range(max_size):
-			recommendation_score = 97.3 - 1.2*i
+			recommendation_score = 97.3 - 0.6*i
 			tmp = {
 				'id': rssarticles[i].id,
 				'short_title': rssarticles[i].short_title(),
