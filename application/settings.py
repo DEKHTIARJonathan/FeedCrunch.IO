@@ -105,14 +105,14 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'storages',
+	'rest_framework',
+	'django_q',
 	'feedcrunch',
 	'feedcrunch_api_v1',
 	'feedcrunch_rssviewer',
 	'feedcrunch_rssadmin',
 	'feedcrunch_home',
 	'twitter',
-	'rest_framework',
-	'django_q',
 ]
 
 #TEST_RUNNER = 'junorunner.testrunner.TestSuiteRunner'
