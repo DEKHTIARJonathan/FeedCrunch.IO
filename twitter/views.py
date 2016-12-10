@@ -11,6 +11,8 @@ import feedcrunch_rssadmin.views as adminviews
 from .tw_funcs import *
 from twython import Twython
 
+from custom_render import myrender as render
+
 def get_callback(request):
 
 	try:
@@ -26,14 +28,12 @@ def get_callback(request):
 		if not tw_request['status']:
 			raise Exception(request['error'])
 
-		usr_tmp = FeedUser.objects.get(username=request.user.username)
+		request.user.twitter_token = tw_request['tokens']['oauth_token']
+		request.user.twitter_token_secret = tw_request['tokens']['oauth_token_secret']
 
-		usr_tmp.twitter_token = tw_request['tokens']['oauth_token']
-		usr_tmp.twitter_token_secret = tw_request['tokens']['oauth_token_secret']
+		request.user.save()
 
-		usr_tmp.save()
-
-		return HttpResponseRedirect(reverse(adminviews.index, kwargs={'feedname': request.user.username}))
+		return render(request, 'admin/self_closing.html')
 
 	except Exception, e:
 		data = {}
@@ -43,9 +43,3 @@ def get_callback(request):
 		data["feedname"] = request.user.username
 
 		return JsonResponse(data)
-
-def unlink(request):
-	usr_tmp = FeedUser.objects.get(username=request.user.username)
-	usr_tmp.reset_twitter_credentials()
-
-	return HttpResponseRedirect(reverse(adminviews.index, kwargs={'feedname': request.user.username}))

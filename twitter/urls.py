@@ -11,5 +11,4 @@ from .views import *
 
 urlpatterns = [
 	url(r'^get_callback/$', get_callback, name='get_callback'),
-	url(r'^unlink/$', unlink, name='unlink'),
 ]

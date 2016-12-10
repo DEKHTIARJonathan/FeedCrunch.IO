@@ -28,6 +28,7 @@
 		<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
+		<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
 		<!-- Theme Styles -->
 		<link type="text/css" rel="stylesheet" href="{% static "css/alpha.min.css" %}"/>
@@ -46,28 +47,29 @@
 			vertical-align: middle;
 			z-index: 1;
 		}
+
 		.responsive-imgMod{
-		height: 110px;
-		width: 110px;
+			height: 110px;
+			width: 110px;
 		}
 
 		#profile-page-header .card-image {
-		height: 150px;
+			height: 150px;
 		}
-		#profile-page-header .card-profile-image img {
 
-		position: absolute;
-		z-index: 1;
-		left: 0;
-		right: 0;
-		top:90px;
-		bottom: 0;
-		margin-left: auto;
-		margin-right:auto
+		#profile-page-header .card-profile-image img {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			right: 0;
+			top:90px;
+			bottom: 0;
+			margin-left: auto;
+			margin-right:auto
 		}
 
 		.activator{
-    		bottom: 20px;
+			bottom: 20px;
 		}
 
 		.interest-lbl{
@@ -76,16 +78,26 @@
 
 		.social-btn-row{
 			margin: 45px auto 12px auto;
-    		text-align: center;
+			text-align: center;
 		}
 
 		.btn:disabled, .btn[disabled] {
-		    background-color: #646464  !important;
-		    color: #ffffff !important;
+			background-color: #646464	!important;
+			color: #ffffff !important;
 		}
 
 		a:focus, a:hover {
-		    color: #ffffff !important;
+			color: #ffffff !important;
+		}
+
+		.sweet-alert fieldset {
+			border: none;
+			position: relative;
+			box-shadow: 0 0 0 0;
+		}
+
+		.twitter-btn{
+			font-size: 12px;
 		}
 
 		</style>
@@ -185,7 +197,7 @@
 								<div class="topics col-lg-9 col-md-12">
 									{% for interest in interests %}
 									<div class="topic col-lg-3 col-md-6 col-sm-12">
-										<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}">
+										<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}" data-name="{{ interest.name }}">
 										<label for="topic-{{ interest.guid }}" class="interest-lbl" style='background-image: url("{{ interest.get_photo_path }}");'>
 											<span>{{ interest.name }}</span>
 										</label>
@@ -236,11 +248,11 @@
 													</figure>
 													<div class="card-content">
 														<div class="row social-btn-row">
-															<div class="col s12">
+															<div class="col s12" id="twitter-btn-div">
 																{% if twitter_auth_url %}
-																	<a href="{{ twitter_auth_url }}" target="_target" class="btn waves-effect waves-light indigo accent-3" style="font-size: 12px;">Link My Twitter Account</a>
+																	<a href="{{ twitter_auth_url }}" target="_target" class="btn waves-effect waves-light indigo accent-3 twitter-btn" id="twitter-btn-link">Link My Twitter Account</a>
 																{% else %}
-																	<a href="/twitter/oauth/unlink" class="waves-effect waves-light btn red ">Unlink My Twitter Account</a>
+																	<button class="waves-effect waves-light btn red twitter-btn" id="twitter-btn-unlink">Unlink My Twitter Account</button>
 																{% endif %}
 															</div>
 														</div>
@@ -414,7 +426,7 @@
 								</div>
 							</div>
 							<div class="col-md-12">
-								<a name="submit" class="btn light-blue darken-2 m-b-xs submit">Finish</a>
+								<button class="btn light-blue darken-2 m-b-xs submit" id="submit-btn">Finish</button>
 							</div>
 						</fieldset>
 					</form>
@@ -426,6 +438,9 @@
 		<script type="text/javascript" src="{% static "plugins/jquery/jquery-2.2.0.min.js" %}"></script>
 		<script type="text/javascript" src="{% static "plugins/materialize/js/materialize.min.js" %}"></script>
 		<script type="text/javascript" src="{% static "plugins/material-preloader/js/materialPreloader.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/admin-social-linking.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/alpha.min.js" %}"></script>
 
 		<script>
@@ -474,13 +489,16 @@
 					return false;
 				});
 
+				var interests_required_number = 3;
+
 				$('.interest-checkbox').on('change', function(evt) {
-					var limit = 3;
+
 					var amount_checked = $('.interest-checkbox:checked').length;
-					if(amount_checked > limit) {
+
+					if(amount_checked > interests_required_number) {
 						this.checked = false;
 					}
-					else if (amount_checked == limit) {
+					else if (amount_checked == interests_required_number) {
 						$("#interests-btn").prop("disabled", false);
 						$("#interests-btn").html("Next Step");
 					}
@@ -488,6 +506,19 @@
 						$("#interests-btn").prop("disabled", true);
 						$("#interests-btn").html("Select 3 Interests to Continue ...");
 					}
+				});
+
+				// =================================================================== FORM SUBMITTING ===========================================================
+
+				$("#submit-btn").click( function(event) {
+					var interests = [];
+					for (i = 0; i < interests_required_number; i++) {
+						interests.push($("#"+$('.interest-checkbox:checked')[i].id).data("name"));
+					}
+
+
+					event.preventDefault();
+					return false;
 				});
 			});
 		</script>

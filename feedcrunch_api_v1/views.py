@@ -129,6 +129,54 @@ class OPML_Import(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
+class User_Twitter_Status(APIView):
+
+	def get(self, request):
+		try:
+
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			payload ["success"] = True
+			payload ["username"] = request.user.username
+
+			payload["status"] = request.user.is_twitter_activated()
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "User Twitter Status"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+class UnLink_Twitter(APIView):
+
+	def delete(self, request):
+		try:
+
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			request.user.reset_twitter_credentials()
+
+			payload ["success"] = True
+			payload ["username"] = request.user.username
+			payload ["auth_url"] = get_authorization_url(request)
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "Unlink Twitter"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
 
 class User_Stats_Subscribers(APIView):
 

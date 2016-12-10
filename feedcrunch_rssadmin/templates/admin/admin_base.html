@@ -387,6 +387,10 @@
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-social-accounts.js" %}"></script>
 
+		{% elif template_name == "admin/admin_social_sharing.html" %}
+			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "js/admin-social-linking.js" %}"></script>
+
 		{% elif template_name == "admin/admin_photo.html" %}
 			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>

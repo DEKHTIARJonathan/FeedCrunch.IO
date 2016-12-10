@@ -31,7 +31,7 @@ class Interest(models.Model):
 	name = models.CharField(max_length=255, primary_key=True)
 	rssfeeds = models.ManyToManyField(RSSFeed, blank=True, related_name='rel_interests')
 	picture = models.ImageField(upload_to=get_photo_path, default=settings.INTEREST_PHOTO_PATH+'dummy_stock.jpg', blank=True, null=True)
-	guid = models.UUIDField(default=uuid.uuid4, editable=True, blank=False, null=False)
+	guid = models.UUIDField(default=uuid.uuid4, editable=False, blank=False, null=False, unique=True)
 
 	def __unicode__(self):
 		return self.name
