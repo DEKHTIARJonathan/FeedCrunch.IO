@@ -284,10 +284,81 @@ def onboarding_view(request, feedname=None):
 
 	else:
 		interest_list = Interest.objects.all().order_by('name')
+		country_list = Country.objects.all().order_by('name')
 
 		if not request.user.is_twitter_activated():
 			twitter_auth_url = get_authorization_url(request)
 		else:
 			twitter_auth_url = False # False => Don't need to authenticate with Twitter
 
-		return render(request, 'admin/onboarding.html', {'interests': interest_list, 'twitter_auth_url': twitter_auth_url})
+		return render(request, 'admin/onboarding.html', {'interests': interest_list, 'countries': country_list, 'twitter_auth_url': twitter_auth_url})
+
+def process_onboarding_view(request, feedname=None):
+
+	check_passed = check_admin(feedname, request.user)
+	if check_passed != True:
+		return check_passed
+
+	else:
+		payload = {}
+
+		payload["success"] = True
+		payload["feedname"] = request.user.username
+
+		val = URLValidator()
+
+		fields = [
+			'firstname',
+			'lastname',
+			'email',
+			'birthdate',
+			'country',
+			'gender',
+			'feedtitle', # not Checked
+			'description', # not Checked
+			'job', # not Checked
+			'company_name', # not Checked
+			'company_website',
+			"newsletter_subscribtion", # Not Saved yet !
+		]
+
+		form_data = {}
+		for field in fields:
+			form_data[field] = unicodedata.normalize('NFC', request.data[field])
+
+		FeedUser.objects._validate_firstname(form_data["firstname"])
+		FeedUser.objects._validate_lastname(form_data["lastname"])
+		FeedUser.objects._validate_email(form_data["email"])
+		FeedUser.objects._validate_birthdate(form_data["birthdate"])
+
+		FeedUser.objects._validate_country(form_data["country"])
+		FeedUser.objects._validate_gender(form_data["gender"])
+
+		val(form_data["company_website"])
+
+		request.user.first_name = form_data["firstname"]
+		request.user.last_name = form_data["lastname"]
+		request.user.email = form_data["email"]
+		request.user.birthdate = datetime.datetime.strptime(form_data["birthdate"], '%d/%m/%Y').date()
+		request.user.country = Country.objects.get(name=form_data["country"])
+		request.user.gender = form_data["gender"]
+		request.user.rss_feed_title = form_data["feedtitle"]
+		request.user.description = form_data["description"]
+		request.user.job = form_data["job"]
+		request.user.company_name = form_data["company_name"]
+		request.user.company_website = form_data["company_website"]
+
+
+		interest_fields = [
+			'interest1',
+			'interest2',
+			'interest3',
+		]
+
+		request.user.interests.clear()
+
+		for interest in interest_fields:
+			tmp_interest = Interest.objects.get(name=unicodedata.normalize('NFC', request.data[interest]))
+			request.user.interests.add(tmp_interest)
+
+		request.user.save()

@@ -40,68 +40,6 @@
 		<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
-		<style>
-		.header-img{
-			overflow: hidden;
-			vertical-align: middle;
-			z-index: 1;
-		}
-
-		.responsive-imgMod{
-			height: 110px;
-			width: 110px;
-		}
-
-		#profile-page-header .card-image {
-			height: 150px;
-		}
-
-		#profile-page-header .card-profile-image img {
-			position: absolute;
-			z-index: 1;
-			left: 0;
-			right: 0;
-			top:90px;
-			bottom: 0;
-			margin-left: auto;
-			margin-right:auto
-		}
-
-		.activator{
-			bottom: 20px;
-		}
-
-		.interest-lbl{
-			background-size: cover;
-		}
-
-		.social-btn-row{
-			margin: 45px auto 12px auto;
-			text-align: center;
-		}
-
-		.btn:disabled, .btn[disabled] {
-			background-color: #646464	!important;
-			color: #ffffff !important;
-		}
-
-		a:focus, a:hover {
-			color: #ffffff !important;
-		}
-
-		.sweet-alert fieldset {
-			border: none;
-			position: relative;
-			box-shadow: 0 0 0 0;
-		}
-
-		.twitter-btn{
-			font-size: 12px;
-		}
-
-		</style>
-
 	</head>
 	<body>
 		<div class="loader-bg"></div>
@@ -164,174 +102,15 @@
 			</header>
 			<main class="mn-inner">
 				<div class="row">
-					<!-- multistep form -->
-					<form >
-						<!-- progressbar -->
-						<ul id="progressbar" class="msform">
-							<li class="active">Interests Selection</li>
-							<li>Social Profiles</li>
-							<li>Personal Details</li>
-						</ul>
-						<!-- fieldsets -->
-						<fieldset>
-							<div class="col-md-12">
-								<div class="col-lg-3 hidden-md-down side-panel">
-									<div class="header text-center">
-										<h1>
-											How does it work ?
-										</h1>
-									</div>
-									<div class="explainer">
-										<h2>Follow</h2>
-										<p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
-										<h2>Reading and Reading</h2>
-										<p>Next, we track which content you read and share</p>
-										<h2>Learn</h2>
-										<p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
-									</div>
-									<div class="read-blog">
-										<div class="aligner">
-											<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
-									</div>
-								</div>
-								<div class="topics col-lg-9 col-md-12">
-									{% for interest in interests %}
-									<div class="topic col-lg-3 col-md-6 col-sm-12">
-										<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}" data-name="{{ interest.name }}">
-										<label for="topic-{{ interest.guid }}" class="interest-lbl" style='background-image: url("{{ interest.get_photo_path }}");'>
-											<span>{{ interest.name }}</span>
-										</label>
-									</div>
-									{% endfor %}
-
-								</div>
-							</div>
-							<div class="col-md-12">
-								<button type="button" id="interests-btn" class="btn blue darken-2 m-b-xs next" disabled>Select 3 Interests to Continue ...</button>
-							</div>
-						</fieldset>
-						<fieldset>
-							<div class="col-md-12">
-								<div class="col-lg-3 hidden-md-down side-panel">
-									<div class="header text-center">
-										<h1>
-											Why Linking Your Accounts
-										</h1>
-									</div>
-									<div class="explainer">
-										<h2>Social Sharing</h2>
-										<p>You have the opportunity to share your daily readings on the most famous social platforms.</p>
-
-										<h2>Create a Community</h2>
-										<p>Position yourself as an authority in your domain and build a community around your shares.</p>
-
-										<h2>Create Opportunities</h2>
-										<p>Help your followers to find the best contents everyday, it will be rewardful.</p>
-									</div>
-									<div class="read-blog">
-										<div class="aligner">
-											<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
-									</div>
-								</div>
-								<div class="topics col-lg-9 col-md-12">
-									<div class="row">
-
-										<!-- Twitter Card -->
-										<div class="col s12 m6">
-											<div class="white">
-												<div class="card" id="profile-page-header">
-													<div class="card-image header-img">
-														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-tw.jpg" %}">
-													</div>
-													<figure class="card-profile-image">
-														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/twitter.png" %}">
-													</figure>
-													<div class="card-content">
-														<div class="row social-btn-row">
-															<div class="col s12" id="twitter-btn-div">
-																{% if twitter_auth_url %}
-																	<a href="{{ twitter_auth_url }}" target="_target" class="btn waves-effect waves-light indigo accent-3 twitter-btn" id="twitter-btn-link">Link My Twitter Account</a>
-																{% else %}
-																	<button class="waves-effect waves-light btn red twitter-btn" id="twitter-btn-unlink">Unlink My Twitter Account</button>
-																{% endif %}
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- Facebook Card -->
-										<div class="col s12 m6">
-											<div class="white">
-												<div class="card" id="profile-page-header">
-													<div class="card-image header-img">
-														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-fb.png" %}">
-													</div>
-													<figure class="card-profile-image">
-														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/facebook.png" %}">
-													</figure>
-													<div class="card-content">
-														<div class="row social-btn-row">
-															<div class="col s12" style="text-align: center;">
-																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- LinkedIn Card -->
-										<div class="col s12 m6">
-											<div class="white">
-												<div class="card" id="profile-page-header">
-													<div class="card-image header-img">
-														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-lk.jpg" %}">
-													</div>
-													<figure class="card-profile-image">
-														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/linkedin.png" %}">
-													</figure>
-													<div class="card-content">
-														<div class="row social-btn-row">
-															<div class="col s12" style="text-align: center;">
-																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<!-- GooglePlus Card -->
-										<div class="col s12 m6">
-											<div class="white">
-												<div class="card" id="profile-page-header">
-													<div class="card-image header-img">
-														<img alt="user background" class="activator" src="{% static "images/social-logos/bg-gp.jpg" %}">
-													</div>
-													<figure class="card-profile-image">
-														<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/gplus.png" %}">
-													</figure>
-													<div class="card-content">
-														<div class="row social-btn-row">
-															<div class="col s12" style="text-align: center;">
-																<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<a type="button" name="next" class="btn blue darken-2 m-b-xs next">Next Step</a>
-							</div>
-						</fieldset>
-						<fieldset>
+					<!-- progressbar -->
+					<ul id="progressbar" class="msform">
+						<li class="active">Interests Selection</li>
+						<li>Social Profiles</li>
+						<li>Personal Details</li>
+					</ul>
+					<!-- fieldsets -->
+					<fieldset>
+						<div class="col-md-12">
 							<div class="col-lg-3 hidden-md-down side-panel">
 								<div class="header text-center">
 									<h1>
@@ -352,84 +131,250 @@
 								</div>
 							</div>
 							<div class="topics col-lg-9 col-md-12">
+								{% for interest in interests %}
 								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd5">
-									<label for="topic-581bb826435b057c246ccbd5" style="background-image: url('{% static "onboarding/img/app/design-bg.jpg" %}');">
-										<span>Interest1</span>
+									<input type="checkbox" class="interest-checkbox" id="topic-{{ interest.guid }}" data-name="{{ interest.name }}">
+									<label for="topic-{{ interest.guid }}" class="interest-lbl" style='background-image: url("{{ interest.get_photo_path }}");'>
+										<span>{{ interest.name }}</span>
 									</label>
 								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd6">
-									<label for="topic-581bb826435b057c246ccbd6" style="background-image: url('{% static "onboarding/img/app/startups-bg.jpg" %}');">
-										<span>Interest2</span>
-									</label>
+								{% endfor %}
+
+							</div>
+						</div>
+						<div class="col-md-12">
+							<button type="button" id="interests-btn" class="btn blue darken-2 m-b-xs next" disabled>Select 3 Interests to Continue ...</button>
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="col-md-12">
+							<div class="col-lg-3 hidden-md-down side-panel">
+								<div class="header text-center">
+									<h1>
+										Why Linking Your Accounts
+									</h1>
 								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd7">
-									<label for="topic-581bb826435b057c246ccbd7" style="background-image: url('{% static "onboarding/img/app/programming-bg.jpg" %}');">
-										<span>Interest3</span>
-									</label>
+								<div class="explainer">
+									<h2>Social Sharing</h2>
+									<p>You have the opportunity to share your daily readings on the most famous social platforms.</p>
+
+									<h2>Create a Community</h2>
+									<p>Position yourself as an authority in your domain and build a community around your shares.</p>
+
+									<h2>Create Opportunities</h2>
+									<p>Help your followers to find the best contents everyday, it will be rewardful.</p>
 								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd8">
-									<label for="topic-581bb826435b057c246ccbd8" style="background-image: url('{% static "onboarding/img/app/gaming-bg.jpg" %}');">
-										<span>Interest4</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbd9">
-									<label for="topic-581bb826435b057c246ccbd9" style="background-image: url('{% static "onboarding/img/app/lifehacks-bg.jpg" %}');">
-										<span>Interest5</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbda">
-									<label for="topic-581bb826435b057c246ccbda" style="background-image: url('{% static "onboarding/img/app/venture-capital-bg.jpg" %}');">
-										<span>Interest6</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdb">
-									<label for="topic-581bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-and-machine-learning-bg.jpg" %}');">
-										<span>Interest7</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdc">
-									<label for="topic-581bb826435b057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
-										<span>Interest8</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c246ccbdd">
-									<label for="topic-581bb826435b057c246ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
-										<span>Interest9</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-5fdsfds81bb826435b057c246ccbdb">
-									<label for="topic-5fdsfds81bb826435b057c246ccbdb" style="background-image: url('{% static "onboarding/img/app/ai-and-machine-learning-bg.jpg" %}');">
-										<span>Interest10</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435bdsqdsq057c246ccbdc">
-									<label for="topic-581bb826435bdsqdsq057c246ccbdc" style="background-image: url('{% static "onboarding/img/app/news-bg.jpg" %}');">
-										<span>Interest11</span>
-									</label>
-								</div>
-								<div class="topic col-lg-3 col-md-6 col-sm-12">
-									<input type="checkbox" class="interest-checkbox" id="topic-581bb826435b057c2fdsdsq46ccbdd">
-									<label for="topic-581bb826435b057c2fdsdsq46ccbdd" style="background-image: url('{% static "onboarding/img/app/vr-bg.jpg" %}');">
-										<span>Interest12</span>
-									</label>
+								<div class="read-blog">
+									<div class="aligner">
+										<p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<button class="btn light-blue darken-2 m-b-xs submit" id="submit-btn">Finish</button>
+							<div class="topics col-lg-9 col-md-12">
+								<div class="row">
+
+									<!-- Twitter Card -->
+									<div class="col s12 m6">
+										<div class="white">
+											<div class="card" id="profile-page-header">
+												<div class="card-image header-img">
+													<img alt="user background" class="activator" src="{% static "images/social-logos/bg-tw.jpg" %}">
+												</div>
+												<figure class="card-profile-image">
+													<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/twitter.png" %}">
+												</figure>
+												<div class="card-content">
+													<div class="row social-btn-row">
+														<div class="col s12" id="twitter-btn-div">
+															{% if twitter_auth_url %}
+																<a href="{{ twitter_auth_url }}" target="_target" class="btn waves-effect waves-light indigo accent-3 twitter-btn" id="twitter-btn-link">Link My Twitter Account</a>
+															{% else %}
+																<button class="waves-effect waves-light btn red twitter-btn" id="twitter-btn-unlink">Unlink My Twitter Account</button>
+															{% endif %}
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Facebook Card -->
+									<div class="col s12 m6">
+										<div class="white">
+											<div class="card" id="profile-page-header">
+												<div class="card-image header-img">
+													<img alt="user background" class="activator" src="{% static "images/social-logos/bg-fb.png" %}">
+												</div>
+												<figure class="card-profile-image">
+													<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/facebook.png" %}">
+												</figure>
+												<div class="card-content">
+													<div class="row social-btn-row">
+														<div class="col s12" style="text-align: center;">
+															<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- LinkedIn Card -->
+									<div class="col s12 m6">
+										<div class="white">
+											<div class="card" id="profile-page-header">
+												<div class="card-image header-img">
+													<img alt="user background" class="activator" src="{% static "images/social-logos/bg-lk.jpg" %}">
+												</div>
+												<figure class="card-profile-image">
+													<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/linkedin.png" %}">
+												</figure>
+												<div class="card-content">
+													<div class="row social-btn-row">
+														<div class="col s12" style="text-align: center;">
+															<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- GooglePlus Card -->
+									<div class="col s12 m6">
+										<div class="white">
+											<div class="card" id="profile-page-header">
+												<div class="card-image header-img">
+													<img alt="user background" class="activator" src="{% static "images/social-logos/bg-gp.jpg" %}">
+												</div>
+												<figure class="card-profile-image">
+													<img alt="profile image" class="circle z-depth-2 responsive-imgMod activator" src="{% static "images/social-logos/gplus.png" %}">
+												</figure>
+												<div class="card-content">
+													<div class="row social-btn-row">
+														<div class="col s12" style="text-align: center;">
+															<button class="btn waves-effect waves-light red" type="submit" name="action" style="font-size: 12px;" disabled="">Coming Soon</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
 							</div>
-						</fieldset>
-					</form>
+						</div>
+						<div class="col-md-12">
+							<a type="button" name="next" class="btn blue darken-2 m-b-xs next">Next Step</a>
+						</div>
+					</fieldset>
+					<fieldset>
+						<form action="../process_onboarding/" method="post" id="onboarding_form">
+		                    <div class="wizard clearfix">
+		                        <div class="steps clearfix">
+		                            <ul style="width: 100%;" class="tabs">
+		                                <li class="tab">
+		                                    <a class="active">Personal Info</a>
+		                                </li>
+										<div class="indicator" style="right: 0px; left: 0px;"></div>
+		                            </ul>
+		                        </div>
+		                        <section>
+		                            <div class="row" style="margin-top:70px;">
+		                                <div class="col m6">
+		                                    <div class="row">
+		                                        <div class="input-field col m6 s12">
+		                                            <label for="firstname">First name</label>
+		                                            <input id="firstname" name="firstname" type="text" class="required validate" aria-required="true" data-init="{{ user.first_name }}" value="{{ user.first_name }}">
+		                                        </div>
+		                                        <div class="input-field col m6 s12">
+		                                            <label for="lastname">Last name</label>
+		                                            <input id="lastname" name="lastname" type="text" class="required validate" aria-required="true" data-init="{{ user.last_name }}" value="{{ user.last_name }}">
+		                                        </div>
+		                                        <div class="input-field col m6 s12">
+		                                            <label for="email">Email Address</label>
+		                                            <input id="email" name="email" type="email" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.email }}">
+		                                        </div>
+		                                        <div class="input-field col m6 s12">
+		                                            <select id="gender" class="required validate" aria-required="true" data-init="{{ user.gender }}" >
+		                                                <option selected disabled>Select One Gender</option>
+		                                                {% if user.gender == 'M' %}
+		                                                    <option value="F">Female</option>
+		                                                    <option value="M" selected>Male</option>
+		                                                    <option value="O">Other</option>
+		                                                {% elif user.gender == 'F' %}
+		                                                    <option value="F" selected>Female</option>
+		                                                    <option value="M">Male</option>
+		                                                    <option value="O">Other</option>
+		                                                {% elif user.gender == 'O' %}
+		                                                    <option value="F">Female</option>
+		                                                    <option value="M">Male</option>
+		                                                    <option value="O" selected>Other</option>
+														{% else %}
+		                                                    <option value="F">Female</option>
+		                                                    <option value="M">Male</option>
+		                                                    <option value="O">Other</option>
+		                                                {% endif %}
+		                                            </select>
+		                                        </div>
+		                                        <div class="input-field col m6 s12">
+		                                            <select id="country" class="required validate" aria-required="true" data-init="{{ user.country }}">
+		                                                <option selected disabled>Where are you from ?</option>
+		                                                {% for country in countries %}
+		                                                    {% if user.country == country %}
+		                                                        <option selected >{{ country.name }}</option>
+		                                                    {% else %}
+		                                                        <option>{{ country.name }}</option>
+		                                                    {% endif %}
+		                                                {% endfor %}
+		                                            </select>
+		                                        </div>
+		                                        <div class="input-field col m6 s12">
+		                                            <label for="birthdate">Birthdate</label>
+		                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" data-init="{{ user.get_birthdate }}">
+		                                        </div>
+		                                        <div class="input-field col m12">
+		                                            <label for="feedtitle">RSS Feed Title</label>
+		                                            <input id="feedtitle" name="feedtitle" type="text" data-init="{{ user.rss_feed_title }}" value="{{ user.rss_feed_title }}">
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                                <div class="col m6">
+		                                    <div class="row">
+		                                        <div class="input-field col m6 s12">
+		                                            <label for="company_name">Company name</label>
+		                                            <input id="company_name" name="company_name" type="text" class="validate" data-init="{{ user.company_name }}" value="{{ user.company_name }}">
+		                                        </div>
+		                                        <div class="input-field col m6 s12">
+		                                            <label for="company_website">Company Website</label>
+		                                            <input id="company_website" name="company_website" type="text" class="validate" data-init="{{ user.company_website }}"  value="{{ user.company_website }}">
+		                                        </div>
+		                                        <div class="input-field col s12">
+		                                            <label for="job">Job Title</label>
+		                                            <input id="job" name="job" type="text" class="validate" data-init="{{ user.job }}" value="{{ user.job }}">
+		                                        </div>
+		                                        <div class="input-field col s12">
+		                                            <textarea id="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">{{ user.description }}</textarea>
+		                                            <label for="description" class="">Description</label>
+		                                        </div>
+
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </section>
+							</div>
+							{% csrf_token %}
+							{% if next %}
+								<input type="hidden" name="next" value="{{ next }}" />
+							{% endif %}
+							<input id="interest1" name="interest1" type="text" value="">
+							<input id="interest2" name="interest2" type="text" value="">
+							<input id="interest3" name="interest3" type="text" value="">
+		                </form>
+		                <div class="row" style="text-align:right;">
+		                    <a class="waves-effect waves-light btn red m-b-xs" id="reset-btn">Reset</a>
+		                    <a class="waves-effect waves-light btn blue m-b-xs" id="save-btn">Save</a>
+		                </div>
+					</fieldset>
 				</div>
 			</main>
 		</div>
@@ -509,16 +454,72 @@
 				});
 
 				// =================================================================== FORM SUBMITTING ===========================================================
+				$('#country').material_select(); // Select Initialization
+				$("#gender").material_select(); // Select Initialization
 
-				$("#submit-btn").click( function(event) {
-					var interests = [];
+				var birthdate_input = $("#birthdate");
+
+				var birthdate = birthdate_input.pickadate({
+			      format: 'dd/mm/yyyy',
+				  closeOnSelect: true,
+				  closeOnClear: true,
+			      selectMonths: true, // Creates a dropdown to control month
+			      selectYears: 50, // Creates a dropdown of 15 years to control year
+			  	});
+
+			  	var picker = birthdate.pickadate('picker');
+				var user_birthdate = birthdate_input.data("init");
+
+				if (user_birthdate != "None")
+					picker.set('select', user_birthdate, { format: 'dd/mm/yyyy' });
+
+				form_fields = [
+					'firstname',
+					'lastname',
+					'email',
+					'birthdate',
+					'country', // Select
+					'gender', // Select
+					'feedtitle',
+					'description', // TextArea
+					'job',
+					'company_name',
+					'company_website',
+				]
+
+				function clearFields(){
+					for (field in form_fields){
+						//console.log(social_networks[field]+ " = " +$("#"+social_networks[field]).val());
+						var input = $("#"+form_fields[field]);
+						input.val(input.data("init"));
+					}
+					$("#country").material_select();
+					$("#gender").material_select();
+				}
+
+				$("#reset-btn").click(function() {
+			        swal({
+			            title: "Are you sure ?",
+			            text: "Do you really want to reset all the fields ?",
+			            type: "warning",
+			            showCancelButton: true,
+			            confirmButtonColor: "#DD6B55",
+			            confirmButtonText: "Yes, please reset!",
+			            cancelButtonText: "Please No!",
+			            closeOnConfirm: true,
+			            closeOnCancel: true
+			        }, function(){
+			            clearFields();
+						swal.close();
+			        });
+			    });
+
+				$("#save-btn").click( function(event) {
 					for (i = 0; i < interests_required_number; i++) {
-						interests.push($("#"+$('.interest-checkbox:checked')[i].id).data("name"));
+						$('input#interest'+(i+1)).val($("#"+$('.interest-checkbox:checked')[i].id).data("name"));
 					}
 
-
-					event.preventDefault();
-					return false;
+					$("#onboarding_form").submit();
 				});
 			});
 		</script>

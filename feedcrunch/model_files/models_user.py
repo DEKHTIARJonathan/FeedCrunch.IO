@@ -21,6 +21,8 @@ from validate_email import validate_email
 from encrypted_fields import EncryptedCharField
 
 from feedcrunch.models import Continent, Country, Estimator
+from .models_interest import Interest
+
 from twitter.tw_funcs import *
 
 from twython import Twython
@@ -308,6 +310,9 @@ class FeedUser(AbstractFeedUser):
 
 	recommendation_engine = models.OneToOneField(Estimator, on_delete=models.CASCADE, default=None, blank=True, null=True)
 
+	interests = models.ManyToManyField(Interest, related_name="users_by_interest")
+	onboarding_done = models.BooleanField(default=False)
+
 	# Main Social Networks
 	social_dribbble = models.URLField(max_length=60, default='', blank=True, null=True)
 	social_facebook = models.URLField(max_length=60, default='', blank=True, null=True)
@@ -345,6 +350,12 @@ class FeedUser(AbstractFeedUser):
 
 	def __unicode__(self):
 		return self.username
+
+	def save(self, *args, **kwargs):
+		if self.interests.count() > 3:
+			raise ValidationError("You can't assign more than three interests")
+
+		super(FeedUser, self).save(*args, **kwargs) # Call the "real" save() method.
 
 	def get_birthdate(self):
 		if self.birthdate is not None:

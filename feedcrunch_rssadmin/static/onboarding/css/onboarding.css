@@ -1,11 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700);
-@import url(https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 body {
-	font-family: Rubik, sans-serif;
-    font-weight: 400;
+	font-family: Roboto;
+    font-weight: 500;
     background-color: #fafafa;
     overflow-x: hidden
+    color: rgba(0, 0, 0, 0.6);
 }
 @keyframes ellipsis {
     to {
@@ -307,31 +307,14 @@ textarea {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
     font-size: 13px;
 }
-/*buttons*/
 
-.action-button {
-	/*
-    width: 100px;
-    background: #3d5afe;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 1px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
-	*/
-}
 /*headings*/
 
 .fs-title {
     font-size: 15px;
     text-transform: uppercase;
-    color: #2C3E50;
     margin-bottom: 10px;
 }
 .fs-subtitle {
@@ -403,4 +386,100 @@ textarea {
 
 .btn:hover, .btn-large:hover {
     color: white;
+}
+
+.header-img{
+	overflow: hidden;
+	vertical-align: middle;
+	z-index: 1;
+}
+
+.responsive-imgMod{
+	height: 110px;
+	width: 110px;
+}
+
+#profile-page-header .card-image {
+	height: 150px;
+}
+
+#profile-page-header .card-profile-image img {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top:90px;
+	bottom: 0;
+	margin-left: auto;
+	margin-right:auto
+}
+
+.activator{
+	bottom: 20px;
+}
+
+.interest-lbl{
+	background-size: cover;
+}
+
+.social-btn-row{
+	margin: 45px auto 12px auto;
+	text-align: center;
+}
+
+.btn:disabled, .btn[disabled] {
+	background-color: #646464	!important;
+	color: #ffffff !important;
+}
+
+a:focus, a:hover {
+	/* color: inherit; */
+	text-decoration: none;
+}
+
+.sweet-alert fieldset {
+	border: none;
+	position: relative;
+	box-shadow: 0 0 0 0;
+}
+
+.twitter-btn{
+	font-size: 12px;
+}
+
+input, textarea {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.tabs .tab {
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	display: block;
+	float: left;
+	text-align: center;
+	line-height: 48px;
+	height: 48px;
+	padding: 0;
+	margin: 0;
+	text-transform: uppercase;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	letter-spacing: .8px;
+	width: 100%;
+	min-width: 80px;
+}
+
+.tabs .tab a.active {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.tabs .tab a {
+	color: #ee6e73;
+	display: block;
+	padding: 0;
+}
+
+input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
+	border-bottom: 1px solid #BCBCBC;
+	box-shadow: none;
 }
