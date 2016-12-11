@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect
@@ -318,13 +319,12 @@ def process_onboarding_view(request, feedname=None):
 			'description', # not Checked
 			'job', # not Checked
 			'company_name', # not Checked
-			'company_website',
-			"newsletter_subscribtion", # Not Saved yet !
+			'company_website'
 		]
 
 		form_data = {}
 		for field in fields:
-			form_data[field] = unicodedata.normalize('NFC', request.data[field])
+			form_data[field] = unicodedata.normalize('NFC', request.POST[field])
 
 		FeedUser.objects._validate_firstname(form_data["firstname"])
 		FeedUser.objects._validate_lastname(form_data["lastname"])
@@ -358,7 +358,9 @@ def process_onboarding_view(request, feedname=None):
 		request.user.interests.clear()
 
 		for interest in interest_fields:
-			tmp_interest = Interest.objects.get(name=unicodedata.normalize('NFC', request.data[interest]))
+			tmp_interest = Interest.objects.get(name=unicodedata.normalize('NFC', request.POST[interest]))
 			request.user.interests.add(tmp_interest)
 
 		request.user.save()
+
+		return HttpResponseRedirect(reverse(index, kwargs={'feedname': request.user.username}))

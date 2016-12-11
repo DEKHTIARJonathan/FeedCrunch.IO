@@ -295,7 +295,7 @@
 		                                            <input id="email" name="email" type="email" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.email }}">
 		                                        </div>
 		                                        <div class="input-field col m6 s12">
-		                                            <select id="gender" class="required validate" aria-required="true" data-init="{{ user.gender }}" >
+		                                            <select id="gender" name="gender" class="required validate" aria-required="true" data-init="{{ user.gender }}" >
 		                                                <option selected disabled>Select One Gender</option>
 		                                                {% if user.gender == 'M' %}
 		                                                    <option value="F">Female</option>
@@ -317,7 +317,7 @@
 		                                            </select>
 		                                        </div>
 		                                        <div class="input-field col m6 s12">
-		                                            <select id="country" class="required validate" aria-required="true" data-init="{{ user.country }}">
+		                                            <select id="country" name="country" class="required validate" aria-required="true" data-init="{{ user.country }}">
 		                                                <option selected disabled>Where are you from ?</option>
 		                                                {% for country in countries %}
 		                                                    {% if user.country == country %}
@@ -353,8 +353,8 @@
 		                                            <input id="job" name="job" type="text" class="validate" data-init="{{ user.job }}" value="{{ user.job }}">
 		                                        </div>
 		                                        <div class="input-field col s12">
-		                                            <textarea id="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">{{ user.description }}</textarea>
-		                                            <label for="description" class="">Description</label>
+		                                            <textarea id="description" name="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">{{ user.description }}</textarea>
+		                                            <label for="description">Description</label>
 		                                        </div>
 
 		                                    </div>
@@ -366,9 +366,9 @@
 							{% if next %}
 								<input type="hidden" name="next" value="{{ next }}" />
 							{% endif %}
-							<input id="interest1" name="interest1" type="text" value="">
-							<input id="interest2" name="interest2" type="text" value="">
-							<input id="interest3" name="interest3" type="text" value="">
+							<input id="interest1" name="interest1" type="hidden" value="">
+							<input id="interest2" name="interest2" type="hidden" value="">
+							<input id="interest3" name="interest3" type="hidden" value="">
 		                </form>
 		                <div class="row" style="text-align:right;">
 		                    <a class="waves-effect waves-light btn red m-b-xs" id="reset-btn">Reset</a>
