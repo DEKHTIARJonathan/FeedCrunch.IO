@@ -1978,9 +1978,37 @@
 },
 {
    "model": "feedcrunch.option",
+   "pk": "display_user_count",
+   "fields": {
+      "value": "False"
+   }
+},
+{
+   "model": "feedcrunch.option",
    "pk": "freemium_period",
    "fields": {
-      "value": "True"
+      "value": "False"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "max_rss_posts",
+   "fields": {
+      "value": "25"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "max_articles_on_interest_sub",
+   "fields": {
+      "value": "5"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "max_recommendation",
+   "fields": {
+      "value": "100"
    }
 },
 {

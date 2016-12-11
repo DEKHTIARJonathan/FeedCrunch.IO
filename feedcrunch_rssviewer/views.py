@@ -101,7 +101,7 @@ def rss_feed(request, feedname=None):
 	if feedname == None:
 		return HttpResponse("Error")
 	else:
-		if Post.objects.count() > 0:
+		if Post.objects.filter(user=feedname).count() > 0:
 			fg = generateRSS("rss", feedname)
 			return HttpResponse(fg.rss_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
 		else:
@@ -111,7 +111,7 @@ def atom_feed(request, feedname=None):
 	if feedname == None:
 		return HttpResponse("Error")
 	else:
-		if Post.objects.count() > 0:
+		if Post.objects.filter(user=feedname).count() > 0:
 			fg = generateRSS("atom", feedname)
 			return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
 		else:

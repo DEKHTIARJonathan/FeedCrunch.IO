@@ -3,7 +3,7 @@
 
 from __future__ import unicode_literals
 
-from feedcrunch.models import Post, FeedUser
+from feedcrunch.models import Post, FeedUser, Option
 from feedgen.feed import FeedGenerator
 
 from datetime import datetime
@@ -17,52 +17,68 @@ def generateRSS(type="", username=""):
 	if type not in ["rss", "atom"]:
 		raise ValueError('Wrong Type of RSS Feed given to the generator, only "rss" and "atom" accepted.')
 
-	elif not FeedUser.objects.filter(username=username).exists():
-		raise ValueError("The requested user doesn't exist.")
-
-	else:
+	try:
 		user = FeedUser.objects.get(username=username)
+	except FeedUser.DoesNotExist:
+		raise ValueError("The requested user ['"+username+"'] doesn't exist.")
 
-		fg = FeedGenerator()
-		fg.id('https://www.feedcrunch.io/')
-		fg.title('Feedcrunch.IO - Do you have enough data about your #data?')
-		fg.description('Feedcrunch.IO - Do you have enough data about your #data?')
-		fg.subtitle('Data Science, Machine Learning, Deep Learning, Big Data and Computer Vision RSS FEED!')
+	try:
+		max_rss_posts = int(Option.objects.get(parameter="max_rss_posts").value)
+	except Option.DoesNotExist:
+		raise ValueError("The Option 'max_rss_posts' doesn't exist.")
 
-		fg.link(href="https://www.feedcrunch.io/", rel='alternate')
+	########## ======================================== FEED GENERATION =========================================== ##########
 
-		if type=="rss":
-			fg.link( href='https://www.feedcrunch.io/@'+username+'/rss/', rel='self', type="application/rss+xml")
-		else:
-			fg.link( href='https://www.feedcrunch.io/@'+username+'/atom/', rel='self', type="application/rss+xml")
+	fg = FeedGenerator()
+	fg.id('https://www.feedcrunch.io/@'+username+'/')
+	fg.title('Feedcrunch.IO - @' + user.username+ " - " + user.rss_feed_title)
+	fg.subtitle(user.description)
 
-		fg.logo('https://www.feedcrunch.io/static/images/favicon.png')
-		fg.icon('https://www.feedcrunch.io/static/images/favicon.png')
+	fg.link(href="https://www.feedcrunch.io/", rel='alternate')
+	if type=="rss":
+		fg.link( href='https://www.feedcrunch.io/@'+username+'/rss/', rel='self', type="application/rss+xml")
+	else:
+		fg.link( href='https://www.feedcrunch.io/@'+username+'/atom/', rel='self', type="application/rss+xml")
 
-		fg.category(term='Data Science')
-		fg.language("en-us")
-		fg.rights('cc-by')
-		fg.author( {'name':user.get_full_name(),'email':'contact@feedcrunch.io'})
+	fg.logo('https://www.feedcrunch.io/static/images/favicon.png')
+	fg.icon('https://www.feedcrunch.io/static/images/favicon.png')
 
-		fg.lastBuildDate(time_modifier.localize(datetime.now()))
+	for interest in user.interests.all():
+		fg.category(term=interest.name)
 
-		listPosts = Post.objects.filter(user=username, activeLink=True).order_by('-id')
-		for post in listPosts:
-			fe = fg.add_entry()
-			#fe.id(post.link)
-			fe.id('https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id))
-			fe.title(post.title)
-			"""
-			fe.content('''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tamen
-				aberramus a proposito, et, ne longius, prorsus, inquam, Piso, si ista
-				mala sunt, placet. Aut etiam, ut vestitum, sic sententiam habeas aliam
-				domesticam, aliam forensem, ut in fronte ostentatio sit, intus veritas
-				occultetur? Cum id fugiunt, re eadem defendunt, quae Peripatetici,
-				verba.''')
-			"""
-			#fe.summary('Lorem ipsum dolor sit amet, consectetur adipiscing elit...')
-			fe.link( href='https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id), rel='alternate' )
-			fe.author( name='Jonathan DEKHTIAR', email='contact@feedcrunch.io' )
-			fe.updated(post.when + time_delta)
+	fg.language("en-us")
+	fg.rights('cc-by')
+	fg.author( {'name':user.get_full_name(),'email':user.email})
 
-		return fg
+	last_post_date = Post.objects.filter(user=user.username).order_by("-when")[:1][0].when
+	fg.lastBuildDate(last_post_date)
+
+	# ======== Adding Posts to the Feed ======== #
+
+	listPosts = Post.objects.filter(user=username, activeLink=True).order_by('-id')[:max_rss_posts]
+
+	for post in listPosts:
+		fe = fg.add_entry()
+		#fe.id(post.link)
+		fe.id('https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id))
+		fe.title(post.title)
+		fe.content('', type='CDATA')
+		"""
+		fe.content('''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tamen
+			aberramus a proposito, et, ne longius, prorsus, inquam, Piso, si ista
+			mala sunt, placet. Aut etiam, ut vestitum, sic sententiam habeas aliam
+			domesticam, aliam forensem, ut in fronte ostentatio sit, intus veritas
+			occultetur? Cum id fugiunt, re eadem defendunt, quae Peripatetici,
+			verba.''')
+		"""
+		#fe.summary('Lorem ipsum dolor sit amet, consectetur adipiscing elit...')
+
+		fe.link( href='https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id), rel='alternate' )
+		fe.author({'name':user.get_full_name(),'email':user.email})
+		fe.updated(post.when + time_delta)
+
+		#fe.category([{'term' : 'category', 'scheme': 'http://www.somedomain.com/category', 'label' : 'Category'}])
+		for tag in post.tags.all():
+			fe.category([{'term' : tag.name}])
+
+	return fg
