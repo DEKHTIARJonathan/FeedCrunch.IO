@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo yum update -y
 sudo yum install python-pip wget postgresql gcc python-devel postgresql-devel screen libxslt-devel nginx -y
 
 app_dir="/home/ec2-user/feedcrunch"

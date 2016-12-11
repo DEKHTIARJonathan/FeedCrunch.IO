@@ -38,7 +38,7 @@ def generateRSS(type="", username=""):
 	if type=="rss":
 		fg.link( href='https://www.feedcrunch.io/@'+username+'/rss/', rel='self', type="application/rss+xml")
 	else:
-		fg.link( href='https://www.feedcrunch.io/@'+username+'/atom/', rel='self', type="application/rss+xml")
+		fg.link( href='https://www.feedcrunch.io/@'+username+'/atom/', rel='self', type="application/atom+xml")
 
 	fg.logo('https://www.feedcrunch.io/static/images/favicon.png')
 	fg.icon('https://www.feedcrunch.io/static/images/favicon.png')
@@ -62,16 +62,16 @@ def generateRSS(type="", username=""):
 		#fe.id(post.link)
 		fe.id('https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id))
 		fe.title(post.title)
-		fe.content('', type='CDATA')
+		fe.summary(post.title)
+
 		"""
 		fe.content('''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tamen
 			aberramus a proposito, et, ne longius, prorsus, inquam, Piso, si ista
 			mala sunt, placet. Aut etiam, ut vestitum, sic sententiam habeas aliam
 			domesticam, aliam forensem, ut in fronte ostentatio sit, intus veritas
 			occultetur? Cum id fugiunt, re eadem defendunt, quae Peripatetici,
-			verba.''')
+			verba.''', type="CDATA")
 		"""
-		#fe.summary('Lorem ipsum dolor sit amet, consectetur adipiscing elit...')
 
 		fe.link( href='https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id), rel='alternate' )
 		fe.author({'name':user.get_full_name(),'email':user.email})
