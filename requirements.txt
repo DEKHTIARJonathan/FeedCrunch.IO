@@ -16,7 +16,7 @@ dateutils==0.6.6
 decorator==4.0.10
 dill==0.2.5
 dj-database-url==0.4.1
-Django==1.10.3
+Django==1.10.4
 django-admin-view-permission==0.4
 django-braces==1.10.0
 django-celery-results==1.0.1
