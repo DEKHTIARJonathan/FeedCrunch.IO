@@ -13,7 +13,7 @@ from django.core.exceptions import ValidationError
 import datetime, unicodedata, json
 from calendar import monthrange
 
-from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc, Interest
+from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc, Interest, Option
 from twitter.tw_funcs import TwitterAPI, get_authorization_url
 
 from check_admin import check_admin
@@ -235,31 +235,37 @@ def reading_recommendation(request, feedname=None):
 	if check_passed != True:
 		return check_passed
 	else:
+
+		###################### Getting the Option Value for the amount of old articles retrieved by RSS Feed ##############################
+		try:
+			max_recommendation = int(Option.objects.get(parameter="max_recommendation").value)
+			recommendation_decay = float(60) / max_recommendation
+
+		except Option.DoesNotExist:
+			raise Exception("The Option 'max_recommendation' is not defined")
+
 		#rssarticles = RSSArticle_Assoc.objects.filter(rel_sub_article_assoc__user=request.user, rel_sub_article_assoc__marked_read = False).order_by('-added_date')
-		rssarticles = RSSArticle_Assoc.objects.filter(user=request.user, marked_read = False).order_by('-article__added_date')
+		rssarticles = RSSArticle_Assoc.objects.filter(user=request.user, marked_read = False).order_by('-article__added_date')[:max_recommendation]
 
 		rssarticles_data = []
 
-		max_size = len(rssarticles)
-
-		if max_size > 100:
-			max_size = 100
-
-		for i in range(max_size):
-			recommendation_score = 97.3 - 0.6*i
+		for i, article in enumerate(rssarticles):
+			recommendation_score = 97.3 - recommendation_decay*i
 			tmp = {
-				'id': rssarticles[i].id,
-				'short_title': rssarticles[i].short_title(),
-				'title': rssarticles[i].title(),
-				'rssfeed': rssarticles[i].short_rssfeed(),
-				'get_domain': rssarticles[i].short_domain(),
-				'link': rssarticles[i].link(),
+				'id': article.id,
+				'short_title': article.short_title(),
+				'title': article.title(),
+				'rssfeed': article.short_rssfeed(),
+				'get_domain': article.short_domain(),
+				'link': article.link(),
 				'score': recommendation_score,
 				'color': int(2.55*recommendation_score),
-				'get_shortdate': rssarticles[i].get_shortdate(),
+				'get_shortdate': article.get_shortdate(),
 			}
+
 			rssarticles_data.append(tmp)
 
+		print len(rssarticles_data)
 		return render(request, 'admin/admin_reading_recommendation.html', {'rssarticles': rssarticles_data})
 
 def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
@@ -279,7 +285,7 @@ def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
 
 def onboarding_view(request, feedname=None):
 
-	check_passed = check_admin(feedname, request.user)
+	check_passed = check_admin(feedname, request.user, bypassOnboarding = True)
 	if check_passed != True:
 		return check_passed
 
@@ -296,7 +302,7 @@ def onboarding_view(request, feedname=None):
 
 def process_onboarding_view(request, feedname=None):
 
-	check_passed = check_admin(feedname, request.user)
+	check_passed = check_admin(feedname, request.user, bypassOnboarding = True)
 	if check_passed != True:
 		return check_passed
 
@@ -357,10 +363,33 @@ def process_onboarding_view(request, feedname=None):
 
 		request.user.interests.clear()
 
+		###################### Getting the Option Value for the amount of old articles retrieved by RSS Feed ##############################
+		try:
+			max_old_articles_retrieved_on_interest = int(Option.objects.get(parameter="max_articles_on_interest_sub").value)
+		except Option.DoesNotExist:
+			raise Exception("The Option 'max_articles_on_interest_sub' is not defined")
+
+		###################### LOOPING THROUGH INTERESTS AND ADD THEM TO THE USER ##############################
 		for interest in interest_fields:
 			tmp_interest = Interest.objects.get(name=unicodedata.normalize('NFC', request.POST[interest]))
 			request.user.interests.add(tmp_interest)
 
+			##### ================== Subcribe the user to the feeds linked to the interest ============================== ####
+			for feed in tmp_interest.rssfeeds.all():
+				# ======= Subscribe User to RSS Feed ======== #
+
+				try:
+					# We subscribe the use to the feed.
+					tmp_sub = RSSFeed_Sub.objects.create(user= request.user, feed=feed, title=feed.title)
+
+					# We get the N last articles articles published in the feed and loop through them:
+					for article in feed.rel_rss_feed_articles.all().order_by("-added_date")[:max_old_articles_retrieved_on_interest] :
+						RSSArticle_Assoc.objects.create(subscribtion=tmp_sub, user=request.user, article=article)
+
+				except: #If already subscribed, keep going to the next feed.
+					continue
+
+		request.user.onboarding_done = True
 		request.user.save()
 
 		return HttpResponseRedirect(reverse(index, kwargs={'feedname': request.user.username}))

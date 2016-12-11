@@ -29,6 +29,17 @@ from image_validation import get_image_dimensions
 from feed_validation import validate_feed
 from clean_html import clean_html
 
+def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
+	RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_AssocID, user=user)
+
+	if not RSSArticle_Assoc_QuerySet.exists():
+		raise Exception("The given RSSArticle_Assoc (id = '" + str(RSSArticle_AssocID) + "') with the given user (username = " + user.username + ") doesn't exist.")
+
+	RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
+
+	RSSArticle_Assoc_obj.marked_read = True
+	RSSArticle_Assoc_obj.save()
+
 class Username_Validation(APIView):
 
 	def post(self, request):
@@ -280,6 +291,7 @@ class Tags(APIView):
 		return Response(payload)
 
 class RSSFeed_View(APIView):
+	
 	def post(self, request):
 		try:
 			payload = dict()
@@ -325,6 +337,7 @@ class RSSFeed_View(APIView):
 		return Response(payload)
 
 class RSSFeed_Sub_View(APIView):
+
 	def put(self, request, RSSFeed_SubID=None):
 		try:
 			payload = dict()
@@ -795,17 +808,6 @@ class Modify_Password(APIView):
 		payload ["operation"] = "modify password"
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
-
-def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
-	RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_AssocID, user=user)
-
-	if not RSSArticle_Assoc_QuerySet.exists():
-		raise Exception("The given RSSArticle_Assoc (id = '" + str(RSSArticle_AssocID) + "') with the given user (username = " + user.username + ") doesn't exist.")
-
-	RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
-
-	RSSArticle_Assoc_obj.marked_read = True
-	RSSArticle_Assoc_obj.save()
 
 class RSSArticle_Assoc_View(APIView):
 	def put(self, request, RSSArticle_AssocID=None):

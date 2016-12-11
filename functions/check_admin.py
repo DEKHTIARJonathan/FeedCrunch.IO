@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 from django.http import HttpResponse, HttpResponseRedirect
 
-def check_admin(feedname, user):
+def check_admin(feedname, user, bypassOnboarding = False):
 	if feedname == None:
 		return HttpResponse("Error")
 
@@ -17,6 +17,12 @@ def check_admin(feedname, user):
 
 	elif feedname != user.username:
 		return HttpResponseRedirect('/@'+user.username+'/admin')
+
+	elif user.onboarding_done and bypassOnboarding:
+		return HttpResponseRedirect('/@'+user.username+'/admin')
+
+	elif not (user.onboarding_done or bypassOnboarding):
+		return HttpResponseRedirect('/@'+user.username+'/admin/onboarding/')
 
 	else:
 		return True
