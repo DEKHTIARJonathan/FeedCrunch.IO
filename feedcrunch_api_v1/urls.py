@@ -37,7 +37,8 @@ urlpatterns = [
 
 	# RSSFeed Subscribtions Routes
 	url(r'^authenticated/post/rssfeed_subscribtion/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
-	url(r'^authenticated/import/opml_file/$', OPML_Import.as_view(), name='create_RSSFeed'),
+	url(r'^authenticated/import/opml_file/$', OPML_Import.as_view(), name='Import OPML'),
+	url(r'^authenticated/export/opml_file/$', OPML_Import.as_view(), name='Export OPML'),
 
 	# RSSFeed_Sub Subscribtions Routes
 	url(r'^authenticated/delete/rssfeed_subscribtion/(?P<RSSFeed_SubID>\d+)/$', RSSFeed_Sub_View.as_view(), name='delete_RSSFeed'),

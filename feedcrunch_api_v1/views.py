@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
 from django.utils import timezone
+from django.http import HttpResponse
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -113,6 +114,23 @@ class rssfeed_Validation(APIView):
 
 class OPML_Import(APIView):
 	parser_classes = (MultiPartParser,)
+
+	def get(self, request):
+		try:
+			payload = dict()
+			check_passed = check_admin_api(request.user)
+
+			if check_passed != True:
+				raise Exception(check_passed)
+
+			return HttpResponse(request.user.export_opml(), content_type='text/xml' )
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+			payload["operation"] = "Export OPML"
+			payload ["timestamp"] = get_timestamp()
+			return Response(payload)
 
 	def post(self, request, filename=''):
 
@@ -291,7 +309,7 @@ class Tags(APIView):
 		return Response(payload)
 
 class RSSFeed_View(APIView):
-	
+
 	def post(self, request):
 		try:
 			payload = dict()
