@@ -34,7 +34,6 @@ urlpatterns = [
 	url(r'^authenticated/mark_as_read/rssarticle/(?P<RSSArticle_AssocID>\d+)/$', RSSArticle_Assoc_View.as_view(), name='Mark_As_Read_RSSArticle_Assoc'),
 	url(r'^authenticated/mark_list_as_read/rssarticle/$', RSSArticle_Assoc_View.as_view(), name='Mark_List_As_Read_RSSArticle_Assoc'),
 
-
 	# RSSFeed Subscribtions Routes
 	url(r'^authenticated/post/rssfeed_subscribtion/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
 	url(r'^authenticated/import/opml_file/$', OPML_Import.as_view(), name='Import OPML'),
@@ -45,6 +44,7 @@ urlpatterns = [
 	url(r'^authenticated/modify/rssfeed_subscribtion/(?P<RSSFeed_SubID>\d+)/$', RSSFeed_Sub_View.as_view(), name='modify_RSSFeed'),
 
 	# Article Routes
+	url(r'^authenticated/post/article/(?P<APIKey>[^/]+)/$', Article.as_view(), name='post_article_with_APIKey'),
 	url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
 	url(r'^authenticated/modify/article/(?P<postID>\d+)/$', Article.as_view(), name='modify_article'),
 	url(r'^authenticated/delete/article/(?P<postID>\d+)/$', Article.as_view(), name='delete_article'),

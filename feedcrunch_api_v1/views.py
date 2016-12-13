@@ -3,7 +3,7 @@
 
 from __future__ import unicode_literals
 
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.utils import timezone
 from django.http import HttpResponse
@@ -441,22 +441,39 @@ class Article(APIView):
 		payload["success"] = True
 		return Response(payload)
 
-	def post(self, request):
+	def post(self, request, APIKey=""):
 		try:
 			payload = dict()
-			check_passed = check_admin_api(request.user)
 
-			if check_passed != True:
-				raise Exception(check_passed)
+			if APIKey == "":
+				check_passed = check_admin_api(request.user)
 
-			payload ["username"] = request.user.username
+				if check_passed != True:
+					raise Exception(check_passed)
+
+				user = request.user
+
+			else:
+				try:
+					user = FeedUser.objects.filter(apikey=APIKey)[:1][0]
+				except IndexError:
+					raise Exception("The APIKey Used is not Valid")
+
+				if user.is_superuser and 'posting_user' in request.POST:
+					tmp_username = unicodedata.normalize('NFC', request.POST['posting_user'])
+					try:
+						user = FeedUser.objects.get(username=tmp_username)
+					except ObjectDoesNotExist:
+						raise Exception("The Provided posting_user ('"+tmp_username+"') does not exist")
+
+			payload ["username"] = user.username
 
 			if 'article_id' in request.POST:
 				RSSArticle_Assoc_id = unicodedata.normalize('NFC', request.POST['article_id'])
-				RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_Assoc_id, user=request.user)
+				RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_Assoc_id, user=user)
 
 				if not RSSArticle_Assoc_QuerySet.exists():
-					raise Exception("The given RSSArticle (id = '" + str(RSSArticle_Assoc_id) + "' with the given user (username = " + request.user.username + ") doesn't exist.")
+					raise Exception("The given RSSArticle (id = '" + str(RSSArticle_Assoc_id) + "' with the given user (username = " + user.username + ") doesn't exist.")
 
 				RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
 
@@ -476,7 +493,7 @@ class Article(APIView):
 			if title == "" or link == "":
 				raise Exception("Title and/or Link is/are missing")
 
-			tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=request.user, activeLink=activated_bool)
+			tmp_post = Post.objects.create(title=title, link=link, clicks=0, user=user, activeLink=activated_bool)
 
 			for i, tag in enumerate(tags):
 
@@ -497,9 +514,9 @@ class Article(APIView):
 				RSSArticle_Assoc_obj.marked_read = True
 				RSSArticle_Assoc_obj.save()
 
-			if twitter_bool and request.user.is_twitter_enabled():
+			if twitter_bool and user.is_twitter_enabled():
 
-					twitter_instance = TwitterAPI(request.user)
+					twitter_instance = TwitterAPI(user)
 
 					if twitter_instance.connection_status():
 
