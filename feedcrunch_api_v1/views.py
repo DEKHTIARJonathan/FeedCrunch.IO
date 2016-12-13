@@ -434,6 +434,77 @@ class RSSFeed_Sub_View(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
+class Article_Exists(APIView):
+	def get(self, request, APIKey=""):
+		try:
+			payload = dict()
+
+			if APIKey == "":
+				check_passed = check_admin_api(request.user)
+
+				if check_passed != True:
+					raise Exception(check_passed)
+
+				user = request.user
+
+			else:
+				try:
+					user = FeedUser.objects.filter(apikey=APIKey)[:1][0]
+				except IndexError:
+					raise Exception("The APIKey Used is not Valid")
+
+				if user.is_superuser and 'posting_user' in request.GET:
+					tmp_username = unicodedata.normalize('NFC', request.GET['posting_user'])
+					try:
+						user = FeedUser.objects.get(username=tmp_username)
+					except ObjectDoesNotExist:
+						raise Exception("The Provided posting_user ('"+tmp_username+"') does not exist")
+
+			article_link = unicodedata.normalize('NFC', request.GET['link'])
+
+			if article_link[:7] == "http://":
+				article_link_base = article_link[7:]
+			elif article_link[:8] == "https://":
+				article_link_base = article_link[8:]
+			elif article_link[:2] == "//":
+				article_link_base = article_link[2:]
+			else:
+				raise Exception ("The link provided is invalid (http/https missing): "+article_link)
+
+			if article_link_base[-1:] == "/":
+				article_link_base = article_link_base[:-1]
+
+			link_http_slash = "http://"+article_link_base+"/"
+			link_https_slash = "https://"+article_link_base+"/"
+			link_http_noslash = "http://"+article_link_base
+			link_https_noslash = "https://"+article_link_base
+
+			links = [
+				link_http_slash,
+				link_https_slash,
+				link_http_noslash,
+				link_https_noslash
+			]
+
+			payload["exists"] = False
+			payload["username"] = user.username
+
+			for art_link in links:
+				if Post.objects.filter(link=art_link, user=user).exists():
+					payload["exists"] = True
+					break
+
+			payload["success"] = True
+
+		except Exception, e:
+			payload["success"] = False
+			payload["error"] = "An error occured in the process: " + str(e)
+
+		payload["operation"] = "Get Article Exists"
+		payload ["timestamp"] = get_timestamp()
+		return Response(payload)
+
+
 class Article(APIView):
 
 	def get(self, request):
