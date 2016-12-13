@@ -19,12 +19,12 @@ def generateRSS(type="", username=""):
 
 	try:
 		user = FeedUser.objects.get(username=username)
-	except FeedUser.DoesNotExist:
+	except ObjectDoesNotExist:
 		raise ValueError("The requested user ['"+username+"'] doesn't exist.")
 
 	try:
 		max_rss_posts = int(Option.objects.get(parameter="max_rss_posts").value)
-	except Option.DoesNotExist:
+	except ObjectDoesNotExist:
 		raise ValueError("The Option 'max_rss_posts' doesn't exist.")
 
 	########## ======================================== FEED GENERATION =========================================== ##########

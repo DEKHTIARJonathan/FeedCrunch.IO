@@ -8,7 +8,7 @@ from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 
 import datetime, unicodedata, json
 from calendar import monthrange
@@ -241,7 +241,7 @@ def reading_recommendation(request, feedname=None):
 			max_recommendation = int(Option.objects.get(parameter="max_recommendation").value)
 			recommendation_decay = float(60) / max_recommendation
 
-		except Option.DoesNotExist:
+		except ObjectDoesNotExist:
 			raise Exception("The Option 'max_recommendation' is not defined")
 
 		#rssarticles = RSSArticle_Assoc.objects.filter(rel_sub_article_assoc__user=request.user, rel_sub_article_assoc__marked_read = False).order_by('-added_date')
@@ -366,7 +366,7 @@ def process_onboarding_view(request, feedname=None):
 		###################### Getting the Option Value for the amount of old articles retrieved by RSS Feed ##############################
 		try:
 			max_old_articles_retrieved_on_interest = int(Option.objects.get(parameter="max_articles_on_interest_sub").value)
-		except Option.DoesNotExist:
+		except ObjectDoesNotExist:
 			raise Exception("The Option 'max_articles_on_interest_sub' is not defined")
 
 		###################### LOOPING THROUGH INTERESTS AND ADD THEM TO THE USER ##############################
