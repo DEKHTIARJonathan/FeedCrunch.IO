@@ -302,7 +302,7 @@ class FeedUser(AbstractFeedUser):
 	company_name = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
 	company_website = models.URLField(max_length=120, default='http://www.feedcrunch.io/', blank=True, null=True)
 
-	apikey = EncryptedCharField(default=uuid.uuid4, editable=False, unique=True, max_length=500)
+	apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, null=False)
 
 	profile_picture = models.ImageField(upload_to=get_photo_path, default=settings.USER_PHOTO_PATH+'dummy_user.png', blank=True, null=True)
 
