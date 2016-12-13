@@ -1,0 +1,2952 @@
+[
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Taking a Subset of a Data Frame in R",
+    "url": "https://www.r-bloggers.com/taking-a-subset-of-a-data-frame-in-r/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Polymer - Build modern apps using web components",
+    "url": "https://github.com/Polymer/polymer",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "4×3 R-Hackathoning – The Finisher's Guide",
+    "url": "https://www.r-bloggers.com/4x3-r-hackathoning-the-finishers-guide/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Building Botnet on ServiceWorkers",
+    "url": "http://sakurity.com/blog/2016/12/10/serviceworker_botnet.html",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to think about the p-value from a randomized test? - Statistical Modeling, Causal Inference, and Social Science",
+    "url": "http://andrewgelman.com/2016/12/11/30715/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "pg_catalog visualized",
+    "url": "https://joelonsql.com/2016/12/10/pg_catalog-visualized/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Bayesian Basics, Explained",
+    "url": "http://www.kdnuggets.com/2016/12/bayesian-basics-explained.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "4 Cognitive Bias Key Points Data Scientists Need to Know",
+    "url": "http://www.kdnuggets.com/2016/12/4-cognitive-bias-key-points-data-scientists-need-know.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Introduction to K-means Clustering: A Tutorial",
+    "url": "http://www.kdnuggets.com/2016/12/datascience-introduction-k-means-clustering-tutorial.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "5 Golden Rules to Growth Hacking Reddit for 1k+ Visitors Per DAY",
+    "url": "http://www.blastoffcode.com/stories/5-golden-rules-for-growth-hacking-reddit-to-1k-visitors-per-day",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Cheatsheet - Excel Functions & Keyboard Shortcuts",
+    "url": "https://www.analyticsvidhya.com/blog/2016/12/cheatsheet-excel-functions-keyboard-shortcuts/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "OAuth vs SAML vs OpenID Connect",
+    "url": "https://www.gluu.org/blog/oauth-vs-saml-vs-openid-connect/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The major advancements in Deep Learning in 2016",
+    "url": "https://tryolabs.com/blog/2016/12/06/major-advancements-deep-learning-2016/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to Ship Side Projects",
+    "url": "http://blog.andyjiang.com/how-to-ship-side-projects/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A Simplified Approach to Container Orchestration",
+    "url": "https://github.com/rusher81572/picluster",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "What is Bitcoin? A Step-By-Step Guide For Beginners",
+    "url": "http://blockgeeks.com/guides/what-is-bitcoin-a-step-by-step-guide/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Sending mail with AWS SES and Route53 (DKIM, SPF, and DMARC)",
+    "url": "https://www.chrisanthropic.com/sending-mail-ses-route53-dkim-spf-dmarc/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Harvard Course - Data Science",
+    "url": "https://matterhorn.dce.harvard.edu/engage/ui/index.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Advanced Data Analysis from an Elementary Point of View",
+    "url": "https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Model-Based Machine Learning",
+    "url": "http://mbmlbook.com/toc.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "k-fold cross validation with modelr and broom",
+    "url": "https://www.r-bloggers.com/k-fold-cross-validation-with-modelr-and-broom/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Adventures in the land of substrings and RegExps.",
+    "url": "http://mrale.ph/blog/2016/11/23/making-less-dart-faster.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Product Hunt dataset",
+    "url": "https://data.world/producthunt/product-hunt-research",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How I Work From Anywhere In The World",
+    "url": "http://wanderling.co/how-i-work-from-anywhere-in-the-world",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Developers' side projects",
+    "url": "https://www.joelonsoftware.com/2016/12/09/developers-side-projects/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "SeaHash Explained - Hashing Algorithm",
+    "url": "https://ticki.github.io/blog/seahash-explained/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Tracking Down a Freaky Python Memory Leak",
+    "url": "https://benbernardblog.com/tracking-down-a-freaky-python-memory-leak/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Monitor in a Box Pro by Stacktile",
+    "url": "https://solutions.stacktile.io/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Preface - Java for Python Programmers",
+    "url": "http://interactivepython.org/courselib/static/java4python/Java4Python.html",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Yann Lecun Slides at NIPS 2016 - Predictive Learning",
+    "url": "https://drive.google.com/file/d/0BxKBnD5y2M8NREZod0tVdW5FLTQ/view",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Experiments in Handwriting with a Neural Network",
+    "url": "http://distill.pub/2016/handwriting/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "What GitHub did to kill its trolls",
+    "url": "http://fusion.net/story/369325/how-to-stop-online-harassment/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Static sites with free, automatic SSL for custom domains",
+    "url": "https://static.land/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "StageXL 1.0 - A fast 2D rendering engine for HTML5 and Dart",
+    "url": "https://medium.com/@bp74/stagexl-1-0-a9c5ff22a534",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Connecting Torch to StarCraft",
+    "url": "https://github.com/TorchCraft/TorchCraft",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "PWebsite Performance Testing with Realistic Networking Conditions",
+    "url": "http://calendar.perfplanet.com/2016/testing-with-realistic-networking-conditions/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Server-less Framework Comparison",
+    "url": "https://blog.zappa.io/posts/comparison-zappa-verus-chalice",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Crypto 101 is an introductory course on cryptography",
+    "url": "https://www.crypto101.io/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning - What, Why and Applications",
+    "url": "http://aiehive.com/deep-learning-applications/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Build Distributed Applications Using Visual Workflows",
+    "url": "https://aws.amazon.com/fr/blogs/aws/new-aws-step-functions-build-distributed-applications-using-visual-workflows/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Benchmarking Commit Logs",
+    "url": "http://bravenewgeek.com/benchmarking-commit-logs/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "GEM - GUI for Elasticsearch Mappings",
+    "url": "https://github.com/appbaseio/gem/blob/dev/README.md",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Blox - Open Source Tools for Amazon ECS",
+    "url": "https://blox.github.io/",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Tiny-dnn - Header only, dependency-free deep learning framework in C++11",
+    "url": "https://github.com/tiny-dnn/tiny-dnn",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Parabola - Easily import, manipulate, and visualize your data without spreadsheets or code",
+    "url": "https://parabola.io/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Predictive Analytics 101 - the basics explained for non-developers",
+    "url": "http://data36.com/predictive-analytics-101-part-1/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Chai - An open source neural network library",
+    "url": "https://github.com/SullyChen/Chai",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "SQL Transaction Isolation Levels Explained",
+    "url": "https://elliot.land/sql-transaction-isolation-levels-explained",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "5 Common Server Setups For Your Web Application",
+    "url": "https://www.digitalocean.com/community/tutorials/5-common-server-setups-for-your-web-application",
+    "user": "engineering"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Speech-to-Text-WaveNet - End-to-end sentence level English speech recognition based on DeepMind's WaveNet and tensorflow",
+    "url": "https://github.com/buriburisuri/speech-to-text-wavenet",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Don't Build Private Clouds",
+    "url": "https://m.subbu.org/dont-build-private-clouds-9a54b3d30c8b#.e31j6eh9a",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "ElemeFE/restc: A server-side middleware to visualize REST requests.",
+    "url": "https://github.com/ElemeFE/restc",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Confessions of an Instagram Influencer - Bloomberg",
+    "url": "https://www.bloomberg.com/news/features/2016-11-30/confessions-of-an-instagram-influencer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Undergrad Math Tips",
+    "url": "https://web.stanford.edu/class/math53/jasp.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Dissecting Reinforcement Learning-Part.1",
+    "url": "https://mpatacchiola.github.io/blog/2016/12/09/dissecting-reinforcement-learning.html?utm_content=bufferbae88&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "ganhacks/README.md at master · soumith/ganhacks",
+    "url": "https://github.com/soumith/ganhacks/blob/master/README.md?utm_content=bufferb4c3c&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Using Cloud Dataflow to run parallel predictions with your TensorFlow model - めもめも",
+    "url": "http://enakai00.hatenablog.com/entry/2016/12/09/104913?utm_content=bufferf2218&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Analyzing Text and Generating Content with Neural Networks and TensorFlow - Blog on All Things Cloud Foundry",
+    "url": "https://blog.altoros.com/analyzing-text-and-generating-content-with-neural-networks-and-tensorflow.html?utm_content=buffer0bdee&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Building an Efficient Neural Language Model Over a Billion Words – Facebook Research",
+    "url": "https://research.fb.com/building-an-efficient-neural-language-model-over-a-billion-words/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Visualizing Top Tweeps with t-SNE, in Javascript",
+    "url": "https://www.opendatascience.com/blog/visualizing-top-tweeps-with-t-sne-in-javascript/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A Modern Guide to Getting Started with Data Science and Python",
+    "url": "https://www.opendatascience.com/blog/a-modern-guide-to-getting-started-with-data-science-and-python/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Interacting with ML Models",
+    "url": "https://www.opendatascience.com/blog/interacting-with-ml-models/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Beyond One-hot: an Exploration of Categorical Variables",
+    "url": "https://www.opendatascience.com/blog/beyond-one-hot-an-exploration-of-categorical-variables/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Goals of Interpretability",
+    "url": "https://www.opendatascience.com/blog/goals-of-interpretability/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Linear Discriminant Analysis – Bit by Bit",
+    "url": "https://www.opendatascience.com/blog/linear-discriminant-analysis/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "natural language processing blog: Whence your reward function?",
+    "url": "http://nlpers.blogspot.fr/2016/12/whence-your-reward-function.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to Create an Interactive WebGL Network Graph Using R",
+    "url": "http://minimaxir.com/2016/12/interactive-network/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Pandas Cheat Sheet for Data Science in Python",
+    "url": "http://blog.yhat.com/posts/pandas-cheat-sheet.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Be careful evaluating model predictions – Win-Vector Blog",
+    "url": "http://www.win-vector.com/blog/2016/12/be-careful-evaluating-model-predictions/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Properties of Interpretability",
+    "url": "https://shapeofdata.wordpress.com/2016/12/05/properties-of-interpretability/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Plotly Blog - 3 Dashboards on Clean Energy",
+    "url": "http://blog.plot.ly/post/154071336762/3-dashboards-on-clean-energy",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Jupyter And R Markdown: Notebooks With R – Medium",
+    "url": "https://medium.com/@kacawi/jupyter-and-r-markdown-notebooks-with-r-5182e16f9188#.xf0456408",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Bokeh Cheat Sheet — Python Data Visualization",
+    "url": "https://mystudentvoices.com/python-data-visualization-bokeh-cheat-sheet-f6bbd987058a#.vtdkk6d2h",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "40+ Python Statistics For Data Science Resources – Medium",
+    "url": "https://medium.com/@kacawi/40-python-statistics-for-data-science-resources-463ee4f4b90d#.edmvq4o4p",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "UX Design: How do we capture style preferences during sign-up?",
+    "url": "http://multithreaded.stitchfix.com/blog/2016/11/30/us-design-capture-style-preferences-during-sign-up/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A survey of cross-lingual embedding models",
+    "url": "http://sebastianruder.com/cross-lingual-embeddings/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "NIPS 2016 Generative Adversarial Training workshop talk - Sebastian Nowozins slow blog",
+    "url": "http://www.nowozin.net/sebastian/blog/nips-2016-generative-adversarial-training-workshop-talk.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Up to Speed on Deep Learning: November Update – Requests for Startups",
+    "url": "http://requestsforstartups.com/2016/11/28/up-to-speed-on-deep-learning-november-update/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "I'm writing a book on Deep Learning and Convolutional Neural Networks (and I need your advice). - PyImageSearch",
+    "url": "http://www.pyimagesearch.com/2016/12/12/im-writing-a-book-on-deep-learning-and-convolutional-neural-networks-and-i-need-your-advice/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Nuit Blanche: Faster Kernel Ridge Regression Using Sketching and Preconditioning / Sharper Bounds for Regression and Low-Rank Approximation with Regularization",
+    "url": "http://nuit-blanche.blogspot.fr/2016/11/faster-kernel-ridge-regression-using.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Nuit Blanche: Efficient Convolutional Auto-Encoding via Random Convexification and Frequency-Domain Minimization",
+    "url": "http://nuit-blanche.blogspot.fr/2016/12/efficient-convolutional-auto-encoding.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Nuit Blanche: Slides: New Directions for Learning with Kernels and Gaussian Processes, Dagstuhl Seminar",
+    "url": "http://nuit-blanche.blogspot.fr/2016/12/slides-new-directions-for-learning-with.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Seventeen Ways to Map Data in Kaggle Kernels: Tutorials for Python and R Users",
+    "url": "http://blog.kaggle.com/2016/11/30/seventeen-ways-to-map-data-in-kaggle-kernels/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "10 Standard Datasets for Practicing Applied Machine Learning - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/standard-machine-learning-datasets/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "7 Time Series Datasets for Machine Learning - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/time-series-datasets-for-machine-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "What Is Time Series Forecasting? - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/time-series-forecasting/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Time Series Forecasting as Supervised Learning - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/time-series-forecasting-supervised-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to Load and Explore Time Series Data in Python - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/load-explore-time-series-data-python/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to Normalize and Standardize Time Series Data in Python - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/normalize-standardize-time-series-data-python/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Decision Trees for Classification",
+    "url": "http://www.lewisgavin.co.uk/Machine-Learning-Decision-Tree/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Clustering Web Users with Streaming K-Means",
+    "url": "http://www.lewisgavin.co.uk/Machine-Learning-Kmeans/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How much memory is my process using? - Julia Evans",
+    "url": "https://jvns.ca/blog/2016/12/03/how-much-memory-is-my-process-using-/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Fast Forward Labs: Machines in Conversation",
+    "url": "http://blog.fastforwardlabs.com/post/154383131913/machines-in-conversation",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Think slow, think fast",
+    "url": "http://datagenetics.com/blog/december32016/index.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Know Your Probability Distributions",
+    "url": "http://101.datascience.community/2016/11/26/know-your-probability-distributions/?utm_source=rss&utm_medium=rss",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning - Part 4 - Content-Based Similar Image Retrieval using CNN",
+    "url": "https://blogs.technet.microsoft.com/machinelearning/2016/11/28/deep-learning-part-4-content-based-similar-image-retrieval-using-cnn/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning Made Easy in Azure",
+    "url": "https://blogs.technet.microsoft.com/machinelearning/2016/11/28/deep-learning-made-easy-in-azure/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How We Share Machine Learning, Analytics & Data Science at Microsoft",
+    "url": "https://blogs.technet.microsoft.com/machinelearning/2016/11/29/how-we-share-machine-learning-analytics-data-science-at-microsoft/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Empowering Developers with AI & Deep Learning",
+    "url": "https://blogs.technet.microsoft.com/machinelearning/2016/11/29/empowering-developers-with-ai-deep-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Finding MLB Anomalies with CADE – Brady Stats – Medium",
+    "url": "https://medium.com/brady-stats/finding-mlb-anomalies-with-cade-c90010464f0a#.k2hlmlep0",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Visualizing Generative Adversarial Networks | bayesianbiologist",
+    "url": "https://bayesianbiologist.com/2016/12/09/visualizing-generative-adversarial-networks/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "10 Algorithms data scientist should know about learning",
+    "url": "http://muoro.io/2016/12/06/10-algorithms-data-scientist-know/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Best Metric to Measure Accuracy of Classification Models",
+    "url": "http://www.kdnuggets.com/2016/12/best-metric-measure-accuracy-classification-models.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "machine learning - How to handle a ratio variable in decision tree (CART or RandomForest) - Stack Overflow",
+    "url": "http://stackoverflow.com/questions/41003165/how-to-handle-a-ratio-variable-in-decision-tree-cart-or-randomforest",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Every image is searchable with Inception & a Crawler in Google Cloud for 0$ – thoughtful impressions",
+    "url": "https://avantlive.wordpress.com/2016/12/01/every-image-is-searchable-with-inception-a-crawler-in-google-cloud-for-0/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Most Boring/Valuable Data Science Advice - Data Bozo",
+    "url": "https://databozo.posthaven.com/the-most-boring-slash-valuable-data-science-advice",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Bokeh Cheat Sheet — Python Data Visualization",
+    "url": "https://mystudentvoices.com/python-data-visualization-bokeh-cheat-sheet-f6bbd987058a#.hqpngd6u6",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Generative Adversarial Networks are the hotness at NIPS 2016 | bayesianbiologist",
+    "url": "https://bayesianbiologist.com/2016/12/07/generative-adversarial-networks-are-the-hotness-at-nips-2016/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Research Blog: Open sourcing the Embedding Projector: a tool for visualizing high dimensional data",
+    "url": "https://research.googleblog.com/2016/12/open-sourcing-embedding-projector-tool.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Google and Slack deepen partnership to help teams work better together",
+    "url": "https://blog.google/topics/google-cloud/google-and-slack-deepen-partnership-help-teams-work-better-together/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "ETL Is Dead, Long-live Streams",
+    "url": "https://www.infoq.com/presentations/etl-streams",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "NIPS 2016 — Day 2 Highlights: Platform wars, RL and RNNs",
+    "url": "https://blog.insightdatascience.com/nips-2016-day-2-highlights-platform-wars-rl-and-rnns-9dca43bc1448#.mje1bxib0",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Properties of Interpretability | The Shape of Data",
+    "url": "https://shapeofdata.wordpress.com/2016/12/05/properties-of-interpretability/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Dawn of Artificial Intelligence – Medium",
+    "url": "https://medium.com/@sderymail/the-dawn-of-artificial-intelligence-f578ccada002#.qmtgtkgs4",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A Huge Debate: R vs. Python for Data Science",
+    "url": "https://blog.dominodatalab.com/video-huge-debate-r-vs-python-data-science/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Ultimate Guide to Leveraging NLP & Machine Learning for your Chatbot",
+    "url": "https://chatbotslife.com/ultimate-guide-to-leveraging-nlp-machine-learning-for-you-chatbot-531ff2dd870c#.pp95bl6vq",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Rethinking Generalization in Deep Learning – Intuition Machine – Medium",
+    "url": "https://medium.com/intuitionmachine/rethinking-generalization-in-deep-learning-ec66ed684ace#.8lq5uarsy",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning the Stock Market – Medium",
+    "url": "https://medium.com/@TalPerry/deep-learning-the-stock-market-df853d139e02#.k7jne3zv1",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "ML Experiments at Sift Science, Part 1: Minimizing Bias - Sift Science Engineering Blog : Sift Science Engineering Blog",
+    "url": "https://engineering.siftscience.com/ml-experiments-part-1-minimizing-bias/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Challenges of Knowledge Graphs — Part 1 – Medium",
+    "url": "https://medium.com/@sderymail/challenges-of-knowledge-graph-part-1-d9ffe9e35214#.7762st58n",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "{Machine, Deep} Learning for software engineers // Speaker Deck",
+    "url": "https://speakerdeck.com/pmigdal/machine-deep-learning-for-software-engineers",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "FlyElephant - Your Home for High Performance Computing",
+    "url": "https://flyelephant.net/data-science",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "ŷhat | Pandas Cheat Sheet for Data Science in Python",
+    "url": "http://blog.yhat.com/posts/pandas-cheat-sheet.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Data Scientist Job Description - Springboard Blog",
+    "url": "https://www.springboard.com/blog/data-scientist-job-description/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A short guide to learn neural networks, and get famous and rich then.",
+    "url": "https://chatbotslife.com/a-short-guide-to-learn-neural-networks-and-get-famous-and-rich-then-bf7da3cba76f#.vg2rl42wo",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "mysql - What is the difference between \"INNER JOIN\" and \"OUTER JOIN\"? - Stack Overflow",
+    "url": "http://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "On the Wrong Side of Algorithms — Part 1 – Medium",
+    "url": "https://medium.com/@sderymail/on-the-wrong-side-of-algorithms-part-1-f266a4c3342b#.9boutz47c",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Introducing Citus 6.0 - A database designed for multi-tenancy",
+    "url": "https://www.citusdata.com/blog/2016/11/14/introducing-citus-6/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Tell me something I don’t know: Detecting novelty and redundancy with natural language processing",
+    "url": "https://gab41.lab41.org/tell-me-something-i-dont-know-detecting-novelty-and-redundancy-with-natural-language-processing-818124e4013c#.lklhndlw9",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Applications of AI in different industries: The list of who's doing what? | Tannistho Ghosh | Pulse | LinkedIn",
+    "url": "https://www.linkedin.com/pulse/applications-ai-different-industries-list-whos-doing-what-ghosh?trk=hp-feed-article-title-publish",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Jonathan Sacramento | Clean SQL",
+    "url": "http://jonathansacramento.com/posts/20161119_clean_sql.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Jupyter Notebook Tutorial: The Definitive Guide – Medium",
+    "url": "https://medium.com/@kacawi/jupyter-notebook-tutorial-the-definitive-guide-660c7e651ecd#.sznzmiel2",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Introducing the Data Science Maturity Model",
+    "url": "https://blog.dominodatalab.com/introducing-the-data-science-maturity-model/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Using NLP and Text Mining to understand how media coverage influenced the US presidential election - AYLIEN",
+    "url": "http://blog.aylien.com/using-nlp-and-text-mining-to-understand-how-media-coverage-influenced-the-us-presidential-election/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Working with Time-Series Data on Redshift",
+    "url": "https://blog.blendo.co/time-series-data-redshift-mixpanel/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Rethinking Generalization in Deep Learning – Intuition Machine – Medium",
+    "url": "https://medium.com/intuitionmachine/rethinking-generalization-in-deep-learning-ec66ed684ace#.1vn91ei7a",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Dong_Ying.pdf",
+    "url": "http://www.ke.tu-darmstadt.de/lehre/arbeiten/studien/2015/Dong_Ying.pdf",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The hard thing about deep learning - O'Reilly Media",
+    "url": "https://www.oreilly.com/ideas/the-hard-thing-about-deep-learning?twitter=@bigdata",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "5 Tactics to teach a novice about Machine Learning! – Medium",
+    "url": "https://medium.com/@rajendramishra18/5-tactics-to-teach-a-novice-about-machine-learning-6eb813ac795b#.4b26718bs",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Plotcon 2016 Visualization Talk by Alexandra Johnson",
+    "url": "http://www.slideshare.net/SigOpt/plotcon-2016-visualization-talk-by-alexandra-johnson-69205996",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "An Attempt to Understand Boosting Algorithm(s) | R-bloggers",
+    "url": "https://www.r-bloggers.com/an-attempt-to-understand-boosting-algorithms/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Online Summarizers overview | Yuri Kitin | Pulse | LinkedIn",
+    "url": "https://www.linkedin.com/pulse/online-summarizers-overview-yuri-kitin?_mSplash=1",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning Research Review Week 2: Reinforcement Learning – Adit Deshpande – CS Undergrad at UCLA ('19)",
+    "url": "https://adeshpande3.github.io/adeshpande3.github.io/Deep-Learning-Research-Review-Week-2-Reinforcement-Learning",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "blog_posts/",
+    "url": "http://localhost:8888/tree/blog_posts",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Untitled",
+    "url": "http://localhost:8888/notebooks/blog_posts/Untitled.ipynb",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Flipp – Flipp",
+    "url": "http://flippbar.com/?utm_source=BetaList",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Home - airfocus.io",
+    "url": "https://airfocus.io/?utm_source=betalist",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "FeedCrunch.IO | Administration Dashboard",
+    "url": "https://www.feedcrunch.io/@dataradar/admin/article/add/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "FeedCrunch.IO | Administration Dashboard",
+    "url": "https://www.feedcrunch.io/@dataradar/admin/article/edit/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "FeedCrunch.IO | Administration Dashboard",
+    "url": "https://www.feedcrunch.io/@dataradar/admin/reading/subscription/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Chris Albon",
+    "url": "http://chrisalbon.com/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "District Data Labs - Python Exception Handling Basics",
+    "url": "http://blog.districtdatalabs.com/python-exception-handling-basics",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Francesco Corea – Medium",
+    "url": "https://medium.com/@corea.fr",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Change user | Django site admin",
+    "url": "http://localhost:5000/admin/feedcrunch/feeduser/dataradar/change/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "does not exist exception django - Recherche Google",
+    "url": "https://www.google.fr/search?q=does+not+exist+exception+django&oq=doesnotexist+exception+&aqs=chrome.1.69i57j0l5.7040j0j4&sourceid=chrome&ie=UTF-8",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "unit testing - How do I import the Django DoesNotExist exception? - Stack Overflow",
+    "url": "http://stackoverflow.com/questions/11109468/how-do-i-import-the-django-doesnotexist-exception",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "python - Django DoesNotExist - Stack Overflow",
+    "url": "http://stackoverflow.com/questions/16181188/django-doesnotexist",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "python - I want to exception handle 'list index out of range.' - Stack Overflow",
+    "url": "http://stackoverflow.com/questions/11902458/i-want-to-exception-handle-list-index-out-of-range",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Make a query over encrypted field · Issue #17 · defrex/django-encrypted-fields",
+    "url": "https://github.com/defrex/django-encrypted-fields/issues/17",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Requests for Research",
+    "url": "https://openai.com/requests-for-research/#multiobjective-rl",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Intel Unveils FPGA to Accelerate Neural Networks",
+    "url": "http://datacenterfrontier.com/intel-unveils-fpga-to-accelerate-ai-neural-networks/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A Complete Guide to Landing Page Optimization - Mountnow",
+    "url": "http://www.mountnow.com/landing-page-optimization/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Big data sets available for free - Data Science Central",
+    "url": "http://www.datasciencecentral.com/profiles/blogs/big-data-sets-available-for-free?utm_content=buffer20120&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to Become a Data Scientist - Springboard Blog",
+    "url": "https://www.springboard.com/blog/how-to-become-a-data-scientist/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Online Summarizers overview | LinkedIn",
+    "url": "https://www.linkedin.com/pulse/online-summarizers-overview-yuri-kitin?_mSplash=1",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Data Science, Machine Learning, Artificial Intelligence, Big Data, and IoT Resources – InnoArchiTech | Innovation, enterprise and SaaS cloud-based software and data solutions, machine learning, artificial intelligence, data science, and big data",
+    "url": "http://www.innoarchitech.com/data-science-machine-learning-artificial-intelligence-ai-analytics-links-resources/?utm_source=datatau&utm_medium=urlsubmit&utm_content=submitlink&utm_campaign=promote",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Women in Machine Learning and Artificial Intelligence | Sona Maniyan | Pulse | LinkedIn",
+    "url": "https://www.linkedin.com/pulse/women-machine-learning-artificial-intelligence-sona-maniyan?trk=pulse_spock-articles",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "cameronfabbri/Colorful-Image-Colorization: A deep learning approach to colorizing images",
+    "url": "https://github.com/cameronfabbri/Colorful-Image-Colorization",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Example ML projects in Data Science, Data Engineering, and Artificial Intelligence",
+    "url": "https://blog.insightdatascience.com/example-ml-projects-in-data-science-data-engineering-and-artificial-intelligence-e3cc367956fb#.dmch8buos",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "5 Tactics to teach a novice about Machine Learning! – Medium",
+    "url": "https://medium.com/@rajendramishra18/5-tactics-to-teach-a-novice-about-machine-learning-6eb813ac795b#.h9wxh4glo",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Trust in Data Science",
+    "url": "https://technology.cloverhealth.com/trust-in-data-science-b7ff5c9c6425#.2mm9yxmoy",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "www.ke.tu-darmstadt.de/lehre/arbeiten/studien/2015/Dong_Ying.pdf",
+    "url": "http://www.ke.tu-darmstadt.de/lehre/arbeiten/studien/2015/Dong_Ying.pdf",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "great summary of deep learning : MachineLearning",
+    "url": "https://www.reddit.com/r/MachineLearning/comments/40kh35/great_summary_of_deep_learning",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Fraud Detection with Deep Learning at Paypal",
+    "url": "http://university.h2o.ai/cds-lp/cds02.html?platform=hootsuite",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Learning to learn and compositionality with deep recurrent neural networks - YouTube",
+    "url": "https://www.youtube.com/watch?v=x1kf4Zojtb0",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The AI Revolution: Why Deep Learning Is Suddenly Changing Your Life",
+    "url": "http://fortune.com/ai-artificial-intelligence-deep-machine-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Getting Tensorflow to work with GPU NVidia GTX 1080 on Ubuntu 16.04 LTS | Abhay Harpale",
+    "url": "http://abhay.harpale.net/blog/machine-learning/deep-learning/getting-tensorflow-to-work-with-gpu-nvidia-gtx-1080-on-ubuntu-16-04-lts/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning Frameworks Compared - YouTube",
+    "url": "https://www.youtube.com/watch?v=MDP9FfsNx60",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Open Source Image Classification Deep Learning Neural Network",
+    "url": "https://n0where.net/open-source-image-classification-deep-learning-neural-network/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "leriomaggio/deep-learning-keras-tensorflow-pyss2016: Deep Learning Tutorial with Keras and Tensorflow - Invited Speaker @ Python San Sebastian 2016",
+    "url": "https://github.com/leriomaggio/deep-learning-keras-tensorflow-pyss2016",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Build your own TensorFlow with NNVM and Torch",
+    "url": "http://dmlc.ml/2016/09/30/build-your-own-tensorflow-with-nnvm-and-torch.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A simple workflow for deep learning | Cartesian Faith",
+    "url": "https://cartesianfaith.com/2016/09/29/a-simple-workflow-for-deep-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep learning architecture diagrams - FastML",
+    "url": "http://fastml.com/deep-learning-architecture-diagrams/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Baidu Releases AI Benchmark | EE Times",
+    "url": "http://www.eetimes.com/document.asp?doc_id=1330521",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Generating Faces with Deconvolution Networks",
+    "url": "https://zo7.github.io/blog/2016/09/25/generating-faces.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep-Earning, or, Why Attend a Deep-Learning Workshop",
+    "url": "http://silverpond.com.au/2016/09/27/deep-earning.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "What is “Deep Learning”? - Go Parallel",
+    "url": "https://goparallel.sourceforge.net/what-is-deep-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Tell me something I don’t know: Detecting novelty and redundancy with natural language processing",
+    "url": "https://gab41.lab41.org/tell-me-something-i-dont-know-detecting-novelty-and-redundancy-with-natural-language-processing-818124e4013c#.den479ysp",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Visualization for Data Driven Storytelling",
+    "url": "https://gab41.lab41.org/why-data-visualization-3cf85990b41b#.upn2xkfyu",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Exploring Pipelines",
+    "url": "https://gab41.lab41.org/exploring-pipelines-68f900625bd4#.49f1x6myp",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The 10 Algorithms Machine Learning Engineers Need to Know",
+    "url": "https://gab41.lab41.org/the-10-algorithms-machine-learning-engineers-need-to-know-f4bb63f5b2fa#.6ooej6nbx",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "TPS Report for Recommender Systems? Yeah, That Would be Great.",
+    "url": "https://gab41.lab41.org/tps-report-for-recommender-systems-yeah-that-would-be-great-3beb26ab9fe0#.mtqmz7rza",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A Tour of Sentiment Analysis Techniques: Getting a Baseline for Sunny Side Up",
+    "url": "https://gab41.lab41.org/a-tour-of-sentiment-analysis-techniques-getting-a-baseline-for-sunny-side-up-45730ec03330#.a0b9pxsvf",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Nearest Neighbors At Scale",
+    "url": "https://gab41.lab41.org/nearest-neighbors-at-scale-e55a8d02b16b#.xf7osnhha",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Stress Test: Open Source Graph Analytics Packages",
+    "url": "https://gab41.lab41.org/introducing-skyline-60902efe19f9#.rz5dre8v8",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Three Things We Learned About Applying Word Vectors to Computer Logs",
+    "url": "https://gab41.lab41.org/three-things-we-learned-about-applying-word-vectors-to-computer-logs-c199070f390b#.oaj4c5rp6",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "nlintz/TensorFlow-Tutorials: Simple tutorials using Google's TensorFlow Framework",
+    "url": "https://github.com/nlintz/TensorFlow-Tutorials",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "CS224d-Lecture7.pdf",
+    "url": "https://cs224d.stanford.edu/lectures/CS224d-Lecture7.pdf",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Exploring Computer Vision (Part I): Convolutional Neural Networks",
+    "url": "https://indico.io/blog/exploring-computer-vision-convolutional-neural-nets/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Exploring Computer Vision (Part II): Transfer Learning",
+    "url": "https://indico.io/blog/exploring-computer-vision-transfer-learning/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning in Fashion (Part 2): Matching Recommendations",
+    "url": "https://indico.io/blog/deep-learning-fashion-matching-recommendations/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Average Face : OpenCV ( C++ / Python ) Tutorial | Learn OpenCV",
+    "url": "http://www.learnopencv.com/average-face-opencv-c-python-tutorial/?utm_content=buffer9a4cc&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Statistical analysis in Google Sheets - Data Science Central",
+    "url": "http://www.datasciencecentral.com/profiles/blogs/statistical-analysis-in-google-sheets",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Feedreader Online",
+    "url": "http://feedreader.com/online/#/reader/category/all/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Materialistic - Hacker News – Applications Android sur Google Play",
+    "url": "https://play.google.com/store/apps/details?id=io.github.hidroh.materialistic",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Channels adopted as an official Django project | Weblog | Django",
+    "url": "https://www.djangoproject.com/weblog/2016/sep/09/channels-adopted-official-django-project/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Animated CSS3 radio inputs with - Radiobox.css",
+    "url": "https://720kb.github.io/radiobox.css/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Best Pitch Deck Examples from Real Startups",
+    "url": "https://attach.io/startup-pitch-decks/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Materia - Develop web and mobile application at the speed of light.",
+    "url": "https://getmateria.com/?hn",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Vulnerable Method detection now available for Python projects - SourceClear",
+    "url": "https://blog.sourceclear.com/python-vulnerable-methods/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning Reading Group: Deep Networks with Stochastic Depth",
+    "url": "http://www.kdnuggets.com/2016/09/deep-learning-reading-group-stochastic-depth-networks.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "kjw0612/awesome-rnn: Recurrent Neural Network - A curated list of resources dedicated to RNN",
+    "url": "https://github.com/kjw0612/awesome-rnn",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "EmbedBox install UI by Eager",
+    "url": "http://embedbox.io/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "KDnuggets part-time, paid internship in Data Science, Data Journalism",
+    "url": "http://www.kdnuggets.com/2016/09/kdnuggets-internship-data-science-data-journalism.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Be Productive Anywhere: 8 Proven Strategies for Better Remote Work",
+    "url": "https://zapier.com/blog/productive-remote-work/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Secret Ingredients: The Truth About China’s “Fake Food” | the Beijinger",
+    "url": "https://www.thebeijinger.com/blog/2016/08/08/secret-ingredients-truth-about-chinas-fake-food",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How to Write Articles and Essays Quickly and Expertly ~ Stephen Downes",
+    "url": "http://www.downes.ca/post/38526",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Single-Layer Neural Networks and Gradient Descent | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/single-layer-neural-networks-and-gradient-descent/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "jakevdp/PythonDataScienceHandbook: Supplemental materials for my OReilly project, the Python Data Science Handbook",
+    "url": "https://github.com/jakevdp/PythonDataScienceHandbook",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Extraordinary Link Between Deep Neural Networks and the Nature of the Universe",
+    "url": "https://www.technologyreview.com/s/602344/the-extraordinary-link-between-deep-neural-networks-and-the-nature-of-the-universe/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "christabor/flask_jsondash: Build javascript chart dashboards without any front-end code. Uses any json endpoint. JSON config only. Ready to go.",
+    "url": "https://github.com/christabor/flask_jsondash",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Kubernetes: Creating a PostgreSQL Cluster using Helm",
+    "url": "http://blog.kubernetes.io/2016/09/creating-postgresql-cluster-using-helm.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Turning keywords into a co-occurrence network | R-bloggers",
+    "url": "https://www.r-bloggers.com/turning-keywords-into-a-co-occurrence-network/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "More data scientists prefer R: survey",
+    "url": "http://blog.revolutionanalytics.com/2016/07/burtch-survey.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Superbook: Turn your smartphone into a laptop for $99 by Andromium Inc. — Kickstarter",
+    "url": "https://www.kickstarter.com/projects/andromium/the-superbook-turn-your-smartphone-into-a-laptop-f/description",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Disney Research » A Compiler for 3D Machine Knitting",
+    "url": "https://www.disneyresearch.com/publication/machine-knitting-compiler/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "More Data ≠ Rich Data | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/more-data-%E2%89%A0-rich-data/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A budget of classifier evaluation measures | R-bloggers",
+    "url": "http://www.r-bloggers.com/a-budget-of-classifier-evaluation-measures/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Machine Learning: Separating Hype From Reality",
+    "url": "http://www.kdnuggets.com/2016/07/machine-learning-hype-reality.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "40 Techniques Used by Data Scientists - Data Science Central",
+    "url": "http://www.datasciencecentral.com/profiles/blogs/40-techniques-used-by-data-scientists",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "10 Data Acquisition Strategies for Startups — Medium",
+    "url": "https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48#.udq42i2ql",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Top 10 Data Visualization Projects on Github",
+    "url": "http://www.kdnuggets.com/2016/02/top-10-data-visualization-github.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Report: Machine Learning Driving AI",
+    "url": "http://www.datanami.com/2016/07/11/report-machine-learning-driving-ai/?utm_content=buffer2599a&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Limitations of Deep Learning and strategic observations - Data Science Central",
+    "url": "http://gettopical.com/deep-learning/b0191af4a4cd99c1f1e0dd3faf89bacd?src=twitter",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "A Simple Confusion Matrix Guide | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/a-simple-confusion-matrix-guide/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Taste - Movie suggestions based on your taste",
+    "url": "http://www.taste.io/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Ask HN: Best monitoring system? | Hacker News",
+    "url": "https://news.ycombinator.com/item?id=12145879",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Errata Security: My Raspeberry Pi cluster",
+    "url": "http://blog.erratasec.com/2016/07/my-raspeberry-pi-cluster.html#.V5NeRmiLSUl",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Squarespace Engineering",
+    "url": "http://engineering.squarespace.com/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "SAS vs R vs Python: Which Tool Do Analytics Pros Prefer?",
+    "url": "http://www.kdnuggets.com/2016/07/burtchworks-sas-r-python-analytics-pros-prefer.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Predictive Models on Random Data",
+    "url": "http://dataskeptic.com/epnotes/predictive-models-on-random-data.php",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "[1607.06221v1] A Perspective on Sentiment Analysis",
+    "url": "http://arxiv.org/abs/1607.06221v1",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "JupyterLab: the next generation of the Jupyter Notebook",
+    "url": "http://blog.jupyter.org/2016/07/14/jupyter-lab-alpha/?utm_content=bufferdc1ce&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Rise of Social Bots! | Emilio Ferrara, Ph.D.",
+    "url": "http://www.emilio.ferrara.name/2016/06/28/the-rise-of-social-bots/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Peeking Inside Convolutional Neural Networks",
+    "url": "http://www.kdnuggets.com/2016/06/peeking-inside-convolutional-neural-networks.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "An Inside Update on Natural Language Processing",
+    "url": "http://www.kdnuggets.com/2016/06/inside-update-natural-language-processing.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Improving Nudity Detection and NSFW Image Recognition",
+    "url": "http://www.kdnuggets.com/2016/06/algorithmia-improving-nudity-detection-nsfw-image-recognition.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Doing Data Science: A Kaggle Walkthrough Part 6 – Creating a Model",
+    "url": "http://www.kdnuggets.com/2016/06/doing-data-science-kaggle-walkthrough-creating-model.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Large Scale Machine Learning and Other Animals: A new machine learning podcast",
+    "url": "http://bickson.blogspot.fr/2016/06/a-new-machine-learning-podcast.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Machined Learnings: Accelerating progress in dialogue",
+    "url": "http://www.machinedlearnings.com/2016/06/accelerating-progress-in-dialogue.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Analysing NLP publication patterns - Marek Rei",
+    "url": "http://www.marekrei.com/blog/analysing-nlp-publication-patterns/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Nuit Blanche: DropNeuron: Simplifying the Structure of Deep Neural Networks - implementation -",
+    "url": "http://nuit-blanche.blogspot.fr/2016/06/dropneuron-simplifying-structure-of.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Hitchhikers Guide to Github: 13 Java Projects You Should Try | Takipi Blog",
+    "url": "http://blog.takipi.com/the-hitchhikers-guide-to-github-13-java-projects-you-should-try/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Text Analysis blog | Aylien — New Feature: News API - Clustering",
+    "url": "http://blog.aylien.com/post/146660841138/new-feature-news-api-clustering",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Virtual Desktop Makes Earning Your Data Science Degree Convenient",
+    "url": "http://datasciencedegree.wisconsin.edu/blog/virtual-desktop-will-help-get-data-science-degree/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Data Links #57 - Will do stuff for stuff",
+    "url": "https://rinzewind.org/blog-en/2016/data-links-57.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "ŷhat | New Whitepaper Preview: Data Science in Practice",
+    "url": "http://blog.yhat.com/posts/data-science-in-practice.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "12 Free Mind Mapping Tools For a Data Scientist To Enhance Structured Thinking",
+    "url": "http://www.analyticsvidhya.com/blog/2016/06/12-free-mind-mapping-tools-data-scientist-enhance-structured-thinking/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "IBM's Data Science Experience | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/ibms-data-science-experience/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "R: Getting Started with Data Science | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/r-getting-started-with-data-science/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Python: Get Started with Data Science | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/python-getting-started-with-data-science/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Amazon Destiny | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/amazon-enters-the-open-source-deep-learning-fray/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Embedding Interactive Maps into an IPython Notebook | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/embedding-interactive-maps-into-an-ipython-notebook/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Building a Data Science Portfolio: Storytelling with Data - Cloudera Engineering Blog",
+    "url": "http://blog.cloudera.com/blog/2016/06/building-a-data-science-portfolio-storytelling-with-data/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "CorrMapper (main project of my phd) is ready(ish) | Daniel Homola",
+    "url": "http://danielhomola.com/2016/06/30/corrmapper-main-project-of-my-phd-is-readyish/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Data Science Ethical Framework | Data Science 101",
+    "url": "http://101.datascience.community/2016/06/24/data-science-ethical-framework/?utm_source=rss&utm_medium=rss",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Predictive Policing",
+    "url": "http://dataskeptic.com/epnotes/predictive-policing.php",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Anatomy of an Elasticsearch Cluster: Part I",
+    "url": "http://insightdataengineering.com/blog/elasticsearch-crud/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Static and dynamic network visualization with R",
+    "url": "http://kateto.net/network-visualization#",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Research Blog: Project Bloks: Making code physical for kids",
+    "url": "https://research.googleblog.com/2016/06/project-bloks-making-code-physical-for.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Tau Day | No, really, pi is wrong: The Tau Manifesto by Michael Hartl",
+    "url": "http://tauday.com/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Transforming Healthcare",
+    "url": "http://insighthealthdata.com/blog/health-consulting/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "3 Reasons Counting is the Hardest Thing in Data Science",
+    "url": "http://daynebatten.com/2016/06/counting-hard-data-science/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "The Unreasonable Advantages of Deep Learning « Sentiment Analysis Symposium",
+    "url": "http://sentimentsymposium.com/sessions/the-unreasonable-advantages-of-deep-learning-dan-kuster-indico",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "What is the Difference Between Deep Learning and “Regular” Machine Learning?",
+    "url": "http://www.kdnuggets.com/2016/06/difference-between-deep-learning-regular-machine-learning.html?utm_content=bufferf9944&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Deep Learning, Pachinko, and James Watt: Efficiency is the Driver of Uncertainty",
+    "url": "http://www.kdnuggets.com/2016/06/deep-learning-pachinko-james-watt-efficiency-driver-uncertainty.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Five mistakes beginners make when working with databases Craig Kerstiens",
+    "url": "http://www.craigkerstiens.com/2016/06/07/five-mistakes-databases/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Regression Tutorial with the Keras Deep Learning Library in Python - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "awslabs/lambda-refarch-mobilebackend: Serverless Reference Architecture for creating a Mobile Backend",
+    "url": "https://github.com/awslabs/lambda-refarch-mobilebackend",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Where are the Opportunities for Machine Learning Startups?",
+    "url": "http://www.kdnuggets.com/2016/06/opportunites-machine-learning-startups.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "MongoDB queries don’t always return all matching documents! — Meteor Engineering",
+    "url": "https://engineering.meteor.com/mongodb-queries-dont-always-return-all-matching-documents-654b6594a827#.e94p7yrr2",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Requests for Research",
+    "url": "https://openai.com/requests-for-research/#",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "IBM: Open Source Data Scientist",
+    "url": "http://www.kdnuggets.com/jobs/16/06-08-ibm-open-source-data-scientist.html",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "2016 Student Data Science Programs with RaRe Technologies | RaRe Technologies",
+    "url": "http://rare-technologies.com/student-data-science-programs/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "TFLearn",
+    "url": "http://tflearn.org/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "How do some developers learn a new programming language in one night? - Quora",
+    "url": "https://www.quora.com/How-do-some-developers-learn-a-new-programming-language-in-one-night?share=1",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "GroSum Blogs: 10 ways for Continuous Performance Evaluation and Feedback",
+    "url": "https://grosum.com/blog.do?method=openBlogBody&id=10_ways_for_Continuous_Performance_Evaluation_and_Feedback",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Boosting Sales With Machine Learning — Xeneta — Medium",
+    "url": "https://medium.com/xeneta/boosting-sales-with-machine-learning-fbcf2e618be3#.d38kw7jig",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Docshare.io | Instant Document Tracking & Notifications",
+    "url": "https://docshare.io/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Save and Load Machine Learning Models in Python with scikit-learn - Machine Learning Mastery",
+    "url": "http://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "saiprashanths/dl-docker: An all-in-one Docker image for deep learning. Contains all the popular DL frameworks (TensorFlow, Theano, Torch, Caffe, etc.)",
+    "url": "https://github.com/saiprashanths/dl-docker",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Docker’s dirty little secret",
+    "url": "http://blog.altometrics.com/2016/06/dockers-dirty-little-secret/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Exclusive Python Tutorials & Talks from PyCon 2016 Portland, Oregon",
+    "url": "http://www.analyticsvidhya.com/blog/2016/06/exclusive-python-tutorials-talks-pycon-2016-portland-oregon/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Naive Bayes and Spam Detection | Open Data Science",
+    "url": "https://www.opendatascience.com/blog/naive-bayes-and-spam-detection/",
+    "user": "dataradar"
+  },
+  {
+    "tag1": "",
+    "tag2": "",
+    "tag3": "",
+    "tag4": "",
+    "tag5": "",
+    "title": "Building & Understanding Predictive Maintenance Solutions for the Aerospace Industry | Cortana Intelligence and Machine Learning Blog",
+    "url": "https://blogs.technet.microsoft.com/machinelearning/2016/06/07/building-understanding-predictive-maintenance-solutions-for-the-aerospace-industry/",
+    "user": "dataradar"
+  }
+]
