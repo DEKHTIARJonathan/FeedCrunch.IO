@@ -21,9 +21,11 @@ def check_admin(feedname, user, bypassOnboarding = False):
 	elif user.onboarding_done and bypassOnboarding:
 		return HttpResponseRedirect('/@'+user.username+'/admin')
 
+	'''
 	elif not (user.onboarding_done or bypassOnboarding):
 		return HttpResponseRedirect('/@'+user.username+'/admin/onboarding/')
-
+	'''
+	
 	else:
 		return True
 
