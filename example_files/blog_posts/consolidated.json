@@ -57,7 +57,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "SentimentAnalysis,NLP,MachineLearning,Data,DataScience",
+		"tags": "SentimentAnalysis,NLP,MachineLearning,Analysis,Data",
 		"title": "Twitter sentiment analysis with R",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/04/28/twitter-sentiment-analysis/",
@@ -65,7 +65,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "SentimentAnalysis,NLP,MachineLearning,Data,DataScience",
+		"tags": "SentimentAnalysis,NLP,MachineLearning,Analysis,Data",
 		"title": "Twitter sentiment analysis based on affective lexicons with R",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/05/11/twitter-sentiment-analysis-based-on-affective-lexicons-in-r/",
@@ -73,7 +73,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "PHP,WebApp,Data,DataScience,AI",
+		"tags": "PHP,WebApp,Analysis,Cohort,Statistic",
 		"title": "Cohort analysis with R - Layer-cake graph - Part 1",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/05/31/cohort-analysis-in-r-layer-cake-graph/",
@@ -81,7 +81,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "PHP,WebApp,Data,DataScience,AI",
+		"tags": "PHP,WebApp,Analysis,Cohort,Statistic",
 		"title": "Cohort analysis with R - Layer-cake graph - Part 2",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/06/05/cohort-analysis-in-r-layer-cake-graph-part-2/",
@@ -89,7 +89,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Cohort,Statistic,Data,DataScience",
 		"title": "Cohort analysis with R - Retention charts",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/07/03/cohort-analysis-in-r-retention-charts/",
@@ -97,7 +97,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis, MultiLayer,DeepLearning,NeuralNet,Data",
 		"title": "Shopping cart analysis with R - Multi-layer pie chart",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/10/17/cart-analysis-r/",
@@ -105,7 +105,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,diagram,DataViz,Data,DataScience",
 		"title": "Sequence of shopping carts analysis with R - Sankey diagram",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/10/31/sequence-carts-analysis-sankey/",
@@ -113,7 +113,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Data,DataScience,AI",
 		"title": "Sequence of shopping carts in-depth analysis with R",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/12/04/sequence-carts-in-depth-analysis-with-r/",
@@ -121,7 +121,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Clustering,MachineLearning,Data,DataScience,AI",
+		"tags": "Clustering,MachineLearning,Analysis,Data,DataScience",
 		"title": "Sequence of shopping carts in-depth analysis with R - Clustering",
 		"twitter": true,
 		"url": "http://analyzecore.com/2014/12/27/sequence-carts-in-depth-analysis-with-r-clustering/",
@@ -129,7 +129,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Data,DataScience,AI",
 		"title": "Sequence of shopping carts in-depth analysis with R – Sequence of events",
 		"twitter": true,
 		"url": "http://analyzecore.com/2015/01/28/sequence-carts-in-depth-analysis-with-r-events/",
@@ -153,7 +153,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Cohort,Statistic,Data,DataScience",
 		"title": "Cohort Analysis and LifeCycle Grids mixed segmentation with R",
 		"twitter": true,
 		"url": "http://analyzecore.com/2015/04/01/cohort-analysis-and-lifecycle-grids-mixed-segmentation-with-r/",
@@ -161,7 +161,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Cohort,Statistic,Data,DataScience",
 		"title": "Cohort Analysis with Heatmap",
 		"twitter": true,
 		"url": "http://analyzecore.com/2015/05/03/cohort-analysis-with-heatmap/",
@@ -177,7 +177,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Business,Data,DataScience,AI",
 		"title": "Measuring business health with Delta LifeCycle Grids and R",
 		"twitter": true,
 		"url": "http://analyzecore.com/2015/08/27/measuring-business-health-with-delta-lifecycle-grids-and-r/",
@@ -185,7 +185,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DataViz,MachineLearning,Data,DataScience,AI",
+		"tags": "DataViz,MachineLearning,Analysis,Cohort,Statistic",
 		"title": "Cohort analysis - Retention Rate Visualization with R",
 		"twitter": true,
 		"url": "http://analyzecore.com/2015/12/10/cohort-analysis-retention-rate-visualization-r/",
@@ -209,7 +209,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "HowTo,GettingStarted,Data,DataScience,AI",
+		"tags": "HowTo,GettingStarted,Test,Random,Data",
 		"title": "How to think about the p-value from a randomized test?",
 		"twitter": true,
 		"url": "http://andrewgelman.com/2016/12/11/30715/",
@@ -233,7 +233,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Research,SentimentAnalysis,NLP,MachineLearning,Data",
+		"tags": "Research,SentimentAnalysis,NLP,MachineLearning,Analysis",
 		"title": "A Perspective on Sentiment Analysis",
 		"twitter": true,
 		"url": "http://arxiv.org/abs/1607.06221v1",
@@ -241,7 +241,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Mathematic,Science,Data,DataScience,AI",
 		"title": "Mathematical Notation Is Awful",
 		"twitter": true,
 		"url": "http://blackhole12.blogspot.com/2016/07/mathematical-notation-is-awful.html",
@@ -249,7 +249,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide",
+		"tags": "Guide,UI,UX,Design",
 		"title": "What is Bitcoin? A Step-By-Step Guide For Beginners",
 		"twitter": true,
 		"url": "http://blockgeeks.com/guides/what-is-bitcoin-a-step-by-step-guide/",
@@ -273,7 +273,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Software,OpenSource",
 		"title": "Ulterius is an open-source software that provides remote access in the browser.",
 		"twitter": true,
 		"url": "http://blog.andrew.im/post/148661867485/ulterius",
@@ -305,8 +305,8 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
-		"title": "Building a Data Science Portfolio - Storytelling with Data",
+		"tags": "UI,UX,Design,Data,DataScience",
+		"title": "Building a Data Science Portfolio - Storytelling with ",
 		"twitter": true,
 		"url": "http://blog.cloudera.com/blog/2016/06/building-a-data-science-portfolio-storytelling-with-data/",
 		"user": "dataradar"
@@ -321,7 +321,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "NLP,DeepLearning,MachineLearning,Data,DataScience",
+		"tags": "NLP,DeepLearning,MachineLearning,Search,Data",
 		"title": "NLP Research Lab - Part 1 - Distributed Representations",
 		"twitter": true,
 		"url": "http://blog.districtdatalabs.com/nlp-research-lab-part-1-distributed-representations",
@@ -329,7 +329,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "NLP,DeepLearning,MachineLearning,Data,DataScience",
+		"tags": "NLP,DeepLearning,MachineLearning,Search,Data",
 		"title": "NLP Research Lab - Part 2 - Skip-Gram Architecture Overview",
 		"twitter": true,
 		"url": "http://blog.districtdatalabs.com/nlp-research-lab-part-2-skip-gram-architecture-overview",
@@ -345,7 +345,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "ITSec,Security,InfoSec",
 		"title": "Errata Security: My Raspeberry Pi cluster",
 		"twitter": true,
 		"url": "http://blog.erratasec.com/2016/07/my-raspeberry-pi-cluster.html",
@@ -401,7 +401,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Business",
 		"title": "Thinking about Starting Your Own Business? Check GEM First!",
 		"twitter": true,
 		"url": "http://blog.nycdatascience.com/student-works/thinking-starting-business-check-gem-first/",
@@ -417,7 +417,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Data,DataScience,DataScientist,DataAnalyst,Job",
 		"title": "More data scientists prefer R - A survey",
 		"twitter": true,
 		"url": "http://blog.revolutionanalytics.com/2016/07/burtch-survey.html",
@@ -505,8 +505,8 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
-		"title": "PWebsite Performance Testing with Realistic Networking Conditions",
+		"tags": "Test,WebDevelopment,WebApp,Performance",
+		"title": "Website Performance Testing with Realistic Networking Conditions",
 		"twitter": true,
 		"url": "http://calendar.perfplanet.com/2016/testing-with-realistic-networking-conditions/",
 		"user": "engineering"
@@ -521,7 +521,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "SearchEngine,Search,Data,DataScience,AI",
 		"title": "Creating a Search Engine",
 		"twitter": true,
 		"url": "http://camron.xyz/index.php/2016/08/19/creating-a-search-engine/",
@@ -577,7 +577,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "CrossValidation,Statistic,MachineLearning,Data,DataScience",
+		"tags": "CrossValidation,Statistic,MachineLearning,Search,Data",
 		"title": "Cross Validation With Parameter Tuning Using Grid Search",
 		"twitter": true,
 		"url": "http://chrisalbon.com/machine-learning/cross_validation_parameter_tuning_grid_search.html",
@@ -593,7 +593,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "REST,Data,DataScience,AI",
+		"tags": "REST,Classification,MachineLearning,Data,DataScience",
 		"title": "K-Nearest Neighbors Classification",
 		"twitter": true,
 		"url": "http://chrisalbon.com/machine-learning/k-nearest_neighbors_using_scikit_pandas.html",
@@ -609,15 +609,15 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
-		"title": "Preprocessing Iris Data",
+		"tags": "Process,Data,DataScience,AI",
+		"title": "Preprocessing Iris ",
 		"twitter": true,
 		"url": "http://chrisalbon.com/machine-learning/preprocessing_iris_data.html",
 		"user": "dataradar"
 	},
 	{
 		"auto_format": false,
-		"tags": "REST,Data,DataScience,AI",
+		"tags": "REST,Random,Classification,MachineLearning,Data",
 		"title": "Random Forest Classifier Example",
 		"twitter": true,
 		"url": "http://chrisalbon.com/machine-learning/random_forest_classifier_example_scikit.html",
@@ -633,7 +633,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Mathematic,Science,Data,DataScience,AI",
 		"title": "Basic Mathematical Terms",
 		"twitter": true,
 		"url": "http://chrisalbon.com/mathematics/basic_mathematical_terms.html",
@@ -641,7 +641,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python,Data,DataScience,AI",
+		"tags": "Python,Mathematic,Science,Data,DataScience",
 		"title": "Basic Mathematical Terms In Python",
 		"twitter": true,
 		"url": "http://chrisalbon.com/mathematics/basic_mathematical_terms_in_python.html",
@@ -817,7 +817,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Analytic,Data,DataScience,AI",
+		"tags": "Analytic,Developer,Job,Data,DataScience",
 		"title": "Predictive Analytics 101 - the basics explained for non-developers",
 		"twitter": true,
 		"url": "http://data36.com/predictive-analytics-101-part-1/",
@@ -825,7 +825,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "FPGA,Data,DataScience,AI",
+		"tags": "FPGA,NeuralNet,DeepLearning,MachineLearning,Data",
 		"title": "Intel Unveils FPGA to Accelerate Neural Networks",
 		"twitter": true,
 		"url": "http://datacenterfrontier.com/intel-unveils-fpga-to-accelerate-ai-neural-networks/",
@@ -841,8 +841,8 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Model,Data,DataScience,AI",
-		"title": "Predictive Models on Random Data",
+		"tags": "Model,Random,Data,DataScience,AI",
+		"title": "Predictive Models on Random ",
 		"twitter": true,
 		"url": "http://dataskeptic.com/epnotes/predictive-models-on-random-data.php",
 		"user": "dataradar"
@@ -865,7 +865,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
 		"title": "Experiments in Handwriting with a Neural Network",
 		"twitter": true,
 		"url": "http://distill.pub/2016/handwriting/",
@@ -881,7 +881,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "UI,UX,Design",
 		"title": "EmbedBox install UI by Eager",
 		"twitter": true,
 		"url": "http://embedbox.io/",
@@ -897,8 +897,8 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
-		"title": "Building a Data-Informed Culture - An Introduction to Data",
+		"tags": "UI,UX,Design,Data,DataScience",
+		"title": "Building a Data-Informed Culture - An Introduction to ",
 		"twitter": true,
 		"url": "http://engineering.gusto.com/building-a-data-informed-culture/",
 		"user": "dataradar"
@@ -953,7 +953,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Startup,Data,DataScience,AI",
 		"title": "Transforming Healthcare - Delivering Cutting-Edge Data Science To Startup and Nonprofit Partners",
 		"twitter": true,
 		"url": "http://insighthealthdata.com/blog/health-consulting/",
@@ -993,7 +993,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "CodeEditor",
 		"title": "Why Kakoune - The quest for a better code editor",
 		"twitter": true,
 		"url": "http://kakoune.org/why-kakoune/why-kakoune.html",
@@ -1009,7 +1009,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DataViz,MachineLearning,Data,DataScience,AI",
+		"tags": "DataViz,MachineLearning,Static,Data,DataScience",
 		"title": "Static and dynamic network visualization with R",
 		"twitter": true,
 		"url": "http://kateto.net/network-visualization",
@@ -1017,7 +1017,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Haskell",
+		"tags": "Haskell,UI,UX,Design",
 		"title": "Learn Functional Programming by Building in Haskell",
 		"twitter": true,
 		"url": "http://lambdaschool.com/",
@@ -1041,7 +1041,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "UI,UX,Design,Data,DataScience",
 		"title": "Building a Modern Database Using LLVM",
 		"twitter": true,
 		"url": "http://llvm.org/devmtg/2013-11/slides/Wanderman-Milne-Cloudera.pdf",
@@ -1169,7 +1169,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Regex",
 		"title": "Adventures in the land of substrings and RegExps.",
 		"twitter": true,
 		"url": "http://mrale.ph/blog/2016/11/23/making-less-dart-faster.html",
@@ -1177,7 +1177,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Design,REST",
+		"tags": "Design,REST,UI,UX",
 		"title": "UX Design - How do we capture style preferences during sign-up?",
 		"twitter": true,
 		"url": "http://multithreaded.stitchfix.com/blog/2016/11/30/us-design-capture-style-preferences-during-sign-up/",
@@ -1185,7 +1185,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Algorithm,ComputerScience,Data,DataScience,DataScientist",
 		"title": "10 Algorithms data scientist should know about learning",
 		"twitter": true,
 		"url": "http://muoro.io/2016/12/06/10-algorithms-data-scientist-know/",
@@ -1193,7 +1193,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Publishing,WebDevelopment,WebApp,Academic,Research",
 		"title": "Academic Bio - Create and publish your academic bio website in 5 minutes",
 		"twitter": true,
 		"url": "http://my.academic.bio/",
@@ -1233,7 +1233,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DeepLearning,Research,Data,DataScience,AI",
+		"tags": "DeepLearning,Research,NeuralNet,MachineLearning,Data",
 		"title": "DropNeuron - Simplifying the Structure of Deep Neural Networks - implementation",
 		"twitter": true,
 		"url": "http://nuit-blanche.blogspot.fr/2016/06/dropneuron-simplifying-structure-of.html",
@@ -1249,7 +1249,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DeepLearning,Research,Data,DataScience,AI",
+		"tags": "DeepLearning,Research,NeuralNet,MachineLearning,Data",
 		"title": "Understanding Neural Sparse Coding with Matrix Factorization",
 		"twitter": true,
 		"url": "http://nuit-blanche.blogspot.fr/2016/11/understanding-neural-sparse-coding-with.html",
@@ -1265,7 +1265,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DeepLearning,Research,Data,DataScience,AI",
+		"tags": "DeepLearning,Research,Process,Data,DataScience",
 		"title": "New Directions for Learning with Kernels and Gaussian Processes - Slides",
 		"twitter": true,
 		"url": "http://nuit-blanche.blogspot.fr/2016/12/slides-new-directions-for-learning-with.html",
@@ -1273,7 +1273,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
 		"title": "A Basic Introduction To Neural Networks",
 		"twitter": true,
 		"url": "http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html",
@@ -1281,7 +1281,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python,MachineLearning,Data,DataScience,AI",
+		"tags": "Python,MachineLearning,OpenSource,Software,Data",
 		"title": "Python Machine Learning Open Source Projects",
 		"twitter": true,
 		"url": "http://pansop.com/1039/",
@@ -1289,7 +1289,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Password,Authentication,Developer,Job",
 		"title": "Is There Any Room For The Not-Passionate Developer ?",
 		"twitter": true,
 		"url": "http://philippe.bourgau.net/is-there-any-room-for-the-not-passionate-developer/",
@@ -1313,7 +1313,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "GAN,DeepLearning,MachineLearning,NeuralNet,Data",
+		"tags": "GAN,DeepLearning,MachineLearning,NeuralNet,React",
 		"title": "Neural Networks for the Prediction of Organic Chemistry Reactions",
 		"twitter": true,
 		"url": "http://pubs.acs.org/doi/abs/10.1021/acscentsci.6b00219",
@@ -1337,7 +1337,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Botnet,ITSecurity,InfoSec",
+		"tags": "Botnet,ITSecurity,InfoSec,UI,UX",
 		"title": "Building Botnet on ServiceWorkers",
 		"twitter": true,
 		"url": "http://sakurity.com/blog/2016/12/10/serviceworker_botnet.html",
@@ -1345,7 +1345,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Gradient,MachineLearning,GradientDescent,MachineLearning,Data",
+		"tags": "Gradient,MachineLearning,GradientDescent,MachineLearning,NeuralNet",
 		"title": "Single-Layer Neural Networks and Gradient Descent",
 		"twitter": true,
 		"url": "http://sebastianraschka.com/Articles/2015_singlelayer_neurons.html",
@@ -1377,7 +1377,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "JS,WebApp,Java",
+		"tags": "JS,WebApp,Java,Script",
 		"title": "Social Media Sharing Buttons - No JavaScript. No tracking. Super fast and easy.",
 		"twitter": true,
 		"url": "http://sharingbuttons.io/",
@@ -1401,7 +1401,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "REST,HowTo,GettingStarted,MachineLearning,Data",
+		"tags": "REST,HowTo,GettingStarted,MachineLearning,Random",
 		"title": "Machine Learning - How to handle a ratio variable in decision tree - CART or RandomForest",
 		"twitter": true,
 		"url": "http://stackoverflow.com/questions/41003165/how-to-handle-a-ratio-variable-in-decision-tree-cart-or-randomforest",
@@ -1433,7 +1433,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "RaspberryPi,CheapComputing,EmbeddedDevice",
 		"title": "Creating a Raspberry Pi Pandora Player with Remote Web Control",
 		"twitter": true,
 		"url": "http://thisdavej.com/creating-a-raspberry-pi-pandora-player-with-remote-web-control/",
@@ -1441,7 +1441,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "ServerLess,Data,DataScience,AI",
+		"tags": "ServerLess,Server,Data,DataScience,AI",
 		"title": "Serverless MapReduce",
 		"twitter": true,
 		"url": "http://tothestars.io/blog/2016/11/2/serverless-mapreduce",
@@ -1497,7 +1497,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "MagicLeap,VR,AR",
 		"title": "Demystifying Magic Leap: What Is it and How Does it Work?",
 		"twitter": true,
 		"url": "http://uploadvr.com/magic-leap-how-it-works/",
@@ -1521,7 +1521,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Work, Remote",
 		"title": "How I Work From Anywhere In The World",
 		"twitter": true,
 		"url": "http://wanderling.co/how-i-work-from-anywhere-in-the-world",
@@ -1537,7 +1537,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Data,DataScience,DataScientist,DataAnalyst,Job",
 		"title": "12 Free Mind Mapping Tools For a Data Scientist To Enhance Structured Thinking",
 		"twitter": true,
 		"url": "http://www.analyticsvidhya.com/blog/2016/06/12-free-mind-mapping-tools-data-scientist-enhance-structured-thinking/",
@@ -1593,7 +1593,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Regex",
 		"title": "A Regular Expression Matcher",
 		"twitter": true,
 		"url": "http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html",
@@ -1601,7 +1601,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide",
+		"tags": "Guide,UI,UX,Design",
 		"title": "Guide to Optimize and Secure Windows 10",
 		"twitter": true,
 		"url": "http://www.cyberpunkforums.com/viewtopic.php?id=3692",
@@ -1609,7 +1609,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "TechDebt",
 		"title": "The Human Cost of Tech Debt",
 		"twitter": true,
 		"url": "http://www.daedtech.com/human-cost-tech-debt/",
@@ -1641,7 +1641,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Data,DataScience,DataScientist,DataAnalyst,Job",
 		"title": "40 Techniques Used by Data Scientists",
 		"twitter": true,
 		"url": "http://www.datasciencecentral.com/profiles/blogs/40-techniques-used-by-data-scientists",
@@ -1649,7 +1649,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Google,Data,DataScience,AI",
 		"title": "Statistical analysis in Google Sheets",
 		"twitter": true,
 		"url": "http://www.datasciencecentral.com/profiles/blogs/statistical-analysis-in-google-sheets",
@@ -1657,7 +1657,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "HowTo,GettingStarted",
+		"tags": "HowTo,GettingStarted,UI,UX,Design",
 		"title": "How to Write Articles and Essays Quickly and Expertly",
 		"twitter": true,
 		"url": "http://www.downes.ca/post/38526",
@@ -1665,7 +1665,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "UI,UX,Design",
 		"title": "Why Linux sucks and will never compete with Windows or OSX",
 		"twitter": true,
 		"url": "http://www.dvorak.org/blog/2016/02/25/why-linux-sucks-and-will-never-compete-with-windows-or-osx/",
@@ -1673,7 +1673,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python,HowTo,GettingStarted",
+		"tags": "Python,HowTo,GettingStarted,Decorator,Code",
 		"title": "How to use Python Decorators",
 		"twitter": true,
 		"url": "http://www.erogol.com/use-python-decorators/",
@@ -1705,7 +1705,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python,MachineLearning,Data,DataScience,AI",
+		"tags": "Python,MachineLearning,OpenSource,Software,Data",
 		"title": "Top 20 Python Machine Learning Open Source Projects",
 		"twitter": true,
 		"url": "http://www.kdnuggets.com/2015/06/top-20-python-machine-learning-open-source-projects.html",
@@ -1729,7 +1729,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Process,Data,DataScience,AI",
 		"title": "An Inside Update on Natural Language Processing",
 		"twitter": true,
 		"url": "http://www.kdnuggets.com/2016/06/inside-update-natural-language-processing.html",
@@ -1737,7 +1737,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Classification,MachineLearning,Data,DataScience,AI",
 		"title": "Decision Tree Classifiers - A Concise Technical Overview",
 		"twitter": true,
 		"url": "http://www.kdnuggets.com/2016/10/decision-trees-concise-technical-overview.html",
@@ -1753,7 +1753,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "LDA,MachineLearning,FeatureSelection,Model,Data",
+		"tags": "LDA,MachineLearning,FeatureSelection,Model,UI",
 		"title": "Practical Data Science - Building Minimum Viable Models",
 		"twitter": true,
 		"url": "http://www.kdnuggets.com/2016/11/practical-data-science-building-minimum-viable-models.html",
@@ -1785,7 +1785,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Classification,MachineLearning,Data,DataScience,AI",
 		"title": "Decision Trees for Classification",
 		"twitter": true,
 		"url": "http://www.lewisgavin.co.uk/Machine-Learning-Decision-Tree/",
@@ -1849,7 +1849,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Algorithm,ComputerScience",
 		"title": "Make Algorithms Accountable",
 		"twitter": true,
 		"url": "http://www.nytimes.com/2016/08/01/opinion/make-algorithms-accountable.html",
@@ -1881,7 +1881,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Document,Markup",
 		"title": "A transformable markup document format",
 		"twitter": true,
 		"url": "http://www.r-bloggers.com/2016-10-a-transformable-markup-document-format/",
@@ -1889,7 +1889,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Classification,MachineLearning,Data,DataScience,AI",
 		"title": "A budget of classifier evaluation measures",
 		"twitter": true,
 		"url": "http://www.r-bloggers.com/a-budget-of-classifier-evaluation-measures/",
@@ -1897,7 +1897,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "React,ReactJS,Javascript,WebApp,ReactNative",
 		"title": "The Road to learn React",
 		"twitter": true,
 		"url": "http://www.robinwieruch.de/the-road-to-learn-react/",
@@ -1921,7 +1921,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Recommendation,RecommendationEngine,RecommenderSystem",
 		"title": "Taste - Movie suggestions based on your taste",
 		"twitter": true,
 		"url": "http://www.taste.io/",
@@ -1937,7 +1937,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "HowTo,GettingStarted,Data,DataScience,AI",
+		"tags": "HowTo,GettingStarted,Excel,SpreadSheet,Microsoft",
 		"title": "How to Find Duplicates in Excel",
 		"twitter": true,
 		"url": "http://www.wikihow.com/Find-Duplicates-in-Excel",
@@ -2017,7 +2017,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DeepLearning,Research,ComputerVision,MachineLearning,Data",
+		"tags": "DeepLearning,Research,ComputerVision,MachineLearning,NeuralNet",
 		"title": "Neural Symbolic Machines - Learning Semantic Parsers on Freebase with Weak Supervision",
 		"twitter": true,
 		"url": "https://arxiv.org/abs/1611.00020",
@@ -2041,7 +2041,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Startup,Pitch,ElevatorPitch",
 		"title": "The Best Pitch Deck Examples from Real Startups",
 		"twitter": true,
 		"url": "https://attach.io/startup-pitch-decks/",
@@ -2049,7 +2049,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Search,Google,Data,DataScience,AI",
 		"title": "Every image is searchable with Inception and a Crawler in Google Cloud for 0$",
 		"twitter": true,
 		"url": "https://avantlive.wordpress.com/2016/12/01/every-image-is-searchable-with-inception-a-crawler-in-google-cloud-for-0/",
@@ -2057,7 +2057,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "UI,UX,Design",
 		"title": "Build Distributed Applications Using Visual Workflows",
 		"twitter": true,
 		"url": "https://aws.amazon.com/fr/blogs/aws/new-aws-step-functions-build-distributed-applications-using-visual-workflows/",
@@ -2089,7 +2089,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python",
+		"tags": "Python,Memory,Performance",
 		"title": "Tracking Down a Freaky Python Memory Leak",
 		"twitter": true,
 		"url": "https://benbernardblog.com/tracking-down-a-freaky-python-memory-leak/",
@@ -2097,7 +2097,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Cheatsheet,Data,DataScience,AI",
 		"title": "Cognitive bias cheat sheet - Because thinking is hard",
 		"twitter": true,
 		"url": "https://betterhumans.coach.me/cognitive-bias-cheat-sheet-55a472476b18",
@@ -2106,7 +2106,7 @@
 	{
 		"auto_format": false,
 		"tags": "Data,DataScience,AI",
-		"title": "Classifying Country Music Songs is an Art — Getting Training Data",
+		"title": "Classifying Country Music Songs is an Art — Getting Training ",
 		"twitter": true,
 		"url": "https://bigishdata.com/2016/11/01/classifying-country-music-songs-is-an-art-getting-training-data/",
 		"user": "dataradar"
@@ -2153,7 +2153,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "BigData,Data,DataScience,AI",
+		"tags": "BigData,Smart,Data,DataScience,AI",
 		"title": "Do you need Big Data or Smart Data - Part 1",
 		"twitter": true,
 		"url": "https://blog.clevertap.com/do-you-need-big-data-or-smart-data-part-i/",
@@ -2161,7 +2161,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "BigData,Data,DataScience,AI",
+		"tags": "BigData,Smart,Data,DataScience,AI",
 		"title": "Do you need Big Data or Smart Data - Part 2",
 		"twitter": true,
 		"url": "https://blog.clevertap.com/do-you-need-big-data-or-smart-data-part-ii/",
@@ -2169,7 +2169,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Notification",
 		"title": "Introducing Web Push Notifications",
 		"twitter": true,
 		"url": "https://blog.clevertap.com/introducing-web-push-notifications/",
@@ -2177,7 +2177,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "SMS,Message",
 		"title": "Messaging Users via SMS",
 		"twitter": true,
 		"url": "https://blog.clevertap.com/messaging-users-via-sms/",
@@ -2209,7 +2209,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Animation,CSS,WebDevelopment,WebApp",
 		"title": "10 principles for smooth web animations",
 		"twitter": true,
 		"url": "https://blog.gyrosco.pe/smooth-css-animations-7d8ffc2c1d29",
@@ -2233,7 +2233,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide,Data,DataScience,AI",
+		"tags": "Guide,ITSec,Security,InfoSec,UI",
 		"title": "Technical Anonymity Guide - Independent Security Evaluators",
 		"twitter": true,
 		"url": "https://blog.securityevaluators.com/technical-anonymity-guide-658a53adff5b",
@@ -2249,7 +2249,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Framework,ServerLess",
+		"tags": "Framework,ServerLess,Server",
 		"title": "Server-less Framework Comparison",
 		"twitter": true,
 		"url": "https://blog.zappa.io/posts/comparison-zappa-verus-chalice",
@@ -2297,7 +2297,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "OpenSource,Software,Amazon",
 		"title": "Blox - Open Source Tools for Amazon ECS",
 		"twitter": true,
 		"url": "https://blox.github.io/",
@@ -2313,7 +2313,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide,Data,DataScience,AI",
+		"tags": "Guide,UI,UX,Design,NeuralNet",
 		"title": "A short guide to learn neural networks, and get famous and rich then.",
 		"twitter": true,
 		"url": "https://chatbotslife.com/a-short-guide-to-learn-neural-networks-and-get-famous-and-rich-then-bf7da3cba76f",
@@ -2329,7 +2329,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Android,Mobile,Smartphone,Developer,Job",
 		"title": "List of Best Android Libraries for Developers",
 		"twitter": true,
 		"url": "https://cloudrail.com/best-android-libraries-for-developers/",
@@ -2337,7 +2337,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "API,Microsoft",
+		"tags": "API,Microsoft,Storage,Amazon",
 		"title": "Unified Cloud Storage API for - Amazon S3, Microsoft Azure, Rackspace and others",
 		"twitter": true,
 		"url": "https://cloudrail.com/enterprise-cloud-storage-interface/",
@@ -2353,7 +2353,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Document,Password,Authentication,Message",
 		"title": "Cronu allows you to send messages, will documents, and passwords to your loved ones after you are gone.",
 		"twitter": true,
 		"url": "https://cronu.com/",
@@ -2433,7 +2433,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "GAN,DeepLearning,MachineLearning,NeuralNet",
+		"tags": "GAN,DeepLearning,MachineLearning,NeuralNet,Document",
 		"title": "Instant Document Tracking and Notifications",
 		"twitter": true,
 		"url": "https://docshare.io/",
@@ -2449,7 +2449,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "MicroService,ServerLess,Cloud,SaaS",
 		"title": "Microservices? Please, Don't",
 		"twitter": true,
 		"url": "https://dzone.com/articles/microservices-please-dont?oid=hn",
@@ -2465,7 +2465,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Database,MongoDB,Data,DataScience,AI",
+		"tags": "Database,MongoDB,Document,Data,DataScience",
 		"title": "MongoDB queries don't always return all matching documents",
 		"twitter": true,
 		"url": "https://engineering.meteor.com/mongodb-queries-dont-always-return-all-matching-documents-654b6594a827",
@@ -2497,7 +2497,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Developer,Job,Data,DataScience,AI",
 		"title": "The Developer Platform Gets Local",
 		"twitter": true,
 		"url": "https://engineering.squarespace.com/blog/2016/the-developer-platform-gets-local",
@@ -2529,7 +2529,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Random",
 		"title": "Randomness of scientific impact",
 		"twitter": true,
 		"url": "https://flowingdata.com/2016/11/09/randomness-of-scientific-impact/",
@@ -2545,7 +2545,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Computing,ComputerScience,Performance",
 		"title": "FlyElephant - Your Home for High Performance Computing",
 		"twitter": true,
 		"url": "https://flyelephant.net/data-science",
@@ -2553,7 +2553,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Startup",
 		"title": "Foundler – Online Startup Weekends",
 		"twitter": true,
 		"url": "https://foundler.com/",
@@ -2561,7 +2561,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "SentimentAnalysis,NLP,MachineLearning,Data,DataScience",
+		"tags": "SentimentAnalysis,NLP,MachineLearning,Analysis,Data",
 		"title": "A Tour of Sentiment Analysis Techniques - Getting a Baseline for Sunny Side Up",
 		"twitter": true,
 		"url": "https://gab41.lab41.org/a-tour-of-sentiment-analysis-techniques-getting-a-baseline-for-sunny-side-up-45730ec03330",
@@ -2577,7 +2577,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Analytic,Data,DataScience,AI",
+		"tags": "Analytic,Test,OpenSource,Software,Data",
 		"title": "Stress Test - Open Source Graph Analytics Packages",
 		"twitter": true,
 		"url": "https://gab41.lab41.org/introducing-skyline-60902efe19f9",
@@ -2593,7 +2593,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Process,Data,DataScience,AI",
 		"title": "Detecting novelty and redundancy with natural language processing",
 		"twitter": true,
 		"url": "https://gab41.lab41.org/tell-me-something-i-dont-know-detecting-novelty-and-redundancy-with-natural-language-processing-818124e4013c",
@@ -2609,7 +2609,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "System,Data,DataScience,AI",
 		"title": "TPS Report for Recommender Systems",
 		"twitter": true,
 		"url": "https://gab41.lab41.org/tps-report-for-recommender-systems-yeah-that-would-be-great-3beb26ab9fe0",
@@ -2633,7 +2633,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Test,Shell,Bash,Script,Linux",
 		"title": "Gallery Shell - Bash Script to generate static responsive image web galleries.",
 		"twitter": true,
 		"url": "https://github.com/Cyclenerd/gallery_shell",
@@ -2657,7 +2657,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "UI,UX,Design",
 		"title": "Polymer - Build modern apps using web components",
 		"twitter": true,
 		"url": "https://github.com/Polymer/polymer",
@@ -2665,7 +2665,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Backdoor,Security,ITSec,InfoSec,Metasploit",
 		"title": "TheFatRat - Easy tool for generate backdoor with msfvenom - Metasploit",
 		"twitter": true,
 		"url": "https://github.com/Screetsec/TheFatRat",
@@ -2673,7 +2673,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Smart",
 		"title": "Motion controlled smart mirror",
 		"twitter": true,
 		"url": "https://github.com/Shinao/SmartMirror",
@@ -2681,7 +2681,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,OpenSource,Software",
 		"title": "Chai - An open source neural network library",
 		"twitter": true,
 		"url": "https://github.com/SullyChen/Chai",
@@ -2705,7 +2705,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "ElasticSearch,BigData,Data,DataScience,AI",
+		"tags": "ElasticSearch,BigData,UI,UX,Design",
 		"title": "GEM - GUI for Elasticsearch Mappings",
 		"twitter": true,
 		"url": "https://github.com/appbaseio/gem/blob/dev/README.md",
@@ -2721,7 +2721,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "ServerLess",
+		"tags": "ServerLess,Server",
 		"title": "Serverless Reference Architecture for creating a Mobile Backend",
 		"twitter": true,
 		"url": "https://github.com/awslabs/lambda-refarch-mobilebackend",
@@ -2745,7 +2745,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "JS,WebApp,JSON",
+		"tags": "JS,WebApp,JSON,UI,UX",
 		"title": "Flask_JSONDash - Build complex dashboards without any front-end code.",
 		"twitter": true,
 		"url": "https://github.com/christabor/flask_jsondash",
@@ -2825,7 +2825,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Test,Behavior",
 		"title": "Loverage - Let your tests describe your program behavior",
 		"twitter": true,
 		"url": "https://github.com/kovetskiy/loverage",
@@ -2865,7 +2865,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python",
+		"tags": "Python,Data,DataScience",
 		"title": "Safety-DB - A curated database of insecure Python packages",
 		"twitter": true,
 		"url": "https://github.com/pyupio/safety-db",
@@ -2889,7 +2889,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Automation",
+		"tags": "Automation,Test,GCP,Google,Cloud",
 		"title": "Building a browser-based test automation server on the Google Cloud Platform by using SeleniumBase",
 		"twitter": true,
 		"url": "https://github.com/seleniumbase/SeleniumBase/blob/master/integrations/google_cloud/ReadMe.md",
@@ -2897,7 +2897,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Data,DataScience",
 		"title": "Minimalist database less blog engine",
 		"twitter": true,
 		"url": "https://github.com/snehesht/blog",
@@ -2921,7 +2921,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
 		"title": "DeepMath - Experiments towards neural network theorem proving",
 		"twitter": true,
 		"url": "https://github.com/tensorflow/deepmath",
@@ -2929,7 +2929,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "System,Storage",
 		"title": "StorageSystem - Personal Storage Management System",
 		"twitter": true,
 		"url": "https://github.com/timgrossmann/StorageSystem",
@@ -2945,7 +2945,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Scala",
+		"tags": "Scala,WebSocket,Web,Async,Server",
 		"title": "uWebSockets - Highly scalable WebSocket server and client library",
 		"twitter": true,
 		"url": "https://github.com/uWebSockets/uWebSockets",
@@ -2961,7 +2961,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Android,Mobile,Smartphone,Tethering",
 		"title": "SimpleRT: Simple Reverse Tethering for Android",
 		"twitter": true,
 		"url": "https://github.com/vvviperrr/SimpleRT",
@@ -2977,7 +2977,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Productivity,Efficiency,Performance",
 		"title": "4 Productivity Techniques Every Founder Should Know",
 		"twitter": true,
 		"url": "https://hackernoon.com/12-productivity-tools-every-entrepreneur-should-be-using-60b19c8df256",
@@ -2985,7 +2985,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Compensation,Gratification,Job,Salary",
 		"title": "I Don't Care How Well You Code, Understand Your Compensation",
 		"twitter": true,
 		"url": "https://hackernoon.com/i-dont-care-how-well-you-code-understand-your-compensation-a1e810973c5e",
@@ -2993,7 +2993,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "HowTo,GettingStarted",
+		"tags": "HowTo,GettingStarted,UI,UX,Design",
 		"title": "How to Build Better Products - The Feature Fallacy",
 		"twitter": true,
 		"url": "https://hackernoon.com/the-feature-fallacy-why-more-features-dont-make-a-better-product-9fd125e86440",
@@ -3025,7 +3025,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Decorator,Code",
 		"title": "Please Fix Your Decorators",
 		"twitter": true,
 		"url": "https://hynek.me/articles/decorators/",
@@ -3137,7 +3137,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "MachineLearning,Data,DataScience,AI",
+		"tags": "MachineLearning,Recommendation,RecommendationEngine,RecommenderSystem,Data",
 		"title": "Make Content Recommendations Better With Machine Learning",
 		"twitter": true,
 		"url": "https://indico.io/blog/make-content-recommendation-better-with-machine-learning/",
@@ -3145,7 +3145,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DeepLearning,MachineLearning,RNN,NeuralNet,Data",
+		"tags": "DeepLearning,MachineLearning,RNN,NeuralNet,Analysis",
 		"title": "Using Passage for Text Analysis with Recurrent Neural Networks",
 		"twitter": true,
 		"url": "https://indico.io/blog/passage-text-analysis-with-recurrent-neural-nets-next-ml-cambridge/",
@@ -3169,7 +3169,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Model,Data,DataScience,AI",
+		"tags": "Model,NeuralNet,DeepLearning,MachineLearning,Data",
 		"title": "Sequence Modeling with Neural Networks - Part 2 - Attention Models",
 		"twitter": true,
 		"url": "https://indico.io/blog/sequence-modeling-neural-networks-part2-attention-models/",
@@ -3177,7 +3177,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Model,Data,DataScience,AI",
+		"tags": "Model,NeuralNet,DeepLearning,MachineLearning,Data",
 		"title": "Sequence Modeling With Neural Networks - Part 1 - Language and Seq2Seq",
 		"twitter": true,
 		"url": "https://indico.io/blog/sequence-modeling-neuralnets-part1/",
@@ -3225,7 +3225,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Apache,Spark,BigData",
+		"tags": "Apache,Spark,Big,WebApp,WebDevelopment",
 		"title": "Spark – Web applications with minimum effort",
 		"twitter": true,
 		"url": "https://jeanrenesite.wordpress.com/2016/07/13/spark-web-applications-with-minimum-effort/",
@@ -3265,7 +3265,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Process,Memory,Performance",
 		"title": "How much memory is my process using?",
 		"twitter": true,
 		"url": "https://jvns.ca/blog/2016/12/03/how-much-memory-is-my-process-using-/",
@@ -3273,7 +3273,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "API",
+		"tags": "API,UI,UX,Design,Developer",
 		"title": "Keygen.sh - A dead-simple product licensing API built for Developers",
 		"twitter": true,
 		"url": "https://keygen.sh/",
@@ -3297,7 +3297,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Monitoring,Service,Certificate,Security,Encryption",
 		"title": "Secure Certificate Monitoring - LetsMonitor.org",
 		"twitter": true,
 		"url": "https://letsmonitor.org/",
@@ -3305,7 +3305,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "GCP,Google,Cloud,SaaS,PaaS",
 		"title": "Why we moved from Amazon Web Services to Google Cloud Platform?",
 		"twitter": true,
 		"url": "https://lugassy.net/why-we-moved-from-amazon-web-services-to-google-cloud-platform-726c412fd667",
@@ -3314,7 +3314,7 @@
 	{
 		"auto_format": false,
 		"tags": "Data,DataScience,AI",
-		"title": "More Data ≠ Rich Data",
+		"title": "More Data ≠ Rich ",
 		"twitter": true,
 		"url": "https://lukasbiewald.com/2015/03/18/why-more-data-isnt-always-better/",
 		"user": "dataradar"
@@ -3353,7 +3353,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Teach",
 		"title": "Why Experts Make Bad Teachers",
 		"twitter": true,
 		"url": "https://medium.com/@cscalfani/why-experts-make-bad-teachers-ccaed2df029b",
@@ -3385,7 +3385,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "MachineLearning",
+		"tags": "MachineLearning,Startup",
 		"title": "Where are the Opportunities for Machine Learning Startups?",
 		"twitter": true,
 		"url": "https://medium.com/@libbykinsey/where-are-the-opportunities-for-machine-learning-startups-cd5025f14d3c",
@@ -3393,7 +3393,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Startup,UI,UX,Design,Data",
 		"title": "10 Data Acquisition Strategies for Startups",
 		"twitter": true,
 		"url": "https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48",
@@ -3401,7 +3401,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "MachineLearning,Data,DataScience,AI",
+		"tags": "MachineLearning,Teach,Data,DataScience,AI",
 		"title": "5 Tactics to teach a novice about Machine Learning!",
 		"twitter": true,
 		"url": "https://medium.com/@rajendramishra18/5-tactics-to-teach-a-novice-about-machine-learning-6eb813ac795b",
@@ -3417,7 +3417,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Algorithm,ComputerScience,Data,DataScience,AI",
 		"title": "On the Wrong Side of Algorithms - Part 1",
 		"twitter": true,
 		"url": "https://medium.com/@sderymail/on-the-wrong-side-of-algorithms-part-1-f266a4c3342b",
@@ -3425,7 +3425,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Algorithm,ComputerScience,Data,DataScience,AI",
 		"title": "On the Wrong Side of Algorithms - Part 2",
 		"twitter": true,
 		"url": "https://medium.com/@sderymail/on-the-wrong-side-of-algorithms-part-2-d28a37aa3eac",
@@ -3449,7 +3449,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide,Data,DataScience,AI",
+		"tags": "Guide,UI,UX,Design,Data",
 		"title": "The Beginner’s Guide to Freelance",
 		"twitter": true,
 		"url": "https://medium.com/code-like-a-girl/the-beginners-guide-to-freelance-ed89c4051c26",
@@ -3505,7 +3505,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Python,DataViz,MachineLearning,Data,DataScience",
+		"tags": "Python,DataViz,MachineLearning,Cheatsheet,Data",
 		"title": "Bokeh Cheat Sheet - Python Data Visualization",
 		"twitter": true,
 		"url": "https://mystudentvoices.com/python-data-visualization-bokeh-cheat-sheet-f6bbd987058a",
@@ -3553,7 +3553,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Search",
 		"title": "Peekier - A new way to search",
 		"twitter": true,
 		"url": "https://peekier.com/",
@@ -3585,7 +3585,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Proof",
 		"title": "What is a Proof?",
 		"twitter": true,
 		"url": "https://samidavies.wordpress.com/2016/07/29/what-is-a-proof/",
@@ -3617,7 +3617,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Monitoring,Service,OpenSource,Software",
 		"title": "Open Source monitoring without the pain",
 		"twitter": true,
 		"url": "https://solutions.stacktile.io/",
@@ -3633,7 +3633,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "CSS,WebApp",
+		"tags": "CSS,WebApp,Static",
 		"title": "Static sites with free, automatic SSL for custom domains",
 		"twitter": true,
 		"url": "https://static.land/",
@@ -3649,7 +3649,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Encryption,Security,ITSec,InfoSec",
 		"title": "Your Private Encrypted Browser",
 		"twitter": true,
 		"url": "https://tenta.com/",
@@ -3673,7 +3673,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Algorithm,ComputerScience",
 		"title": "SeaHash Explained - Hashing Algorithm",
 		"twitter": true,
 		"url": "https://ticki.github.io/blog/seahash-explained/",
@@ -3689,7 +3689,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "UI,UX,Design,NeuralNet,DeepLearning",
 		"title": "A Quick Introduction to Neural Networks",
 		"twitter": true,
 		"url": "https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/",
@@ -3737,7 +3737,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Analysis,Data,DataScience,AI",
 		"title": "Going Deeper into Regression Analysis with Assumptions, Plots and Solutions",
 		"twitter": true,
 		"url": "https://www.analyticsvidhya.com/blog/2016/07/deeper-regression-analysis-assumptions-plots-solutions/",
@@ -3769,7 +3769,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Cheatsheet,Excel,SpreadSheet,Microsoft,Office",
 		"title": "Cheatsheet - Excel Functions and Keyboard Shortcuts",
 		"twitter": true,
 		"url": "https://www.analyticsvidhya.com/blog/2016/12/cheatsheet-excel-functions-keyboard-shortcuts/",
@@ -3793,7 +3793,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "MachineLearning,Data,DataScience,AI",
+		"tags": "MachineLearning,NeuralNet,DeepLearning,Data,DataScience",
 		"title": "Neural Networks for Machine Learning",
 		"twitter": true,
 		"url": "https://www.coursera.org/learn/neural-networks/home/welcome",
@@ -3801,7 +3801,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Cryptography,Security,Encryption",
 		"title": "Crypto 101 is an introductory course on cryptography",
 		"twitter": true,
 		"url": "https://www.crypto101.io/",
@@ -3817,7 +3817,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "WebApp,WebDevelopment,Server",
 		"title": "5 Common Server Setups For Your Web Application",
 		"twitter": true,
 		"url": "https://www.digitalocean.com/community/tutorials/5-common-server-setups-for-your-web-application",
@@ -3833,7 +3833,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "OAuth,Authentication,OpenID,SAML",
 		"title": "OAuth vs SAML vs OpenID Connect",
 		"twitter": true,
 		"url": "https://www.gluu.org/blog/oauth-vs-saml-vs-openid-connect/",
@@ -3849,7 +3849,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "MagicMirror",
 		"title": "Magic Mirror with stylist - Hackster.io",
 		"twitter": true,
 		"url": "https://www.hackster.io/Techblogogy/magic-mirror-w-stylist-4b3ff7",
@@ -3865,7 +3865,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Developer,Job",
 		"title": "Developers' side projects",
 		"twitter": true,
 		"url": "https://www.joelonsoftware.com/2016/12/09/developers-side-projects/",
@@ -3945,7 +3945,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Publishing",
 		"title": "Simple, Beautiful Publishing",
 		"twitter": true,
 		"url": "https://www.postleaf.org/",
@@ -3953,7 +3953,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Random",
 		"title": "A Unified Theory Of Randomness",
 		"twitter": true,
 		"url": "https://www.quantamagazine.org/20160802-unified_theory_of_randomness/",
@@ -3961,7 +3961,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Developer,Job",
 		"title": "How do some developers learn a new programming language in one night?",
 		"twitter": true,
 		"url": "https://www.quora.com/How-do-some-developers-learn-a-new-programming-language-in-one-night1",
@@ -3977,7 +3977,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide,Data,DataScience,AI",
+		"tags": "Guide,UI,UX,Design,Data",
 		"title": "R-Hackathoning – The Finisher's Guide",
 		"twitter": true,
 		"url": "https://www.r-bloggers.com/4x3-r-hackathoning-the-finishers-guide/",
@@ -3985,7 +3985,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Boosting,MachineLearning,Data,DataScience,AI",
+		"tags": "Boosting,MachineLearning,Algorithm,ComputerScience,Data",
 		"title": "An Attempt to Understand Boosting Algorithm",
 		"twitter": true,
 		"url": "https://www.r-bloggers.com/an-attempt-to-understand-boosting-algorithms/",
@@ -4025,7 +4025,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Guide,Data,DataScience,AI",
+		"tags": "Guide,UI,UX,Design,Data",
 		"title": "One Page R - A Survival Guide to Data Science with R",
 		"twitter": true,
 		"url": "https://www.r-bloggers.com/one-page-r-a-survival-guide-to-data-science-with-r/",
@@ -4065,7 +4065,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "Data,DataScience,DataScientist,DataAnalyst,Job",
 		"title": "Data Scientist Job Description",
 		"twitter": true,
 		"url": "https://www.springboard.com/blog/data-scientist-job-description/",
@@ -4073,7 +4073,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "HowTo,GettingStarted,Data,DataScience,AI",
+		"tags": "HowTo,GettingStarted,Data,DataScience,DataScientist",
 		"title": "How to Become a Data Scientist",
 		"twitter": true,
 		"url": "https://www.springboard.com/blog/how-to-become-a-data-scientist/",
@@ -4081,7 +4081,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "DataAnalysis,MachineLearning,Statistic,Data,DataScience",
+		"tags": "DataAnalysis,MachineLearning,Statistic,Analysis,Data",
 		"title": "Advanced Data Analysis from an Elementary Point of View",
 		"twitter": true,
 		"url": "https://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/",
@@ -4089,7 +4089,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "Data,DataScience,AI",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
 		"title": "The Extraordinary Link Between Deep Neural Networks and the Nature of the Universe",
 		"twitter": true,
 		"url": "https://www.technologyreview.com/s/602344/the-extraordinary-link-between-deep-neural-networks-and-the-nature-of-the-universe/",
@@ -4121,7 +4121,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "HTTPS,Encryption,Security",
 		"title": "YouTube's road to HTTPS",
 		"twitter": true,
 		"url": "https://youtube-eng.blogspot.com/2016/08/youtubes-road-to-https.html",
@@ -4129,7 +4129,7 @@
 	},
 	{
 		"auto_format": false,
-		"tags": "",
+		"tags": "Productivity,Efficiency,Performance",
 		"title": "Be Productive Anywhere - 8 Proven Strategies for Better Remote Work",
 		"twitter": true,
 		"url": "https://zapier.com/blog/productive-remote-work/",
