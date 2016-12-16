@@ -504,7 +504,6 @@ class Article_Exists(APIView):
 		payload ["timestamp"] = get_timestamp()
 		return Response(payload)
 
-
 class Article(APIView):
 
 	def get(self, request):
@@ -551,7 +550,10 @@ class Article(APIView):
 			else:
 				RSSArticle_Assoc_id = -1
 
+			print "TEST1"
+			print request.POST
 			title = unicodedata.normalize('NFC', request.POST['title'])
+			print 'Title = ' + title
 			link = unicodedata.normalize('NFC', request.POST['link'])
 			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
 
