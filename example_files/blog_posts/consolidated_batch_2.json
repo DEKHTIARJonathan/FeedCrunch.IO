@@ -1,0 +1,852 @@
+[
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://academictorrents.com/details/1fc5e55522c0d5a16346df0b83a45ac2d8b5010a",
+		"tags": "Data,DataScience,AI",
+		"title": "Representation Learning - A Review and New Perspectives",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://academictorrents.com/details/493251615310f9b6ae1f483126292378137074cd",
+		"tags": "MachineLearning,Data,DataScience,AI",
+		"title": "Regularization Methods for Machine Learning 2016",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://academictorrents.com/details/5975549bc2e7cc159af7906844199fc8ac59c425",
+		"tags": "Analysis,Data,DataScience,AI",
+		"title": "Kernel Analysis of Deep Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://academictorrents.com/details/d712b334f78b0dc31820f9faaf9f3c59c70799b9",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
+		"title": "Exploring Strategies for Training Deep Neural Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://academictorrents.com/details/e046bca3bc837053d1609ef33d623ee5c5af7300",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
+		"title": "Neural Networks Video Lectures",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://aiehive.com/deep-face-recognition-using-deep-convolution-neural-network/",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,CNN,ConvNet",
+		"title": "Deep Face Recognition Using Deep Convolutional Neural Network",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://andrewgelman.com/2016/12/15/can-time-series-information-used-choose-control-group/",
+		"tags": "Control,TimeSeries,Data,DataScience,AI",
+		"title": "How can time series information be used to choose a control group?",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://benanne.github.io/2015/03/17/plankton.html",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Competition,Kaggle",
+		"title": "Classifying plankton with deep neural networks - Winning Kaggle Method",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://blog.dlib.net/2016/10/easily-create-high-quality-object.html",
+		"tags": "C++,ObjectDetection,ComputerVision,DeepLearning,MachineLearning",
+		"title": "Dlib - A C++ Library - Easily Create High Quality Object Detectors with Deep Learning",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://colah.github.io/posts/2014-07-Understanding-Convolutions/",
+		"tags": "CNN,ConvNet,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Understanding Convolutions",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://colah.github.io/posts/2015-01-Visualizing-Representations/",
+		"tags": "DeepLearning,MachineLearning,NeuralNet,Library,DataViz",
+		"title": "Visualizing Representations - Deep Learning and Human Beings",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://course.fast.ai/start.html",
+		"tags": "DeepLearning,MachineLearning,NeuralNet,Library,MOOC",
+		"title": "Practical Deep Learning For Coders MooC",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial",
+		"tags": "Tutorial,GettingStarted,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Unsupervised Feature Learning and Deep Learning Tutorial",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://machinelearningmastery.com/deep-learning-courses/",
+		"tags": "Online,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "Deep Learning Online Courses and MooCs",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://machinelearningmastery.com/resample-interpolate-time-series-data-python/",
+		"tags": "Python,HowTo,GettingStarted,Data,DataScience",
+		"title": "How To Resample and Interpolate Your Time Series Data With Python",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://nuit-blanche.blogspot.fr/2016/12/interpretable-recurrent-neural-networks.html",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,RNN,Data",
+		"title": "Interpretable Recurrent Neural Networks Using Sequential Sparse Recovery",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://qz.com/865357/we-dont-understand-how-ai-make-most-decisions-so-now-algorithms-are-explaining-themselves/",
+		"tags": "Algorithm,ComputerScience,Data,DataScience,AI",
+		"title": "We don't understand how AI make most decisions, so now algorithms are explaining themselves",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://shop.oreilly.com/product/0636920023784.do",
+		"tags": "Analysis,Python,Data,DataScience,DataAnalysis",
+		"title": "Python for Data Analysis",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://tech.gilt.com/machine/learning,/deep/learning/2016/12/22/deep-learning-at-gilt",
+		"tags": "Industry,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "Deep Learning at GILT - Cognitive Fashion Industry Challenges",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/",
+		"tags": "Python,Data,DataScience,AI",
+		"title": "Python List Comprehensions - Explained Visually",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://web.stanford.edu/class/cs294a/sparseAutoencoder.pdf",
+		"tags": "AE,AutoEncoder,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Sparse autoencoder",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": true,
+		"link": "http://www.dataminingapps.com/2016/09/a-basic-introduction-to-deep-learning/",
+		"tags": "DeepLearning,MachineLearning,NeuralNet,Library,Data",
+		"title": "Understanding deep learning in 5 minutes",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.expatsoftware.com/Articles/saas-onboarding-metrics-for-developers.html",
+		"tags": "Developer,Job",
+		"title": "SaaS Onboarding Metrics for Developers",
+		"twitter": true,
+		"url": null,
+		"user": "engineering"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.fast.ai/2016/10/08/course-background/",
+		"tags": "Certificate,Security,Encryption,ITSec,InfoSec",
+		"title": "The First Certificate in Deep Learning",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": true,
+		"link": "http://www.fast.ai/2016/10/08/overview/",
+		"tags": "Expert,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "A unique path to deep learning expertise",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.huffingtonpost.com/advertising-week/how-to-talk-to-your-data_b_13464338.html",
+		"tags": "HowTo,GettingStarted,DataScientist,DataAnalyst,Job",
+		"title": "How to Talk to Your Data Scientist",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.iangoodfellow.com/slides/2016-12-04-NIPS.pdf",
+		"tags": "GAN,DeepLearning,MachineLearning,NeuralNet,Data",
+		"title": "Generative Adversarial Networks - GANs - Slides NIPS 2016",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.kdnuggets.com/2014/05/learn-deep-learning-courses-tutorials-overviews.html",
+		"tags": "Tutorial,GettingStarted,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Where to Learn Deep Learning - Courses, Tutorials, Software, MooCs",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.machinalis.com/blog/pandas-django-rest-framework-bokeh/",
+		"tags": "Django,Python,WebApp,ORM,Pandas",
+		"title": "Integrating Pandas, Django REST Framework and Bokeh",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.octoparse.com/blog/the-best-answers-to-your-most-crucial-deep-learning-questions/",
+		"tags": "DeepLearning,MachineLearning,NeuralNet,Library,Data",
+		"title": "The Best Answers to Your Most Crucial Deep Learning Questions",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": true,
+		"link": "http://www.pyimagesearch.com/2016/10/10/gradient-descent-with-python/",
+		"tags": "GradientDescent,MachineLearning,Python,Gradient,Data",
+		"title": "Gradient descent with Python",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "http://www.pyimagesearch.com/2016/10/17/stochastic-gradient-descent-sgd-with-python/",
+		"tags": "GradientDescent,MachineLearning,Python,Gradient,Data",
+		"title": "Stochastic Gradient Descent - SGD - with Python",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://arxiv.org/abs/1605.07678v2",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Analysis,Model",
+		"title": "An Analysis of Deep Neural Network Models for Practical Applications",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": true,
+		"link": "https://arxiv.org/abs/1612.05053",
+		"tags": "BackPropagation,DeepLearning,NeuralNet,GradientDescent,MachineLearning",
+		"title": "Expectation Propagation performs a smoothed gradient descent",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://arxiv.org/abs/1612.07454",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,HowTo,GettingStarted",
+		"title": "How to Train Your Deep Neural Network with Dictionary Learning",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://blog.insightdatascience.com/best-practices-for-interviewing-data-science-candidates-823219120b2e",
+		"tags": "Data,DataScience,Science,Interview,AI",
+		"title": "Best practices for interviewing data science candidates",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://blog.keras.io/building-autoencoders-in-keras.html",
+		"tags": "AE,AutoEncoder,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Building Autoencoders in Keras",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://blog.monkeylearn.com/the-definitive-guide-to-natural-language-processing/",
+		"tags": "Language,Guide,Process,Data,DataScience",
+		"title": "The Definitive Guide to Natural Language Processing",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://blog.ought.com/nips-2016-875bb8fadb8c",
+		"tags": "Data,DataScience,AI",
+		"title": "50 things I learned at NIPS 2016",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://chatbotslife.com/resnets-highwaynets-and-densenets-oh-my-9bb15918ee32",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,TensorFlow,Library",
+		"title": "Implementing really deep neural networks in Tensorflow - ResNets, HighwayNets, and DenseNets",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://courses.bigdatauniversity.com/courses/course-v1:BigDataUniversity+ML0115EN+2016/info",
+		"tags": "DeepLearning,MachineLearning,NeuralNet,Library,MOOC",
+		"title": "ML0115EN MooC - Deep Learning",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://culurciello.github.io/tech/2016/06/04/nets.html",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
+		"title": "Neural Network Architectures",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://deeplearning4j.org/neuralnet-overview",
+		"tags": "OpenSource,Software,NeuralNet,DeepLearning,MachineLearning",
+		"title": "Introduction to Deep Neural Networks - Deeplearning4j - Open-source, Distributed Deep Learning for the JVM",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://dirkschumacher.github.io/ompr/articles/problem-warehouse-location.html",
+		"tags": "Data,DataScience,AI",
+		"title": "The Warehouse Location Problem",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://fr.mathworks.com/videos/deep-learning-in-11-lines-of-matlab-code-1481229977318.html",
+		"tags": "DeepLearning,MachineLearning,NeuralNet,Library,Data",
+		"title": "Deep Learning in 11 Lines of MATLAB Code",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://gab41.lab41.org/850k-images-in-24-hours-automating-deep-learning-dataset-creation-60bdced04275",
+		"tags": "Data,DataScience,DeepLearning,MachineLearning,NeuralNet",
+		"title": "850k Images in 24 hours - Automating Deep Learning Dataset Creation",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://github.com/RedBeardLab/rediSQL",
+		"tags": "Data,DataScience,AI",
+		"title": "RediSQL - Redis module that provides a completely functional SQL database",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://github.com/lakambakod/cann",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
+		"title": "CANN - An implementation of multi-perceptron neural network in C++",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://github.com/sourcegraph/checkup",
+		"tags": "StatusPage, SelfHosted, SaaS, Cloud, Service",
+		"title": "Checkup - Distributed, lock-free, self-hosted health checks and status pages",
+		"twitter": true,
+		"url": null,
+		"user": "engineering"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://jalammar.github.io/visual-interactive-guide-basics-neural-networks/",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Guide,Interactive",
+		"title": "A Visual and Interactive Guide to the Basics of Neural Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://learnpythonthehardway.org/book/",
+		"tags": "Python,Online",
+		"title": "Learn Python the Hard Way - Online Book",
+		"twitter": true,
+		"url": null,
+		"user": "engineering"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://material.io/components/",
+		"tags": "MaterialDesign, UI, UX, Material, Design",
+		"title": "Material Components",
+		"twitter": true,
+		"url": null,
+		"user": "engineering"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@awjuliani/simple-reinforcement-learning-with-tensorflow-part-3-model-based-rl-9a6fe0cce99",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 3 - Model-Based RL  Medium",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@awjuliani/simple-reinforcement-learning-with-tensorflow-part-4-deep-q-networks-and-beyond-8438a3e2b8df",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 4 - Deep Q-Networks and Beyond",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@awjuliani/simple-reinforcement-learning-with-tensorflow-part-5-visualizing-an-agents-thoughts-and-actions-4f27b134bb2a",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 5 - Visualizing an Agent’s Thoughts and Actions",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-1-fd544fab149",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning in Tensorflow - Part 1 - Two-armed Bandit",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-2-ded33892c724",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 2 - Policy-based Agents",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@elluba/nips-2016-cake-rocket-ai-gans-and-the-style-transfer-debate-708c46438053",
+		"tags": "Data,DataScience,AI",
+		"title": "NIPS 2016 - cake, Rocket AI, GANs and the style transfer debate",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@johnsmart/your-personal-sim-a07d78ffdd40",
+		"tags": "Personal,Data,DataScience,AI",
+		"title": "Your Personal Sim - Part 1 - Your Attention Please",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@johnsmart/your-personal-sim-pt-2-why-agents-matter-266d397d372e",
+		"tags": "Personal,Data,DataScience,AI",
+		"title": "Your Personal Sim - Part 2 - Why Agents Matter",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@johnsmart/your-personal-sim-pt-3-inner-space-and-mediated-reality-c6725a9e92fb",
+		"tags": "Personal,Data,DataScience,AI",
+		"title": "Your Personal Sim - Part 3 - Inner Space and Mediated Reality",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@johnsmart/your-personal-sim-pt-4-deep-agents-understanding-natural-intelligence-7040ae074b71",
+		"tags": "Personal,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "Your Personal Sim - Part 4 - Deep Agents (Deep Learning and Natural Intelligence)",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": true,
+		"link": "https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b",
+		"tags": "Data,DataScience,AI",
+		"title": "You should understand backpropragation",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/@waleedka/traffic-sign-recognition-with-tensorflow-629dffc391a6",
+		"tags": "TensorFlow,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "Traffic Sign Recognition with TensorFlow",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,Simple,TensorFlow",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 0 - Q-Learning with Tables and Neural Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-1-5-contextual-bandits-bff01d1aad9c",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 1.5 - Contextual Bandits",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 6 - Partial Observability and Deep Recurrent Q-Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-7-action-selection-strategies-for-exploration-d3a97b7cceaf",
+		"tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Simple Reinforcement Learning with Tensorflow - Part 7 - Action-Selection Strategies for Exploration",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://plot.ly/python/ipython-notebook-tutorial/",
+		"tags": "Notebook,Python,Tutorial,GettingStarted,IPython",
+		"title": "IPython Notebook Tutorial",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://plot.ly/~jackp/16209/machine-learning-classifier-comparison.embed",
+		"tags": "Classification,MachineLearning,Data,DataScience,AI",
+		"title": "Machine Learning classifier comparison",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,CNN,ConvNet",
+		"title": "An Intuitive Explanation of Convolutional Neural Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.analyticsvidhya.com/blog/2016/12/cheatsheet-scikit-learn-caret-package-for-python-r-respectively/",
+		"tags": "Cheatsheet,Python,Scikit,MachineLearning,Library",
+		"title": "Cheatsheet - Scikit-Learn & Caret Package for Python & R respectively",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.google.com/webdesigner/",
+		"tags": "Web,Design,Google",
+		"title": "Google Web Designer",
+		"twitter": true,
+		"url": null,
+		"user": "engineering"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.khanacademy.org/math/calculus-home/taking-derivatives-calc/chain-rule-calc/v/chain-rule-introduction",
+		"tags": "BackPropagation,DeepLearning,NeuralNet,Introduction,Data",
+		"title": "Chain rule introduction - BackPropagation",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.khanacademy.org/math/linear-algebra/matrix-transformations",
+		"tags": "Data,DataScience,AI",
+		"title": "Matrix transformations",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.oreilly.com/ideas/scaling-scala",
+		"tags": "Scala,Data,DataScience,AI",
+		"title": "Scaling Scala",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.oreilly.com/ideas/what-is-hardcore-data-science-in-practice?utm_content=buffer54299&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+		"tags": "Data,DataScience,Science,AI",
+		"title": "What is hardcore data science in practice?",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.stavros.io/tutorials/python/",
+		"tags": "Python,Tutorial,GettingStarted,Data,DataScience",
+		"title": "Tutorial - Learn Python in 10 minutes",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.udemy.com/unsupervised-deep-learning-in-python/",
+		"tags": "Python,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "Unsupervised Deep Learning in Python",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.usfca.edu/data-institute/certificates/deep-learning-part-one",
+		"tags": "Data,DataScience,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Deep Learning Part I - The Data Institute",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.usfca.edu/data-institute/certificates/deep-learning-part-two",
+		"tags": "Data,DataScience,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Deep Learning Part II - Data Institute",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.youtube.com/watch?v=Rdpbnd0pCiI",
+		"tags": "AE,AutoEncoder,DeepLearning,MachineLearning,NeuralNet",
+		"title": "What is an Autoencoder? - Two Minute Paper Explanation",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.youtube.com/watch?v=o2QuErsWp6k",
+		"tags": "NeuralNet,DeepLearning,MachineLearning,RNN,Data",
+		"title": "Video on Recurrent or Recursive Neural Networks",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.youtube.com/watch?v=r7-WPbx8VuY",
+		"tags": "TensorFlow,DeepLearning,MachineLearning,NeuralNet,Library",
+		"title": "Installing CPU and GPU TensorFlow on Windows - Video",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	},
+	{
+		"activated": true,
+		"autoformat": false,
+		"link": "https://www.youtube.com/watch?v=s96mYcicbpE",
+		"tags": "AE,AutoEncoder,DeepLearning,MachineLearning,NeuralNet",
+		"title": "Deep Learning Simplified - Autoencoders - Video",
+		"twitter": true,
+		"url": null,
+		"user": "dataradar"
+	}
+]
