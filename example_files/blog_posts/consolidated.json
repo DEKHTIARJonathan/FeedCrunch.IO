@@ -1,0 +1,524 @@
+[
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Database,PostgreSQL,Data,DataScience,AI",
+    "title": "PostgreSQL anti-patterns - read, modify, write cycles",
+    "twitter": true,
+    "link": "http://blog.2ndquadrant.com/postgresql-anti-patterns-read-modify-write-cycles/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "DeepLearning,MachineLearning,NeuralNet,Library,Search",
+    "title": "Engineering is the bottleneck in (Deep Learning) Research",
+    "twitter": true,
+    "link": "http://blog.dennybritz.com/2017/01/17/engineering-is-the-bottleneck-in-deep-learning-research/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Recommendation,RecommendationEngine,RecommenderSystem,Product,Data",
+    "title": "Santander Product Recommendation Competition, 2nd Place Winners Solution Write-Up",
+    "twitter": true,
+    "link": "http://blog.kaggle.com/2017/01/12/santander-product-recommendation-competition-2nd-place-winners-solution-write-up-tom-van-de-wiele/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,AI",
+    "title": "Statistics for Hackers",
+    "twitter": true,
+    "link": "http://christopherroach.com/articles/statistics-for-hackers/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Python,Data,DataScience,AI",
+    "title": "Pythonic Linear Regression",
+    "twitter": true,
+    "link": "http://francescopochetti.com/pythonic-linear-regression/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Simple,TensorFlow,DeepLearning,MachineLearning,NeuralNet",
+    "title": "Simple Matrix Factorization with TensorFlow ",
+    "twitter": true,
+    "link": "http://hameddaily.blogspot.fr/2016/12/simple-matrix-factorization-with.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Test,HowTo,GettingStarted,Forecasting,TimeSeries",
+    "title": "How To Backtest Machine Learning Models for Time Series Forecasting",
+    "twitter": true,
+    "link": "http://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Python,HowTo,GettingStarted,Data,DataScience",
+    "title": "How to Use and Remove Trend Information from Time Series Data in Python",
+    "twitter": true,
+    "link": "http://machinelearningmastery.com/time-series-trends-in-python/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "DeepLearning,MachineLearning,NeuralNet,Library,Model",
+    "title": "State of the art deep learning model for question answering",
+    "twitter": true,
+    "link": "http://metamind.io/research/state-of-the-art-deep-learning-model-for-question-answering/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Product,Amazon,Data,DataScience,AI",
+    "title": "Playing with 80 Million Amazon Product Review Ratings Using Apache Spark",
+    "twitter": true,
+    "link": "http://minimaxir.com/2017/01/amazon-spark/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,AI",
+    "title": "22 implementations of #NIPS2016 papers",
+    "twitter": true,
+    "link": "http://nuit-blanche.blogspot.fr/2016/12/22-implementations-of-nips2016-papers.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "BackPropagation,DeepLearning,NeuralNet,Data,DataScience",
+    "title": "Sparse Label Propagation",
+    "twitter": true,
+    "link": "http://nuit-blanche.blogspot.fr/2016/12/sparse-label-propagation.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "GAN,DeepLearning,MachineLearning,NeuralNet,GenerativeModel",
+    "title": "Generative Adversarial Networks - Learning in Implicit Generative Models",
+    "twitter": true,
+    "link": "http://nuit-blanche.blogspot.fr/2017/01/nips-2016-tutorial-generative.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "MachineLearning,Model,Data,DataScience,AI",
+    "title": "Distinguishing between statistical modeling and machine learning",
+    "twitter": true,
+    "link": "http://pavopax.github.io/2016/07/statistical-modeling-vs-machine-learning/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,DeepLearning,MachineLearning,NeuralNet",
+    "title": "Data Efficient Deep Learning with G-CNNS",
+    "twitter": true,
+    "link": "http://scyfer.nl/2016/12/13/data-efficient-deep-learning-with-g-cnns/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "DeepLearning,MachineLearning,NeuralNet,Library,Data",
+    "title": "Deep Learning for Self-Driving Cars",
+    "twitter": true,
+    "link": "http://selfdrivingcars.mit.edu/tutorials/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "DeepLearning,MachineLearning,NeuralNet,Library,Data",
+    "title": "So you are interested in deep learning",
+    "twitter": true,
+    "link": "http://www.fast.ai/2016/12/19/favorite-posts/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Database,PostgreSQL,Data,DataScience,AI",
+    "title": "The Internals of PostgreSQL",
+    "twitter": true,
+    "link": "http://www.interdb.jp/pg/index.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "NeuralNet,DeepLearning,MachineLearning,TimeSeries,LSTM",
+    "title": "LSTM Neural Network for Time Series Prediction",
+    "twitter": true,
+    "link": "http://www.jakob-aungiers.com/articles/a/LSTM-Neural-Network-for-Time-Series-Prediction",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "BackPropagation,DeepLearning,NeuralNet,Introduction,Data",
+    "title": "Back-propagation - Introduction",
+    "twitter": true,
+    "link": "http://www.offconvex.org/2016/12/20/backprop/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "TimeSeries,MachineLearning,Data,DataScience,AI",
+    "title": "Machine Learning Strategies for Time Series Prediction",
+    "twitter": true,
+    "link": "http://www.ulb.ac.be/di/map/gbonte/ftp/time_ser.pdf",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,AI",
+    "title": "Linear Regression Geometry",
+    "twitter": true,
+    "link": "https://analyticspages.me/2017/01/25/linear-regression-geometry/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Docker,Container,Virtualisation,DataCenter,VM",
+    "title": "Understanding Docker Networking Drivers and their use cases",
+    "twitter": true,
+    "link": "https://blog.docker.com/2016/12/understanding-docker-networking-drivers-use-cases/",
+    "user": "engineering"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "ImageClassification,ComputerVision,MachineLearning,Classification,Data",
+    "title": "Building powerful image classification models using very little data",
+    "twitter": true,
+    "link": "https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Hadoop,Apache,BigData,JSON,Data",
+    "title": "Importing JSON into Hadoop via Kafka",
+    "twitter": true,
+    "link": "https://blog.wikimedia.org/2017/01/13/json-hadoop-kafka/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "HowTo,GettingStarted,MachineLearning,Model,Data",
+    "title": "4 Reasons Your Machine Learning Model is Wrong (and How to Fix It)",
+    "twitter": true,
+    "link": "https://boltdata.io/blog/2016/11/27/4-reasons-your-machine-learning-model-is-wrong-and-how-to-fix-it/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "TensorFlow,DeepLearning,MachineLearning,NeuralNet,Library",
+    "title": "Learn TensorFlow and Deep Learning without a Ph.D.",
+    "twitter": true,
+    "link": "https://cloud.google.com/blog/big-data/2017/01/learn-tensorflow-and-deep-learning-without-a-phd",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "System,Model,Data,DataScience,AI",
+    "title": "Predictive Model System - Some Missing Components",
+    "twitter": true,
+    "link": "https://commitlogs.com/2016/12/17/predictive-model-deployment-missing-components/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Hadoop,Apache,BigData,Data,DataScience",
+    "title": "Your First DIY Hadoop Cluster",
+    "twitter": true,
+    "link": "https://datawanderings.com/2017/01/15/your-first-diy-hadoop-cluster/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Data,DataScience,Animation,CSS,WebDevelopment",
+    "title": "Interpolate your data for animation in R",
+    "twitter": true,
+    "link": "https://flowingdata.com/2016/12/23/interpolate-your-data-for-animation/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "MachineLearning,Data,DataScience,AI",
+    "title": "Minimizing discrimination in machine learning",
+    "twitter": true,
+    "link": "https://flowingdata.com/2016/12/23/minimizing-discrimination-in-machine-learning/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,GPU,AI",
+    "title": "Alenka - GPU Database Engine",
+    "twitter": true,
+    "link": "https://github.com/antonmks/Alenka",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "TensorFlow,DeepLearning,MachineLearning,NeuralNet,Library",
+    "title": "TensorFlow-in-a-Nutshell: The repo for the fast and easy guide to the most popular deep learning framework in the world.",
+    "twitter": true,
+    "link": "https://github.com/c0cky/TensorFlow-in-a-Nutshell",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Apache,Spark,BigData,TensorFlow,DeepLearning",
+    "title": "PipelineIO - End-to-End ML and AI Platform for Real-time Spark and Tensorflow Data Pipelines",
+    "twitter": true,
+    "link": "https://github.com/fluxcapacitor/pipeline",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,AI",
+    "title": "AQO - Adaptive Query Optimization",
+    "twitter": true,
+    "link": "https://github.com/tigvarts/aqo",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Numpy,Python,Library,Computing,ComputerScience",
+    "title": "NumPy Tutorial - Array Computing in Python",
+    "twitter": true,
+    "link": "https://hackernoon.com/numpy-tutorial-array-computing-in-python-fb7321f417ba",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Python,Scikit,MachineLearning,Library,Performance",
+    "title": "Speeding up scikit-learn workflow using a high-performance Go proxy",
+    "twitter": true,
+    "link": "https://ioloop.io/blog/hoverpy-scikitlearn/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Container",
+    "title": "A container networking overview",
+    "twitter": true,
+    "link": "https://jvns.ca/blog/2016/12/22/container-networking/",
+    "user": "engineering"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "System,Data,DataScience,AI",
+    "title": "Recommender Systems - the devil is in the details",
+    "twitter": true,
+    "link": "https://medium.com/@ingwbaa/recommenders-the-devil-is-in-the-details-ae937c3ba8a4",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Python,Classification,MachineLearning,Data,DataScience",
+    "title": "Implementing a Binary Classifier in Python",
+    "twitter": true,
+    "link": "https://medium.com/@maheshkkumar/implementing-a-binary-classifier-in-python-b69d08d8da21",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "BackPropagation,DeepLearning,NeuralNet,MachineLearning,Data",
+    "title": "Neural Networks without Backpropagation - Direct Feedback Alignment",
+    "twitter": true,
+    "link": "https://medium.com/@rilut/neural-networks-without-backpropagation-direct-feedback-alignment-30d5d4848f5",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,AI",
+    "title": "Cake, Rocket AI, GANs and the Style Transfer Debate",
+    "twitter": true,
+    "link": "https://medium.com/intuitionmachine/nips-2016-cake-rocket-ai-gans-and-the-style-transfer-debate-708c46438053",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "MachineLearning,Data,DataScience,AI",
+    "title": "Machine Learning Crash Course - Part 1",
+    "twitter": true,
+    "link": "https://ml.berkeley.edu/blog/2016/11/06/tutorial-1/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "MachineLearning,Data,DataScience,AI",
+    "title": "Machine Learning Crash Course - Part 2",
+    "twitter": true,
+    "link": "https://ml.berkeley.edu/blog/2016/12/24/tutorial-2/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "System,Introduction,Data,DataScience,AI",
+    "title": "An introduction to recommender systems with Crab",
+    "twitter": true,
+    "link": "https://muricoca.github.io/crab/tutorial.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "NeuralNet,DeepLearning,MachineLearning,Data,DataScience",
+    "title": "Neural Networks Are Impressively Good At Compression",
+    "twitter": true,
+    "link": "https://probablydance.com/2016/04/30/neural-networks-are-impressively-good-at-compression/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Facebook,Data,DataScience,AI",
+    "title": "Scuba - Diving into Data at Facebook",
+    "twitter": true,
+    "link": "https://research.fb.com/wp-content/uploads/2016/11/scuba-diving-into-data-at-facebook.pdf",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "DeepLearning,Keras,MachineLearning,NeuralNet,Library",
+    "title": "Lane Following Autopilot with Keras and Tensorflow.",
+    "twitter": true,
+    "link": "https://wroscoe.github.io/keras-lane-following-autopilot.html",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "ComputerVision,MachineLearning,DeepLearning,NeuralNet,Library",
+    "title": "Deep Learning of Generic Features for Vision",
+    "twitter": true,
+    "link": "https://www.amrita.edu/research/project/deep-learning-generic-features-vision",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Python,Guide,Data,DataScience,AI",
+    "title": "Guide to Reinforcement Learning and its implementation in Python",
+    "twitter": true,
+    "link": "https://www.analyticsvidhya.com/blog/2017/01/introduction-to-reinforcement-learning-implementation/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Database,PostgreSQL,Data,DataScience,AI",
+    "title": "PostgreSQL Parallel indexing in Citus",
+    "twitter": true,
+    "link": "https://www.citusdata.com/blog/2017/01/17/parallel-indexing-with-citus/",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Approach,MachineLearning,Data,DataScience,AI",
+    "title": "Approaching (Almost) Any Machine Learning Problem",
+    "twitter": true,
+    "link": "https://www.linkedin.com/pulse/approaching-almost-any-machine-learning-problem-abhishek-thakur",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "HowTo,GettingStarted,MachineLearning,Data,DataScience",
+    "title": "How To Stay Competitive In An Evolving Machine Learning Landscape",
+    "twitter": true,
+    "link": "https://www.linkedin.com/pulse/how-stay-competitive-evolving-machine-learning-vin-vashishta",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "Data,DataScience,AI",
+    "title": "XGBoost Rules The World",
+    "twitter": true,
+    "link": "https://www.linkedin.com/pulse/xgboost-rules-world-milos-vuckovic-msc-",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Data,DataScience,AI",
+    "title": "3 methods to deal with outliers",
+    "twitter": true,
+    "link": "https://www.neuraldesigner.com/blog/3_methods_to_deal_with_outliers",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "TensorFlow,DeepLearning,MachineLearning,NeuralNet,Library",
+    "title": "Building intelligent applications with deep learning and TensorFlow",
+    "twitter": true,
+    "link": "https://www.oreilly.com/ideas/building-intelligent-applications-with-deep-learning-and-tensorflow",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": true,
+    "tags": "Data,DataScience,Science,AI",
+    "title": "What is hardcore data science in practice?",
+    "twitter": true,
+    "link": "https://www.oreilly.com/ideas/what-is-hardcore-data-science-in-practice",
+    "user": "dataradar"
+  },
+  {
+    "activated": true,
+    "autoformat": false,
+    "tags": "MachineLearning,Data,DataScience,AI",
+    "title": "Machine Learning for Grandmas",
+    "twitter": true,
+    "link": "https://www.saagie.com/fr/blog/machine-learning-concepts-overview?platform=hootsuite",
+    "user": "dataradar"
+  }
+]
