@@ -97,13 +97,14 @@ INSTALLED_APPS = [
 	'material',
 	'material.admin',
 	'admin_view_permission',
-	'django.contrib.admin',
 	'django_ses',
+	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
+	'django.contrib.sites',
 	'storages',
 	'rest_framework',
 	'django_q',
@@ -162,6 +163,7 @@ FIXTURE_DIRS = (
 )
 
 ENCRYPTED_FIELDS_KEYDIR = os.path.join(BASE_DIR, 'fieldkeys')
+FIELD_ENCRYPTION_KEY= b'mr4nR3RqkbKQSxblZHsGbkohtIvlnPuUwu_er4OaIiw='
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -185,6 +187,7 @@ else:
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
 	{

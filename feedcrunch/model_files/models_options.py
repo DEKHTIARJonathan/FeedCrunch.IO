@@ -4,7 +4,8 @@
 from __future__ import unicode_literals
 from django.db import models
 
-from encrypted_fields import EncryptedCharField
+#from encrypted_fields import EncryptedCharField
+from encrypted_fields.fields import EncryptedCharField
 
 ############################## Option MODEL ###################################
 

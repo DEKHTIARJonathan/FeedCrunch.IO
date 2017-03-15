@@ -19,7 +19,8 @@ from django_q.tasks import schedule
 from django_q.models import Schedule
 
 from validate_email import validate_email
-from encrypted_fields import EncryptedCharField
+#from encrypted_fields import EncryptedCharField
+from encrypted_fields.fields import EncryptedCharField
 
 from feedcrunch.models import Continent, Country, Estimator
 from .models_interest import Interest
@@ -103,7 +104,7 @@ class FeedUserManager(BaseUserManager):
 
 				return {'status': True}
 
-			except Exception, e:
+			except Exception as e:
 				return {'status': False, 'error': str(e)}
 
 		def _normalize_username(self, username):
@@ -372,7 +373,7 @@ class FeedUser(AbstractFeedUser):
 
 	def is_twitter_activated(self):
 		if self.is_twitter_enabled():
-		 	if TwitterAPI(self).verify_credentials()['status']:
+			if TwitterAPI(self).verify_credentials()['status']:
 				return True
 			else:
 				self.reset_twitter_credentials()
@@ -478,7 +479,6 @@ class FeedUser(AbstractFeedUser):
 					tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
 				except:
 					errors.append(link)
-					print "ERROR ! title = " + title + " && link = " + link
 					continue
 				schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
 

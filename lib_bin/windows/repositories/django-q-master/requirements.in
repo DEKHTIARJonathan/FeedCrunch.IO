@@ -1,0 +1,12 @@
+arrow
+blessed
+django-picklefield
+future
+hiredis
+redis
+psutil
+django-redis
+iron-mq
+boto3
+pymongo
+rollbar

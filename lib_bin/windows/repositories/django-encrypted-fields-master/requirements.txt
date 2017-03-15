@@ -1,0 +1,12 @@
+setuptools==34.3.2
+cryptography==1.8.1
+Django>=1.9.4
+freezegun==0.3.8
+six==1.10.0
+# for testing...
+coverage==4.3.4
+django_coverage==1.2.4
+mccabe==0.6.1
+mock==2.0.0
+psycopg2==2.7.1
+tox==2.6.0

@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
 
-import datetime, string, re, unicodedata, feedparser, HTMLParser
+import datetime, string, re, unicodedata, feedparser
 
 from get_domain import get_domain
 from clean_html import clean_html
@@ -125,8 +125,8 @@ class RSSFeed(models.Model):
 							for subscribtion in subscribtions:
 								try:
 									RSSArticle_Assoc.objects.create(subscribtion=subscribtion, user=subscribtion.user, article=tmp_article)
-								except Exception, e:
-									print str(e)
+								except Exception as e:
+									print (str(e))
 									pass
 						except:
 							pass
@@ -136,6 +136,6 @@ class RSSFeed(models.Model):
 				else:
 					raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
 
-		except Exception, e:
-			print "An error occured in the process: " + str(e)
+		except Exception as e:
+			print ("An error occured in the process: " + str(e))
 			#self._trigger_bad_attempt()
