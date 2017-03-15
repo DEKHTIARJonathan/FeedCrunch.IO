@@ -163,7 +163,7 @@ FIXTURE_DIRS = (
 )
 
 ENCRYPTED_FIELDS_KEYDIR = os.path.join(BASE_DIR, 'fieldkeys')
-FIELD_ENCRYPTION_KEY= b'mr4nR3RqkbKQSxblZHsGbkohtIvlnPuUwu_er4OaIiw='
+FIELD_ENCRYPTION_KEY= assign_env_value('FIELD_ENCRYPTION_KEY')
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
