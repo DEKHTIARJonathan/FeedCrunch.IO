@@ -1,0 +1,16 @@
+applications:
+- name: DeployDjangoBluemix
+  host: feedcrunch
+  instances: 2
+  memory: 512M
+  path: .
+  buildpack: https://github.com/cloudfoundry/buildpack-python.git
+  command: chmod +x run.sh && ./run.sh
+
+declared-services:
+  Feedcrunch-DB:
+    label: postgresql
+    plan: 100
+
+services:
+  - Feedcrunch-DB
