@@ -19,8 +19,7 @@ from django_q.tasks import schedule
 from django_q.models import Schedule
 
 from validate_email import validate_email
-#from encrypted_fields import EncryptedCharField
-from encrypted_fields.fields import EncryptedCharField
+from encrypted_model_fields .fields import EncryptedCharField
 
 from feedcrunch.models import Continent, Country, Estimator
 from .models_interest import Interest

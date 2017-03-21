@@ -108,6 +108,7 @@ INSTALLED_APPS = [
 	'storages',
 	'rest_framework',
 	'django_q',
+	'encrypted_model_fields',
 	'feedcrunch',
 	'feedcrunch_api_v1',
 	'feedcrunch_rssviewer',

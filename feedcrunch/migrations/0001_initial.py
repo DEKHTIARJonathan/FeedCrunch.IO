@@ -6,7 +6,7 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
-import encrypted_fields.fields
+import encrypted_model_fields.fields
 import feedcrunch.model_files.models_estimators
 import feedcrunch.model_files.models_post
 import feedcrunch.model_files.models_user
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             name='Option',
             fields=[
                 ('parameter', models.CharField(max_length=255, primary_key=True, serialize=False)),
-                ('value', encrypted_fields.fields.EncryptedCharField(default='', max_length=255)),
+                ('value', encrypted_model_fields.fields.EncryptedCharField(default='', max_length=255)),
             ],
         ),
         migrations.CreateModel(
@@ -77,10 +77,10 @@ class Migration(migrations.Migration):
                 ('job', models.CharField(blank=True, default='Chief Admission Officer at', max_length=80, null=True)),
                 ('company_name', models.CharField(blank=True, default='Holy Paradise Inc.', max_length=80, null=True)),
                 ('company_website', models.URLField(blank=True, default='http://www.feedcrunch.io/', max_length=120, null=True)),
-                ('apikey', encrypted_fields.fields.EncryptedCharField(default=uuid.uuid4, editable=False, max_length=500, unique=True)),
+                ('apikey', encrypted_model_fields.fields.EncryptedCharField(default=uuid.uuid4, editable=False, max_length=500, unique=True)),
                 ('profile_picture', models.ImageField(blank=True, default='images/user_photos/dummy_user.png', null=True, upload_to=feedcrunch.model_files.models_user.get_photo_path)),
-                ('twitter_token', encrypted_fields.fields.EncryptedCharField(blank=True, default='', max_length=500, null=True)),
-                ('twitter_token_secret', encrypted_fields.fields.EncryptedCharField(blank=True, default='', max_length=500, null=True)),
+                ('twitter_token', encrypted_model_fields.fields.EncryptedCharField(blank=True, default='', max_length=500, null=True)),
+                ('twitter_token_secret', encrypted_model_fields.fields.EncryptedCharField(blank=True, default='', max_length=500, null=True)),
                 ('social_dribbble', models.URLField(blank=True, default='', max_length=60, null=True)),
                 ('social_facebook', models.URLField(blank=True, default='', max_length=60, null=True)),
                 ('social_flickr', models.URLField(blank=True, default='', max_length=60, null=True)),
