@@ -10,10 +10,10 @@ before_install:
 - virtualenv venv
 install:
 - pip install --upgrade pip
-- if [[ $TRAVIS_PYTHON_VERSION == 3.4 ]]; then pip install lib_bin/linux/pycrypto-2.6.1-cp34-cp34m-linux_x86_64.whl; fi
-- if [[ $TRAVIS_PYTHON_VERSION == 3.5 ]]; then pip install lib_bin/linux/pycrypto-2.6.1-cp35-cp35m-linux_x86_64.whl; fi
-- if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install lib_bin/linux/pycrypto-2.6.1-cp36-cp36m-linux_x86_64.whl; fi
-- python lib_bin\repositories\django-q-master\setup.py install
+- if [[ $TRAVIS_PYTHON_VERSION == 3.4 ]]; then pip install "lib_bin/linux/pycrypto-2.6.1-cp34-cp34m-linux_x86_64.whl"; fi
+- if [[ $TRAVIS_PYTHON_VERSION == 3.5 ]]; then pip install "lib_bin/linux/pycrypto-2.6.1-cp35-cp35m-linux_x86_64.whl"; fi
+- if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install "lib_bin/linux/pycrypto-2.6.1-cp36-cp36m-linux_x86_64.whl"; fi
+- python "lib_bin\repositories\django-q-master\setup.py" install
 - pip install django-encrypted-model-fields
 - pip install -r requirements.txt
 before_script:
@@ -28,7 +28,7 @@ deploy:
   api: https://api.eu-gb.bluemix.net
   username: jonathan.dekhtiar@utc.fr
   password:
-    secure: YxCxUPk0EqQ6I3woZm5Uc9gSFYtyYPV39/K5ZgLK8egWT+HMzHEDBBN6WF5i29JO7LuqkKaXx9LvcV6FVjadE7KR44aZPE1TfEhQH12Nf38LbCs5+hBwE+YQWETBloP5BIo2vB/c5j7QDgCoLPPxN+3ykLyPR+rLdFOOs/3emZXU9MZTmHYseUDE4Eu7x3p+zKPNCyjNJYoAFQnhxR8D+Vd9ZOa7oGmHwMeUkJI2ZmOWhx/jiwj6LQG+4ps2xqTJX87V2OLDA9oXazbGARs+6xyCTuIU+L4AQqUdKWcqXRZMUjheX1axKPez2B0YtuNPl67lxf8kG9bHyyWb+2Dbh7975I7mVseQQjKNHpnn1bQztWpJW8LtBpO4hXhyu7Nn954i8beqxwHYZPme4zuJsfkIlhv6zdz/O+ZG0LZ2jHbSe4WQcPTVnOoHItzrzmW8ltBSbD6Be1HzBnYXpFRTlqqE5gZUAiwxNXRhoFkXxwiYpZwxHINACfbkk2ifV1Ev9onmlxSUEoNyKHrqGQ9VjyYYgbf+hrkfiFTmZ5GCYj/AHFGCb3HsxDnN/xP5fBwJObbz/hrtfom6AHROFJgCb34nQcbPWI+kvaIDhLoWM6vNd80T9nXBIFXxGxYyD5AyMbiqY/2fLk8HP/UUlLShw0SbmW/eo1J2All5b4XwsOg=
+    secure: "x8cb0R2mrSXqt0/Q7Q08FxAVPQWXah6W76NnXKj+OUu2Fmb8ONSjDgdvWJCB+FksB5aBw+nytPg8RQJ4/eY2WQ0ii78qJZBoQYDnWLrj6KP5H8+uAHY/jAvZV6xoWY/cfKn89bcwufPxw6v87rmFzIkH5lkW+amvRxbRTWymGXz0yV4Jw5bpD23xp8ayJ48GI8iw+Eu5DR08y81zVrltzcO/0IQupL6xmSAZRvhzFJWYybCz3EZEuFhkPZ7bDOPS286+ddxa2u8VjlmMrJ1XiC9mZV5lR1NqXcQvj5uWrnKcutLxgga/9qFfaNd3+170tOBmi/KGD4F+43LxATQJANP5Ugb+2StKuFZD6eE4tmAAJNvozPsVDpKwua8q1ezpYdXiYYS7Um3KtGLJRG8/x5DjQHVg3L56k/pzOwXZsSM86r1X1+fkiAeGeyF0quHUxy11EsDVZ1eCxQ3CrGzl6fh1PA9Gklzu0fjrayObXSMPszpIwZj+Yq/fSMAnADnhzQy8zsnZ1fGY20PafUJqOQx7zC+De66DMSZZzHC3kjbL+galq4c4ZwGYdpWSRdUPcLQF1BETh6Fniwyl3Ak5SEQUmZmMRLcyqG3eXioEqy2WUa1lQr/KHefKHmxLOYhsWMUVUggAOi6WgIKn94PIgf99phjMmEHCppBsPN4+QiY="
   organization: FeedCrunch
   space: prod
   manifest: manifest.yml       # (optional)  Defaults to manifest.yml.
