@@ -29,7 +29,7 @@ class Post(models.Model):
 	activeLink = models.BooleanField()
 	tags = models.ManyToManyField(Tag, blank=True, related_name='rel_posts')
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.id)
 
 	def get_date(self):

@@ -28,7 +28,7 @@ script:
 - python manage.py makemigrations feedcrunch
 - python manage.py migrate
 - python manage.py createcachetable
-#- coverage run manage.py test
+- coverage run manage.py test
 
 addons:
     code_climate:

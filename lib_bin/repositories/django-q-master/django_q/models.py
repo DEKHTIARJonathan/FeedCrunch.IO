@@ -78,7 +78,7 @@ class Task(models.Model):
     def time_taken(self):
         return (self.stopped - self.started).total_seconds()
 
-    def __unicode__(self):
+    def __str__(self):
         return u'{}'.format(self.name or self.id)
 
     class Meta:
@@ -165,7 +165,7 @@ class Schedule(models.Model):
             return '<a href="{}">[{}]</a>'.format(url, task.name)
         return None
 
-    def __unicode__(self):
+    def __str__(self):
         return self.func
 
     success.boolean = True

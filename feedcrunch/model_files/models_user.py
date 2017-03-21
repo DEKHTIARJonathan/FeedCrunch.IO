@@ -54,7 +54,7 @@ class FeedUserManager(BaseUserManager):
 		use_in_migrations = True
 
 		def _validate_username(self, username):
-			if (not isinstance( username, unicode )) or len( username ) >= 31:
+			if (not isinstance( username, str )) or len( username ) >= 31:
 				raise ValueError("The given username is not a valid string or longer than 30 characters.")
 
 			if not re.match("^[A-Za-z0-9]*$", username):
@@ -72,11 +72,11 @@ class FeedUserManager(BaseUserManager):
 				raise ValueError("The password doesn't fit in our policies : At least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9'")
 
 		def _validate_firstname(self, firstname):
-			if (not isinstance( firstname, unicode )) or len( firstname ) >= 31:
+			if (not isinstance( firstname, str )) or len( firstname ) >= 31:
 				raise ValueError("The given firstname is not a valid string or longer than 30 characters.")
 
 		def _validate_lastname(self, lastname):
-			if (not isinstance( lastname, unicode )) or len( lastname ) >= 31:
+			if (not isinstance( lastname, str )) or len( lastname ) >= 31:
 				raise ValueError("The given last_name is not a valid string or longer than 30 characters.")
 
 		def _validate_country(self, country):
@@ -349,7 +349,7 @@ class FeedUser(AbstractFeedUser):
 	class Meta(AbstractFeedUser.Meta):
 			swappable = 'AUTH_USER_MODEL'
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.username
 
 	def save(self, *args, **kwargs):

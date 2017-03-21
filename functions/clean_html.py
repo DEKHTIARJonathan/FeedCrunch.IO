@@ -8,7 +8,7 @@ from html.parser import HTMLParser
 
 def clean_html(raw_html):
 	# Normalizarion
-	if isinstance(raw_html, unicode):
+	if isinstance(raw_html, str):
 		cleantext = unicodedata.normalize('NFC', raw_html)
 
 	# Removing all HTML Tags

@@ -10,7 +10,7 @@ class Continent(models.Model):
 	name = models.CharField(primary_key=True, max_length=60)
 	code = models.CharField(max_length=2)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name
 
 class Country(models.Model):
@@ -18,5 +18,5 @@ class Country(models.Model):
 	code = models.CharField(max_length=2)
 	continent = models.ForeignKey(Continent)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name

@@ -22,13 +22,13 @@ class PostTest(TestCase):
 
 	def test_get_domain(self):
 		domain = PostFactory().get_domain()
-		self.assertIsInstance(domain, unicode)
+		self.assertIsInstance(domain, str)
 		self.assertEqual(domain, "www.google.com")
 
 	def test_get_domain_short(self):
 		post = PostFactory(link="http://www.google.com")
 		domain = post.get_domain()
-		self.assertIsInstance(domain, unicode)
+		self.assertIsInstance(domain, str)
 		self.assertEqual(domain, "www.google.com")
 
 	def test_get_domain_error(self):

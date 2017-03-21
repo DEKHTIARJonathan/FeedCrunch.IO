@@ -33,7 +33,7 @@ class Interest(models.Model):
 	picture = models.ImageField(upload_to=get_photo_path, default=settings.INTEREST_PHOTO_PATH+'dummy_stock.jpg', blank=True, null=True)
 	guid = models.UUIDField(default=uuid.uuid4, editable=False, blank=False, null=False, unique=True)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name
 
 	def get_photo_path(self):

@@ -15,12 +15,12 @@ from feed_validation import validate_feed
 class RSSFeedManager(models.Manager):
 	def create(self, *args, **kwargs):
 
-		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
+		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], str)):
 			kwargs['title'] = clean_html(kwargs['title'])
 		else:
 			raise Exception("Title is missing - RSSFeed Manager")
 
-		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
+		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], str)):
 
 			if RSSFeed.objects.filter(link=kwargs['link']).exists():
 				raise Exception("RSSFeed already exists in the database.")
@@ -43,7 +43,7 @@ class RSSFeed(models.Model):
 	active = models.BooleanField(default=True)
 	bad_attempts = models.SmallIntegerField(default=0)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 	def save(self, *args, **kwargs):
