@@ -10,11 +10,10 @@ before_install:
 - virtualenv venv
 install:
 - pip install --upgrade pip
-- if [[ $TRAVIS_PYTHON_VERSION == 3.4 ]]; then pip install "lib_bin/linux/pycrypto-2.6.1-cp34-cp34m-linux_x86_64.whl"; fi
-- if [[ $TRAVIS_PYTHON_VERSION == 3.5 ]]; then pip install "lib_bin/linux/pycrypto-2.6.1-cp35-cp35m-linux_x86_64.whl"; fi
-- if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install "lib_bin/linux/pycrypto-2.6.1-cp36-cp36m-linux_x86_64.whl"; fi
+- if [[ $TRAVIS_PYTHON_VERSION == 3.4 ]]; then pip install pycrypto==2.6.1; fi
+- if [[ $TRAVIS_PYTHON_VERSION == 3.5 ]]; then pip install pycrypto==2.6.1; fi
+- if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install pycrypto==2.6.1; fi
 - python "lib_bin\repositories\django-q-master\setup.py" install
-- pip install django-encrypted-model-fields
 - pip install -r requirements.txt
 before_script:
 - psql -c "CREATE DATABASE travisci;" -U postgres
