@@ -5,7 +5,7 @@ applications:
   memory: 1G
   disk_quota: 2GB
   path: .
-  buildpack: python_buildpack
+  buildpack: https://github.com/cloudfoundry/python-buildpack.git
   services:
     - Feedcrunch-DB
   #command: chmod +x run.sh && ./run.sh
