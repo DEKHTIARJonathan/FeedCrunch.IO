@@ -19,6 +19,7 @@ fi
 echo [$0] port is------------------- $SERVER_PORT
 python manage.py makemigrations
 python manage.py migrate
+python manage.py createcachetable
 #echo "from django.contrib.auth.models import User; User.objects.create_superuser('${USER}', '${MAIL}', '${PASS}')" | python manage.py shell
 
 echo [$0] Starting Django Server...

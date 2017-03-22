@@ -1,0 +1,98 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+build/adsi
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+htmlcov/
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+
+# App Specific Files
+application/staticfiles/
+cover/
+test.py
+dummy_data.txt
+
+#CodeDeploy
+codedeploy/certificate.crt
+codedeploy/data.zip
+codedeploy/data_.zip
+codedeploy/deploy.sh
+codedeploy/feedcrunch.xyz.csr
+codedeploy/https.key
+https/deploy.sh
+fieldkeys/*
+!fieldkeys/__init__.py
+application/fixtures/dataradar.json
+*.sqlite3
+!media/images/user_photos/__init__.py
+!media/images/user_photos/dummy_user.png
+media/images/user_photos/
+codedeploy/Encrypted/*.zip
+codedeploy/Encrypted/*.txt
+*.model
+FeedCrunch.IO.zip
+boto-develop/build/
+application/fixtures/feedcrunch_dump8.json
+application/fixtures/feedcrunch_dump9.json
+media/images/interest_photos/
