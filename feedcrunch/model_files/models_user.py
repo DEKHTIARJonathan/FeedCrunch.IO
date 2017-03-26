@@ -311,7 +311,7 @@ class FeedUser(AbstractFeedUser):
 
 	recommendation_engine = models.OneToOneField(Estimator, on_delete=models.CASCADE, default=None, blank=True, null=True)
 
-	interests = models.ManyToManyField(Interest, related_name="users_by_interest")
+	interests = models.ManyToManyField(Interest, related_name="users_by_interest", blank=True)
 	onboarding_done = models.BooleanField(default=False)
 
 	# Main Social Networks

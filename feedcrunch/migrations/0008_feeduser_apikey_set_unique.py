@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import uuid
+import validators
 
 class Migration(migrations.Migration):
 
@@ -15,6 +16,24 @@ class Migration(migrations.Migration):
 		migrations.AlterField(
             model_name='feeduser',
             name='apikey',
-            field=models.UUIDField(default=uuid.uuid4, unique=True, editable=False, null=False),
+            field=models.UUIDField(
+			    default=uuid.uuid4,
+                unique=True,
+                editable=False,
+                null=False
+            ),
+        ),
+        migrations.AlterField(
+            model_name='feeduser',
+            name='username',
+            field=models.CharField(
+                error_messages={'unique': 'A user with that username already exists.'},
+                help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.',
+                max_length=150,
+                primary_key=True,
+                serialize=False,
+                validators=[validators.UnicodeUsernameValidator()],
+                verbose_name='username'
+            ),
         ),
     ]
