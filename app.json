@@ -1,8 +1,7 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
-  "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
-  "addons": [ "heroku-postgresql" ]
+  "name": "Feedcrunch.io",
+  "description": "FeedCrunch.io allows you to store, manage, publish, share and organize thousands of links with RSS Feeds.",
+  "image": "DataIsTheNewBlack/FeedCrunch.IO",
+  "repository": "https://github.com/DataIsTheNewBlack/FeedCrunch.IO",
+  "keywords": ["python", "django", "rss", "atom", "feed" ]
 }

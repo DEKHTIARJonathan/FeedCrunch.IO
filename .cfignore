@@ -3,12 +3,22 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C extensions
+*.so
+
+#MACOS File
+.DS_Store
+
 # Distribution / packaging
 .Python
 env/
-build/adsi
+build/
+develop-eggs/
+dist/
+downloads/
 eggs/
 .eggs/
+lib/
 lib64/
 parts/
 sdist/
@@ -30,6 +40,10 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 .coverage
 htmlcov/
+
+# Translations
+*.mo
+*.pot
 
 # Django stuff:
 *.log
@@ -67,6 +81,9 @@ ENV/
 # Spyder project settings
 .spyderproject
 
+# DB Files
+*/staticfiles/
+
 # App Specific Files
 application/staticfiles/
 cover/
@@ -96,3 +113,23 @@ boto-develop/build/
 application/fixtures/feedcrunch_dump8.json
 application/fixtures/feedcrunch_dump9.json
 media/images/interest_photos/
+
+# CloudFoundry Remove
+_unused_/
+codedeploy/
+example_files/
+fieldkeys/
+lib_bin/
+media/
+scripts/
+venv/
+.codeclimate.yml
+.coveragerc
+.env
+.env.dist
+.gitignore
+.travis.yml
+app.json
+appspec.yml
+pytest.ini
+README.md

@@ -4,9 +4,9 @@ cache:
 - pip
 
 python:
-- 3.4
-- 3.5
-- 3.6
+- '3.4'
+- '3.5'
+- '3.6'
 
 services: postgresql
 
@@ -17,7 +17,6 @@ before_install:
 
 install:
 - pip install --upgrade pip
-- python "lib_bin/repositories/django-q-master/setup.py" install
 - pip install -r requirements.txt
 
 before_script:
@@ -37,19 +36,19 @@ addons:
 notifications:
   slack:
     rooms:
-      secure: qu653B/BOfdY3BZ6IXFa1lQxkQMubFtnoMT9mtsrNOlgF1dFI0LlUBqapqApsiitvYU257LFJqdzbp7YyS8gFSgAdtY4wDRsPg9Atl9wwfGXqGFTrbpKJBiTULKgRWqWCwTFAQRO79tqB5VMf93pu5dzD1gK9qJpD7nLahob7hb2F+gW+vbDHsn9sjz5KautpGr5JN5EGzo46ghthqS2oL4tCKQWN0+JT1sEoaU0/31bvrD1HelKO8xLMzR+6eZ1rg950Qgg1qk3SWHi2HwzGcp34GG3TRLKEXCGpNHLJXumqWuneuPjEL0kYqJkLSyIwL49eND5T+l99IX4cdJlgLJsJcLNV+LxXurkxbW+z3R2AsJBgdZA/58dSjhghze8Fgp2FBVnoLPjR0jDKX7T4C84EbY3gRaYTCvAaEeQHgmkRD8GbsYPV81jIQrG8RARadlPPSW5dtVxz/LvkOUtccG7hQ8agWvuHc79iYwX1ahsJIQ7/xETSYmGQw4nAXbUFtsDm2h5OBJzphUxvp10xUP/prAg7mVW4NwQUAurHBBCCvW1LhDDbP2ZKtcEz4OqnN4hFSlwv0aPFi0wEQqGWPaZua8TgO2DzHdke4ECjt8pr7TsqA92O+E2iV4zApgjS6kuY3R8vxAgvPRNDW5GeR/0JKNd1ZtskPTTK+c9iPM=
+      secure: "qu653B/BOfdY3BZ6IXFa1lQxkQMubFtnoMT9mtsrNOlgF1dFI0LlUBqapqApsiitvYU257LFJqdzbp7YyS8gFSgAdtY4wDRsPg9Atl9wwfGXqGFTrbpKJBiTULKgRWqWCwTFAQRO79tqB5VMf93pu5dzD1gK9qJpD7nLahob7hb2F+gW+vbDHsn9sjz5KautpGr5JN5EGzo46ghthqS2oL4tCKQWN0+JT1sEoaU0/31bvrD1HelKO8xLMzR+6eZ1rg950Qgg1qk3SWHi2HwzGcp34GG3TRLKEXCGpNHLJXumqWuneuPjEL0kYqJkLSyIwL49eND5T+l99IX4cdJlgLJsJcLNV+LxXurkxbW+z3R2AsJBgdZA/58dSjhghze8Fgp2FBVnoLPjR0jDKX7T4C84EbY3gRaYTCvAaEeQHgmkRD8GbsYPV81jIQrG8RARadlPPSW5dtVxz/LvkOUtccG7hQ8agWvuHc79iYwX1ahsJIQ7/xETSYmGQw4nAXbUFtsDm2h5OBJzphUxvp10xUP/prAg7mVW4NwQUAurHBBCCvW1LhDDbP2ZKtcEz4OqnN4hFSlwv0aPFi0wEQqGWPaZua8TgO2DzHdke4ECjt8pr7TsqA92O+E2iV4zApgjS6kuY3R8vxAgvPRNDW5GeR/0JKNd1ZtskPTTK+c9iPM="
 
 deploy:
   provider: cloudfoundry
   api: https://api.eu-gb.bluemix.net
   username: jonathan.dekhtiar@utc.fr
   password:
-    secure: "x8cb0R2mrSXqt0/Q7Q08FxAVPQWXah6W76NnXKj+OUu2Fmb8ONSjDgdvWJCB+FksB5aBw+nytPg8RQJ4/eY2WQ0ii78qJZBoQYDnWLrj6KP5H8+uAHY/jAvZV6xoWY/cfKn89bcwufPxw6v87rmFzIkH5lkW+amvRxbRTWymGXz0yV4Jw5bpD23xp8ayJ48GI8iw+Eu5DR08y81zVrltzcO/0IQupL6xmSAZRvhzFJWYybCz3EZEuFhkPZ7bDOPS286+ddxa2u8VjlmMrJ1XiC9mZV5lR1NqXcQvj5uWrnKcutLxgga/9qFfaNd3+170tOBmi/KGD4F+43LxATQJANP5Ugb+2StKuFZD6eE4tmAAJNvozPsVDpKwua8q1ezpYdXiYYS7Um3KtGLJRG8/x5DjQHVg3L56k/pzOwXZsSM86r1X1+fkiAeGeyF0quHUxy11EsDVZ1eCxQ3CrGzl6fh1PA9Gklzu0fjrayObXSMPszpIwZj+Yq/fSMAnADnhzQy8zsnZ1fGY20PafUJqOQx7zC+De66DMSZZzHC3kjbL+galq4c4ZwGYdpWSRdUPcLQF1BETh6Fniwyl3Ak5SEQUmZmMRLcyqG3eXioEqy2WUa1lQr/KHefKHmxLOYhsWMUVUggAOi6WgIKn94PIgf99phjMmEHCppBsPN4+QiY="
+    secure: "LJSepAkc6QLyHi/RYFjZF2ZdyWcoorgTIXXlsU5m0ele0Rgsh2tWW7JtuLA1cwExtutE1fZ5geRX5arMQRavgO1ptFfLjMaCa7/aEGfqf13XlfidA+GeGRFUgYuQ4u3keoSJBD3OzOYtvjXf3pAaR0BYSzZ9Ep7EPFaEXZa0zUmSFap0Pu81/AL5poZVYa8O7jzR0yYBf2k70d6H5yClZmX1rVC3Dwv4+QcmFIQlGkg5w7/kKLcxwiDvzlEAGPUNIwlnLrgAMz/37FYM2QHgFyPy7aEsecyp4i4uZBmQXyHcnUSdsCcPV478Vq+SFiEXAKe0kCsrV/Ulvs04OMOe3j1/70nmj7wjMbWkjKRUNVAsXRXKA1+FV+PqwJEW+NJYdZOhAgc3o1+kuaxWE2gLX6Etoxf9ecRFsA/5lAgxWrynLXbzUxcE9avkMRTCw0RRhBMAq5XuYwSZSVAgvcoba8nYgvLwihe1k6o6m0/Yhy95Fh4Bcq5KPvKrkuIucajMU/zM7bnvDsvtlKBzh1bGdoMgwvYqJ4/dTgeRAWmcqDD/I0W0TWwb3JE0b8x1ul7f+DAiS/5JE2A+JPD2oDrIy9nSyqFOt5cv/c3nH62iPZNSwa9bhpFVul25vsffoASeqkwnt0FTuJsts38a6OEGOnsK+CfuQEVEdFaQ2NXuBt8="
   organization: FeedCrunch
   space: prod
   manifest: manifest.yml       # (optional)  Defaults to manifest.yml.
   region: eu-gb                # (optional)  [ng, eu-gb , au-syd] Defaults to US South region (ng).
   on:
-    branch: master
+    branch: master, Python-3_-_Dev
     python: '3.6'
-    repo: DEKHTIARJonathan/test-bluemix
+    repo: DataIsTheNewBlack/FeedCrunch.IO

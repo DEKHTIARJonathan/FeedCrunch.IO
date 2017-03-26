@@ -5,13 +5,16 @@ applications:
   memory: 1G
   disk_quota: 2GB
   path: .
-  buildpack: https://github.com/cloudfoundry/python-buildpack.git
-  services:
-    - Feedcrunch-DB
-  #command: chmod +x run.sh && ./run.sh
-  command: null
-  env:
-    BLUEMIX: True
-    DEBUG: False
-    EMAIL_DEFAULT_SENDER: laurent@feedcrunch.io
-    DISABLE_COLLECTSTATIC: 1
+  buildpack: https://github.com/cloudfoundry/buildpack-python.git
+  command: chmod +x run.sh && ./run.sh
+  
+# buildpack: python_buildpack
+# command: 
+
+declared-services:
+  Feedcrunch-DB:
+    label: postgresql
+    plan: 100
+
+services:
+  - Feedcrunch-DB
