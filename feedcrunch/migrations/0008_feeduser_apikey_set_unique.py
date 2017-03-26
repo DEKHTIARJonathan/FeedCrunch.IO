@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-		migrations.AlterField(
+        migrations.AlterField(
             model_name='feeduser',
             name='apikey',
             field=models.UUIDField(
-			    default=uuid.uuid4,
+                default=uuid.uuid4,
                 unique=True,
                 editable=False,
                 null=False

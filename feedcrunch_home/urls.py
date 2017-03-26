@@ -11,15 +11,15 @@ import django.contrib.auth.views
 from .views import *
 
 urlpatterns = [
-	url(r'^$', index, name='index'),
-	url(r'^faq/$', faq, name='faq'),
-	url(r'^contact/$', contact, name='contact'),
-	url(r'^about/$', about, name='about'),
-	url(r'^login/$', loginView, name='login'),
-	url(r'^signup/$', signUPView, name='signup'),
-	url(r'^terms/$', terms, name='terms'),
-	url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
+    url(r'^$', index, name='index'),
+    url(r'^faq/$', faq, name='faq'),
+    url(r'^contact/$', contact, name='contact'),
+    url(r'^about/$', about, name='about'),
+    url(r'^login/$', loginView, name='login'),
+    url(r'^signup/$', signUPView, name='signup'),
+    url(r'^terms/$', terms, name='terms'),
+    url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
 ]
 
 if settings.DEBUG:
-	urlpatterns.append(url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}))
+    urlpatterns.append(url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}))

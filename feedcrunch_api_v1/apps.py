@@ -7,4 +7,4 @@ from django.apps import AppConfig
 
 
 class feedcrunchApiV1Config(AppConfig):
-	name = 'feedcrunch_api_v1'
+    name = 'feedcrunch_api_v1'

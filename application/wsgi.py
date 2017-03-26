@@ -40,7 +40,7 @@ def load_env():
     dotenv.read_dotenv(os.path.join(project_dir, '.env'))
 
 if not any(x in os.environ for x in platforms):
-	load_env()
+    load_env()
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "application.settings")
 

@@ -9,11 +9,11 @@ from encrypted_model_fields .fields import EncryptedCharField
 ############################## Option MODEL ###################################
 
 class Option(models.Model):
-	parameter = models.CharField(max_length=255, primary_key=True)
-	value = EncryptedCharField(max_length=255, default='')
+    parameter = models.CharField(max_length=255, primary_key=True)
+    value = EncryptedCharField(max_length=255, default='')
 
-	def __str__(self):
-		return self.parameter
+    def __str__(self):
+        return self.parameter
 
-	def get_bool_value(self):
-		return self.value.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
+    def get_bool_value(self):
+        return self.value.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
