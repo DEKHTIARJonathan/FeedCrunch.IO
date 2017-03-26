@@ -59,7 +59,7 @@ class Username_Validation(APIView):
 				payload ["available"] = not FeedUser.objects.filter(username = username).exists()
 				payload ["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -104,7 +104,7 @@ class rssfeed_Validation(APIView):
 
 				payload ["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -125,7 +125,7 @@ class OPML_Import(APIView):
 
 			return HttpResponse(request.user.export_opml(), content_type='text/xml' )
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["operation"] = "Export OPML"
@@ -150,7 +150,7 @@ class OPML_Import(APIView):
 
 			payload ["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -174,7 +174,7 @@ class User_Twitter_Status(APIView):
 
 			payload["status"] = request.user.is_twitter_activated()
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -199,7 +199,7 @@ class UnLink_Twitter(APIView):
 			payload ["username"] = request.user.username
 			payload ["auth_url"] = get_authorization_url(request)
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -241,7 +241,7 @@ class User_Stats_Subscribers(APIView):
 			from time import sleep
 			sleep(3)
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -276,7 +276,7 @@ class User_Stats_Publications(APIView):
 			payload ["data"] = data
 			payload ["ticks"] = ticks
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -300,7 +300,7 @@ class Tags(APIView):
 			payload ["success"] = True
 			payload ["username"] = request.user.username
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -346,7 +346,7 @@ class RSSFeed_View(APIView):
 				payload["RSSFeedID"] = str(tmp_rssfeed.id)
 				payload["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -390,7 +390,7 @@ class RSSFeed_Sub_View(APIView):
 			payload["success"] = True
 			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
@@ -425,7 +425,7 @@ class RSSFeed_Sub_View(APIView):
 			payload ["success"] = True
 			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
@@ -496,7 +496,7 @@ class Article_Exists(APIView):
 
 			payload["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -550,10 +550,10 @@ class Article(APIView):
 			else:
 				RSSArticle_Assoc_id = -1
 
-			print "TEST1"
-			print request.POST
+			print ("TEST1")
+			print (request.POST)
 			title = unicodedata.normalize('NFC', request.POST['title'])
-			print 'Title = ' + title
+			print ('Title = ' + title)
 			link = unicodedata.normalize('NFC', request.POST['link'])
 			tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
 
@@ -605,7 +605,7 @@ class Article(APIView):
 			payload["success"] = True
 			payload["postID"] = str(tmp_post.id)
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 
@@ -681,7 +681,7 @@ class Article(APIView):
 			payload["success"] = True
 			payload["postID"] = str(postID)
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None
@@ -713,7 +713,7 @@ class Article(APIView):
 			payload ["success"] = True
 			payload["postID"] = postID
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None
@@ -800,7 +800,7 @@ class Modify_Social_Networks(APIView):
 			request.user.save()
 			payload["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None
@@ -867,7 +867,7 @@ class Modify_Personal_info(APIView):
 			request.user.save()
 			payload["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None
@@ -908,7 +908,7 @@ class Modify_Password(APIView):
 
 			payload["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None
@@ -948,7 +948,7 @@ class RSSArticle_Assoc_View(APIView):
 			payload["success"] = True
 			payload["RSSArticle_AssocID"] = RSSArticle_AssocID
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["rssArticleID"] = None
@@ -993,7 +993,7 @@ class Modify_Photo(APIView):
 
 			payload["success"] = True
 
-		except Exception, e:
+		except Exception as e:
 			payload["success"] = False
 			payload["error"] = "An error occured in the process: " + str(e)
 			payload["postID"] = None

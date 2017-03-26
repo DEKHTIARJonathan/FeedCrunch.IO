@@ -35,7 +35,7 @@ def get_callback(request):
 
 		return render(request, 'admin/self_closing.html')
 
-	except Exception, e:
+	except Exception as e:
 		data = {}
 
 		data["status"] = "error"

@@ -3,7 +3,7 @@ from django.contrib import admin
 
 import re, uuid, datetime
 
-from models import *
+from .models import *
 
 admin.site.register(Continent)
 admin.site.register(Country)
@@ -113,7 +113,7 @@ class InterestAdmin(admin.ModelAdmin):
 	list_display = ('name', '_get_rssfeed_count')
 	ordering = ('name',)
 	exclude = ("guid", )
-	
+
 	def _get_rssfeed_count(self, obj):
 		return obj.get_rssfeed_count()
 	_get_rssfeed_count.short_description = "RSS Feed Count"

@@ -17,7 +17,7 @@ def index(request):
 	try:
 		freemium_period = Option.objects.get(parameter="freemium_period").get_bool_value()
 	except:
-		print "freemium_period may not exists."
+		print ("freemium_period may not exists.")
 		freemium_period = True
 
 	return render(request, 'home.html', {'free_period': freemium_period})

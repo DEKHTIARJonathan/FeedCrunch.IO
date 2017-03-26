@@ -23,7 +23,7 @@ def shorten_string(string, max_size):
 class RSSFeed_SubManager(models.Manager):
 	def create(self, *args, **kwargs):
 
-		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
+		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], str)):
 			kwargs['title'] = clean_html(kwargs['title'])
 		else:
 			raise Exception("Title is missing - RSSFeed_Sub Manager")
@@ -43,7 +43,7 @@ class RSSFeed_Sub(models.Model):
 	title = models.CharField(max_length=255, blank=False, null=False)
 	added_date = models.DateTimeField(auto_now_add=True)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 	class Meta:
@@ -99,7 +99,7 @@ class RSSArticle_Assoc(models.Model):
 	class Meta:
 		unique_together = ("user", "article")
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.title()
 
 	def title(self):

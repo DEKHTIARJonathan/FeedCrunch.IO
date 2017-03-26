@@ -21,22 +21,22 @@ class Command(BaseCommand):
 
 		## Load Continents to DATABASE
 
-		print "Saving Continents ..."
+		print ("Saving Continents ...")
 		with open(os.path.join(BASE_DIR, 'feedcrunch/data/continents.csv'), 'rb') as f:
 			reader = csv.reader(f)
 			next(reader, None) #skip the headers
 			for row in reader:
 				cntnt = Continent(code=row[0], name=row[1])
 				cntnt.save()
-		print "Continents Saved !"
+		print ("Continents Saved !")
 
 		## Load Countries to DATABASE
 
-		print "Saving Countries ..."
+		print ("Saving Countries ...")
 		with open(os.path.join(BASE_DIR, 'feedcrunch/data/countries.csv'), 'rb') as f:
 			reader = unicode_csv_reader(f)
 			next(reader, None) #skip the headers
 			for row in reader:
 				cntry = Country(continent=Continent.objects.get(name=row[2]), code=row[1], name=row[0])
 				cntry.save()
-		print "Countries Saved !"
+		print ("Countries Saved !")

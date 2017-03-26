@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 """validate and analyze dimensions of image files.  Supports: PNG, JPG, GIF."""
 
 
-import StringIO
+from io import StringIO
 import struct
 
 

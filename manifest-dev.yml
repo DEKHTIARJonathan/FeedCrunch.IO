@@ -1,0 +1,24 @@
+applications:
+- name: Feedcrunch-Front-Dev
+  host: eedcrunch-front-dev
+  instances: 1
+  memory: 512M
+  disk_quota: 2G
+  path: .
+  buildpack: https://github.com/cloudfoundry/buildpack-python.git
+  command: chmod +x launch_server.sh && ./launch_server.sh
+  stack: cflinuxfs2
+  url:
+  - feedcrunch-dev.eu-gb.mybluemix.net
+  
+- name: Feedcrunch-Worker-Dev
+  host: feedcrunch-worker-dev
+  instances: 2
+  memory: 512M
+  disk_quota: 2G
+  path: .
+  buildpack: https://github.com/cloudfoundry/buildpack-python.git
+  command: python manage.py qcluster
+  stack: cflinuxfs2
+  health-check-type: process
+  no-route: true

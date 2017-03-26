@@ -9,7 +9,7 @@ from django.db import models
 class Tag(models.Model):
 	name = models.CharField(max_length=30, primary_key=True, editable=False, blank=False, null=False)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name
 
 	def get_post_count(self):

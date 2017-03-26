@@ -11,7 +11,7 @@ from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.utils import timezone
 
-from cStringIO import StringIO
+from io import StringIO
 
 import os, string, pickle, random, uuid, urllib
 

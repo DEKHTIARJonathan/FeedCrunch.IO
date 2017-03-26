@@ -1,0 +1,6 @@
+include README
+include ChangeLog
+include LICENSE
+recursive-include doc *
+recursive-include testdata *
+recursive-include interop-data *

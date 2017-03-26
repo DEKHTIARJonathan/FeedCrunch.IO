@@ -33,12 +33,12 @@ class TwitterAPI(object):
 
 				self.baseurl = "https://www.feedcrunch.io/@"+user.username+"/redirect/"
 
-		except Exception, e:
+		except Exception as e:
 			self.error = str(e)
 			self.api = False
 
 	def connection_status(self):
-		print self.error
+		print (self.error)
 		return bool(self.api)
 
 	def get_hashtags_strings(self, tag_list, max_length = -1):
@@ -100,7 +100,7 @@ class TwitterAPI(object):
 				else:
 					raise ValueError("The Parameter 'tag_list' is not a list")
 
-			except Exception, e:
+			except Exception as e:
 				rslt = {'status':False, 'error': str(e)}
 
 		else:
@@ -154,7 +154,7 @@ def get_authorization_url(request):
 
 		return auth_url
 
-	except Exception, e:
+	except Exception as e:
 		return 'Error: ' + str(e)
 
 def get_authorized_tokens(oauth_verifier, token, token_secret):
@@ -172,8 +172,8 @@ def get_authorized_tokens(oauth_verifier, token, token_secret):
 			final_step = api.get_authorized_tokens(oauth_verifier)
 			return {'status':True, 'tokens': final_step}
 
-		except Exception, e:
+		except Exception as e:
 			return {'status':False, 'error':'Error! Failed to get access token: ' + str(e)}
 
-	except Exception, e:
+	except Exception as e:
 		return {'status':False, 'error': str(e)}

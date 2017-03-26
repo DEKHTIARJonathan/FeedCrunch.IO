@@ -146,7 +146,7 @@ def modify_article_form(request, feedname=None, postID=None):
 	else:
 		try:
 			post = Post.objects.get(id=postID, user=feedname)
-			print request.user.is_twitter_enabled()
+			print (request.user.is_twitter_enabled())
 			return render(request, 'admin/admin_article_form.html', {"post": post})
 
 		except:
@@ -213,7 +213,7 @@ def upload_picture(request, feedname=None):
 		else:
 			raise Exception("Only POST Requests Allowed.")
 
-	except Exception, e:
+	except Exception as e:
 		data = {}
 		data["status"] = "error"
 		data["error"] = "An error occured in the process: " + str(e)
@@ -265,7 +265,7 @@ def reading_recommendation(request, feedname=None):
 
 			rssarticles_data.append(tmp)
 
-		print len(rssarticles_data)
+		print (len(rssarticles_data))
 		return render(request, 'admin/admin_reading_recommendation.html', {'rssarticles': rssarticles_data})
 
 def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):

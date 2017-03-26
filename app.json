@@ -1,0 +1,7 @@
+{
+  "name": "Feedcrunch.io",
+  "description": "FeedCrunch.io allows you to store, manage, publish, share and organize thousands of links with RSS Feeds.",
+  "image": "DataIsTheNewBlack/FeedCrunch.IO",
+  "repository": "https://github.com/DataIsTheNewBlack/FeedCrunch.IO",
+  "keywords": ["python", "django", "rss", "atom", "feed" ]
+}

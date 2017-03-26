@@ -14,12 +14,12 @@ from clean_html import clean_html
 class RSSArticleManager(models.Manager):
 	def create(self, *args, **kwargs):
 
-		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], unicode)):
+		if 'title' in kwargs and (isinstance(kwargs['title'], str) or isinstance(kwargs['title'], str)):
 			kwargs['title'] = clean_html(kwargs['title'])
 		else:
 			raise Exception("Title is missing - RSSArticle Manager")
 
-		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], unicode)):
+		if 'link' in kwargs and (isinstance(kwargs['link'], str) or isinstance(kwargs['link'], str)):
 			if RSSArticle.objects.filter(rssfeed=kwargs['rssfeed'], link=kwargs['link']).exists():
 				raise Exception("RSS Article already exists in database - RSSArticle Manager")
 
@@ -43,7 +43,7 @@ class RSSArticle(models.Model):
 	pub_date = models.CharField(max_length=255, default='', blank=True, null=True)
 	added_date = models.DateTimeField(auto_now_add=True)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 	def save(self, *args, **kwargs):
