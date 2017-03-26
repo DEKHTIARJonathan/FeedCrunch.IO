@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-		migrations.CreateModel(
+        migrations.CreateModel(
             name='RSSFeed',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
                 ('media', models.CharField(blank=True, default='', max_length=255, null=True)),
                 ('pub_date', models.CharField(blank=True, default='', max_length=255, null=True)),
                 ('added_date', models.DateTimeField(auto_now_add=True)),
-				('rssfeed', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rel_rss_feed_articles', to='feedcrunch.RSSFeed')),
+                ('rssfeed', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rel_rss_feed_articles', to='feedcrunch.RSSFeed')),
             ],
         ),
         migrations.CreateModel(
@@ -62,7 +62,7 @@ class Migration(migrations.Migration):
                 ('recommendation_score', models.FloatField(default=0)),
                 ('article', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rel_sub_article_assoc', to='feedcrunch.RSSArticle')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rel_sub_article', to=settings.AUTH_USER_MODEL)),
-				('subscribtion', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rel_sub_feedsub_article', to='feedcrunch.RSSFeed_Sub')),
+                ('subscribtion', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rel_sub_feedsub_article', to='feedcrunch.RSSFeed_Sub')),
             ],
         ),
         migrations.AlterUniqueTogether(

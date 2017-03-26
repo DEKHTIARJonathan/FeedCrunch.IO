@@ -5,4 +5,4 @@ from __future__ import unicode_literals
 
 
 def str2bool(v):
-	return v.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
+    return v.lower() in ['true', '1', 't', 'y', 'yes', 'yeah', 'yup', 'certainly', 'uh-huh']
