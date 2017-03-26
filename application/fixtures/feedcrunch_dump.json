@@ -2006,7 +2006,7 @@
 },
 {
    "model": "feedcrunch.option",
-   "pk": "max_recommendation",
+   "pk": "max_recommendations",
    "fields": {
       "value": "100"
    }

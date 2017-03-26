@@ -93,48 +93,48 @@ class RSSFeed(models.Model):
 			self.save()
 
 	def refresh_feed(self):
-		from models_rss_assocs import RSSArticle_Assoc
+		from .models_rss_assocs import RSSArticle_Assoc
 
 		try:
-			if (self.active and self.count_subscribers > 0):
+    		if (self.active and self.count_subscribers() > 0):
 
-				from .models_rssarticle import RSSArticle
+    			from .models_rssarticle import RSSArticle
 
-				feed_content = feedparser.parse(self.link)
+    			feed_content = feedparser.parse(self.link)
 
-				if feed_content.status == 200:
+    			if feed_content.status == 200:
 
-					for entry in feed_content['entries']:
+    				for entry in feed_content['entries']:
 
-						if 'title' in entry:
-							title = unicodedata.normalize('NFC', entry["title"])
-						else:
-							continue
+    					if 'title' in entry:
+    						title = unicodedata.normalize('NFC', entry["title"])
+    					else:
+    						continue
 
-						if 'link' in entry:
-							link = unicodedata.normalize('NFC', entry["link"])
-						elif 'links' in entry:
-							link = unicodedata.normalize('NFC', entry["links"][0]["href"])
-						else:
-							continue
+    					if 'link' in entry:
+    						link = unicodedata.normalize('NFC', entry["link"])
+    					elif 'links' in entry:
+    						link = unicodedata.normalize('NFC', entry["links"][0]["href"])
+    					else:
+    						continue
 
-						try:
-							tmp_article = RSSArticle.objects.create(rssfeed=self, title=title, link=link)
-							subscribtions = self.rel_sub_feed_assoc.all()
+    					try:
+    						tmp_article = RSSArticle.objects.create(rssfeed=self, title=title, link=link)
+    						subscribtions = self.rel_sub_feed_assoc.all()
 
-							for subscribtion in subscribtions:
-								try:
-									RSSArticle_Assoc.objects.create(subscribtion=subscribtion, user=subscribtion.user, article=tmp_article)
-								except Exception as e:
-									print (str(e))
-									pass
-						except:
-							pass
+    						for subscribtion in subscribtions:
+    							try:
+    								RSSArticle_Assoc.objects.create(subscribtion=subscribtion, user=subscribtion.user, article=tmp_article)
+    							except Exception as e:
+    								print (str(e))
+    								pass
+    					except:
+    						pass
 
-					self._reset_bad_attempts()
+    				self._reset_bad_attempts()
 
-				else:
-					raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
+    			else:
+    				raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
 
 		except Exception as e:
 			print ("An error occured in the process: " + str(e))

@@ -238,14 +238,14 @@ def reading_recommendation(request, feedname=None):
 
 		###################### Getting the Option Value for the amount of old articles retrieved by RSS Feed ##############################
 		try:
-			max_recommendation = int(Option.objects.get(parameter="max_recommendation").value)
-			recommendation_decay = float(60) / max_recommendation
+			max_recommendations = int(Option.objects.get(parameter="max_recommendations").value)
+			recommendation_decay = float(60) / max_recommendations
 
 		except ObjectDoesNotExist:
-			raise Exception("The Option 'max_recommendation' is not defined")
+			raise Exception("The Option 'max_recommendations' is not defined")
 
 		#rssarticles = RSSArticle_Assoc.objects.filter(rel_sub_article_assoc__user=request.user, rel_sub_article_assoc__marked_read = False).order_by('-added_date')
-		rssarticles = RSSArticle_Assoc.objects.filter(user=request.user, marked_read = False).order_by('-article__added_date')[:max_recommendation]
+		rssarticles = RSSArticle_Assoc.objects.filter(user=request.user, marked_read = False).order_by('-article__added_date')[:max_recommendations]
 
 		rssarticles_data = []
 
@@ -285,7 +285,7 @@ def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
 
 def onboarding_view(request, feedname=None):
 
-	check_passed = check_admin(feedname, request.user, bypassOnboarding = True)
+	check_passed = check_admin(feedname, request.user, bypassOnboardingCheck = True)
 	if check_passed != True:
 		return check_passed
 
@@ -302,7 +302,7 @@ def onboarding_view(request, feedname=None):
 
 def process_onboarding_view(request, feedname=None):
 
-	check_passed = check_admin(feedname, request.user, bypassOnboarding = True)
+	check_passed = check_admin(feedname, request.user, bypassOnboardingCheck = True)
 	if check_passed != True:
 		return check_passed
 

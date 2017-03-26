@@ -10,10 +10,10 @@ applications:
   stack: cflinuxfs2
   url:
   - feedcrunch-dev.eu-gb.mybluemix.net
-  
+
 - name: Feedcrunch-Worker-Dev
   host: feedcrunch-worker-dev
-  instances: 2
+  instances: 1
   memory: 512M
   disk_quota: 2G
   path: .

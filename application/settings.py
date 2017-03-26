@@ -265,5 +265,12 @@ USE_TZ = True
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_REDIRECT_EXEMPT = (
+        r'^healthcheck\/?$',
+        r'^robots\.txt$',
+    )
+
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
