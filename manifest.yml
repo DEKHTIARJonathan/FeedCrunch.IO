@@ -14,7 +14,7 @@ applications:
   
 - name: Feedcrunch-Worker-Prod
   host: feedcrunch-worker-prod
-  instances: 2
+  instances: 4
   memory: 1G
   disk_quota: 2G
   path: .
