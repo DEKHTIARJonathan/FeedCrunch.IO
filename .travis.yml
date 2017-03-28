@@ -38,11 +38,17 @@ notifications:
     rooms:
       secure: qu653B/BOfdY3BZ6IXFa1lQxkQMubFtnoMT9mtsrNOlgF1dFI0LlUBqapqApsiitvYU257LFJqdzbp7YyS8gFSgAdtY4wDRsPg9Atl9wwfGXqGFTrbpKJBiTULKgRWqWCwTFAQRO79tqB5VMf93pu5dzD1gK9qJpD7nLahob7hb2F+gW+vbDHsn9sjz5KautpGr5JN5EGzo46ghthqS2oL4tCKQWN0+JT1sEoaU0/31bvrD1HelKO8xLMzR+6eZ1rg950Qgg1qk3SWHi2HwzGcp34GG3TRLKEXCGpNHLJXumqWuneuPjEL0kYqJkLSyIwL49eND5T+l99IX4cdJlgLJsJcLNV+LxXurkxbW+z3R2AsJBgdZA/58dSjhghze8Fgp2FBVnoLPjR0jDKX7T4C84EbY3gRaYTCvAaEeQHgmkRD8GbsYPV81jIQrG8RARadlPPSW5dtVxz/LvkOUtccG7hQ8agWvuHc79iYwX1ahsJIQ7/xETSYmGQw4nAXbUFtsDm2h5OBJzphUxvp10xUP/prAg7mVW4NwQUAurHBBCCvW1LhDDbP2ZKtcEz4OqnN4hFSlwv0aPFi0wEQqGWPaZua8TgO2DzHdke4ECjt8pr7TsqA92O+E2iV4zApgjS6kuY3R8vxAgvPRNDW5GeR/0JKNd1ZtskPTTK+c9iPM=
 
-env:
 
+env:
   global:
+    - ARTIFACT_NAME="Feedcrunch-Application.tz"
     # BluemixPassword Global Env Var
-    secure: lC96/4f42d9zWoy44ADszTxSN/nJtwMpQnuxoB4/cciVxUeScl0OA+74tsS3Gn+ofWbY5vbIkC9G9fbXCe56w8G58yBnWNlQgGBYPmS4AN4PIgBLjfmHcSU8Ti0cvHyHMa2A5mzKYvkLF20eDGjwt7vCrchs3ftsTrosFF02J5pWPZJWXROmNJsoQY0x7JRvrOGIrE2PX29n09TjGJROdYrBmIB7qBbI4sLtECDpFrSWdU8dyWJFTtrz6Lq0hmNfuWVJ0bKLQzCFKdUHDSTufaiyDnrc/S4wRFqQXqn4OGIyo0ZSb5e7hbI9gJILBVhMv2G6jfWlf4j+JeTFgv0b3ab/HZ4C+fMp1HAG/e6OzxwIdOJ8A75Pf0IgiOamLyRugXH2sFkThi3YmRY+6ky0V0YzvQvxnCVd3Ucmy5eAbLpJ4jKW0HuGqf2UKrXu6J9JexjWHR3yVlunNYviqnRovLe0MU9xUH5j0kJFiKMLAyC3dEPV06JBpczVSphP1ajTlxtKkIiTKU/NlIXQtqJFvfy+GnGUnc9Mnkl7PNVdN8c8dGdPQOMTgvT7dYMoOK1bSaY0ACwYdmRv3LYcFcLO2LbRCje4Sfw5JDECGjFsyAWzHt0Sf86RTEggDY850UzyiwaEIhZDvTBpKeV2ZmBSlEdTBAeT/xSMlwYsHWESkDI=
+    - secure: lC96/4f42d9zWoy44ADszTxSN/nJtwMpQnuxoB4/cciVxUeScl0OA+74tsS3Gn+ofWbY5vbIkC9G9fbXCe56w8G58yBnWNlQgGBYPmS4AN4PIgBLjfmHcSU8Ti0cvHyHMa2A5mzKYvkLF20eDGjwt7vCrchs3ftsTrosFF02J5pWPZJWXROmNJsoQY0x7JRvrOGIrE2PX29n09TjGJROdYrBmIB7qBbI4sLtECDpFrSWdU8dyWJFTtrz6Lq0hmNfuWVJ0bKLQzCFKdUHDSTufaiyDnrc/S4wRFqQXqn4OGIyo0ZSb5e7hbI9gJILBVhMv2G6jfWlf4j+JeTFgv0b3ab/HZ4C+fMp1HAG/e6OzxwIdOJ8A75Pf0IgiOamLyRugXH2sFkThi3YmRY+6ky0V0YzvQvxnCVd3Ucmy5eAbLpJ4jKW0HuGqf2UKrXu6J9JexjWHR3yVlunNYviqnRovLe0MU9xUH5j0kJFiKMLAyC3dEPV06JBpczVSphP1ajTlxtKkIiTKU/NlIXQtqJFvfy+GnGUnc9Mnkl7PNVdN8c8dGdPQOMTgvT7dYMoOK1bSaY0ACwYdmRv3LYcFcLO2LbRCje4Sfw5JDECGjFsyAWzHt0Sf86RTEggDY850UzyiwaEIhZDvTBpKeV2ZmBSlEdTBAeT/xSMlwYsHWESkDI=
+
+
+before_deploy:
+  - mkdir -p tagrelease && tar -czvf "tmp/$ARTIFACT_NAME" . --exclude ".git" --exclude "tagrelease" --exclude "venv"  --exclude "_unused_"  --exclude "certificate"  --exclude "codedeploy" --exclude "example_files" --exclude "htmlcov" --exclude "scripts"  --exclude "lib_bin"
+  - . ./tagrelease/tagrelease.sh
 
 deploy:
 
@@ -71,5 +77,16 @@ deploy:
   region: eu-gb
   on:
     branch: dev
+    python: '3.6'
+    repo: DataIsTheNewBlack/FeedCrunch.IO
+
+############################# GITHUB Release ##################################
+
+- provider: releases
+  api_key: "$GITHUB_OAUTH_TOKEN"
+  file: "tagrelease/$ARTIFACT_NAME"
+  skip_cleanup: true
+  on:
+    branch: master
     python: '3.6'
     repo: DataIsTheNewBlack/FeedCrunch.IO
