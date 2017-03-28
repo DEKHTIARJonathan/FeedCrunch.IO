@@ -1,20 +1,3 @@
-"""
-WSGI config for Security API project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
-"""
-
-
-
-
-
-
-
-
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
