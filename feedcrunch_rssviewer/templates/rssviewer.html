@@ -134,6 +134,10 @@
 						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_researchgate }}" target="_blank" class="button researchgate-big">Research Gate</a></li>
 					{% endif %}
 
+					{% if requested_user.social_mendeley %}
+						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_mendeley }}" target="_blank" class="button mendeley-big">Mendeley</a></li>
+					{% endif %}
+
 					<!-- Personal Webpage & Blog -->
 
 					{% if requested_user.social_blog %}

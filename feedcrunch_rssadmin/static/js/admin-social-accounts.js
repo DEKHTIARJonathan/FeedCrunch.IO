@@ -19,6 +19,7 @@ $( document ).ready(function() {
 		'googlescholar',
 		'orcid',
 		'researchgate',
+		'mendeley',
 		'blog',
 		'website'
 	];

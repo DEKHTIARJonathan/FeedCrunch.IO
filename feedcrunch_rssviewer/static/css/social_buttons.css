@@ -544,6 +544,42 @@ a.researchgate-big:before {
     background: url("../images/social_ico/researchgate.png") no-repeat center center;
 }
 
+/* Mendeley */
+
+a.mendeley-small,
+a.mendeley-big {
+    -webkit-box-shadow: 0px 6px 0px #9C1D1D;
+    -moz-box-shadow: 0px 6px 0px #9C1D1D;
+    box-shadow: 0px 6px 0px #9C1D1D;
+}
+
+a.mendeley-small {
+    background: #DE3131 url("../images/social_ico/mendeley.png") no-repeat center center;
+}
+
+a.mendeley-big {
+    background: #DE3131;
+}
+
+a.mendeley-small:hover{
+	background: rgba(255, 28, 28, 0.80) url("../images/social_ico/mendeley.png") no-repeat center center;
+}
+
+a.mendeley-big:hover {
+    background: rgba(255, 28, 28, 0.80);
+}
+
+a.mendeley-small:active,
+a.mendeley-big:active {
+    -webkit-box-shadow: 0px 2px 0px #9C1D1D;
+    -moz-box-shadow: 0px 2px 0px #9C1D1D;
+    box-shadow: 0px 2px 0px ##9C1D1D;
+}
+
+a.mendeley-big:before {
+    background: url("../images/social_ico/mendeley.png") no-repeat center center;
+}
+
 /* Personal Website */
 
 a.personalwebsite-small,

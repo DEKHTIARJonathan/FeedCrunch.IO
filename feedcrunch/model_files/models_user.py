@@ -339,6 +339,7 @@ class FeedUser(AbstractFeedUser):
     social_google_scholar = models.URLField(max_length=60, default='', blank=True, null=True)
     social_orcid = models.URLField(max_length=60, default='', blank=True, null=True)
     social_researchgate = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_mendeley = models.URLField(max_length=60, default='', blank=True, null=True)
 
     # Personal Webpage & Blog
     social_blog = models.URLField(max_length=60, default='', blank=True, null=True)
