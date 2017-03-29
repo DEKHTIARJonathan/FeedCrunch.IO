@@ -27,4 +27,4 @@ exec gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --keep-alive $KEEPALIVE \
-  --timeout $TIMEOUT
+  --timeout $TIMEOUT 

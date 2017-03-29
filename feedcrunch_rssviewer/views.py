@@ -103,7 +103,7 @@ def rss_feed(request, feedname=None):
     else:
 
         # Register RSS Visit
-        sub = RSSSubscriber.objects.create(request, feedname)
+        sub = RSSSubscriber.objects.create(request=request, feedtype=RSSSubscriber.FeedType.rss, feedname=feedname)
 
         if sub is not None:
             sub.save()
@@ -118,6 +118,13 @@ def atom_feed(request, feedname=None):
     if feedname == None:
         return HttpResponse("Error")
     else:
+
+        # Register RSS Visit
+        sub = RSSSubscriber.objects.create(request=request, feedtype=RSSSubscriber.FeedType.atom, feedname=feedname)
+
+        if sub is not None:
+            sub.save()
+
         if Post.objects.filter(user=feedname).count() > 0:
             fg = generateRSS("atom", feedname)
             return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')

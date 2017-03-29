@@ -24,6 +24,7 @@ django==1.10.6
 django-admin-view-permission==0.6
 django-braces==1.11.0
 django-celery-results==1.0.1
+django-choices==1.5.0
 django-dotenv==1.4.1
 django-downloadview==1.9
 django-encrypted-model-fields==0.5.3
