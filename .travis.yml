@@ -7,7 +7,6 @@ python:
 - '3.4'
 - '3.5'
 - '3.6'
-
 services: postgresql
 
 before_install:
@@ -28,33 +27,28 @@ script:
 - python manage.py migrate
 - python manage.py createcachetable
 - coverage run manage.py test
-
-addons:
-  code_climate:
-    repo_token: "$CODE_CLIMATE_REPO_TOKEN"
-
+    
 notifications:
   slack:
     rooms:
       secure: qu653B/BOfdY3BZ6IXFa1lQxkQMubFtnoMT9mtsrNOlgF1dFI0LlUBqapqApsiitvYU257LFJqdzbp7YyS8gFSgAdtY4wDRsPg9Atl9wwfGXqGFTrbpKJBiTULKgRWqWCwTFAQRO79tqB5VMf93pu5dzD1gK9qJpD7nLahob7hb2F+gW+vbDHsn9sjz5KautpGr5JN5EGzo46ghthqS2oL4tCKQWN0+JT1sEoaU0/31bvrD1HelKO8xLMzR+6eZ1rg950Qgg1qk3SWHi2HwzGcp34GG3TRLKEXCGpNHLJXumqWuneuPjEL0kYqJkLSyIwL49eND5T+l99IX4cdJlgLJsJcLNV+LxXurkxbW+z3R2AsJBgdZA/58dSjhghze8Fgp2FBVnoLPjR0jDKX7T4C84EbY3gRaYTCvAaEeQHgmkRD8GbsYPV81jIQrG8RARadlPPSW5dtVxz/LvkOUtccG7hQ8agWvuHc79iYwX1ahsJIQ7/xETSYmGQw4nAXbUFtsDm2h5OBJzphUxvp10xUP/prAg7mVW4NwQUAurHBBCCvW1LhDDbP2ZKtcEz4OqnN4hFSlwv0aPFi0wEQqGWPaZua8TgO2DzHdke4ECjt8pr7TsqA92O+E2iV4zApgjS6kuY3R8vxAgvPRNDW5GeR/0JKNd1ZtskPTTK+c9iPM=
-
-
+      
 env:
   global:
-    - ARTIFACT_NAME="Feedcrunch-Application.zip"
-    # BluemixPassword Global Env Var
-    - secure: lC96/4f42d9zWoy44ADszTxSN/nJtwMpQnuxoB4/cciVxUeScl0OA+74tsS3Gn+ofWbY5vbIkC9G9fbXCe56w8G58yBnWNlQgGBYPmS4AN4PIgBLjfmHcSU8Ti0cvHyHMa2A5mzKYvkLF20eDGjwt7vCrchs3ftsTrosFF02J5pWPZJWXROmNJsoQY0x7JRvrOGIrE2PX29n09TjGJROdYrBmIB7qBbI4sLtECDpFrSWdU8dyWJFTtrz6Lq0hmNfuWVJ0bKLQzCFKdUHDSTufaiyDnrc/S4wRFqQXqn4OGIyo0ZSb5e7hbI9gJILBVhMv2G6jfWlf4j+JeTFgv0b3ab/HZ4C+fMp1HAG/e6OzxwIdOJ8A75Pf0IgiOamLyRugXH2sFkThi3YmRY+6ky0V0YzvQvxnCVd3Ucmy5eAbLpJ4jKW0HuGqf2UKrXu6J9JexjWHR3yVlunNYviqnRovLe0MU9xUH5j0kJFiKMLAyC3dEPV06JBpczVSphP1ajTlxtKkIiTKU/NlIXQtqJFvfy+GnGUnc9Mnkl7PNVdN8c8dGdPQOMTgvT7dYMoOK1bSaY0ACwYdmRv3LYcFcLO2LbRCje4Sfw5JDECGjFsyAWzHt0Sf86RTEggDY850UzyiwaEIhZDvTBpKeV2ZmBSlEdTBAeT/xSMlwYsHWESkDI=
-
-
+  
+  - ARTIFACT_NAME="Feedcrunch-Application.zip"
+  
+  ### === BluemixPassword === ###
+  - secure: lC96/4f42d9zWoy44ADszTxSN/nJtwMpQnuxoB4/cciVxUeScl0OA+74tsS3Gn+ofWbY5vbIkC9G9fbXCe56w8G58yBnWNlQgGBYPmS4AN4PIgBLjfmHcSU8Ti0cvHyHMa2A5mzKYvkLF20eDGjwt7vCrchs3ftsTrosFF02J5pWPZJWXROmNJsoQY0x7JRvrOGIrE2PX29n09TjGJROdYrBmIB7qBbI4sLtECDpFrSWdU8dyWJFTtrz6Lq0hmNfuWVJ0bKLQzCFKdUHDSTufaiyDnrc/S4wRFqQXqn4OGIyo0ZSb5e7hbI9gJILBVhMv2G6jfWlf4j+JeTFgv0b3ab/HZ4C+fMp1HAG/e6OzxwIdOJ8A75Pf0IgiOamLyRugXH2sFkThi3YmRY+6ky0V0YzvQvxnCVd3Ucmy5eAbLpJ4jKW0HuGqf2UKrXu6J9JexjWHR3yVlunNYviqnRovLe0MU9xUH5j0kJFiKMLAyC3dEPV06JBpczVSphP1ajTlxtKkIiTKU/NlIXQtqJFvfy+GnGUnc9Mnkl7PNVdN8c8dGdPQOMTgvT7dYMoOK1bSaY0ACwYdmRv3LYcFcLO2LbRCje4Sfw5JDECGjFsyAWzHt0Sf86RTEggDY850UzyiwaEIhZDvTBpKeV2ZmBSlEdTBAeT/xSMlwYsHWESkDI=
+  
+  ### === GITHUB_OAUTH_TOKEN === ###
+  - secure: "zdaX+ufkPlvbjZbn2H2T7KuKMhW32J8XbLn32Xsjn1Bq4pfa7gw1Eg4GsRjb4B9BnwlVUemlYBbDGlGb6boj3IQmXeSu9z15f2ubtLONzsxxz2k1ChiJf4kpi+L4a+9tVdzUk6h8RcZCgSREQXl+g/SyXbMs/NeflI+J4GIfsx2/8Vo6GNUcsb/d2TCMHMdhOqyWqnPoJ6y/taHKQa0y36Fh/mYYRaA5pEsawHrAoXphCOxq21smKYznhjZbERD+POT2ZfP/LOQoFJThonAEhR5ZAxo+sTHhSA05yQoH/lDHh24C21W6TGH6t+D6GV3LWXUMR22uHctdndb30FpAZEW4TZSoDptyjnHFtSqkKPUHKZ91W5JwLZ5hDY7yXn7XMIavxIoNIO9Go/icVEm/qDEvmaalsskpLJlb0cIiJiyoAoSfXY4bw9BpXPlyY0kg/6f4lmFjtiCi9XoISJYK1pmNUiYLaVaj1CE85cLobwd5SslRhwYMpvEFGZQutz/aLKnqOPeBisbfkYkGylSubsalax93R251tAOExxsd3vAP3QIq9lgz9n25xARuJDJejEnRNmvsWsj1Zt67WI1eA5ctvXsUQYCz16Km/iQfLz8tMl7uNv8n7CSOBRSioedudZoKYjQXAcPr2TFYSvm8B5rj5UvGYhl6Zpmc1RaNGcg="
+  
 before_deploy:
-  - mkdir -p tagrelease 
-  - find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf # Remove *.pyc files and __pycache__ folders
-  - zip -r "tagrelease/$ARTIFACT_NAME" . -x \*.crypto tagrelease/**\* application/staticfiles/**\* venv/**\* _unused_/**\* venv/**\* certificate/**\* codedeploy/**\* example_files/**\* htmlcov/**\* scripts/**\* lib_bin/**\* .git/**\*
-  - . ./tagrelease/tagrelease.sh
+- find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+- zip -r "$ARTIFACT_NAME" . -x \*.crypto application/staticfiles/**\* venv/**\* _unused_/**\* venv/**\* certificate/**\* codedeploy/**\* example_files/**\* htmlcov/**\* scripts/**\* lib_bin/**\* .git/**\*
 
 deploy:
-
-############################### PROD ENVIRONMENT ###############################
 - provider: cloudfoundry
   api: https://api.eu-gb.bluemix.net
   username: jonathan.dekhtiar@utc.fr
@@ -67,8 +61,7 @@ deploy:
     branch: master
     python: '3.6'
     repo: DataIsTheNewBlack/FeedCrunch.IO
-
-############################### DEV ENVIRONMENT ###############################
+    
 - provider: cloudfoundry
   api: https://api.eu-gb.bluemix.net
   username: jonathan.dekhtiar@utc.fr
@@ -81,14 +74,12 @@ deploy:
     branch: dev
     python: '3.6'
     repo: DataIsTheNewBlack/FeedCrunch.IO
-
-############################# GITHUB Release ##################################
-
+    
 - provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
-  file: "tagrelease/$ARTIFACT_NAME"
+  file: $ARTIFACT_NAME
   skip_cleanup: true
   on:
-    branch: master
+    tags: true
     python: '3.6'
     repo: DataIsTheNewBlack/FeedCrunch.IO
