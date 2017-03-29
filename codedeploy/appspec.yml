@@ -1,0 +1,27 @@
+version: 1.1
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/feedcrunch
+permissions:
+  - object: /home/ec2-user/feedcrunch
+    owner: ec2-user
+    group: ec2-user
+    mode: 755
+hooks:
+  BeforeInstall:
+    - location: codedeploy/Scripts/before_install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: codedeploy/Scripts/after_install.sh
+      timeout: 300
+      runas: ec2-user
+  ApplicationStart:
+    - location: codedeploy/Scripts/start_server.sh
+      timeout: 3600
+      runas: ec2-user
+  ApplicationStop:
+    - location: codedeploy/Scripts/stop_server.sh
+      timeout: 3600
+      runas: ec2-user

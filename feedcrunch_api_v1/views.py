@@ -755,6 +755,7 @@ class Modify_Social_Networks(APIView):
                 'googlescholar',
                 'orcid',
                 'researchgate',
+                'mendeley',
                 'blog',
                 'website'
             ]
@@ -794,6 +795,9 @@ class Modify_Social_Networks(APIView):
             request.user.social_google_scholar = social_data['googlescholar']
             request.user.social_orcid = social_data['orcid']
             request.user.social_researchgate = social_data['researchgate']
+            request.user.social_mendeley = social_data['mendeley']
+
+            # Personal Pages
             request.user.social_blog = social_data['blog']
             request.user.social_personalwebsite = social_data['website']
 
