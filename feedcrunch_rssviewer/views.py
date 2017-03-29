@@ -104,9 +104,8 @@ def rss_feed(request, feedname=None):
 
         # Register RSS Visit
         sub = RSSSubscriber.objects.create(request, feedname)
-        
+
         if sub is not None:
-            print ("SubID:", sub.ipaddress)
             sub.save()
 
         if Post.objects.filter(user=feedname).count() > 0:
