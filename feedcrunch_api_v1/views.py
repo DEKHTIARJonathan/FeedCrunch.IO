@@ -245,7 +245,7 @@ class User_Stats_Subscribers(APIView):
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload["operation"] = "Get User Publication Stats"
+        payload["operation"] = "Get User Subscriber Stats"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
@@ -280,7 +280,7 @@ class User_Stats_Publications(APIView):
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload["operation"] = "Get User Subscriber Stats"
+        payload["operation"] = "Get User Publication Stats"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
