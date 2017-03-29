@@ -13,3 +13,4 @@ from .model_files.models_rssfeed import RSSFeed
 from .model_files.models_rssarticle import RSSArticle
 from .model_files.models_rss_assocs import RSSFeed_Sub, RSSArticle_Assoc
 from .model_files.models_interest import Interest
+from .model_files.models_rss_subscriber import RSSSubscriber

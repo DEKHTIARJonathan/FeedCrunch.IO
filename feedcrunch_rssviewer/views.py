@@ -13,7 +13,7 @@ import sys, os
 
 from mimetypes import MimeTypes
 
-from feedcrunch.models import Post, FeedUser
+from feedcrunch.models import Post, FeedUser, RSSSubscriber
 
 from custom_render import myrender as render
 from rss_generator import generateRSS
@@ -101,6 +101,14 @@ def rss_feed(request, feedname=None):
     if feedname == None:
         return HttpResponse("Error")
     else:
+
+        # Register RSS Visit
+        sub = RSSSubscriber.objects.create(request, feedname)
+        
+        if sub is not None:
+            print ("SubID:", sub.ipaddress)
+            sub.save()
+
         if Post.objects.filter(user=feedname).count() > 0:
             fg = generateRSS("rss", feedname)
             return HttpResponse(fg.rss_str(pretty=True, encoding='UTF-8'), content_type='application/xml')

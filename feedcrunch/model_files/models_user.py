@@ -297,6 +297,9 @@ class FeedUser(AbstractFeedUser):
 
     rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
 
+    # Count of RSS Subscribers - Daily Updated
+    rss_subscribers_count = models.IntegerField(default=0, blank=False, null=False)
+
     description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
     job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
     company_name = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
@@ -422,6 +425,16 @@ class FeedUser(AbstractFeedUser):
 
     def get_clicks_count(self):
         return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
+
+    def _get_rss_subscribers_count(self):
+        from .models_rss_subscriber import RSSSubscriber
+        query_set = RSSSubscriber.objects.filter(user=self.username).values("ipaddress").annotate(n=models.Count("pk"))
+        return len(query_set)
+
+    def update_rss_subscribtion_count(self):
+        count = self._get_rss_subscribers_count()
+        self.rss_subscribers_count = count
+        self.save()
 
     def export_opml(self):
 
