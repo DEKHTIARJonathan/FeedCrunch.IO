@@ -41,13 +41,15 @@ notifications:
 
 env:
   global:
-    - ARTIFACT_NAME="Feedcrunch-Application.tz"
+    - ARTIFACT_NAME="Feedcrunch-Application.zip"
     # BluemixPassword Global Env Var
     - secure: lC96/4f42d9zWoy44ADszTxSN/nJtwMpQnuxoB4/cciVxUeScl0OA+74tsS3Gn+ofWbY5vbIkC9G9fbXCe56w8G58yBnWNlQgGBYPmS4AN4PIgBLjfmHcSU8Ti0cvHyHMa2A5mzKYvkLF20eDGjwt7vCrchs3ftsTrosFF02J5pWPZJWXROmNJsoQY0x7JRvrOGIrE2PX29n09TjGJROdYrBmIB7qBbI4sLtECDpFrSWdU8dyWJFTtrz6Lq0hmNfuWVJ0bKLQzCFKdUHDSTufaiyDnrc/S4wRFqQXqn4OGIyo0ZSb5e7hbI9gJILBVhMv2G6jfWlf4j+JeTFgv0b3ab/HZ4C+fMp1HAG/e6OzxwIdOJ8A75Pf0IgiOamLyRugXH2sFkThi3YmRY+6ky0V0YzvQvxnCVd3Ucmy5eAbLpJ4jKW0HuGqf2UKrXu6J9JexjWHR3yVlunNYviqnRovLe0MU9xUH5j0kJFiKMLAyC3dEPV06JBpczVSphP1ajTlxtKkIiTKU/NlIXQtqJFvfy+GnGUnc9Mnkl7PNVdN8c8dGdPQOMTgvT7dYMoOK1bSaY0ACwYdmRv3LYcFcLO2LbRCje4Sfw5JDECGjFsyAWzHt0Sf86RTEggDY850UzyiwaEIhZDvTBpKeV2ZmBSlEdTBAeT/xSMlwYsHWESkDI=
 
 
 before_deploy:
-  - mkdir -p tagrelease && tar -czvf "tagrelease/$ARTIFACT_NAME" . --exclude ".git" --exclude "tagrelease" --exclude "venv"  --exclude "_unused_"  --exclude "certificate"  --exclude "codedeploy" --exclude "example_files" --exclude "htmlcov" --exclude "scripts"  --exclude "lib_bin"
+  - mkdir -p tagrelease 
+  - find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf # Remove *.pyc files and __pycache__ folders
+  - zip -r"tagrelease/$ARTIFACT_NAME" . -x \*.crypto tagrelease/**\* application/staticfiles/**\* venv/**\* _unused_/**\* venv/**\* certificate/**\* codedeploy/**\* example_files/**\* htmlcov/**\* scripts/**\* lib_bin/**\* .git/**\*
   - . ./tagrelease/tagrelease.sh
 
 deploy:
