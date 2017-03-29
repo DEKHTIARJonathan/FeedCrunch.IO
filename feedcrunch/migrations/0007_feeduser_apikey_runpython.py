@@ -8,9 +8,13 @@ import uuid
 
 def gen_uuid(apps, schema_editor):
     MyModel = apps.get_model('feedcrunch', 'feeduser')
-    for row in FeedUser.objects.all():
-        row.apikey = uuid.uuid4()
-        row.save()
+    
+    try: ## Not working when applying all the migrations from scratch
+        for row in FeedUser.objects.all():
+            row.apikey = uuid.uuid4()
+            row.save()
+    except:
+        pass
 
 class Migration(migrations.Migration):
 
