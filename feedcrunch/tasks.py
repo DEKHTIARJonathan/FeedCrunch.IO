@@ -92,7 +92,7 @@ def send_welcome_email(username):
 
 def launch_recurrent_rss_job():
     execution_time = timezone.now()
-    execution_time = execution_time.replace(hour=3, minute=0, second=0, microsecond=0) + timedelta(days=1)
+    execution_time = execution_time.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
 
     schedule('feedcrunch.tasks.refresh_all_rss_feeds', schedule_type=Schedule.HOURLY, next_run=execution_time)
     schedule('feedcrunch.tasks.refresh_all_rss_subscribers', schedule_type=Schedule.DAILY, next_run=execution_time)
