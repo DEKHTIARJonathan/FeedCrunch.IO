@@ -221,7 +221,9 @@ class User_Stats_Subscribers(APIView):
             payload ["success"] = True
             payload ["username"] = request.user.username
 
-            date_array = get_N_time_period(21, 14)
+            date_array = get_N_time_period(21, 14, max_date=request.user.date_joined.date())
+
+            today = datetime.date.today()
 
             ticks = []
             data = []
@@ -230,9 +232,8 @@ class User_Stats_Subscribers(APIView):
 
             for i, d in enumerate(date_array):
 
-                #count = request.user.rel_posts.filter(when__year=d.year, when__month=d.month, when__day=d.day).count()
-                #data.append([i, count])
-                data.append([i, randint(5000,12000)])
+                delta = (today - d.date()).days
+                data.append([i, request.user.get_rss_subscribers_count(delta)])
                 ticks.append([i, d.strftime("%d. %b")])
 
             payload ["data"] = data

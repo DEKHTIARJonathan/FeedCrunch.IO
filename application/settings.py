@@ -223,6 +223,8 @@ USER_PHOTO_PATH = "images/user_photos/"
 USER_ESTIMATOR_PATH = "estimators/"
 INTEREST_PHOTO_PATH = "images/interest_photos/"
 
+RSS_SUBS_LOOKUP_PERIOD = 3 # (days) Every people visiting the RSS/ATOM feeds over the N last days are count as a subscriber
+
 # QCluster config
 
 Q_CLUSTER = {

@@ -3,13 +3,15 @@
 
 from __future__ import unicode_literals
 from django.db import models
-
 from .models_user import FeedUser
 
 from djchoices import DjangoChoices, ChoiceItem
 
-from ipware.ip import get_ip
-############################# Subscribtion #####################################
+from ipware.ip import get_real_ip, get_ip
+
+import datetime
+
+######################################## Subscribtion ################################################
 
 # First, define the Manager subclass.
 class SubManager(models.Manager):
@@ -19,13 +21,15 @@ class SubManager(models.Manager):
             if feedname == None:
                 raise Exception("Feedname is missing")
 
-            ipaddr = get_ip(request, right_most_proxy=True)
-            usr = FeedUser.objects.get(username=feedname) # If fails, raise an Exception
+            ipaddr = get_real_ip(request)
 
             if ipaddr is None:
-                # we don't have an ip address for user
-                raise Exception("There had been a problem retrieving the IP address for the user.")
+                ipaddr = get_ip(request)
 
+                if ipaddr is None:
+                    raise Exception("There had been a problem retrieving the IP address for the user.")
+
+            usr = FeedUser.objects.get(username=feedname) # If fails, raise an Exception
             return super(SubManager, self).create(user=usr, ipaddress=ipaddr, feedtype=feedtype)
 
         except Exception as e:
@@ -41,11 +45,25 @@ class RSSSubscriber(models.Model):
     class FeedType(DjangoChoices):
         rss = ChoiceItem()
         atom = ChoiceItem()
+        web = ChoiceItem()
 
-    user = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers')
+    id        = models.AutoField(primary_key=True)
+    user      = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers')
     ipaddress = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
-    when = models.DateTimeField(auto_now_add=True, primary_key=True)
-    feedtype = models.CharField(max_length=4, choices=FeedType.choices, default=FeedType.rss)
+    date      = models.DateField(auto_now_add=True, blank=False, null=False)
+    feedtype  = models.CharField(max_length=4, choices=FeedType.choices, default=FeedType.rss)
 
     def __str__(self):
-        return self.ipaddress + " // " + str(self.when)
+        return self.ipaddress + " // " + str(self.date)
+
+##################################### Subscribtion Statistics #############################################
+
+class RSSSubsStat(models.Model):
+
+    id    = models.AutoField(primary_key=True)
+    user  = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers_count', blank=False, null=False)
+    date  = models.DateField(auto_now_add=True, blank=False, null=False)
+    count = models.IntegerField(default=0, blank=False, null=False)
+
+    class Meta:
+        unique_together = ('user', 'date')

@@ -8,16 +8,21 @@ import datetime as DT
 from django.utils import timezone
 
 
-def get_N_time_period(N_periods=14, duration=1):
+def get_N_time_period(N_periods=14, duration=1, max_date=DT.date.today()):
 
     d_today = DT.datetime.now()
+    max_date_delta = (d_today.date()-max_date).days
 
-    delta = DT.timedelta(days=duration)
+    delta = 1
+    while N_periods * delta < max_date_delta and delta < duration:
+        delta += 1
+
+    print ("Delta", delta)
 
     rslt = []
 
-    for d in range(1, N_periods + 1):
-        rslt.append(timezone.make_aware(d_today - DT.timedelta(days=d*duration), timezone.get_current_timezone()))
+    for d in range(0, N_periods):
+        rslt.append(timezone.make_aware(d_today - DT.timedelta(days=d*delta+1), timezone.get_current_timezone()))
 
     rslt.reverse() #From the oldest day to the most recent
 

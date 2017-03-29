@@ -124,11 +124,20 @@ admin.site.register(Interest, InterestAdmin)
 
 # ==================== RSS Subscriber ============================
 class RSSSubscriberAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ipaddress', 'feedtype', 'when')
-    ordering = ('when',)
+    list_display = ('user', 'ipaddress', 'feedtype', 'date')
+    ordering = ('-date',)
 
     search_fields = ('user',)
 
 admin.site.register(RSSSubscriber, RSSSubscriberAdmin)
+
+# ==================== RSS Subscriber ============================
+class RSSSubsStatAdmin(admin.ModelAdmin):
+    list_display = ('user', 'date', 'count')
+    ordering = ('-date',)
+
+    search_fields = ('user',)
+
+admin.site.register(RSSSubsStat, RSSSubsStatAdmin)
 
 #admin.site.register(RSSArticle)

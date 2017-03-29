@@ -30,6 +30,8 @@ from twython import Twython
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
+from datetime import timedelta, date
+
 def generateDummyDesc():
     return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor. Vestibulum tempor sapien id justo molestie imperdiet. Nulla efficitur mattis ante, nec iaculis lorem consequat in. Nullam sit amet diam augue. Nulla ullamcorper imperdiet turpis a maximus. Donec iaculis porttitor ultrices. Morbi lobortis dui molestie ullamcorper varius. Maecenas eu laoreet ipsum orci aliquam."
 
@@ -298,7 +300,6 @@ class FeedUser(AbstractFeedUser):
     rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
 
     # Count of RSS Subscribers - Daily Updated
-    rss_subscribers_count = models.IntegerField(default=0, blank=False, null=False)
 
     description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
     job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
@@ -426,15 +427,18 @@ class FeedUser(AbstractFeedUser):
     def get_clicks_count(self):
         return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
 
-    def _get_rss_subscribers_count(self):
-        from .models_rss_subscriber import RSSSubscriber
-        query_set = RSSSubscriber.objects.filter(user=self.username).values("ipaddress").annotate(n=models.Count("pk"))
-        return len(query_set)
+    def get_rss_subscribers_count(self, days_offset=0):
 
-    def update_rss_subscribtion_count(self):
-        count = self._get_rss_subscribers_count()
-        self.rss_subscribers_count = count
-        self.save()
+        today           = date.today()
+        lookup_day      = today - timedelta(days=days_offset)
+
+        subscribers_queryset = self.rel_rss_subscribers_count.filter(user=self, date=lookup_day).order_by('-date')
+
+        if subscribers_queryset.count() == 0 :
+            return 0
+        else:
+            return subscribers_queryset[0].count
+
 
     def export_opml(self):
 
