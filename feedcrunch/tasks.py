@@ -17,22 +17,18 @@ from datetime import timedelta, date
 def check_rss_feed(rss_id):
     RSSFeed.objects.get(id=rss_id).refresh_feed()
 
-def refresh_user_rss_subscribtions(sername=None):
+def refresh_user_rss_subscribtions(username=None):
     if username is not None:
         for feed in RSSFeed.objects.filter(rel_sub_feed_assoc__user=username):
             schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
-        else:
-            raise Exception("Error: tasks.refresh_user_rss_subscribtions - username have not been provided.")
+    else:
+        raise Exception("Error: tasks.refresh_user_rss_subscribtions - username have not been provided.")
 
 def refresh_all_rss_feeds():
     for feed in RSSFeed.objects.all():
         schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 ###################################################### REFRESH RSS SUBSCRIBERS COUNT  ##################################################
-
-        self.rel_rss_subscribers_count.filter(user=self).order_by('-date')[0]
-
-        return len(query_set)
 
 def record_user_subscribtions_stats(username=None):
     if username is not None:
