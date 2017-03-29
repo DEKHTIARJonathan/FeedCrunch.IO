@@ -4,8 +4,8 @@ cache:
 - pip
 
 python:
-#- '3.4'
-#- '3.5'
+- '3.4'
+- '3.5'
 - '3.6'
 
 services: postgresql
@@ -47,7 +47,7 @@ env:
 
 
 before_deploy:
-  - mkdir -p tagrelease && tar -czvf "tmp/$ARTIFACT_NAME" . --exclude ".git" --exclude "tagrelease" --exclude "venv"  --exclude "_unused_"  --exclude "certificate"  --exclude "codedeploy" --exclude "example_files" --exclude "htmlcov" --exclude "scripts"  --exclude "lib_bin"
+  - mkdir -p tagrelease && tar -czvf "tagrelease/$ARTIFACT_NAME" . --exclude ".git" --exclude "tagrelease" --exclude "venv"  --exclude "_unused_"  --exclude "certificate"  --exclude "codedeploy" --exclude "example_files" --exclude "htmlcov" --exclude "scripts"  --exclude "lib_bin"
   - . ./tagrelease/tagrelease.sh
 
 deploy:
