@@ -26,6 +26,13 @@ def index(request, feedname=None):
         return HttpResponseRedirect("/")
 
     else:
+
+        # Register RSS Visits
+        sub = RSSSubscriber.objects.create(request=request, feedtype=RSSSubscriber.FeedType.web, feedname=feedname)
+
+        if sub is not None:
+            sub.save()
+
         posts = Post.objects.filter(user = feedname, activeLink=True).order_by('-id')
         requested_user = FeedUser.objects.get(username=feedname)
         return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user})
@@ -102,11 +109,10 @@ def rss_feed(request, feedname=None):
         return HttpResponse("Error")
     else:
 
-        # Register RSS Visit
-        sub = RSSSubscriber.objects.create(request, feedname)
-        
+        # Register RSS Visits
+        sub = RSSSubscriber.objects.create(request=request, feedtype=RSSSubscriber.FeedType.rss, feedname=feedname)
+
         if sub is not None:
-            print ("SubID:", sub.ipaddress)
             sub.save()
 
         if Post.objects.filter(user=feedname).count() > 0:
@@ -119,6 +125,13 @@ def atom_feed(request, feedname=None):
     if feedname == None:
         return HttpResponse("Error")
     else:
+
+        # Register RSS Visits
+        sub = RSSSubscriber.objects.create(request=request, feedtype=RSSSubscriber.FeedType.atom, feedname=feedname)
+
+        if sub is not None:
+            sub.save()
+
         if Post.objects.filter(user=feedname).count() > 0:
             fg = generateRSS("atom", feedname)
             return HttpResponse(fg.atom_str(pretty=True, encoding='UTF-8'), content_type='application/xml')

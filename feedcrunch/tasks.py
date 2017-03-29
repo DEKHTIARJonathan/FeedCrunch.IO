@@ -1,58 +1,28 @@
 # Welcome mail with follow up example
-from datetime import timedelta
 from django.utils import timezone
-from django_q.tasks import async, schedule
-from django_q.models import Schedule
+from django.db import models
 from django.conf import settings
-
-from django.core.mail import send_mail
-
-from feedcrunch.models import FeedUser, RSSFeed
-
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-def welcome_mail(username):
-    user = FeedUser.objects.get(username=username)
-    msg = 'Welcome to our website'
-    # send this message right away
-    async('django.core.mail.send_mail',
-        'Welcome',
-        msg,
-        settings.EMAIL_HOST_USER,
-        [user.email]
-    )
-    # and this follow up email in one hour
+from django_q.tasks import async, schedule
+from django_q.models import Schedule
 
-    msg = 'Here are some tips to get you started...'
-    send_mail(
-        'Follow up',
-        msg,
-        settings.EMAIL_HOST_USER,
-        [user.email]
-    )
-    """
-    schedule('django.core.mail.send_mail',
-        'Follow up',
-        msg,
-        settings.EMAIL_HOST_USER,
-        [user.email],
-        schedule_type=Schedule.ONCE,
-        next_run=timezone.now() + timedelta(minutes=1)
-    )
-    """
+from feedcrunch.models import FeedUser, RSSFeed, RSSSubscriber, RSSSubsStat
 
-  # since the `repeats` defaults to -1
-  # this schedule will erase itself after having run
+from datetime import timedelta, date
 
 ########################################################## REFRESH RSS FEEDS ##########################################################
 
 def check_rss_feed(rss_id):
     RSSFeed.objects.get(id=rss_id).refresh_feed()
 
-def refresh_user_rss_subscribtions(username):
-    for feed in RSSFeed.objects.filter(rel_sub_feed_assoc__user=username):
-        schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+def refresh_user_rss_subscribtions(sername=None):
+    if username is not None:
+        for feed in RSSFeed.objects.filter(rel_sub_feed_assoc__user=username):
+            schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+        else:
+            raise Exception("Error: tasks.refresh_user_rss_subscribtions - username have not been provided.")
 
 def refresh_all_rss_feeds():
     for feed in RSSFeed.objects.all():
@@ -60,13 +30,32 @@ def refresh_all_rss_feeds():
 
 ###################################################### REFRESH RSS SUBSCRIBERS COUNT  ##################################################
 
-def check_user_subscribers(username):
-    usr = FeedUser.objects.get(username=username)
-    usr.update_rss_subscribtion_count()
+        self.rel_rss_subscribers_count.filter(user=self).order_by('-date')[0]
+
+        return len(query_set)
+
+def record_user_subscribtions_stats(username=None):
+    if username is not None:
+
+        today           = date.today()
+        sub_timedelta   = settings.RSS_SUBS_LOOKUP_PERIOD
+        last_lookup_day = today - timedelta(days=sub_timedelta)
+
+        usr   = FeedUser.objects.get(username=username)
+
+        if not usr.rel_rss_subscribers_count.filter(date=date.today()).exists(): # Check if a statistic already exists for that day
+
+            count = usr.rel_rss_subscribers.filter(date__range=(last_lookup_day, today)).values("ipaddress").annotate(n=models.Count("pk")).count()
+
+            stat_obj = RSSSubsStat(user=usr, count=count)
+            stat_obj.save()
+
+    else:
+        raise Exception("Error: tasks.record_user_subscribtions_stats - username have not been provided.")
 
 def refresh_all_rss_subscribers_count():
     for user in FeedUser.objects.all():
-        schedule('feedcrunch.tasks.refresh_user_rss_subscribers_count', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+        schedule('feedcrunch.tasks.record_user_subscribtions_stats', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
 
 ########################################################## SEND WELCOME EMAIL  ##########################################################
 
@@ -92,7 +81,7 @@ def send_welcome_email(username):
 
 def launch_recurrent_rss_job():
     execution_time = timezone.now()
-    execution_time = execution_time.replace(hour=3, minute=0, second=0, microsecond=0) + timedelta(days=1)
+    execution_time = execution_time.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
 
     schedule('feedcrunch.tasks.refresh_all_rss_feeds', schedule_type=Schedule.HOURLY, next_run=execution_time)
     schedule('feedcrunch.tasks.refresh_all_rss_subscribers', schedule_type=Schedule.DAILY, next_run=execution_time)

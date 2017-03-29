@@ -9,7 +9,6 @@ admin.site.register(Continent)
 admin.site.register(Country)
 admin.site.register(RSSFeed_Sub)
 admin.site.register(RSSArticle_Assoc)
-admin.site.register(RSSSubscriber)
 
 # ==================== FEEDUSER ============================
 class FeedUserAdmin(admin.ModelAdmin):
@@ -109,7 +108,7 @@ class EstimatorAdmin(admin.ModelAdmin):
 admin.site.register(Estimator, EstimatorAdmin)
 
 
-# ==================== FEEDUSER ============================
+# ==================== Interest ============================
 class InterestAdmin(admin.ModelAdmin):
     list_display = ('name', '_get_rssfeed_count')
     ordering = ('name',)
@@ -123,5 +122,22 @@ class InterestAdmin(admin.ModelAdmin):
 
 admin.site.register(Interest, InterestAdmin)
 
+# ==================== RSS Subscriber ============================
+class RSSSubscriberAdmin(admin.ModelAdmin):
+    list_display = ('user', 'ipaddress', 'feedtype', 'date')
+    ordering = ('-date',)
+
+    search_fields = ('user',)
+
+admin.site.register(RSSSubscriber, RSSSubscriberAdmin)
+
+# ==================== RSS Subscriber ============================
+class RSSSubsStatAdmin(admin.ModelAdmin):
+    list_display = ('user', 'date', 'count')
+    ordering = ('-date',)
+
+    search_fields = ('user',)
+
+admin.site.register(RSSSubsStat, RSSSubsStatAdmin)
 
 #admin.site.register(RSSArticle)
