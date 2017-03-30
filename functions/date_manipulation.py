@@ -20,7 +20,7 @@ def get_N_time_period(N_periods=14, duration=1, max_date=DT.date.today()):
     rslt = []
 
     for d in range(0, N_periods):
-        rslt.append(timezone.make_aware(d_today - DT.timedelta(days=d*delta+1), timezone.get_current_timezone()))
+        rslt.append(d_today - DT.timedelta(days=d*delta+1))
 
     rslt.reverse() #From the oldest day to the most recent
 
