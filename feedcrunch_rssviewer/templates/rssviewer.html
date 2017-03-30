@@ -40,7 +40,7 @@
 				<div class="col-md-8">
 					{{ requested_user.job }} <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="{{ requested_user.company_website }}">{{ requested_user.company_name }}</a>
 					<span class="subscribers-info">
-						~ <b>{{ requested_user.rss_subscribers_count }}</b> Subscribers ~
+						~ <b>{{ requested_user.get_rss_subscribers_count }}</b> Subscribers ~
 					</span>
 				</div>
 				<div class="set-2">
