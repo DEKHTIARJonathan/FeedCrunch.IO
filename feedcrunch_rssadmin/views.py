@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.template import RequestContext, loader
-from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import render_to_response, redirect
+from django.template import RequestContext, loader
+from django.urls import reverse
+from django.utils import timezone
 
 import datetime, unicodedata, json
 from calendar import monthrange
@@ -37,7 +38,7 @@ def index(request, feedname=None):
 
         country_list = Country.objects.all().order_by('name')
 
-        d = datetime.datetime.now()
+        d = timezone.now()
         monthtime_elapsed = int(round(float(d.day) / monthrange(d.year, d.month)[1] * 100,0))
 
         try:

@@ -6,13 +6,6 @@ from __future__ import unicode_literals
 from feedcrunch.models import Post, FeedUser, Option
 from feedgen.feed import FeedGenerator
 
-from datetime import datetime
-from pytz import timezone
-
-time_modifier = timezone('Europe/Paris')
-now = datetime.now()
-time_delta = time_modifier.utcoffset(now)
-
 def generateRSS(type="", username=""):
     if type not in ["rss", "atom"]:
         raise ValueError('Wrong Type of RSS Feed given to the generator, only "rss" and "atom" accepted.')
@@ -75,7 +68,7 @@ def generateRSS(type="", username=""):
 
         fe.link( href='https://www.feedcrunch.io/@'+username+'/redirect/'+str(post.id), rel='alternate' )
         fe.author({'name':user.get_full_name(),'email':user.email})
-        fe.updated(post.when + time_delta)
+        fe.updated(post.when)
 
         #fe.category([{'term' : 'category', 'scheme': 'http://www.somedomain.com/category', 'label' : 'Category'}])
         for tag in post.tags.all():

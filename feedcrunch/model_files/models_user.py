@@ -404,7 +404,7 @@ class FeedUser(AbstractFeedUser):
         return self.rel_sub_feed.count()
 
     def get_current_month_post_count(self):
-        d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        d_tmp = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
         date_1st_day_month = d_tmp.replace(day=1)
         date_1st_day_month_with_tmz = timezone.make_aware(date_1st_day_month, timezone.get_current_timezone())
@@ -412,7 +412,7 @@ class FeedUser(AbstractFeedUser):
         return self.rel_posts.filter(when__gte=date_1st_day_month_with_tmz).count()
 
     def get_last_month_post_count(self):
-        d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        d_tmp = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
         time_delta = datetime.timedelta(days=1)
 

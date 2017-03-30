@@ -10,14 +10,12 @@ from django.utils import timezone
 
 def get_N_time_period(N_periods=14, duration=1, max_date=DT.date.today()):
 
-    d_today = DT.datetime.now()
+    d_today = timezone.now()
     max_date_delta = (d_today.date()-max_date).days
 
     delta = 1
     while N_periods * delta < max_date_delta and delta < duration:
         delta += 1
-
-    print ("Delta", delta)
 
     rslt = []
 

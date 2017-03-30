@@ -124,8 +124,8 @@ admin.site.register(Interest, InterestAdmin)
 
 # ==================== RSS Subscriber ============================
 class RSSSubscriberAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ipaddress', 'feedtype', 'date')
-    ordering = ('-date',)
+    list_display = ('user', 'ipaddress', 'feedtype', 'date', 'visit_hour')
+    ordering = ('-date', '-visit_hour')
 
     search_fields = ('user',)
 
