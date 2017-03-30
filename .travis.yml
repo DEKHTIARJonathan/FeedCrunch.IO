@@ -46,7 +46,7 @@ env:
   
 before_deploy:
 - find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
-- zip -r "$ARTIFACT_NAME" . -x \*.crypto application/staticfiles/**\* venv/**\* _unused_/**\* venv/**\* certificate/**\* codedeploy/**\* example_files/**\* htmlcov/**\* scripts/**\* lib_bin/**\* .git/**\*
+- zip -r "$ARTIFACT_NAME" . -x \*.crypto application/staticfiles/\* venv/\* _unused_/\* venv/\* certificate/\* codedeploy/\* example_files/\* htmlcov/\* scripts/\* lib_bin/\* .git/\*
 
 deploy:
 - provider: cloudfoundry

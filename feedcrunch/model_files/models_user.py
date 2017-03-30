@@ -427,7 +427,7 @@ class FeedUser(AbstractFeedUser):
     def get_clicks_count(self):
         return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
 
-    def get_rss_subscribers_count(self, days_offset=0):
+    def get_rss_subscribers_count(self, days_offset=1):
 
         today           = date.today()
         lookup_day      = today - timedelta(days=days_offset)
