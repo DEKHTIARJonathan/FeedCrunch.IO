@@ -41,7 +41,7 @@ def record_user_subscribtions_stats(username=None):
             #count = usr.rel_rss_subscribers.filter(date__range=(last_lookup_day, today)).values("ipaddress").annotate(n=models.Count("pk")).count()__gte
             count = usr.rel_rss_subscribers.filter(date__gte=last_lookup_day).values("ipaddress").annotate(n=models.Count("pk")).count()
 
-            stat_obj = RSSSubsStat.objects.create(user=username, count=count)
+            RSSSubsStat.objects.create(user=username, count=count)
 
     else:
         raise Exception("Error: tasks.record_user_subscribtions_stats - username have not been provided.")
