@@ -4,132 +4,132 @@
 {% block body %}
 
 <div class="row">
-	<div class="col s12 m12 l12">
-		<div class="card">
-			<div class="card-content">
-				<span class="card-title">
-					Select the feed you would like to edit or delete
-				</span>
-				<span class="card-title">
-					Total Subscribtions : {{ feeds.count }}
-				</span>
+    <div class="col s12 m12 l12">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">
+                    Select the feed you would like to edit or delete
+                </span>
+                <span class="card-title">
+                    Total Subscribtions : {{ feeds.count }}
+                </span>
 
-				<div class="table-head-bar">
+                <div class="table-head-bar">
 
-					<div class="input-field col s12 l6" id="datatable-searchbar-div">
-						<i class="material-icons prefix" style="padding-top: 10px;">search</i>
-						<input id="sub-searchbar" type="text" >
-						<label for="sub-searchbar">Search in your subscribtions</label>
-					</div>
+                    <div class="input-field col s12 l6" id="datatable-searchbar-div">
+                        <i class="material-icons prefix" style="padding-top: 10px;">search</i>
+                        <input id="sub-searchbar" type="text" >
+                        <label for="sub-searchbar">Search in your subscribtions</label>
+                    </div>
 
-					<div class="input-field col s12 m6 l3">
-						<a class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar modal-trigger add-rssfeed-btn" href="#modal-rss-feed">Add a RSS Feed</a>
-					</div>
+                    <div class="input-field col s12 m6 l3">
+                        <a class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar modal-trigger add-rssfeed-btn" href="#modal-rss-feed">Add a RSS Feed</a>
+                    </div>
 
-					<div class="input-field col s12 m6 l3">
-						<a class="waves-effect waves-light btn green m-b-xs btn-table-head-bar modal-trigger" href="#modal-opml">Import an OPML File</a>
-					</div>
+                    <div class="input-field col s12 m6 l3">
+                        <a class="waves-effect waves-light btn green m-b-xs btn-table-head-bar modal-trigger" href="#modal-opml">Import an OPML File</a>
+                    </div>
 
-				</div>
+                </div>
 
-				<table class="display responsive-table" id="sub-listing" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Title</th>
-							<th>Domain</th>
-							<th>Link</th>
-							<th class='centered-cell'># Articles</th>
-							<th>Edit</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
+                <table class="display responsive-table" id="sub-listing" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Domain</th>
+                            <th>Link</th>
+                            <th class='centered-cell'># Articles</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
 
-					<tbody>
+                    <tbody>
 
-						{% for feed in feeds %}
-						<tr id="feed-id-{{ feed.id }}">
-							<td>{{ feed.id }}</td>
-							<td>{{ feed.title }}</td>
-							<td>{{ feed.short_domain }}</span>
-							<td>{{ feed.short_link }}</td>
-							<td class='centered-cell'>{{ feed.count_articles }}</td>
-							<td><a id="edit-btn-id-{{ feed.id }}" class="modal-trigger edit-rssfeed-btn"  data-id="{{ feed.id }}" data-title="{{ feed.title }}" data-link="{{ feed.link }}" href="#modal-rss-feed">Edit</a></td>
-							<td><a class="delete-feed" data-id="{{ feed.id }}" href="#">Delete</a></td>
-						</tr>
-						{% endfor %}
+                        {% for feed in feeds %}
+                        <tr id="feed-id-{{ feed.id }}">
+                            <td>{{ feed.id }}</td>
+                            <td>{{ feed.title }}</td>
+                            <td>{{ feed.short_domain }}</span>
+                            <td>{{ feed.short_link }}</td>
+                            <td class='centered-cell'>{{ feed.count_articles }}</td>
+                            <td><a id="edit-btn-id-{{ feed.id }}" class="modal-trigger edit-rssfeed-btn"  data-id="{{ feed.id }}" data-title="{{ feed.title }}" data-link="{{ feed.link }}" href="#modal-rss-feed">Edit</a></td>
+                            <td><a class="delete-feed" data-id="{{ feed.id }}" href="#">Delete</a></td>
+                        </tr>
+                        {% endfor %}
 
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal OPML -->
 <div id="modal-opml" class="modal">
-	<div class="modal-content">
-		<h4>Modal Header - Import OPML</h4>
+    <div class="modal-content">
+        <h4>Modal Header - Import OPML</h4>
 
-		<form id='opml_form'>
+        <form id='opml_form'>
 
-			<div class="row">
-				<div class="file-field input-field col  s12 m6">
-					<div id="fileuploader">Upload</div>
-				</div>
-				<div class="file-field input-field col s12 m6" style="height: 170px;">
-					<div style="text-align:center; margin-bottom: 25px;">
-						<img src="{% static "images/please-wait.png" %}" style="height: 90px;">
-					</div>
-					The upload may be quite long depending on the size of your OPML file.<br>
-					<b>Please wait for the confirmation.</b>
-				</div>
-			</div>
+            <div class="row">
+                <div class="file-field input-field col  s12 m6">
+                    <div id="fileuploader">Upload</div>
+                </div>
+                <div class="file-field input-field col s12 m6" style="height: 170px;">
+                    <div style="text-align:center; margin-bottom: 25px;">
+                        <img src="{% static "images/please-wait.png" %}" style="height: 90px;">
+                    </div>
+                    The upload may be quite long depending on the size of your OPML file.<br>
+                    <b>Please wait for the confirmation.</b>
+                </div>
+            </div>
 
-			<div class="row" style="text-align:right;">
-				<a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-opml">Close Modal</a>
-				<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-opml">Reset</a>
-				<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-opml">Save</a>
-			</div>
+            <div class="row" style="text-align:right;">
+                <a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-opml">Close Modal</a>
+                <a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-opml">Reset</a>
+                <a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-opml">Save</a>
+            </div>
 
-		</form>
+        </form>
 
-	</div>
+    </div>
 </div>
 
 <!-- Modal RSS Feed -->
 <div id="modal-rss-feed" class="modal">
-	<div class="modal-content">
-		<h4 id="modal-rss-header"></h4>
-		<form>
+    <div class="modal-content">
+        <h4 id="modal-rss-header"></h4>
+        <form>
 
-			<div class="row">
+            <div class="row">
 
-				<div class="input-field col m6 s12">
-					<label for="rssfeed_link">RSS Feed Link</label>
-					<input id="rssfeed_link" name="rssfeed_link" data-init="" type="text" class="validate">
-					<div id="link-ajax-rslt">&emsp;</div>
-				</div>
+                <div class="input-field col m6 s12">
+                    <label for="rssfeed_link">RSS Feed Link</label>
+                    <input id="rssfeed_link" name="rssfeed_link" data-init="" type="text" class="validate">
+                    <div id="link-ajax-rslt">&emsp;</div>
+                </div>
 
-				<div class="input-field col m6 s12">
-					<label for="rssfeed_title">RSS Feed Title</label>
-					<input id="rssfeed_title" name="rssfeed_title" data-init="" type="text" class="validate">
-				</div>
+                <div class="input-field col m6 s12">
+                    <label for="rssfeed_title">RSS Feed Title</label>
+                    <input id="rssfeed_title" name="rssfeed_title" data-init="" type="text" class="validate">
+                </div>
 
-				<input type="hidden" id="rssfeed_id" data-init="" value="-1">
+                <input type="hidden" id="rssfeed_id" data-init="" value="-1">
 
-				<div class="input-field col m12">
-					<span id="reload-info"></span>
-				</div>
-			</div>
+                <div class="input-field col m12">
+                    <span id="reload-info"></span>
+                </div>
+            </div>
 
-			<div class="row" style="text-align:right;">
-				<a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-rssfeed">Close Modal</a>
-				<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-rssfeed">Reset</a>
-				<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-rssfeed">Save</a>
-			</div>
+            <div class="row" style="text-align:right;">
+                <a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-rssfeed">Close Modal</a>
+                <a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-rssfeed">Reset</a>
+                <a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-rssfeed">Save</a>
+            </div>
 
-		</form>
-	</div>
+        </form>
+    </div>
 </div>
 {% endblock %}

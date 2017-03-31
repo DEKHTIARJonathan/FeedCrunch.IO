@@ -5,88 +5,88 @@
 
 <div class="row">
 
-	<div class="col s12 l6">
-		<div class="card horizontal social-card">
-		    <div class="card-image">
-		        <img src="{% static "images/services/twitter.png" %}">
-		    </div>
-		    <div class="card-stacked">
-		        <div class="card-content">
-		            <p>Link your account Feedcrunch Account to Twitter and automate your posting workflows.</p>
-		        </div>
-		        <div class="card-action" style="text-align: center;" id="twitter-btn-div">
-					{% if twitter_auth_url %}
-						<a href="{{ twitter_auth_url }}" target="_target" class="waves-effect waves-light btn blue" id="twitter-btn-link">Link My Twitter Account</a>
-					{% else %}
-						<button class="waves-effect waves-light btn red twitter-btn" id="twitter-btn-unlink">Unlink My Twitter Account</button>
-					{% endif %}
-		        </div>
-		    </div>
-		</div>
-	</div>
+    <div class="col s12 l6">
+        <div class="card horizontal social-card">
+            <div class="card-image">
+                <img src="{% static "images/services/twitter.png" %}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Link your account Feedcrunch Account to Twitter and automate your posting workflows.</p>
+                </div>
+                <div class="card-action" style="text-align: center;" id="twitter-btn-div">
+                    {% if twitter_auth_url %}
+                        <a href="{{ twitter_auth_url }}" target="_target" class="waves-effect waves-light btn blue" id="twitter-btn-link">Link My Twitter Account</a>
+                    {% else %}
+                        <button class="waves-effect waves-light btn red twitter-btn" id="twitter-btn-unlink">Unlink My Twitter Account</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="col s12 l6">
-		<div class="card horizontal social-card">
-		    <div class="card-image">
-		        <img src="{% static "images/services/facebook.png" %}">
-		    </div>
-		    <div class="card-stacked">
-		        <div class="card-content">
-		            <p>Link your Feedcrunch Account to Facebook and automate your posting workflows.</p>
-		        </div>
-		        <div class="card-action" style="text-align: center;">
-					{% if facebook_auth_url %}
-						<a href="{{ facebook_auth_url }}" class="waves-effect waves-light btn blue" disabled>Link My Facebook Account</a>
-					{% else %}
-						<!-- <a href="/facebook/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
-						<a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
-					{% endif %}
-		        </div>
-		    </div>
-		</div>
-	</div>
+    <div class="col s12 l6">
+        <div class="card horizontal social-card">
+            <div class="card-image">
+                <img src="{% static "images/services/facebook.png" %}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Link your Feedcrunch Account to Facebook and automate your posting workflows.</p>
+                </div>
+                <div class="card-action" style="text-align: center;">
+                    {% if facebook_auth_url %}
+                        <a href="{{ facebook_auth_url }}" class="waves-effect waves-light btn blue" disabled>Link My Facebook Account</a>
+                    {% else %}
+                        <!-- <a href="/facebook/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
+                        <a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="col s12 l6">
-		<div class="card horizontal social-card">
-		    <div class="card-image">
-		        <img src="{% static "images/services/linkedin.png" %}">
-		    </div>
-		    <div class="card-stacked">
-		        <div class="card-content">
-		            <p>Link your Feedcrunch Account to LinkedIn and automate your posting workflows.</p>
-		        </div>
-		        <div class="card-action" style="text-align: center;">
-					{% if linkedin_auth_url %}
-						<a href="{{ linkedin_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My LinkedIn Account</a>
-					{% else %}
-						<!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
-						<a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
-					{% endif %}
-		        </div>
-		    </div>
-		</div>
-	</div>
+    <div class="col s12 l6">
+        <div class="card horizontal social-card">
+            <div class="card-image">
+                <img src="{% static "images/services/linkedin.png" %}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Link your Feedcrunch Account to LinkedIn and automate your posting workflows.</p>
+                </div>
+                <div class="card-action" style="text-align: center;">
+                    {% if linkedin_auth_url %}
+                        <a href="{{ linkedin_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My LinkedIn Account</a>
+                    {% else %}
+                        <!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
+                        <a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="col s12 l6">
-		<div class="card horizontal social-card">
-		    <div class="card-image">
-		        <img src="{% static "images/services/gplus.png" %}">
-		    </div>
-		    <div class="card-stacked">
-		        <div class="card-content">
-		            <p>Link your Feedcrunch Account to Google Plus and automate your posting workflows.</p>
-		        </div>
-		        <div class="card-action" style="text-align: center;">
-					{% if gplus_auth_url %}
-						<a href="{{ gplus_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My Google Plus Account</a>
-					{% else %}
-						<!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My Google Plus Account</a> -->
-						<a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
-					{% endif %}
-		        </div>
-		    </div>
-		</div>
-	</div>
+    <div class="col s12 l6">
+        <div class="card horizontal social-card">
+            <div class="card-image">
+                <img src="{% static "images/services/gplus.png" %}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Link your Feedcrunch Account to Google Plus and automate your posting workflows.</p>
+                </div>
+                <div class="card-action" style="text-align: center;">
+                    {% if gplus_auth_url %}
+                        <a href="{{ gplus_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My Google Plus Account</a>
+                    {% else %}
+                        <!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My Google Plus Account</a> -->
+                        <a href="#" class="waves-effect waves-light btn red" disabled>available soon</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
