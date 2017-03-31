@@ -5,87 +5,87 @@
 
 <!-- Contact Form -->
 <section class="section" id="signup">
-	<div class="container" id="signup_container">
-		<div class="main">
-			<h1>Join FeedCrunch.IO</h1>
-			<h2>The best way to create, share, and manage RSS Feeds.</h2>
-			<hr style="border-top: 1px solid #e4e3e3;">
-			<form action="" method="post" autocomplete="off" accept-charset="UTF-8" name="registration">
-				{% csrf_token %}
-				{% if next %}
-					<input type="hidden" name="next" value="{{ next }}" />
-				{% endif %}
-				<div class="lable-2">
-					<input type="text" id="username" name="username" class="text" placeholder="Username">
-					<div class="clear"></div>
-				</div>
+    <div class="container" id="signup_container">
+        <div class="main">
+            <h1>Join FeedCrunch.IO</h1>
+            <h2>The best way to create, share, and manage RSS Feeds.</h2>
+            <hr style="border-top: 1px solid #e4e3e3;">
+            <form action="" method="post" autocomplete="off" accept-charset="UTF-8" name="registration">
+                {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                {% endif %}
+                <div class="lable-2">
+                    <input type="text" id="username" name="username" class="text" placeholder="Username">
+                    <div class="clear"></div>
+                </div>
 
-				<div class="lable">
-					<div class="col_1_of_2 span_1_of_2">
-						<input type="text" name="firstname" class="text" placeholder="First Name">
-					</div>
-					<div class="col_1_of_2 span_1_of_2">
-						<input type="text" name="lastname" class="text" placeholder="Last Name">
-					</div>
-					<div class="clear"></div>
-				</div>
+                <div class="lable">
+                    <div class="col_1_of_2 span_1_of_2">
+                        <input type="text" name="firstname" class="text" placeholder="First Name">
+                    </div>
+                    <div class="col_1_of_2 span_1_of_2">
+                        <input type="text" name="lastname" class="text" placeholder="Last Name">
+                    </div>
+                    <div class="clear"></div>
+                </div>
 
-				<div class="lable-2">
-					<input type="text" name="email" class="text" placeholder="your@email.com" autocomplete="new-password">
-					<div class="clear"></div>
-				</div>
-				<div class="lable-2">
-					<input type="password" id="password" name="password" class="text" placeholder="Password" autocomplete="new-password">
-					<div class="clear"></div>
-				</div>
+                <div class="lable-2">
+                    <input type="text" name="email" class="text" placeholder="your@email.com" autocomplete="new-password">
+                    <div class="clear"></div>
+                </div>
+                <div class="lable-2">
+                    <input type="password" id="password" name="password" class="text" placeholder="Password" autocomplete="new-password">
+                    <div class="clear"></div>
+                </div>
 
-				<div class="lable-2">
-					<input type="password" name="password_again" class="text" placeholder="Repeat your Password" autocomplete="new-password">
-					<div class="clear"></div>
-				</div>
+                <div class="lable-2">
+                    <input type="password" name="password_again" class="text" placeholder="Repeat your Password" autocomplete="new-password">
+                    <div class="clear"></div>
+                </div>
 
-				<div class="lable-2" id="sandbox-container">
-					<div class="input-group date">
-						<input type="text" class="" name="birthdate" placeholder="Date of Birth ~ dd/mm/yyyy">
-						<span class="input-group-addon">
-							<i class="glyphicon glyphicon-th"></i>
-						</span>
-					</div>
-					<div class="clear"></div>
-				</div>
+                <div class="lable-2" id="sandbox-container">
+                    <div class="input-group date">
+                        <input type="text" class="" name="birthdate" placeholder="Date of Birth ~ dd/mm/yyyy">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-th"></i>
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
 
-				<div class="lable-2">
-					<select name="gender" onchange="this.className=''" class="select-disabled">
-						<option selected disabled>Select One Gender</option>
-						<option value="F">Female</option>
-						<option value="M">Male</option>
-						<option value="O">Other</option>
-					</select>
-					<div class="clear"></div>
-				</div>
+                <div class="lable-2">
+                    <select name="gender" onchange="this.className=''" class="select-disabled">
+                        <option selected disabled>Select One Gender</option>
+                        <option value="F">Female</option>
+                        <option value="M">Male</option>
+                        <option value="O">Other</option>
+                    </select>
+                    <div class="clear"></div>
+                </div>
 
-				<div class="lable-2">
-					<select name="country" onchange="this.className=''" class="select-disabled">
-						<option selected disabled>Where are you from ?</option>
-						{% for country in countries %}
-							<option>{{ country.name }}</option>
-						{% endfor %}
-					</select>
-					<div class="clear"></div>
-				</div>
+                <div class="lable-2">
+                    <select name="country" onchange="this.className=''" class="select-disabled">
+                        <option selected disabled>Where are you from ?</option>
+                        {% for country in countries %}
+                            <option>{{ country.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="clear"></div>
+                </div>
 
-				<hr style="border-top: 1px solid #e4e3e3;">
-				<h3>
-					By creating an account, you agree to our <span class="term"><a href="/terms">Terms & Conditions</a></span>
-				</h3>
-				<div class="submit" style="margin-top:15px;">
-					<input type="submit" value="Create account" >
-				</div>
-				<div class="clear"> </div>
-			</form>
-		</div>
-	</div>
-	<!-- end container -->
+                <hr style="border-top: 1px solid #e4e3e3;">
+                <h3>
+                    By creating an account, you agree to our <span class="term"><a href="/terms">Terms & Conditions</a></span>
+                </h3>
+                <div class="submit" style="margin-top:15px;">
+                    <input type="submit" value="Create account" >
+                </div>
+                <div class="clear"> </div>
+            </form>
+        </div>
+    </div>
+    <!-- end container -->
 </section>
 <!-- End Contact Form -->
 

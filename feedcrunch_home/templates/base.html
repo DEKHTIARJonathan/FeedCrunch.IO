@@ -3,511 +3,359 @@
 <html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="FeedCrunch.IO - RSS Feeds to the next level !">
-	<meta name="author" content="Jonathan DEKHTIAR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FeedCrunch.IO - RSS Feeds to the next level !">
+    <meta name="author" content="Jonathan DEKHTIAR">
 
-	<link href="{% static "images/favicon.ico" %}" rel="shortcut icon">
-	<title>FeedCrunch.IO | RSS Feeds to the next level !</title>
+    <link href="{% static "images/favicon.ico" %}" rel="shortcut icon">
+    <title>FeedCrunch.IO | RSS Feeds to the next level !</title>
 
-	{% if rss_feed_display %}
-	<link href="rss/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/rss+xml">
-	<!-- RSS Feed 2.0 -->
-	<link href="atom/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/atom+xml">
-	<!-- ATOM Feed 1.0 -->
-	{% endif %}
+    {% if rss_feed_display %}
+    <link href="rss/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/rss+xml">
+    <!-- RSS Feed 2.0 -->
+    <link href="atom/" rel="alternate" title="Feedcrunch.IO - RSS Feeds to the Next Level" type="application/atom+xml">
+    <!-- ATOM Feed 1.0 -->
+    {% endif %}
 
-	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=
-				Pacifico|
-				Roboto:400,300,500,700|
-				Ubuntu:500|
-				Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|
-				Merriweather:400,300,300italic,400italic,700,700italic,900,900italic|
-				Oxygen:400,300,700|
-				Oswald
-	" rel="stylesheet" type="text/css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=
+                Pacifico|
+                Roboto:400,300,500,700|
+                Ubuntu:500|
+                Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|
+                Merriweather:400,300,300italic,400italic,700,700italic,900,900italic|
+                Oxygen:400,300,700|
+                Oswald
+    " rel="stylesheet" type="text/css">
 
-	<!-- Font Icons CSS -->
-	<link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet" type='text/css'>
-	<link href="{% static "fonts/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
-	<!-- Plugin CSS -->
+    <!-- Font Icons CSS -->
+    <link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet" type='text/css'>
+    <link href="{% static "fonts/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <!-- Plugin CSS -->
 
-	<!-- Bootstrap core CSS -->
-	<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <!--
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+     -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<!-- General styles for this template -->
-	<link href="{% static "css/style.css" %}" rel="stylesheet"> {% if template_name == "login.html" %}
+    <!-- General styles for this template -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 
-	<link href="{% static "css/login_panel.css" %}" rel="stylesheet"> {% elif template_name == "admin_index.html" %}
+    {% if template_name == "rssviewer.html" %}
+        <link href="{% static "css/animate.min.css " rel="stylesheet " type="text/css" %}">
+        <link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/social_buttons.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
+        <link href="{% static "css/arrow.css" %}" rel="stylesheet">
+        <link href="{% static "css/viewer.css" %}" rel="stylesheet">
 
-	<link href="{% static "css/admin.css" %}" rel="stylesheet">
-	<link href="{% static "css/social-icon.css" %}" rel="stylesheet">
-	<link href="{% static "css/form.css" %}" rel="stylesheet">
-	<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet"> {% elif template_name == "listing.html" %}
+    {% elif template_name == "signup.html" %}
+        <link href="{% static "css/form.css" %}" rel="stylesheet">
+        <link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
 
-	<link href="{% static "css/admin.css" %}" rel="stylesheet">
-	<link href="{% static "css/form.css" %}" rel="stylesheet"> {% elif template_name == "post_form.html" %}
+        <script type="application/x-javascript">
+            addEventListener("load", function() {
+                setTimeout(hideURLbar, 0);
+            }, false);
 
-	<link href="{% static "css/admin.css" %}" rel="stylesheet">
-	<link href="{% static "css/form.css" %}" rel="stylesheet">
-	<link href="{% static "css/bootstrap-switch.css" %}" rel="stylesheet">
-	<link href="{% static "css/tooltip.css" %}" rel="stylesheet">
-	<link href="{% static "css/tagmanager.css" %}" rel="stylesheet">
-	<link href="{% static "css/typeaheadjs.css" %}" rel="stylesheet"> {% elif template_name == "rssviewer.html" %}
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
 
-	<link href="{% static "css/animate.min.css " rel="stylesheet " type="text/css" %}">
-	<link href="{% static "css/custom.css" %}" rel="stylesheet" type="text/css">
-	<link href="{% static "css/social_buttons.css" %}" rel="stylesheet" type="text/css">
-	<link href="{% static "css/medium-supercleaned.css" %}" rel="stylesheet">
-	<link href="{% static "css/arrow.css" %}" rel="stylesheet">
-	<link href="{% static "css/viewer.css" %}" rel="stylesheet"> {% elif template_name == "signup.html" %}
+    {% endif %}
 
-	<link href="{% static "css/form.css" %}" rel="stylesheet">
-	<link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
-
-	<script type="application/x-javascript">
-		addEventListener("load", function() {
-			setTimeout(hideURLbar, 0);
-		}, false);
-
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
-
-	{% endif %}
-
-	<!-- Color style -->
-	<link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
-	<!-- <link href="{% static "css/colors/blue_dark.css" %}" rel="stylesheet" id="color-opt_blue_dark"> -->
-	<link href="{% static "css/colors/blue_google.css" %}" rel="stylesheet" id="color-opt_blue_dark">
+    <!-- Color style -->
+    <link href="{% static "css/colors/default.css" %}" rel="stylesheet" id="color-opt">
+    <link href="{% static "css/colors/blue_google.css" %}" rel="stylesheet" id="color-opt_blue_dark">
 
 </head>
 
-
 <body id="page-top" data-spy="scroll" data-target="#menu">
 
-	<!-- Navbar -->
-	<div class="navbar navbar-custom sticky" role="navigation" id="menu">
-		<div class="container">
-
-			<!-- Navbar-header -->
-			<div class="navbar-header">
-
-				<!-- Responsive menu button -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-
-				<!-- LOGO -->
-				<!--
-						<a class="navbar-brand logo" id="nav_link_logo" href="/">
-							FeedCrunch.io
-						</a>
-
-						-->
-				<a class="navbar-brand logo" id="nav_link_logo" href="/">
-					<img src="{% static "images/logo-white.png" %}" style="height: 15px;">
-				</a>
-
-			</div>
-			<!-- end navbar-header -->
-
-			<!-- menu -->
-			<div class="navbar-collapse collapse" id="navbar-menu">
-
-				<!-- Navbar left -->
-				<ul class="nav navbar-nav nav-custom-left">
-
-					{% if '@' in request.path and user.is_authenticated %}
-
-					<li id="li_home">
-						<a href="/@{{user.username}}/">Home</a>
-					</li>
-					<li id="li_add">
-						<a href="/@{{user.username}}/admin/add">Add a Post</a>
-					</li>
-					<li id="li_modify">
-						<a href="/@{{user.username}}/admin/modify">Modify a Post</a>
-					</li>
-					<li id="li_delete">
-						<a href="/@{{user.username}}/admin/delete">Delete a Post</a>
-					</li>
-
-					{% elif '@' in request.path and not user.is_authenticated %}
-
-					<li id="li_home">
-						<a href="/">Home</a>
-					</li>
-					<li id="li_features">
-						<a href="/#features">Features</a>
-					</li>
-					<li id="li_pricing">
-						<a href="/#pricing">Pricing</a>
-					</li>
-					<li>
-						<a href="/about">About Us</a>
-					</li>
-					<li>
-						<a href="/faq">FAQ</a>
-					</li>
-
-					{% else %}
-
-					<li id="li_home">
-						<a id="nav_link_home" class="nav-link">Home</a>
-					</li>
-					<li id="li_features">
-						<a id="nav_link_features" class="nav-link">Features</a>
-					</li>
-					<li id="li_pricing">
-						<a id="nav_link_pricing" class="nav-link">Pricing</a>
-					</li>
-					<li>
-						<a href="/about">About Us</a>
-					</li>
-					<li>
-						<a href="/faq">FAQ</a>
-					</li>
-
-					{% endif %}
-
-					<li>
-						<a href="/contact">Contact</a>
-					</li>
-				</ul>
-
-				<!-- Navbar right -->
-				<ul class="nav navbar-nav navbar-right">
-
-					{% if user.is_authenticated %}
-
-					<li style="margin-right:25px;">
-						<a href="/logout">Logout</a>
-					</li>
-
-						{% if 'admin' in request.path %}
-
-						<li>
-							<a href="/@{{user.username}}/" class="btn btn-white-fill navbar-btn">Go to my Feed</a>
-						</li>
-
-						{% else %}
-
-						<li>
-							<a href="/@{{user.username}}/admin" class="btn btn-white-fill navbar-btn">Admin Panel</a>
-						</li>
-
-						{% endif %}
-
-					{% else %}
-
-					<li style="margin-right:25px;">
-						<a href="/login">Login</a>
-					</li>
-
-						{% if 'signup' not in request.path %}
-						<li>
-							<a href="/signup" class="btn btn-white-fill navbar-btn">Try for Free</a>
-						</li>
-						{% endif %}
-
-					{% endif %}
-
-				</ul>
-
-			</div>
-			<!--/Menu -->
-		</div>
-		<!-- end container -->
-	</div>
-	<!-- End navbar-custom -->
-
-	{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
-		<div style="min-height:calc(100vh - 346px - 452px);">
-	{% else %}
-		<div style="min-height:calc(100vh - 346px);">
-	{% endif %}
-
-			<!-- =================================== ############################################# ==================================== -->
-			{% block body %}
-
-			{% endblock %}
-			<!-- =================================== ############################################# ==================================== -->
-
-		</div>
-
-		{% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
-		<!-- Subscribe -->
-		<section class="newsletter-div section bg-custom">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-sm-12 text-center">
-						<h3 class="title text-white">Be engaged and subscribe to the Newsletter</h3>
-						<p class="text-light sub-title" style="padding-top:25px;">
-							You want to keep in touch with the team, get the latest news from the platform and the new features upcoming ?<br> Subscribing to newsletter is the way to keep in touch with us.
-						</p>
-					</div>
-				</div>
-				<!-- End row -->
-
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-						<form class="text-center">
-							<div class="form-group">
-								<input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
-							</div>
-							<br>
-							<button type="submit" class="btn btn-white-fill">Subscribe </button>
-						</form>
-					</div>
-				</div>
-				<!-- End row -->
-
-			</div>
-			<!-- end container -->
-		</section>
-		<!-- End Subscribe -->
-		{% endif %}
-
-		<!-- FOOTER -->
-		<footer class="section bg-gray footer" style="text-align:left;">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6" style="color:#fff">
-						{% if display_user_count %}
-						<h2>{{ user_count }} users registred since November 2016</h2> {% else %}
-						<h2>{{ post_count }} articles posted since November 2016</h2> {% endif %}
-						<p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform on a daily basis.<br><br></p>
-						<a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io" data-size="large">Follow @FeedCrunch_io</a>
-						<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-					</div>
-					<div class="col-md-push-2 col-md-2 col-xs-6">
-						<h5>FeedCrunch.IO</h5>
-						<ul class="list-unstyled">
-							<li><a href="/">Home</a></li>
-							<li><a href="/about/">About Us</a></li>
-							<li><a href="/about/#team">Team</a></li>
-							<li><a href="/faq/">FAQ</a></li>
-							<li><a href="/contact/">Contact</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-push-2 col-md-2 col-xs-6">
-						<h5>Support</h5>
-						<ul class="list-unstyled">
-							<li><a href="/contact/">Help &amp; Support</a></li>
-							<li><a href="/terms/">Privacy Policy</a></li>
-							<li><a href="/terms/">Terms &amp; Conditions</a></li>
-						</ul>
-					</div>
-
-				</div>
-				<!-- end row -->
-
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="footer-alt text-center">
-							<p class="text-muted_footer m-b-0">
-								Developed with <span style="color:red; font-size:1.2em;">♥</span> at SWAI by
-								<a href="https://www.jonathandekhtiar.eu" class="developed_by"></a> - 2016 © FeedCrunch.io -
-							</p>
-						</div>
-					</div>
-				</div>
-				<!-- end row -->
-
-			</div>
-			<!-- end container -->
-		</footer>
-		<!-- END FOOTER -->
-
-		<!-- JQUery & Bootstrap -->
-		<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-
-		<!-- Jquery easing -->
-		<script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>
-
-		<!--common script for all pages-->
-		<!-- <script src="js/jquery.app.js"></script> -->
-		{% if template_name == "admin_index.html" %}
-
-		<script type="text/javascript" src="{% static "js/bootstrap-filestyle.min.js" %}"></script>
-		<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
-		<script src="{% static "js/datepicker.js" %}"></script>
-
-		{% elif template_name == "post_form.html" %}
-
-		<script type="text/javascript" src="{% static "js/bootstrap-switch.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/tagmanager.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/typeahead.bundle.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/ajax_form.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/post_form.js" %}"></script>
-
-		{% elif 'admin/delete' in request.path %}
-
-		<script type="text/javascript" src="{% static "js/ajax_delete.js" %}"></script>
-
-		{% elif template_name == "rssviewer.html" %}
-
-		<script type="text/javascript" src="{% static "js/jquery.fittext.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/wow.min.js" %}"></script>
-		<!-- Contact Form JavaScript -->
-
-		<script type="text/javascript" src="{% static "js/jqBootstrapValidation.js" %}"></script>
-		<!-- Custom Theme JavaScript -->
-
-		<script type="text/javascript" src="{% static "js/creative.js" %}"></script>
-		<!-- Custom Ajax Search JavaScript -->
-
-		<script type="text/javascript" src="{% static "js/ajaxSearch.js" %}"></script>
-
-		<script>
-			$('#arrow_down').click(function() {
-				var the_id = $(this).attr("href");
-				$('html, body').animate({
-					scrollTop: $(the_id).offset().top - 50,
-				}, 1300);
-				return false;
-			});
-		</script>
-
-		{% elif template_name == "signup.html" %}
-
-		<script type="text/javascript" src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/datepicker.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/jquery.validate.min.js" %}"></script>
-		<!--
-			<script type="text/javascript"	src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-			-->
-
-		<script>
-			jQuery(function($) {
-				$.validator.addMethod("regex", function(value, element, regexpr) {
-					return regexpr.test(value);
-				}, "Not Valid");
-
-				$("[name='registration']").validate({
-					rules: {
-						username: {
-							required: true,
-							minlength: 4,
-							remote: {
-								url: "/api/1.0/public/post/validate/username/",
-								type: "post",
-								data: {
-									username: function() {
-										return $("#username").val();
-									},
-								},
-								dataType: 'json',
-								dataFilter: function(data) {
-									data = JSON.parse(data);
-
-									if (data.success && data.available) {
-										return true;
-									} else {
-										return false;
-									}
-								},
-								complete: function(xhr) {}
-							}
-						},
-						firstname: {
-							required: true,
-							minlength: 2
-						},
-						lastname: {
-							required: true,
-							minlength: 2
-						},
-						birthdate: {
-							required: true,
-							regex: /([0-2]\d{1}|3[0-1])\/(0\d|1[0-2])\/(19|20)\d{2}$/,
-						},
-						gender: {
-							required: true,
-						},
-						country: {
-							required: true,
-						},
-						email: {
-							required: true,
-							regex: /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.([a-z]{2,4})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
-						},
-						password: {
-							required: true,
-							regex: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}/,
-						},
-						password_again: {
-							equalTo: "#password"
-						}
-					},
-					messages: {
-						password: {
-							required: "Enter a password",
-							regex: "Please enter at least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9"
-						},
-						email: {
-							required: "Enter an email",
-							regex: "Enter a valid email"
-						},
-						password_again: {
-							equalTo: "The Passwords are not identical"
-						},
-						birthdate: {
-							required: "Enter a birthdate",
-							regex: "Enter a valid birthdate format (dd/mm/yyyy)"
-						},
-						username: {
-							remote: "Username already taken ..."
-						}
-					},
-					/*
-					// Specify validation error messages
-					messages: {
-						firstname: "Please enter your firstname",
-						lastname: "Please enter your lastname",
-						password: {
-							required: "Please provide a password",
-							minlength: "Your password must be at least 8 characters long"
-						},
-						email: "Please enter at least 8 characters, 1 Uppercase letter 'A-Z', 1 Lowercase letter 'a-z', and 1 number '0-9"
-					},
-					*/
-					errorPlacement: function(error, element) {
-							var placement = $(element).data('error');
-							if (placement) {
-								$(placement).append(error)
-							} else {
-								error.insertAfter(element);
-							}
-						}
-						/*
-						submitHandler: function(form) {
-							form.submit();
-						}
-						*/
-				});
-			});
-		</script>
-
-		{% elif template_name == "contact.html" %}
-
-		<script type="text/javascript" src="{% static "js/contact_ajax.js" %}"></script>
-
-		{% endif %}
-
-		<script type="text/javascript" src="{% static "js/menu.js" %}"></script>
+    <!-- Navbar -->
+    <div class="navbar navbar-custom sticky" role="navigation" id="menu">
+        <div class="container">
+
+            <!-- Navbar-header -->
+            <div class="navbar-header">
+
+                <!-- Responsive menu button -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                <!-- LOGO -->
+                <!--
+                        <a class="navbar-brand logo" id="nav_link_logo" href="/">
+                            FeedCrunch.io
+                        </a>
+
+                        -->
+                <a class="navbar-brand logo" id="nav_link_logo" href="/">
+                    <img src="{% static "images/logo-white.png" %}" style="height: 15px;">
+                </a>
+
+            </div>
+            <!-- end navbar-header -->
+
+            <!-- menu -->
+            <div class="navbar-collapse collapse" id="navbar-menu">
+
+                <!-- Navbar left -->
+                <ul class="nav navbar-nav nav-custom-left">
+
+                    {% if '@' in request.path and user.is_authenticated %}
+                        <li id="li_home">
+                            <a href="/@{{user.username}}/">Home</a>
+                        </li>
+                        <li id="li_add">
+                            <a href="/@{{user.username}}/admin/add">Add a Post</a>
+                        </li>
+                        <li id="li_modify">
+                            <a href="/@{{user.username}}/admin/modify">Modify a Post</a>
+                        </li>
+                        <li id="li_delete">
+                            <a href="/@{{user.username}}/admin/delete">Delete a Post</a>
+                        </li>
+
+                    {% elif '@' in request.path and not user.is_authenticated %}
+                        <li id="li_home">
+                            <a href="/">Home</a>
+                        </li>
+                        <li id="li_features">
+                            <a href="/#features">Features</a>
+                        </li>
+                        <li id="li_pricing">
+                            <a href="/#pricing">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="/about">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/faq">FAQ</a>
+                        </li>
+
+                    {% else %}
+                        <li id="li_home">
+                            <a id="nav_link_home" class="nav-link">Home</a>
+                        </li>
+                        <li id="li_features">
+                            <a id="nav_link_features" class="nav-link">Features</a>
+                        </li>
+                        <li id="li_pricing">
+                            <a id="nav_link_pricing" class="nav-link">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="/about">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/faq">FAQ</a>
+                        </li>
+
+                    {% endif %}
+
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Navbar right -->
+                <ul class="nav navbar-nav navbar-right">
+
+                    {% if user.is_authenticated %}
+                        <li style="margin-right:25px;">
+                            <a href="/logout">Logout</a>
+                        </li>
+
+                        {% if 'admin' in request.path %}
+                            <li>
+                                <a href="/@{{user.username}}/" class="btn btn-white-fill navbar-btn">Go to my Feed</a>
+                            </li>
+
+                        {% else %}
+                            <li>
+                                <a href="/@{{user.username}}/admin" class="btn btn-white-fill navbar-btn">Admin Panel</a>
+                            </li>
+
+                        {% endif %}
+
+                    {% else %}
+                        <li style="margin-right:25px;">
+                            <a href="/login">Login</a>
+                        </li>
+
+                            {% if 'signup' not in request.path %}
+                            <li>
+                                <a href="/signup" class="btn btn-white-fill navbar-btn">Try for Free</a>
+                            </li>
+                            {% endif %}
+
+                    {% endif %}
+
+                </ul>
+
+            </div>
+            <!--/Menu -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- End navbar-custom -->
+
+    {% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
+        <div style="min-height:calc(100vh - 346px - 452px);">
+    {% else %}
+        <div style="min-height:calc(100vh - 346px);">
+    {% endif %}
+
+            <!-- =================================== ############################################# ==================================== -->
+            {% block body %}
+
+            {% endblock %}
+            <!-- =================================== ############################################# ==================================== -->
+
+        </div>
+
+        {% if 'login' not in request.path and 'signup' not in request.path and not user.is_authenticated %}
+            <!-- Subscribe -->
+            <section class="newsletter-div section bg-custom">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h3 class="title text-white">Be engaged and subscribe to the Newsletter</h3>
+                            <p class="text-light sub-title" style="padding-top:25px;">
+                                You want to keep in touch with the team, get the latest news from the platform and the new features upcoming ?<br> Subscribing to newsletter is the way to keep in touch with us.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End row -->
+
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <form class="text-center">
+                                <div class="form-group">
+                                    <input class="form-control input-subscribe" id="exampleInputEmail1" placeholder="Enter e-mail address" type="email">
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-white-fill">Subscribe </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- End row -->
+
+                </div>
+                <!-- end container -->
+            </section>
+            <!-- End Subscribe -->
+        {% endif %}
+
+        <!-- FOOTER -->
+        <footer class="section bg-gray footer" style="text-align:left;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" style="color:#fff">
+                        {% if display_user_count %}
+                        <h2>{{ user_count }} users registred since November 2016</h2> {% else %}
+                        <h2>{{ post_count }} articles posted since November 2016</h2> {% endif %}
+                        <p style="margin-bottom:10px;">We our proud to have everyday many more users who use our platform on a daily basis.<br><br></p>
+                        <a class="twitter-follow-button" href="https://twitter.com/feedcrunch_io" data-size="large">Follow @FeedCrunch_io</a>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="col-md-push-2 col-md-2 col-xs-6">
+                        <h5>FeedCrunch.IO</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about/">About Us</a></li>
+                            <li><a href="/about/#team">Team</a></li>
+                            <li><a href="/faq/">FAQ</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-push-2 col-md-2 col-xs-6">
+                        <h5>Support</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/contact/">Help &amp; Support</a></li>
+                            <li><a href="/terms/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="footer-alt text-center">
+                            <p class="text-muted_footer m-b-0">
+                                Developed with <span style="color:red; font-size:1.2em;">♥</span> at SWAI by
+                                <a href="https://www.jonathandekhtiar.eu" class="developed_by"></a> - 2016 © FeedCrunch.io -
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+            </div>
+            <!-- end container -->
+        </footer>
+        <!-- END FOOTER -->
+
+        <!-- JQUery & Bootstrap -->
+        <!--
+        <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+        -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- Jquery easing -->
+        <!--<script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>-->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+        {% if template_name == "rssviewer.html" %}
+            <script type="text/javascript" src="{% static "js/jquery.fittext.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/wow.min.js" %}"></script>
+
+            <!-- Contact Form JavaScript -->
+            <script type="text/javascript" src="{% static "js/jqBootstrapValidation.js" %}"></script>
+
+            <!-- Custom Theme JavaScript -->
+            <script type="text/javascript" src="{% static "js/creative.js" %}"></script>
+
+            <!-- Custom Ajax Search JavaScript -->
+            <script type="text/javascript" src="{% static "js/ajaxSearch.js" %}"></script>
+
+            <script>
+                $('#arrow_down').click(function() {
+                    var the_id = $(this).attr("href");
+                    $('html, body').animate({
+                        scrollTop: $(the_id).offset().top - 50,
+                    }, 1300);
+                    return false;
+                });
+            </script>
+
+        {% elif template_name == "signup.html" %}
+            <script type="text/javascript" src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/datepicker.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/jquery.validate.min.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/signup.js" %}"></script>
+
+        {% elif template_name == "contact.html" %}
+              <script type="text/javascript" src="{% static "js/contact_ajax.js" %}"></script>
+
+        {% endif %}
+
+        <script type="text/javascript" src="{% static "js/menu.js" %}"></script>
 
 </body>
 

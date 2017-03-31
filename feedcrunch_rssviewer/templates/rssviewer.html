@@ -3,219 +3,219 @@
 
 {% block body %}
 
-	<div class="container user_desc">
-		<div class="label label--smaller u-inlineBlock js-followeesWhoFollow" style="padding-left: 0px;">
-			<span style="color: #525252;">
-				Categories:
-			</span>
-			<a class="link u-baseColor--link" href="/category/datascience">
-				Data Science
-			</a>
-			,&nbsp;
-			<a class="link u-baseColor--link" href="/category/machinelearning">
-				Machine Learning
-			</a>
-			and&nbsp;
-			<a class="link u-baseColor--link" href="/category/computervision">
-				Computer Vision
-			</a>
-		</div>
-		<header class="hero hero--profile">
-			<div class="hero-avatar u-floatRight js-profileAvatar">
-				<div class="avatar">
-					<img src="{{ requested_user.get_profile_picture }}" class="avatar-image u-size100x100 u-xs-size80x80 imagePicker-target">
-				</div>
-			</div>
-			<h1 class="hero-title" style="font-size: 65px;">
-				<a class="link link--darker link--darken u-accentColor--textDarken u-baseColor--link" href="/@dataradar" title="Go to the profile of Jonathan DEKHTIAR">
-					{{ requested_user.get_full_name_formatted }}
-				</a>
-			</h1>
-			<p class="hero-description ">
-				{{ requested_user.description }}
-			</p>
-		</header>
-		<div class="label-custom label">
-			<div class="row">
-				<div class="col-md-8">
-					{{ requested_user.job }} <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="{{ requested_user.company_website }}">{{ requested_user.company_name }}</a>
-					<span class="subscribers-info">
-						~ <b>{{ requested_user.get_rss_subscribers_count }}</b> Subscribers ~
-					</span>
-				</div>
-				<div class="set-2">
-					<li class="col-md-2 social_vertical_spacer"><a href="rss/" target="_blank" class="button rss-big">RSS Feed</a></li>
-					<li class="col-md-2 social_vertical_spacer"><a href="atom/" target="_blank" class="button  rss-big">Atom Feed</a></li>
-				</div>
-			</div>
-		</div>
+    <div class="container user_desc">
+        <div class="label label--smaller u-inlineBlock js-followeesWhoFollow" style="padding-left: 0px;">
+            <span style="color: #525252;">
+                Categories:
+            </span>
+            <a class="link u-baseColor--link" href="/category/datascience">
+                Data Science
+            </a>
+            ,&nbsp;
+            <a class="link u-baseColor--link" href="/category/machinelearning">
+                Machine Learning
+            </a>
+            and&nbsp;
+            <a class="link u-baseColor--link" href="/category/computervision">
+                Computer Vision
+            </a>
+        </div>
+        <header class="hero hero--profile">
+            <div class="hero-avatar u-floatRight js-profileAvatar">
+                <div class="avatar">
+                    <img src="{{ requested_user.get_profile_picture }}" class="avatar-image u-size100x100 u-xs-size80x80 imagePicker-target">
+                </div>
+            </div>
+            <h1 class="hero-title" style="font-size: 65px;">
+                <a class="link link--darker link--darken u-accentColor--textDarken u-baseColor--link" href="/@dataradar" title="Go to the profile of Jonathan DEKHTIAR">
+                    {{ requested_user.get_full_name_formatted }}
+                </a>
+            </h1>
+            <p class="hero-description ">
+                {{ requested_user.description }}
+            </p>
+        </header>
+        <div class="label-custom label">
+            <div class="row">
+                <div class="col-md-8">
+                    {{ requested_user.job }} <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="{{ requested_user.company_website }}">{{ requested_user.company_name }}</a>
+                    <span class="subscribers-info">
+                        ~ <b>{{ requested_user.get_rss_subscribers_count }}</b> Subscribers ~
+                    </span>
+                </div>
+                <div class="set-2">
+                    <li class="col-md-2 social_vertical_spacer"><a href="rss/" target="_blank" class="button rss-big">RSS Feed</a></li>
+                    <li class="col-md-2 social_vertical_spacer"><a href="atom/" target="_blank" class="button  rss-big">Atom Feed</a></li>
+                </div>
+            </div>
+        </div>
 
-		<hr>
+        <hr>
 
-		<div class="row social_vertical_spacer">
-			<div class="set-2">
-				<ul>
+        <div class="row social_vertical_spacer">
+            <div class="set-2">
+                <ul>
 
-					<!--  Main Social Networks -->
-					{% if requested_user.social_dribbble %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_dribbble }}" target="_blank" class="button dribbble-big">Dribbble</a></li>
-					{% endif %}
+                    <!--  Main Social Networks -->
+                    {% if requested_user.social_dribbble %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_dribbble }}" target="_blank" class="button dribbble-big">Dribbble</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_facebook %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_facebook }}" target="_blank" class="button facebook-big">Facebook</a></li>
-					{% endif %}
+                    {% if requested_user.social_facebook %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_facebook }}" target="_blank" class="button facebook-big">Facebook</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_flickr %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_flickr }}" target="_blank" class="button flickr-big">Flickr</a></li>
-					{% endif %}
+                    {% if requested_user.social_flickr %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_flickr }}" target="_blank" class="button flickr-big">Flickr</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_gplus %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_gplus }}" target="_blank" class="button gplus-big">Google Plus</a></li>
-					{% endif %}
+                    {% if requested_user.social_gplus %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_gplus }}" target="_blank" class="button gplus-big">Google Plus</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_instagram %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_instagram }}" target="_blank" class="button instagram-big">Instagram</a></li>
-					{% endif %}
+                    {% if requested_user.social_instagram %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_instagram }}" target="_blank" class="button instagram-big">Instagram</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_linkedin %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_linkedin }}" target="_blank" class="button linkedin-big">LinkedIn</a></li>
-					{% endif %}
+                    {% if requested_user.social_linkedin %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_linkedin }}" target="_blank" class="button linkedin-big">LinkedIn</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_pinterest %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_pinterest }}" target="_blank" class="button pinterest-big">Pinterest</a></li>
-					{% endif %}
+                    {% if requested_user.social_pinterest %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_pinterest }}" target="_blank" class="button pinterest-big">Pinterest</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_stumble %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_stumble }}" target="_blank" class="button stumble-big">Stumbleupon</a></li>
-					{% endif %}
+                    {% if requested_user.social_stumble %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_stumble }}" target="_blank" class="button stumble-big">Stumbleupon</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_twitter %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_twitter }}" target="_blank" class="button twitter-big">Twitter</a></li>
-					{% endif %}
+                    {% if requested_user.social_twitter %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_twitter }}" target="_blank" class="button twitter-big">Twitter</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_vimeo %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_vimeo }}" target="_blank" class="button vimeo-big">Vimeo</a></li>
-					{% endif %}
+                    {% if requested_user.social_vimeo %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_vimeo }}" target="_blank" class="button vimeo-big">Vimeo</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_youtube %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_youtube }}" target="_blank" class="button youtube-big">Youtube</a></li>
-					{% endif %}
+                    {% if requested_user.social_youtube %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_youtube }}" target="_blank" class="button youtube-big">Youtube</a></li>
+                    {% endif %}
 
-					<!-- Computer Science Networks -->
+                    <!-- Computer Science Networks -->
 
-					{% if requested_user.social_docker %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_docker }}" target="_blank" class="button docker-big">Docker</a></li>
-					{% endif %}
+                    {% if requested_user.social_docker %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_docker }}" target="_blank" class="button docker-big">Docker</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_git %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_git }}" target="_blank" class="button git-big">Git</a></li>
-					{% endif %}
+                    {% if requested_user.social_git %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_git }}" target="_blank" class="button git-big">Git</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_kaggle %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_kaggle }}" target="_blank" class="button kaggle-big">Kaggle</a></li>
-					{% endif %}
+                    {% if requested_user.social_kaggle %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_kaggle }}" target="_blank" class="button kaggle-big">Kaggle</a></li>
+                    {% endif %}
 
-					<!-- MooC Profiles -->
+                    <!-- MooC Profiles -->
 
-					{% if requested_user.social_coursera %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_coursera }}" target="_blank" class="button coursera-big">Coursera</a></li>
-					{% endif %}
+                    {% if requested_user.social_coursera %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_coursera }}" target="_blank" class="button coursera-big">Coursera</a></li>
+                    {% endif %}
 
-					<!-- Research Social Networks -->
-					{% if requested_user.social_google_scholar %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_google_scholar }}" target="_blank" class="button gscholar-big">Google Scholar</a></li>
-					{% endif %}
+                    <!-- Research Social Networks -->
+                    {% if requested_user.social_google_scholar %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_google_scholar }}" target="_blank" class="button gscholar-big">Google Scholar</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_orcid %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_orcid }}" target="_blank" class="button orcid-big">OrcID</a></li>
-					{% endif %}
+                    {% if requested_user.social_orcid %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_orcid }}" target="_blank" class="button orcid-big">OrcID</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_researchgate %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_researchgate }}" target="_blank" class="button researchgate-big">Research Gate</a></li>
-					{% endif %}
+                    {% if requested_user.social_researchgate %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_researchgate }}" target="_blank" class="button researchgate-big">Research Gate</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_mendeley %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_mendeley }}" target="_blank" class="button mendeley-big">Mendeley</a></li>
-					{% endif %}
+                    {% if requested_user.social_mendeley %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_mendeley }}" target="_blank" class="button mendeley-big">Mendeley</a></li>
+                    {% endif %}
 
-					<!-- Personal Webpage & Blog -->
+                    <!-- Personal Webpage & Blog -->
 
-					{% if requested_user.social_blog %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_blog }}" target="_blank" class="button blog-big">Personal Blog</a></li>
-					{% endif %}
+                    {% if requested_user.social_blog %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_blog }}" target="_blank" class="button blog-big">Personal Blog</a></li>
+                    {% endif %}
 
-					{% if requested_user.social_personalwebsite %}
-						<li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_personalwebsite }}" target="_blank" class="button personalwebsite-big">Website</a></li>
-					{% endif %}
+                    {% if requested_user.social_personalwebsite %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_personalwebsite }}" target="_blank" class="button personalwebsite-big">Website</a></li>
+                    {% endif %}
 
 
 
-				</ul>
-			</div>
-		</div>
-	</div>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="bounce"><a href="#feed" id="arrow_down"><i class="fa fa-angle-double-down"></i></a></div>
-	<section id="feed" style="color:rgb(35, 35, 35); margin-bottom: 70px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h2 class="section-heading">RSS Feed Explorer</h2>
-					<h3 class="section-subheading text-muted">{{ requested_user.rss_feed_title }}</h3>
-					<hr>
-				</div>
-			</div>
-			<div class="row search-bar" id="search">
-				<div class="row table_row search-wrapper">
-					<div class="col-xs-12 col-sm-12 col-md-3 logo-wrapper logo-name" style="text-align:center">
-						<a class="logo" id="nav_link_logo" style="padding-top: 4px; display: block;">FeedCrunch.io</a>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<i class="icon-search"></i>
-						{% csrf_token %}
-				{% if next %}
-					<input type="hidden" name="next" value="{{ next }}" />
-				{% endif %}
-						<input autocomplete="off" id="search-bar"	placeholder="Search posts by title, url" spellcheck="false" type="search">
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-3">
-						<span class="powered-by ng-scope">Designed by <a href=
-						"https://www.jonathandekhtiar.eu/" target="_blank">Jonathan	DEKHTIAR</a></span>
-					</div>
-				</div>
-			</div>
-			<hr>
-			<br>
-			<div class="row text-center table_row">
-				<table class="table table-hover" id="viewer" style="text-align:center;">
-					<thead id="viewer_header">
-						<tr>
-							<th class="hidden_column">#</th>
-							<th>Post's Title</th>
-							<th class="hidden_column" style="width:150px;">Publication Date</th>
-							<th>Link</th>
-						</tr>
-					</thead>
-					<tbody id="viewer_body">
+    <section id="feed" style="color:rgb(35, 35, 35); margin-bottom: 70px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-heading">RSS Feed Explorer</h2>
+                    <h3 class="section-subheading text-muted">{{ requested_user.rss_feed_title }}</h3>
+                    <hr>
+                </div>
+            </div>
+            <div class="row search-bar" id="search">
+                <div class="row table_row search-wrapper">
+                    <div class="col-xs-12 col-sm-12 col-md-3 logo-wrapper logo-name" style="text-align:center">
+                        <a class="logo" id="nav_link_logo" style="padding-top: 4px; display: block;">FeedCrunch.io</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <i class="icon-search"></i>
+                        {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                {% endif %}
+                        <input autocomplete="off" id="search-bar"    placeholder="Search posts by title, url" spellcheck="false" type="search">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3">
+                        <span class="powered-by ng-scope">Designed by <a href=
+                        "https://www.jonathandekhtiar.eu/" target="_blank">Jonathan    DEKHTIAR</a></span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="row text-center table_row">
+                <table class="table table-hover" id="viewer" style="text-align:center;">
+                    <thead id="viewer_header">
+                        <tr>
+                            <th class="hidden_column">#</th>
+                            <th>Post's Title</th>
+                            <th class="hidden_column" style="width:150px;">Publication Date</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="viewer_body">
 
-						{% for post in posts %}
+                        {% for post in posts %}
 
-							<tr>
-								<td class="hidden_column" style="vertical-align:middle;">{{ post.id }}</td>
-								<td style="vertical-align:middle;">{{ post.title }} <span class="domain_value">~
-								({{ post.get_domain }})</span></td>
-								<td class="hidden_column" style="vertical-align:middle;">{{ post.get_date }}</td>
-								<td style="vertical-align:middle;">
-									<a href="redirect/{{ post.id }}" target="_blank">Link</a>
-								</td>
-							</tr>
+                            <tr>
+                                <td class="hidden_column" style="vertical-align:middle;">{{ post.id }}</td>
+                                <td style="vertical-align:middle;">{{ post.title }} <span class="domain_value">~
+                                ({{ post.get_domain }})</span></td>
+                                <td class="hidden_column" style="vertical-align:middle;">{{ post.get_date }}</td>
+                                <td style="vertical-align:middle;">
+                                    <a href="redirect/{{ post.id }}" target="_blank">Link</a>
+                                </td>
+                            </tr>
 
-						{% endfor %}
+                        {% endfor %}
 
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section><!-- Contact Section -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section><!-- Contact Section -->
 
 {% endblock %}

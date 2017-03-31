@@ -4,141 +4,141 @@
 {% block body %}
 
 <div class="row">
-	<div class="col s12 m12 l12">
-		<div class="card">
-			<div class="card-content">
-				<span class="card-title">
-					Select the article you would like to republish in your feed.
-				</span>
+    <div class="col s12 m12 l12">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">
+                    Select the article you would like to republish in your feed.
+                </span>
 
-				<div class="table-head-bar">
+                <div class="table-head-bar">
 
-					<div class="input-field col s12 l8" id="datatable-searchbar-div">
-						<i class="material-icons prefix" style="padding-top: 10px;">search</i>
-						<input id="article-searchbar" type="text" >
-						<label for="article-searchbar">Search in your recommendations</label>
-					</div>
+                    <div class="input-field col s12 l8" id="datatable-searchbar-div">
+                        <i class="material-icons prefix" style="padding-top: 10px;">search</i>
+                        <input id="article-searchbar" type="text" >
+                        <label for="article-searchbar">Search in your recommendations</label>
+                    </div>
 
-					<div class="input-field col s12 l4">
-						<button class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar" id="mark-all-as-read-btn">Mark all as Read</button>
-					</div>
+                    <div class="input-field col s12 l4">
+                        <button class="waves-effect waves-light btn blue m-b-xs btn-table-head-bar" id="mark-all-as-read-btn">Mark all as Read</button>
+                    </div>
 
-				</div>
+                </div>
 
-				<table class="display responsive-table" id="recommendation-listing" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>Feed</th>
-							<th>Domain</th>
-							<th class='centered-cell'>Hotness</th>
-							<th class='centered-cell'>Publish</th>
-						</tr>
-					</thead>
+                <table class="display responsive-table" id="recommendation-listing" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Feed</th>
+                            <th>Domain</th>
+                            <th class='centered-cell'>Hotness</th>
+                            <th class='centered-cell'>Publish</th>
+                        </tr>
+                    </thead>
 
-					<tbody>
+                    <tbody>
 
-						{% for rssarticle in rssarticles %}
-						<tr id="row-id-{{ rssarticle.id }}">
-							<td>{{ rssarticle.short_title }}</td>
-							<td>{{ rssarticle.rssfeed }}</td>
-							<td>{{ rssarticle.get_domain }}</td>
-							<td class='centered-cell' style="color: rgb({{ rssarticle.color }},0,0);">{{ rssarticle.score }}%</td>
-							<td class='centered-cell'>
-								<a class="btn-floating btn waves-effect waves-light red delete-btn" data-id="{{ rssarticle.id }}"><i class="material-icons small-icon-listing">delete_forever</i></a>
-								<a class="btn-floating btn waves-effect waves-light blue" href="redirect/{{ rssarticle.id }}/" target="_blank"><i class="material-icons small-icon-listing">open_in_new</i></a>
-								<a class="btn-floating btn waves-effect waves-light green share-btn modal-trigger" href="#article-publication-modal" data-id="{{ rssarticle.id }}" data-title="{{ rssarticle.title }}" data-link="{{ rssarticle.link }}">
-									<i class="material-icons small-icon-listing">share</i>
-								</a>
-							</td>
-						</tr>
-						{% endfor %}
+                        {% for rssarticle in rssarticles %}
+                        <tr id="row-id-{{ rssarticle.id }}">
+                            <td>{{ rssarticle.short_title }}</td>
+                            <td>{{ rssarticle.rssfeed }}</td>
+                            <td>{{ rssarticle.get_domain }}</td>
+                            <td class='centered-cell' style="color: rgb({{ rssarticle.color }},0,0);">{{ rssarticle.score }}%</td>
+                            <td class='centered-cell'>
+                                <a class="btn-floating btn waves-effect waves-light red delete-btn" data-id="{{ rssarticle.id }}"><i class="material-icons small-icon-listing">delete_forever</i></a>
+                                <a class="btn-floating btn waves-effect waves-light blue" href="redirect/{{ rssarticle.id }}/" target="_blank"><i class="material-icons small-icon-listing">open_in_new</i></a>
+                                <a class="btn-floating btn waves-effect waves-light green share-btn modal-trigger" href="#article-publication-modal" data-id="{{ rssarticle.id }}" data-title="{{ rssarticle.title }}" data-link="{{ rssarticle.link }}">
+                                    <i class="material-icons small-icon-listing">share</i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
 
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal RSS Feed -->
 <div id="article-publication-modal" class="modal" style="max-height: 90%;">
-	<div class="modal-content">
-		<h4 id="modal-rss-header"></h4>
-		<form>
+    <div class="modal-content">
+        <h4 id="modal-rss-header"></h4>
+        <form>
 
-			<div>
-				<h3>Submit a new Article</h3>
-				<section>
-					<div class="add-form-content">
-						<div class="row">
-							<div class="col m12">
-								<div class="row">
-									<input type="hidden" name="post-id" id="post-id" value=""/>
-									<div class="input-field col s12">
-										<label for="post-title">Enter the Article's Title</label>
-										<input id="post-title" name="post-title" type="text" class="required validate" data-init="" value="">
-									</div>
-									<div class="input-field col s12">
-										<label for="post-link">Enter the Article's Link</label>
-										<input id="post-link" name="post-link" type="text" class="required validate" data-init="" value="">
-									</div>
-									<div class="input-field col s12 no-padding">
-										<div class="input-field col s12">
-											<label for="post-tags">Enter up to 5 tags to improve social impact and search effiency</label>
-											<input type="text" name="post-tags" id="post-tags" class="typehead-input" data-init="" value=""/>
-										</div>
-									</div>
-									<div class="input-field col s12 m6 l4">
-										<!-- Switch -->
-										<div class="switch m-b-md">
-											<label>
-												<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Link Visible:</span>
-												<input type="checkbox" id="post-link-visible" name="post-link-visible"  data-init="True" checked>
-												<span class="lever"></span>
-											</label>
-										</div>
-									</div>
-									<div class="input-field col s12 m6 l4">
-										<!-- Switch -->
-										<div class="switch m-b-md">
-											<label>
-												<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Twitter:</span>
-												{% if user.is_twitter_enabled %}
-													<input type="checkbox" id="post-twitter" name="post-twitter">
-												{% else %}
-													<input type="checkbox" id="post-twitter" name="post-twitter" disabled>
-												{% endif %}
-												<span class="lever"></span>
-											</label>
-										</div>
-									</div>
-									<div class="input-field col s12 m6 l4">
-										<!-- Switch -->
-										<div class="switch m-b-md">
-											<label>
-												<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Title Auto Format:</span>
-												<input type="checkbox" id="post-auto-format" name="post-auto-format">
-												<span class="lever"></span>
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
+            <div>
+                <h3>Submit a new Article</h3>
+                <section>
+                    <div class="add-form-content">
+                        <div class="row">
+                            <div class="col m12">
+                                <div class="row">
+                                    <input type="hidden" name="post-id" id="post-id" value=""/>
+                                    <div class="input-field col s12">
+                                        <label for="post-title">Enter the Article's Title</label>
+                                        <input id="post-title" name="post-title" type="text" class="required validate" data-init="" value="">
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <label for="post-link">Enter the Article's Link</label>
+                                        <input id="post-link" name="post-link" type="text" class="required validate" data-init="" value="">
+                                    </div>
+                                    <div class="input-field col s12 no-padding">
+                                        <div class="input-field col s12">
+                                            <label for="post-tags">Enter up to 5 tags to improve social impact and search effiency</label>
+                                            <input type="text" name="post-tags" id="post-tags" class="typehead-input" data-init="" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <!-- Switch -->
+                                        <div class="switch m-b-md">
+                                            <label>
+                                                <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Link Visible:</span>
+                                                <input type="checkbox" id="post-link-visible" name="post-link-visible"  data-init="True" checked>
+                                                <span class="lever"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <!-- Switch -->
+                                        <div class="switch m-b-md">
+                                            <label>
+                                                <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Twitter:</span>
+                                                {% if user.is_twitter_enabled %}
+                                                    <input type="checkbox" id="post-twitter" name="post-twitter">
+                                                {% else %}
+                                                    <input type="checkbox" id="post-twitter" name="post-twitter" disabled>
+                                                {% endif %}
+                                                <span class="lever"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <!-- Switch -->
+                                        <div class="switch m-b-md">
+                                            <label>
+                                                <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Title Auto Format:</span>
+                                                <input type="checkbox" id="post-auto-format" name="post-auto-format">
+                                                <span class="lever"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-			<div class="row" style="text-align:right;">
+            <div class="row" style="text-align:right;">
 
-				<a class="waves-effect waves-light btn white m-b-xs" id="open-new-tab-btn-post" href="" target="_blank"><i class="material-icons left">launch</i>Open Article in Tab</a>
-				<a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-post"><i class="material-icons left">done</i>Save</a>
-				<a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-post"><i class="material-icons left">delete</i>Reset</a>
-				<a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-post"><i class="material-icons left">close</i>Close Modal</a>
-			</div>
+                <a class="waves-effect waves-light btn white m-b-xs" id="open-new-tab-btn-post" href="" target="_blank"><i class="material-icons left">launch</i>Open Article in Tab</a>
+                <a class="waves-effect waves-light btn blue m-b-xs" id="save-btn-post"><i class="material-icons left">done</i>Save</a>
+                <a class="waves-effect waves-light btn red m-b-xs" id="reset-btn-post"><i class="material-icons left">delete</i>Reset</a>
+                <a class="modal-action modal-close waves-effect waves-light btn white m-b-xs" id="close-btn-post"><i class="material-icons left">close</i>Close Modal</a>
+            </div>
 
-		</form>
-	</div>
+        </form>
+    </div>
 </div>
 {% endblock %}

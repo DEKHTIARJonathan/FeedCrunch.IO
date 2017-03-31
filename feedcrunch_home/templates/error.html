@@ -3,41 +3,44 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
-	<title>FeedCrunch - An error occured</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="{% static "css/bebasneue/css/bebasneue.css" %}">
-	<link rel="stylesheet" type="text/css" href="{% static "css/style.error_page.css" %}">
-	<link rel="stylesheet" type="text/css" href="{% static "css/responsive.error_page.css" %}">
-	<link rel="stylesheet" type="text/css" href="{% static "css/normalize.error_page.css" %}">
-	<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-	<style>
-		html, body {
-			height: 100%;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FeedCrunch - An error occured</title>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bebasneue/css/bebasneue.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.error_page.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive.error_page.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/normalize.error_page.css" %}">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
-	<div id="page-maintenance-1" style="height: 100%;">
-		<div class="panda-wrapper panda-maintenance" style="height: 100%; min-height: 920px; padding-top: 45px;">
-			<div class="container">
-				<div class="panda-content pull-left">
-					<h1 class="rs logo"><img src="{% static "images/logo_black.png" %}" alt=""></img></h1>
-					<h2 class="rs">Oh no!</h2>
-					<p class="rs text-opacity text-min">If you are able to read this message, you are normal and we are <span class="text-underline">not</span>.</p>
-					<p class="rs text-min">We will be back soon!</p>
-					<br><br><br>
-					<p class="rs text-min"><a href="/">⇒ Go Back to HomePage</a></p>
-					<div class="panda-social pull-left"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	{% block body %} {% endblock %}
+    <div id="page-maintenance-1" style="height: 100%;">
+        <div class="panda-wrapper panda-maintenance" style="height: 100%; min-height: 920px; padding-top: 45px;">
+            <div class="container">
+                <div class="panda-content pull-left">
+                    <h1 class="rs logo"><img src="{% static "images/logo_black.png" %}" alt=""></img></h1>
+                    <h2 class="rs">Oh no!</h2>
+                    <p class="rs text-opacity text-min">If you are able to read this message, you are normal and we are <span class="text-underline">not</span>.</p>
+                    <p class="rs text-min">We will be back soon!</p>
+                    <br><br><br>
+                    <p class="rs text-min"><a href="/">⇒ Go Back to HomePage</a></p>
+                    <div class="panda-social pull-left"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block body %} {% endblock %}
 </body>
 
 </html>

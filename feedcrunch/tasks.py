@@ -41,7 +41,8 @@ def record_user_subscribtions_stats(username=None):
 
         if not usr.rel_rss_subscribers_count.filter(date=date.today()).exists(): # Check if a statistic already exists for that day
 
-            count = usr.rel_rss_subscribers.filter(date__range=(last_lookup_day, today)).values("ipaddress").annotate(n=models.Count("pk")).count()
+            #count = usr.rel_rss_subscribers.filter(date__range=(last_lookup_day, today)).values("ipaddress").annotate(n=models.Count("pk")).count()__gte
+            count = usr.rel_rss_subscribers.filter(date__gte=last_lookup_day).values("ipaddress").annotate(n=models.Count("pk")).count()
 
             stat_obj = RSSSubsStat(user=usr, count=count)
             stat_obj.save()

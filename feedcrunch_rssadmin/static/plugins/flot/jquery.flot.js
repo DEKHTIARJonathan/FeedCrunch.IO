@@ -1317,7 +1317,7 @@ Licensed under the MIT license.
             octx = overlay.context;
 
             // define which element we're listening for events on
-            eventHolder = $(overlay.element).unbind();
+            eventHolder = $(overlay.element).off();
 
             // If we're re-using a plot object, shut down the old one
 
@@ -1343,7 +1343,7 @@ Licensed under the MIT license.
                 // was fixed somewhere around 1.3.x.  We can return to using
                 // .mouseleave when we drop support for 1.2.6.
 
-                eventHolder.bind("mouseleave", onMouseLeave);
+                eventHolder.on("mouseleave", onMouseLeave);
             }
 
             if (options.grid.clickable)
@@ -1356,9 +1356,9 @@ Licensed under the MIT license.
             if (redrawTimeout)
                 clearTimeout(redrawTimeout);
 
-            eventHolder.unbind("mousemove", onMouseMove);
-            eventHolder.unbind("mouseleave", onMouseLeave);
-            eventHolder.unbind("click", onClick);
+            eventHolder.off("mousemove", onMouseMove);
+            eventHolder.off("mouseleave", onMouseLeave);
+            eventHolder.off("click", onClick);
 
             executeHooks(hooks.shutdown, [eventHolder]);
         }
@@ -2010,7 +2010,7 @@ Licensed under the MIT license.
                             ctx.lineTo(xrange.to + subPixel, yrange.to);
                         } else {
                             ctx.moveTo(xrange.from, yrange.to + subPixel);
-                            ctx.lineTo(xrange.to, yrange.to + subPixel);                            
+                            ctx.lineTo(xrange.to, yrange.to + subPixel);
                         }
                         ctx.stroke();
                     } else {
@@ -2525,9 +2525,9 @@ Licensed under the MIT license.
                 radius = series.points.radius,
                 symbol = series.points.symbol;
 
-            // If the user sets the line width to 0, we change it to a very 
+            // If the user sets the line width to 0, we change it to a very
             // small value. A line width of 0 seems to force the default of 1.
-            // Doing the conditional here allows the shadow setting to still be 
+            // Doing the conditional here allows the shadow setting to still be
             // optional even with a lineWidth of 0.
 
             if( lw == 0 )
