@@ -9,7 +9,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.utils import timezone
+
+import datetime
 
 from io import StringIO
 
@@ -98,7 +99,7 @@ class Estimator(models.Model):
         self.save()
 
     def save(self, *args, **kwargs):
-        self.last_modified_date = timezone.now()
+        self.last_modified_date = datetime.datetime.now()
         super(Estimator, self).save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):

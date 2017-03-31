@@ -22,7 +22,6 @@ from multiprocessing import Queue, Event, Process, Value, current_process
 import arrow
 
 # Django
-from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django import db
 

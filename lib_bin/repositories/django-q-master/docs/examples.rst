@@ -32,7 +32,7 @@ Sending an email can take a while so why not queue it:
                  'from@example.com',
                  [user.email],
                  schedule_type=Schedule.ONCE,
-                 next_run=timezone.now() + timedelta(hours=1))
+                 next_run=datetime.datetime.now() + timedelta(hours=1))
 
         # since the `repeats` defaults to -1
         # this schedule will erase itself after having run
@@ -312,6 +312,3 @@ Alternatively the ``parzen_async()`` function can also be written with :func:`as
 .. note::
 
     If you have an example you want to share, please submit a pull request on `github <https://github.com/Koed00/django-q/>`__.
-
-
-

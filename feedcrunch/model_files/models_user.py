@@ -173,7 +173,7 @@ class FeedUserManager(BaseUserManager):
                     user.set_password(password)
                     user.save(using=self._db)
 
-                    schedule('feedcrunch.tasks.send_welcome_email', user_name=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+                    schedule('feedcrunch.tasks.send_welcome_email', user_name=user.username, schedule_type=Schedule.ONCE, next_run=datetime.datetime.now() + datetime.timedelta(minutes=1))
 
                     return user
 
@@ -404,14 +404,14 @@ class FeedUser(AbstractFeedUser):
         return self.rel_sub_feed.count()
 
     def get_current_month_post_count(self):
-        d_tmp = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
         date_1st_day_month = d_tmp.replace(day=1)
 
         return self.rel_posts.filter(when__gte=date_1st_day_month).count()
 
     def get_last_month_post_count(self):
-        d_tmp = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
         time_delta = datetime.timedelta(days=1)
 
@@ -493,7 +493,7 @@ class FeedUser(AbstractFeedUser):
                 except:
                     errors.append(link)
                     continue
-                schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+                schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=datetime.datetime.now() + datetime.timedelta(minutes=1))
 
                 old_articles = None
 
@@ -514,7 +514,7 @@ class FeedUser(AbstractFeedUser):
         return errors
 
     def refresh_user_feed(self):
-        launch_time = timezone.now() + datetime.timedelta(minutes=1)
+        launch_time = datetime.datetime.now() + datetime.timedelta(minutes=1)
 
         for feed in self.rel_feeds.filter(active=True):
             schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)

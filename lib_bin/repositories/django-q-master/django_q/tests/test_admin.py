@@ -9,6 +9,7 @@ from django_q.humanhash import uuid
 from django_q.conf import Conf
 from django_q.signing import SignedPackage
 
+import datetime
 
 @pytest.mark.django_db
 def test_admin_views(admin_client, monkeypatch):
@@ -19,16 +20,16 @@ def test_admin_views(admin_client, monkeypatch):
         id=tag[1],
         name=tag[0],
         func='test.fail',
-        started=timezone.now(),
-        stopped=timezone.now(),
+        started=datetime.datetime.now(),
+        stopped=datetime.datetime.now(),
         success=False)
     tag = uuid()
     t = Task.objects.create(
         id=tag[1],
         name=tag[0],
         func='test.success',
-        started=timezone.now(),
-        stopped=timezone.now(),
+        started=datetime.datetime.now(),
+        stopped=datetime.datetime.now(),
         success=True)
     q = OrmQ.objects.create(
         key='test',

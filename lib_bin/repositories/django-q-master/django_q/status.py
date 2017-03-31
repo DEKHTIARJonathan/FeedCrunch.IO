@@ -1,5 +1,4 @@
 import socket
-from django.utils import timezone
 from django_q.brokers import get_broker
 from django_q.conf import Conf, logger
 import signing

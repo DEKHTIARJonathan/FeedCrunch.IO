@@ -6,7 +6,6 @@ from blessed import Terminal
 # django
 from django.db import connection
 from django.db.models import Sum, F
-from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 # local
@@ -15,6 +14,7 @@ from django_q.status import Stat
 from django_q.brokers import get_broker
 from django_q import models, VERSION
 
+import datetime
 
 def monitor(run_once=False, broker=None):
     if not broker:
@@ -66,7 +66,7 @@ def monitor(run_once=False, broker=None):
                 if workers < Conf.WORKERS:
                     workers = term.yellow(str(workers))
                 # format uptime
-                uptime = (timezone.now() - stat.tob).total_seconds()
+                uptime = (datetime.datetime.now() - stat.tob).total_seconds()
                 hours, remainder = divmod(uptime, 3600)
                 minutes, seconds = divmod(remainder, 60)
                 uptime = '%d:%02d:%02d' % (hours, minutes, seconds)
@@ -119,7 +119,7 @@ def info(broker=None):
     tasks_per = 0
     per = _('day')
     exec_time = 0
-    last_tasks = models.Success.objects.filter(stopped__gte=timezone.now() - timedelta(hours=24))
+    last_tasks = models.Success.objects.filter(stopped__gte=datetime.datetime.now() - timedelta(hours=24))
     tasks_per_day = last_tasks.count()
     if tasks_per_day > 0:
         # average execution time over the last 24 hours

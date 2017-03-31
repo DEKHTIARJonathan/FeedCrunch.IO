@@ -2,7 +2,6 @@ from datetime import timedelta
 from time import sleep
 
 from bson import ObjectId
-from django.utils import timezone
 from pymongo import MongoClient
 
 from pymongo.errors import ConfigurationError

@@ -3,7 +3,6 @@ from multiprocessing import Queue, Value
 
 # django
 from django.db import IntegrityError
-from django.utils import timezone
 
 # local
 import time

@@ -1,7 +1,6 @@
 from datetime import timedelta
 from time import sleep
 
-from django.utils import timezone
 from django import db
 from django.db import transaction
 
@@ -70,4 +69,3 @@ class ORM(Broker):
 
     def acknowledge(self, task_id):
         return self.delete(task_id)
-

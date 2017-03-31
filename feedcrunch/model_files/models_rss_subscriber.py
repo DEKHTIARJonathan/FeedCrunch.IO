@@ -4,7 +4,6 @@
 from __future__ import unicode_literals
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.utils import timezone
 
 from .models_user import FeedUser
 
@@ -21,7 +20,7 @@ class SubManager(models.Manager):
     def create(self, request, feedtype, feedname=None):
 
         try:
-            if feedname == None:
+            if feedname is None:
                 raise Exception("Feedname is missing")
 
             ipaddr = get_real_ip(request)
@@ -33,7 +32,7 @@ class SubManager(models.Manager):
                     raise Exception("There had been a problem retrieving the IP address for the user.")
 
             usr = FeedUser.objects.get(username=feedname) # If fails, raise an Exception
-            return super(SubManager, self).create(user=usr, ipaddress=ipaddr, feedtype=feedtype, visit_hour=timezone.now().hour)
+            return super(SubManager, self).create(user=usr, ipaddress=ipaddr, feedtype=feedtype, visit_hour=datetime.datetime.now().hour)
 
         except Exception as e:
             #return {'status': False, 'error': str(e)}
@@ -62,12 +61,33 @@ class RSSSubscriber(models.Model):
 
 ##################################### Subscribtion Statistics #############################################
 
+# First, define the Manager subclass.
+class RSSSubsStatManager(models.Manager):
+    def create(self, user=None, count=0, date=datetime.datetime.now().date() - datetime.timedelta(days=1)):
+        try:
+            if user is None:
+                raise Exception("Feedname is missing")
+
+            elif isinstance(user, str):
+                user = FeedUser.objects.get(username=user) # If fails, raise an Exception
+
+            return super(RSSSubsStatManager, self).create(user=user, count=count, date=date)
+
+        except Exception as e:
+            #return {'status': False, 'error': str(e)}
+            return None
+
 class RSSSubsStat(models.Model):
+
+    objects = RSSSubsStatManager()
 
     id    = models.AutoField(primary_key=True)
     user  = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers_count', blank=False, null=False)
-    date  = models.DateField(auto_now_add=True, blank=False, null=False)
+    date  = models.DateField(auto_now_add=False, blank=False, null=False)
     count = models.IntegerField(default=0, blank=False, null=False)
 
     class Meta:
         unique_together = ('user', 'date')
+
+    def __str__(self):
+        return self.user.username + " (" + str(self.date) + "): " + str(self.count)

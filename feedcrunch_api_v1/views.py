@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
-from django.utils import timezone
 from django.http import HttpResponse
 
 from rest_framework.views import APIView
@@ -327,7 +326,7 @@ class RSSFeed_View(APIView):
 
                 if not rssfeed_queryset.exists():
                     tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
-                    schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+                    schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=datetime.datetime.now() + datetime.timedelta(minutes=1))
 
                     old_articles = None
 

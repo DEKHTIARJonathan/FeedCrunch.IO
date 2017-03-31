@@ -7,6 +7,8 @@ from django.utils import timezone
 import os
 import pytest
 
+import datetime
+
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
 
@@ -344,8 +346,8 @@ def test_update_failed(broker):
             'func': 'math.copysign',
             'args': (1, -1),
             'kwargs': {},
-            'started': timezone.now(),
-            'stopped': timezone.now(),
+            'started': datetime.datetime.now(),
+            'stopped': datetime.datetime.now(),
             'success': False,
             'result': None}
     # initial save - no success
@@ -356,12 +358,12 @@ def test_update_failed(broker):
     sleep(0.5)
     # second save - no success
     old_stopped = task['stopped']
-    task['stopped'] = timezone.now()
+    task['stopped'] = datetime.datetime.now()
     save_task(task, broker)
     saved_task = Task.objects.get(id=task['id'])
     assert saved_task.stopped > old_stopped
     # third save - success
-    task['stopped'] = timezone.now()
+    task['stopped'] = datetime.datetime.now()
     task['result'] = 'result'
     task['success'] = True
     save_task(task, broker)
