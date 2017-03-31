@@ -18,7 +18,7 @@
 		<!-- Styles -->
 
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" integrity="sha256-6DQKO56c9MZL0LAc7QNtxqJyqSa3rS9Gq5FVcIhtA+w=" crossorigin="anonymous" />
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
 
 		<!-- Theme Styles -->
@@ -100,22 +100,28 @@
 		</div>
 
 		<!-- Javascripts -->
-		<script type="text/javascript" src="{% static "plugins/jquery/jquery-2.2.0.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/jquery.ba-throttle-debounce.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "plugins/materialize/js/materialize.min.js" %}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        {% if debug %}
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js" integrity="sha256-JklDYODbg0X+8sPiKkcFURb5z7RvlNMIaE3RA2z97vw=" crossorigin="anonymous"></script>
+        {% endif %}
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js" integrity="sha256-ToPQhpo/E89yaCd7+V8LUCjobNRkjilRXfho6x3twLU=" crossorigin="anonymous"></script>
+
 		<script>
-			$(document).ready(function (e) {
-				$(window).load($.debounce(200, function () {
-					if ($('input:-webkit-autofill')) {
-						// We know that this form has autofill on its way. Let's check this again after a delay as its not always done on window.load
-						$('input:-webkit-autofill').each(function () {
-							var label = $(this).siblings("label");
-							if (! label.hasClass("active"))
-								label.addClass("active");
-						});
-					}
-				}));
-			});
+			$(window).on("load", function(){
+                setTimeout( function() {
+                    if ($('input:-webkit-autofill')) {
+                        // We know that this form has autofill on its way.
+                        //Let's check this again after a delay as its not always done on window.load
+                        $('input:-webkit-autofill').each(function () {
+                            var label = $(this).siblings("label");
+                            if (! label.hasClass("active")){
+                                label.addClass("active");
+                            }
+                        });
+                    }
+                }, 350);
+            });
 		</script>
+
 	</body>
 </html>

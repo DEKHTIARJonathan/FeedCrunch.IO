@@ -7,8 +7,8 @@
 		<!-- Title -->
 		<title>FeedCrunch.IO | Administration Dashboard</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<meta name="description" content="FeedCrunch.IO | Administration Dashboard" />
 		<meta name="keywords" content="administration,dashboard, feedcrunch, rss" />
 		<meta name="author" content="Jonathan DEKHTIAR" />
@@ -17,10 +17,7 @@
 
 		<!-- Styles -->
 
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-		<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize/css/materialize.min.css" %}"/>
-
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" integrity="sha256-6DQKO56c9MZL0LAc7QNtxqJyqSa3rS9Gq5FVcIhtA+w=" crossorigin="anonymous" />
 		<link type="text/css" rel="stylesheet" href="{% static "plugins/metrojs/MetroJs.min.css" %}"/>
 
 		{% if template_name == "admin/admin_dashboard.html" %}
@@ -28,37 +25,37 @@
 		{% elif template_name == "admin/admin_form_template.html" %}
 
 		{% elif template_name == "admin/admin_article_form.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
 
 		{% elif template_name == "admin/admin_post_listing.html" %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/datatables/css/datatables.min.css" %}">
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 
 		{% elif template_name == "admin/admin_sub_listing.html" %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/datatables/css/datatables.min.css" %}">
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/jquery-upload-file/css/uploadfile.css" %}"></script>
 
 		{% elif template_name == "admin/admin_reading_recommendation.html" %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/datatables/css/datatables.min.css" %}">
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
 			<link type="text/css" rel="stylesheet" href="{% static "plugins/materialize-tags/css/materialize-tags.min.css" %}">
 
 		{% elif template_name == "admin/admin_personal.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 
 		{% elif template_name == "admin/admin_preferences.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 
 		{% elif template_name == "admin/admin_password.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 
 		{% elif template_name == "admin/admin_social_accounts.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 
 		{% elif template_name == "admin/admin_photo.html" %}
-			<link type="text/css" rel="stylesheet" href="{% static "plugins/sweetalert/sweetalert.css" %}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha256-iXUYfkbVl5itd4bAkFH5mjMEN5ld9t3OHvXX3IU8UxU=" crossorigin="anonymous" />
 
 		{% elif template_name == "admin/admin-coming-soon.html" %}
 			<link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway:400,200,600|Open+Sans:400,300,600,700|Montserrat:400,700" rel="stylesheet">
@@ -69,6 +66,10 @@
 		<!-- Theme Styles -->
 		<link type="text/css" rel="stylesheet" href="{% static "css/alpha_.css" %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static "css/custom-admin.css" %}"/>
+
+
+        <!-- Font Styles -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -329,85 +330,89 @@
 			</main>
 		</div>
 
-		<!-- Javascripts -->
-		<script type="text/javascript" src="{% static "plugins/jquery/jquery-2.2.0.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "plugins/materialize/js/materialize.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "plugins/material-preloader/js/materialPreloader.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/alpha.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/admin-menu.js" %}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        {% if debug %}
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js" integrity="sha256-JklDYODbg0X+8sPiKkcFURb5z7RvlNMIaE3RA2z97vw=" crossorigin="anonymous"></script>
+        {% endif %}
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js" integrity="sha256-ToPQhpo/E89yaCd7+V8LUCjobNRkjilRXfho6x3twLU=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static "plugins/material-preloader/js/materialPreloader.min.js" %}"></script>
+
+        <script type="text/javascript" src="{% static "js/alpha.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/admin-menu.js" %}"></script>
 
 		{% if template_name == "admin/admin_dashboard.html" %}
-			<script type="text/javascript" src="{% static "plugins/counter-up-master/jquery.counterup.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "plugins/flot/jquery.flot.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-dashboard.js" %}"></script>
 
 		{% elif template_name == "admin/admin_article_form.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" integrity="sha256-UOSXsAgYN43P/oVrmU+JlHtiDGYWN2iHnJuKY9WD+Jg=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "plugins/typeahead-js-corejs/typeahead.bundle.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/materialize-tags/js/materialize-tags.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-form-article.js" %}"></script>
 
 		{% elif template_name == "admin/admin_post_listing.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-post-listing.js" %}"></script>
 
 		{% elif template_name == "admin/admin_sub_listing.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-upload-file/js/jquery.uploadfile.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
+			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-sub-listing.js" %}"></script>
 
 		{% elif template_name == "admin/admin_personal.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" integrity="sha256-UOSXsAgYN43P/oVrmU+JlHtiDGYWN2iHnJuKY9WD+Jg=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "js/admin-personal.js" %}"></script>
 
 		{% elif template_name == "admin/admin_preferences.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "js/admin-preferences.js" %}"></script>
 
 		{% elif template_name == "admin/admin_password.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" integrity="sha256-UOSXsAgYN43P/oVrmU+JlHtiDGYWN2iHnJuKY9WD+Jg=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "js/admin-password.js" %}"></script>
 
 		{% elif template_name == "admin/admin_social_accounts.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" integrity="sha256-UOSXsAgYN43P/oVrmU+JlHtiDGYWN2iHnJuKY9WD+Jg=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "js/admin-social-accounts.js" %}"></script>
 
 		{% elif template_name == "admin/admin_social_sharing.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "js/admin-social-linking.js" %}"></script>
 
 		{% elif template_name == "admin/admin_photo.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "js/admin-photo.js" %}"></script>
-
 
 		{% elif template_name == "admin/admin-coming-soon.html" %}
 			<script type="text/javascript" src="{% static "js/admin-coming-soon.js" %}"></script>
 
 		{% elif template_name == "admin/admin_reading_recommendation.html" %}
-			<script type="text/javascript" src="{% static "plugins/js-cookie/js.cookie-2.1.3.min.js" %}"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" integrity="sha256-UOSXsAgYN43P/oVrmU+JlHtiDGYWN2iHnJuKY9WD+Jg=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha256-egVvxkq6UBCQyKzRBrDHu8miZ5FOaVrjSqQqauKglKc=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" integrity="sha256-S20kSlaai+/AuQHj3KjoLxmxiOLT5298YvzpaTXtYxE=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="{% static "plugins/typeahead-js-corejs/typeahead.bundle.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/materialize-tags/js/materialize-tags.min.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
+            <script type="text/javascript" src="{% static "plugins/materialize-tags/js/materialize-tags.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/datatables/js/datatables.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "plugins/jquery-highlight/jquery.highlight.js" %}"></script>
-			<script type="text/javascript" src="{% static "plugins/sweetalert/sweetalert.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "js/admin-post-recommendations.js" %}"></script>
 
 		{% endif %}

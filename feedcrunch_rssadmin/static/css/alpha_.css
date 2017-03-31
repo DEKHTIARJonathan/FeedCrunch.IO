@@ -1498,6 +1498,8 @@ li.active .nav-drop-icon {
 .side-nav ul li.active,
 .side-nav.fixed ul li.active {
     background-color: #F3F3F3!important;
+    color: #333333;
+    font-weight: 700;
 }
 
 .side-nav.fixed ul li.active > a.collapsible-header,
