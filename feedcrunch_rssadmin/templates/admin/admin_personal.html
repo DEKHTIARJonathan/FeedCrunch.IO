@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="input-field col m6 s12">
                                             <label for="birthdate" id="birthdate-label">Birthdate</label>
-                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" {% if user.get_birthdate_as_string is not None %} data-init="{{ user.get_birthdate_as_string }} {% endif %}">
+                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" {% if user.get_birthdate_as_string is not None %} data-init="{{ user.get_birthdate_as_string }}" {% endif %}>
                                         </div>
                                         <div class="input-field col m12">
                                             <label for="feedtitle">RSS Feed Title</label>

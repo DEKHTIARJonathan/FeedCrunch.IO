@@ -9,6 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext, loader
 from django.urls import reverse
+from django.utils import timezone
 
 import datetime, unicodedata, json
 from calendar import monthrange
@@ -27,12 +28,12 @@ from custom_render import myrender as render
 def index(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    
+
     if check_passed != True:
         return check_passed
 
     else:
-        d = datetime.datetime.now()
+        d = timezone.now()
         monthtime_elapsed = int(round(float(d.day) / monthrange(d.year, d.month)[1] * 100,0))
 
         try:

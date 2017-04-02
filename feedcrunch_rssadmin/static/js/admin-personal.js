@@ -35,7 +35,7 @@ $( document ).ready(function() {
         if (birthdate_input.val() == "")
             birthdate_label.removeClass("active");
         else{
-            birthdate_input.val(birthdate_input.val().trim());
+            birthdate_input.val(birthdate_input.val());
             birthdate_label.addClass("active");
         }
     });

@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.http import HttpResponse
+from django.utils import timezone
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -220,9 +221,14 @@ class User_Stats_Subscribers(APIView):
             payload ["success"] = True
             payload ["username"] = request.user.username
 
-            date_array = get_N_time_period(21, 14, max_date=request.user.date_joined.date())
+            first_subscribers_record_date = timezone.datetime(2017,3,29).date()
 
-            today = datetime.date.today()
+            if (first_subscribers_record_date > request.user.date_joined.date()):
+                date_array = get_N_time_period(21, 14, max_date=first_subscribers_record_date)
+            else:
+                date_array = get_N_time_period(21, 14, max_date=request.user.date_joined.date())
+
+            today = timezone.now().date()
 
             ticks = []
             data = []
@@ -891,22 +897,46 @@ class Modify_Personal_info(APIView):
             for field in fields:
                 form_data[field] = unicodedata.normalize('NFC', request.data[field])
 
-            FeedUser.objects._validate_firstname(form_data["firstname"])
-            FeedUser.objects._validate_lastname(form_data["lastname"])
+            ###############################################################################
+            #                               DATA VALIDATION                               #
+            ###############################################################################
+
+            if form_data["firstname"] != "":
+                FeedUser.objects._validate_firstname(form_data["firstname"])
+
+            if form_data["lastname"] != "":
+                FeedUser.objects._validate_lastname(form_data["lastname"])
+
+            if form_data["gender"] != "":
+                FeedUser.objects._validate_gender(form_data["gender"])
+
             FeedUser.objects._validate_email(form_data["email"])
-            FeedUser.objects._validate_birthdate(form_data["birthdate"])
-
-            FeedUser.objects._validate_country(form_data["country"])
-            FeedUser.objects._validate_gender(form_data["gender"])
-
             val(form_data["company_website"])
+
+            ###############################################################################
+            #               DATA VALIDATION & Set Attributes - Special Attr               #
+            ###############################################################################
+
+            if form_data["birthdate"] != "":
+                FeedUser.objects._validate_birthdate(form_data["birthdate"])
+                request.user.birthdate = datetime.datetime.strptime(form_data["birthdate"], '%d/%m/%Y').date()
+            else:
+                request.user.birthdate = None
+
+            if form_data["country"] != "":
+                FeedUser.objects._validate_country(form_data["country"])
+                request.user.country = Country.objects.get(name=form_data["country"])
+            else:
+                request.user.country = None
+
+            ###############################################################################
+            #                              SAVING ATTRIBUTES                              #
+            ###############################################################################
 
             request.user.first_name                     = form_data["firstname"]
             request.user.last_name                      = form_data["lastname"]
-            request.user.email                          = form_data["email"]
-            request.user.birthdate                      = datetime.datetime.strptime(form_data["birthdate"], '%d/%m/%Y').date()
-            request.user.country                        = Country.objects.get(name=form_data["country"])
             request.user.gender                         = form_data["gender"]
+            request.user.email                          = form_data["email"]
             request.user.rss_feed_title                 = form_data["feedtitle"]
             request.user.description                    = form_data["description"]
             request.user.job                            = form_data["job"]
@@ -915,6 +945,7 @@ class Modify_Personal_info(APIView):
             request.user.pref_newsletter_subscribtion   = str2bool(form_data["newsletter_subscribtion"])
 
             request.user.save()
+            
             payload["success"] = True
 
         except Exception as e:
