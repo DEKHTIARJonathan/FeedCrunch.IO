@@ -27,16 +27,11 @@ from custom_render import myrender as render
 def index(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
+    
     if check_passed != True:
         return check_passed
+
     else:
-        if not request.user.is_twitter_activated():
-            auth_url = get_authorization_url(request)
-        else:
-            auth_url = False # False => Don't need to authenticate with Twitter
-
-        country_list = Country.objects.all().order_by('name')
-
         d = datetime.datetime.now()
         monthtime_elapsed = int(round(float(d.day) / monthrange(d.year, d.month)[1] * 100,0))
 
@@ -61,8 +56,6 @@ def index(request, feedname=None):
             post_trending_color = "blue-grey lighten-1"
 
         data = {
-            'auth_url': auth_url,
-            'countries': country_list,
             'monthtime_elapsed': monthtime_elapsed,
             'post_trending': post_trending,
             'publication_trend': publication_trend,
@@ -88,7 +81,7 @@ def preferences_form(request, feedname=None):
     if check_passed != True:
         return check_passed
     else:
-        return render(request, 'admin/admin_preferences.html')
+        return render(request, 'admin/admin_preferences.html', {"social_networks_enabled": request.user.is_social_network_enabled()})
 
 def password_form(request, feedname=None):
 
@@ -146,7 +139,6 @@ def modify_article_form(request, feedname=None, postID=None):
     else:
         try:
             post = Post.objects.get(id=postID, user=feedname)
-            print (request.user.is_twitter_enabled())
             return render(request, 'admin/admin_article_form.html', {"post": post})
 
         except:

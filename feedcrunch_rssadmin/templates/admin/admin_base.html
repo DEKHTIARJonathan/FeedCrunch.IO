@@ -13,6 +13,10 @@
         <meta name="keywords" content="administration,dashboard, feedcrunch, rss" />
         <meta name="author" content="Jonathan DEKHTIAR" />
 
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
         <link href="{% static "images/favicon.ico" %}" rel="shortcut icon">
 
         <!-- Styles -->
@@ -266,7 +270,7 @@
                 <div class="side-nav-wrapper">
                     <div class="sidebar-profile">
                         <div class="sidebar-profile-image">
-                            <img src="{{ user.get_profile_picture }}" class="circle" alt="">
+                            <img src="{{ user.get_profile_picture_url }}" class="circle" alt="">
                         </div>
                         <div class="sidebar-profile-info">
                             <a href="javascript:void(0);" class="account-settings-link">

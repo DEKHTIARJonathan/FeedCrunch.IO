@@ -10,7 +10,7 @@
                 <div class="row no-margin-bottom">
                     <div class="col s12 l4" style="text-align:center">
                         <figure class="card-profile-image">
-                            <img src="{{ user.get_profile_picture }}" alt="profile image" class="circle z-depth-2 responsive-img profile-card-picture" >
+                            <img src="{{ user.get_profile_picture_url }}" alt="profile image" class="circle z-depth-2 responsive-img profile-card-picture" >
                         </figure>
                         <p>
                             <span style="font-size:1.7em;">{{ user.get_full_name }}</span><br>
@@ -27,7 +27,7 @@
                                 <div class="input-field col s12 l6">
                                     <div class="switch m-b-md">
                                         <label>
-                                            <input type="checkbox">
+                                            <input type="checkbox" id="visibility" name="visibility" data-init="{{ user.pref_post_public_visibility }}">
                                             <span class="lever"></span>
                                             Article Publicly Visible
                                         </label>
@@ -36,7 +36,7 @@
                                 <div class="input-field col s12 l6" >
                                     <div class="switch m-b-md">
                                         <label>
-                                            <input type="checkbox">
+                                            <input type="checkbox" id="autoformat" name="autoformat" data-init="{{ user.pref_post_autoformat }}">
                                             <span class="lever"></span>
                                             Article's Title AutoFormat
                                         </label>
@@ -48,7 +48,11 @@
                                 <div class="input-field col s12 l6">
                                     <div class="switch m-b-md">
                                         <label>
-                                            <input type="checkbox">
+                                            {% if social_networks_enabled.twitter %}
+                                                <input type="checkbox" id="twitter" name="twitter" data-init="{{ user.pref_post_repost_TW }}">
+                                            {% else %}
+                                                <input type="checkbox" id="twitter" name="twitter" disabled>
+                                            {% endif %}
                                             <span class="lever"></span>
                                             RePost on Twitter
                                         </label>
@@ -57,7 +61,11 @@
                                 <div class="input-field col s12 l6">
                                     <div class="switch m-b-md">
                                         <label>
-                                            <input type="checkbox">
+                                            {% if social_networks_enabled.facebook %}
+                                                <input type="checkbox" id="facebook" name="facebook" data-init="{{ user.pref_post_repost_FB }}">
+                                            {% else %}
+                                                <input type="checkbox" id="facebook" name="facebook" disabled>
+                                            {% endif %}
                                             <span class="lever"></span>
                                             RePost on Facebook
                                         </label>
@@ -66,7 +74,11 @@
                                 <div class="input-field col s12 l6">
                                     <div class="switch m-b-md">
                                         <label>
-                                            <input type="checkbox">
+                                            {% if social_networks_enabled.linkedin %}
+                                                <input type="checkbox" id="linkedin" name="linkedin" data-init="{{ user.pref_post_repost_LKin }}">
+                                            {% else %}
+                                                <input type="checkbox" id="linkedin" name="linkedin" disabled>
+                                            {% endif %}
                                             <span class="lever"></span>
                                             RePost on LinkedIn
                                         </label>
@@ -75,7 +87,11 @@
                                 <div class="input-field col s12 l6">
                                     <div class="switch m-b-md">
                                         <label>
-                                            <input type="checkbox">
+                                            {% if social_networks_enabled.gplus %}
+                                                <input type="checkbox" id="gplus" name="gplus" data-init="{{ user.pref_post_repost_GPlus }}">
+                                            {% else %}
+                                                <input type="checkbox" id="gplus" name="gplus" disabled>
+                                            {% endif %}
                                             <span class="lever"></span>
                                             RePost on Google Plus
                                         </label>
@@ -83,8 +99,8 @@
                                 </div>
                             </div>
                             <div class="col s12" style="text-align:right; margin-top:40px;">
-                                <a class="waves-effect waves-light btn red m-b-xs">Reset</a>
-                                <a class="waves-effect waves-light btn blue m-b-xs">Save</a>
+                                <a class="waves-effect waves-light btn red m-b-xs" id="reset-btn">Reset</a>
+                                <a class="waves-effect waves-light btn blue m-b-xs" id="save-btn">Save</a>
                             </div>
                         </div>
                     </div>

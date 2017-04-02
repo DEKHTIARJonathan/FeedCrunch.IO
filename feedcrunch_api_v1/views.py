@@ -232,7 +232,7 @@ class User_Stats_Subscribers(APIView):
             for i, d in enumerate(date_array):
 
                 delta = (today - d.date()).days
-                data.append([i, request.user.get_rss_subscribers_count(delta)])
+                data.append([i, request.user.get_user_subscribers_count(delta)])
                 ticks.append([i, d.strftime("%d. %b")])
 
             payload ["data"] = data
@@ -587,7 +587,7 @@ class Article(APIView):
                 RSSArticle_Assoc_obj.marked_read = True
                 RSSArticle_Assoc_obj.save()
 
-            if twitter_bool and user.is_twitter_enabled():
+            if twitter_bool and user.is_social_network_enabled(network="twitter"):
 
                     twitter_instance = TwitterAPI(user)
 
@@ -661,7 +661,7 @@ class Article(APIView):
                 else:
                     tags.pop(i)
 
-            if twitter_bool and request.user.is_twitter_enabled():
+            if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
 
                 twitter_instance = TwitterAPI(request.user)
 
@@ -751,6 +751,7 @@ class Modify_Social_Networks(APIView):
                 'docker',
                 'git',
                 'kaggle',
+                'stackoverflow',
                 'coursera',
                 'googlescholar',
                 'orcid',
@@ -787,6 +788,7 @@ class Modify_Social_Networks(APIView):
             request.user.social_docker = social_data['docker']
             request.user.social_git = social_data['git']
             request.user.social_kaggle = social_data['kaggle']
+            request.user.social_stackoverflow = social_data['stackoverflow']
 
             # MooC Profiles
             request.user.social_coursera = social_data['coursera']
@@ -811,6 +813,54 @@ class Modify_Social_Networks(APIView):
 
 
         payload ["operation"] = "modify social networks"
+        payload ["timestamp"] = get_timestamp()
+        return Response(payload)
+
+class Modify_Preferences(APIView):
+    def put(self, request):
+        try:
+            payload = dict()
+            check_passed = check_admin_api(request.user)
+
+            if check_passed != True:
+                raise Exception(check_passed)
+
+            payload ["username"] = request.user.username
+
+            val = URLValidator()
+
+            fields = [
+                'visibility',
+                'autoformat',
+                'twitter',
+                'facebook',
+                'linkedin',
+                'gplus'
+            ]
+
+            form_data = dict()
+            for field in fields:
+                form_data[field] = str2bool(unicodedata.normalize('NFC', request.data[field]))
+
+            request.user.pref_post_public_visibility = form_data["visibility"]
+            request.user.pref_post_autoformat        = form_data["autoformat"]
+
+            request.user.pref_post_repost_TW         = form_data["twitter"]
+
+            # ============= Disabled Operation For Now ! =============
+            #request.user.pref_post_repost_FB         = form_data["facebook"]
+            #request.user.pref_post_repost_GPlus      = form_data["linkedin"]
+            #request.user.pref_post_repost_LKin       = form_data["gplus"]
+
+            request.user.save()
+            payload["success"] = True
+
+        except Exception as e:
+            payload["success"] = False
+            payload["error"] = "An error occured in the process: " + str(e)
+            payload["postID"] = None
+
+        payload ["operation"] = "modify personal Information"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
@@ -842,7 +892,7 @@ class Modify_Personal_info(APIView):
                 "newsletter_subscribtion", # Not Saved yet !
             ]
 
-            form_data = {}
+            form_data = dict()
             for field in fields:
                 form_data[field] = unicodedata.normalize('NFC', request.data[field])
 
@@ -856,17 +906,18 @@ class Modify_Personal_info(APIView):
 
             val(form_data["company_website"])
 
-            request.user.first_name = form_data["firstname"]
-            request.user.last_name = form_data["lastname"]
-            request.user.email = form_data["email"]
-            request.user.birthdate = datetime.datetime.strptime(form_data["birthdate"], '%d/%m/%Y').date()
-            request.user.country = Country.objects.get(name=form_data["country"])
-            request.user.gender = form_data["gender"]
-            request.user.rss_feed_title = form_data["feedtitle"]
-            request.user.description = form_data["description"]
-            request.user.job = form_data["job"]
-            request.user.company_name = form_data["company_name"]
-            request.user.company_website = form_data["company_website"]
+            request.user.first_name                     = form_data["firstname"]
+            request.user.last_name                      = form_data["lastname"]
+            request.user.email                          = form_data["email"]
+            request.user.birthdate                      = datetime.datetime.strptime(form_data["birthdate"], '%d/%m/%Y').date()
+            request.user.country                        = Country.objects.get(name=form_data["country"])
+            request.user.gender                         = form_data["gender"]
+            request.user.rss_feed_title                 = form_data["feedtitle"]
+            request.user.description                    = form_data["description"]
+            request.user.job                            = form_data["job"]
+            request.user.company_name                   = form_data["company_name"]
+            request.user.company_website                = form_data["company_website"]
+            request.user.pref_newsletter_subscribtion   = str2bool(form_data["newsletter_subscribtion"])
 
             request.user.save()
             payload["success"] = True

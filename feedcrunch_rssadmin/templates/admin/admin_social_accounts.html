@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block body %}
+
 <div class="row">
     <div class="col s12">
         <div id="profile-page-header" class="card col s12">
@@ -9,7 +10,7 @@
                 <img class="profile-bg" src="{% static "images/user-profile-bg.jpg" %}" alt="user background">
             </div>
             <figure class="card-profile-image">
-                <img src="{{ user.get_profile_picture }}" alt="profile image" class="circle z-depth-2 responsive-img activator">
+                <img src="{{ user.get_profile_picture_url }}" alt="profile image" class="circle z-depth-2 responsive-img activator">
             </figure>
             <div class="card-content">
               <div class="row">
@@ -47,6 +48,11 @@
                                 <div class="col s12">
                                     <div class="row no-margin-bottom">
                                         <div class="col s12">
+
+                                            <!-- ##############################################################################################
+                                            #                                       Main Social Networks                                      #
+                                            ############################################################################################### -->
+
                                             <span class="card-title col s12 social-networks-category-title">Main Social Networks</span>
                                             <div class="input-field col s12 l6">
                                                 <label for="dribbble">Dribbble</label>
@@ -93,6 +99,10 @@
                                                 <input id="youtube" name="youtube" type="text" class="validate" data-init="{{ user.social_youtube }}" value="{{ user.social_youtube }}">
                                             </div>
 
+                                            <!-- ##############################################################################################
+                                            #                                Computer Science Social Networks                                 #
+                                            ############################################################################################### -->
+
                                             <span class="card-title col s12 social-networks-category-title">Computer Science Social Networks</span>
                                             <div class="input-field col s12 l6">
                                                 <label for="docker">Docker</label>
@@ -106,12 +116,24 @@
                                                 <label for="kaggle">Kaggle</label>
                                                 <input id="kaggle" name="kaggle" type="text" class="validate" data-init="{{ user.social_kaggle }}" value="{{ user.social_kaggle }}">
                                             </div>
+                                            <div class="input-field col s12 l6">
+                                                <label for="stackoverflow">Stack Overflow</label>
+                                                <input id="stackoverflow" name="stackoverflow" type="text" class="validate" data-init="{{ user.social_stackoverflow }}" value="{{ user.social_stackoverflow }}">
+                                            </div>
+
+                                            <!-- ##############################################################################################
+                                            #                                              MooCs                                              #
+                                            ############################################################################################### -->
 
                                             <span class="card-title col s12 social-networks-category-title">MooCs</span>
                                             <div class="input-field col s12 l6">
                                                 <label for="coursera">Coursera</label>
                                                 <input id="coursera" name="coursera" type="text" class="validate" data-init="{{ user.social_coursera }}" value="{{ user.social_coursera }}">
                                             </div>
+
+                                            <!-- ##############################################################################################
+                                            #                                     Research Social Networks                                    #
+                                            ############################################################################################### -->
 
                                             <span class="card-title col s12 social-networks-category-title">Research Social Networks</span>
                                             <div class="input-field col s12 l6">
@@ -131,6 +153,9 @@
                                                 <input id="mendeley" name="mendeley" type="text" class="validate" data-init="{{ user.social_mendeley }}" value="{{ user.social_mendeley }}">
                                             </div>
 
+                                            <!-- ##############################################################################################
+                                            #                                          PERSONAL PAGES                                         #
+                                            ############################################################################################### -->
 
                                             <span class="card-title col s12 social-networks-category-title">Personal Pages</span>
                                             <div class="input-field col s12 l6">
@@ -141,6 +166,7 @@
                                                 <label for="website">Personal Website</label>
                                                 <input id="website" name="website" type="text" class="validate" data-init="{{ user.social_personalwebsite }}" value="{{ user.social_personalwebsite }}">
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

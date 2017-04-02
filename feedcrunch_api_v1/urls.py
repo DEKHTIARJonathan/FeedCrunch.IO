@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^authenticated/modify/user/personal-info/$', Modify_Personal_info.as_view(), name='Modify_Personal_info'),
     url(r'^authenticated/modify/user/password/$', Modify_Password.as_view(), name='Modify_Password'),
     url(r'^authenticated/delete/user/social-networks/twitter/$', UnLink_Twitter.as_view(), name='UnLink_Twitter'),
+    url(r'^authenticated/modify/user/preferences/$', Modify_Preferences.as_view(), name='modify_preferences'),
 
     # Tag Routes
     url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),

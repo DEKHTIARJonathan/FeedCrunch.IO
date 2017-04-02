@@ -23,7 +23,7 @@ class TwitterAPI(object):
             twitter_consumer_key = Option.objects.get(parameter="twitter_consumer_key").value
             twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
 
-            if not user.is_twitter_enabled():
+            if not user.is_social_network_enabled(network="twitter"):
                 raise ValueError("User has not enabled Twitter")
             else:
                 self.api = Twython(twitter_consumer_key,

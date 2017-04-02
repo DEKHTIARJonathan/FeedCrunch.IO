@@ -762,6 +762,43 @@ a.kaggle-big:before {
     background: url("../images/social_ico/kaggle.png") no-repeat center center;
 }
 
+/* Stack Overgflow */
+
+a.stackoverflow-small,
+a.stackoverflow-big {
+    -webkit-box-shadow: 0px 6px 0px #B05309;;
+    -moz-box-shadow: 0px 6px 0px #B05309;;
+    box-shadow: 0px 6px 0px #B05309;;
+    position: relative;
+}
+
+a.stackoverflow-small {
+    background: #F48024 url("../images/social_ico/stackoverflow.png") no-repeat center center;
+}
+
+a.stackoverflow-big {
+    background: #F48024;
+}
+
+a.stackoverflow-small:hover{
+	background: RGB(255, 160, 80) url("../images/social_ico/stackoverflow.png") no-repeat center center;
+}
+
+a.stackoverflow-big:hover {
+    background: RGB(255, 160, 80);
+}
+
+a.stackoverflow-small:active,
+a.stackoverflow-big:active {
+    -webkit-box-shadow: 0px 2px 0px #B05309;;
+    -moz-box-shadow: 0px 2px 0px #B05309;;
+    box-shadow: 0px 2px 0px #B05309;;
+}
+
+a.stackoverflow-big:before {
+    background: url("../images/social_ico/stackoverflow.png") no-repeat center center;
+}
+
 /* Docker */
 
 a.docker-small,

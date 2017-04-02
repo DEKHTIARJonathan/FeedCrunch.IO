@@ -10,7 +10,7 @@
                     <img class="profile-bg" src="{% static "images/user-profile-bg.jpg" %}" alt="user background">
                 </div>
                 <figure class="card-profile-image">
-                    <img src="{{ user.get_profile_picture }}" alt="profile image" class="circle z-depth-2 responsive-img activator">
+                    <img src="{{ user.get_profile_picture_url }}" alt="profile image" class="circle z-depth-2 responsive-img activator">
                 </figure>
                 <div class="card-content">
                   <div class="row">
@@ -62,7 +62,7 @@
             <div class="card stats-card">
                 <div class="card-content KPI-Card">
                     <span class="card-title">Clicks on all Articles</span>
-                    <span class="stats-counter"><span class="counter">{{ user.get_clicks_count }}</span><small>Clicks since {{ user.date_joined }}</small></span>
+                    <span class="stats-counter"><span class="counter">{{ user.get_clicks_count_on_user_posts }}</span><small>Clicks since {{ user.date_joined }}</small></span>
                 </div>
                 <div class="progress stats-card-progress no-progress"></div>
             </div>
