@@ -227,8 +227,6 @@ class User_Stats_Subscribers(APIView):
             ticks = []
             data = []
 
-            from random import randint
-
             for i, d in enumerate(date_array):
 
                 delta = (today - d.date()).days
@@ -237,9 +235,6 @@ class User_Stats_Subscribers(APIView):
 
             payload ["data"] = data
             payload ["ticks"] = ticks
-
-            from time import sleep
-            sleep(3)
 
         except Exception as e:
             payload["success"] = False
