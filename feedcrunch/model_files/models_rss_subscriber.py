@@ -4,6 +4,7 @@
 from __future__ import unicode_literals
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.utils import timezone
 
 from .models_user import FeedUser
 
@@ -63,7 +64,7 @@ class RSSSubscriber(models.Model):
 
 # First, define the Manager subclass.
 class RSSSubsStatManager(models.Manager):
-    def create(self, user=None, count=0, date=datetime.datetime.now().date() - datetime.timedelta(days=1)):
+    def create(self, user=None, count=0, date=timezone.now() - datetime.timedelta(days=1)):
         try:
             if user is None:
                 raise Exception("Feedname is missing")
