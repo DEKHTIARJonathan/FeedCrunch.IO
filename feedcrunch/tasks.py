@@ -2,6 +2,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core.exceptions import ObjectDoesNotExist
 from django.template.loader import render_to_string
 
 from django_q.tasks import async, schedule
@@ -18,8 +19,7 @@ def check_rss_feed(rss_id):
 
 def refresh_user_rss_subscribtions(username=None):
     if username is not None:
-        for feed in RSSFeed.objects.filter(rel_sub_feed_assoc__user=username):
-            schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=datetime.now() + timedelta(minutes=1))
+        FeedUser.objects.get(username=username).refresh_user_subscribtions()
     else:
         raise Exception("Error: tasks.refresh_user_rss_subscribtions - username have not been provided.")
 
@@ -29,8 +29,13 @@ def refresh_all_rss_feeds():
 
 ###################################################### REFRESH RSS SUBSCRIBERS COUNT  ##################################################
 
-def record_user_subscribtions_stats(username=None):
+def record_user_subscribers_stats(username=None):
     if username is not None:
+
+        try:
+            usr = FeedUser.objects.get(username=username)
+        except ObjectDoesNotExist:
+            raise Exception("The given username ('"+username+"') doesn't exist.")
 
         today           = date.today()
         sub_timedelta   = settings.RSS_SUBS_LOOKUP_PERIOD
@@ -44,11 +49,11 @@ def record_user_subscribtions_stats(username=None):
             RSSSubsStat.objects.create(user=username, count=count)
 
     else:
-        raise Exception("Error: tasks.record_user_subscribtions_stats - username have not been provided.")
+        raise Exception("Error: tasks.record_user_subscribers_stats - username have not been provided.")
 
 def refresh_all_rss_subscribers_count():
     for user in FeedUser.objects.all():
-        schedule('feedcrunch.tasks.record_user_subscribtions_stats', username=user.username, schedule_type=Schedule.ONCE, next_run=datetime.now() + timedelta(minutes=1))
+        schedule('feedcrunch.tasks.record_user_subscribers_stats', username=user.username, schedule_type=Schedule.ONCE, next_run=datetime.now() + timedelta(minutes=1))
 
 ########################################################## SEND WELCOME EMAIL  ##########################################################
 
