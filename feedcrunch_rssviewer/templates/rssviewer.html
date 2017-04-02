@@ -23,7 +23,7 @@
         <header class="hero hero--profile">
             <div class="hero-avatar u-floatRight js-profileAvatar">
                 <div class="avatar">
-                    <img src="{{ requested_user.get_profile_picture }}" class="avatar-image u-size100x100 u-xs-size80x80 imagePicker-target">
+                    <img src="{{ requested_user.get_profile_picture_url }}" class="avatar-image u-size100x100 u-xs-size80x80 imagePicker-target">
                 </div>
             </div>
             <h1 class="hero-title" style="font-size: 65px;">
@@ -40,7 +40,7 @@
                 <div class="col-md-8">
                     {{ requested_user.job }} <a class="link link--accent u-accentColor--textNormal u-noWrap u-baseColor--link" href="{{ requested_user.company_website }}">{{ requested_user.company_name }}</a>
                     <span class="subscribers-info">
-                        ~ <b>{{ requested_user.get_rss_subscribers_count }}</b> Subscribers ~
+                        ~ <b>{{ requested_user.get_user_subscribers_count }}</b> Subscribers ~
                     </span>
                 </div>
                 <div class="set-2">
@@ -113,6 +113,10 @@
 
                     {% if requested_user.social_kaggle %}
                         <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_kaggle }}" target="_blank" class="button kaggle-big">Kaggle</a></li>
+                    {% endif %}
+
+                    {% if requested_user.social_stackoverflow %}
+                        <li class="col-md-2 social_vertical_spacer"><a href="{{ requested_user.social_stackoverflow }}" target="_blank" class="button stackoverflow-big">Stack Overflow</a></li>
                     {% endif %}
 
                     <!-- MooC Profiles -->

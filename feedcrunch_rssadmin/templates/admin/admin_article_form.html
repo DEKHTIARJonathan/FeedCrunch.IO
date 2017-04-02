@@ -48,9 +48,9 @@
                                                     <label>
                                                         <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Link Visible:</span>
                                                         {% if post %}
-                                                            <input type="checkbox" id="link-visible" name="link-visible"  data-init="{{ post.activeLink }}" {% if post.activeLink %} checked {% endif %}>
+                                                            <input type="checkbox" id="link-visible" name="link-visible"  data-init="{{ post.activeLink }}">
                                                         {% else %}
-                                                            <input type="checkbox" id="link-visible" name="link-visible"  data-init="True" checked>
+                                                            <input type="checkbox" id="link-visible" name="link-visible"  data-init="{{ user.pref_post_public_visibility }}">
                                                         {% endif %}
                                                         <span class="lever"></span>
                                                     </label>
@@ -62,7 +62,7 @@
                                                     <label>
                                                         <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Twitter:</span>
                                                         {% if user.is_twitter_enabled %}
-                                                            <input type="checkbox" id="twitter" name="twitter">
+                                                            <input type="checkbox" id="twitter" name="twitter" data-init="{{ user.pref_post_repost_TW }}">
                                                         {% else %}
                                                             <input type="checkbox" id="twitter" name="twitter" disabled>
                                                         {% endif %}
@@ -75,7 +75,7 @@
                                                 <div class="switch m-b-md">
                                                     <label>
                                                         <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Title Auto Format:</span>
-                                                        <input type="checkbox" id="auto-format" name="auto-format">
+                                                        <input type="checkbox" id="auto-format" name="auto-format" data-init="{{ user.pref_post_autoformat }}">
                                                         <span class="lever"></span>
                                                     </label>
                                                 </div>

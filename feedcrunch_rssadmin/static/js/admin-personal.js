@@ -1,49 +1,48 @@
 $( document ).ready(function() {
 
-    /*
-    var form = $("#example-form");
-    var validator = $("#example-form").validate({
-        errorPlacement: function errorPlacement(error, element) { element.after(error); },
-    });
-    */
 
     $('#country').material_select(); // Select Initialization
     $("#gender").material_select(); // Select Initialization
 
-
-
     /* Calculating the maximum date */
     var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear() - 15;
-
-    if(dd<10) {
-        dd='0'+dd
-    }
-
-    if(mm<10) {
-        mm='0'+mm
-    }
-
-    var max_birthdate = today = dd+'/'+mm+'/'+yyyy;
-
+    var max_yyyy = today.getFullYear() - 15;
 
     var birthdate_input = $("#birthdate");
+    var birthdate_label = $("#birthdate-label");
+
     var birthdate = birthdate_input.pickadate({
-      format: 'dd/mm/yyyy',
-      closeOnSelect: true,
-      closeOnClear: true,
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 50, // Creates a dropdown of 15 years to control year
-      max: max_birthdate,
+        format: 'dd/mm/yyyy',
+        closeOnSelect: true,
+        closeOnClear: true,
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 50, // Creates a dropdown of 15 years to control year
+        max: new Date(max_yyyy,0,1),
+        onSet: function( arg ){
+            if ( 'select' in arg ){ //prevent closing on selecting month/year
+                this.close();
+            }
+        },
+        onStart: function() {
+            this.set('select', [1990, 0, 1]);
+        }
     });
 
-      var picker = birthdate.pickadate('picker');
+    var picker = birthdate.pickadate('picker');
     var user_birthdate = birthdate_input.data("init");
 
-    if (user_birthdate != "None")
+    birthdate_input.change(function() {
+        if (birthdate_input.val() == "")
+            birthdate_label.removeClass("active");
+        else{
+            birthdate_input.val(birthdate_input.val().trim());
+            birthdate_label.addClass("active");
+        }
+    });
+
+    if (! (typeof user_birthdate === "undefined")){
         picker.set('select', user_birthdate, { format: 'dd/mm/yyyy' });
+    }
 
     form_fields = [
         'firstname',
@@ -57,7 +56,7 @@ $( document ).ready(function() {
         'job',
         'company_name',
         'company_website',
-        "newsletter_subscribtion", // Not Saved yet !
+        "newsletter_subscribtion"
     ]
 
     function clearFields(){
@@ -66,9 +65,14 @@ $( document ).ready(function() {
             var input = $("#"+form_fields[field]);
             input.val(input.data("init"));
         }
+
+        $("#newsletter_subscribtion").prop('checked', $("#newsletter_subscribtion").data("init").toLowerCase() == "true");
+
         $("#country").material_select();
         $("#gender").material_select();
     }
+
+    clearFields(); // Required to display correctly the switches
 
     function get_fields(){
         var rslt = {};
@@ -77,6 +81,8 @@ $( document ).ready(function() {
             var input = $("#"+form_fields[field]);
             rslt[form_fields[field]] = input.val();
         }
+        rslt["newsletter_subscribtion"] =  $("#newsletter_subscribtion").prop('checked');
+
         return rslt;
     }
 

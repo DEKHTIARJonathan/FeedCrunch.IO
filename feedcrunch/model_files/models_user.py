@@ -281,14 +281,15 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
 class FeedUser(AbstractFeedUser):
-    """
-    Users within the Django authentication system are represented by this
-    model.
 
-    Username, password and email are required. Other fields are optional.
-    """
+    ################################### ============================== ###################################
+    #                                        GENERAL Information                                         #
+    ################################### ============================== ###################################
+
     country = models.ForeignKey(Country, on_delete=models.CASCADE, default=None, blank=True, null=True )
     birthdate = models.DateField( default=None, blank=True, null=True )
+    description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
+
     gender = models.CharField(
         max_length=1,
         choices=(('F', 'Female'),('M', 'Male'),('O', 'Other')),
@@ -299,55 +300,120 @@ class FeedUser(AbstractFeedUser):
 
     rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
 
-    # Count of RSS Subscribers - Daily Updated
-
-    description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
     job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
     company_name = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
     company_website = models.URLField(max_length=120, default='http://www.feedcrunch.io/', blank=True, null=True)
 
-    apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, null=False)
-
     profile_picture = models.ImageField(upload_to=get_photo_path, default=settings.USER_PHOTO_PATH+'dummy_user.png', blank=True, null=True)
-
-    twitter_token = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    twitter_token_secret = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-
-    recommendation_engine = models.OneToOneField(Estimator, on_delete=models.CASCADE, default=None, blank=True, null=True)
-
-    interests = models.ManyToManyField(Interest, related_name="users_by_interest", blank=True)
     onboarding_done = models.BooleanField(default=False)
 
+    ################################### ============================== ###################################
+    #                                           API KEY ACCESS                                           #
+    ################################### ============================== ###################################
+
+    apikey = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, null=False)
+
+    ################################### ============================== ###################################
+    #                                           RECOMMENDATION                                           #
+    ################################### ============================== ###################################
+
+    interests = models.ManyToManyField(Interest, related_name="users_by_interest", blank=True)
+    recommendation_engine = models.OneToOneField(Estimator, on_delete=models.CASCADE, default=None, blank=True, null=True)
+
+    ################################### ============================== ###################################
+    #                                            SOCIAL TOKENS                                           #
+    ################################### ============================== ###################################
+
+    twitter_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    twitter_token_secret   = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+
+    facebook_token         = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    facebook_token_secret  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+
+    gplus_token            = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    gplus_token_secret     = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+
+    linkedin_token         = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    linkedin_token_secret  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+
+    social_fields = {
+        'twitter' : {
+            'token'  : "twitter_token",
+            'secret' : "twitter_token_secret"
+        },
+        'facebook' : {
+            'token'  : "facebook_token",
+            'secret' : "facebook_token_secret"
+        },
+        'gplus' : {
+            'token'  : "gplus_token",
+            'secret' : "gplus_token_secret"
+        },
+        'linkedin' : {
+            'token'  : "linkedin_token",
+            'secret' : "linkedin_token_secret"
+        },
+    }
+
+    ################################### ============================== ###################################
+    #                                          USER PREFERENCES                                          #
+    ################################### ============================== ###################################
+
+    pref_post_public_visibility   = models.BooleanField(default=True)
+    pref_post_autoformat          = models.BooleanField(default=False)
+
+    # ======================== Social Repost ========================
+
+    pref_post_repost_TW           = models.BooleanField(default=False)
+    pref_post_repost_FB           = models.BooleanField(default=False)
+    pref_post_repost_GPlus        = models.BooleanField(default=False)
+    pref_post_repost_LKin         = models.BooleanField(default=False)
+
+    ################################### ============================== ###################################
+    #                                       NEWSLETTER PREFERENCES                                       #
+    ################################### ============================== ###################################
+
+    pref_newsletter_subscribtion  = models.BooleanField(default=True)
+
+    ################################### ============================== ###################################
+    #                                            SOCIAL LINKS                                            #
+    ################################### ============================== ###################################
+
     # Main Social Networks
-    social_dribbble = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_facebook = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_flickr = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_gplus = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_instagram = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_linkedin = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_pinterest = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_stumble = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_twitter = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_vimeo = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_youtube = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_dribbble         = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_facebook         = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_flickr           = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_gplus            = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_instagram        = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_linkedin         = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_pinterest        = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_stumble          = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_twitter          = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_vimeo            = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_youtube          = models.URLField(max_length=60, default='', blank=True, null=True)
 
     # Computer Science Networks
-    social_docker = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_git = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_kaggle = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_docker           = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_git              = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_kaggle           = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_stackoverflow    = models.URLField(max_length=60, default='', blank=True, null=True)
 
     # MooC Profiles
-    social_coursera = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_coursera         = models.URLField(max_length=60, default='', blank=True, null=True)
 
     # Research Social Networks
-    social_google_scholar = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_orcid = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_researchgate = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_mendeley = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_google_scholar   = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_orcid            = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_researchgate     = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_mendeley         = models.URLField(max_length=60, default='', blank=True, null=True)
 
     # Personal Webpage & Blog
-    social_blog = models.URLField(max_length=60, default='', blank=True, null=True)
-    social_personalwebsite = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_blog             = models.URLField(max_length=60, default='', blank=True, null=True)
+    social_personalwebsite  = models.URLField(max_length=60, default='', blank=True, null=True)
+
+    ################################### ============================== ###################################
+    #                                           MISC Properties                                          #
+    ################################### ============================== ###################################
 
     objects = FeedUserManager()
 
@@ -363,45 +429,39 @@ class FeedUser(AbstractFeedUser):
 
         super(FeedUser, self).save(*args, **kwargs) # Call the "real" save() method.
 
-    def get_birthdate(self):
+    # ====================================================================================================
+    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    ################################### ============================== ###################################
+    #                                            USER METHODS                                            #
+    ################################### ============================== ###################################
+    # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    # ====================================================================================================
+
+    ################################### ============================== ###################################
+    #                                         User Data Accessors                                        #
+    ################################### ============================== ###################################
+
+    def get_birthdate_as_string(self):
         if self.birthdate is not None:
             return self.birthdate.strftime("%d/%m/%Y")
         else:
             return
 
-    def is_twitter_enabled(self):
-        if self.twitter_token != "" and self.twitter_token_secret != "" :
-            return True
-        else:
-            return False
-
-    def is_twitter_activated(self):
-        if self.is_twitter_enabled():
-            if TwitterAPI(self).verify_credentials()['status']:
-                return True
-            else:
-                self.reset_twitter_credentials()
-                return False
-        else:
-            return False
-
-    def reset_twitter_credentials(self):
-        self.twitter_token = ""
-        self.twitter_token_secret = ""
-        self.save()
-
-    def get_profile_picture(self):
+    def get_profile_picture_url(self):
         if settings.DEBUG:
             return self.profile_picture.url
         else:
             photo_url = "%s%s" % (settings.MEDIA_URL, self.profile_picture)
             return photo_url
 
+    ################################### ============================== ###################################
+    #                                       User Publication Stats                                       #
+    ################################### ============================== ###################################
     def get_post_count(self):
         return self.rel_posts.count()
 
-    def get_rss_subscribtion_count(self):
-        return self.rel_sub_feed.count()
+    def get_clicks_count_on_user_posts(self):
+        return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
 
     def get_current_month_post_count(self):
         d_tmp = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
@@ -420,10 +480,18 @@ class FeedUser(AbstractFeedUser):
 
         return self.rel_posts.filter(when__lte=date_last_day_last_month, when__gte=date_1st_day_last_month).count()
 
-    def get_clicks_count(self):
-        return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
+    ################################### ============================== ###################################
+    #                                       User Subscribtion Stats                                      #
+    ################################### ============================== ###################################
 
-    def get_rss_subscribers_count(self, days_offset=1):
+    def get_rss_subscribtion_count(self):
+        return self.rel_sub_feed.count()
+
+    ################################### ============================== ###################################
+    #                                       User Subscribers Stats                                      #
+    ################################### ============================== ###################################
+
+    def get_user_subscribers_count(self, days_offset=1):
 
         today           = date.today()
         lookup_day      = today - timedelta(days=days_offset)
@@ -435,6 +503,61 @@ class FeedUser(AbstractFeedUser):
         else:
             return subscribers_queryset[0].count
 
+    ################################### ============================== ###################################
+    #                                         Social Net. Methods                                        #
+    ################################### ============================== ###################################
+
+    def is_social_network_enabled(self, network=None):
+        if network is None:
+
+            rslt = dict()
+
+            for social_net in list(self.social_fields.keys()):
+                token  = getattr(self, self.social_fields[social_net]["token"])
+                secret = getattr(self, self.social_fields[social_net]["secret"])
+                rslt[social_net] = token != "" and secret != ""
+
+            return rslt
+
+        elif network in list(self.social_fields.keys()):
+            token  = getattr(self, self.social_fields[network]["token"])
+            secret = getattr(self, self.social_fields[network]["secret"])
+            return token != "" and secret != ""
+
+        else:
+            raise Exception("The network requested " + network + "doesn't exist in this application")
+
+
+    def is_twitter_enabled(self):
+        return self.is_social_network_enabled(network="twitter")
+
+    def is_facebook_enabled(self):
+        return self.is_social_network_enabled(network="facebook")
+
+    def is_linkedin_enabled(self):
+        return self.is_social_network_enabled(network="linkedin")
+
+    def is_gplus_enabled(self):
+        return self.is_social_network_enabled(network="gplus")
+
+    def is_twitter_activated(self):
+        if self.is_social_network_enabled(network="twitter"):
+            if TwitterAPI(self).verify_credentials()['status']:
+                return True
+            else:
+                self.reset_twitter_credentials()
+                return False
+        else:
+            return False
+
+    def reset_twitter_credentials(self):
+        self.twitter_token = ""
+        self.twitter_token_secret = ""
+        self.save()
+
+    ################################### ============================== ###################################
+    #                                       Subscribtion Management                                      #
+    ################################### ============================== ###################################
 
     def export_opml(self):
 
@@ -513,7 +636,7 @@ class FeedUser(AbstractFeedUser):
 
         return errors
 
-    def refresh_user_feed(self):
+    def refresh_user_subscribtions(self):
         launch_time = datetime.datetime.now() + datetime.timedelta(minutes=1)
 
         for feed in self.rel_feeds.filter(active=True):

@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+
     var validator = $("#add-form").validate({
         debug: true
     });
@@ -46,30 +47,40 @@ $( document ).ready(function() {
     });
 
     /* ################################################# Sweet Alert ####################################################### */
-
+    var switches_list = [
+        'link-visible',
+        'twitter',
+        'auto-format'
+    ]
     function clearFields(){
 
-        var title = $("#title").data( "init");
-        var link = $("#link").data( "init");
+        var title = $("#title").data("init");
+        var link = $("#link").data("init");
+
         $("#tags").materialtags('removeAll');
 
         if (title == "" || link == "") { // Creating a new article
             $("#title").val('').removeClass("valid").siblings().removeClass("active");
             $("#link").val('').removeClass("valid").siblings().removeClass("active");
-            $('#link-visible').prop('checked', true);
         }
 
         else{ // Modifying an article
             $("#title").val(title);
             $("#link").val(link);
-            $('#link-visible').prop('checked', $('#link-visible').data( "init"));
             $("#tags").materialtags('add', $("#tags").data( "init"));
         }
 
-        $('#twitter').prop('checked', false);
-        $('#auto-format').prop('checked', false);
+        for (switch_box in switches_list){
+            var input = $("#"+switches_list[switch_box]);
 
+            if (!input.is(':disabled')){
+                var init_val = input.data("init").toLowerCase() == "true"; // Transforming "string to boolean"
+                input.prop('checked', init_val);
+            }
+        }
     }
+
+    clearFields(); // Required to display correctly the switches
 
     var request_url = window.location.pathname;
 

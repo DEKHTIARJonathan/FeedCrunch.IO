@@ -10,7 +10,7 @@
                 <form>
                     <div class="wizard clearfix">
                         <div class="steps clearfix">
-                            <ul style="width: 100%;" class="tabs">
+                            <ul style="width: 100%; overflow-x: hidden;" class="tabs">
                                 <li class="tab">
                                     <a class="active">Personal Info</a>
                                 </li>
@@ -67,8 +67,8 @@
                                             </select>
                                         </div>
                                         <div class="input-field col m6 s12">
-                                            <label for="birthdate">Birthdate</label>
-                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" data-init="{{ user.get_birthdate }}">
+                                            <label for="birthdate" id="birthdate-label">Birthdate</label>
+                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" {% if user.get_birthdate_as_string is not None %} data-init="{{ user.get_birthdate_as_string }} {% endif %}">
                                         </div>
                                         <div class="input-field col m12">
                                             <label for="feedtitle">RSS Feed Title</label>
@@ -77,7 +77,7 @@
                                         <div class="input-field col s12" style="margin-top:60px;">
                                             <div class="switch m-b-md">
                                                 <label>
-                                                    <input type="checkbox" id="newsletter_subscribtion">
+                                                    <input type="checkbox" id="newsletter_subscribtion" name="newsletter_subscribtion" data-init="{{ user.pref_newsletter_subscribtion }}">
                                                     <span class="lever"></span>
                                                     Get news and updates from FeedCrunch
                                                 </label>
