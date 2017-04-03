@@ -47,7 +47,7 @@ def index(request, feedname=None):
                 post_trending_color = "red-text"
             else :
                 post_trending = "trending_flat"
-                post_trending_color = "blue-grey lighten-1"
+                post_trending_color = "blue-grey-text"
 
             publication_trend = int(round(abs(publication_trend),0))
 
