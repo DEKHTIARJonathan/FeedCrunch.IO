@@ -3,8 +3,8 @@
 
 from __future__ import unicode_literals
 
-from feedcrunch.models import *
-from feedcrunch.model_files.models_options import *
+from feedcrunch.models import Option
+
 from twython import Twython
 
 import sys
@@ -20,7 +20,7 @@ class TwitterAPI(object):
     def __init__(self, user):
 
         try:
-            twitter_consumer_key = Option.objects.get(parameter="twitter_consumer_key").value
+            twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
             twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
 
             if not user.is_social_network_enabled(network="twitter"):
@@ -134,14 +134,14 @@ def get_authorization_url(request):
     """
     try:
         try:
-            twitter_consumer_key = Option.objects.get(parameter="twitter_consumer_key").value
+            twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
             twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
 
         except:
             raise Exception("Failed to retrieve the consumer keys.")
 
         twitter = Twython(twitter_consumer_key, twitter_consumer_secret)
-        auth = twitter.get_authentication_tokens()
+        auth    = twitter.get_authentication_tokens()
 
         try:
             auth_url = auth['auth_url']
@@ -160,7 +160,7 @@ def get_authorization_url(request):
 def get_authorized_tokens(oauth_verifier, token, token_secret):
     try:
         try:
-            twitter_consumer_key = Option.objects.get(parameter="twitter_consumer_key").value
+            twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
             twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
 
         except:

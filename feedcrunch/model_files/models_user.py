@@ -21,12 +21,9 @@ from django_q.models import Schedule
 from validate_email import validate_email
 from encrypted_model_fields .fields import EncryptedCharField
 
-from feedcrunch.models import Continent, Country, Estimator
-from .models_interest import Interest
+from feedcrunch.models import Continent, Country, Estimator, Interest
 
-from twitter.tw_funcs import *
-
-from twython import Twython
+from oauth.twitterAPI import *
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 

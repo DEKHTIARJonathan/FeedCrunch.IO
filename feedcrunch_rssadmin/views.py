@@ -15,7 +15,7 @@ import datetime, unicodedata, json
 from calendar import monthrange
 
 from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc, Interest, Option
-from twitter.tw_funcs import TwitterAPI, get_authorization_url
+from oauth.twitterAPI import TwitterAPI, get_authorization_url
 
 from check_admin import check_admin
 from data_convert import str2bool

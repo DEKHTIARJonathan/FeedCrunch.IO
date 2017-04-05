@@ -122,7 +122,7 @@ INSTALLED_APPS = [
     'feedcrunch_rssviewer',
     'feedcrunch_rssadmin',
     'feedcrunch_home',
-    'twitter',
+    'oauth',
 ]
 
 MIDDLEWARE_CLASSES = [

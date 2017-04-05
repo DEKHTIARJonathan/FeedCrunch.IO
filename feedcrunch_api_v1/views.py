@@ -17,7 +17,7 @@ from django_q.models import Schedule
 
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 
-from twitter.tw_funcs import TwitterAPI, get_authorization_url
+from oauth.twitterAPI import TwitterAPI, get_authorization_url
 
 import datetime, unicodedata, json, sys, os, feedparser
 
