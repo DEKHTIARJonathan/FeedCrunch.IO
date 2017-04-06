@@ -56,7 +56,7 @@ class TwitterAPI(object):
 
         return hashtags
 
-    def post_twitter(self, title, id, tag_list=[]):
+    def publish_post(self, title, id, tag_list=[]):
 
         if self.api != False:
             try:
@@ -116,13 +116,13 @@ class TwitterAPI(object):
                     rslt = {'status': True}
 
                 else:
-                    raise Exception("Credentials have not been verified")
+                    raise Exception("TwitterAPI.verify_credentials(): Credentials are invalid")
 
             except:
                 rslt = {'status':False, 'error': "Credentials have not been verified"}
 
         else:
-            rslt = {'status':False, 'error': "API Connection has failed during init phase"}
+            rslt = {'status':False, 'error': "TwitterAPI.verify_credentials(): API Connection has failed during init phase"}
 
         return rslt
 

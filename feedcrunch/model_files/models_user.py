@@ -23,7 +23,8 @@ from encrypted_model_fields .fields import EncryptedCharField
 
 from feedcrunch.models import Continent, Country, Estimator, Interest
 
-from oauth.twitterAPI import *
+from oauth.twitterAPI import TwitterAPI
+from oauth.facebookAPI import FacebookAPI
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
@@ -559,7 +560,11 @@ class FeedUser(AbstractFeedUser):
 
         elif network == "facebook":
             if self.is_social_network_enabled(network=network):
-                return True
+                if FacebookAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network="facebook")
+                    return False
             else:
                 return False
 
@@ -573,9 +578,6 @@ class FeedUser(AbstractFeedUser):
             return False
 
     def reset_social_network_credentials(self, network):
-        self.twitter_token = ""
-        self.twitter_token_secret = ""
-
         if network == "facebook":
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["expire_datetime"], None)

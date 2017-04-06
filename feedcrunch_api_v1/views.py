@@ -638,11 +638,11 @@ class Article(APIView):
 
             if twitter_bool and user.is_social_network_enabled(network="twitter"):
 
-                    twitter_instance = TwitterAPI(user)
+                    twitter_API = TwitterAPI(user)
 
-                    if twitter_instance.connection_status():
+                    if twitter_API.connection_status():
 
-                        tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+                        tw_rslt = twitter_API.publish_post(title, tmp_post.id, tags)
 
                         if not tw_rslt['status']:
                             payload["postID"] = str(tmp_post.id)
@@ -712,12 +712,12 @@ class Article(APIView):
 
             if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
 
-                twitter_instance = TwitterAPI(request.user)
+                twitter_API = TwitterAPI(request.user)
 
-                if twitter_instance.connection_status():
+                if twitter_API.connection_status():
                     tmp_post.save()
 
-                    tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
+                    tw_rslt = twitter_API.publish_post(title, tmp_post.id, tags)
 
                     if not tw_rslt['status']:
                         payload["postID"] = str(tmp_post.id)

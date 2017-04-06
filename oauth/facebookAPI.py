@@ -26,8 +26,9 @@ class FacebookAPI(object):
         'user_website',
         'publish_actions'
     ]
+    baseurl = ""
 
-    def __init__(self):
+    def __init__(self, user):
 
         try:
             try:
@@ -37,8 +38,11 @@ class FacebookAPI(object):
             except:
                 raise Exception("FacebookAPI.__init__(): Failed to retrieve the Facebook Consumer Keys.")
 
-            self.api = facebook.GraphAPI()
-            self.api.access_token = self.api.get_app_access_token(facebook_app_id, facebook_app_secret)
+            if not user.is_social_network_enabled(network="facebook"):
+                raise ValueError("User has not enabled Twitter")
+            else:
+                self.api = facebook.GraphAPI(user.facebook_access_token)
+                self.baseurl = "https://www.feedcrunch.io/@"+user.username+"/redirect/"
 
         except Exception as e:
             self.error = str(e)
@@ -47,6 +51,93 @@ class FacebookAPI(object):
     def connection_status(self):
         print (self.error)
         return bool(self.api)
+
+    def verify_credentials(self):
+        if self.api != False:
+
+            try:
+                facebook_app_id     = Option.objects.get(parameter="facebook_app_id").value
+                facebook_app_secret = Option.objects.get(parameter="facebook_app_secret").value
+
+            except:
+                raise Exception("FacebookAPI.__init__(): Failed to retrieve the Facebook Consumer Keys.")
+
+            try:
+                '''
+                {
+                    'data':{
+                        'app_id':'123456789',
+                        'application':'Feedcrunch.io',
+                        'expires_at':123456789,
+                        'is_valid':True,
+                        'issued_at':123456789,
+                        'scopes':[
+                            'user_birthday',
+                            'user_website',
+                            'user_about_me',
+                            'user_posts',
+                            'email',
+                            'publish_actions',
+                            'public_profile'
+                        ],
+                        'user_id':'123456789'
+                    }
+                }
+                '''
+
+                if self.api.debug_access_token(self.api.access_token, facebook_app_id, facebook_app_secret)["data"]["is_valid"]:
+                    rslt = {'status': True}
+                else:
+                    raise Exception("Credentials have not been verified")
+
+            except:
+                rslt = {'status':False, 'error': "Credentials have not been verified"}
+
+        else:
+            rslt = {'status':False, 'error': "FacebookAPI.verify_credentials(): API Connection has failed during init phase"}
+
+        return rslt
+
+    def publish_post(self, title, id, tag_list=[]):
+
+        if self.api != False:
+
+            try:
+                tag_str = ""
+                if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
+
+                    for tag in tag_list:
+
+                        if tag_str != "":
+                            tag_str += " "
+
+                        tag_str += "#"+tag
+
+                message = title + " " + tag_str
+
+                attach = {
+                    "name": title,
+                    "link": self.baseurl+str(id),
+                    "caption": '',
+                    "description": tag_str,
+                    "picture" : 'https://pbs.twimg.com/media/CdlFCYmXIAAGkiH.jpg',
+                }
+
+                response = self.api.put_wall_post(message, attachment=attach)
+                ## Response: {'id': '10211352122892746_10211354892441983'}
+                rslt = {'status':True}
+
+            except Exception as e:
+                rslt = {'status':False, 'error': str(e)}
+
+        else:
+            rslt = {'status':False, 'error': "API Connection has failed during init phase"}
+
+        return rslt
+
+    ##########################################################################################################
+    # =========================================== STATIC METHODS =========================================== #
+    ##########################################################################################################
 
     @staticmethod
     def get_authorization_url():
