@@ -126,54 +126,57 @@ class TwitterAPI(object):
 
         return rslt
 
-#################### End of TwitterAPI ############################
+    ##########################################################################################################
+    # =========================================== STATIC METHODS =========================================== #
+    ##########################################################################################################
 
-def get_authorization_url(request):
-    """
-    Twitter oauth authenticate
-    """
-    try:
+    @staticmethod
+    def get_authorization_url(request):
+        """
+        Twitter oauth authenticate
+        """
         try:
-            twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
-            twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
+            try:
+                twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
+                twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
 
-        except:
-            raise Exception("Failed to retrieve the consumer keys.")
+            except:
+                raise Exception("Failed to retrieve the consumer keys.")
 
-        twitter = Twython(twitter_consumer_key, twitter_consumer_secret)
-        auth    = twitter.get_authentication_tokens()
+            auth = Twython(twitter_consumer_key, twitter_consumer_secret).get_authentication_tokens()
 
-        try:
-            auth_url = auth['auth_url']
+            try:
+                auth_url = auth['auth_url']
 
-        except tweepy.TweepError:
-            raise Exception('Error! Failed to get request token.')
+            except tweepy.TweepError:
+                raise Exception('Error! Failed to get request token.')
 
-        request.session['OAUTH_TOKEN'] = auth['oauth_token']
-        request.session['OAUTH_TOKEN_SECRET'] = auth['oauth_token_secret']
+            request.session['OAUTH_TOKEN'] = auth['oauth_token']
+            request.session['OAUTH_TOKEN_SECRET'] = auth['oauth_token_secret']
 
-        return auth_url
-
-    except Exception as e:
-        return 'Error: ' + str(e)
-
-def get_authorized_tokens(oauth_verifier, token, token_secret):
-    try:
-        try:
-            twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
-            twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
-
-        except:
-            return {'status':False, 'error': "Error! Failed to retrieve the consumer keys."}
-
-        api = Twython(twitter_consumer_key, twitter_consumer_secret, token, token_secret)
-
-        try:
-            final_step = api.get_authorized_tokens(oauth_verifier)
-            return {'status':True, 'tokens': final_step}
+            return auth_url
 
         except Exception as e:
-            return {'status':False, 'error':'Error! Failed to get access token: ' + str(e)}
+            return 'Error: ' + str(e)
 
-    except Exception as e:
-        return {'status':False, 'error': str(e)}
+    @staticmethod
+    def get_authorized_tokens(oauth_verifier, token, token_secret):
+        try:
+            try:
+                twitter_consumer_key    = Option.objects.get(parameter="twitter_consumer_key").value
+                twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
+
+            except:
+                return {'status':False, 'error': "Error! Failed to retrieve the consumer keys."}
+
+            api = Twython(twitter_consumer_key, twitter_consumer_secret, token, token_secret)
+
+            try:
+                final_step = api.get_authorized_tokens(oauth_verifier)
+                return {'status':True, 'tokens': final_step}
+
+            except Exception as e:
+                return {'status':False, 'error':'Error! Failed to get access token: ' + str(e)}
+
+        except Exception as e:
+            return {'status':False, 'error': str(e)}

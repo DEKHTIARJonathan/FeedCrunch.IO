@@ -21,12 +21,17 @@ urlpatterns = [
     # User Routes
     url(r'^authenticated/get/user/publications_stats/$', User_Stats_Publications.as_view(), name='publications_stats'),
     url(r'^authenticated/get/user/subscribers_stats/$', User_Stats_Subscribers.as_view(), name='subscribers_stats'),
-    url(r'^authenticated/get/user/social-networks/twitter/status/$', User_Twitter_Status.as_view(), name='User_Twitter_Status'),
     url(r'^authenticated/modify/user/social-networks/$', Modify_Social_Networks.as_view(), name='modify_social_networks'),
     url(r'^authenticated/modify/user/personal-info/$', Modify_Personal_info.as_view(), name='Modify_Personal_info'),
     url(r'^authenticated/modify/user/password/$', Modify_Password.as_view(), name='Modify_Password'),
-    url(r'^authenticated/delete/user/social-networks/twitter/$', UnLink_Twitter.as_view(), name='UnLink_Twitter'),
     url(r'^authenticated/modify/user/preferences/$', Modify_Preferences.as_view(), name='modify_preferences'),
+
+    # OAUTH Social Networks Routes
+
+    url(r'^authenticated/get/user/social-networks/twitter/status/$', User_Twitter_Status.as_view(), name='User_Twitter_Status'),
+    url(r'^authenticated/get/user/social-networks/facebook/status/$', User_Facebook_Status.as_view(), name='User_Facebook_Status'),
+    url(r'^authenticated/delete/user/social-networks/twitter/$', UnLink_Twitter.as_view(), name='UnLink_Twitter'),
+    url(r'^authenticated/delete/user/social-networks/facebook/$', UnLink_Facebook.as_view(), name='UnLink_Facebook'),
 
     # Tag Routes
     url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),

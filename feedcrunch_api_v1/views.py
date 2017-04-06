@@ -17,7 +17,8 @@ from django_q.models import Schedule
 
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 
-from oauth.twitterAPI import TwitterAPI, get_authorization_url
+from oauth.twitterAPI import TwitterAPI
+from oauth.facebookAPI import FacebookAPI
 
 import datetime, unicodedata, json, sys, os, feedparser
 
@@ -172,7 +173,31 @@ class User_Twitter_Status(APIView):
             payload ["success"] = True
             payload ["username"] = request.user.username
 
-            payload["status"] = request.user.is_twitter_activated()
+            payload["status"] = request.user.is_social_network_activated(network="twitter")
+
+        except Exception as e:
+            payload["success"] = False
+            payload["error"] = "An error occured in the process: " + str(e)
+
+        payload["operation"] = "User Twitter Status"
+        payload ["timestamp"] = get_timestamp()
+        return Response(payload)
+
+class User_Facebook_Status(APIView):
+
+    def get(self, request):
+        try:
+
+            payload = dict()
+            check_passed = check_admin_api(request.user)
+
+            if check_passed != True:
+                raise Exception(check_passed)
+
+            payload ["success"] = True
+            payload ["username"] = request.user.username
+
+            payload["status"] = request.user.is_social_network_activated(network="facebook")
 
         except Exception as e:
             payload["success"] = False
@@ -186,24 +211,47 @@ class UnLink_Twitter(APIView):
 
     def delete(self, request):
         try:
-
             payload = dict()
             check_passed = check_admin_api(request.user)
 
             if check_passed != True:
                 raise Exception(check_passed)
 
-            request.user.reset_twitter_credentials()
+            request.user.reset_social_network_credentials(network="twitter")
 
             payload ["success"] = True
             payload ["username"] = request.user.username
-            payload ["auth_url"] = get_authorization_url(request)
+            payload ["auth_url"] = TwitterAPI.get_authorization_url(request)
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "Unlink Twitter"
+        payload ["timestamp"] = get_timestamp()
+        return Response(payload)
+
+class UnLink_Facebook(APIView):
+
+    def delete(self, request):
+        try:
+            payload = dict()
+            check_passed = check_admin_api(request.user)
+
+            if check_passed != True:
+                raise Exception(check_passed)
+
+            request.user.reset_social_network_credentials(network="facebook")
+
+            payload ["success"] = True
+            payload ["username"] = request.user.username
+            payload ["auth_url"] = FacebookAPI.get_authorization_url()
+
+        except Exception as e:
+            payload["success"] = False
+            payload["error"] = "An error occured in the process: " + str(e)
+
+        payload["operation"] = "Unlink Facebook"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
@@ -762,7 +810,7 @@ class Modify_Social_Networks(APIView):
                 'website'
             ]
 
-            social_data = {}
+            social_data = dict()
             for social in social_networks:
                 url = unicodedata.normalize('NFC', request.data[social])
                 if url != '':
@@ -945,7 +993,7 @@ class Modify_Personal_info(APIView):
             request.user.pref_newsletter_subscribtion   = str2bool(form_data["newsletter_subscribtion"])
 
             request.user.save()
-            
+
             payload["success"] = True
 
         except Exception as e:
@@ -974,7 +1022,7 @@ class Modify_Password(APIView):
                 'new_password_2',
             ]
 
-            form_data = {}
+            form_data = dict()
 
             for field in form_fields:
                 form_data[field] = unicodedata.normalize('NFC', request.data[field])

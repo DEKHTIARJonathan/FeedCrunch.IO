@@ -321,34 +321,34 @@ class FeedUser(AbstractFeedUser):
     #                                            SOCIAL TOKENS                                           #
     ################################### ============================== ###################################
 
-    twitter_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    twitter_token_secret   = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    twitter_token                  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    twitter_token_secret           = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 
-    facebook_token         = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    facebook_token_secret  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    facebook_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    facebook_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
 
-    gplus_token            = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    gplus_token_secret     = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    gplus_token                    = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    gplus_token_secret             = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 
-    linkedin_token         = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    linkedin_token_secret  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    linkedin_token                 = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    linkedin_token_secret          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 
     social_fields = {
         'twitter' : {
-            'token'  : "twitter_token",
-            'secret' : "twitter_token_secret"
+            'token'           : "twitter_token",
+            'secret'          : "twitter_token_secret"
         },
         'facebook' : {
-            'token'  : "facebook_token",
-            'secret' : "facebook_token_secret"
+            'token'           : "facebook_access_token",
+            'expire_datetime' : "facebook_token_expire_datetime"
         },
         'gplus' : {
-            'token'  : "gplus_token",
-            'secret' : "gplus_token_secret"
+            'token'           : "gplus_token",
+            'secret'          : "gplus_token_secret"
         },
         'linkedin' : {
-            'token'  : "linkedin_token",
-            'secret' : "linkedin_token_secret"
+            'token'           : "linkedin_token",
+            'secret'          : "linkedin_token_secret"
         },
     }
 
@@ -510,16 +510,25 @@ class FeedUser(AbstractFeedUser):
             rslt = dict()
 
             for social_net in list(self.social_fields.keys()):
-                token  = getattr(self, self.social_fields[social_net]["token"])
-                secret = getattr(self, self.social_fields[social_net]["secret"])
-                rslt[social_net] = token != "" and secret != ""
+                rslt[social_net] = self.is_social_network_enabled(network=social_net)
 
             return rslt
 
         elif network in list(self.social_fields.keys()):
-            token  = getattr(self, self.social_fields[network]["token"])
-            secret = getattr(self, self.social_fields[network]["secret"])
-            return token != "" and secret != ""
+
+            if network == "facebook":
+                token           = getattr(self, self.social_fields[network]["token"])
+                expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
+
+                if expire_datetime is not None:
+                    valid_datetime = timezone.now() < expire_datetime
+
+                return token != "" and valid_datetime
+
+            else:
+                token  = getattr(self, self.social_fields[network]["token"])
+                secret = getattr(self, self.social_fields[network]["secret"])
+                return token != "" and secret != ""
 
         else:
             raise Exception("The network requested " + network + "doesn't exist in this application")
@@ -537,21 +546,44 @@ class FeedUser(AbstractFeedUser):
     def is_gplus_enabled(self):
         return self.is_social_network_enabled(network="gplus")
 
-    def is_twitter_activated(self):
-        if self.is_social_network_enabled(network="twitter"):
-            if TwitterAPI(self).verify_credentials()['status']:
+    def is_social_network_activated(self, network):
+        if network == "twitter":
+            if self.is_social_network_enabled(network=network):
+                if TwitterAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network="twitter")
+                    return False
+            else:
+                return False
+
+        elif network == "facebook":
+            if self.is_social_network_enabled(network=network):
                 return True
             else:
-                self.reset_twitter_credentials()
                 return False
+
+        elif network == "linkedin":
+            return False
+
+        elif network == "gplus":
+            return False
+
         else:
             return False
 
-    def reset_twitter_credentials(self):
+    def reset_social_network_credentials(self, network):
         self.twitter_token = ""
         self.twitter_token_secret = ""
-        self.save()
 
+        if network == "facebook":
+            setattr(self, self.social_fields[network]["token"], "")
+            setattr(self, self.social_fields[network]["expire_datetime"], None)
+        else:
+            setattr(self, self.social_fields[network]["token"], "")
+            setattr(self, self.social_fields[network]["secret"], "")
+
+        self.save()
     ################################### ============================== ###################################
     #                                       Subscribtion Management                                      #
     ################################### ============================== ###################################
