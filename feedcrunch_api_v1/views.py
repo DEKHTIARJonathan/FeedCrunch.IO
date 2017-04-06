@@ -895,9 +895,9 @@ class Modify_Preferences(APIView):
             request.user.pref_post_autoformat        = form_data["autoformat"]
 
             request.user.pref_post_repost_TW         = form_data["twitter"]
+            request.user.pref_post_repost_FB         = form_data["facebook"]
 
             # ============= Disabled Operation For Now ! =============
-            #request.user.pref_post_repost_FB         = form_data["facebook"]
             #request.user.pref_post_repost_GPlus      = form_data["linkedin"]
             #request.user.pref_post_repost_LKin       = form_data["gplus"]
 

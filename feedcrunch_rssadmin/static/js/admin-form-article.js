@@ -50,8 +50,12 @@ $( document ).ready(function() {
     var switches_list = [
         'link-visible',
         'twitter',
+        'facebook',
+        'linkedin',
+        'gplus',
         'auto-format'
     ]
+
     function clearFields(){
 
         var title = $("#title").data("init");
@@ -85,33 +89,36 @@ $( document ).ready(function() {
     var request_url = window.location.pathname;
 
     if (request_url.indexOf("article/add") != -1){  // Add Form
-		var api_url = "/api/1.0/authenticated/post/article/";
-		var query_type = "POST";
-	}
+        var api_url = "/api/1.0/authenticated/post/article/";
+        var query_type = "POST";
+    }
     else{
         var article_id = request_url.split("/", 6)[5];
         var api_url = "/api/1.0/authenticated/modify/article/"+article_id+"/";
-		var query_type = "PUT";
+        var query_type = "PUT";
     }
 
     $("#submit").click(function() {
-		var csrftoken = Cookies.get('csrftoken');
+        var csrftoken = Cookies.get('csrftoken');
         $.ajax({
-    	  url : api_url,
-    	  type : query_type,
-    	  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    	  dataType : "json",
-    	  data: {
-    		title: $("#title").val(),
-    		link: $("#link").val(),
-    		tags: $("#tags").val(),
-    		activated: $('#link-visible').prop('checked'),
-    		twitter: $('#twitter').prop('checked'),
-    		autoformat: $('#auto-format').prop('checked'),
-    	  },
-		  beforeSend: function(xhr) {
-			  xhr.setRequestHeader("X-CSRFToken", csrftoken);
-		  },
+          url : api_url,
+          type : query_type,
+          contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+          dataType : "json",
+          data: {
+            title: $("#title").val(),
+            link: $("#link").val(),
+            tags: $("#tags").val(),
+            activated: $('#link-visible').prop('checked'),
+            twitter: $('#twitter').prop('checked'),
+            facebook: $('#facebook').prop('checked'),
+            linkedin: $('#linkedin').prop('checked'),
+            gplus: $('#gplus').prop('checked'),
+            autoformat: $('#auto-format').prop('checked'),
+          },
+          beforeSend: function(xhr) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          },
           success: function(data){
               if (data.success) {
                   if (data.operation == "submit article"){
@@ -133,11 +140,11 @@ $( document ).ready(function() {
                           showConfirmButton: false,
                       }, function(){
                           window.location = request_url.split("/", 5).join("/")+"/"
-						  swal.close();
+                          swal.close();
                       });
                   }
 
-      		}
+              }
             else{
                 swal({
                     title: "Something went wrong!",
@@ -165,7 +172,7 @@ $( document ).ready(function() {
             closeOnCancel: true
         }, function(){
             clearFields();
-			swal.close();
+            swal.close();
         });
     });
 
