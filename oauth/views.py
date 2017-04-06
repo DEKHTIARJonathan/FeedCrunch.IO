@@ -22,7 +22,7 @@ def twitter_callback(request):
         tw_request = TwitterAPI.get_authorized_tokens(oauth_verifier, token, token_secret)
 
         if not tw_request['status']:
-            raise Exception(request['error'])
+            raise Exception(tw_request['error'])
 
         setattr(request.user, request.user.social_fields["twitter"]["token"], tw_request['tokens']['oauth_token'])
         setattr(request.user, request.user.social_fields["twitter"]["secret"], tw_request['tokens']['oauth_token_secret'])
