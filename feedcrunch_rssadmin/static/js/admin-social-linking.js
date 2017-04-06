@@ -118,10 +118,10 @@ $(document).ready(function() {
 
 	function setLinkClickEvent() {
 		$("#twitter-btn-link").click(function() {
-			interval = setTimeout(checkTwitterLinkStatus, 5000);
+			interval = setTimeout(checkTwitterLinkStatus, 1500);
 		});
         $("#facebook-btn-link").click(function() {
-			interval = setTimeout(checkFacebookLinkStatus, 5000);
+			interval = setTimeout(checkFacebookLinkStatus, 1500);
 		});
 	}
 
