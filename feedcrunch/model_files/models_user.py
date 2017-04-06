@@ -88,7 +88,7 @@ class FeedUserManager(BaseUserManager):
 
         def _validate_birthdate(self, birthdate):
 
-            today = datetime.date.today()
+            today = timezone.now().date()
 
             if datetime.datetime.strptime(birthdate, '%d/%m/%Y').date() > today:
                 raise ValueError("The given birthdate can't be in the future. Please provide a correct date.")

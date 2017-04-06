@@ -8,7 +8,7 @@ from django.utils import timezone
 import datetime
 
 
-def get_N_time_period(N_periods=14, duration=1, max_date=datetime.date.today()):
+def get_N_time_period(N_periods=14, duration=1, max_date=timezone.now().date()):
 
     d_today = timezone.now()
     max_date_delta = (d_today.date()-max_date).days

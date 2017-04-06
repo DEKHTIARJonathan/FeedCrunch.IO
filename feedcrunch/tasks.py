@@ -4,13 +4,14 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.loader import render_to_string
+from django.utils import timezone
 
 from django_q.tasks import async, schedule
 from django_q.models import Schedule
 
 from feedcrunch.models import FeedUser, RSSFeed, RSSSubscriber, RSSSubsStat
 
-from datetime import timedelta, date, datetime
+from datetime import timedelta, datetime
 
 ########################################################## REFRESH RSS FEEDS ##########################################################
 
@@ -37,11 +38,11 @@ def record_user_subscribers_stats(username=None):
         except ObjectDoesNotExist:
             raise Exception("The given username ('"+username+"') doesn't exist.")
 
-        today           = date.today()
+        today           = timezone.now().date()
         sub_timedelta   = settings.RSS_SUBS_LOOKUP_PERIOD
         last_lookup_day = today - timedelta(days=sub_timedelta)
 
-        if not usr.rel_rss_subscribers_count.filter(date=date.today()).exists(): # Check if a statistic already exists for that day
+        if not usr.rel_rss_subscribers_count.filter(date=timezone.now().date()).exists(): # Check if a statistic already exists for that day
 
             #count = usr.rel_rss_subscribers.filter(date__range=(last_lookup_day, today)).values("ipaddress").annotate(n=models.Count("pk")).count()__gte
             count = usr.rel_rss_subscribers.filter(date__gte=last_lookup_day).values("ipaddress").annotate(n=models.Count("pk")).count()
