@@ -1,0 +1,56 @@
+#####
+# Circle CI
+#
+# For running docker images on circle ci, see: https://circleci.com/docs/docker
+# For circle.yml explanation, see: https://circleci.com/docs/manually
+# Python specific configuration, see: https://circleci.com/docs/language-python
+#####
+
+# Basic test of cookiecutter deployment - basic django project test & building of documentation
+
+# Newer version of docker-compose
+machine:
+  environment:
+    # Python versions to test (Maximum of 4 different versions for now)
+    PY_VERSIONS: "3.6 3.5 3.4"
+    # For Coveralls
+    COVERALLS_REPO_TOKEN: xh75EzxFFMoTEyNPo3wXxXv8OVkul3eE5
+
+  environment:
+    DATABASE_URL: postgres://postgres@127.0.0.1:5433/test_database
+
+  services:
+    - postgresql
+
+database:
+  override:
+    # This next line prevents Circle from automatically overwriting
+    # config/database.yml with one pointing at Postgres 9.4.
+    - true
+
+dependencies:
+  override:
+    # Just to be 100% certian you are using 9.5, and save a bit of memory.
+    - sudo service postgresql stop 9.4
+
+    # The 9.4 instance has been configured to work with Docker. Just
+    # copy that over to 9.5 and restart.
+    - sudo cp -v /etc/postgresql/9.{4,5}/main/pg_hba.conf && sudo service postgresql restart 9.5
+
+  pre:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+
+test:
+  pre:
+    - python manage.py collectstatic --no-input
+    - python manage.py makemigrations feedcrunch
+    - python manage.py migrate
+    - python manage.py createcachetable
+    - coverage run manage.py test
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - cd django-myproject && ./deploy_docs.sh docs/build/html

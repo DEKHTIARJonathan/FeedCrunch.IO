@@ -15,6 +15,7 @@ import sys, facebook, json
 class FacebookAPI(object):
     api = False
     error = ""
+    post_illustration = "https://s3-eu-west-1.amazonaws.com/feedcrunch/static/home/images/social-share-images/social-img.png"
     callback_url = 'https://www.feedcrunch.io/oauth/facebook/get_callback/'
     callback_url_debug = 'http://local.feedcrunch.io:5000/oauth/facebook/get_callback/'
     app_permissions = [
@@ -31,13 +32,6 @@ class FacebookAPI(object):
     def __init__(self, user):
 
         try:
-            try:
-                facebook_app_id     = Option.objects.get(parameter="facebook_app_id").value
-                facebook_app_secret = Option.objects.get(parameter="facebook_app_secret").value
-
-            except:
-                raise Exception("FacebookAPI.__init__(): Failed to retrieve the Facebook Consumer Keys.")
-
             if not user.is_social_network_enabled(network="facebook"):
                 raise ValueError("User has not enabled Twitter")
             else:
@@ -120,7 +114,7 @@ class FacebookAPI(object):
                     "link": self.baseurl+str(id),
                     "caption": '',
                     "description": tag_str,
-                    "picture" : 'https://pbs.twimg.com/media/CdlFCYmXIAAGkiH.jpg',
+                    "picture" : self.post_illustration,
                 }
 
                 response = self.api.put_wall_post(message, attachment=attach)

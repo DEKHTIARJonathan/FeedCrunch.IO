@@ -203,7 +203,7 @@ class User_Facebook_Status(APIView):
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload["operation"] = "User Twitter Status"
+        payload["operation"] = "User Facebook Status"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
@@ -599,15 +599,16 @@ class Article(APIView):
             else:
                 RSSArticle_Assoc_id = -1
 
-            print ("TEST1")
-            print (request.POST)
             title = unicodedata.normalize('NFC', request.POST['title'])
-            print ('Title = ' + title)
             link = unicodedata.normalize('NFC', request.POST['link'])
             tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
+
             twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+            facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
+            linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
+            gplus_bool = str2bool(unicodedata.normalize('NFC', request.POST['gplus']))
 
             if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
                 title = format_title(title)
@@ -637,19 +638,21 @@ class Article(APIView):
                 RSSArticle_Assoc_obj.save()
 
             if twitter_bool and user.is_social_network_enabled(network="twitter"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_twitter',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now() + datetime.timedelta(minutes=1)
+                )
 
-                    twitter_API = TwitterAPI(user)
+            if facebook_bool and user.is_social_network_enabled(network="facebook"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_facebook',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now() + datetime.timedelta(minutes=1)
+                )
 
-                    if twitter_API.connection_status():
-
-                        tw_rslt = twitter_API.publish_post(title, tmp_post.id, tags)
-
-                        if not tw_rslt['status']:
-                            payload["postID"] = str(tmp_post.id)
-                            raise Exception("An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error'])
-
-                    else:
-                        raise Exception("Not connected to the Twitter API")
 
             payload["success"] = True
             payload["postID"] = str(tmp_post.id)
@@ -686,7 +689,11 @@ class Article(APIView):
             tags = unicodedata.normalize('NFC', request.data['tags']).split(',') # We separate each tag and create a list out of it.
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.data['activated']))
-            twitter_bool = str2bool(unicodedata.normalize('NFC', request.data['twitter']))
+
+            twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+            facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
+            linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
+            gplus_bool = str2bool(unicodedata.normalize('NFC', request.POST['gplus']))
 
             if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
                 title = format_title(title)
@@ -710,23 +717,24 @@ class Article(APIView):
                 else:
                     tags.pop(i)
 
-            if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
-
-                twitter_API = TwitterAPI(request.user)
-
-                if twitter_API.connection_status():
-                    tmp_post.save()
-
-                    tw_rslt = twitter_API.publish_post(title, tmp_post.id, tags)
-
-                    if not tw_rslt['status']:
-                        payload["postID"] = str(tmp_post.id)
-                        raise Exception("Twitter posting error, however the post was saved: " + tw_rslt['error'])
-
-                else:
-                    raise Exception("Not connected to the Twitter API")
-
             tmp_post.save()
+
+            if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_twitter',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now() + datetime.timedelta(minutes=1)
+                )
+
+            if facebook_bool and request.user.is_social_network_enabled(network="facebook"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_facebook',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now() + datetime.timedelta(minutes=1)
+                )
+
             payload["success"] = True
             payload["postID"] = str(postID)
 

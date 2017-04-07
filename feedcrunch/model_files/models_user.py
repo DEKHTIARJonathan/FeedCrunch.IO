@@ -522,9 +522,9 @@ class FeedUser(AbstractFeedUser):
                 expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
 
                 if expire_datetime is not None:
-                    valid_datetime = timezone.now() < expire_datetime
-
-                return token != "" and valid_datetime
+                    return token != "" and timezone.now() < expire_datetime
+                else:
+                    return  False
 
             else:
                 token  = getattr(self, self.social_fields[network]["token"])
@@ -670,5 +670,7 @@ class FeedUser(AbstractFeedUser):
     def refresh_user_subscribtions(self):
         launch_time = timezone.now() + datetime.timedelta(minutes=1)
 
-        for feed in self.rel_feeds.filter(active=True):
-            schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)
+        for feed_assoc in self.rel_sub_feed.all():
+            feed = feed_assoc.feed
+            if feed.active:
+                schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)
