@@ -14,11 +14,11 @@ headers = reader.next()
 data = []
 for row in reader:
 
-    tmp = {}
+    tmp = dict()
     tmp['model'] = "feedcrunch.post"
     tmp['pk'] = int(row["id"])
 
-    tmp_fields = {}
+    tmp_fields = dict()
     tmp_fields["title"] = row["title"]
     tmp_fields["link"] = row["link"]
 

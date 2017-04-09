@@ -56,7 +56,7 @@ def dataset(request, feedname=None):
         return HttpResponse(data_output)
 
 def search(request, feedname=None):
-    result = {}
+    result = dict()
 
     if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
         return HttpResponseRedirect("/")
@@ -72,7 +72,7 @@ def search(request, feedname=None):
         posts = []
 
         for post in rslt_from_db:
-            data = {}
+            data = dict()
             data["id"] = post.id
             data["title"] = post.title
             data["when"] = post.get_date()
@@ -85,7 +85,7 @@ def search(request, feedname=None):
     else:
 
         result["status"] = "KO"
-        result["posts"] = {}
+        result["posts"] = dict()
 
     result["search_str"] = search_str
     return JsonResponse(result)

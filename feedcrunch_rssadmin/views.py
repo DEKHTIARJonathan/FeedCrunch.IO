@@ -15,7 +15,10 @@ import datetime, unicodedata, json
 from calendar import monthrange
 
 from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc, Interest, Option
-from twitter.tw_funcs import TwitterAPI, get_authorization_url
+
+from oauth.twitterAPI import TwitterAPI
+from oauth.facebookAPI import FacebookAPI
+from oauth.linkedinAPI import LinkedInAPI
 
 from check_admin import check_admin
 from data_convert import str2bool
@@ -47,14 +50,14 @@ def index(request, feedname=None):
                 post_trending_color = "red-text"
             else :
                 post_trending = "trending_flat"
-                post_trending_color = "blue-grey lighten-1"
+                post_trending_color = "blue-grey-text"
 
             publication_trend = int(round(abs(publication_trend),0))
 
         except ZeroDivisionError:
             publication_trend = -1
             post_trending = "new_releases"
-            post_trending_color = "blue-grey lighten-1"
+            post_trending_color = "blue-grey-text"
 
         data = {
             'monthtime_elapsed': monthtime_elapsed,
@@ -114,11 +117,24 @@ def services_form(request, feedname=None):
     if check_passed != True:
         return check_passed
     else:
-        if not request.user.is_twitter_activated():
-            twitter_auth_url = get_authorization_url(request)
+        request_data = dict()
+
+        if not request.user.is_social_network_activated(network="twitter"):
+            request_data["twitter_auth_url"] = TwitterAPI.get_authorization_url(request)
         else:
-            twitter_auth_url = False # False => Don't need to authenticate with Twitter
-        return render(request, 'admin/admin_social_sharing.html', {'twitter_auth_url': twitter_auth_url})
+            request_data["twitter_auth_url"] = False # False => Don't need to authenticate with Twitter
+
+        if not request.user.is_social_network_activated(network="facebook"):
+            request_data["facebook_auth_url"] = FacebookAPI.get_authorization_url()
+        else:
+            request_data["facebook_auth_url"] = False # False => Don't need to authenticate with Twitter LinkedInAPI
+
+        if not request.user.is_social_network_activated(network="linkedin"):
+            request_data["linkedin_auth_url"] = LinkedInAPI.get_authorization_url()
+        else:
+            request_data["linkedin_auth_url"] = False # False => Don't need to authenticate with Twitter
+
+        return render(request, 'admin/admin_social_sharing.html', request_data)
 
 def add_article_form(request, feedname=None):
 
@@ -207,7 +223,7 @@ def upload_picture(request, feedname=None):
             raise Exception("Only POST Requests Allowed.")
 
     except Exception as e:
-        data = {}
+        data = dict()
         data["status"] = "error"
         data["error"] = "An error occured in the process: " + str(e)
         data["feedname"] = feedname
@@ -286,8 +302,8 @@ def onboarding_view(request, feedname=None):
         interest_list = Interest.objects.all().order_by('name')
         country_list = Country.objects.all().order_by('name')
 
-        if not request.user.is_twitter_activated():
-            twitter_auth_url = get_authorization_url(request)
+        if not request.user.is_social_network_activated(network="twitter"):
+            twitter_auth_url = TwitterAPI.get_authorization_url(request)
         else:
             twitter_auth_url = False # False => Don't need to authenticate with Twitter
 
@@ -300,7 +316,7 @@ def process_onboarding_view(request, feedname=None):
         return check_passed
 
     else:
-        payload = {}
+        payload = dict()
 
         payload["success"] = True
         payload["feedname"] = request.user.username
@@ -321,7 +337,7 @@ def process_onboarding_view(request, feedname=None):
             'company_website'
         ]
 
-        form_data = {}
+        form_data = dict()
         for field in fields:
             form_data[field] = unicodedata.normalize('NFC', request.POST[field])
 

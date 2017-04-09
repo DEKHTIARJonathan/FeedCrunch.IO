@@ -21,12 +21,11 @@ from django_q.models import Schedule
 from validate_email import validate_email
 from encrypted_model_fields .fields import EncryptedCharField
 
-from feedcrunch.models import Continent, Country, Estimator
-from .models_interest import Interest
+from feedcrunch.models import Continent, Country, Estimator, Interest
 
-from twitter.tw_funcs import *
-
-from twython import Twython
+from oauth.twitterAPI import TwitterAPI
+from oauth.facebookAPI import FacebookAPI
+from oauth.linkedinAPI import LinkedInAPI
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
@@ -91,7 +90,7 @@ class FeedUserManager(BaseUserManager):
 
         def _validate_birthdate(self, birthdate):
 
-            today = datetime.date.today()
+            today = timezone.now().date()
 
             if datetime.datetime.strptime(birthdate, '%d/%m/%Y').date() > today:
                 raise ValueError("The given birthdate can't be in the future. Please provide a correct date.")
@@ -324,34 +323,34 @@ class FeedUser(AbstractFeedUser):
     #                                            SOCIAL TOKENS                                           #
     ################################### ============================== ###################################
 
-    twitter_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    twitter_token_secret   = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    twitter_token                  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    twitter_token_secret           = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 
-    facebook_token         = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    facebook_token_secret  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    facebook_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    facebook_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
 
-    gplus_token            = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    gplus_token_secret     = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    linkedin_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    linkedin_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
 
-    linkedin_token         = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    linkedin_token_secret  = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    gplus_token                    = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    gplus_token_secret             = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 
     social_fields = {
         'twitter' : {
-            'token'  : "twitter_token",
-            'secret' : "twitter_token_secret"
+            'token'           : "twitter_token",
+            'secret'          : "twitter_token_secret"
         },
         'facebook' : {
-            'token'  : "facebook_token",
-            'secret' : "facebook_token_secret"
-        },
-        'gplus' : {
-            'token'  : "gplus_token",
-            'secret' : "gplus_token_secret"
+            'token'           : "facebook_access_token",
+            'expire_datetime' : "facebook_token_expire_datetime"
         },
         'linkedin' : {
-            'token'  : "linkedin_token",
-            'secret' : "linkedin_token_secret"
+            'token'           : "linkedin_access_token",
+            'expire_datetime' : "linkedin_token_expire_datetime"
+        },
+        'gplus' : {
+            'token'           : "gplus_token",
+            'secret'          : "gplus_token_secret"
         },
     }
 
@@ -513,16 +512,25 @@ class FeedUser(AbstractFeedUser):
             rslt = dict()
 
             for social_net in list(self.social_fields.keys()):
-                token  = getattr(self, self.social_fields[social_net]["token"])
-                secret = getattr(self, self.social_fields[social_net]["secret"])
-                rslt[social_net] = token != "" and secret != ""
+                rslt[social_net] = self.is_social_network_enabled(network=social_net)
 
             return rslt
 
         elif network in list(self.social_fields.keys()):
-            token  = getattr(self, self.social_fields[network]["token"])
-            secret = getattr(self, self.social_fields[network]["secret"])
-            return token != "" and secret != ""
+
+            if network in ["facebook", "linkedin"]:
+                token           = getattr(self, self.social_fields[network]["token"])
+                expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
+
+                if expire_datetime is not None:
+                    return token != "" and timezone.now() < expire_datetime
+                else:
+                    return  False
+
+            else:
+                token  = getattr(self, self.social_fields[network]["token"])
+                secret = getattr(self, self.social_fields[network]["secret"])
+                return token != "" and secret != ""
 
         else:
             raise Exception("The network requested " + network + "doesn't exist in this application")
@@ -540,21 +548,51 @@ class FeedUser(AbstractFeedUser):
     def is_gplus_enabled(self):
         return self.is_social_network_enabled(network="gplus")
 
-    def is_twitter_activated(self):
-        if self.is_social_network_enabled(network="twitter"):
-            if TwitterAPI(self).verify_credentials()['status']:
+    def is_social_network_activated(self, network):
+        if network == "twitter":
+            if self.is_social_network_enabled(network=network):
+                if TwitterAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network=network)
+                    return False
+            else:
+                return False
+
+        elif network == "facebook":
+            if self.is_social_network_enabled(network=network):
+                if FacebookAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network=network)
+                    return False
+            else:
+                return False
+
+        elif network == "linkedin":
+            if self.is_social_network_enabled(network=network):
                 return True
             else:
-                self.reset_twitter_credentials()
                 return False
+
+        elif network == "gplus":
+            if self.is_social_network_enabled(network=network):
+                return True
+            else:
+                return False
+
         else:
             return False
 
-    def reset_twitter_credentials(self):
-        self.twitter_token = ""
-        self.twitter_token_secret = ""
-        self.save()
+    def reset_social_network_credentials(self, network):
+        if network in ["facebook", "linkedin"]:
+            setattr(self, self.social_fields[network]["token"], "")
+            setattr(self, self.social_fields[network]["expire_datetime"], None)
+        else:
+            setattr(self, self.social_fields[network]["token"], "")
+            setattr(self, self.social_fields[network]["secret"], "")
 
+        self.save()
     ################################### ============================== ###################################
     #                                       Subscribtion Management                                      #
     ################################### ============================== ###################################
@@ -639,5 +677,7 @@ class FeedUser(AbstractFeedUser):
     def refresh_user_subscribtions(self):
         launch_time = timezone.now() + datetime.timedelta(minutes=1)
 
-        for feed in self.rel_feeds.filter(active=True):
-            schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)
+        for feed_assoc in self.rel_sub_feed.all():
+            feed = feed_assoc.feed
+            if feed.active:
+                schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)

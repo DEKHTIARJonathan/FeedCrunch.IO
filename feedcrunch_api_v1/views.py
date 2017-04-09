@@ -17,18 +17,21 @@ from django_q.models import Schedule
 
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 
-from twitter.tw_funcs import TwitterAPI, get_authorization_url
+from oauth.twitterAPI import TwitterAPI
+from oauth.facebookAPI import FacebookAPI
+from oauth.linkedinAPI import LinkedInAPI
 
 import datetime, unicodedata, json, sys, os, feedparser
 
-from check_admin import check_admin_api
-from time_funcs import get_timestamp
-from date_manipulation import get_N_time_period
-from data_convert import str2bool
-from ap_style import format_title
-from image_validation import get_image_dimensions
-from feed_validation import validate_feed
-from clean_html import clean_html
+from check_admin          import check_admin_api
+from time_funcs           import get_timestamp
+from date_manipulation    import get_N_time_period
+from data_convert         import str2bool
+from ap_style             import format_title
+from image_validation     import get_image_dimensions
+from feed_validation      import validate_feed
+from clean_html           import clean_html
+from check_social_network import auto_format_social_network
 
 def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
     RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_AssocID, user=user)
@@ -158,10 +161,12 @@ class OPML_Import(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class User_Twitter_Status(APIView):
+class User_Social_Network_Status(APIView):
 
-    def get(self, request):
+    def get(self, request, social_network=None):
         try:
+
+            social_network = auto_format_social_network(social_network)
 
             payload = dict()
             check_passed = check_admin_api(request.user)
@@ -171,21 +176,23 @@ class User_Twitter_Status(APIView):
 
             payload ["success"] = True
             payload ["username"] = request.user.username
-
-            payload["status"] = request.user.is_twitter_activated()
+            payload ["social_network"] = social_network
+            payload ["status"] = request.user.is_social_network_activated(network=social_network)
 
         except Exception as e:
-            payload["success"] = False
-            payload["error"] = "An error occured in the process: " + str(e)
+            payload ["success"] = False
+            payload ["error"] = "FC_API.User_Social_Network_Status() - An error occured in the process: " + str(e)
 
-        payload["operation"] = "User Twitter Status"
+        payload["operation"] = "User Social_Network Status"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class UnLink_Twitter(APIView):
+class UnLink_User_Social_Network(APIView):
 
-    def delete(self, request):
+    def delete(self, request, social_network=None):
         try:
+
+            social_network = auto_format_social_network(social_network)
 
             payload = dict()
             check_passed = check_admin_api(request.user)
@@ -193,17 +200,28 @@ class UnLink_Twitter(APIView):
             if check_passed != True:
                 raise Exception(check_passed)
 
-            request.user.reset_twitter_credentials()
+            request.user.reset_social_network_credentials(network=social_network)
 
             payload ["success"] = True
             payload ["username"] = request.user.username
-            payload ["auth_url"] = get_authorization_url(request)
+            payload ["social_network"] = social_network
+
+            if social_network == "twitter":
+                payload ["auth_url"] = TwitterAPI.get_authorization_url(request)
+            elif social_network == "facebook":
+                payload ["auth_url"] = FacebookAPI.get_authorization_url()
+            elif social_network == "linkedin":
+                payload ["auth_url"] = LinkedInAPI.get_authorization_url()
+            elif social_network == "gplus":
+                payload ["auth_url"] = GPlusAPI.get_authorization_url(request)
+            else:
+                raise Exception("'social_network' ("+ social_network +") is not supported.")
 
         except Exception as e:
             payload["success"] = False
-            payload["error"] = "An error occured in the process: " + str(e)
+            payload["error"] = "FC_API.UnLink_User_Social_Network() - An error occured in the process:  " + str(e)
 
-        payload["operation"] = "Unlink Twitter"
+        payload["operation"] = "Unlink User Social_Network"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
@@ -551,15 +569,16 @@ class Article(APIView):
             else:
                 RSSArticle_Assoc_id = -1
 
-            print ("TEST1")
-            print (request.POST)
             title = unicodedata.normalize('NFC', request.POST['title'])
-            print ('Title = ' + title)
             link = unicodedata.normalize('NFC', request.POST['link'])
             tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
-            twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+
+            twitter_bool  = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+            facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
+            linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
+            gplus_bool    = str2bool(unicodedata.normalize('NFC', request.POST['gplus']))
 
             if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
                 title = format_title(title)
@@ -589,19 +608,36 @@ class Article(APIView):
                 RSSArticle_Assoc_obj.save()
 
             if twitter_bool and user.is_social_network_enabled(network="twitter"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_twitter',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
 
-                    twitter_instance = TwitterAPI(user)
+            if facebook_bool and user.is_social_network_enabled(network="facebook"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_facebook',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
 
-                    if twitter_instance.connection_status():
+            if linkedin_bool and user.is_social_network_enabled(network="linkedin"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_linkedin',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
 
-                        tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
-
-                        if not tw_rslt['status']:
-                            payload["postID"] = str(tmp_post.id)
-                            raise Exception("An error occured in the twitter posting process, but the post was saved: " + tw_rslt['error'])
-
-                    else:
-                        raise Exception("Not connected to the Twitter API")
+            if gplus_bool and user.is_social_network_enabled(network="gplus"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_gplus',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
 
             payload["success"] = True
             payload["postID"] = str(tmp_post.id)
@@ -638,7 +674,11 @@ class Article(APIView):
             tags = unicodedata.normalize('NFC', request.data['tags']).split(',') # We separate each tag and create a list out of it.
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.data['activated']))
-            twitter_bool = str2bool(unicodedata.normalize('NFC', request.data['twitter']))
+
+            twitter_bool  = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+            facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
+            linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
+            gplus_bool    = str2bool(unicodedata.normalize('NFC', request.POST['gplus']))
 
             if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
                 title = format_title(title)
@@ -662,23 +702,40 @@ class Article(APIView):
                 else:
                     tags.pop(i)
 
-            if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
-
-                twitter_instance = TwitterAPI(request.user)
-
-                if twitter_instance.connection_status():
-                    tmp_post.save()
-
-                    tw_rslt = twitter_instance.post_twitter(title, tmp_post.id, tags)
-
-                    if not tw_rslt['status']:
-                        payload["postID"] = str(tmp_post.id)
-                        raise Exception("Twitter posting error, however the post was saved: " + tw_rslt['error'])
-
-                else:
-                    raise Exception("Not connected to the Twitter API")
-
             tmp_post.save()
+
+            if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_twitter',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
+
+            if facebook_bool and request.user.is_social_network_enabled(network="facebook"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_facebook',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
+
+            if linkedin_bool and request.user.is_social_network_enabled(network="linkedin"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_linkedin',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
+
+            if gplus_bool and request.user.is_social_network_enabled(network="gplus"):
+                schedule(
+                    'feedcrunch.tasks.publish_on_gplus',
+                    idArticle=tmp_post.id,
+                    schedule_type=Schedule.ONCE,
+                    next_run=datetime.datetime.now()
+                )
+
             payload["success"] = True
             payload["postID"] = str(postID)
 
@@ -762,7 +819,7 @@ class Modify_Social_Networks(APIView):
                 'website'
             ]
 
-            social_data = {}
+            social_data = dict()
             for social in social_networks:
                 url = unicodedata.normalize('NFC', request.data[social])
                 if url != '':
@@ -847,11 +904,9 @@ class Modify_Preferences(APIView):
             request.user.pref_post_autoformat        = form_data["autoformat"]
 
             request.user.pref_post_repost_TW         = form_data["twitter"]
-
-            # ============= Disabled Operation For Now ! =============
-            #request.user.pref_post_repost_FB         = form_data["facebook"]
-            #request.user.pref_post_repost_GPlus      = form_data["linkedin"]
-            #request.user.pref_post_repost_LKin       = form_data["gplus"]
+            request.user.pref_post_repost_FB         = form_data["facebook"]
+            request.user.pref_post_repost_LKin       = form_data["linkedin"]
+            request.user.pref_post_repost_GPlus      = form_data["gplus"]
 
             request.user.save()
             payload["success"] = True
@@ -945,7 +1000,7 @@ class Modify_Personal_info(APIView):
             request.user.pref_newsletter_subscribtion   = str2bool(form_data["newsletter_subscribtion"])
 
             request.user.save()
-            
+
             payload["success"] = True
 
         except Exception as e:
@@ -974,7 +1029,7 @@ class Modify_Password(APIView):
                 'new_password_2',
             ]
 
-            form_data = {}
+            form_data = dict()
 
             for field in form_fields:
                 form_data[field] = unicodedata.normalize('NFC', request.data[field])

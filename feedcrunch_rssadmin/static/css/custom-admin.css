@@ -47,6 +47,10 @@ input.valid{
 	width:100%;
 }
 
+.socialconnect-btn{
+    width: 290px;
+}
+
 table.dataTable thead .sorting {
 	background-image: url(../plugins/datatables/images/sort_both.png);
 	background-repeat: no-repeat;

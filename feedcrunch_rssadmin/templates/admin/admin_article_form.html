@@ -42,7 +42,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="input-field col s12 m6 l4">
+                                            <div class="input-field col s12 m6 l3">
                                                 <!-- Switch -->
                                                 <div class="switch m-b-md">
                                                     <label>
@@ -56,21 +56,69 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="input-field col s12 m6 l4">
-                                                <!-- Switch -->
-                                                <div class="switch m-b-md">
-                                                    <label>
-                                                        <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Twitter:</span>
-                                                        {% if user.is_twitter_enabled %}
-                                                            <input type="checkbox" id="twitter" name="twitter" data-init="{{ user.pref_post_repost_TW }}">
-                                                        {% else %}
-                                                            <input type="checkbox" id="twitter" name="twitter" disabled>
-                                                        {% endif %}
-                                                        <span class="lever"></span>
-                                                    </label>
+                                            <div class="input-field col s12 m6">
+
+                                                <div class="input-field col s12 m6">
+                                                    <!-- Switch -->
+                                                    <div class="switch m-b-md">
+                                                        <label>
+                                                            <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Twitter:</span>
+                                                            {% if user.is_twitter_enabled %}
+                                                                <input type="checkbox" id="twitter" name="twitter" data-init="{{ user.pref_post_repost_TW }}">
+                                                            {% else %}
+                                                                <input type="checkbox" id="twitter" name="twitter" disabled>
+                                                            {% endif %}
+                                                            <span class="lever"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m6">
+                                                    <!-- Switch -->
+                                                    <div class="switch m-b-md">
+                                                        <label>
+                                                            <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Facebook:</span>
+                                                            {% if user.is_facebook_enabled %}
+                                                                <input type="checkbox" id="facebook" name="facebook" data-init="{{ user.pref_post_repost_FB }}">
+                                                            {% else %}
+                                                                <input type="checkbox" id="facebook" name="facebook" disabled>
+                                                            {% endif %}
+                                                            <span class="lever"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m6">
+                                                    <!-- Switch -->
+                                                    <div class="switch m-b-md">
+                                                        <label>
+                                                            <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on LinkedIn:</span>
+                                                            {% if user.is_linkedin_enabled %}
+                                                                <input type="checkbox" id="linkedin" name="linkedin" data-init="{{ user.pref_post_repost_LKin }}">
+                                                            {% else %}
+                                                                <input type="checkbox" id="linkedin" name="linkedin" disabled>
+                                                            {% endif %}
+                                                            <span class="lever"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m6">
+                                                    <!-- Switch -->
+                                                    <div class="switch m-b-md">
+                                                        <label>
+                                                            <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Google Plus:</span>
+                                                            {% if user.is_gplus_enabled %}
+                                                                <input type="checkbox" id="gplus" name="gplus" data-init="{{ user.pref_post_repost_GPlus }}">
+                                                            {% else %}
+                                                                <input type="checkbox" id="gplus" name="gplus" disabled>
+                                                            {% endif %}
+                                                            <span class="lever"></span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="input-field col s12 m6 l4">
+                                            <div class="input-field col s12 m6 l3">
                                                 <!-- Switch -->
                                                 <div class="switch m-b-md">
                                                     <label>
