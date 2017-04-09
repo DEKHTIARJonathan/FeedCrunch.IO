@@ -10,6 +10,7 @@ from datetime import timedelta
 
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
+from oauth.linkedinAPI import LinkedInAPI
 
 def twitter_callback(request):
 
@@ -46,8 +47,10 @@ def facebook_callback(request):
         access_code = request.GET['code']
 
         fb_request = FacebookAPI.get_authorized_tokens(access_code)
+
         if not fb_request['status']:
             raise Exception(fb_request['error'])
+
         expire_datetime = timezone.now() + timedelta(seconds=int(fb_request['token']['expires_in']))
 
         setattr(request.user, request.user.social_fields["facebook"]["token"], fb_request['token']['access_token'])
@@ -66,28 +69,20 @@ def facebook_callback(request):
 
         return JsonResponse(data)
 
-    except Exception as e:
-        data = dict()
-
-        data["status"] = "error"
-        data["error"] = str(e)
-        data["feedname"] = request.user.username
-
-        return JsonResponse(data)
-
 def linkedin_callback(request):
 
     try:
+        access_code = request.GET['code']
 
-        oauth_verifier = request.GET['oauth_verifier']
+        lk_request = LinkedInAPI.get_authorized_tokens(access_code)
 
-        tw_request = twitterAPI.get_authorized_tokens(oauth_verifier, token, token_secret)
+        if not lk_request['status']:
+            raise Exception(lk_request['error'])
 
-        if not tw_request['status']:
-            raise Exception(request['error'])
+        expire_datetime = timezone.now() + timedelta(seconds=int(lk_request['token']['expires_in']))
 
-        request.user.twitter_token = tw_request['tokens']['oauth_token']
-        request.user.twitter_token_secret = tw_request['tokens']['oauth_token_secret']
+        setattr(request.user, request.user.social_fields["linkedin"]["token"], lk_request['token']['access_token'])
+        setattr(request.user, request.user.social_fields["linkedin"]["expire_datetime"], expire_datetime)
 
         request.user.save()
 

@@ -18,6 +18,7 @@ from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle,
 
 from oauth.twitterAPI import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
+from oauth.linkedinAPI import LinkedInAPI
 
 from check_admin import check_admin
 from data_convert import str2bool
@@ -126,7 +127,12 @@ def services_form(request, feedname=None):
         if not request.user.is_social_network_activated(network="facebook"):
             request_data["facebook_auth_url"] = FacebookAPI.get_authorization_url()
         else:
-            request_data["facebook_auth_url"] = False # False => Don't need to authenticate with Twitter
+            request_data["facebook_auth_url"] = False # False => Don't need to authenticate with Twitter LinkedInAPI
+
+        if not request.user.is_social_network_activated(network="linkedin"):
+            request_data["linkedin_auth_url"] = LinkedInAPI.get_authorization_url()
+        else:
+            request_data["linkedin_auth_url"] = False # False => Don't need to authenticate with Twitter
 
         return render(request, 'admin/admin_social_sharing.html', request_data)
 

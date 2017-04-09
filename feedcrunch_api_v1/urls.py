@@ -27,11 +27,8 @@ urlpatterns = [
     url(r'^authenticated/modify/user/preferences/$', Modify_Preferences.as_view(), name='modify_preferences'),
 
     # OAUTH Social Networks Routes
-
-    url(r'^authenticated/get/user/social-networks/twitter/status/$', User_Twitter_Status.as_view(), name='User_Twitter_Status'),
-    url(r'^authenticated/get/user/social-networks/facebook/status/$', User_Facebook_Status.as_view(), name='User_Facebook_Status'),
-    url(r'^authenticated/delete/user/social-networks/twitter/$', UnLink_Twitter.as_view(), name='UnLink_Twitter'),
-    url(r'^authenticated/delete/user/social-networks/facebook/$', UnLink_Facebook.as_view(), name='UnLink_Facebook'),
+    url(r'^authenticated/get/user/social-networks/(?P<social_network>\w+)/status/$', User_Social_Network_Status.as_view(), name='User_Social_Network_Status'),
+    url(r'^authenticated/delete/user/social-networks/(?P<social_network>\w+)/$', UnLink_User_Social_Network.as_view(), name='UnLink_Social_Network'),
 
     # Tag Routes
     url(r'^authenticated/get/tags/$', Tags.as_view(), name='tags_as_json'),

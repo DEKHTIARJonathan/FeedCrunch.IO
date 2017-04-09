@@ -70,6 +70,7 @@ pycrypto>=2.6.1
 pyparsing==2.2.0
 pyreadline==2.1
 python-dateutil==2.6.0
+python3-linkedin==1.0.1
 pytz==2016.7
 PyYAML==3.12
 requests==2.13.0

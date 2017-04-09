@@ -25,6 +25,7 @@ from feedcrunch.models import Continent, Country, Estimator, Interest
 
 from oauth.twitterAPI import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
+from oauth.linkedinAPI import LinkedInAPI
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
@@ -328,11 +329,11 @@ class FeedUser(AbstractFeedUser):
     facebook_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
     facebook_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
 
+    linkedin_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
+    linkedin_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
+
     gplus_token                    = EncryptedCharField(max_length=500, default='', blank=True, null=True)
     gplus_token_secret             = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-
-    linkedin_token                 = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    linkedin_token_secret          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
 
     social_fields = {
         'twitter' : {
@@ -343,13 +344,13 @@ class FeedUser(AbstractFeedUser):
             'token'           : "facebook_access_token",
             'expire_datetime' : "facebook_token_expire_datetime"
         },
+        'linkedin' : {
+            'token'           : "linkedin_access_token",
+            'expire_datetime' : "linkedin_token_expire_datetime"
+        },
         'gplus' : {
             'token'           : "gplus_token",
             'secret'          : "gplus_token_secret"
-        },
-        'linkedin' : {
-            'token'           : "linkedin_token",
-            'secret'          : "linkedin_token_secret"
         },
     }
 
@@ -517,7 +518,7 @@ class FeedUser(AbstractFeedUser):
 
         elif network in list(self.social_fields.keys()):
 
-            if network == "facebook":
+            if network in ["facebook", "linkedin"]:
                 token           = getattr(self, self.social_fields[network]["token"])
                 expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
 
@@ -553,7 +554,7 @@ class FeedUser(AbstractFeedUser):
                 if TwitterAPI(self).verify_credentials()['status']:
                     return True
                 else:
-                    self.reset_social_network_credentials(network="twitter")
+                    self.reset_social_network_credentials(network=network)
                     return False
             else:
                 return False
@@ -563,22 +564,28 @@ class FeedUser(AbstractFeedUser):
                 if FacebookAPI(self).verify_credentials()['status']:
                     return True
                 else:
-                    self.reset_social_network_credentials(network="facebook")
+                    self.reset_social_network_credentials(network=network)
                     return False
             else:
                 return False
 
         elif network == "linkedin":
-            return False
+            if self.is_social_network_enabled(network=network):
+                return True
+            else:
+                return False
 
         elif network == "gplus":
-            return False
+            if self.is_social_network_enabled(network=network):
+                return True
+            else:
+                return False
 
         else:
             return False
 
     def reset_social_network_credentials(self, network):
-        if network == "facebook":
+        if network in ["facebook", "linkedin"]:
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["expire_datetime"], None)
         else:

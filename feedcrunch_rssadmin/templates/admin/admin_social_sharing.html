@@ -13,9 +13,13 @@
                 </div>
                 <div class="card-action" style="text-align: center;" id="twitter-btn-div">
                     {% if twitter_auth_url %}
-                        <a href="{{ twitter_auth_url }}" target="_target" class="waves-effect waves-light btn blue" id="twitter-btn-link">Link My Twitter Account</a>
+                        <a href="{{ twitter_auth_url }}" target="_target" class="waves-effect waves-light btn blue socialconnect-btn" id="twitter-btn-link">
+                            Link My Twitter Account
+                        </a>
                     {% else %}
-                        <button class="waves-effect waves-light btn red twitter-btn" id="twitter-btn-unlink">Unlink My Twitter Account</button>
+                        <button class="waves-effect waves-light btn red twitter-btn socialconnect-btn" id="twitter-btn-unlink">
+                            Unlink My Twitter Account
+                        </button>
                     {% endif %}
                 </div>
             </div>
@@ -33,9 +37,13 @@
                 </div>
                 <div class="card-action" style="text-align: center;" id="facebook-btn-div">
                     {% if facebook_auth_url %}
-                        <a href="{{ facebook_auth_url }}" target="_target" class="waves-effect waves-light btn blue" id="facebook-btn-link">Link My Facebook Account</a>
+                        <a href="{{ facebook_auth_url }}" target="_target" class="waves-effect waves-light btn blue socialconnect-btn" id="facebook-btn-link">
+                            Link My Facebook Account
+                        </a>
                     {% else %}
-                        <button class="waves-effect waves-light btn red twitter-btn" id="facebook-btn-unlink">Unlink My Facebook Account</button>
+                        <button class="waves-effect waves-light btn red socialconnect-btn" id="facebook-btn-unlink">
+                            Unlink My Facebook Account
+                        </button>
                     {% endif %}
                 </div>
             </div>
@@ -51,11 +59,16 @@
                 <div class="card-content">
                     <p>Link your Feedcrunch Account to LinkedIn and automate your posting workflows.</p>
                 </div>
-                <div class="card-action" style="text-align: center;">
+                <div class="card-action" style="text-align: center;" id="linkedin-btn-div">
                     {% if linkedin_auth_url %}
-                    <a href="{{ linkedin_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My LinkedIn Account</a> {% else %}
-                    <!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My LinkedIn Account</a> -->
-                    <a href="#" class="waves-effect waves-light btn red" disabled>available soon</a> {% endif %}
+                        <a href="{{ linkedin_auth_url }}" target="_target" class="waves-effect waves-light btn blue socialconnect-btn" id="linkedin-btn-link">
+                            Link My Linkedin Account
+                        </a>
+                    {% else %}
+                        <button class="waves-effect waves-light btn red socialconnect-btn" id="linkedin-btn-unlink">
+                            Unlink My Linkedin Account
+                        </button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -70,11 +83,16 @@
                 <div class="card-content">
                     <p>Link your Feedcrunch Account to Google Plus and automate your posting workflows.</p>
                 </div>
-                <div class="card-action" style="text-align: center;">
+                <div class="card-action" style="text-align: center;" id="gplus-btn-div">
                     {% if gplus_auth_url %}
-                    <a href="{{ gplus_auth_url }}" class="waves-effect waves-light btny blue" disabled>Link My Google Plus Account</a> {% else %}
-                    <!-- <a href="/linkedin/oauth/unlink" class="waves-effect waves-light btn red" disabled>Unlink My Google Plus Account</a> -->
-                    <a href="#" class="waves-effect waves-light btn red" disabled>available soon</a> {% endif %}
+                        <a href="{{ gplus_auth_url }}" target="_target" class="waves-effect waves-light btn blue socialconnect-btn" id="gplus-btn-link">
+                            Link My Google Plus Account
+                        </a>
+                    {% else %}
+                        <button class="waves-effect waves-light btn red gplus-btn socialconnect-btn" id="gplus-btn-unlink">
+                            Unlink My Google Plus Account
+                        </button>
+                    {% endif %}
                 </div>
             </div>
         </div>

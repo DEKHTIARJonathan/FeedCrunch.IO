@@ -7,9 +7,6 @@ from django.conf import settings
 
 from feedcrunch.models import *
 
-from urllib.parse import urlencode
-from urllib.request import urlopen
-
 import sys, facebook, json
 
 class FacebookAPI(object):
@@ -157,25 +154,21 @@ class FacebookAPI(object):
     @staticmethod
     def get_authorized_tokens(code):
         try:
-            try:
-                facebook_app_id     = Option.objects.get(parameter="facebook_app_id").value
-                facebook_app_secret = Option.objects.get(parameter="facebook_app_secret").value
+            facebook_app_id     = Option.objects.get(parameter="facebook_app_id").value
+            facebook_app_secret = Option.objects.get(parameter="facebook_app_secret").value
 
-            except:
-                return {'status':False, 'error': "Error! Failed to retrieve the consumer keys."}
+        except:
+            return {'status':False, 'error': "FacebookAPI.get_authorized_tokens(): Error! Failed to retrieve the consumer keys."}
 
+        try:
             api = facebook.GraphAPI()
 
-            try:
-                if settings.DEBUG:
-                    final_step = api.get_access_token_from_code(code=code, redirect_uri=FacebookAPI.callback_url_debug, app_id=facebook_app_id, app_secret=facebook_app_secret)
-                else:
-                    final_step = api.get_access_token_from_code(code=code, redirect_uri=FacebookAPI.callback_url, app_id=facebook_app_id, app_secret=facebook_app_secret)
+            if settings.DEBUG:
+                final_step = api.get_access_token_from_code(code=code, redirect_uri=FacebookAPI.callback_url_debug, app_id=facebook_app_id, app_secret=facebook_app_secret)
+            else:
+                final_step = api.get_access_token_from_code(code=code, redirect_uri=FacebookAPI.callback_url, app_id=facebook_app_id, app_secret=facebook_app_secret)
 
-                return {'status':True, 'token': final_step}
-
-            except Exception as e:
-                return {'status':False, 'error':'Error! Failed to get access token: ' + str(e)}
+            return {'status':True, 'token': final_step}
 
         except Exception as e:
-            return {'status':False, 'error': str(e)}
+            return {'status':False, 'error':'FacebookAPI.get_authorized_tokens(): Error! Failed to get access token: ' + str(e)}
