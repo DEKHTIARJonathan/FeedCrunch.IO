@@ -20,7 +20,7 @@ def create_key(size=8):
 
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(FeedUser, related_name='rel_posts')
+    user = models.ForeignKey(FeedUser, related_name='rel_posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     link = models.URLField(max_length=2000)
     when = models.DateTimeField(auto_now_add=True)

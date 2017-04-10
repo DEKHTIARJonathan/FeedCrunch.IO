@@ -51,7 +51,7 @@ class RSSSubscriber(models.Model):
         web = ChoiceItem()
 
     id         = models.AutoField(primary_key=True)
-    user       = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers')
+    user       = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers', on_delete=models.CASCADE)
     ipaddress  = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
     date       = models.DateField(auto_now_add=True, blank=False, null=False)
     feedtype   = models.CharField(max_length=4, choices=FeedType.choices, default=FeedType.rss)
@@ -83,7 +83,7 @@ class RSSSubsStat(models.Model):
     objects = RSSSubsStatManager()
 
     id    = models.AutoField(primary_key=True)
-    user  = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers_count', blank=False, null=False)
+    user  = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers_count', blank=False, null=False, on_delete=models.CASCADE)
     date  = models.DateField(auto_now_add=False, blank=False, null=False)
     count = models.IntegerField(default=0, blank=False, null=False)
 
