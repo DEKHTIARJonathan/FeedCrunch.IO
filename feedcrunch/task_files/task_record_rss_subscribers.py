@@ -18,7 +18,6 @@ from feedcrunch.models import FeedUser, RSSSubsStat
 
 from datetime import timedelta
 
-
 def record_user_subscribers_stats(username=None):
     if username is not None:
 

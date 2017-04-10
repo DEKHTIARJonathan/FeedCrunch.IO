@@ -131,8 +131,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -268,10 +266,21 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 if not DEBUG:
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_SECONDS = 3600
+
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    X_FRAME_OPTIONS = 'DENY'
+
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+
     SECURE_SSL_REDIRECT = True
     SECURE_REDIRECT_EXEMPT = (
         r'^healthcheck\/?$',
