@@ -26,60 +26,50 @@ class SlackAPI(object):
     def __init__(self, slackIntegrationObject):
 
         try:
-            if not user.is_social_network_enabled(network="slack"):
+            '''
+            if not slackIntegrationObject.user.is_social_network_enabled(network="slack"):
                 raise ValueError("User has not enabled Slack")
 
             else:
-                self.api = Slacker(slackIntegrationObject.access_token)
-                self.baseurl = "https://www.feedcrunch.io/@"+user.username+"/redirect/"
+                self.api     = Slacker(slackIntegrationObject.access_token)
+                self.baseurl = "https://www.feedcrunch.io/@" + slackIntegrationObject.user.username + "/redirect/"
+            '''
+            self.api     = Slacker(slackIntegrationObject.access_token)
+            self.baseurl = "https://www.feedcrunch.io/@" + slackIntegrationObject.user.username + "/redirect/"
 
         except Exception as e:
+            print (str(e))
             self.api = False
 
     def connection_status(self):
         return bool(self.api)
 
     def verify_credentials(self):
+        return {'status': self.connection_status()}
+
+    def publish_post(self, slackChannel, title, postID, tag_list=[]):
         try:
-            self.api.users.identity()
-            return {'status': True}
+            if self.api == False:
+                raise Exception("API Connection has failed during init phase")
 
-        except:
-            rslt = {'status': False, 'error': self.error}
+            tag_str = ""
+            if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
 
-    def publish_post(self, title, id, tag_list=[]):
-        if self.api != False:
+                for tag in tag_list:
 
-            try:
-                tag_str = ""
-                if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
+                    if tag_str != "":
+                        tag_str += " "
 
-                    for tag in tag_list:
+                    tag_str += "#"+tag
 
-                        if tag_str != "":
-                            tag_str += " "
+            message = title + "\n" + tag_str + "\n\n" + self.baseurl+str(postID)
 
-                        tag_str += "#"+tag
+            self.api.chat.post_message('#'+slackChannel, message)
 
-                message = title + " " + tag_str
+            return {'status':True}
 
-                response = self.api.submit_share(
-                        comment             = title + " " + tag_str,
-                        title               = title,
-                        description         = "Take RSS Feeds to the next level with Feedcrunch.io",
-                        submitted_url       = self.baseurl+str(id),
-                        submitted_image_url = self.post_illustration,
-                        visibility_code     = 'anyone'
-                )
-                ## response: {"updateKey": "UPDATE-##-##", "updateUrl": "https://www.linkedin.com/updates?discuss=&scope=~##&stype=M&topic=###&type=U&a=reT3"}
-
-                return {'status':True}
-
-            except Exception as e:
-                return {'status':False, 'error': str(e)}
-
-        else:
-            return {'status':False, 'error': "API Connection has failed during init phase"}
+        except Exception as e:
+            return {'status':False, 'error': "SlackAPI.publish_post() - Error: "+str(e)}
 
     ##########################################################################################################
     # =========================================== STATIC METHODS =========================================== #
