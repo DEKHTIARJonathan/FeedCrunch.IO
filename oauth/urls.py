@@ -13,5 +13,5 @@ urlpatterns = [
     url(r'^twitter/get_callback/$', twitter_callback, name='twitter_callback'),
     url(r'^facebook/get_callback/$', facebook_callback, name='facebook_callback'),
     url(r'^linkedin/get_callback/$', linkedin_callback, name='linkedin_callback'),
-    url(r'^gplus/get_callback/$', gplus_callback, name='gplus_callback'),
+    url(r'^slack/get_callback/$', slack_callback, name='gplus_callback'),
 ]

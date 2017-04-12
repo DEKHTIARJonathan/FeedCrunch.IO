@@ -145,4 +145,11 @@ class RSSSubsStatAdmin(admin.ModelAdmin):
 
 admin.site.register(RSSSubsStat, RSSSubsStatAdmin)
 
-#admin.site.register(RSSArticle)
+# ==================== SlackIntegration ============================
+class SlackIntegrationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'team_name', 'channels', 'access_token')
+    ordering = ('user','team_name')
+
+    search_fields = ('user','team_name')
+
+admin.site.register(SlackIntegration, SlackIntegrationAdmin)

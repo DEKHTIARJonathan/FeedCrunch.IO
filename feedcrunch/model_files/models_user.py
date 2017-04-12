@@ -332,9 +332,6 @@ class FeedUser(AbstractFeedUser):
     linkedin_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
     linkedin_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
 
-    gplus_token                    = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    gplus_token_secret             = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-
     social_fields = {
         'twitter' : {
             'token'           : "twitter_token",
@@ -347,10 +344,6 @@ class FeedUser(AbstractFeedUser):
         'linkedin' : {
             'token'           : "linkedin_access_token",
             'expire_datetime' : "linkedin_token_expire_datetime"
-        },
-        'gplus' : {
-            'token'           : "gplus_token",
-            'secret'          : "gplus_token_secret"
         },
     }
 
@@ -365,8 +358,8 @@ class FeedUser(AbstractFeedUser):
 
     pref_post_repost_TW           = models.BooleanField(default=False)
     pref_post_repost_FB           = models.BooleanField(default=False)
-    pref_post_repost_GPlus        = models.BooleanField(default=False)
     pref_post_repost_LKin         = models.BooleanField(default=False)
+    pref_post_repost_Slack        = models.BooleanField(default=False)
 
     ################################### ============================== ###################################
     #                                       NEWSLETTER PREFERENCES                                       #
@@ -545,8 +538,9 @@ class FeedUser(AbstractFeedUser):
     def is_linkedin_enabled(self):
         return self.is_social_network_enabled(network="linkedin")
 
-    def is_gplus_enabled(self):
-        return self.is_social_network_enabled(network="gplus")
+    def is_slack_enabled(self):
+        return True
+        #return self.is_social_network_enabled(network="slack")
 
     def is_social_network_activated(self, network):
         if network == "twitter":
@@ -571,11 +565,15 @@ class FeedUser(AbstractFeedUser):
 
         elif network == "linkedin":
             if self.is_social_network_enabled(network=network):
-                return True
+                if LinkedInAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network=network)
+                    return False
             else:
                 return False
 
-        elif network == "gplus":
+        elif network == "slack":
             if self.is_social_network_enabled(network=network):
                 return True
             else:
@@ -588,6 +586,7 @@ class FeedUser(AbstractFeedUser):
         if network in ["facebook", "linkedin"]:
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["expire_datetime"], None)
+
         else:
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["secret"], "")

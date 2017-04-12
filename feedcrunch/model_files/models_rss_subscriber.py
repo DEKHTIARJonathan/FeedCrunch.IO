@@ -64,7 +64,7 @@ class RSSSubscriber(models.Model):
 
 # First, define the Manager subclass.
 class RSSSubsStatManager(models.Manager):
-    def create(self, user=None, count=0, date=timezone.localtime(timezone.now() - datetime.timedelta(days=1)).date()):
+    def create(self, user=None, count=0, date=datetime.datetime.now().date() - datetime.timedelta(days=1)):
         try:
             if user is None:
                 raise Exception("Feedname is missing")

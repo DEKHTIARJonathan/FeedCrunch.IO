@@ -80,6 +80,7 @@ s3transfer==0.1.10
 scikit-learn==0.18.1
 scipy==0.19.0
 six==1.10.0
+slacker==0.9.42
 twython==3.4.0
 untangle==1.1.0
 validate-email==1.3

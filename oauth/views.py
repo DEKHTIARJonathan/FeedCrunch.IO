@@ -11,6 +11,9 @@ from datetime import timedelta
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
+from oauth.slackAPI    import SlackAPI
+
+from feedcrunch.models import SlackIntegration
 
 def twitter_callback(request):
 
@@ -25,8 +28,8 @@ def twitter_callback(request):
         if not tw_request['status']:
             raise Exception(tw_request['error'])
 
-        setattr(request.user, request.user.social_fields["twitter"]["token"], tw_request['tokens']['oauth_token'])
-        setattr(request.user, request.user.social_fields["twitter"]["secret"], tw_request['tokens']['oauth_token_secret'])
+        setattr(request.user, request.user.social_fields["twitter"]["token"], tw_request['oauth_token'])
+        setattr(request.user, request.user.social_fields["twitter"]["secret"], tw_request['oauth_token_secret'])
 
         request.user.save()
 
@@ -51,9 +54,9 @@ def facebook_callback(request):
         if not fb_request['status']:
             raise Exception(fb_request['error'])
 
-        expire_datetime = timezone.now() + timedelta(seconds=int(fb_request['token']['expires_in']))
+        expire_datetime = timezone.now() + timedelta(seconds=int(fb_request['expires_in']))
 
-        setattr(request.user, request.user.social_fields["facebook"]["token"], fb_request['token']['access_token'])
+        setattr(request.user, request.user.social_fields["facebook"]["token"], fb_request['access_token'])
         setattr(request.user, request.user.social_fields["facebook"]["expire_datetime"], expire_datetime)
 
         request.user.save()
@@ -79,9 +82,9 @@ def linkedin_callback(request):
         if not lk_request['status']:
             raise Exception(lk_request['error'])
 
-        expire_datetime = timezone.now() + timedelta(seconds=int(lk_request['token']['expires_in']))
+        expire_datetime = timezone.now() + timedelta(seconds=int(lk_request['expires_in']))
 
-        setattr(request.user, request.user.social_fields["linkedin"]["token"], lk_request['token']['access_token'])
+        setattr(request.user, request.user.social_fields["linkedin"]["token"], lk_request['access_token'])
         setattr(request.user, request.user.social_fields["linkedin"]["expire_datetime"], expire_datetime)
 
         request.user.save()
@@ -97,21 +100,22 @@ def linkedin_callback(request):
 
         return JsonResponse(data)
 
-def gplus_callback(request):
+def slack_callback(request):
 
     try:
 
-        oauth_verifier = request.GET['oauth_verifier']
+        access_code = request.GET['code']
 
-        tw_request = twitterAPI.get_authorized_tokens(oauth_verifier, token, token_secret)
+        sl_request = SlackAPI.get_authorized_tokens(access_code)
 
-        if not tw_request['status']:
+        if not sl_request['status']:
             raise Exception(request['error'])
 
-        request.user.twitter_token = tw_request['tokens']['oauth_token']
-        request.user.twitter_token_secret = tw_request['tokens']['oauth_token_secret']
-
-        request.user.save()
+        SlackIntegration.objects.create(
+            user         = request.user,
+            team_name    = sl_request["team_name"],
+            access_token = sl_request["access_token"]
+        )
 
         return render(request, 'admin/self_closing.html')
 
