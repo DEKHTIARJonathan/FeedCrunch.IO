@@ -55,29 +55,29 @@ class LinkedInAPI(object):
             if self.api == False:
                 raise Exception("API Connection has failed during init phase")
 
-                tag_str = ""
-                if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
+            tag_str = ""
+            if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
 
-                    for tag in tag_list:
+                for tag in tag_list:
 
-                        if tag_str != "":
-                            tag_str += " "
+                    if tag_str != "":
+                        tag_str += " "
 
-                        tag_str += "#"+tag
+                    tag_str += "#"+tag
 
-                message = title + " " + tag_str
+            message = title + " " + tag_str
 
-                ## response: {"updateKey": "UPDATE-##-##", "updateUrl": "https://www.linkedin.com/updates?discuss=&scope=~##&stype=M&topic=###&type=U&a=reT3"}
-                response = self.api.submit_share(
-                        comment             = title + " " + tag_str,
-                        title               = title,
-                        description         = "Take RSS Feeds to the next level with Feedcrunch.io",
-                        submitted_url       = self.baseurl+str(id),
-                        submitted_image_url = self.post_illustration,
-                        visibility_code     = 'anyone'
-                )
+            ## response: {"updateKey": "UPDATE-##-##", "updateUrl": "https://www.linkedin.com/updates?discuss=&scope=~##&stype=M&topic=###&type=U&a=reT3"}
+            response = self.api.submit_share(
+                    comment             = title + " " + tag_str,
+                    title               = title,
+                    description         = "Take RSS Feeds to the next level with Feedcrunch.io",
+                    submitted_url       = self.baseurl+str(id),
+                    submitted_image_url = self.post_illustration,
+                    visibility_code     = 'anyone'
+            )
 
-                return {'status':True}
+            return {'status':True}
 
         except Exception as e:
             return {'status':False, 'LinkedInAPI.publish_post() - Error': str(e)}
@@ -125,7 +125,7 @@ class LinkedInAPI(object):
 
             api.authorization_code = code
             response = api.get_access_token()
-            
+
             return {'status':True, 'access_token': response.access_token, 'expires_in': response.expires_in}
 
         except Exception as e:
