@@ -87,13 +87,13 @@
                                 <div class="input-field col s12 l6">
                                     <div class="switch m-b-md">
                                         <label>
-                                            {% if social_networks_enabled.gplus %}
-                                                <input type="checkbox" id="gplus" name="gplus" data-init="{{ user.pref_post_repost_GPlus }}">
+                                            {% if social_networks_enabled.slack %}
+                                                <input type="checkbox" id="slack" name="slack" data-init="{{ user.pref_post_repost_Slack }}">
                                             {% else %}
-                                                <input type="checkbox" id="gplus" name="gplus" disabled>
+                                                <input type="checkbox" id="slack" name="slack" disabled>
                                             {% endif %}
                                             <span class="lever"></span>
-                                            RePost on Google Plus
+                                            RePost on Slack
                                         </label>
                                     </div>
                                 </div>

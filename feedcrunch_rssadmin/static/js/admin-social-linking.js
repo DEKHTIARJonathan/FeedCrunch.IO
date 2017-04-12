@@ -2,13 +2,14 @@ $(document).ready(function() {
 
 	var interval;
 
+    var social_networks_dict = {
+        twitter:  "#twitter-btn-div",
+        facebook: "#facebook-btn-div",
+        linkedin: "#linkedin-btn-div",
+        slack:    "#slack-btn-div",
+    };
+
 	function checkSocialNetworkStatus(social_network) {
-        var social_networks_dict = {
-            twitter: "#twitter-btn-div",
-            facebook: "#facebook-btn-div",
-            linkedin: "#linkedin-btn-div",
-            gplus: "#gplus-btn-div",
-        };
 
         if (Object.keys(social_networks_dict).indexOf(social_network) == -1){
             console.log("This social network is not supported: " + social_network);
@@ -50,13 +51,6 @@ $(document).ready(function() {
 
     function UnLinkSocialNetwork(social_network) {
         var csrftoken = Cookies.get('csrftoken');
-
-        var social_networks_dict = {
-            twitter: "#twitter-btn-div",
-            facebook: "#facebook-btn-div",
-            linkedin: "#linkedin-btn-div",
-            gplus: "#gplus-btn-div",
-        };
 
         if (Object.keys(social_networks_dict).indexOf(social_network) == -1){
             console.log("This social network is not supported: " + social_network);
@@ -117,10 +111,10 @@ $(document).ready(function() {
             }, 1500);
 		});
 
-        $("#gplus-btn-link").unbind("click");
-        $("#gplus-btn-link").click(function() {
+        $("#slack-btn-link").unbind("click");
+        $("#slack-btn-link").click(function() {
 			interval = setTimeout(function() {
-                checkSocialNetworkStatus("gplus");
+                checkSocialNetworkStatus("slack");
             }, 1500);
 		});
 	}
@@ -147,9 +141,9 @@ $(document).ready(function() {
             return false;
         });
 
-        $("#gplus-btn-unlink").unbind("click");
-        $("#gplus-btn-unlink").click(function(event) {
-            UnLinkSocialNetwork("gplus");
+        $("#slack-btn-unlink").unbind("click");
+        $("#slack-btn-unlink").click(function(event) {
+            UnLinkSocialNetwork("slack");
             event.preventDefault();
             return false;
         });
