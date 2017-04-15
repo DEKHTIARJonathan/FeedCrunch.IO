@@ -19,7 +19,9 @@ from feedcrunch.models import FeedUser, RSSSubsStat
 from datetime import timedelta
 
 def record_user_subscribers_stats(username=None):
-    if username is not None:
+    try:
+        if username is None:
+            raise Exception("Username have not been provided")
 
         try:
             usr = FeedUser.objects.get(username=username)
@@ -34,13 +36,17 @@ def record_user_subscribers_stats(username=None):
 
             #count = usr.rel_rss_subscribers.filter(date__range=(last_lookup_day, today)).values("ipaddress").annotate(n=models.Count("pk")).count()__gte
             count = usr.rel_rss_subscribers.filter(date__gte=last_lookup_day).values("ipaddress").annotate(n=models.Count("pk")).count()
-            if RSSSubsStat.objects.create(user=username, count=count) is None:
-                raise Exception("Error: tasks.record_user_subscribers_stats - An error occured in the object creation process")
-        else:
-            raise Exception("Error: tasks.record_user_subscribers_stats - Already exist with datetime: " + str(timezone.now()) + " & date : " + str(timezone.now().date()))
 
-    else:
-        raise Exception("Error: tasks.record_user_subscribers_stats - username have not been provided.")
+            record = RSSSubsStat.objects.create(user=username, count=count)
+
+            if isinstance(record, dict):
+                raise Exception(record["error"] + " // Timestamp: " + record["timestamp"] + " // Timestamp_TZ: " + record["timestamp_tz"])
+
+        else:
+            raise Exception("Object already exist with datetime: " + str(timezone.now()) + " & date : " + str(timezone.now().date()))
+
+    except Exception as e:
+        raise Exception("Error: tasks.record_user_subscribers_stats - Error: " + str(e))
 
 def refresh_all_rss_subscribers_count():
     for user in FeedUser.objects.all():
