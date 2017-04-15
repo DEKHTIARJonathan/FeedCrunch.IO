@@ -38,6 +38,20 @@ class TwitterAPI(object):
     def connection_status(self):
         return bool(self.api)
 
+    def verify_credentials(self):
+        try:
+            if self.api == False:
+                raise Exception("API Connection has failed during init phase")
+
+            if self.api.verify_credentials()["screen_name"] != "":
+                return {'status': True}
+
+            else:
+                raise Exception("Credentials are invalid")
+
+        except Exception as e:
+            return {'status':False, 'error': "TwitterAPI.verify_credentials(): " + str(e)}
+
     def get_hashtags_strings(self, tag_list, max_length = -1):
 
         hashtags = ""
@@ -93,35 +107,13 @@ class TwitterAPI(object):
                     status = title + " "  + self.baseurl+str(id)
 
                 self.api.update_status(status=status)
-                rslt = {'status':True}
+                return {'status':True}
 
             else:
                 raise ValueError("The Parameter 'tag_list' is not a list")
 
         except Exception as e:
-            rslt = {'status':False, 'error': "TwitterAPI.publish_post() - Error:" + str(e)}
-
-
-
-        return rslt
-
-    def verify_credentials(self):
-        if self.api != False:
-
-            try:
-                if self.api.verify_credentials()["screen_name"] != "":
-                    rslt = {'status': True}
-
-                else:
-                    raise Exception("Credentials are invalid")
-
-            except:
-                raise Exception("Credentials have not been verified")
-
-        else:
-            rslt = {'status':False, 'error': "TwitterAPI.verify_credentials(): API Connection has failed during init phase"}
-
-        return rslt
+            return {'status':False, 'error': "TwitterAPI.publish_post() - Error:" + str(e)}
 
     ##########################################################################################################
     # =========================================== STATIC METHODS =========================================== #
