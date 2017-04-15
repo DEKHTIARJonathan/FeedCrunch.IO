@@ -18,9 +18,12 @@ class SlackAPI(object):
     callback_url        = 'https://www.feedcrunch.io/oauth/slack/get_callback/'
     callback_url_debug  = 'http://local.feedcrunch.io:5000/oauth/slack/get_callback/'
     baseurl             = ""
+    channels            = None
     app_permissions = [
-        'channels:read',
-        'chat:write:bot',
+        'usergroups:read',  # Read all UserGroups
+        'groups:read',      # Read Private Channels
+        'channels:read',    # Read Public Channels
+        'chat:write:bot',   # Post as Bot
     ]
 
     def __init__(self, slackIntegrationObject):
@@ -34,8 +37,9 @@ class SlackAPI(object):
                 self.api     = Slacker(slackIntegrationObject.access_token)
                 self.baseurl = "https://www.feedcrunch.io/@" + slackIntegrationObject.user.username + "/redirect/"
             '''
-            self.api     = Slacker(slackIntegrationObject.access_token)
-            self.baseurl = "https://www.feedcrunch.io/@" + slackIntegrationObject.user.username + "/redirect/"
+            self.api      = Slacker(slackIntegrationObject.access_token)
+            self.baseurl  = "https://www.feedcrunch.io/@" + slackIntegrationObject.user.username + "/redirect/"
+            self.channels = slackIntegrationObject.channels.split(",")
 
         except Exception as e:
             print (str(e))
@@ -45,7 +49,46 @@ class SlackAPI(object):
         return bool(self.api)
 
     def verify_credentials(self):
-        return {'status': self.connection_status()}
+        try:
+            if self.api == False:
+                raise Exception("API Connection has failed during init phase")
+
+            if self.api.auth.test().body["ok"] == True:
+                return {'status': True}
+
+            else:
+                raise Exception("Credentials are invalid")
+
+        except Exception as e:
+            return {'status':False, 'error': "SlackAPI.verify_credentials(): " + str(e)}
+
+    def get_available_channels(self):
+        try:
+            channels = list()
+
+            for chan in self.api.channels.list().body["channels"]:
+                if not chan["is_archived"]:
+                    channels.append({
+                        "name": chan["name_normalized"],
+                        "public": True,
+                        "active": self.is_channel_active(chan["name_normalized"]),
+                    })
+
+            for chan in self.api.groups.list().body["groups"]:
+                if not chan["is_archived"] and not chan["is_mpim"]:
+                    channels.append({
+                        "name":   chan["name_normalized"],
+                        "public": False,
+                        "active": self.is_channel_active(chan["name_normalized"]),
+                    })
+
+            return {'status': True, 'channels': channels}
+
+        except Exception as e:
+            return {'status': False, 'error': "SlackAPI.get_available_channels() - Error:" + str(e)}
+
+    def is_channel_active(self, channel_name):
+        return channel_name in self.channels
 
     def publish_post(self, slackChannel, title, postID, tag_list=[]):
         try:

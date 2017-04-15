@@ -112,6 +112,27 @@ def social_form(request, feedname=None):
     else:
         return render(request, 'admin/admin_social_accounts.html')
 
+def slack_management(request, feedname=None):
+
+    check_passed = check_admin(feedname, request.user)
+    if check_passed != True:
+        return check_passed
+    else:
+        request_data = dict()
+
+        slack_teams = dict()
+
+        for team in request.user.rel_slack_integrations.all():
+             api_response = SlackAPI(team).get_available_channels()
+
+             if api_response["status"]:
+                 slack_teams[team.team_name] = api_response["channels"]
+
+        request_data["teams"] = slack_teams
+        request_data["slack_auth_url"] = SlackAPI.get_authorization_url()
+
+        return render(request, 'admin/admin_slack_management.html', request_data)
+
 def services_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)

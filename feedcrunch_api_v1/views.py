@@ -781,6 +781,38 @@ class Article(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
+class Modify_Slack_Preferences(APIView):
+
+    def put(self, request):
+        try:
+            payload = dict()
+            check_passed = check_admin_api(request.user)
+
+            if check_passed != True:
+                raise Exception(check_passed)
+
+            for team, channels in request.data.items():
+                if channels != "":
+                    # Need to test if all channels exists
+                    print("dont forget to test if the channels exist")
+
+                # get object
+                slack_integration = request.user.rel_slack_integrations.filter(team_name=team)[0]
+                slack_integration.channels = channels
+                slack_integration.save()
+
+            payload ["username"] = request.user.username
+            payload["success"] = True
+
+        except Exception as e:
+            payload["success"] = False
+            print (str(e))
+            payload["error"] = "An error occured in the process: " + str(e)
+
+        payload ["operation"] = "modify slack preferences"
+        payload ["timestamp"] = get_timestamp()
+        return Response(payload)
+
 class Modify_Social_Networks(APIView):
 
     def put(self, request):
@@ -868,7 +900,6 @@ class Modify_Social_Networks(APIView):
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
 
 
         payload ["operation"] = "modify social networks"
