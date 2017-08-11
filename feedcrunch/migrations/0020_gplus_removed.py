@@ -12,10 +12,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameField(
+        migrations.RemoveField(
             model_name='feeduser',
-            old_name='pref_post_repost_GPlus',
-            new_name='pref_post_repost_Slack',
+            name='pref_post_repost_GPlus',
         ),
         migrations.RemoveField(
             model_name='feeduser',
