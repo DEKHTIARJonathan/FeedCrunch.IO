@@ -29,6 +29,9 @@ script:
 - python manage.py migrate
 - python manage.py createcachetable
 - coverage run manage.py test
+
+after_success:
+- coveralls
     
 notifications:
   slack:
