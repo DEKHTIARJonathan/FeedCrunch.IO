@@ -1,7 +1,7 @@
 FeedCrunch.IO - DJANGO APP
 ====================
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
+[![license](https://img.shields.io/github/license/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://opensource.org/licenses/GPL-3.0/)
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=Travis%20-%20Master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://beta.gemnasium.com/projects/github.com/DEKHTIARJonathan/FeedCrunch.IO)
