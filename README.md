@@ -6,6 +6,7 @@ FeedCrunch.IO - DJANGO APP
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://beta.gemnasium.com/projects/github.com/DEKHTIARJonathan/FeedCrunch.IO)
 [![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/badge.svg)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO)
+[![Website](https://img.shields.io/website-up-down-green-red/http/www.feedcrunch.io.svg?label=Feedcrunch.io)](https://www.feedcrunch.io)
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400)](http://feedcrunch.readthedocs.io/en/latest/)
 
 ## Installation
