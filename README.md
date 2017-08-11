@@ -2,7 +2,8 @@ FeedCrunch.IO - DJANGO APP
 ====================
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
-[![Build Status](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO.svg?branch=master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
+[![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=Travis%20-%20Master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
+[![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://beta.gemnasium.com/projects/github.com/DEKHTIARJonathan/FeedCrunch.IO)
 [![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/badge.svg)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO)
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400)](http://feedcrunch.readthedocs.io/en/latest/)
