@@ -1,8 +1,9 @@
 FeedCrunch.IO - DJANGO APP
 ====================
-
-[![Build Status](https://travis-ci.com/DataIsTheNewBlack/FeedCrunch.IO.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=master)](https://travis-ci.com/DataIsTheNewBlack/FeedCrunch.IO)
-[![Dependency Status](https://gemnasium.com/badges/github.com/DataIsTheNewBlack/FeedCrunch_Dependencies.svg)](https://gemnasium.com/github.com/DataIsTheNewBlack/FeedCrunch_Dependencies)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
+[![Build Status](https://travis-ci.com/DEKHTIARJonathan/FeedCrunch.IO.svg?token=Mwzs9s5gJEGyrsnoybN5&branch=master)](https://travis-ci.com/DEKHTIARJonathan/FeedCrunch.IO)
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://beta.gemnasium.com/projects/github.com/DEKHTIARJonathan/FeedCrunch.IO)
 
 ## Installation
 
