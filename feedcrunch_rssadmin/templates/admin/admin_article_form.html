@@ -107,11 +107,11 @@
                                                     <!-- Switch -->
                                                     <div class="switch m-b-md">
                                                         <label>
-                                                            <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Google Plus:</span>
-                                                            {% if user.is_gplus_enabled %}
-                                                                <input type="checkbox" id="gplus" name="gplus" data-init="{{ user.pref_post_repost_GPlus }}">
+                                                            <span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Publish on Slack:</span>
+                                                            {% if user.is_slack_enabled %}
+                                                                <input type="checkbox" id="slack" name="slack" data-init="{{ user.pref_post_repost_Slack }}">
                                                             {% else %}
-                                                                <input type="checkbox" id="gplus" name="gplus" disabled>
+                                                                <input type="checkbox" id="slack" name="slack" disabled>
                                                             {% endif %}
                                                             <span class="lever"></span>
                                                         </label>

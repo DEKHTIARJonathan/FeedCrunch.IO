@@ -23,9 +23,10 @@ from encrypted_model_fields .fields import EncryptedCharField
 
 from feedcrunch.models import Continent, Country, Estimator, Interest
 
-from oauth.twitterAPI import TwitterAPI
+from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
+from oauth.slackAPI    import SlackAPI
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
@@ -332,9 +333,6 @@ class FeedUser(AbstractFeedUser):
     linkedin_access_token          = EncryptedCharField(max_length=500, default='', blank=True, null=True)
     linkedin_token_expire_datetime = models.DateTimeField(auto_now_add=False, default=None, blank=True, null=True)
 
-    gplus_token                    = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-    gplus_token_secret             = EncryptedCharField(max_length=500, default='', blank=True, null=True)
-
     social_fields = {
         'twitter' : {
             'token'           : "twitter_token",
@@ -347,10 +345,6 @@ class FeedUser(AbstractFeedUser):
         'linkedin' : {
             'token'           : "linkedin_access_token",
             'expire_datetime' : "linkedin_token_expire_datetime"
-        },
-        'gplus' : {
-            'token'           : "gplus_token",
-            'secret'          : "gplus_token_secret"
         },
     }
 
@@ -365,8 +359,8 @@ class FeedUser(AbstractFeedUser):
 
     pref_post_repost_TW           = models.BooleanField(default=False)
     pref_post_repost_FB           = models.BooleanField(default=False)
-    pref_post_repost_GPlus        = models.BooleanField(default=False)
     pref_post_repost_LKin         = models.BooleanField(default=False)
+    pref_post_repost_Slack        = models.BooleanField(default=False)
 
     ################################### ============================== ###################################
     #                                       NEWSLETTER PREFERENCES                                       #
@@ -511,26 +505,27 @@ class FeedUser(AbstractFeedUser):
 
             rslt = dict()
 
-            for social_net in list(self.social_fields.keys()):
+            for social_net in list(self.social_fields.keys()) + ["slack"]:
                 rslt[social_net] = self.is_social_network_enabled(network=social_net)
 
             return rslt
 
-        elif network in list(self.social_fields.keys()):
+        if network in ["facebook", "linkedin"]:
+            token           = getattr(self, self.social_fields[network]["token"])
+            expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
 
-            if network in ["facebook", "linkedin"]:
-                token           = getattr(self, self.social_fields[network]["token"])
-                expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
-
-                if expire_datetime is not None:
-                    return token != "" and timezone.now() < expire_datetime
-                else:
-                    return  False
-
+            if expire_datetime is not None:
+                return token != "" and timezone.now() < expire_datetime
             else:
-                token  = getattr(self, self.social_fields[network]["token"])
-                secret = getattr(self, self.social_fields[network]["secret"])
-                return token != "" and secret != ""
+                return  False
+
+        elif network == "twitter":
+            token  = getattr(self, self.social_fields[network]["token"])
+            secret = getattr(self, self.social_fields[network]["secret"])
+            return token != "" and secret != ""
+
+        elif network == "slack":
+            return bool(self.rel_slack_integrations.all().count())
 
         else:
             raise Exception("The network requested " + network + "doesn't exist in this application")
@@ -545,8 +540,8 @@ class FeedUser(AbstractFeedUser):
     def is_linkedin_enabled(self):
         return self.is_social_network_enabled(network="linkedin")
 
-    def is_gplus_enabled(self):
-        return self.is_social_network_enabled(network="gplus")
+    def is_slack_enabled(self):
+        return self.is_social_network_enabled(network="slack")
 
     def is_social_network_activated(self, network):
         if network == "twitter":
@@ -571,26 +566,40 @@ class FeedUser(AbstractFeedUser):
 
         elif network == "linkedin":
             if self.is_social_network_enabled(network=network):
-                return True
+                if LinkedInAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network=network)
+                    return False
             else:
                 return False
 
-        elif network == "gplus":
+        elif network == "slack":
             if self.is_social_network_enabled(network=network):
-                return True
+                if SlackAPI(self).verify_credentials()['status']:
+                    return True
+                else:
+                    self.reset_social_network_credentials(network=network)
+                    return False
             else:
                 return False
 
         else:
-            return False
+            raise Exception("The network requested " + network + "doesn't exist in this application")
 
     def reset_social_network_credentials(self, network):
         if network in ["facebook", "linkedin"]:
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["expire_datetime"], None)
-        else:
+
+        elif network == "twittter":
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["secret"], "")
+
+        elif network == "slack":
+            self.rel_slack_integrations.all().delete()
+        else:
+            raise Exception("The network requested " + network + "doesn't exist in this application")
 
         self.save()
     ################################### ============================== ###################################

@@ -17,9 +17,10 @@ from django_q.models import Schedule
 
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 
-from oauth.twitterAPI import TwitterAPI
+from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
+from oauth.slackAPI    import SlackAPI
 
 import datetime, unicodedata, json, sys, os, feedparser
 
@@ -212,8 +213,8 @@ class UnLink_User_Social_Network(APIView):
                 payload ["auth_url"] = FacebookAPI.get_authorization_url()
             elif social_network == "linkedin":
                 payload ["auth_url"] = LinkedInAPI.get_authorization_url()
-            elif social_network == "gplus":
-                payload ["auth_url"] = GPlusAPI.get_authorization_url(request)
+            elif social_network == "slack":
+                payload ["auth_url"] = SlackAPI.get_authorization_url(request)
             else:
                 raise Exception("'social_network' ("+ social_network +") is not supported.")
 
@@ -578,7 +579,7 @@ class Article(APIView):
             twitter_bool  = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
             facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
             linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
-            gplus_bool    = str2bool(unicodedata.normalize('NFC', request.POST['gplus']))
+            slack_bool    = str2bool(unicodedata.normalize('NFC', request.POST['slack']))
 
             if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
                 title = format_title(title)
@@ -631,9 +632,9 @@ class Article(APIView):
                     next_run=datetime.datetime.now()
                 )
 
-            if gplus_bool and user.is_social_network_enabled(network="gplus"):
+            if slack_bool and user.is_social_network_enabled(network="slack"):
                 schedule(
-                    'feedcrunch.tasks.publish_on_gplus',
+                    'feedcrunch.tasks.publish_on_slack',
                     idArticle=tmp_post.id,
                     schedule_type=Schedule.ONCE,
                     next_run=datetime.datetime.now()
@@ -678,7 +679,7 @@ class Article(APIView):
             twitter_bool  = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
             facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
             linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
-            gplus_bool    = str2bool(unicodedata.normalize('NFC', request.POST['gplus']))
+            slack_bool    = str2bool(unicodedata.normalize('NFC', request.POST['slack']))
 
             if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
                 title = format_title(title)
@@ -728,9 +729,9 @@ class Article(APIView):
                     next_run=datetime.datetime.now()
                 )
 
-            if gplus_bool and request.user.is_social_network_enabled(network="gplus"):
+            if slack_bool and request.user.is_social_network_enabled(network="slack"):
                 schedule(
-                    'feedcrunch.tasks.publish_on_gplus',
+                    'feedcrunch.tasks.publish_on_slack',
                     idArticle=tmp_post.id,
                     schedule_type=Schedule.ONCE,
                     next_run=datetime.datetime.now()
@@ -777,6 +778,38 @@ class Article(APIView):
             payload["postID"] = None
 
         payload ["operation"] = "delete article"
+        payload ["timestamp"] = get_timestamp()
+        return Response(payload)
+
+class Modify_Slack_Preferences(APIView):
+
+    def put(self, request):
+        try:
+            payload = dict()
+            check_passed = check_admin_api(request.user)
+
+            if check_passed != True:
+                raise Exception(check_passed)
+
+            for team, channels in request.data.items():
+                if channels != "":
+                    # Need to test if all channels exists
+                    print("dont forget to test if the channels exist")
+
+                # get object
+                slack_integration = request.user.rel_slack_integrations.filter(team_name=team)[0]
+                slack_integration.channels = channels
+                slack_integration.save()
+
+            payload ["username"] = request.user.username
+            payload["success"] = True
+
+        except Exception as e:
+            payload["success"] = False
+            print (str(e))
+            payload["error"] = "An error occured in the process: " + str(e)
+
+        payload ["operation"] = "modify slack preferences"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
@@ -867,7 +900,6 @@ class Modify_Social_Networks(APIView):
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
 
 
         payload ["operation"] = "modify social networks"
@@ -893,7 +925,7 @@ class Modify_Preferences(APIView):
                 'twitter',
                 'facebook',
                 'linkedin',
-                'gplus'
+                'slack'
             ]
 
             form_data = dict()
@@ -906,7 +938,7 @@ class Modify_Preferences(APIView):
             request.user.pref_post_repost_TW         = form_data["twitter"]
             request.user.pref_post_repost_FB         = form_data["facebook"]
             request.user.pref_post_repost_LKin       = form_data["linkedin"]
-            request.user.pref_post_repost_GPlus      = form_data["gplus"]
+            request.user.pref_post_repost_Slack      = form_data["slack"]
 
             request.user.save()
             payload["success"] = True

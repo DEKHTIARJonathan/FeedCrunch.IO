@@ -6,7 +6,7 @@ $( document ).ready(function() {
         'twitter',
         'facebook',
         'linkedin',
-        'gplus'
+        'slack'
     ];
 
     function clearFields(){

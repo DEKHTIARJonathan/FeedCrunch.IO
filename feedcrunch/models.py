@@ -15,3 +15,4 @@ from .model_files.models_post import Post
 from .model_files.models_rssarticle import RSSArticle
 from .model_files.models_rss_assocs import RSSFeed_Sub, RSSArticle_Assoc
 from .model_files.models_rss_subscriber import RSSSubscriber, RSSSubsStat
+from .model_files.models_slack_integrations import SlackIntegration

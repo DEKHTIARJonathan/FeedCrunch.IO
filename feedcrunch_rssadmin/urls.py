@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^account/picture/$', picture_form, name='picture_form'),
     url(r'^account/picture/upload/$', upload_picture, name='upload_picture'),
     url(r'^account/social/$', social_form, name='social_form'),
+    url(r'^account/services/slack/$', slack_management, name='services_form'),
     url(r'^account/services/$', services_form, name='services_form'),
     url(r'^article/add/$', add_article_form, name='add_article_form'),
     url(r'^article/edit/$', modify_article_listing, name='modify_article_form'),

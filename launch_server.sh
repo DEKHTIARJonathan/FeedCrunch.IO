@@ -5,6 +5,9 @@ if [ -z "$VCAP_APP_PORT" ];
   else SERVER_PORT="$VCAP_APP_PORT";
 fi
 
+pip uninstall django-material -y
+pip install https://github.com/hairychris/django-material/archive/2b3d70347cf29bcc02b06d3319f9617b626502c8.zip
+
 echo [$0] port is------------------- $SERVER_PORT
 python manage.py makemigrations feedcrunch
 python manage.py migrate
@@ -20,6 +23,7 @@ DJANGO_SETTINGS_MODULE="application.settings"           # which settings file sh
 DJANGO_WSGI_MODULE="application.wsgi"                   # WSGI module name
 TIMEOUT=120                                             # Worker Timeout
 KEEPALIVE=75                                            # Keep Alive Timer
+
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)

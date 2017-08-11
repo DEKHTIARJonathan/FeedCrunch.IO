@@ -10,12 +10,11 @@ from twython import Twython
 import sys
 
 class TwitterAPI(object):
-    api = False
-    error = ""
-    maxsize_tweet = 140
-    maxsize_hashtags = 27 # Allow to keep 85 char for the post title (95% of the post length is < 85 chars)
-    length_link = 23
-    baseurl = ""
+    api               = False
+    maxsize_tweet     = 140
+    maxsize_hashtags  = 27 # Allow to keep 85 char for the post title (95% of the post length is < 85 chars)
+    length_link       = 23
+    baseurl           = ""
 
     def __init__(self, user):
 
@@ -34,12 +33,24 @@ class TwitterAPI(object):
                 self.baseurl = "https://www.feedcrunch.io/@"+user.username+"/redirect/"
 
         except Exception as e:
-            self.error = str(e)
             self.api = False
 
     def connection_status(self):
-        print (self.error)
         return bool(self.api)
+
+    def verify_credentials(self):
+        try:
+            if self.api == False:
+                raise Exception("API Connection has failed during init phase")
+
+            if self.api.verify_credentials()["screen_name"] != "":
+                return {'status': True}
+
+            else:
+                raise Exception("Credentials are invalid")
+
+        except Exception as e:
+            return {'status':False, 'error': "TwitterAPI.verify_credentials(): " + str(e)}
 
     def get_hashtags_strings(self, tag_list, max_length = -1):
 
@@ -57,74 +68,52 @@ class TwitterAPI(object):
         return hashtags
 
     def publish_post(self, title, id, tag_list=[]):
+        try:
+            if self.api == False:
+                raise Exception("API Connection has failed during init phase")
 
-        if self.api != False:
-            try:
-                if isinstance(tag_list, list):
+            if isinstance(tag_list, list):
 
-                    if tag_list: #  if tag_list is not empty
+                if tag_list: #  if tag_list is not empty
 
-                        if len(title) < self.maxsize_tweet - self.length_link - self.maxsize_hashtags - 2: # we count two white space needed
+                    if len(title) < self.maxsize_tweet - self.length_link - self.maxsize_hashtags - 2: # we count two white space needed
 
-                            # Title doesn't need to be modified, hashtags can be extended over the limit maxsize_hashtags but not over self.maxsize_tweet - self.length_link - len(title) - 2
-                            hashtags = self.get_hashtags_strings(tag_list, self.maxsize_tweet - self.length_link - len(title) - 2)
+                        # Title doesn't need to be modified, hashtags can be extended over the limit maxsize_hashtags but not over self.maxsize_tweet - self.length_link - len(title) - 2
+                        hashtags = self.get_hashtags_strings(tag_list, self.maxsize_tweet - self.length_link - len(title) - 2)
 
-                        else:
+                    else:
 
-                            hashtags = self.get_hashtags_strings(tag_list)
+                        hashtags = self.get_hashtags_strings(tag_list)
 
-                            if len(title) > self.maxsize_tweet - (self.length_link + len(hashtags) + 2):
+                        if len(title) > self.maxsize_tweet - (self.length_link + len(hashtags) + 2):
 
-                                # title need to be cutted accorded to the actual size of the hashtags
-                                title = title[: self.maxsize_tweet - (self.length_link + len("[...]") + len(hashtags) + 3)] + " [...]" # 3 white space needed in total
+                            # title need to be cutted accorded to the actual size of the hashtags
+                            title = title[: self.maxsize_tweet - (self.length_link + len("[...]") + len(hashtags) + 3)] + " [...]" # 3 white space needed in total
 
-                            # else the title doesn't need to be modified
+                        # else the title doesn't need to be modified
 
-                        status = title + ' ' + hashtags + ' ' + self.baseurl+str(id)
+                    status = title + ' ' + hashtags + ' ' + self.baseurl+str(id)
 
-                    else: # no hashtags precised
+                else: # no hashtags precised
 
-                        if len(title) > self.maxsize_tweet - (self.length_link + 1):
+                    if len(title) > self.maxsize_tweet - (self.length_link + 1):
 
-                            # title need to be cut : title = title[:140 - self.length_link - len("[…]")  - 2]
+                        # title need to be cut : title = title[:140 - self.length_link - len("[…]")  - 2]
 
-                            title = title[: self.maxsize_tweet - (self.length_link + len("[...]" + 2))] + " [...]"
+                        title = title[: self.maxsize_tweet - (self.length_link + len("[...]" + 2))] + " [...]"
 
-                        # else nothing need to be changed at all !
+                    # else nothing need to be changed at all !
 
-                        status = title + " "  + self.baseurl+str(id)
+                    status = title + " "  + self.baseurl+str(id)
 
-                    self.api.update_status(status=status)
-                    rslt = {'status':True}
+                self.api.update_status(status=status)
+                return {'status':True}
 
-                else:
-                    raise ValueError("The Parameter 'tag_list' is not a list")
+            else:
+                raise ValueError("The Parameter 'tag_list' is not a list")
 
-            except Exception as e:
-                rslt = {'status':False, 'error': str(e)}
-
-        else:
-            rslt = {'status':False, 'error': "API Connection has failed during init phase"}
-
-        return rslt
-
-    def verify_credentials(self):
-        if self.api != False:
-
-            try:
-                if self.api.verify_credentials()["screen_name"] != "":
-                    rslt = {'status': True}
-
-                else:
-                    raise Exception("TwitterAPI.verify_credentials(): Credentials are invalid")
-
-            except:
-                rslt = {'status':False, 'error': "Credentials have not been verified"}
-
-        else:
-            rslt = {'status':False, 'error': "TwitterAPI.verify_credentials(): API Connection has failed during init phase"}
-
-        return rslt
+        except Exception as e:
+            return {'status':False, 'error': "TwitterAPI.publish_post() - Error:" + str(e)}
 
     ##########################################################################################################
     # =========================================== STATIC METHODS =========================================== #
@@ -143,13 +132,12 @@ class TwitterAPI(object):
             except:
                 raise Exception("Failed to retrieve the consumer keys.")
 
-            auth = Twython(twitter_consumer_key, twitter_consumer_secret).get_authentication_tokens()
-
             try:
+                auth = Twython(twitter_consumer_key, twitter_consumer_secret).get_authentication_tokens()
                 auth_url = auth['auth_url']
 
             except tweepy.TweepError:
-                raise Exception('Error! Failed to get request token.')
+                raise Exception('Failed to get request token.')
 
             request.session['OAUTH_TOKEN'] = auth['oauth_token']
             request.session['OAUTH_TOKEN_SECRET'] = auth['oauth_token_secret']
@@ -157,7 +145,7 @@ class TwitterAPI(object):
             return auth_url
 
         except Exception as e:
-            return 'Error: ' + str(e)
+            return 'TwitterAPI.get_authorization_url() - Error: ' + str(e)
 
     @staticmethod
     def get_authorized_tokens(oauth_verifier, token, token_secret):
@@ -167,16 +155,12 @@ class TwitterAPI(object):
                 twitter_consumer_secret = Option.objects.get(parameter="twitter_consumer_secret").value
 
             except:
-                return {'status':False, 'error': "Error! Failed to retrieve the consumer keys."}
+                raise Exception("Failed to retrieve the consumer keys.")
 
             api = Twython(twitter_consumer_key, twitter_consumer_secret, token, token_secret)
 
-            try:
-                final_step = api.get_authorized_tokens(oauth_verifier)
-                return {'status':True, 'tokens': final_step}
-
-            except Exception as e:
-                return {'status':False, 'error':'Error! Failed to get access token: ' + str(e)}
+            response = api.get_authorized_tokens(oauth_verifier)
+            return {'status':True, 'oauth_token': response["oauth_token"], 'oauth_token_secret': response["oauth_token_secret"]}
 
         except Exception as e:
-            return {'status':False, 'error': str(e)}
+            return {'status':False, 'error':'TwitterAPI.get_authorized_tokens(): Error: ' + str(e)}

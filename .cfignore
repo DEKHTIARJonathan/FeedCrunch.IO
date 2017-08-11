@@ -118,6 +118,7 @@ media/images/interest_photos/
 _unused_/
 codedeploy/
 example_files/
+certificate/
 fieldkeys/
 lib_bin/
 media/
@@ -128,8 +129,10 @@ venv/
 .env
 .env.dist
 .gitignore
+circle.yml
 .travis.yml
 app.json
 appspec.yml
 pytest.ini
 README.md
+*.yml

@@ -77,22 +77,16 @@
     <div class="col s12 l6">
         <div class="card horizontal social-card">
             <div class="card-image">
-                <img src="{% static "images/services/gplus.png" %}">
+                <img src="{% static "images/services/slack.png" %}">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <p>Link your Feedcrunch Account to Google Plus and automate your posting workflows.</p>
+                    <p>Link your Feedcrunch Account to Slack Teams and automate your posting workflows.</p>
                 </div>
-                <div class="card-action" style="text-align: center;" id="gplus-btn-div">
-                    {% if gplus_auth_url %}
-                        <a href="{{ gplus_auth_url }}" target="_target" class="waves-effect waves-light btn blue socialconnect-btn" id="gplus-btn-link">
-                            Link My Google Plus Account
-                        </a>
-                    {% else %}
-                        <button class="waves-effect waves-light btn red gplus-btn socialconnect-btn" id="gplus-btn-unlink">
-                            Unlink My Google Plus Account
-                        </button>
-                    {% endif %}
+                <div class="card-action" style="text-align: center;" id="slack-btn-div">
+                    <a href="{{ slack_auth_url }}" target="_target" class="waves-effect waves-light btn blue socialconnect-btn" id="slack-btn-link">
+                        Link to a Slack Team 
+                    </a>
                 </div>
             </div>
         </div>

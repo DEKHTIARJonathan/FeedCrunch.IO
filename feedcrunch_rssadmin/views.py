@@ -19,6 +19,7 @@ from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle,
 from oauth.twitterAPI import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
+from oauth.slackAPI    import SlackAPI
 
 from check_admin import check_admin
 from data_convert import str2bool
@@ -111,6 +112,27 @@ def social_form(request, feedname=None):
     else:
         return render(request, 'admin/admin_social_accounts.html')
 
+def slack_management(request, feedname=None):
+
+    check_passed = check_admin(feedname, request.user)
+    if check_passed != True:
+        return check_passed
+    else:
+        request_data = dict()
+
+        slack_teams = dict()
+
+        for team in request.user.rel_slack_integrations.all():
+             api_response = SlackAPI(team).get_available_channels()
+
+             if api_response["status"]:
+                 slack_teams[team.team_name] = api_response["channels"]
+
+        request_data["teams"] = slack_teams
+        request_data["slack_auth_url"] = SlackAPI.get_authorization_url()
+
+        return render(request, 'admin/admin_slack_management.html', request_data)
+
 def services_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
@@ -127,12 +149,14 @@ def services_form(request, feedname=None):
         if not request.user.is_social_network_activated(network="facebook"):
             request_data["facebook_auth_url"] = FacebookAPI.get_authorization_url()
         else:
-            request_data["facebook_auth_url"] = False # False => Don't need to authenticate with Twitter LinkedInAPI
+            request_data["facebook_auth_url"] = False # False => Don't need to authenticate with Facebook
 
         if not request.user.is_social_network_activated(network="linkedin"):
             request_data["linkedin_auth_url"] = LinkedInAPI.get_authorization_url()
         else:
-            request_data["linkedin_auth_url"] = False # False => Don't need to authenticate with Twitter
+            request_data["linkedin_auth_url"] = False # False => Don't need to authenticate with LinkedIn
+
+        request_data["slack_auth_url"] = SlackAPI.get_authorization_url()
 
         return render(request, 'admin/admin_social_sharing.html', request_data)
 

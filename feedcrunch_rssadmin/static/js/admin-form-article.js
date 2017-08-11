@@ -52,7 +52,7 @@ $( document ).ready(function() {
         'twitter',
         'facebook',
         'linkedin',
-        'gplus',
+        'slack',
         'auto-format'
     ]
 
@@ -113,7 +113,7 @@ $( document ).ready(function() {
             twitter: $('#twitter').prop('checked'),
             facebook: $('#facebook').prop('checked'),
             linkedin: $('#linkedin').prop('checked'),
-            gplus: $('#gplus').prop('checked'),
+            slack: $('#slack').prop('checked'),
             autoformat: $('#auto-format').prop('checked'),
           },
           beforeSend: function(xhr) {

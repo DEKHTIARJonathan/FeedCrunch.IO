@@ -1,0 +1,80 @@
+{% extends 'admin/admin_base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="card">
+            <div class="card-content">
+                <div>
+                    <div class="valign-wrapper">
+                        <img src="{% static "images/services/SlackBotHead.png" %}" style="max-height:120px">
+                        <h4>Manage your Publication Settings for Slack</h4>
+                    </div>
+
+                    <div class="row" style="margin: 80px 0;">
+                        <div class="col s12 m7 offset-m5 l5 offset-l7 xl4 offset-xl6">
+                            <a class="waves-effect waves-light btn white valign-wrapper" style="border-radius: 7px;border-width: 1px; border-style: solid;border-color: #a3a3a3; width:100%" href="{{ slack_auth_url }}">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png" style="max-height: 80%;top: 5px;">
+                                    <span>Add a Slack Team</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col m12 xl8 offset-xl2">
+
+                            <ul class="collapsible" data-collapsible="accordion">
+                                {% for team, channels in teams.items %}
+                                    <li class="slack-team">
+                                        <div class="collapsible-header" style="font-size: 1.1em; min-height: 4rem; line-height: 4rem;">
+                                            <i class="material-icons">group</i>
+                                            Team Slack:
+                                            <span style="font-weight: bold;" class="slack-team-name">{{ team }}</span>
+                                            <div class="secondary-content">
+                                                <button class="waves-effect waves-light btn red unlink-slack-team-btn">Unlink this team from my account</button>
+                                            </div>
+                                        </div>
+                                        <div class="collapsible-body collection">
+                                            <span style="margin-bottom: 15px;margin-top: -10px;display: block;">Channels available for publication:</span>
+                                            <ul class="collection">
+                                                {% for channel in channels %}
+                                                <li class="collection-item dismissable">
+                                                    <div>
+                                                        {% if channel.public %}
+                                                            <i class="material-icons" style="vertical-align: middle;">public</i>
+                                                        {% else %}
+                                                            <i class="material-icons" style="vertical-align: middle;">lock</i>
+                                                        {% endif %}
+                                                        <span class="slack-channel-name">{{ channel.name }}</span>
+                                                        <div class="switch secondary-content">
+                                                            <label><input type="checkbox" data-init="{{ channel.active|yesno:"true,false" }}" class="slack-team-switch"><span class="lever"></span></label>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row row-submit">
+                        <div class="col s12 m6 l4 offset-l2">
+                            <a class="waves-effect waves-light btn red" id="reset" style="width: 100%;"><i class="material-icons left">delete</i>Reset</a>
+                        </div>
+                        <div class="col s12 m6 l4">
+                            <a class="waves-effect waves-light btn light-blue darken-2 m-b-xs" id="submit"  style="width: 100%;"><i class="material-icons left">done</i>Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
