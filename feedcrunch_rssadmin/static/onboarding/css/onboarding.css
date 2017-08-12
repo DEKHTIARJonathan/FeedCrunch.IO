@@ -7,6 +7,23 @@ body {
     overflow-x: hidden
     color: rgba(0, 0, 0, 0.6);
 }
+
+.height25{
+    height: 25%;
+}
+
+.height50{
+    height: 50%;
+}
+
+.height75{
+    height: 75%;
+}
+
+.height100{
+    height: 100%;
+}
+
 @keyframes ellipsis {
     to {
         width: 1.25em
@@ -34,24 +51,30 @@ body {
 }
 .side-panel {
     background-color: #3d5afe;
-    height: 66vh;
+    height: 100%;
     position: relative;
-    margin-bottom: 30px;
 }
 .side-panel .header {
     margin-top: 54px
 }
 @media (max-height: 799px) {
     .side-panel .header {
-        margin-top: 34px
+        margin-top: 15px;
     }
 }
+
 .side-panel .header h1 {
     font-weight: 400;
     line-height: 36px;
     font-size: 25px;
     color: #fff;
     margin-bottom: 0
+}
+@media (max-height: 799px) {
+    .side-panel .header h1 {
+        font-size: 16px;
+        margin-top: 15px;
+    }
 }
 .side-panel .explainer {
     margin-top: 30px;
@@ -60,7 +83,11 @@ body {
 }
 @media (max-height: 799px) {
     .side-panel .explainer {
-        margin-top: 30px
+        margin-top: 10px
+    }
+
+    .side-panel .explainer .hide_laptop{
+        display: none;
     }
 }
 .side-panel .explainer h2:first-child {
@@ -70,9 +97,21 @@ body {
     margin-top: 30px;
     font-size: 20px
 }
+
 .side-panel .explainer p {
     font-size: 16px;
     font-weight: 300;
+}
+
+@media (max-height: 799px) {
+    .side-panel .explainer h2 {
+        margin-top: 15px;
+        font-size: 15px
+    }
+
+    .side-panel .explainer p {
+        font-size: 14px;
+    }
 }
 .side-panel .read-blog {
     background-image: url("../img/app/stream-blog-bg.png");
@@ -101,7 +140,7 @@ body {
 }
 @media (max-height: 725px) {
     .side-panel .read-blog {
-        display: none
+        /*display: none*/
     }
 }
 .side-panel .read-blog .aligner {
@@ -288,10 +327,14 @@ fieldset {
     box-sizing: border-box;
     width: 95%;
     margin: 0 2.5%;
-    /*stacking fieldsets above each other*/
-
+    height: calc(100vh - 200px);
     position: absolute;
 }
+
+.fieldset-div {
+    height: calc(100% - 40px);
+}
+
 /*Hide all except first fieldset*/
 
 fieldset:not(:first-of-type) {
@@ -395,12 +438,21 @@ textarea {
 }
 
 .responsive-imgMod{
-	height: 110px;
-	width: 110px;
+	height: 60px;
+	width: 60px;
+}
+
+.card{
+    height: 100%;
+}
+
+.card .card-content{
+    padding: 0px;
 }
 
 #profile-page-header .card-image {
-	height: 150px;
+	/*height: 150px;*/
+    height: 40%;
 }
 
 #profile-page-header .card-profile-image img {
@@ -408,7 +460,7 @@ textarea {
 	z-index: 1;
 	left: 0;
 	right: 0;
-	top:90px;
+	top:20%;
 	bottom: 0;
 	margin-left: auto;
 	margin-right:auto
@@ -418,8 +470,23 @@ textarea {
 	bottom: 20px;
 }
 
+.next-fieldset-btn{
+    padding-top: 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.next-fieldset-btn > button{
+    padding: 0 0.5rem;
+}
+
 .interest-lbl{
 	background-size: cover;
+}
+
+.social_card{
+    height: 50%;
+    overflow: hidden;
 }
 
 .social-btn-row{

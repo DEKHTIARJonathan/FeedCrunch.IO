@@ -110,7 +110,7 @@
                     </ul>
                     <!-- fieldsets -->
                     <fieldset>
-                        <div class="col-md-12">
+                        <div class="col-md-12 fieldset-div">
                             <div class="col-lg-3 hidden-md-down side-panel">
                                 <div class="header text-center">
                                     <h1>
@@ -122,8 +122,8 @@
                                     <p>Our personalization workflow starts to work once you have selected 3 interests to follow.</p>
                                     <h2>Reading and Reading</h2>
                                     <p>Next, we track which content you read and share</p>
-                                    <h2>Learn</h2>
-                                    <p>Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
+                                    <h2 class="hide_laptop">Learn</h2>
+                                    <p class="hide_laptop">Based on your actions, your reading experience will be increasingly personalised to your interests.</p>
                                 </div>
                                 <div class="read-blog">
                                     <div class="aligner">
@@ -142,12 +142,12 @@
 
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <button type="button" id="interests-btn" class="btn blue darken-2 m-b-xs next" disabled>Select 3 Interests to Continue ...</button>
+                        <div class="col-md-12 next-fieldset-btn">
+                            <button type="button" id="interests-btn" class="btn col-md-3 blue darken-2 m-b-xs next" disabled>Select 3 Interests to Continue ...</button>
                         </div>
                     </fieldset>
                     <fieldset>
-                        <div class="col-md-12">
+                        <div class="col-md-12 fieldset-div">
                             <div class="col-lg-3 hidden-md-down side-panel">
                                 <div class="header text-center">
                                     <h1>
@@ -161,20 +161,20 @@
                                     <h2>Create a Community</h2>
                                     <p>Position yourself as an authority in your domain and build a community around your shares.</p>
 
-                                    <h2>Create Opportunities</h2>
-                                    <p>Help your followers to find the best contents everyday, it will be rewardful.</p>
+                                    <h2 class="hide_laptop">Create Opportunities</h2>
+                                    <p class="hide_laptop">Help your followers to find the best contents everyday, it will be rewardful.</p>
                                 </div>
                                 <div class="read-blog">
                                     <div class="aligner">
                                         <p>Read the technical deep-dive about personalization</p><a href="https://blog.feedcrunch.io/" target="_blank" class="btn btn-outline-primary btn-blog">Read More</a></div>
                                 </div>
                             </div>
-                            <div class="topics col-lg-9 col-md-12">
-                                <div class="row">
+                            <div class="col-lg-9 col-md-12 height100">
+                                <div class="row height100">
 
                                     <!-- Twitter Card -->
-                                    <div class="col s12 m6">
-                                        <div class="white">
+                                    <div class="col s12 m6 social_card">
+                                        <div class="white height100">
                                             <div class="card" id="profile-page-header">
                                                 <div class="card-image header-img">
                                                     <img alt="user background" class="activator" src="{% static "images/social-logos/bg-tw.jpg" %}">
@@ -198,8 +198,8 @@
                                     </div>
 
                                     <!-- Facebook Card -->
-                                    <div class="col s12 m6">
-                                        <div class="white">
+                                    <div class="col s12 m6 social_card">
+                                        <div class="white height100">
                                             <div class="card" id="profile-page-header">
                                                 <div class="card-image header-img">
                                                     <img alt="user background" class="activator" src="{% static "images/social-logos/bg-fb.png" %}">
@@ -219,8 +219,8 @@
                                     </div>
 
                                     <!-- LinkedIn Card -->
-                                    <div class="col s12 m6">
-                                        <div class="white">
+                                    <div class="col s12 m6 social_card">
+                                        <div class="white height100">
                                             <div class="card" id="profile-page-header">
                                                 <div class="card-image header-img">
                                                     <img alt="user background" class="activator" src="{% static "images/social-logos/bg-lk.jpg" %}">
@@ -240,8 +240,8 @@
                                     </div>
 
                                     <!-- GooglePlus Card -->
-                                    <div class="col s12 m6">
-                                        <div class="white">
+                                    <div class="col s12 m6 social_card">
+                                        <div class="white height100">
                                             <div class="card" id="profile-page-header">
                                                 <div class="card-image header-img">
                                                     <img alt="user background" class="activator" src="{% static "images/social-logos/bg-gp.jpg" %}">
@@ -263,8 +263,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <a type="button" name="next" class="btn blue darken-2 m-b-xs next">Next Step</a>
+                        <div class="col-md-12 next-fieldset-btn">
+                            <a type="button" name="next" class="btn col-md-3 blue darken-2 m-b-xs next">Next Step</a>
                         </div>
                     </fieldset>
                     <fieldset>
