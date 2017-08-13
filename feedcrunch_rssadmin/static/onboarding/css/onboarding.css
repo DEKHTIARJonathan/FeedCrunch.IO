@@ -326,9 +326,10 @@ fieldset {
     padding: 20px 30px;
     box-sizing: border-box;
     width: 95%;
-    margin: 0 2.5%;
-    height: calc(100vh - 200px);
     position: absolute;
+}
+.onboarding_fieldset{
+    height: calc(100vh - 180px);
 }
 
 .fieldset-div {
@@ -339,6 +340,7 @@ fieldset {
 
 fieldset:not(:first-of-type) {
     display: none;
+    margin: 0 2.5%;
 }
 /*inputs*/
 
@@ -512,6 +514,26 @@ a:focus, a:hover {
 
 .twitter-btn{
 	font-size: 12px;
+}
+
+.personal_form{
+    margin-top: 70px;
+}
+
+@media(min-height:38.875em){
+    .picker--opened .picker__frame{
+        top: 5vh;
+    }
+}
+
+.description-textarea{
+    height: 86px !important;
+}
+
+@media (max-height: 799px) {
+    .personal_form{
+        margin-top: 15px;
+    }
 }
 
 input, textarea {
