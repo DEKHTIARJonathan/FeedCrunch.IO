@@ -13,7 +13,7 @@ services: postgresql
 
 before_install:
 - export DJANGO_SETTINGS_MODULE=application.settings
-- export PYTHONPATH=$HOME/builds/DataIsTheNewBlack/FeedCrunch.IO
+- export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/FeedCrunch.IO
 - virtualenv venv
 
 install:
@@ -65,7 +65,7 @@ deploy:
   on:
     branch: master
     python: '3.6'
-    repo: DataIsTheNewBlack/FeedCrunch.IO
+    repo: DEKHTIARJonathan/FeedCrunch.IO
     
 - provider: cloudfoundry
   api: https://api.eu-gb.bluemix.net
@@ -78,7 +78,7 @@ deploy:
   on:
     branch: dev
     python: '3.6'
-    repo: DataIsTheNewBlack/FeedCrunch.IO
+    repo: DEKHTIARJonathan/FeedCrunch.IO
     
 - provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
@@ -87,4 +87,4 @@ deploy:
   on:
     tags: true
     python: '3.6'
-    repo: DataIsTheNewBlack/FeedCrunch.IO
+    repo: DEKHTIARJonathan/FeedCrunch.IO
