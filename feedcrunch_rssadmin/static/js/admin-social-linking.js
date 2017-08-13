@@ -5,7 +5,7 @@ $(document).ready(function() {
     var social_networks_dict = {
         twitter:  "#twitter-btn-div",
         facebook: "#facebook-btn-div",
-        linkedin: "#linkedin-btn-div",
+        linkedin: "192",
         slack:    "#slack-btn-div",
     };
 

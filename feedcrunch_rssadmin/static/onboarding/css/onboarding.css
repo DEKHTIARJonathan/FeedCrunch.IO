@@ -533,6 +533,7 @@ a:focus, a:hover {
 @media (max-height: 799px) {
     .personal_form{
         margin-top: 15px;
+        margin-bottom: 0px;
     }
 }
 

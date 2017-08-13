@@ -100,8 +100,16 @@ $( document ).ready(function() {
         for (field in form_fields){
             //console.log(social_networks[field]+ " = " +$("#"+social_networks[field]).val());
             var input = $("#"+form_fields[field]);
-            input.val(input.data("init"));
+            var data = input.data("init");
+
+            if (data != ""){
+                $("label[for='" + form_fields[field] + "']").addClass("active");
+                console.log(form_fields[field]);
+            }
+
+            input.val(data);
         }
+
         $("#country").material_select();
         $("#gender").material_select();
     }
