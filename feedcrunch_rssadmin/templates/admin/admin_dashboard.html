@@ -18,15 +18,11 @@
                         <h4 class="card-title grey-text text-darken-4">{{ user.get_full_name }}</h4>
                         <p class="medium-small grey-text">@{{ user.username }}</p>
                     </div>
+                    {% for interest in user.interests.all %}
                     <div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4 title-interest">Data Science</h4>
+                        <h4 class="card-title grey-text text-darken-4 title-interest">{{ interest }}</h4>
                     </div>
-                    <div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4 title-interest">Machine Learning</h4>
-                    </div>
-                    <div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4 title-interest">Computer Vision</h4>
-                    </div>
+                    {% endfor %}
                   </div>
                 </div>
             </div>
@@ -37,7 +33,7 @@
             <div class="card stats-card">
                 <div class="card-content KPI-Card">
                     <span class="card-title">Articles Posted</span>
-                    <span class="stats-counter"><span class="counter">{{ user.get_post_count }}</span><small>Article(s) posted since {{ user.date_joined }}</small></span>
+                    <span class="stats-counter"><span class="counter">{{ user.get_post_count }}</span><small>Article(s) posted since {{ user.date_joined|date:"F Y" }}</small></span>
                 </div>
                 <div class="progress stats-card-progress no-progress"></div>
             </div>
@@ -62,7 +58,7 @@
             <div class="card stats-card">
                 <div class="card-content KPI-Card">
                     <span class="card-title">Clicks on all Articles</span>
-                    <span class="stats-counter"><span class="counter">{{ user.get_clicks_count_on_user_posts }}</span><small>Clicks since {{ user.date_joined }}</small></span>
+                    <span class="stats-counter"><span class="counter">{{ user.get_clicks_count_on_user_posts }}</span><small>Click(s) since {{ user.date_joined|date:"F Y" }}</small></span>
                 </div>
                 <div class="progress stats-card-progress no-progress"></div>
             </div>

@@ -4,22 +4,24 @@
 {% block body %}
 
     <div class="container user_desc">
-        <div class="label label--smaller u-inlineBlock js-followeesWhoFollow" style="padding-left: 0px;">
-            <span style="color: #525252;">
-                Categories:
-            </span>
-            <a class="link u-baseColor--link" href="/category/datascience">
-                Data Science
-            </a>
-            ,&nbsp;
-            <a class="link u-baseColor--link" href="/category/machinelearning">
-                Machine Learning
-            </a>
-            and&nbsp;
-            <a class="link u-baseColor--link" href="/category/computervision">
-                Computer Vision
-            </a>
-        </div>
+        {% if requested_user.interests.count != 0 %}
+            <div class="label label--smaller u-inlineBlock js-followeesWhoFollow" style="padding-left: 0px;">
+                <span style="color: #525252;">
+                    Interests:
+                </span>
+
+                {% for interest in requested_user.interests.all %}
+                    <a class="link u-baseColor--link" href="#">
+                        {{ interest }}
+                    </a>
+                    {% if forloop.counter0 == 0 %}
+                        ,&nbsp;
+                    {% elif  forloop.counter0 == 1 %}
+                        and&nbsp;
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
         <header class="hero hero--profile">
             <div class="hero-avatar u-floatRight js-profileAvatar">
                 <div class="avatar">
