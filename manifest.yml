@@ -11,7 +11,7 @@ applications:
   url:
   - www.feedcrunch.io
   - feedcrunch.eu-gb.mybluemix.net
-  
+
 - name: Feedcrunch-Worker-Prod
   host: feedcrunch-worker-prod
   instances: 4
