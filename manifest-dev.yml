@@ -1,6 +1,6 @@
 applications:
 - name: Feedcrunch-Front-Dev
-  host: eedcrunch-front-dev
+  host: feedcrunch-front-dev
   instances: 1
   memory: 512M
   disk_quota: 2G
@@ -9,6 +9,7 @@ applications:
   command: chmod +x launch_server.sh && ./launch_server.sh
   stack: cflinuxfs2
   url:
+  - dev.feedcrunch.io
   - feedcrunch-dev.eu-gb.mybluemix.net
 
 - name: Feedcrunch-Worker-Dev
