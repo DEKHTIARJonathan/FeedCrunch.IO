@@ -48,6 +48,7 @@ input.valid{
 }
 
 .socialconnect-btn{
+    font-size: 12px;
     width: 290px;
 }
 
@@ -185,4 +186,32 @@ table.dataTable thead .sorting_desc {
 
 .tabs .tab a:hover, .tabs .tab a.active {
 	color: inherit;
+}
+
+.slackBotHead{
+    max-height:120px;
+}
+
+.add_slackteam_btn{
+    border-radius: 7px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a3a3a3;
+    width:100%
+}
+
+.add_slackteam_btn_img{
+    max-height: 80%;
+    top: 5px;
+}
+
+.add_slackteam_btn_label{
+    top: -14%;
+    position: relative;
+}
+
+.slack-team-div{
+    font-size: 1.1em;
+    min-height: 4rem;
+    line-height: 4rem;
 }

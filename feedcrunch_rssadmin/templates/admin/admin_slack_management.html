@@ -9,15 +9,15 @@
             <div class="card-content">
                 <div>
                     <div class="valign-wrapper">
-                        <img src="{% static "images/services/SlackBotHead.png" %}" style="max-height:120px">
+                        <img src="{% static "images/services/SlackBotHead.png" %}" class="slackBotHead">
                         <h4>Manage your Publication Settings for Slack</h4>
                     </div>
 
                     <div class="row" style="margin: 80px 0;">
                         <div class="col s12 m7 offset-m5 l5 offset-l7 xl4 offset-xl6">
-                            <a class="waves-effect waves-light btn white valign-wrapper" style="border-radius: 7px;border-width: 1px; border-style: solid;border-color: #a3a3a3; width:100%" href="{{ slack_auth_url }}">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png" style="max-height: 80%;top: 5px;">
-                                    <span>Add a Slack Team</span>
+                            <a class="waves-effect waves-light btn white valign-wrapper add_slackteam_btn" href="{{ slack_auth_url }}" target="_blank">
+                                    <img src="{% static "images/services/slack-btn-icon.png" %}" class="add_slackteam_btn_img">
+                                    <span class="add_slackteam_btn_label">Add a Slack Team</span>
                             </a>
                         </div>
                     </div>
@@ -25,11 +25,11 @@
                     <div class="row">
 
                         <div class="col m12 xl8 offset-xl2">
-
+                            <i style="margin-bottom: 20px; display: block;">Click on any team to expand and manage publications per channel.</i>
                             <ul class="collapsible" data-collapsible="accordion">
                                 {% for team, channels in teams.items %}
                                     <li class="slack-team">
-                                        <div class="collapsible-header" style="font-size: 1.1em; min-height: 4rem; line-height: 4rem;">
+                                        <div class="collapsible-header" class="slack-team-div">
                                             <i class="material-icons">group</i>
                                             Team Slack:
                                             <span style="font-weight: bold;" class="slack-team-name">{{ team }}</span>
@@ -50,7 +50,10 @@
                                                         {% endif %}
                                                         <span class="slack-channel-name">{{ channel.name }}</span>
                                                         <div class="switch secondary-content">
-                                                            <label><input type="checkbox" data-init="{{ channel.active|yesno:"true,false" }}" class="slack-team-switch"><span class="lever"></span></label>
+                                                            <label>
+                                                                <input type="checkbox" data-init="{{ channel.active|yesno:"true,false" }}" class="slack-team-switch">
+                                                                <span class="lever"></span>
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </li>

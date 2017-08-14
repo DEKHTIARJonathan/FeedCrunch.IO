@@ -110,12 +110,6 @@ $(document).ready(function() {
             }, 1500);
 		});
 
-        $("#slack-btn-link").unbind("click");
-        $("#slack-btn-link").click(function() {
-			interval = setTimeout(function() {
-                checkSocialNetworkStatus("slack");
-            }, 1500);
-		});
 	}
 
 	function setUnlinkClickEvent() {
@@ -140,12 +134,6 @@ $(document).ready(function() {
             return false;
         });
 
-        $("#slack-btn-unlink").unbind("click");
-        $("#slack-btn-unlink").click(function(event) {
-            UnLinkSocialNetwork("slack");
-            event.preventDefault();
-            return false;
-        });
 	}
 
 	setLinkClickEvent();
