@@ -6,7 +6,6 @@ $(document).ready(function() {
         twitter:  "#twitter-btn-div",
         facebook: "#facebook-btn-div",
         linkedin: "#linkedin-btn-div",
-        slack:    "#slack-btn-div",
     };
 
 	function checkSocialNetworkStatus(social_network) {
@@ -111,12 +110,6 @@ $(document).ready(function() {
             }, 1500);
 		});
 
-        $("#slack-btn-link").unbind("click");
-        $("#slack-btn-link").click(function() {
-			interval = setTimeout(function() {
-                checkSocialNetworkStatus("slack");
-            }, 1500);
-		});
 	}
 
 	function setUnlinkClickEvent() {
@@ -141,12 +134,6 @@ $(document).ready(function() {
             return false;
         });
 
-        $("#slack-btn-unlink").unbind("click");
-        $("#slack-btn-unlink").click(function(event) {
-            UnLinkSocialNetwork("slack");
-            event.preventDefault();
-            return false;
-        });
 	}
 
 	setLinkClickEvent();

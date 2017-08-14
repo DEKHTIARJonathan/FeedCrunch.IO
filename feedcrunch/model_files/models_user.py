@@ -302,7 +302,7 @@ class FeedUser(AbstractFeedUser):
 
     job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
     company_name = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
-    company_website = models.URLField(max_length=120, default='http://www.feedcrunch.io/', blank=True, null=True)
+    company_website = models.URLField(max_length=120, default='https://www.feedcrunch.io/', blank=True, null=True)
 
     profile_picture = models.ImageField(upload_to=get_photo_path, default=settings.USER_PHOTO_PATH+'dummy_user.png', blank=True, null=True)
     onboarding_done = models.BooleanField(default=False)
@@ -528,7 +528,7 @@ class FeedUser(AbstractFeedUser):
             return bool(self.rel_slack_integrations.all().count())
 
         else:
-            raise Exception("The network requested " + network + "doesn't exist in this application")
+            raise Exception("The network requested " + network + " doesn't exist in this application")
 
 
     def is_twitter_enabled(self):
@@ -585,21 +585,21 @@ class FeedUser(AbstractFeedUser):
                 return False
 
         else:
-            raise Exception("The network requested " + network + "doesn't exist in this application")
+            raise Exception("The network requested " + network + " doesn't exist in this application")
 
     def reset_social_network_credentials(self, network):
         if network in ["facebook", "linkedin"]:
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["expire_datetime"], None)
 
-        elif network == "twittter":
+        elif network == "twitter":
             setattr(self, self.social_fields[network]["token"], "")
             setattr(self, self.social_fields[network]["secret"], "")
 
         elif network == "slack":
             self.rel_slack_integrations.all().delete()
         else:
-            raise Exception("The network requested " + network + "doesn't exist in this application")
+            raise Exception("The network requested " + network + " doesn't exist in this application")
 
         self.save()
     ################################### ============================== ###################################

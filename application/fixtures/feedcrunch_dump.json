@@ -1992,13 +1992,6 @@
 },
 {
    "model": "feedcrunch.option",
-   "pk": "max_rss_posts",
-   "fields": {
-      "value": "25"
-   }
-},
-{
-   "model": "feedcrunch.option",
    "pk": "max_articles_on_interest_sub",
    "fields": {
       "value": "5"
@@ -2013,6 +2006,41 @@
 },
 {
    "model": "feedcrunch.option",
+   "pk": "max_rss_posts",
+   "fields": {
+      "value": "25"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "facebook_app_id",
+   "fields": {
+      "value": "############"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "facebook_app_secret",
+   "fields": {
+      "value": "################################"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "linkedin_client_id",
+   "fields": {
+	  "value": "#########################"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "linkedin_client_secret",
+   "fields": {
+      "value": "##################################################"
+   }
+},
+{
+   "model": "feedcrunch.option",
    "pk": "mailchimp_client_id",
    "fields": {
       "value": "############"
@@ -2023,6 +2051,20 @@
    "pk": "mailchimp_client_secret",
    "fields": {
       "value": "################################"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "slack_client_id",
+   "fields": {
+	  "value": "#########################"
+   }
+},
+{
+   "model": "feedcrunch.option",
+   "pk": "slack_client_secret",
+   "fields": {
+      "value": "##################################################"
    }
 },
 {

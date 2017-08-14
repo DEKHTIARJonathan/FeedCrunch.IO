@@ -326,12 +326,29 @@ def onboarding_view(request, feedname=None):
         interest_list = Interest.objects.all().order_by('name')
         country_list = Country.objects.all().order_by('name')
 
-        if not request.user.is_social_network_activated(network="twitter"):
-            twitter_auth_url = TwitterAPI.get_authorization_url(request)
-        else:
-            twitter_auth_url = False # False => Don't need to authenticate with Twitter
+        request_data = dict()
 
-        return render(request, 'admin/onboarding.html', {'interests': interest_list, 'countries': country_list, 'twitter_auth_url': twitter_auth_url})
+        if not request.user.is_social_network_activated(network="twitter"):
+            request_data["twitter_auth_url"] = TwitterAPI.get_authorization_url(request)
+        else:
+            request_data["twitter_auth_url"] = False # False => Don't need to authenticate with Twitter
+
+        if not request.user.is_social_network_activated(network="facebook"):
+            request_data["facebook_auth_url"] = FacebookAPI.get_authorization_url()
+        else:
+            request_data["facebook_auth_url"] = False # False => Don't need to authenticate with Facebook
+
+        if not request.user.is_social_network_activated(network="linkedin"):
+            request_data["linkedin_auth_url"] = LinkedInAPI.get_authorization_url()
+        else:
+            request_data["linkedin_auth_url"] = False # False => Don't need to authenticate with LinkedIn
+
+        request_data["slack_auth_url"] = SlackAPI.get_authorization_url()
+        
+        request_data['interests'] = interest_list
+        request_data['countries'] = country_list
+
+        return render(request, 'admin/onboarding.html', request_data)
 
 def process_onboarding_view(request, feedname=None):
 
