@@ -56,9 +56,15 @@ def index(request, feedname=None):
             publication_trend = int(round(abs(publication_trend),0))
 
         except ZeroDivisionError:
-            publication_trend = -1
-            post_trending = "new_releases"
-            post_trending_color = "blue-grey-text"
+            timedelta_registred = timezone.now() - request.user.date_joined
+            if (timedelta_registred.days < 31):
+                publication_trend = -1
+                post_trending = "new_releases"
+                post_trending_color = "blue-grey-text"
+            else:
+                publication_trend = 0
+                post_trending = "trending_flat"
+                post_trending_color = "blue-grey-text"
 
         data = {
             'monthtime_elapsed': monthtime_elapsed,
