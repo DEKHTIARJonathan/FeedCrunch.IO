@@ -5,9 +5,6 @@ if [ -z "$VCAP_APP_PORT" ];
   else SERVER_PORT="$VCAP_APP_PORT";
 fi
 
-pip uninstall django-material -y
-pip install https://github.com/hairychris/django-material/archive/2b3d70347cf29bcc02b06d3319f9617b626502c8.zip
-
 echo [$0] port is------------------- $SERVER_PORT
 python manage.py makemigrations feedcrunch
 python manage.py migrate
