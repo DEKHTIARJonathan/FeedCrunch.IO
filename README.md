@@ -33,25 +33,39 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
 The project is released under the GNU General Public License v3.0, which gives you the following rights in summary:
 
-**You are allowed to:**
-
-- Commercial use
-- Modification
-- Distribution
-- Patent use
-- Private use
-
-**Limitations:**
-
-- Liability
-- Warranty
-
-**Under the following conditions:**
-
-- License and copyright notice
-- State changes
-- Disclose source
-- Same license
+<table style="width: 100%;">
+	<tr>
+		<th>Permissions</th>
+		<th>Limitations</th>
+		<th>Conditions</th>
+    </tr>
+    <tr>
+     	<td>Commercial use</td>
+      	<td>Liability</td>
+      	<td>License and copyright notice</td>
+    </tr>
+    <tr>
+     	<td>Modification
+      </td>
+      	<td>Warranty</td>
+		<td>State changes</td>
+    </tr>
+    <tr>
+     	<td>Distribution</td>
+      	<td></td>
+		<td>Disclose source</td>
+    </tr>
+    <tr>
+     	<td>Patent use</td>
+      	<td></td>
+      <td>Same license</td>
+    </tr>
+    <tr>
+     	<td>Private use</td>
+      	<td></td>
+      	<td></td>
+    </tr>
+</table>	
 
 # 1. How to Install the development server
 
