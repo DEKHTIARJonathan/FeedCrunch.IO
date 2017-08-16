@@ -794,7 +794,7 @@ class Modify_Slack_Preferences(APIView):
             for team, channels in request.data.items():
                 if channels != "":
                     # Need to test if all channels exists
-                    print("dont forget to test if the channels exist")
+                    print("Warning - Modify_Slack_Preferences:Test implementation missing to check if the channel exist")
 
                 # get object
                 slack_integration = request.user.rel_slack_integrations.filter(team_name=team)[0]

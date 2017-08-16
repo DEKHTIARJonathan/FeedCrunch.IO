@@ -31,7 +31,7 @@
                             <th>Title</th>
                             <th>Feed</th>
                             <th>Domain</th>
-                            <th class='centered-cell'>Hotness</th>
+                            <th class='centered-cell' style="min-width: 90px;">Hotness</th>
                             <th class='centered-cell'>Publish</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                             <td>{{ rssarticle.short_title }}</td>
                             <td>{{ rssarticle.rssfeed }}</td>
                             <td>{{ rssarticle.get_domain }}</td>
-                            <td class='centered-cell' style="color: rgb({{ rssarticle.color }},0,0);">{{ rssarticle.score }}%</td>
+                            <td class='centered-cell' style="color: rgb({{ rssarticle.color }},0,0);">{{ rssarticle.score|floatformat:2 }}%</td>
                             <td class='centered-cell'>
                                 <a class="btn-floating btn waves-effect waves-light red delete-btn" data-id="{{ rssarticle.id }}"><i class="material-icons small-icon-listing">delete_forever</i></a>
                                 <a class="btn-floating btn waves-effect waves-light blue" href="redirect/{{ rssarticle.id }}/" target="_blank"><i class="material-icons small-icon-listing">open_in_new</i></a>
