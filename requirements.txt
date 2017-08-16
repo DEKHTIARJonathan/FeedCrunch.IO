@@ -47,7 +47,7 @@ funcsigs==1.0.2
 future==0.16.0
 futures==3.1.1
 gunicorn==19.7.1
-idna==2.5
+idna==2.6
 ipaddress==1.0.18
 jmespath==0.9.3
 kombu==4.1.0
