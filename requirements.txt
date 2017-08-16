@@ -2,7 +2,7 @@ amqp==2.2.1
 appdirs==1.4.3
 arrow==0.10.0
 asn1crypto==0.22.0
-awscli==1.11.132
+awscli==1.11.135
 billiard==3.5.0.2
 blessed==1.14.2
 boto==2.48.0
