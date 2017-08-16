@@ -37,7 +37,7 @@ oauthlib==2.0.2
 olefile==0.44
 pandas==0.20.3
 Pillow==4.2.1
-psycopg2==2.7.2
+psycopg2==2.7.3
 pycparser==2.18
 python-dateutil==2.6.1
 python3-linkedin==1.0.1
