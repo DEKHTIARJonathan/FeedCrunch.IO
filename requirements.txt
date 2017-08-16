@@ -62,7 +62,7 @@ pandas==0.20.3
 pbr==3.1.1
 Pillow==4.2.1
 psutil==5.2.2
-psycopg2==2.7.2
+psycopg2==2.7.3
 pyasn1==0.3.1
 pycparser==2.18
 pycryptodome==3.4.6
