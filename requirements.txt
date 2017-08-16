@@ -21,7 +21,7 @@ django-material==1.0.0
 django-picklefield==1.0.0
 django-q==0.8.0
 django-ses==0.8.2
-django-storages==1.6.4
+django-storages==1.6.5
 djangorestframework==3.6.3
 facebook-sdk==2.0.0
 factory-boy==2.9.2
