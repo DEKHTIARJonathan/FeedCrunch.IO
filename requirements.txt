@@ -16,7 +16,7 @@ coverage==4.4.1
 coveralls==1.2.0
 cryptography==2.0.3
 dateutils==0.6.6
-decorator==4.1.1
+decorator==4.1.2
 dill==0.2.7.1
 dj-database-url==0.4.2
 django==1.11.3
