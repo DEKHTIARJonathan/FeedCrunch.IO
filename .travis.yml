@@ -33,7 +33,7 @@ script:
 
 after_success:
 - coveralls
-- codecov
+- codecov --token=8b655609-dc18-4e1b-ade7-9484c83357df
     
 notifications:
   slack:
