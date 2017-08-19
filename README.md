@@ -1,4 +1,4 @@
-FeedCrunch.IO - DJANGO APP
+FeedCrunch.IO - Empower RSS feeds to a whole new level
 ====================
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
 [![license](https://img.shields.io/github/license/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://opensource.org/licenses/GPL-3.0/)
@@ -10,14 +10,14 @@ Prod:
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=Travis%20-%20Master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Updates](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
-[![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/badge.svg?branch=master)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
-[![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/master.svg)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
+[![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
+[![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
 [![Website](https://img.shields.io/website-up-down-green-red/http/www.feedcrunch.io.svg?label=Feedcrunch.io)](https://www.feedcrunch.io)
 
 Dev:
 [![Build Status - Dev](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
-[![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/badge.svg?branch=dev)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=dev)
-[![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/dev.svg)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
+[![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
+[![Codecov Status](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
 [![Website](https://img.shields.io/website-up-down-green-red/http/feedcrunch-dev.eu-gb.mybluemix.net.svg?label=Feedcrunch.io%20-%20Dev)](https://feedcrunch-dev.eu-gb.mybluemix.net/)
 # Issues
 
