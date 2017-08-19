@@ -1,24 +1,27 @@
 FeedCrunch.IO - Empower RSS feeds to a whole new level
-====================
+======================================================
+
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
 [![license](https://img.shields.io/github/license/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://opensource.org/licenses/GPL-3.0/)
 [![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://github.com/DEKHTIARJonathan/FeedCrunch.IO/releases)
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400&label=documentation)](http://feedcrunch.readthedocs.io/en/latest/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/born2data.svg?style=flat-square&label=Follow%20me:%20@born2data)](https://twitter.com/intent/user?screen_name=born2data)
 
-Prod: 
+__________________
+Production Metrics<br>
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=Travis%20-%20Master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Updates](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
 [![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
 [![Website](https://img.shields.io/website-up-down-green-red/http/www.feedcrunch.io.svg?label=Feedcrunch.io)](https://www.feedcrunch.io)
-
-Dev:
+__________________
+Development Metrics<br>
 [![Build Status - Dev](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
 [![Codecov Status](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
 [![Website](https://img.shields.io/website-up-down-green-red/http/feedcrunch-dev.eu-gb.mybluemix.net.svg?label=Feedcrunch.io%20-%20Dev)](https://feedcrunch-dev.eu-gb.mybluemix.net/)
+
 # Issues
 
 Feel free to submit issues and enhancement requests.
