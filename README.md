@@ -10,6 +10,7 @@ Prod:
 [![Updates](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Coverage Status](https://coveralls.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/badge.svg?branch=master)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
+[![codecov](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO/branch/master/graph/badge.svg)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
 [![Website](https://img.shields.io/website-up-down-green-red/http/www.feedcrunch.io.svg?label=Feedcrunch.io)](https://www.feedcrunch.io)
 
 Dev:
