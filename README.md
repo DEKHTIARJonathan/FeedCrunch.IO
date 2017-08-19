@@ -4,7 +4,7 @@ FeedCrunch.IO - Empower RSS feeds to a whole new level
 [![license](https://img.shields.io/github/license/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://opensource.org/licenses/GPL-3.0/)
 [![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://github.com/DEKHTIARJonathan/FeedCrunch.IO/releases)
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400&label=documentation)](http://feedcrunch.readthedocs.io/en/latest/)
-[![Twitter Follow](https://img.shields.io/twitter/follow/born2data.svg?style=social&label=Follow%20@born2data)](https://twitter.com/intent/user?screen_name=born2data)
+[![Twitter Follow](https://img.shields.io/twitter/follow/born2data.svg?style=flat-square&label=Follow%20me:%20@born2data)](https://twitter.com/intent/user?screen_name=born2data)
 
 Prod: 
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=Travis%20-%20Master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
