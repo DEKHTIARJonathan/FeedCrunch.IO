@@ -296,8 +296,8 @@ if not DEBUG:
 ALLOWED_HOSTS = ['*']
 
 # Celery Configuration
-CELERY_BROKER_URL = assign_env_value('RABBITMQ_URL')
-CELERY_BROKER_USE_SSL=True
+BROKER_URL = assign_env_value('RABBITMQ_URL')
+BROKER_USE_SSL=True
 
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TIMEZONE = TIME_ZONE
@@ -318,7 +318,7 @@ CELERYD_TASK_SOFT_TIME_LIMIT=60
 if DEBUG:
     CELERY_TASK_ALWAYS_EAGER = True
 
-#CELERYBEAT_SCHEDULER='django_celery_beat.schedulers:DatabaseScheduler'
+CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERYBEAT_MAX_LOOP_INTERVAL=10
 CELERYBEAT_SYNC_EVERY=1
 CELERYBEAT_SCHEDULE = {
