@@ -12,7 +12,7 @@ applications:
 - name: Feedcrunch-Daemon-Prod
   host: feedcrunch-daemon-prod
   instances: 1
-  command: screen -S beat -dm celery beat -A application --loglevel=info && screen -S beat -dm elery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0
+  command: celery beat -A application --loglevel=info --detach && celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
   health-check-type: process
   services:
   - Feedcrunch-DB-prod
@@ -24,7 +24,7 @@ applications:
 - name: Feedcrunch-Daemon-Dev
   host: feedcrunch-daemon-dev
   instances: 1
-  command: screen -S beat -dm celery beat -A application --loglevel=info && screen -S beat -dm elery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0
+  command: celery beat -A application --loglevel=info --detach && celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
   health-check-type: process
   services:
   - Feedcrunch-DB-dev
