@@ -104,6 +104,8 @@ class RSSFeed(models.Model):
 
                 if feed_content.status == 200:
 
+                    self._reset_bad_attempts()
+
                     for entry in feed_content['entries']:
 
                         if 'title' in entry:
@@ -130,8 +132,6 @@ class RSSFeed(models.Model):
 
                         except Exception as e:
                             raise Exception("Exception occured : " + str(e))
-
-                    self._reset_bad_attempts()
 
                 else:
                     self._trigger_bad_attempt()
