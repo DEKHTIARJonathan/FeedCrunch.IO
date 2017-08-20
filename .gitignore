@@ -117,3 +117,4 @@ scripts/django_q.sql
 /flower*
 /celery*
 Procfile
+venv_linux/
