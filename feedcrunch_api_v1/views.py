@@ -12,10 +12,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser, MultiPartParser
 
-from django_q.tasks import async, schedule
-from django_q.models import Schedule
-
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
+from feedcrunch import tasks
 
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
@@ -346,7 +344,7 @@ class RSSFeed_View(APIView):
 
                 if not rssfeed_queryset.exists():
                     tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
-                    schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=datetime.datetime.now() + datetime.timedelta(minutes=1))
+                    tasks.check_rss_feed.delay(rss_id=tmp_rssfeed.id)
 
                     old_articles = None
 
@@ -609,36 +607,16 @@ class Article(APIView):
                 RSSArticle_Assoc_obj.save()
 
             if twitter_bool and user.is_social_network_enabled(network="twitter"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_twitter',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_twitter.delay(idArticle=tmp_post.id)
 
             if facebook_bool and user.is_social_network_enabled(network="facebook"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_facebook',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_facebook.delay(idArticle=tmp_post.id)
 
             if linkedin_bool and user.is_social_network_enabled(network="linkedin"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_linkedin',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_linkedin.delay(idArticle=tmp_post.id)
 
             if slack_bool and user.is_social_network_enabled(network="slack"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_slack',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_slack.delay(idArticle=tmp_post.id)
 
             payload["success"] = True
             payload["postID"] = str(tmp_post.id)
@@ -706,36 +684,16 @@ class Article(APIView):
             tmp_post.save()
 
             if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_twitter',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_twitter.delay(idArticle=tmp_post.id)
 
             if facebook_bool and request.user.is_social_network_enabled(network="facebook"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_facebook',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_facebook.delay(idArticle=tmp_post.id)
 
             if linkedin_bool and request.user.is_social_network_enabled(network="linkedin"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_linkedin',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_linkedin.delay(idArticle=tmp_post.id)
 
             if slack_bool and request.user.is_social_network_enabled(network="slack"):
-                schedule(
-                    'feedcrunch.tasks.publish_on_slack',
-                    idArticle=tmp_post.id,
-                    schedule_type=Schedule.ONCE,
-                    next_run=datetime.datetime.now()
-                )
+                tasks.publish_on_slack.delay(idArticle=tmp_post.id)
 
             payload["success"] = True
             payload["postID"] = str(postID)

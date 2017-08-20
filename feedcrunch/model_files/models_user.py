@@ -15,9 +15,6 @@ from django.utils import six, timezone
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
-from django_q.tasks import schedule
-from django_q.models import Schedule
-
 from validate_email import validate_email
 from encrypted_model_fields .fields import EncryptedCharField
 
@@ -173,7 +170,8 @@ class FeedUserManager(BaseUserManager):
                     user.set_password(password)
                     user.save(using=self._db)
 
-                    schedule('feedcrunch.tasks.send_welcome_email', user_name=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+                    from feedcrunch.tasks import send_welcome_email
+                    send_welcome_email.delay(user_name=user.username)
 
                     return user
 
@@ -663,7 +661,9 @@ class FeedUser(AbstractFeedUser):
                 except:
                     errors.append(link)
                     continue
-                schedule('feedcrunch.tasks.check_rss_feed', rss_id=tmp_rssfeed.id, schedule_type=Schedule.ONCE, next_run=timezone.now() + datetime.timedelta(minutes=1))
+
+                from feedcrunch.tasks import check_rss_feed
+                check_rss_feed.delay(rss_id=tmp_rssfeed.id)
 
                 old_articles = None
 
@@ -684,9 +684,9 @@ class FeedUser(AbstractFeedUser):
         return errors
 
     def refresh_user_subscribtions(self):
-        launch_time = timezone.now() + datetime.timedelta(minutes=1)
 
         for feed_assoc in self.rel_sub_feed.all():
             feed = feed_assoc.feed
             if feed.active:
-                schedule('feedcrunch.tasks.check_rss_feed', rss_id=feed.id, schedule_type=Schedule.ONCE, next_run=launch_time)
+                from feedcrunch.tasks import check_rss_feed
+                check_rss_feed.delay(rss_id=feed.id)

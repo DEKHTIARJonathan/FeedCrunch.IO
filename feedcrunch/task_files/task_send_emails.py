@@ -3,28 +3,20 @@
 
 from __future__ import unicode_literals
 
-#from django.db import models
-#
-#
-#from django.core.exceptions import ObjectDoesNotExist
+from application.celery import app as celery
 #
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.utils import timezone
 
-from django_q.tasks import schedule
-from django_q.models import Schedule
-
+from feedcrunch import models
 from feedcrunch.models import FeedUser #, RSSFeed, RSSSubscriber, RSSSubsStat
-
-from datetime import timedelta
-
 
 def send_mass_welcome_email():
     for user in FeedUser.objects.all():
-        schedule('feedcrunch.tasks.send_welcome_email', username=user.username, schedule_type=Schedule.ONCE, next_run=timezone.now() + timedelta(minutes=1))
+        send_welcome_email.delay(username=user.username)
 
+@celery.task(name='feedcrunch.tasks.send_welcome_email')
 def send_welcome_email(username):
     usr = FeedUser.objects.get(username=username)
 
