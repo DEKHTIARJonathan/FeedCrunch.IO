@@ -16,7 +16,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os, sys, dj_database_url, getenv
+from datetime import timedelta
 
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -31,6 +33,10 @@ sys.path.insert(0, functions_dir)
 
 STATICFILES_LOCATION = 'static'
 STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'staticfiles')
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 MEDIAFILES_LOCATION = 'media'
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), MEDIAFILES_LOCATION)
@@ -54,7 +60,7 @@ if DEBUG:
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     STATIC_URL = "/%s/" % STATICFILES_LOCATION
 
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
@@ -100,23 +106,31 @@ else:
 
 # Application definition
 
-INSTALLED_APPS = [
-    'material',
-    'material.admin',
-    'admin_view_permission',
-    'django_ses',
-    #'django.contrib.sites'
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.contrib.sites',
+]
+
+THIRD_PARTY_APPS = [
+    'material',
+    'material.admin',
+    'admin_view_permission',
+    'django_extensions',
+    'django_ses',
     'rest_framework',
     'encrypted_model_fields',
     'storages',
-    'django_q',
-    ## =========== FC Apps ========== ##
+    'django_celery_monitor',
+    'django_celery_beat',
+    'django_celery_results',
+]
+
+LOCAL_APPS = [
     'feedcrunch',
     'feedcrunch_api_v1',
     'feedcrunch_rssviewer',
@@ -124,6 +138,9 @@ INSTALLED_APPS = [
     'feedcrunch_home',
     'oauth',
 ]
+
+INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -140,19 +157,34 @@ ROOT_URLCONF = 'application.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': ['templates'],
+        #'APP_DIRS': True,
         'OPTIONS': {
             'debug': DEBUG,
+            'loaders': [
+                ('django.template.loaders.cached.Loader', [
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]),
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
+if DEBUG:
+    TEMPLATES[0]['OPTIONS']['loaders'] = [
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    ]
 
 EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_SES_ACCESS_KEY_ID = assign_env_value('AWS_USER')
@@ -227,44 +259,17 @@ INTEREST_PHOTO_PATH = "images/interest_photos/"
 
 RSS_SUBS_LOOKUP_PERIOD = 3 # (days) Every people visiting the RSS/ATOM feeds over the N last days are count as a subscriber
 
-# QCluster config
-
-Q_CLUSTER = {
-    'name': 'FeedCrunch', # Used to differentiate between projects using the same broker. On most broker types this will be used as the queue name.
-    'workers': 1, # The number of workers to use in the cluster. Defaults to CPU count of the current host, but can be set to a custom number.
-    'recycle': 30, # The number of tasks a worker will process before recycling . Useful to release memory resources on a regular basis.
-    'timeout': 60, # The number of seconds a worker is allowed to spend on a task before it’s terminated. Defaults to None, meaning it will never time out. Set this to something that makes sense for your project. Can be overridden for individual tasks.
-    'compress': False, # Compresses task packages to the broker. Useful for large payloads, but can add overhead when used with many small packages.
-    'retry': 90, # The number of seconds a broker will wait for a cluster to finish a task, before it’s presented again. Only works with brokers that support delivery receipts.
-    'save_limit': 250, # Limits the amount of successful tasks saved to Django. Set to 0 for unlimited. Set to -1 for no success storage at all. Defaults to 250. Failures are always saved.
-    'queue_limit': 10, # This does not limit the amount of tasks that can be queued on the broker, but rather how many tasks are kept in memory by a single cluster. Setting this to a reasonable number, can help balance the workload and the memory overhead of each individual cluster.
-    'bulk': 5, # Amazon SQS only supports a bulk setting between 1 and 10, with the total payload not exceeding 256kb.
-    'orm': 'default',
-}
-'''
-'sqs': {
-    'aws_region': 'eu-west-1',
-    'aws_access_key_id': assign_env_value('AWS_USER'),
-    'aws_secret_access_key': assign_env_value('AWS_SECRET_KEY')
-}
-'''
-
-if DEBUG:
-    Q_CLUSTER['workers'] = 4
-    Q_CLUSTER['recycle'] = 500
-
 # MAXIMUM RSS retry
-
 MAX_RSS_RETRIES = 5
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'Europe/Paris'
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
+TIME_ZONE     = 'Europe/Paris'
+USE_I18N      = True
+USE_L10N      = True
+USE_TZ        = True
 
 if not DEBUG:
     # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -289,3 +294,42 @@ if not DEBUG:
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
+
+# Celery Configuration
+CELERY_BROKER_URL = assign_env_value('RABBITMQ_URL')
+CELERY_BROKER_USE_SSL=True
+
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TIMEZONE = TIME_ZONE
+
+CELERYD_CONCURRENCY = 3
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_RESULT_EXPIRES=7*24*30*30
+
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TASK_ACKS_LATE=True # Acknoledge pool when task is over
+CELERY_TASK_REJECT_ON_WORKER_LOST=True
+CELERY_TASK_RESULT_EXPIRES=10
+
+CELERYD_TASK_TIME_LIMIT=90
+CELERYD_TASK_SOFT_TIME_LIMIT=60
+
+if DEBUG:
+    CELERY_TASK_ALWAYS_EAGER = True
+
+#CELERYBEAT_SCHEDULER='django_celery_beat.schedulers:DatabaseScheduler'
+CELERYBEAT_MAX_LOOP_INTERVAL=10
+CELERYBEAT_SYNC_EVERY=1
+CELERYBEAT_SCHEDULE = {
+    'refresh_all_rss_subscribers_count': {
+        'task': 'feedcrunch.tasks.refresh_all_rss_subscribers_count',
+        'schedule': crontab(hour=0, minute=5), # Everyday at midnight + 5mins
+        #'schedule': crontab(minute='*/1'),
+    },
+    'refresh_all_rss_feeds': {
+        'task': 'feedcrunch.tasks.refresh_all_rss_feeds',
+        'schedule': crontab(minute='30'), # Every hours when minutes = 30mins
+        #'schedule': crontab(minute='*/1'),
+    },
+}

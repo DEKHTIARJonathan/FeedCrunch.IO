@@ -19,7 +19,7 @@ applications:
   disk_quota: 2G
   path: .
   buildpack: https://github.com/cloudfoundry/buildpack-python.git
-  command: python manage.py qcluster
+  command: celery worker -A application -l info --events
   stack: cflinuxfs2
   health-check-type: process
   no-route: true

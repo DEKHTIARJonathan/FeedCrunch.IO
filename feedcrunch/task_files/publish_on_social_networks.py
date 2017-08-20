@@ -7,6 +7,10 @@ from django.db import models
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
+from application.celery import app as celery
+
+from feedcrunch import models
+
 from feedcrunch.models import Post
 
 from oauth.twitterAPI  import TwitterAPI
@@ -14,12 +18,11 @@ from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
 from oauth.slackAPI    import SlackAPI
 
-from datetime import timedelta
-
 ####################################################################################################################
 # ================================================== TWITTER  ==================================================== #
 ####################################################################################################################
 
+@celery.task(name='feedcrunch.tasks.publish_on_twitter')
 def publish_on_twitter(idArticle):
     try:
         try:
@@ -46,6 +49,7 @@ def publish_on_twitter(idArticle):
 # ================================================== Facebook  =================================================== #
 ####################################################################################################################
 
+@celery.task(name='feedcrunch.tasks.publish_on_facebook')
 def publish_on_facebook(idArticle):
     try:
         try:
@@ -72,6 +76,7 @@ def publish_on_facebook(idArticle):
 # ================================================== LinkedIn  =================================================== #
 ####################################################################################################################
 
+@celery.task(name='feedcrunch.tasks.publish_on_linkedin')
 def publish_on_linkedin(idArticle):
     try:
 
@@ -98,6 +103,7 @@ def publish_on_linkedin(idArticle):
 # ==================================================== Slack  ==================================================== #
 ####################################################################################################################
 
+@celery.task(name='feedcrunch.tasks.publish_on_slack')
 def publish_on_slack(idArticle):
     try:
         try:

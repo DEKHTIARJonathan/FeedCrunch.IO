@@ -9,7 +9,10 @@ python:
 - '3.4'
 - '3.5'
 - '3.6'
-services: postgresql
+
+services:
+- rabbitmq
+- postgresql
 
 before_install:
 - export DJANGO_SETTINGS_MODULE=application.settings
@@ -43,6 +46,11 @@ notifications:
 env:
   global:
   
+  - RABBITMQ_URL='amqp://guest:guest@localhost:5672/'
+  - DATABASE_URL='postgres://postgres:@localhost:5432/travisci'
+  - DEBUG=True
+  - EMAIL_DEFAULT_SENDER='local@local.host'
+  - TRAVIS=True
   - ARTIFACT_NAME="Feedcrunch-Application.zip"
   
   ### === BluemixPassword === ###
@@ -56,6 +64,7 @@ before_deploy:
 - zip -r "$ARTIFACT_NAME" . -x \*.crypto application/staticfiles/\* venv/\* _unused_/\* venv/\* certificate/\* codedeploy/\* example_files/\* htmlcov/\* scripts/\* lib_bin/\* .git/\*
 
 deploy:
+
 - provider: cloudfoundry
   api: https://api.eu-gb.bluemix.net
   username: jonathan.dekhtiar@utc.fr
@@ -79,6 +88,19 @@ deploy:
   region: eu-gb
   on:
     branch: dev
+    python: '3.6'
+    repo: DEKHTIARJonathan/FeedCrunch.IO
+    
+- provider: cloudfoundry
+  api: https://api.eu-gb.bluemix.net
+  username: jonathan.dekhtiar@utc.fr
+  password: "$BluemixPassword"
+  organization: FeedCrunch
+  space: prod
+  manifest: manifest-daemon.yml
+  region: eu-gb
+  on:
+    branch: celery_daemon
     python: '3.6'
     repo: DEKHTIARJonathan/FeedCrunch.IO
     
