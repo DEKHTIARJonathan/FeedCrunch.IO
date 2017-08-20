@@ -40,7 +40,7 @@ def record_user_subscribers_stats(username=None):
                 raise Exception(record["error"] + " // Timestamp: " + record["timestamp"].strftime("%d/%m/%y - %H:%M") + " // Timestamp_TZ: " + record["timestamp_tz"].strftime("%d/%m/%y - %H:%M"))
 
         else:
-            raise Exception("Object already exist with datetime: " + str(timezone.now()) + " & date : " + str(timezone.now().date()))
+            raise Exception("Object already exists with date: " + yesterday.strftime("%d/%m/%y") + " & it happened at date : " + timezone.now().strftime("%d/%m/%y - %H:%M"))
 
     #except Exception as e:
     #    raise Exception("Error: tasks.record_user_subscribers_stats - Error: " + str(e))
