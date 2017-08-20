@@ -171,7 +171,7 @@ class FeedUserManager(BaseUserManager):
                     user.save(using=self._db)
 
                     from feedcrunch.tasks import send_welcome_email
-                    send_welcome_email.delay(user_name=user.username)
+                    send_welcome_email.delay(username=user.username)
 
                     return user
 
