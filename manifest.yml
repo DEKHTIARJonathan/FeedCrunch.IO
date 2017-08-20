@@ -19,7 +19,7 @@ applications:
   disk_quota: 2G
   path: .
   buildpack: https://github.com/cloudfoundry/buildpack-python.git
-  command: celery worker -A application -l info --events
+  command: celery beat -A application --loglevel=info --detach && celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach && celery worker -A application -l info --events
   stack: cflinuxfs2
   health-check-type: process
   no-route: true
