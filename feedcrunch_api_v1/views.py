@@ -783,7 +783,7 @@ class Modify_Social_Networks(APIView):
 
             payload ["username"] = request.user.username
 
-            val = URLValidator()
+            url_validator = URLValidator()
 
             social_networks = [
                 'dribbble',
@@ -815,7 +815,7 @@ class Modify_Social_Networks(APIView):
                 url = unicodedata.normalize('NFC', request.data[social])
                 if url != '':
                     try:
-                        val(url) #Raise a ValidationError if the URL is invalid.
+                        url_validator(url) #Raise a ValidationError if the URL is invalid.
                     except:
                         raise Exception("URL Not Valid: "+social)
                 social_data[social] = url
@@ -875,8 +875,6 @@ class Modify_Preferences(APIView):
 
             payload ["username"] = request.user.username
 
-            val = URLValidator()
-
             fields = [
                 'visibility',
                 'autoformat',
@@ -921,7 +919,7 @@ class Modify_Personal_info(APIView):
 
             payload ["username"] = request.user.username
 
-            val = URLValidator()
+            url_validator = URLValidator()
 
             fields = [
                 'firstname',
@@ -956,7 +954,7 @@ class Modify_Personal_info(APIView):
                 FeedUser.objects._validate_gender(form_data["gender"])
 
             FeedUser.objects._validate_email(form_data["email"])
-            val(form_data["company_website"])
+            url_validator(form_data["company_website"])
 
             ###############################################################################
             #               DATA VALIDATION & Set Attributes - Special Attr               #

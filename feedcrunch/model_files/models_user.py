@@ -15,7 +15,7 @@ from django.utils import six, timezone
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
-from validate_email import validate_email
+from pyisemail import is_email
 from encrypted_model_fields .fields import EncryptedCharField
 
 from feedcrunch.models import Continent, Country, Estimator, Interest
@@ -63,7 +63,7 @@ class FeedUserManager(BaseUserManager):
                 raise ValueError("The given username ( "+ username +" ) is already taken")
 
         def _validate_email(self, email):
-            if not validate_email(email):
+            if not is_email(email, check_dns=True):
                 raise ValueError("The given email is not valid or not doesn''t exist.")
 
         def _validate_password(self, password):
