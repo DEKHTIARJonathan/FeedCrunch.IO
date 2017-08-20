@@ -37,7 +37,7 @@ class Interest(models.Model):
         return self.name
 
     def get_photo_path(self):
-        if settings.DEBUG:
+        if settings.DEBUG or settings.TESTING:
             return self.picture.url
         else:
             photo_url = "%s%s" % (settings.MEDIA_URL, self.picture)

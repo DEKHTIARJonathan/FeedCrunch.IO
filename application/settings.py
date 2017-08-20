@@ -24,6 +24,8 @@ from celery.schedules import crontab
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test' #Define a variable to know if we are in tests
+
 # ================== We append to the path the function folder containing generic functions
 
 functions_dir = os.path.join(BASE_DIR, 'functions')
@@ -56,7 +58,7 @@ def assign_env_value(var_name):
 DEBUG = assign_env_value('DEBUG')
 SECRET_KEY = assign_env_value('SECRET_KEY')
 
-if DEBUG:
+if DEBUG or TESTING:
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
@@ -180,7 +182,7 @@ TEMPLATES = [
     },
 ]
 
-if DEBUG:
+if DEBUG or TESTING:
     TEMPLATES[0]['OPTIONS']['loaders'] = [
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
@@ -271,7 +273,7 @@ USE_I18N      = True
 USE_L10N      = True
 USE_TZ        = True
 
-if not DEBUG:
+if not DEBUG and not TESTING:
     # Honor the 'X-Forwarded-Proto' header for request.is_secure()
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -305,18 +307,19 @@ CELERY_TIMEZONE = TIME_ZONE
 CELERYD_CONCURRENCY = 3
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_RESULT_SERIALIZER = 'json'
-CELERY_RESULT_EXPIRES=7*24*30*30
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TASK_ACKS_LATE=True # Acknoledge pool when task is over
 CELERY_TASK_REJECT_ON_WORKER_LOST=True
-CELERY_TASK_RESULT_EXPIRES=10
+CELERY_TASK_RESULT_EXPIRES=7*24*30*30
 
 CELERYD_TASK_TIME_LIMIT=90
 CELERYD_TASK_SOFT_TIME_LIMIT=60
 
-if DEBUG:
+if DEBUG or TESTING:
     CELERY_TASK_ALWAYS_EAGER = True
+else:
+    CELERY_TASK_ALWAYS_EAGER = False
 
 CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERYBEAT_MAX_LOOP_INTERVAL=10
@@ -326,10 +329,16 @@ CELERYBEAT_SCHEDULE = {
         'task': 'feedcrunch.tasks.refresh_all_rss_subscribers_count',
         'schedule': crontab(hour=0, minute=5), # Everyday at midnight + 5mins
         #'schedule': crontab(minute='*/1'),
+        'options': {
+            'expires': 20*60,  # 20 minutes
+        }
     },
     'refresh_all_rss_feeds': {
         'task': 'feedcrunch.tasks.refresh_all_rss_feeds',
         'schedule': crontab(minute='30'), # Every hours when minutes = 30mins
         #'schedule': crontab(minute='*/1'),
+        'options': {
+            'expires': 20*60,  # 20 minutes
+        }
     },
 }

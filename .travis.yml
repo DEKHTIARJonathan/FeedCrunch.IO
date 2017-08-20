@@ -48,10 +48,10 @@ env:
   
   - RABBITMQ_URL='amqp://guest:guest@localhost:5672/'
   - DATABASE_URL='postgres://postgres:@localhost:5432/travisci'
-  - DEBUG=True
+  - DEBUG='True'
   - EMAIL_DEFAULT_SENDER='local@local.host'
-  - TRAVIS=True
-  - ARTIFACT_NAME="Feedcrunch-Application.zip"
+  - TRAVIS='True'
+  - ARTIFACT_NAME='Feedcrunch-Application.zip'
   
   ### === BluemixPassword === ###
   - secure: "pCcGxYi4rP0giVfguOMDrH6nq++v5xx0geb1pBQT6C6awF6NoFWfkrZXQSGqx5/G2bP5F4G+djTP0c441bzSSPrUT+oqW47vdrg6vqYRVin/YZFQRlutoHPcckjyyWep2aa5qAbp31yWXCol3MwQPupQl90yQeXKUk4GI9HP3+h9wEKeus0x+RZvLuKVINWNlRWMaIHtnR1J8xTrzCCFqQR4L6Kknv80sxOfTMFyaEKv8dUdAHzrV87J+tYQAaJoKAsMLqdagX88TBK9uRxXmfAX33RCUIdgDlG6zorRFcWG+xEvDcBaygxayZ3lc0niqJfAxJqFwzW5ORjYowzXqlfrswpp49djcTUe+fJePLUeApR92BAVXlr12xrbhYBG9BCaOlPvE5JCtmS2BZpGtuZa3XQ1PD9+R0mu9wFz3YgvFMS1WsFhqpauSp4sTmChvpV64jhkbZtjhIymEdOOxN7r9QNetr8P2JyMT5k86TYl0p7+P1O62ru8tqycujIMVLd5KeyH08K71aNmAjdn46Ft5g3sX+rZm7L19EsFRkojTSh7QY6hXW3YuCX3pVQTR25ZqkyZKFV6aFCP0kio7MdN5VcK9iIvDA15pV/ElFNEVMiGKwkC2MFzGD+Qb6MGqE7I4ShwjdU0qLoey3+KJX5pnGYX+CA6Jz2ac5vW6YM="

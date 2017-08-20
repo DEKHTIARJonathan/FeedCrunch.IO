@@ -129,7 +129,7 @@ class SlackAPI(object):
             except:
                 raise Exception("Failed to retrieve the consumer keys.")
 
-            if settings.DEBUG:
+            if settings.DEBUG or settings.TESTING:
                 return SlackAPI.authorization_url.format(
                     ",".join(SlackAPI.app_permissions),
                     slack_client_id,
@@ -159,7 +159,7 @@ class SlackAPI(object):
 
             api = Slacker('')
 
-            if settings.DEBUG:
+            if settings.DEBUG or settings.TESTING:
                 response = api.oauth.access(slack_client_id, slack_client_secret, code, redirect_uri=SlackAPI.callback_url_debug).body
             else:
                 response = api.oauth.access(slack_client_id, slack_client_secret, code, redirect_uri=SlackAPI.callback_url).body

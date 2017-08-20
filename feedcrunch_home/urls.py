@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
 ]
 
-if settings.DEBUG:
+if settings.DEBUG or settings.TESTING:
     urlpatterns.append(url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}))

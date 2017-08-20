@@ -36,7 +36,7 @@ def get_upload_path_instance(instance, filename):
 
         filename = instance.object_file.name
 
-        if settings.DEBUG:
+        if settings.DEBUG or settings.TESTING:
             instance.object_file.delete(save=True)
 
         return filename
@@ -81,7 +81,7 @@ class Estimator(models.Model):
         self.set_object(obj)
 
     def get_object(self):
-        if settings.DEBUG:
+        if settings.DEBUG or settings.TESTING:
             return pickle.load(self.object_file)
         else:
             object_url = "%s%s" % (settings.MEDIA_URL, self.object_file)

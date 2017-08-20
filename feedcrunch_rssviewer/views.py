@@ -183,7 +183,7 @@ def photo(request, feedname=None):
     else:
         requested_user = FeedUser.objects.get(username=feedname)
 
-        if settings.DEBUG:
+        if settings.DEBUG or settings.TESTING:
             pathdownloader = PathDownloadView()
             pathdownloader.path = os.path.join(settings.MEDIA_ROOT, str(requested_user.profile_picture))
 

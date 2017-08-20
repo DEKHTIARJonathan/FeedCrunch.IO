@@ -98,7 +98,7 @@ class LinkedInAPI(object):
             except:
                 raise Exception("Failed to retrieve the LinkedIn App ID Key.")
 
-            if settings.DEBUG:
+            if settings.DEBUG or settings.TESTING:
                 return linkedin.LinkedInAuthentication(linkedin_client_id, linkedin_client_secret, LinkedInAPI.callback_url_debug, LinkedInAPI.app_permissions).authorization_url
             else:
                 return linkedin.LinkedInAuthentication(linkedin_client_id, linkedin_client_secret, LinkedInAPI.callback_url, LinkedInAPI.app_permissions).authorization_url
@@ -118,7 +118,7 @@ class LinkedInAPI(object):
                 return {'status':False, 'error': "Failed to retrieve the consumer keys."}
 
 
-            if settings.DEBUG:
+            if settings.DEBUG or settings.TESTING:
                 api = linkedin.LinkedInAuthentication(linkedin_client_id, linkedin_client_secret, LinkedInAPI.callback_url_debug, LinkedInAPI.app_permissions)
             else:
                 api = linkedin.LinkedInAuthentication(linkedin_client_id, linkedin_client_secret, LinkedInAPI.callback_url, LinkedInAPI.app_permissions)

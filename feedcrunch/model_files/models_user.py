@@ -439,7 +439,7 @@ class FeedUser(AbstractFeedUser):
             return
 
     def get_profile_picture_url(self):
-        if settings.DEBUG:
+        if settings.DEBUG or settings.TESTING:
             return self.profile_picture.url
         else:
             photo_url = "%s%s" % (settings.MEDIA_URL, self.profile_picture)

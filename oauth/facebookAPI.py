@@ -133,7 +133,7 @@ class FacebookAPI(object):
             except:
                 raise Exception("Failed to retrieve the Facebook App ID Key.")
 
-            if settings.DEBUG:
+            if settings.DEBUG or settings.TESTING:
                 return facebook.auth_url(facebook_app_id, FacebookAPI.callback_url_debug, perms=FacebookAPI.app_permissions)
             else:
                 return facebook.auth_url(facebook_app_id, FacebookAPI.callback_url, perms=FacebookAPI.app_permissions)
@@ -154,7 +154,7 @@ class FacebookAPI(object):
 
             api = facebook.GraphAPI()
 
-            if settings.DEBUG:
+            if settings.DEBUG or settings.TESTING:
                 response = api.get_access_token_from_code(code=code, redirect_uri=FacebookAPI.callback_url_debug, app_id=facebook_app_id, app_secret=facebook_app_secret)
             else:
                 response = api.get_access_token_from_code(code=code, redirect_uri=FacebookAPI.callback_url, app_id=facebook_app_id, app_secret=facebook_app_secret)

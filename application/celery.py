@@ -37,12 +37,37 @@ app = Celery('application')
 # the configuration object to child processes.
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
-app.config_from_object('django.conf:settings')
+# app.config_from_object('django.conf:settings')
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
-app.conf.beat_schedule = settings.CELERYBEAT_SCHEDULE
+app.conf.broker_url                 = settings.BROKER_URL
+app.conf.broker_use_ssl             = settings.BROKER_USE_SSL
+app.conf.accept_content             = settings.CELERY_ACCEPT_CONTENT
+app.conf.timezone                   = settings.CELERY_TIMEZONE
+
+# Worker settings
+app.conf.worker_concurrency         = settings.CELERYD_CONCURRENCY
+
+# Results settings
+app.conf.result_backend             = settings.CELERY_RESULT_BACKEND
+app.conf.result_serializer          = settings.CELERY_RESULT_SERIALIZER
+app.conf.result_expires             = settings.CELERY_TASK_RESULT_EXPIRES
+
+# Task settings
+app.conf.task_serializer            = settings.CELERY_TASK_SERIALIZER
+app.conf.task_acks_late             = settings.CELERY_TASK_ACKS_LATE
+app.conf.task_reject_on_worker_lost = settings.CELERY_TASK_REJECT_ON_WORKER_LOST
+app.conf.task_time_limit            = settings.CELERYD_TASK_TIME_LIMIT
+app.conf.task_soft_time_limit       = settings.CELERYD_TASK_SOFT_TIME_LIMIT
+app.conf.task_always_eager          = settings.CELERY_TASK_ALWAYS_EAGER
+
+# Celery Beat Settings
+app.conf.beat_scheduler         = settings.CELERYBEAT_SCHEDULER
+app.conf.beat_schedule          = settings.CELERYBEAT_SCHEDULE
+app.conf.beat_sync_every        = settings.CELERYBEAT_SYNC_EVERY
+app.conf.beat_max_loop_interval = settings.CELERYBEAT_MAX_LOOP_INTERVAL
 
 class CeleryConfig(AppConfig):
     name = 'application'
