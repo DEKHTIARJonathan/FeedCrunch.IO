@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 """Admin module for Django."""
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 
 import re, uuid, datetime
 
@@ -82,15 +83,56 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 
 # ==================== RSS Feed ============================
+
+class RSSFeedListFilter(admin.SimpleListFilter):
+    # Human-readable title which will be displayed in the
+    # right admin sidebar just above the filter options.
+    title = _('# of bad attempts')
+
+    # Parameter for the filter that will be used in the URL query.
+    parameter_name = '# of bad attempts'
+
+    def lookups(self, request, model_admin):
+        """
+        Returns a list of tuples. The first element in each
+        tuple is the coded value for the option that will
+        appear in the URL query. The second element is the
+        human-readable name for the option that will appear
+        in the right sidebar.
+        """
+        return (
+            ('Bad', _('With bad attempts')),
+            ('Correct', _('Without bad attempts')),
+        )
+
+    def queryset(self, request, queryset):
+        """
+        Returns the filtered queryset based on the value
+        provided in the query string and retrievable via
+        `self.value()`.
+        """
+        # Compare the requested value (either '80s' or '90s')
+        # to decide how to filter the queryset.
+        if self.value() == 'Bad':
+            return queryset.filter(bad_attempts__gte=1).order_by('-bad_attempts')
+        if self.value() == 'Correct':
+            return queryset.filter(bad_attempts=0)
+
 class RSSFeedAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'get_domain', 'link', '_get_articles_count')
-    ordering = ('-id',)
+    list_display = ('id', 'title', 'get_domain', 'link', '_get_articles_count', 'active', 'bad_attempts')
+    #ordering = ('-id',)
 
     def _get_articles_count(self, obj):
         return obj.count_articles()
+
+    def _is_articles_with_bad_attempts(self, obj):
+        return obj.bad_attempts >= 0
+
     _get_articles_count.short_description="Articles Count"
 
     search_fields = ('title', 'get_domain')
+
+    list_filter = ('active', RSSFeedListFilter)
 
 admin.site.register(RSSFeed, RSSFeedAdmin)
 
