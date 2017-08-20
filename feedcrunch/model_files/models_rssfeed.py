@@ -126,10 +126,10 @@ class RSSFeed(models.Model):
                                 try:
                                     RSSArticle_Assoc.objects.create(subscribtion=subscribtion, user=subscribtion.user, article=tmp_article)
                                 except Exception as e:
-                                    print (str(e))
-                                    pass
-                        except:
-                            pass
+                                    raise Exception("Exception occured while creating RSSArticle_Assoc object: " + str(e))
+
+                        except Exception as e:
+                            raise Exception("Exception occured : " + str(e))
 
                     self._reset_bad_attempts()
 
@@ -137,5 +137,5 @@ class RSSFeed(models.Model):
                     raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
 
         except Exception as e:
-            print ("An error occured in the process: " + str(e))
-            #self._trigger_bad_attempt()
+            self._trigger_bad_attempt()
+            return "An error occured in the process: " + str(e)
