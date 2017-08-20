@@ -134,8 +134,8 @@ class RSSFeed(models.Model):
                     self._reset_bad_attempts()
 
                 else:
+                    self._trigger_bad_attempt()
                     raise Exception("Feed ID = " + str(self.id) + " can't be downloaded to server. Status = " + str(feed_content.status))
 
         except Exception as e:
-            self._trigger_bad_attempt()
             return "An error occured in the process: " + str(e)
