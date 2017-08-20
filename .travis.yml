@@ -91,19 +91,6 @@ deploy:
     python: '3.6'
     repo: DEKHTIARJonathan/FeedCrunch.IO
     
-- provider: cloudfoundry
-  api: https://api.eu-gb.bluemix.net
-  username: jonathan.dekhtiar@utc.fr
-  password: "$BluemixPassword"
-  organization: FeedCrunch
-  space: prod
-  manifest: manifest-daemon.yml
-  region: eu-gb
-  on:
-    branch: celery_daemon
-    python: '3.6'
-    repo: DEKHTIARJonathan/FeedCrunch.IO
-    
 - provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
   file: "$ARTIFACT_NAME"
