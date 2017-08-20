@@ -4,9 +4,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
-from django.utils import timezone
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
@@ -54,7 +53,7 @@ def facebook_callback(request):
         if not fb_request['status']:
             raise Exception(fb_request['error'])
 
-        expire_datetime = timezone.now() + timedelta(seconds=int(fb_request['expires_in']))
+        expire_datetime = datetime.now() + timedelta(seconds=int(fb_request['expires_in']))
 
         setattr(request.user, request.user.social_fields["facebook"]["token"], fb_request['access_token'])
         setattr(request.user, request.user.social_fields["facebook"]["expire_datetime"], expire_datetime)
@@ -82,7 +81,7 @@ def linkedin_callback(request):
         if not lk_request['status']:
             raise Exception(lk_request['error'])
 
-        expire_datetime = timezone.now() + timedelta(seconds=int(lk_request['expires_in']))
+        expire_datetime = datetime.now() + timedelta(seconds=int(lk_request['expires_in']))
 
         setattr(request.user, request.user.social_fields["linkedin"]["token"], lk_request['access_token'])
         setattr(request.user, request.user.social_fields["linkedin"]["expire_datetime"], expire_datetime)

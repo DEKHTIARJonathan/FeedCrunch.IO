@@ -4,7 +4,6 @@
 from __future__ import unicode_literals
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.utils import timezone
 
 from .models_user import FeedUser
 
@@ -78,7 +77,7 @@ class RSSSubsStatManager(models.Manager):
             return super(RSSSubsStatManager, self).create(user=user, count=count, date=date)
 
         except Exception as e:
-            return {'status': False, 'error': str(e), 'timestamp': datetime.datetime.now(), 'timestamp_tz': timezone.now()}
+            return {'status': False, 'error': str(e), 'timestamp': datetime.datetime.now()}
 
 class RSSSubsStat(models.Model):
 

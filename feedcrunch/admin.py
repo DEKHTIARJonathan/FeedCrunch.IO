@@ -28,7 +28,6 @@ class FeedUserAdmin(admin.ModelAdmin):
     def _get_rss_subscribtion_count(self, obj):
         return obj.get_rss_subscribtion_count()
     _get_rss_subscribtion_count.short_description = "RSS Count"
-    #_get_post_count.admin_order_field = 'get_post_count'
 
     """
     def has_add_permission(self, request, obj=None):

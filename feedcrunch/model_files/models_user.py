@@ -27,7 +27,7 @@ from oauth.slackAPI    import SlackAPI
 
 from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
-from datetime import timedelta, date
+from datetime import timedelta, date, datetime
 
 def generateDummyDesc():
     return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor. Vestibulum tempor sapien id justo molestie imperdiet. Nulla efficitur mattis ante, nec iaculis lorem consequat in. Nullam sit amet diam augue. Nulla ullamcorper imperdiet turpis a maximus. Donec iaculis porttitor ultrices. Morbi lobortis dui molestie ullamcorper varius. Maecenas eu laoreet ipsum orci aliquam."
@@ -88,9 +88,9 @@ class FeedUserManager(BaseUserManager):
 
         def _validate_birthdate(self, birthdate):
 
-            today = timezone.now().date()
+            today = datetime.now().date()
 
-            if datetime.datetime.strptime(birthdate, '%d/%m/%Y').date() > today:
+            if datetime.strptime(birthdate, '%d/%m/%Y').date() > today:
                 raise ValueError("The given birthdate can't be in the future. Please provide a correct date.")
 
         def _validate_parameters(self, username, email, password):
@@ -151,7 +151,7 @@ class FeedUserManager(BaseUserManager):
                     if 'birthdate' in extra_fields:
                         birthdate = extra_fields.get('birthdate')
                         self._validate_birthdate(birthdate)
-                        birthdate = datetime.datetime.strptime(birthdate, '%d/%m/%Y').date()
+                        birthdate = datetime.strptime(birthdate, '%d/%m/%Y').date()
                     else:
                         birthdate = None
 
@@ -455,18 +455,14 @@ class FeedUser(AbstractFeedUser):
         return self.rel_posts.all().aggregate(models.Sum('clicks'))['clicks__sum']
 
     def get_current_month_post_count(self):
-        d_tmp = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
-
-        date_1st_day_month = d_tmp.replace(day=1)
+        date_1st_day_month = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0, day=1)
 
         return self.rel_posts.filter(when__gte=date_1st_day_month).count()
 
     def get_last_month_post_count(self):
-        d_tmp = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
-        time_delta = datetime.timedelta(days=1)
+        date_last_day_last_month = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0, day=1) - timedelta(days=1)
 
-        date_last_day_last_month = d_tmp.replace(day=1) - time_delta
         date_1st_day_last_month = date_last_day_last_month.replace(day=1)
 
         return self.rel_posts.filter(when__lte=date_last_day_last_month, when__gte=date_1st_day_last_month).count()
@@ -484,7 +480,7 @@ class FeedUser(AbstractFeedUser):
 
     def get_user_subscribers_count(self, days_offset=1):
 
-        today           = timezone.now().date()
+        today           = datetime.now().date()
         lookup_day      = today - timedelta(days=days_offset)
 
         subscribers_queryset = self.rel_rss_subscribers_count.filter(user=self, date=lookup_day).order_by('-date')
@@ -513,7 +509,7 @@ class FeedUser(AbstractFeedUser):
             expire_datetime = getattr(self, self.social_fields[network]["expire_datetime"])
 
             if expire_datetime is not None:
-                return token != "" and timezone.now() < expire_datetime
+                return token != "" and datetime.now() < expire_datetime.replace(tzinfo=None)
             else:
                 return  False
 

@@ -9,7 +9,6 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext, loader
 from django.urls import reverse
-from django.utils import timezone
 
 import datetime, unicodedata, json
 from calendar import monthrange
@@ -37,7 +36,7 @@ def index(request, feedname=None):
         return check_passed
 
     else:
-        d = timezone.now()
+        d = datetime.datetime.now()
         monthtime_elapsed = int(round(float(d.day) / monthrange(d.year, d.month)[1] * 100,0))
 
         try:
@@ -56,7 +55,7 @@ def index(request, feedname=None):
             publication_trend = int(round(abs(publication_trend),0))
 
         except ZeroDivisionError:
-            timedelta_registred = timezone.now() - request.user.date_joined
+            timedelta_registred = datetime.datetime.now() - request.user.date_joined.replace(tzinfo=None)
             if (timedelta_registred.days < 31):
                 publication_trend = -1
                 post_trending = "new_releases"
@@ -350,7 +349,7 @@ def onboarding_view(request, feedname=None):
             request_data["linkedin_auth_url"] = False # False => Don't need to authenticate with LinkedIn
 
         request_data["slack_auth_url"] = SlackAPI.get_authorization_url()
-        
+
         request_data['interests'] = interest_list
         request_data['countries'] = country_list
 

@@ -6,7 +6,6 @@ from __future__ import unicode_literals
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.http import HttpResponse
-from django.utils import timezone
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -238,14 +237,14 @@ class User_Stats_Subscribers(APIView):
             payload ["success"] = True
             payload ["username"] = request.user.username
 
-            first_subscribers_record_date = timezone.datetime(2017,3,29).date()
+            first_subscribers_record_date = datetime.datetime(2017,3,29).date()
 
-            if (first_subscribers_record_date > request.user.date_joined.date()):
+            if (first_subscribers_record_date > request.user.date_joined.replace(tzinfo=None).date()):
                 date_array = get_N_time_period(21, 14, max_date=first_subscribers_record_date)
             else:
-                date_array = get_N_time_period(21, 14, max_date=request.user.date_joined.date())
+                date_array = get_N_time_period(21, 14, max_date=request.user.date_joined.replace(tzinfo=None).date())
 
-            today = timezone.now().date()
+            today = datetime.datetime.now().date()
 
             ticks = []
             data = []
