@@ -14,7 +14,6 @@ Django==1.11.4
 django-admin-view-permission==1.1
 django-celery-beat==1.0.1
 django-celery-monitor==1.1.2
-django-celery-results==1.0.1
 django-choices==1.6.0
 django-dotenv==1.4.1
 django-downloadview==1.9

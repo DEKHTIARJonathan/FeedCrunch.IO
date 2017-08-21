@@ -53,7 +53,7 @@ app.conf.timezone                   = settings.CELERY_TIMEZONE
 app.conf.worker_concurrency         = settings.CELERYD_CONCURRENCY
 
 # Results settings
-app.conf.result_backend             = settings.CELERY_RESULT_BACKEND
+#app.conf.result_backend             = settings.CELERY_RESULT_BACKEND
 app.conf.result_serializer          = settings.CELERY_RESULT_SERIALIZER
 app.conf.result_expires             = settings.CELERY_TASK_RESULT_EXPIRES
 

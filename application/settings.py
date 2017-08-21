@@ -129,7 +129,7 @@ THIRD_PARTY_APPS = [
     'storages',
     'django_celery_monitor',
     'django_celery_beat',
-    'django_celery_results',
+    #'django_celery_results',
 ]
 
 LOCAL_APPS = [
