@@ -329,16 +329,12 @@ CELERYBEAT_SCHEDULE = {
         'task': 'feedcrunch.tasks.refresh_all_rss_subscribers_count',
         'schedule': crontab(hour=0, minute=5), # Everyday at midnight + 5mins
         #'schedule': crontab(minute='*/1'),
-        'options': {
-            'expires': 20*60,  # 20 minutes
-        }
+        # 'options': { 'expires': 20*60 }  # 20 minutes
     },
     'refresh_all_rss_feeds': {
         'task': 'feedcrunch.tasks.refresh_all_rss_feeds',
         'schedule': crontab(minute='30'), # Every hours when minutes = 30mins
         #'schedule': crontab(minute='*/1'),
-        'options': {
-            'expires': 20*60,  # 20 minutes
-        }
+        # 'options': { 'expires': 20*60 }  # 20 minutes
     },
 }

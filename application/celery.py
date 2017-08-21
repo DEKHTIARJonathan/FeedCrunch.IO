@@ -8,6 +8,8 @@ import os, dotenv
 from celery import Celery
 from celery.schedules import crontab
 
+from datetime import timedelta
+
 import django
 
 platforms = ["TRAVIS", "HEROKU", "BLUEMIX"]
@@ -68,6 +70,11 @@ app.conf.beat_scheduler         = settings.CELERYBEAT_SCHEDULER
 app.conf.beat_schedule          = settings.CELERYBEAT_SCHEDULE
 app.conf.beat_sync_every        = settings.CELERYBEAT_SYNC_EVERY
 app.conf.beat_max_loop_interval = settings.CELERYBEAT_MAX_LOOP_INTERVAL
+
+# Celery Monitor Settings
+app.conf.monitors_expire_success = timedelta(hours=1)
+app.conf.monitors_expire_error   = timedelta(days=3)
+app.conf.monitors_expire_pending = timedelta(days=5)
 
 class CeleryConfig(AppConfig):
     name = 'application'
