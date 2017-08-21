@@ -129,7 +129,7 @@ class RSSFeedAdmin(admin.ModelAdmin):
 
     _get_articles_count.short_description="Articles Count"
 
-    search_fields = ('title', 'get_domain')
+    search_fields = ('title', 'link')
 
     list_filter = ('active', RSSFeedListFilter)
 
