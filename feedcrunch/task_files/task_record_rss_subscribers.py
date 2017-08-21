@@ -52,7 +52,7 @@ def refresh_all_rss_subscribers_count():
 
 @celery.task(name='feedcrunch.tasks.clean_unnecessary_rss_visits')
 def clean_unnecessary_rss_visits():
-today = datetime.now().date()
-date_limit = today - timedelta(days=5)
+    today = datetime.now().date()
+    date_limit = today - timedelta(days=5)
 
-RSSSubscriber.objects.filter(date__lte=date_limit).delete()
+    RSSSubscriber.objects.filter(date__lte=date_limit).delete()
