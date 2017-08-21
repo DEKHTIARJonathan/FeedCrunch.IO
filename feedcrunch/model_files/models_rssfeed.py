@@ -100,7 +100,47 @@ class RSSFeed(models.Model):
 
                 from .models_rssarticle import RSSArticle
 
-                feed_content = feedparser.parse(self.link)
+                while True:
+                    feed_content = feedparser.parse(self.link)
+
+                    if feed_content.bozo != 0:
+                        self.active == False
+                        self.save()
+                        return "Feed is invalid !"
+
+                    elif feed_content.status in [301, 302]:
+                        try:
+                            self.link = feed_content['feed']['title_detail']['base']
+                            self.save()
+
+                        except Exception:
+
+                            try:
+                                old_link = self.link
+
+                                for item in feed_content['feed']["links"]:
+
+                                    if "rss" in item['type'] or "atom" in item['type']:
+                                        self.link = item["href"]
+                                        self.save()
+
+                                if self.link == old_link:
+                                    self.active == False
+                                    self.save()
+                                    return "Impossible to find new link in the list of links"
+
+                            except Exception as e:
+                                self.active = False
+                                self.save()
+                                return "No existing link found"
+
+                    elif feed_content.status == 404:
+                        self.active = False
+                        self.save()
+                        return "Feed return with 404 error"
+
+                    else:
+                        break
 
                 if feed_content.status == 200:
 
