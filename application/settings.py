@@ -305,7 +305,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TIMEZONE = TIME_ZONE
 
 CELERYD_CONCURRENCY = 3
-CELERY_RESULT_BACKEND = 'django-db'
+#CELERY_RESULT_BACKEND = 'django-db'
 CELERY_RESULT_SERIALIZER = 'json'
 
 CELERY_TASK_SERIALIZER = 'json'
@@ -327,14 +327,17 @@ CELERYBEAT_SYNC_EVERY=1
 CELERYBEAT_SCHEDULE = {
     'refresh_all_rss_subscribers_count': {
         'task': 'feedcrunch.tasks.refresh_all_rss_subscribers_count',
-        'schedule': crontab(hour=0, minute=5), # Everyday at midnight + 5mins
-        #'schedule': crontab(minute='*/1'),
-        # 'options': { 'expires': 20*60 }  # 20 minutes
+        'schedule': crontab(hour=0, minute=5), # Everyday at midnight + 5 mins
+        'options': {'expires': 20 * 60} # 20 minutes
     },
     'refresh_all_rss_feeds': {
         'task': 'feedcrunch.tasks.refresh_all_rss_feeds',
-        'schedule': crontab(minute='30'), # Every hours when minutes = 30mins
-        #'schedule': crontab(minute='*/1'),
-        # 'options': { 'expires': 20*60 }  # 20 minutes
+        'schedule': crontab(minute='30'), # Every hours when minutes = 30 mins
+        'options': {'expires': 30 * 60} # 30 minutes
     },
+    'celery.backend_cleanup': {
+        'task': 'celery.backend_cleanup',
+        'schedule': crontab(minute='25'), # Every hours when minutes = 25 mins
+        'options': {'expires': 50 * 60} # 50 minutes
+    }
 }

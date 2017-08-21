@@ -103,7 +103,7 @@ virtualenv venv
 
 venv\Scripts\activate.bat
 
-scripts\win\install_dependencies_py36.bat
+scripts\win\install_dependencies.bat
 ```
 
 ### 1.6. Migrate the database to the server.
