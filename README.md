@@ -42,15 +42,15 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
 # Copyright and Licensing
 
-The project is released under the GNU General Public License v3.0, which gives you the following rights in summary:
+The project is released under the GNU Affero General Public License v3.0, which gives you the following rights in summary:
 
-|**Permissions**  |**Limitations**|**Conditions**                 |
-|---------------- |-------------- |------------------------------ |
-|*Commercial use* |*Liability*    |*License and copyright notice* |
-|*Modification*   |*Warranty*     |*State changes*                |
-|*Distribution*   |               |*Disclose source*              |
-|*Patent use*     |               |*Same license*                 |
-|*Private use*    |               |                               |	
+|**Permissions**  |**Limitations** |**Conditions**                 |
+|---------------- |--------------- |------------------------------ |
+|*Commercial use* |*Liability*     |*License and copyright notice* |
+|*Distribution*   |*Warranty*      |*Disclose source*              |
+|*Modification*   |                |*Network use is distribution*  |
+|*Patent use*     |                |*Same license*                 |
+|*Private use*    |                |*State changes*                |
 
 # 1. How to Install the development server
 
