@@ -36,12 +36,13 @@ class RSSFeedManager(models.Manager):
 class RSSFeed(models.Model):
     objects = RSSFeedManager()
 
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=255)
-    link = models.URLField(max_length=2000)
-    added_date = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=True)
+    id           = models.AutoField(primary_key=True)
+    title        = models.CharField(max_length=255)
+    link         = models.URLField(max_length=2000)
+    added_date   = models.DateTimeField(auto_now_add=True)
+    active       = models.BooleanField(default=True)
     bad_attempts = models.SmallIntegerField(default=0)
+    error        = models.CharField(max_length=255, default='', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -80,17 +81,24 @@ class RSSFeed(models.Model):
 
         return rslt
 
-    def _trigger_bad_attempt(self):
-        self.bad_attempts += 1
-        if self.bad_attempts >= settings.MAX_RSS_RETRIES:
-            self.active = False
+    def _set_inactive_feed(error=""):
+        self.active = False
+        self.error = error
         self.save()
 
-    def _reset_bad_attempts(self):
-        if (self.bad_attempts != 0 or self.active == False):
-            self.bad_attempts = 0
-            self.active = True
+    def _trigger_bad_attempt(self):
+        self.bad_attempts += 1
+
+        if self.bad_attempts >= settings.MAX_RSS_RETRIES:
+            _set_inactive_feed(error="Too many bad attempts to download the feed")
+        else:
             self.save()
+
+    def _reset_bad_attempts(self):
+        self.bad_attempts = 0
+        self.error = ""
+        self.active = True
+        self.save()
 
     def refresh_feed(self):
         from .models_rss_assocs import RSSArticle_Assoc
@@ -104,9 +112,8 @@ class RSSFeed(models.Model):
                     feed_content = feedparser.parse(self.link)
 
                     if feed_content.bozo != 0:
-                        self.active == False
-                        self.save()
-                        return "Feed is invalid !"
+                        self._set_inactive_feed(error="The feed can not be validated.")
+                        return True
 
                     elif feed_content.status in [301, 302]:
                         try:
@@ -125,19 +132,16 @@ class RSSFeed(models.Model):
                                         self.save()
 
                                 if self.link == old_link:
-                                    self.active == False
-                                    self.save()
-                                    return "Impossible to find new link in the list of links"
+                                    self._set_inactive_feed(error="Impossible to find any new link in the list of links")
+                                    return True
 
                             except Exception as e:
-                                self.active = False
-                                self.save()
-                                return "No existing link found"
+                                self._set_inactive_feed(error="No existing link found, please check the feed")
+                                return True
 
-                    elif feed_content.status == 404:
-                        self.active = False
-                        self.save()
-                        return "Feed return with 404 error"
+                    elif 400 <= feed_content.status <= 599:
+                        self._set_inactive_feed(error="The request ended with the error code: " + str(feed_content.status))
+                        return True
 
                     else:
                         break
