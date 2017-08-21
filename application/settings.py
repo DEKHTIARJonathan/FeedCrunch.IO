@@ -330,14 +330,19 @@ CELERYBEAT_SCHEDULE = {
         'schedule': crontab(hour=0, minute=5), # Everyday at midnight + 5 mins
         'options': {'expires': 20 * 60} # 20 minutes
     },
-    'refresh_all_rss_feeds': {
-        'task': 'feedcrunch.tasks.refresh_all_rss_feeds',
-        'schedule': crontab(minute='30'), # Every hours when minutes = 30 mins
-        'options': {'expires': 30 * 60} # 30 minutes
+    'clean_unnecessary_rss_visits': {
+        'task': 'feedcrunch.tasks.clean_unnecessary_rss_visits',
+        'schedule': crontab(hour=0, minute=20), # Everyday at midnight + 20 mins
+        'options': {'expires': 20 * 60} # 20 minutes
     },
     'celery.backend_cleanup': {
         'task': 'celery.backend_cleanup',
-        'schedule': crontab(minute='25'), # Every hours when minutes = 25 mins
+        'schedule': crontab(minute='30'), # Every hours when minutes = 30 mins
         'options': {'expires': 50 * 60} # 50 minutes
-    }
+    },
+    'refresh_all_rss_feeds': {
+        'task': 'feedcrunch.tasks.refresh_all_rss_feeds',
+        'schedule': crontab(minute='40'), # Every hours when minutes = 40 mins
+        'options': {'expires': 30 * 60} # 30 minutes
+    },
 }

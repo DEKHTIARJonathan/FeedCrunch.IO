@@ -1,8 +1,8 @@
 FeedCrunch.IO - Empower RSS feeds to a whole new level
 ======================================================
 
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
-[![license](https://img.shields.io/github/license/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://opensource.org/licenses/GPL-3.0/)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://opensource.org/licenses/AGPL-3.0)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
 [![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://github.com/DEKHTIARJonathan/FeedCrunch.IO/releases)
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400&label=documentation)](http://feedcrunch.readthedocs.io/en/latest/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/born2data.svg?style=flat&label=Follow%20me:%20@born2data)](https://twitter.com/intent/user?screen_name=born2data)
@@ -198,7 +198,7 @@ celery worker -A application -l debug --events
 # launch heartbeat
 celery beat -A application --loglevel=debug --detach
 
-# launch camera 
+# launch camera
 celery events -A application --loglevel=debug --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
 
 ################## In Production mode ##################
@@ -209,7 +209,7 @@ celery worker -A application -l info --events
 # launch heartbeat
 celery beat -A application --loglevel=info --detach
 
-# launch camera 
+# launch camera
 celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
 ```
 
@@ -228,7 +228,7 @@ This is controlled by the branch being updated. Please confer to Bluemix documen
 |--------------------------|--------------------------------------------------|
 | ARTIFACT_NAME            | 'release_filename.zip'                           |
 | BLUEMIX_USERNAME         | 'firstname.lastname@host.com'                    |
-| BLUEMIX_API_GATEWAY      | 'https://api.eu-gb.bluemix.net'                  | 
+| BLUEMIX_API_GATEWAY      | 'https://api.eu-gb.bluemix.net'                  |
 | BLUEMIX_API_ORGANISATION | 'MyFantasticOrganisation'                        |
 | BLUEMIX_API_SPACE        | 'MyEnvironment'                                  |
 

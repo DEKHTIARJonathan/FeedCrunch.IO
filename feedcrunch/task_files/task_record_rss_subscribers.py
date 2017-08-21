@@ -9,7 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from application.celery import app as celery
 
-from feedcrunch.models import FeedUser, RSSSubsStat
+from feedcrunch.models import FeedUser, RSSSubsStat, RSSSubscriber
 
 from datetime import datetime, timedelta
 
@@ -49,3 +49,10 @@ def record_user_subscribers_stats(username=None):
 def refresh_all_rss_subscribers_count():
     for user in FeedUser.objects.all():
         record_user_subscribers_stats.delay(username=user.username)
+
+@celery.task(name='feedcrunch.tasks.clean_unnecessary_rss_visits')
+def clean_unnecessary_rss_visits():
+today = datetime.now().date()
+date_limit = today - timedelta(days=5)
+
+RSSSubscriber.objects.filter(date__lte=date_limit).delete()
