@@ -52,14 +52,21 @@ The project is released under the GNU Affero General Public License v3.0, which 
 |*Patent use*     |                |*Same license*                 |
 |*Private use*    |                |*State changes*                |
 
-# 1. How to Install the development server
+## 1. How to Install the development server
 
-### 1.1. Create a PostgreSQL database
+### 1.1. Create and launch the databases servers
+
+#### 1.1.1 Create a PostgreSQL database
+
+#### 1.1.2 Create a RabbitMQ database
 
 ### 1.2. Install Python 3.6
-To my opinion, the Python distribution from Continuum Analytics Anaconda is an **absolute go-to**: https://www.continuum.io/downloads
+
+To my opinion, the Python distribution from Continuum Analytics Anaconda is an **absolute go-to**: https://www.continuum.io/downloads.
+You can download this version and install it.
 
 ### 1.3. Rename the file ".env.dist" to ".env"
+
 ```sh
 mv .env.dist .env
 ```
@@ -67,6 +74,7 @@ mv .env.dist .env
 ### 1.4. Update the values inside the .env files with the correct values.
 
 - **DATABASE_URL:** Format the PostgreSQL credentials as followed: *postgres://user:password@server:port/dbname*
+- **RABBITMQ_URL:** Format the RabbitMQ credentials as followed: *amqp://username:password@server:port/instance_name*
 - **SECRET_KEY:** Django needs a secret key to operate securely, you can generate one here: [Secret Key Generator](http://www.miniwebtool.com/django-secret-key-generator/)
 - **DEBUG:** True/False. Absolutely needs to be at *False* to put into production.
 - **AWS_USER:** See documentation from AWS, it needs to have rights for SES (emails) and S3 (storage).
@@ -149,7 +157,7 @@ If not created, the following settings need to be created. Else, you can just mo
 - **twitter_consumer_key:** Can be obtained on the Twitter developer platform: <https://dev.twitter.com/>
 - **twitter_consumer_secret:** Can be obtained on the Twitter developer platform: <https://dev.twitter.com/>
 
-# 2. How to launch the development server
+## 2. How to launch the development server
 
 ```sh
 # Linux
@@ -162,7 +170,7 @@ venv\Scripts\activate.bat
 python manage.py runserver 0.0.0.0:5000 # Launch the server accessible from the LAN on the port 5000 at the IP-Address of the server.
 ```
 
-# 3. How to launch unit tests.
+## 3. How to launch unit tests
 
 ```sh
 # Linux
@@ -177,17 +185,68 @@ coverage report -m
 coverage html
 ```
 
-# 4. How to setup Travis for continuous integration.
+## 4. How to launch the celery workers
+Since Celery 4.0, the workers only work on linux, to launch them use the following commands:
+```sh
+################## In Debug mode ##################
+
+# launch Worker
+celery worker -A application -l debug --events
+
+# launch heartbeat
+celery beat -A application --loglevel=debug --detach
+
+# launch camera 
+celery events -A application --loglevel=debug --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
+
+################## In Production mode ##################
+
+# launch Worker
+celery worker -A application -l info --events
+
+# launch heartbeat
+celery beat -A application --loglevel=info --detach
+
+# launch camera 
+celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
+```
+
+## 5. How to setup Travis for continuous integration.
 
 You will need to set environment variables as followed:
 
+The travis deploy script is set to create a release on github whenever a new tag is pushed. Thus, you need to create a github **token** and set it in travis in an **encrypted** fashion.
+
+When a build is successful, Travis push on production/development environment which runs on CloudFoundry hosted by IBM Bluemix.
+This is controlled by the branch being updated. Please confer to Bluemix documentation to gather the correct settings. They can also easily be changed for any cloudfoundry-based hosting service (e.g. Heroku).
+
+**Non encrypted environment vars that need to be set:**
+
 | Key                      | Value                                            |
 |--------------------------|--------------------------------------------------|
-| TRAVIS                   | True                                             |
-| DEBUG                    | True                                             |
+| ARTIFACT_NAME            | 'release_filename.zip'                           |
+| BLUEMIX_USERNAME         | 'firstname.lastname@host.com'                    |
+| BLUEMIX_API_GATEWAY      | 'https://api.eu-gb.bluemix.net'                  | 
+| BLUEMIX_API_ORGANISATION | 'MyFantasticOrganisation'                        |
+| BLUEMIX_API_SPACE        | 'MyEnvironment'                                  |
+
+**Encrypted environment vars that need to be set:**
+
+| Key                      | Value                                            |
+|--------------------------|--------------------------------------------------|
 | SECRET_KEY               | '##############################################' |
-| DATABASE_URL             | 'postgres://postgres:@localhost:5432/travisci'   |
 | AWS_USER                 | '##############################################' |
 | AWS_SECRET_KEY           | '##############################################' |
-| EMAIL_DEFAULT_SENDER     | 'local@local.host'                               |
 | FIELD_ENCRYPTION_KEY     | '##############################################' |
+| BluemixPassword          | '##############################################' |
+| GITHUB_OAUTH_TOKEN       | '##############################################' |
+
+**There are also other environment variables, however they do not require to be changed:**
+
+| Key                      | Value                                            |
+|--------------------------|--------------------------------------------------|
+| RABBITMQ_URL             | 'amqp://guest:guest@localhost:5672/'             |
+| DATABASE_URL             | 'postgres://postgres:@localhost:5432/travisci'   |
+| DEBUG                    | 'True'                                           |
+| TRAVIS                   | 'True'                                           |
+| EMAIL_DEFAULT_SENDER     | 'local@local.host'                               |
