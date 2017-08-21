@@ -113,11 +113,11 @@ class FeedUserManager(BaseUserManager):
                 Creates and saves a User with the given username, email and password.
                 """
 
-                is_staff = extra_fields.get('is_staff')
+                is_staff     = extra_fields.get('is_staff')
                 is_superuser = extra_fields.get('is_superuser')
 
-                username = self._normalize_username(username)
-                email = self.normalize_email(email)
+                username     = self._normalize_username(username)
+                email        = self.normalize_email(email)
 
                 validation = self._validate_parameters(username, email, password)
 
@@ -205,7 +205,7 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
     """
     username_validator = UnicodeUsernameValidator() if six.PY3 else ASCIIUsernameValidator()
 
-    username = models.CharField(
+    username    = models.CharField(
         _('username'),
         max_length=150,
         primary_key=True,
@@ -215,9 +215,9 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
             'unique': _("A user with that username already exists."),
         },
     )
-    first_name = models.CharField(_('first name'), max_length=30, default='', blank=True, null=True )
-    last_name = models.CharField(_('last name'), max_length=30, default='', blank=True, null=True )
-    email = models.EmailField(
+    first_name  = models.CharField(_('first name'), max_length=30, default='', blank=True, null=True )
+    last_name   = models.CharField(_('last name'), max_length=30, default='', blank=True, null=True )
+    email       = models.EmailField(
         _('email address'),
         unique=True,
         help_text=_('Required. 255 characters or fewer and a valid email.'),
@@ -225,12 +225,12 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
             'unique': _("A user with that email already exists."),
         },
     )
-    is_staff = models.BooleanField(
+    is_staff    = models.BooleanField(
         _('staff status'),
         default=False,
         help_text=_('Designates whether the user can log into this admin site.'),
     )
-    is_active = models.BooleanField(
+    is_active   = models.BooleanField(
         _('active'),
         default=True,
         help_text=_(
@@ -284,11 +284,11 @@ class FeedUser(AbstractFeedUser):
     #                                        GENERAL Information                                         #
     ################################### ============================== ###################################
 
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, default=None, blank=True, null=True )
-    birthdate = models.DateField(default=None, blank=True, null=True )
+    country     = models.ForeignKey(Country, on_delete=models.CASCADE, default=None, blank=True, null=True )
+    birthdate   = models.DateField(default=None, blank=True, null=True )
     description = models.TextField(default=generateDummyDesc(), blank=True, null=True)
 
-    gender = models.CharField(
+    gender      = models.CharField(
         max_length=1,
         choices=(('F', 'Female'),('M', 'Male'),('O', 'Other')),
         default=None,
@@ -296,10 +296,10 @@ class FeedUser(AbstractFeedUser):
         null=True
     )
 
-    rss_feed_title = models.CharField(max_length=100, default='', blank=True, null=True)
+    rss_feed_title  = models.CharField(max_length=100, default='', blank=True, null=True)
 
-    job = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
-    company_name = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
+    job             = models.CharField(max_length=80, default='Chief Admission Officer at', blank=True, null=True)
+    company_name    = models.CharField(max_length=80, default='Holy Paradise Inc.', blank=True, null=True)
     company_website = models.URLField(max_length=120, default='https://www.feedcrunch.io/', blank=True, null=True)
 
     profile_picture = models.ImageField(upload_to=get_photo_path, default=settings.USER_PHOTO_PATH+'dummy_user.png', blank=True, null=True)

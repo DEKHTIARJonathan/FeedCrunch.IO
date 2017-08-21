@@ -45,9 +45,9 @@ class RSSSubscriber(models.Model):
 
     # Choices
     class FeedType(DjangoChoices):
-        rss = ChoiceItem()
+        rss  = ChoiceItem()
         atom = ChoiceItem()
-        web = ChoiceItem()
+        web  = ChoiceItem()
 
     id         = models.AutoField(primary_key=True)
     user       = models.ForeignKey(FeedUser, related_name='rel_rss_subscribers', on_delete=models.CASCADE)

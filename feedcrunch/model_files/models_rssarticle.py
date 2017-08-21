@@ -31,17 +31,17 @@ class RSSArticleManager(models.Manager):
 class RSSArticle(models.Model):
     objects = RSSArticleManager()
 
-    id = models.AutoField(primary_key=True)
-    rssfeed = models.ForeignKey(RSSFeed, related_name='rel_rss_feed_articles', on_delete=models.SET_NULL, null=True)
-    title = models.CharField(max_length=255)
-    link = models.URLField(max_length=2000)
+    id          = models.AutoField(primary_key=True)
+    rssfeed     = models.ForeignKey(RSSFeed, related_name='rel_rss_feed_articles', on_delete=models.SET_NULL, null=True)
+    title       = models.CharField(max_length=255)
+    link        = models.URLField(max_length=2000)
     description = models.TextField(default='', blank=True, null=True)
-    guid = models.UUIDField(default=uuid.uuid4, editable=True, blank=True, null=True)
-    creator = models.CharField(max_length=255, default='', blank=True, null=True)
-    content = models.TextField(default='', blank=True, null=True)
-    media = models.CharField(max_length=255, default='', blank=True, null=True)
-    pub_date = models.CharField(max_length=255, default='', blank=True, null=True)
-    added_date = models.DateTimeField(auto_now_add=True)
+    guid        = models.UUIDField(default=uuid.uuid4, editable=True, blank=True, null=True)
+    creator     = models.CharField(max_length=255, default='', blank=True, null=True)
+    content     = models.TextField(default='', blank=True, null=True)
+    media       = models.CharField(max_length=255, default='', blank=True, null=True)
+    pub_date    = models.CharField(max_length=255, default='', blank=True, null=True)
+    added_date  = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

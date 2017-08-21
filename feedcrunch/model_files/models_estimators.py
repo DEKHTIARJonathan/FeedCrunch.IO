@@ -63,10 +63,10 @@ class Estimator(models.Model):
 
     """
 
-    creation_date = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
+    creation_date      = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
     last_modified_date = models.DateTimeField(auto_now_add=True, blank=False, null=False)
-    object_file = models.FileField(upload_to=get_upload_path_instance, default="", blank=True, editable=False)
-    description = models.CharField(max_length=256)
+    object_file        = models.FileField(upload_to=get_upload_path_instance, default="", blank=True, editable=False)
+    description        = models.CharField(max_length=256)
 
     def __repr__(self):
         return '<Estimator <Id %s>: %s>' % (self.id, self.estimator)

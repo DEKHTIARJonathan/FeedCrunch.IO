@@ -19,15 +19,15 @@ def create_key(size=8):
 ############################## Post MODEL ###################################
 
 class Post(models.Model):
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(FeedUser, related_name='rel_posts', on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    link = models.URLField(max_length=2000)
-    when = models.DateTimeField(auto_now_add=True)
-    key = models.CharField(max_length=8, default=create_key, blank=False, null=False)
-    clicks = models.IntegerField()
+    id         = models.AutoField(primary_key=True)
+    user       = models.ForeignKey(FeedUser, related_name='rel_posts', on_delete=models.CASCADE)
+    title      = models.CharField(max_length=255)
+    link       = models.URLField(max_length=2000)
+    when       = models.DateTimeField(auto_now_add=True)
+    key        = models.CharField(max_length=8, default=create_key, blank=False, null=False)
+    clicks     = models.IntegerField()
     activeLink = models.BooleanField()
-    tags = models.ManyToManyField(Tag, blank=True, related_name='rel_posts')
+    tags       = models.ManyToManyField(Tag, blank=True, related_name='rel_posts')
 
     def __str__(self):
         return str(self.id)

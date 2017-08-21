@@ -36,11 +36,10 @@ class RSSFeed_SubManager(models.Manager):
 class RSSFeed_Sub(models.Model):
     objects = RSSFeed_SubManager()
 
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(FeedUser, related_name='rel_sub_feed', on_delete=models.CASCADE)
-    feed = models.ForeignKey(RSSFeed, related_name='rel_sub_feed_assoc', on_delete=models.CASCADE)
-
-    title = models.CharField(max_length=255, blank=False, null=False)
+    id         = models.AutoField(primary_key=True)
+    user       = models.ForeignKey(FeedUser, related_name='rel_sub_feed', on_delete=models.CASCADE)
+    feed       = models.ForeignKey(RSSFeed, related_name='rel_sub_feed_assoc', on_delete=models.CASCADE)
+    title      = models.CharField(max_length=255, blank=False, null=False)
     added_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
