@@ -52,6 +52,8 @@ The project is released under the GNU Affero General Public License v3.0, which 
 |*Patent use*     |                |*Same license*                 |
 |*Private use*    |                |*State changes*                |
 
+# Installation and deployment instructions
+
 ## 1. How to Install the development server
 
 ### 1.1. Create and launch the databases servers
