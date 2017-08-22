@@ -1,25 +1,35 @@
+domain: eu-gb.mybluemix.net
+timeout: 120
+memory: 768M
+disk_quota: 2G
+path: .
+stack: cflinuxfs2
+buildpack: https://github.com/cloudfoundry/buildpack-python.git
+services:
+- Feedcrunch-DB-prod
+- RabbitMQ-prod
+
 applications:
+
 - name: Feedcrunch-Front-Prod
   host: feedcrunch-front-prod
   instances: 2
-  memory: 1G
-  disk_quota: 2G
-  path: .
-  buildpack: https://github.com/cloudfoundry/buildpack-python.git
   command: chmod +x launch_server.sh && ./launch_server.sh
-  stack: cflinuxfs2
   url:
   - www.feedcrunch.io
   - feedcrunch.eu-gb.mybluemix.net
 
+- name: Feedcrunch-Orchester-Prod
+  host: feedcrunch-orchester-prod
+  memory: 1G
+  instances: 1
+  command: celery beat -A application --loglevel=info --detach && celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach && celery worker -A application -l info --events
+  health-check-type: process
+  no-route: true
+
 - name: Feedcrunch-Worker-Prod
   host: feedcrunch-worker-prod
-  instances: 4
-  memory: 1G
-  disk_quota: 2G
-  path: .
-  buildpack: https://github.com/cloudfoundry/buildpack-python.git
-  command: celery beat -A application --loglevel=info --detach && celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach && celery worker -A application -l info --events
-  stack: cflinuxfs2
+  instances: 3
+  command: celery worker -A application -l info --events
   health-check-type: process
   no-route: true
