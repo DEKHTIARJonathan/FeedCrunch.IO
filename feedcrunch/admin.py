@@ -38,7 +38,7 @@ class FeedUserAdmin(admin.ModelAdmin):
         return False
     """
 
-    search_fields = ('username', 'country', 'email')
+    search_fields = ('username', 'country__name', 'email')
     list_filter = ('country',)
 
 admin.site.register(FeedUser, FeedUserAdmin)
@@ -76,7 +76,7 @@ class PostAdmin(admin.ModelAdmin):
         return obj.get_tags_count()
     _get_tags_count.short_description="Tag Count"
 
-    search_fields = ('user', 'title', 'get_domain')
+    search_fields = ('user__username', 'title', 'link')
     list_filter = ('user',)
 
 admin.site.register(Post, PostAdmin)
@@ -140,7 +140,7 @@ class RSSArticlesAdmin(admin.ModelAdmin):
     list_display = ('id', 'rssfeed', 'title', 'get_domain', 'link', 'added_date')
     ordering = ('-id',)
 
-    search_fields = ('title', 'get_domain')
+    search_fields = ('title', 'link')
 
 admin.site.register(RSSArticle, RSSArticlesAdmin)
 
@@ -173,16 +173,17 @@ class RSSSubscriberAdmin(admin.ModelAdmin):
     list_display = ('user', 'ipaddress', 'feedtype', 'date', 'visit_hour')
     ordering = ('-date', '-visit_hour')
 
-    search_fields = ('user',)
+    search_fields = ('user__username',)
 
 admin.site.register(RSSSubscriber, RSSSubscriberAdmin)
 
 # ==================== RSS Subscriber ============================
+
 class RSSSubsStatAdmin(admin.ModelAdmin):
     list_display = ('user', 'date', 'count')
     ordering = ('-date',)
 
-    search_fields = ('user',)
+    search_fields = ('user__username',)
 
 admin.site.register(RSSSubsStat, RSSSubsStatAdmin)
 
@@ -191,6 +192,6 @@ class SlackIntegrationAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'team_name', 'channels', 'access_token')
     ordering = ('user','team_name')
 
-    search_fields = ('user','team_name')
+    search_fields = ('user__username','team_name')
 
 admin.site.register(SlackIntegration, SlackIntegrationAdmin)
