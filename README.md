@@ -14,12 +14,14 @@ Production Metrics<br>
 [![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
 [![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
+[![Code Health](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/master/landscape.svg?style=flat)](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/master)
 [![Website](https://img.shields.io/website-up-down-green-red/http/www.feedcrunch.io.svg?label=Feedcrunch.io)](https://www.feedcrunch.io)
 __________________
 Development Metrics<br>
 [![Build Status - Dev](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
 [![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
 [![Codecov Status](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
+[![Code Health](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev/landscape.svg?style=flat)](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev)
 [![Website](https://img.shields.io/website-up-down-green-red/http/feedcrunch-dev.eu-gb.mybluemix.net.svg?label=Feedcrunch.io%20-%20Dev)](https://feedcrunch-dev.eu-gb.mybluemix.net/)
 
 # Issues
