@@ -62,7 +62,11 @@ span.term a:hover{
 	border-radius: 7px;
 }
 
-.lable-2 input[type="text"],input[type="Password"], textarea, select {
+.lable-2 input[type="text"],
+.lable-2 input[type="password"],
+.lable-2 input[type="date"],
+textarea,
+select {
 	padding: 10px;
 	width: 100%;
 	font-size: 1em;
