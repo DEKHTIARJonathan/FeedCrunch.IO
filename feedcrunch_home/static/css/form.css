@@ -197,6 +197,11 @@ label.error {
     color: red;
 }
 
+.btn{
+    margin: 0 10px;
+    width: 80px;
+}
+
 /*----start-responsive design-----*/
 @media (max-width:1024px){
 	.col_1_of_2 {
