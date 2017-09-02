@@ -1,4 +1,16 @@
 jQuery(function($) {
+    /*
+    $('#sandbox-container .input-group.date').datepicker({
+    	format: "dd/mm/yyyy",
+    	startView: 3,
+    	maxViewMode: 3,
+    	todayBtn: true,
+    	autoclose: true,
+    	clearBtn: true,
+    	defaultViewDate: { year: 1940, month: 04, day: 25 }
+    });
+    */
+
     $.validator.addMethod("regex", function(value, element, regexpr) {
         return regexpr.test(value);
     }, "Not Valid");
@@ -104,5 +116,17 @@ jQuery(function($) {
                 form.submit();
             }
             */
+    });
+
+    console.log("Testouille");
+
+    $('#datepicker').bootstrapMaterialDatePicker({
+        format: "DD/MM/YYYY",
+        maxDate: "31/12/2002",
+        year: true,
+        date: true,
+        time: false,
+        nowButton: false,
+
     });
 });

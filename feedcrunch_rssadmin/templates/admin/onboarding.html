@@ -320,6 +320,10 @@
                                                     <input id="email" name="email" type="email" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.email }}">
                                                 </div>
                                                 <div class="input-field col m6 s12">
+                                                    <label for="birthdate">Birthdate</label>
+                                                    <input id="birthdate" name="birthdate" type="date" class="datepicker required" data-init="{{ user.get_birthdate_as_string }}">
+                                                </div>
+                                                <div class="input-field col m6 s12">
                                                     <select id="gender" name="gender" class="required validate" aria-required="true" data-init="{{ user.gender }}" >
                                                         <option selected disabled>Select One Gender</option>
                                                         {% if user.gender == 'M' %}
@@ -353,10 +357,6 @@
                                                         {% endfor %}
                                                     </select>
                                                 </div>
-                                                <div class="input-field col m6 s12">
-                                                    <label for="birthdate">Birthdate</label>
-                                                    <input id="birthdate" name="birthdate" type="date" class="datepicker required" data-init="{{ user.get_birthdate_as_string }}">
-                                                </div>
                                                 <div class="input-field col m12">
                                                     <label for="feedtitle">RSS Feed Title</label>
                                                     <input id="feedtitle" name="feedtitle" type="text" data-init="{{ user.rss_feed_title }}" value="{{ user.rss_feed_title }}">
@@ -378,7 +378,9 @@
                                                     <input id="job" name="job" type="text" class="validate" data-init="{{ user.job }}" value="{{ user.job }}">
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <textarea id="description" name="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">{{ user.description }}</textarea>
+                                                    <textarea id="description" name="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">
+                                                        {{ user.description }}
+                                                    </textarea>
                                                     <label for="description">Description</label>
                                                 </div>
                                                 <div class="col s12" style="position: absolute; text-align:right; bottom: 5px; width: calc(50% - 15px);">

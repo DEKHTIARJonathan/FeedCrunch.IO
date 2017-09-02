@@ -26,6 +26,7 @@
     <!-- Font Icons CSS -->
     <link href="{% static "css/pe-icon-7-stroke.css" %}" rel="stylesheet" type='text/css'>
     <link href="{% static "fonts/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Plugin CSS -->
 
     <!-- Bootstrap core CSS -->
@@ -44,7 +45,7 @@
 
     {% elif template_name == "signup.html" %}
         <link href="{% static "css/form.css" %}" rel="stylesheet">
-        <link href="{% static "css/bootstrap-datepicker3.min.css" %}" rel="stylesheet">
+        <link href="{% static "css/bootstrap-material-datetimepicker.css" %}" rel="stylesheet">
 
         <script type="application/x-javascript">
             addEventListener("load", function() {
@@ -334,9 +335,9 @@
             </script>
 
         {% elif template_name == "signup.html" %}
-            <script type="text/javascript" src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
-            <script type="text/javascript" src="{% static "js/datepicker.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/moment.min.js" %}"></script>
             <script type="text/javascript" src="{% static "js/jquery.validate.min.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/bootstrap-material-datetimepicker.js" %}"></script>
             <script type="text/javascript" src="{% static "js/signup.js" %}"></script>
 
         {% elif template_name == "contact.html" %}
