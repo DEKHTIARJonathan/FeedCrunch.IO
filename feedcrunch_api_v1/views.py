@@ -3,13 +3,16 @@
 
 from __future__ import unicode_literals
 
+from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.http import HttpResponse
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FileUploadParser, MultiPartParser
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
 from feedcrunch import tasks
@@ -41,6 +44,32 @@ def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
 
     RSSArticle_Assoc_obj.marked_read = True
     RSSArticle_Assoc_obj.save()
+
+class Authentication_Login_View(APIView):
+
+    def post(self, request):
+
+        if request.method == 'POST':
+            username = request.POST['username'].lower()
+            password = request.POST['password']
+
+            user = authenticate(username=username, password=password)
+            if user is not None:
+
+                login(request, user)
+
+                payload = {
+                    'user': request.user,
+                    'auth': request.auth,  # None
+                }
+
+            else:
+                payload = {
+                    "success": False,
+                    "error":   "Login and Password does not match or the requested user does not exist."
+                }
+
+            return Response(payload)
 
 class Username_Validation(APIView):
 
@@ -302,16 +331,18 @@ class User_Stats_Publications(APIView):
         return Response(payload)
 
 class Tags(APIView):
+    permission_classes = (IsAuthenticated, )
+    #permission_classes = (AllowAny, )
+
+    #Authorization: Token xxxxxxxxxxxxxxxxxxxxxxxxx
+
     def get(self, request):
+
+        payload = dict()
         try:
 
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             tags = Tag.objects.all().order_by('name')
+
             payload["tags"] = [tag.name for tag in tags]
 
             payload ["success"] = True

@@ -35,19 +35,16 @@ def terms(request):
     return render(request, 'terms.html', {})
 
 def loginView(request):
-    context = RequestContext(request)
     if request.method == 'POST':
         username = request.POST['username'].lower()
         password = request.POST['password']
 
         user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/@'+request.user.username+'/admin')
 
-            else:
-                return HttpResponse("Your account is inactive.")
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/@'+request.user.username+'/admin')
+
         else:
             return HttpResponseRedirect('/login/')
     else:
@@ -73,6 +70,9 @@ def signUPView(request):
 
         user = authenticate(username=username, password=password)
         login(request, user)
+
+        # We create an associated token for the user
+        Token.objects.create(user=user)
 
         return HttpResponseRedirect('/@'+request.user.username+'/admin')
 

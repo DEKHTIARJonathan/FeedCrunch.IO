@@ -8,6 +8,7 @@ import django.contrib.auth.views
 
 #from .admin import admin_site
 from .views import *
+import rest_framework.authtoken.views
 
 urlpatterns = [
 
@@ -17,6 +18,9 @@ urlpatterns = [
     url(r'^public/post/validate/rssfeed/$', rssfeed_Validation.as_view(), name='validate_username'),
 
     # ====================== Authentication Required API Routes ====================== #
+    # Login/Logout Route
+    url(r'^get_auth_token/$', rest_framework.authtoken.views.obtain_auth_token, name='get_auth_token'),
+    url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
 
     # User Routes
     url(r'^authenticated/get/user/publications_stats/$', User_Stats_Publications.as_view(), name='publications_stats'),
