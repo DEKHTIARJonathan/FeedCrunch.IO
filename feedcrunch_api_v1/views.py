@@ -7,8 +7,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework import parsers, renderers
 from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.parsers import FileUploadParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
@@ -44,6 +47,22 @@ def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
 
     RSSArticle_Assoc_obj.marked_read = True
     RSSArticle_Assoc_obj.save()
+
+
+class ObtainAuthToken(APIView):
+    throttle_classes = ()
+    permission_classes = ()
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
+    serializer_class = AuthTokenSerializer
+
+    @csrf_exempt
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key})
 
 class Authentication_Login_View(APIView):
 

@@ -8,7 +8,6 @@ import django.contrib.auth.views
 
 #from .admin import admin_site
 from .views import *
-import rest_framework.authtoken.views
 
 urlpatterns = [
 
@@ -19,7 +18,7 @@ urlpatterns = [
 
     # ====================== Authentication Required API Routes ====================== #
     # Login/Logout Route
-    url(r'^get_auth_token/$', rest_framework.authtoken.views.obtain_auth_token, name='get_auth_token'),
+    url(r'^get_auth_token/$', ObtainAuthToken.as_view(), name='Obtain_Auth_Token'),
     url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
 
     # User Routes
