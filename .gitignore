@@ -119,3 +119,5 @@ scripts/django_q.sql
 Procfile
 venv_linux/
 .idea/
+.key
+.crt

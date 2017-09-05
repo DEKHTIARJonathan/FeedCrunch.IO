@@ -7,9 +7,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.authtoken.models import Token
+from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.parsers import FileUploadParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
@@ -45,6 +45,33 @@ def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
 
     RSSArticle_Assoc_obj.marked_read = True
     RSSArticle_Assoc_obj.save()
+
+class ObtainAuthToken(APIView):
+    permission_classes = (AllowAny,)
+    authentication_classes = ()
+
+    def post(self, request):
+
+        username = request.POST['username'].lower()
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+
+        payload = dict()
+
+        if user is not None:
+
+            token, created = Token.objects.get_or_create(user=user)
+
+            payload['token'] = token.key
+            payload ["success"] = True
+
+        else:
+            payload['error'] = "Credentials not valid or user inactive"
+            payload ["success"] = False
+
+        payload["operation"] = "Obtain Authentication Token"
+        payload ["timestamp"] = get_timestamp()
+        return Response(payload)
 
 class Authentication_Login_View(APIView):
 
