@@ -49,9 +49,10 @@ def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
     RSSArticle_Assoc_obj.save()
 
 
-class ObtainAuthToken(APIView):
+class ObtainAuthToken(APIView):    
+
     throttle_classes = ()
-    permission_classes = ()
+    permission_classes = (AllowAny,) #maybe not needed in your case
     parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
     renderer_classes = (renderers.JSONRenderer,)
     serializer_class = AuthTokenSerializer
