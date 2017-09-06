@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 #from .admin import admin_site
 from .views import *
+from rest_framework.authtoken import views
 
 urlpatterns = [
 
@@ -19,7 +20,7 @@ urlpatterns = [
 
     # ====================== Authentication Required API Routes ====================== #
     # Login/Logout Route
-    url(r'^get_auth_token/$', ObtainAuthToken.as_view(), name='Obtain_Auth_Token'),
+    url(r'^get_auth_token/$', views.obtain_auth_token, name='Obtain_Auth_Token'),
     url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
 
     # User Routes
@@ -29,7 +30,7 @@ urlpatterns = [
     url(r'^authenticated/modify/user/social-networks/$', Modify_Social_Networks.as_view(), name='modify_social_networks'),
     url(r'^authenticated/modify/user/personal-info/$', Modify_Personal_info.as_view(), name='Modify_Personal_info'),
     url(r'^authenticated/modify/user/password/$', Modify_Password.as_view(), name='Modify_Password'),
-    url(r'^authenticated/modify/user/preferences/$', Modify_Preferences.as_view(), name='modify_preferences'),
+    url(r'^authenticated/modify/user/preferences/$', User_Preferences.as_view(), name='modify_preferences'),
 
     # OAUTH Social Networks Routes
     url(r'^authenticated/get/user/social-networks/(?P<social_network>\w+)/status/$', User_Social_Network_Status.as_view(), name='User_Social_Network_Status'),
@@ -44,8 +45,8 @@ urlpatterns = [
 
     # RSSFeed Subscribtions Routes
     url(r'^authenticated/post/rssfeed_subscribtion/$', RSSFeed_View.as_view(), name='create_RSSFeed'),
-    url(r'^authenticated/import/opml_file/$', OPML_Import.as_view(), name='Import OPML'),
-    url(r'^authenticated/export/opml_file/$', OPML_Import.as_view(), name='Export OPML'),
+    url(r'^authenticated/import/opml_file/$', OPML_Management.as_view(), name='Import OPML'),
+    url(r'^authenticated/export/opml_file/$', OPML_Management.as_view(), name='Export OPML'),
 
     # RSSFeed_Sub Subscribtions Routes
     url(r'^authenticated/delete/rssfeed_subscribtion/(?P<RSSFeed_SubID>\d+)/$', RSSFeed_Sub_View.as_view(), name='delete_RSSFeed'),

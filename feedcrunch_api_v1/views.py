@@ -46,66 +46,15 @@ def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
     RSSArticle_Assoc_obj.marked_read = True
     RSSArticle_Assoc_obj.save()
 
-class ObtainAuthToken(APIView):
-    permission_classes = (AllowAny,)
-    authentication_classes = ()
+class Username_Validation(APIView):
+
+    permission_classes = (AllowAny, )
 
     def post(self, request):
-
-        username = request.POST['username'].lower()
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
 
         payload = dict()
 
-        if user is not None:
-
-            token, created = Token.objects.get_or_create(user=user)
-
-            payload['token'] = token.key
-            payload ["success"] = True
-
-        else:
-            payload['error'] = "Credentials not valid or user inactive"
-            payload ["success"] = False
-
-        payload["operation"] = "Obtain Authentication Token"
-        payload ["timestamp"] = get_timestamp()
-        return Response(payload)
-
-class Authentication_Login_View(APIView):
-
-    def post(self, request):
-
-        if request.method == 'POST':
-            username = request.POST['username'].lower()
-            password = request.POST['password']
-
-            user = authenticate(username=username, password=password)
-            if user is not None:
-
-                login(request, user)
-
-                payload = {
-                    'user': request.user,
-                    'auth': request.auth,  # None
-                }
-
-            else:
-                payload = {
-                    "success": False,
-                    "error":   "Login and Password does not match or the requested user does not exist."
-                }
-
-            return Response(payload)
-
-class Username_Validation(APIView):
-
-    def post(self, request):
-
         try:
-
-            payload = dict()
             username = request.POST.get('username')
             payload ["username"] = username
 
@@ -127,20 +76,23 @@ class Username_Validation(APIView):
 
 class rssfeed_Validation(APIView):
 
+    permission_classes = (IsAuthenticated, )
+
     def post(self, request):
 
-        try:
+        payload = dict()
 
-            payload = dict()
+        try:
             rssfeed = request.POST.get('rssfeed')
-            payload ["rssfeed"] = rssfeed
 
             if rssfeed == None:
                 raise Exception("Link for the RSS Feed not provided")
 
             else:
+                payload ["rssfeed"] = rssfeed
 
                 rssfeed_queryset = RSSFeed.objects.filter(link=rssfeed)
+
                 if rssfeed_queryset.exists():
                     if RSSFeed.objects.filter(link=rssfeed, rel_sub_feed_assoc__user=request.user):
                         payload ["valid"] = False
@@ -170,20 +122,17 @@ class rssfeed_Validation(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class OPML_Import(APIView):
+class OPML_Management(APIView):
+
+    permission_classes = (IsAuthenticated, )
     parser_classes = (MultiPartParser,)
 
     def get(self, request):
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             return HttpResponse(request.user.export_opml(), content_type='text/xml' )
 
         except Exception as e:
+            payload = dict()
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
             payload["operation"] = "Export OPML"
@@ -192,8 +141,9 @@ class OPML_Import(APIView):
 
     def post(self, request, filename=''):
 
+        payload = dict()
+
         try:
-            payload = dict()
             check_passed = check_admin_api(request.user)
 
             if check_passed != True:
@@ -218,16 +168,14 @@ class OPML_Import(APIView):
 
 class User_Social_Network_Status(APIView):
 
+    permission_classes = (IsAuthenticated, )
+
     def get(self, request, social_network=None):
+
+        payload = dict()
+
         try:
-
             social_network = auto_format_social_network(social_network)
-
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
 
             payload ["success"] = True
             payload ["username"] = request.user.username
@@ -243,17 +191,14 @@ class User_Social_Network_Status(APIView):
         return Response(payload)
 
 class UnLink_User_Social_Network(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def delete(self, request, social_network=None):
+
+        payload = dict()
+
         try:
-
             social_network = auto_format_social_network(social_network)
-
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
 
             request.user.reset_social_network_credentials(network=social_network)
 
@@ -281,15 +226,13 @@ class UnLink_User_Social_Network(APIView):
         return Response(payload)
 
 class User_Stats_Subscribers(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def get(self, request):
+
+        payload = dict()
+
         try:
-
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
 
             payload ["success"] = True
             payload ["username"] = request.user.username
@@ -324,15 +267,13 @@ class User_Stats_Subscribers(APIView):
         return Response(payload)
 
 class User_Stats_Publications(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def get(self, request):
+
+        payload = dict()
+
         try:
-
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             payload ["success"] = True
             payload ["username"] = request.user.username
 
@@ -360,15 +301,12 @@ class User_Stats_Publications(APIView):
 
 class Tags(APIView):
     permission_classes = (IsAuthenticated, )
-    #permission_classes = (AllowAny, )
-
-    #Authorization: Token xxxxxxxxxxxxxxxxxxxxxxxxx
 
     def get(self, request):
 
         payload = dict()
-        try:
 
+        try:
             tags = Tag.objects.all().order_by('name')
 
             payload["tags"] = [tag.name for tag in tags]
@@ -385,42 +323,39 @@ class Tags(APIView):
         return Response(payload)
 
 class RSSFeed_View(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def post(self, request):
-        try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
 
-            if check_passed != True:
-                raise Exception(check_passed)
+        payload = dict()
+
+        try:
+            title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
+            link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
+
+            rssfeed_queryset = RSSFeed.objects.filter(link=link)
+
+            if not rssfeed_queryset.exists():
+                tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
+                tasks.check_rss_feed.delay(rss_id=tmp_rssfeed.id)
+
+                old_articles = None
 
             else:
-                title = unicodedata.normalize('NFC', request.POST['rssfeed_title'])
-                link = unicodedata.normalize('NFC', request.POST['rssfeed_link'])
-
-                rssfeed_queryset = RSSFeed.objects.filter(link=link)
-
-                if not rssfeed_queryset.exists():
-                    tmp_rssfeed = RSSFeed.objects.create(title=title, link=link)
-                    tasks.check_rss_feed.delay(rss_id=tmp_rssfeed.id)
-
-                    old_articles = None
-
-                else:
-                    tmp_rssfeed = rssfeed_queryset[0]
-                    old_articles = RSSArticle_Assoc.objects.filter(article__rssfeed=tmp_rssfeed)
+                tmp_rssfeed = rssfeed_queryset[0]
+                old_articles = RSSArticle_Assoc.objects.filter(article__rssfeed=tmp_rssfeed)
 
 
-                tmp_sub = RSSFeed_Sub.objects.create(user= request.user, feed=tmp_rssfeed, title=title)
+            tmp_sub = RSSFeed_Sub.objects.create(user= request.user, feed=tmp_rssfeed, title=title)
 
-                if ((old_articles is not None) and (old_articles.count() > 0 )):
-                    for article in old_articles:
-                        article.subscribtion = tmp_sub
-                        article.save()
+            if ((old_articles is not None) and (old_articles.count() > 0 )):
+                for article in old_articles:
+                    article.subscribtion = tmp_sub
+                    article.save()
 
-                payload["RSSFeed_Sub_ID"] = str(tmp_sub.id)
-                payload["RSSFeedID"] = str(tmp_rssfeed.id)
-                payload["success"] = True
+            payload["RSSFeed_Sub_ID"] = str(tmp_sub.id)
+            payload["RSSFeedID"] = str(tmp_rssfeed.id)
+            payload["success"] = True
 
         except Exception as e:
             payload["success"] = False
@@ -431,19 +366,16 @@ class RSSFeed_View(APIView):
         return Response(payload)
 
 class RSSFeed_Sub_View(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def put(self, request, RSSFeed_SubID=None):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
             RSSFeed_SubID = int(unicodedata.normalize('NFC', RSSFeed_SubID))
-
             if type(RSSFeed_SubID) is not int or RSSFeed_SubID < 1:
                 raise Exception("RSSFeed_SubID parameter is not valid")
-
-            if check_passed != True:
-                raise Exception(check_passed)
 
             payload ["username"] = request.user.username
 
@@ -477,17 +409,13 @@ class RSSFeed_Sub_View(APIView):
         return Response(payload)
 
     def delete(self, request, RSSFeed_SubID=None):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
             RSSFeed_SubID = int(unicodedata.normalize('NFC', RSSFeed_SubID))
-
             if type(RSSFeed_SubID) is not int or RSSFeed_SubID < 1:
                 raise Exception("RSSFeed_SubID parameter is not valid")
-
-            if check_passed != True:
-                raise Exception(check_passed)
 
             payload ["username"] = request.user.username
 
@@ -510,11 +438,12 @@ class RSSFeed_Sub_View(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Article_Exists(APIView):
+class Article_Exists(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS ###################
     def get(self, request, APIKey=""):
-        try:
-            payload = dict()
 
+        payload = dict()
+
+        try:
             if APIKey == "":
                 check_passed = check_admin_api(request.user)
 
@@ -580,7 +509,7 @@ class Article_Exists(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Article(APIView):
+class Article(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS ###################
 
     def get(self, request):
         payload = dict()
@@ -588,9 +517,10 @@ class Article(APIView):
         return Response(payload)
 
     def post(self, request, APIKey=""):
-        try:
-            payload = dict()
 
+        payload = dict()
+
+        try:
             if APIKey == "":
                 check_passed = check_admin_api(request.user)
 
@@ -688,8 +618,10 @@ class Article(APIView):
         return Response(payload)
 
     def put(self, request, postID=None):
+
+        payload = dict()
+
         try:
-            payload = dict()
             check_passed = check_admin_api(request.user)
 
             postID = int(postID)
@@ -767,8 +699,10 @@ class Article(APIView):
         return Response(payload)
 
     def delete(self, request, postID=None):
+
+        payload = dict()
+
         try:
-            payload = dict()
             check_passed = check_admin_api(request.user)
 
             postID = int(unicodedata.normalize('NFC', postID))
@@ -798,15 +732,13 @@ class Article(APIView):
         return Response(payload)
 
 class Modify_Slack_Preferences(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def put(self, request):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             for team, channels in request.data.items():
                 if channels != "":
                     # Need to test if all channels exists
@@ -830,15 +762,13 @@ class Modify_Slack_Preferences(APIView):
         return Response(payload)
 
 class Modify_Social_Networks(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def put(self, request):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             payload ["username"] = request.user.username
 
             url_validator = URLValidator()
@@ -922,15 +852,14 @@ class Modify_Social_Networks(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Modify_Preferences(APIView):
+class User_Preferences(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def put(self, request):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             payload ["username"] = request.user.username
 
             fields = [
@@ -960,21 +889,19 @@ class Modify_Preferences(APIView):
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
 
         payload ["operation"] = "modify personal Information"
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
 class Modify_Personal_info(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def put(self, request):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             payload ["username"] = request.user.username
 
             url_validator = URLValidator()
@@ -1059,14 +986,13 @@ class Modify_Personal_info(APIView):
         return Response(payload)
 
 class Modify_Password(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def put(self, request):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             payload ["username"] = request.user.username
 
             form_fields = [
@@ -1100,14 +1026,13 @@ class Modify_Password(APIView):
         return Response(payload)
 
 class RSSArticle_Assoc_View(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def put(self, request, RSSArticle_AssocID=None):
+
+        payload = dict()
+
         try:
-            payload = dict()
-            check_passed = check_admin_api(request.user)
-
-            if check_passed != True:
-                raise Exception(check_passed)
-
             payload ["username"] = request.user.username
 
             if RSSArticle_AssocID is not None:
