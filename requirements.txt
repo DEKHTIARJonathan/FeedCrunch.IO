@@ -29,7 +29,7 @@ dnspython==1.15.0
 dnspython3==1.15.0
 facebook-sdk==2.0.0
 factory-boy==2.9.2
-Faker==0.8.0
+Faker==0.8.3
 feedgen==0.5.1
 feedparser==5.2.1
 future==0.16.0
