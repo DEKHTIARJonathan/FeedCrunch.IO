@@ -18,6 +18,7 @@ applications:
   url:
   - dev.feedcrunch.io
   - feedcrunch-dev.eu-gb.mybluemix.net
+  - feedcrunch-api-dev.eu-gb.mybluemix.net
 
 - name: Feedcrunch-Worker-Dev
   host: feedcrunch-worker-dev

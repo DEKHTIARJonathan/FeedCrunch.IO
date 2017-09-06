@@ -17,7 +17,8 @@ applications:
   command: chmod +x launch_server.sh && ./launch_server.sh
   url:
   - www.feedcrunch.io
-  - feedcrunch.eu-gb.mybluemix.net
+  - feedcrunch.eu-gb.mybluemix.net  
+  - feedcrunch-api-prod.eu-gb.mybluemix.net
 
 - name: Feedcrunch-Orchester-Prod
   host: feedcrunch-orchester-prod

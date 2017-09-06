@@ -118,8 +118,6 @@ jQuery(function($) {
             */
     });
 
-    console.log("Testouille");
-
     $('#datepicker').bootstrapMaterialDatePicker({
         format: "DD/MM/YYYY",
         maxDate: "31/12/2002",

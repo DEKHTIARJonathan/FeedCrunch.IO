@@ -125,6 +125,7 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'django_ses',
     'rest_framework',
+    'rest_framework.authtoken',
     'encrypted_model_fields',
     'storages',
     'django_celery_monitor',
@@ -181,6 +182,16 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 if DEBUG or TESTING:
     TEMPLATES[0]['OPTIONS']['loaders'] = [
@@ -255,8 +266,8 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-USER_PHOTO_PATH = "images/user_photos/"
 USER_ESTIMATOR_PATH = "estimators/"
+USER_PHOTO_PATH     = "images/user_photos/"
 INTEREST_PHOTO_PATH = "images/interest_photos/"
 
 RSS_SUBS_LOOKUP_PERIOD = 3 # (days) Every people visiting the RSS/ATOM feeds over the N last days are count as a subscriber
