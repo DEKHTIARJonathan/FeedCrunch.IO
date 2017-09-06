@@ -855,6 +855,31 @@ class Modify_Social_Networks(APIView):
 class User_Preferences(APIView):
     permission_classes = (IsAuthenticated, )
 
+    def get(self, request):
+
+        payload = dict()
+
+        try:
+            payload["preferences"] = dict()
+
+            payload["preferences"]["visibility"] = request.user.pref_post_public_visibility
+            payload["preferences"]["autoformat"] = request.user.pref_post_autoformat
+            payload["preferences"]["twitter"]    = request.user.pref_post_repost_TW
+            payload["preferences"]["facebook"]   = request.user.pref_post_repost_FB
+            payload["preferences"]["linkedin"]   = request.user.pref_post_repost_LKin
+            payload["preferences"]["slack"]      = request.user.pref_post_repost_Slack
+
+            payload["success"] = True
+
+        except Exception as e:
+            payload["error"]   = "User_Preferences - GET: " + str(e)
+            payload["success"] = False
+
+        payload ["operation"] = "Get personal preferences"
+        payload ["timestamp"] = get_timestamp()
+
+        return Response(payload)
+
     def put(self, request):
 
         payload = dict()
