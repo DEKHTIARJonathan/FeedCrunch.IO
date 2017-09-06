@@ -862,12 +862,28 @@ class User_Preferences(APIView):
         try:
             payload["preferences"] = dict()
 
-            payload["preferences"]["visibility"] = request.user.pref_post_public_visibility
-            payload["preferences"]["autoformat"] = request.user.pref_post_autoformat
-            payload["preferences"]["twitter"]    = request.user.pref_post_repost_TW
-            payload["preferences"]["facebook"]   = request.user.pref_post_repost_FB
-            payload["preferences"]["linkedin"]   = request.user.pref_post_repost_LKin
-            payload["preferences"]["slack"]      = request.user.pref_post_repost_Slack
+            payload["preferences"]["visibility"]   = request.user.pref_post_public_visibility
+            payload["preferences"]["autoformat"]   = request.user.pref_post_autoformat
+
+            if request.user.is_twitter_enabled():
+                payload["preferences"]["twitter"]  = request.user.pref_post_repost_TW
+            else:
+                payload["preferences"]["twitter"]  = "disabled"
+
+            if request.user.is_facebook_enabled():
+                payload["preferences"]["facebook"] = request.user.pref_post_repost_FB
+            else:
+                payload["preferences"]["facebook"] = "disabled"
+
+            if request.user.is_linkedin_enabled():
+                payload["preferences"]["linkedin"] = request.user.pref_post_repost_LKin
+            else:
+                payload["preferences"]["linkedin"] = "disabled"
+
+            if request.user.is_slack_enabled():
+                payload["preferences"]["slack"]    = request.user.pref_post_repost_Slack
+            else:
+                payload["preferences"]["slack"]    = "disabled"
 
             payload["success"] = True
 
