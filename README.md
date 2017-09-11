@@ -24,6 +24,14 @@ Development Metrics<br>
 [![Code Health](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev/landscape.svg?style=flat)](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev)
 [![Website](https://img.shields.io/website-up-down-green-red/http/feedcrunch-dev.eu-gb.mybluemix.net.svg?label=Feedcrunch.io%20-%20Dev)](https://feedcrunch-dev.eu-gb.mybluemix.net/)
 
+__________________
+Browser Extensions Metrics<br>
+[![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/Feedcrunch.IO-WebExtension.svg?label=github%20repository)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cgmjhmibefcmnkbppbinjjgjpbgdaklf.svg)](https://chrome.google.com/webstore/detail/feedcrunchio/cgmjhmibefcmnkbppbinjjgjpbgdaklf)
+[![Mozilla Add-on](https://img.shields.io/amo/v/feedcrunch-io.svg)](https://addons.mozilla.org/en-GB/firefox/addon/feedcrunch-io/)
+[![Opera Extension](https://img.shields.io/badge/opera-coming_soon-blue.svg)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension/releases)
+[![Edge Extension](https://img.shields.io/badge/edge-coming_soon-blue.svg)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension/releases)
+
 # Issues
 
 Feel free to submit issues and enhancement requests.
