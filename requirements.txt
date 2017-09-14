@@ -1,4 +1,4 @@
-amqp==2.2.1
+amqp==2.2.2
 asn1crypto==0.22.0
 billiard==3.5.0.3
 boto==2.48.0
