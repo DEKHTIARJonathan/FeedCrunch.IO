@@ -38,7 +38,7 @@ script:
 
 after_success:
 - coveralls
-- codecov --branch=BRANCH
+- codecov
 - python-codacy-coverage -r coverage.xml
 
 notifications:
