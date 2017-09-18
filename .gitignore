@@ -121,3 +121,4 @@ venv_linux/
 .idea/
 .key
 .crt
+coverage.xml
