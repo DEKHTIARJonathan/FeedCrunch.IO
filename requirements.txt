@@ -36,7 +36,7 @@ future==0.16.0
 gunicorn==19.7.1
 idna==2.6
 kombu==4.1.0
-lxml==3.8.0
+lxml==4.0.0
 numpy==1.13.1
 oauthlib==2.0.3
 olefile==0.44
