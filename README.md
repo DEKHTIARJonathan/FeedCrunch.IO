@@ -7,24 +7,27 @@ FeedCrunch.IO - Empower RSS feeds to a whole new level
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400&label=documentation)](http://feedcrunch.readthedocs.io/en/latest/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/born2data.svg?style=flat&label=Follow%20me:%20@born2data)](https://twitter.com/intent/user?screen_name=born2data)
 
+[![Updates](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
+[![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
+
 __________________
 Production Metrics<br>
 [![Build Status - Master](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=Travis%20-%20Master)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
-[![Updates](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
-[![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
-[![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f06c89cf87d44180ae9170b5c720ff54)](https://www.codacy.com/app/DEKHTIARJonathan/FeedCrunch.IO)
-[![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
+[![Codacy Master grade](https://img.shields.io/codacy/coverage/f06c89cf87d44180ae9170b5c720ff54/master.svg?label=codacy%20grade)](https://www.codacy.com/app/DEKHTIARJonathan/FeedCrunch.IO)
+[![Codacy Master coverage](https://img.shields.io/codacy/coverage/f06c89cf87d44180ae9170b5c720ff54/master.svg?label=codacy%20coverage)](https://www.codacy.com/app/DEKHTIARJonathan/FeedCrunch.IO)
+[![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=coveralls%20coverage)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
+[![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/master.svg?label=codecov%20coverage)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
 [![Code Health](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/master/landscape.svg?style=flat)](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/master)
 [![Website](https://img.shields.io/website-up-down-green-red/http/www.feedcrunch.io.svg?label=Feedcrunch.io)](https://www.feedcrunch.io)
 
 __________________
 Development Metrics<br>
 [![Build Status - Dev](https://img.shields.io/travis/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=Travis%20-%20Dev)](https://travis-ci.org/DEKHTIARJonathan/FeedCrunch.IO)
-[![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=coveralls)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f06c89cf87d44180ae9170b5c720ff54?branch=dev)](https://www.codacy.com/app/DEKHTIARJonathan/FeedCrunch.IO)
-[![Codecov Status](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=codecov)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
-[![Code Health](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev/landscape.svg?style=flat)](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev)
+[![Codacy Master grade](https://img.shields.io/codacy/coverage/f06c89cf87d44180ae9170b5c720ff54/dev.svg?label=codacy%20grade)](https://www.codacy.com/app/DEKHTIARJonathan/FeedCrunch.IO)
+[![Codacy Master coverage](https://img.shields.io/codacy/coverage/f06c89cf87d44180ae9170b5c720ff54/dev.svg?label=codacy%20coverage)](https://www.codacy.com/app/DEKHTIARJonathan/FeedCrunch.IO)
+[![Coverage Status](https://img.shields.io/coveralls/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=coveralls%20coverage)](https://coveralls.io/github/DEKHTIARJonathan/FeedCrunch.IO?branch=master)
+[![codecov](https://img.shields.io/codecov/c/github/DEKHTIARJonathan/FeedCrunch.IO/dev.svg?label=codecov%20coverage)](https://codecov.io/gh/DEKHTIARJonathan/FeedCrunch.IO)
+[![Code Health](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/dev/landscape.svg?style=flat)](https://landscape.io/github/DEKHTIARJonathan/FeedCrunch.IO/master)
 [![Website](https://img.shields.io/website-up-down-green-red/http/feedcrunch-dev.eu-gb.mybluemix.net.svg?label=Feedcrunch.io%20-%20Dev)](https://feedcrunch-dev.eu-gb.mybluemix.net/)
 
 __________________
