@@ -9,6 +9,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext, loader
 
+from rest_framework.authtoken.models import Token
+
 from feedcrunch.models import Country, Option, FeedUser
 
 from custom_render import myrender as render
@@ -66,7 +68,16 @@ def signUPView(request):
         password = request.POST['password']
         birthdate = request.POST['birthdate']
 
-        tmp_usr = FeedUser.objects.create_user(username, email, password, firstname=firstname, lastname=lastname, country=country, gender=gender, birthdate=birthdate)
+        tmp_usr = FeedUser.objects.create_user(
+            username,
+            email,
+            password,
+            firstname=firstname,
+            lastname=lastname,
+            country=country,
+            gender=gender,
+            birthdate=birthdate
+        )
 
         user = authenticate(username=username, password=password)
         login(request, user)

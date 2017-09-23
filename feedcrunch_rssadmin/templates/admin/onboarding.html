@@ -378,9 +378,7 @@
                                                     <input id="job" name="job" type="text" class="validate" data-init="{{ user.job }}" value="{{ user.job }}">
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <textarea id="description" name="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">
-                                                        {{ user.description }}
-                                                    </textarea>
+                                                    <textarea id="description" name="description" class="validate materialize-textarea description-textarea" data-init="{{ user.description }}">{{ user.description }}</textarea>
                                                     <label for="description">Description</label>
                                                 </div>
                                                 <div class="col s12" style="position: absolute; text-align:right; bottom: 5px; width: calc(50% - 15px);">

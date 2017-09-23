@@ -33,6 +33,10 @@
                                             <input id="email" name="email" type="email" class="required validate" aria-required="true" data-init="{{ user.email }}" value="{{ user.email }}">
                                         </div>
                                         <div class="input-field col m6 s12">
+                                            <label for="birthdate" id="birthdate-label">Birthdate</label>
+                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" {% if user.get_birthdate_as_string is not None %} data-init="{{ user.get_birthdate_as_string }}" {% endif %}>
+                                        </div>
+                                        <div class="input-field col m6 s12">
                                             <select id="gender" class="required validate" aria-required="true" data-init="{{ user.gender }}" >
                                                 <option selected disabled>Select One Gender</option>
                                                 {% if user.gender == 'M' %}
@@ -65,10 +69,6 @@
                                                     {% endif %}
                                                 {% endfor %}
                                             </select>
-                                        </div>
-                                        <div class="input-field col m6 s12">
-                                            <label for="birthdate" id="birthdate-label">Birthdate</label>
-                                            <input id="birthdate" name="birthdate" type="date" class="datepicker required" {% if user.get_birthdate_as_string is not None %} data-init="{{ user.get_birthdate_as_string }}" {% endif %}>
                                         </div>
                                         <div class="input-field col m12">
                                             <label for="feedtitle">RSS Feed Title</label>
