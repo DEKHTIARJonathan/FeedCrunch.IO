@@ -1,5 +1,5 @@
 amqp==2.2.2
-asn1crypto==0.22.0
+asn1crypto==0.23.0
 billiard==3.5.0.3
 boto==2.48.0
 celery==4.1.0
