@@ -9,6 +9,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext, loader
 
+from rest_framework.authtoken.models import Token
+
 from feedcrunch.models import Country, Option, FeedUser
 
 from custom_render import myrender as render
