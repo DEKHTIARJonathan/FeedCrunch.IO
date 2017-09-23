@@ -66,7 +66,16 @@ def signUPView(request):
         password = request.POST['password']
         birthdate = request.POST['birthdate']
 
-        tmp_usr = FeedUser.objects.create_user(username, email, password, firstname=firstname, lastname=lastname, country=country, gender=gender, birthdate=birthdate)
+        tmp_usr = FeedUser.objects.create_user(
+            username,
+            email,
+            password,
+            firstname=firstname,
+            lastname=lastname,
+            country=country,
+            gender=gender,
+            birthdate=birthdate
+        )
 
         user = authenticate(username=username, password=password)
         login(request, user)
