@@ -53,7 +53,6 @@ urlpatterns = [
     url(r'^authenticated/modify/rssfeed_subscribtion/(?P<RSSFeed_SubID>\d+)/$', RSSFeed_Sub_View.as_view(), name='modify_RSSFeed'),
 
     # Article Routes
-    url(r'^authenticated/get/article/exists/(?P<APIKey>[^/]+)/$', Article_Exists.as_view(), name='get_article_exists'),
     url(r'^authenticated/get/article/exists/$', Article_Exists.as_view(), name='get_article_exists'),
     url(r'^authenticated/post/article/(?P<APIKey>[^/]+)/$', Article.as_view(), name='post_article_with_api_key'),
     url(r'^authenticated/post/article/$', Article.as_view(), name='post_article'),
