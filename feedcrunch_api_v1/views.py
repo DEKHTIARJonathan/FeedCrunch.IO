@@ -438,32 +438,25 @@ class RSSFeed_Sub_View(APIView):
         payload ["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Article_Exists(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS ###################
-    def get(self, request, APIKey=""):
+class Article_Exists(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, request):
 
         payload = dict()
 
         try:
-            if APIKey == "":
-                check_passed = check_admin_api(request.user)
+            user = request.user
 
-                if check_passed != True:
-                    raise Exception(check_passed)
+            if user.is_superuser and 'posting_user' in request.GET:
+                tmp_username = unicodedata.normalize('NFC', request.GET['posting_user'])
 
-                user = request.user
-
-            else:
                 try:
-                    user = FeedUser.objects.filter(apikey=APIKey)[:1][0]
-                except IndexError:
-                    raise Exception("The APIKey Used is not Valid")
+                    user = FeedUser.objects.get(username=tmp_username)
 
-                if user.is_superuser and 'posting_user' in request.GET:
-                    tmp_username = unicodedata.normalize('NFC', request.GET['posting_user'])
-                    try:
-                        user = FeedUser.objects.get(username=tmp_username)
-                    except ObjectDoesNotExist:
-                        raise Exception("The Provided posting_user ('"+tmp_username+"') does not exist")
+                except ObjectDoesNotExist:
+                    raise Exception("The Provided posting_user ('"+tmp_username+"') does not exist")
+
 
             article_link = unicodedata.normalize('NFC', request.GET['link'])
 
@@ -495,8 +488,14 @@ class Article_Exists(APIView): ################### NEED TO CHECK AUTHENTICATION 
             payload["username"] = user.username
 
             for art_link in links:
-                if Post.objects.filter(link=art_link, user=user).exists():
+                query_set = Post.objects.filter(link=art_link, user=user)
+                if query_set.exists():
                     payload["exists"] = True
+                    payload["post_data"] = {
+                        'id':    query_set[0].id,
+                        'title': query_set[0].title,
+                        'link':  query_set[0].link
+                    }
                     break
 
             payload["success"] = True
