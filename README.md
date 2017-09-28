@@ -38,12 +38,7 @@ Browser Extensions Development<br>
 [![Opera Extension](https://img.shields.io/badge/opera-coming_soon-blue.svg)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension/releases)
 [![Edge Extension](https://img.shields.io/badge/edge-coming_soon-blue.svg)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension/releases)
 
-# What is Feedcrunch ?
-
-# Feedcrunch.IO - WebExtension
-
-[![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/FeedCrunch.IO.svg?label=Feedcrunch.IO)](https://github.com/DEKHTIARJonathan/FeedCrunch.IO)
-[![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/Feedcrunch.IO-WebExtension.svg?label=Web%20Extension)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension)
+## What is Feedcrunch ?
 
 Feedcrunch is an open-source alternative to content management and sharing platforms like: [Pocket](https://getpocket.com/) or [Buffer](https://buffer.com). 
 
@@ -59,11 +54,11 @@ Feedcrunch is an open-source alternative to content management and sharing platf
 - Obtain insights on the popularity of your posts and construct a social reputation.
 - Create a profile which aggregate every social profile you have to be easily found.
 
-# Issues
+## Issues
 
 Feel free to submit issues and enhancement requests.
 
-# Contributing guidelines
+## Contributing guidelines
 
 Please have a look to the [Contributing Guidelines](CONTRIBUTING.md) first.
 
@@ -77,7 +72,7 @@ We follow the "fork-and-pull" Git workflow.
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-# Copyright and Licensing
+## Copyright and Licensing
 
 The project is released under the GNU Affero General Public License v3.0, which gives you the following rights in summary:
 
@@ -89,28 +84,28 @@ The project is released under the GNU Affero General Public License v3.0, which 
 |*Patent use*     |                |*Same license*                 |
 |*Private use*    |                |*State changes*                |
 
-# Installation and deployment instructions
+## Installation and deployment instructions
 
-## 1. How to Install the development server
+### 1. How to Install the development server
 
-### 1.1. Create and launch the databases servers
+#### 1.1. Create and launch the databases servers
 
-#### 1.1.1 Create a PostgreSQL database
+##### 1.1.1 Create a PostgreSQL database
 
-#### 1.1.2 Create a RabbitMQ database
+##### 1.1.2 Create a RabbitMQ database
 
-### 1.2. Install Python 3.6
+#### 1.2. Install Python 3.6
 
 To my opinion, the Python distribution from Continuum Analytics Anaconda is an **absolute go-to**: https://www.continuum.io/downloads.
 You can download this version and install it.
 
-### 1.3. Rename the file ".env.dist" to ".env"
+#### 1.3. Rename the file ".env.dist" to ".env"
 
 ```sh
 mv .env.dist .env
 ```
 
-### 1.4. Update the values inside the .env files with the correct values.
+#### 1.4. Update the values inside the .env files with the correct values.
 
 - **DATABASE_URL:** Format the PostgreSQL credentials as followed: *postgres://user:password@server:port/dbname*
 - **RABBITMQ_URL:** Format the RabbitMQ credentials as followed: *amqp://username:password@server:port/instance_name*
@@ -121,9 +116,9 @@ mv .env.dist .env
 - **EMAIL_DEFAULT_SENDER:** The email used when the platform send emails to customers
 - **FIELD_ENCRYPTION_KEY** The encryption key used to encrypt hashes and API Keys inside the database, can be generated with the command: *python manage.py generate_encryption_key*
 
-### 1.5. Install the dependencies
+#### 1.5. Install the dependencies
 
-#### 1.5.1. Linux / Mac Os
+##### 1.5.1. Linux / Mac Os
 ```sh
 pip install virtualenv
 virtualenv venv
@@ -133,7 +128,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-#### 1.5.2. Windows
+##### 1.5.2. Windows
 ```sh
 pip install virtualenv
 virtualenv venv
@@ -143,7 +138,7 @@ venv\Scripts\activate.bat
 scripts\win\install_dependencies.bat
 ```
 
-### 1.6. Migrate the database to the server.
+#### 1.6. Migrate the database to the server.
 ```sh
 # Linux
 source venv/bin/activate
@@ -158,7 +153,7 @@ python manage.py createcachetable
 python manage.py loaddata feedcrunch_dump.json # This operation loads fixtures in the database and can take a few minutes.
 ```
 
-### 1.7. Create a superuser on the application.
+#### 1.7. Create a superuser on the application.
 
 ```sh
 # Linux
@@ -171,7 +166,7 @@ venv\Scripts\activate.bat
 python manage.py createsuperuser # Fill in your information
 ```
 
-### 1.8. Set the application options
+#### 1.8. Set the application options
 
 Once installed, the application needs a few parameters to manage the behaviour of the platform.
 
@@ -196,7 +191,7 @@ If not created, the following settings need to be created. Else, you can just mo
 - **twitter_consumer_key:** Can be obtained on the Twitter developer platform: <https://dev.twitter.com/>
 - **twitter_consumer_secret:** Can be obtained on the Twitter developer platform: <https://dev.twitter.com/>
 
-## 2. How to launch the development server
+### 2. How to launch the development server
 
 ```sh
 # Linux
@@ -209,7 +204,7 @@ venv\Scripts\activate.bat
 python manage.py runserver 0.0.0.0:5000 # Launch the server accessible from the LAN on the port 5000 at the IP-Address of the server.
 ```
 
-## 3. How to launch unit tests
+### 3. How to launch unit tests
 
 ```sh
 # Linux
@@ -224,7 +219,7 @@ coverage report -m
 coverage html
 ```
 
-## 4. How to launch the celery workers
+### 4. How to launch the celery workers
 Since Celery 4.0, the workers only work on linux, to launch them use the following commands:
 ```sh
 ################## In Debug mode ##################
@@ -250,7 +245,7 @@ celery beat -A application --loglevel=info --detach
 celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach
 ```
 
-## 5. How to setup Travis for continuous integration.
+### 5. How to setup Travis for continuous integration.
 
 You will need to set environment variables as followed:
 
