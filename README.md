@@ -90,9 +90,8 @@ The project is released under the GNU Affero General Public License v3.0, which 
 
 #### 1.1. Create and launch the databases servers
 
-##### 1.1.1 Create a PostgreSQL database
-
-##### 1.1.2 Create a RabbitMQ database
+1. Create a PostgreSQL database
+2. Create a RabbitMQ database
 
 #### 1.2. Install Python 3.6
 
