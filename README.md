@@ -38,6 +38,27 @@ Browser Extensions Development<br>
 [![Opera Extension](https://img.shields.io/badge/opera-coming_soon-blue.svg)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension/releases)
 [![Edge Extension](https://img.shields.io/badge/edge-coming_soon-blue.svg)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension/releases)
 
+# What is Feedcrunch ?
+
+# Feedcrunch.IO - WebExtension
+
+[![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/FeedCrunch.IO.svg?label=Feedcrunch.IO)](https://github.com/DEKHTIARJonathan/FeedCrunch.IO)
+[![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/Feedcrunch.IO-WebExtension.svg?label=Web%20Extension)](https://github.com/DEKHTIARJonathan/Feedcrunch.IO-WebExtension)
+
+Feedcrunch is an open-source alternative to content management and sharing platforms like: [Pocket](https://getpocket.com/) or [Buffer](https://buffer.com). 
+
+**The main features are:**
+- Sharing any web pages on the social networks in a second: 
+  - Facebook
+  - Twitter
+  - LinkedIn
+  - Slack (Multi-Team and Multi-chanel)
+- Saving your readings and easily finding them back with our search engine.
+- Subscribe to as many RSS/Atom feeds you like in the platform
+- Obtain recommendations based on your readings and shares. Only read the most revelant news every day.
+- Obtain insights on the popularity of your posts and construct a social reputation.
+- Create a profile which aggregate every social profile you have to be easily found.
+
 # Issues
 
 Feel free to submit issues and enhancement requests.
