@@ -37,11 +37,11 @@ gunicorn==19.7.1
 idna==2.6
 kombu==4.1.0
 lxml==4.0.0
-numpy==1.13.2
+numpy==1.13.3
 oauthlib==2.0.4
 olefile==0.44
 pandas==0.20.3
-Pillow==4.2.1
+Pillow==4.3.0
 psycopg2==2.7.3.1
 pycparser==2.18
 pyIsEmail==1.3.1
