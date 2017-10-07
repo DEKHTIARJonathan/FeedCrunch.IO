@@ -24,7 +24,7 @@ django-ipware==1.1.6
 django-material==1.0.0
 django-ses==0.8.3
 django-storages==1.6.5
-djangorestframework==3.6.4
+djangorestframework==3.7.0
 dnspython==1.15.0
 dnspython3==1.15.0
 facebook-sdk==2.0.0
