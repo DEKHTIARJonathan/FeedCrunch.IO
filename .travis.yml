@@ -78,7 +78,7 @@ before_deploy:
 - rm -rf venv/
 - rm -rf application/staticfiles/
 - rm -rf htmlcov/
-- if ! [ -n "$TRAVIS_TAG" ]; then
+- if [ -n "$TRAVIS_TAG" ]; then
       zip -r "$ARTIFACT_NAME" . -x   _unused_/\* certificate/\* example_files/\* scripts/\* .git/\*;
   fi
 
