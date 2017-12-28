@@ -15,6 +15,7 @@ services:
 - postgresql
 
 before_install:
+- python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
 - export DJANGO_SETTINGS_MODULE=application.settings
 - export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/FeedCrunch.IO
 - virtualenv venv
@@ -29,7 +30,7 @@ before_script:
 
 script:
 - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
-- python manage.py collectstatic --noinput --link --dry-run --clear # --link: create symlinks | --dry-run: apply everything
+- python manage.py collectstatic --noinput
 - python manage.py makemigrations feedcrunch
 - python manage.py migrate
 - python manage.py createcachetable
