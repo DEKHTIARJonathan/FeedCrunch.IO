@@ -30,7 +30,7 @@ before_script:
 
 script:
 - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
-- python manage.py collectstatic --noinput --link --dry-run --clear # --link: create symlinks | --dry-run: apply everything
+- python manage.py collectstatic --noinput
 - python manage.py makemigrations feedcrunch
 - python manage.py migrate
 - python manage.py createcachetable
