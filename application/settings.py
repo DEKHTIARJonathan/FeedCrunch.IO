@@ -119,8 +119,6 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'material',
-    'material.admin',
     'admin_view_permission',
     'django_extensions',
     'django_ses',

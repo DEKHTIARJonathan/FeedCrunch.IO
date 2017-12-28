@@ -9,7 +9,7 @@ def check_admin(feedname, user, bypassOnboardingCheck = False):
     if feedname == None:
         return HttpResponse("Error")
 
-    elif not user.is_authenticated():
+    elif not user.is_authenticated:
         return HttpResponseRedirect('/login/')
 
     elif not user.is_active:
@@ -26,7 +26,7 @@ def check_admin(feedname, user, bypassOnboardingCheck = False):
 
 def check_admin_api(user):
 
-    if not user.is_authenticated():
+    if not user.is_authenticated:
         return 'User Not authenticated'
 
     elif not user.is_active:
