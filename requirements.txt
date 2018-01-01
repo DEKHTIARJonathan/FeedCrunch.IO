@@ -39,7 +39,7 @@ lxml==4.1.1
 numpy==1.13.3
 oauthlib==2.0.6
 olefile==0.44
-pandas==0.21.1
+pandas==0.22.0
 Pillow==4.3.0
 psycopg2==2.7.3.2
 pycparser==2.18
@@ -58,5 +58,5 @@ twython==3.6.0
 untangle==1.1.1
 urllib3==1.22
 vine==1.1.4
-Werkzeug==0.13
+Werkzeug==0.14.1
 whitenoise==3.3.1
