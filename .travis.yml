@@ -15,6 +15,7 @@ services:
 - postgresql
 
 before_install:
+- python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
 - export DJANGO_SETTINGS_MODULE=application.settings
 - export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/FeedCrunch.IO
 - virtualenv venv
@@ -75,7 +76,12 @@ env:
 
 before_deploy:
 - find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
-- zip -r "$ARTIFACT_NAME" . -x \*.crypto application/staticfiles/\* venv/\* _unused_/\* venv/\* certificate/\* codedeploy/\* example_files/\* htmlcov/\* scripts/\* lib_bin/\* .git/\*
+- rm -rf venv/
+- rm -rf application/staticfiles/
+- rm -rf htmlcov/
+- if [ -n "$TRAVIS_TAG" ]; then
+      zip -r "$ARTIFACT_NAME" . -x   _unused_/\* certificate/\* example_files/\* scripts/\* .git/\*;
+  fi
 
 deploy:
 

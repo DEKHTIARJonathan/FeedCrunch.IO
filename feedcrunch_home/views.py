@@ -50,7 +50,7 @@ def loginView(request):
         else:
             return HttpResponseRedirect('/login/')
     else:
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return HttpResponseRedirect('/@'+request.user.username+'/admin')
         else:
             return render(request, 'login.html', {})
@@ -89,7 +89,7 @@ def signUPView(request):
 
     else:
 
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return HttpResponseRedirect('/@'+request.user.username+'/admin')
         else:
             country_list = Country.objects.all().order_by('name')
