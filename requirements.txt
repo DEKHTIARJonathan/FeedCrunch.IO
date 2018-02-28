@@ -4,14 +4,14 @@ billiard==3.5.0.3
 boto==2.48.0
 celery==4.1.0
 certifi==2018.1.18
-cffi==1.11.4
+cffi==1.11.5
 chardet==3.0.4
 click==6.7
 coverage==4.5.1
 cryptography==2.1.4
 dj-database-url==0.4.2
 Django==2.0.2
-django-admin-view-permission==1.4
+django-admin-view-permission==1.5
 django-celery-beat==1.1.1
 django-celery-monitor==1.1.2
 django-choices==1.6.0
