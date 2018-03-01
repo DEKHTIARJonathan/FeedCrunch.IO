@@ -12,6 +12,7 @@ python:
 
 services:
 - rabbitmq
+- redis-server
 - postgresql
 
 before_install:
@@ -52,6 +53,7 @@ env:
   global:
 
   - RABBITMQ_URL='amqp://guest:guest@localhost:5672/'
+  - REDIS_URL='redis://localhost:6379'
   - DATABASE_URL='postgres://postgres:@localhost:5432/travisci'
   - DEBUG='True'
   - EMAIL_DEFAULT_SENDER='local@local.host'
@@ -61,13 +63,14 @@ env:
   - BLUEMIX_API_GATEWAY='https://api.eu-gb.bluemix.net'
   - BLUEMIX_API_ORGANISATION='FeedCrunch'
   - BLUEMIX_API_SPACE='prod'
-  
+  - USE_RABBITMQ='True'
+
   ### == CODECOV_TOKEN === ###
   - secure: "sRuP0d5h9pZRVHMo+8TjOdx80rJEb9GiR26uEM2dZZvm3oh+jfHbiqSecaLa3yo6qgyLwz3doSZx1eu7ZW6RDujEHHSg/SdHkosLzo3qKE1Mr5XPJXLtwjXcvSVYhiMVS5E/IcrOKqEi5p694GsykLwz5jVb6orCh/O8UcHHb2NP99JhKWcxFRjEpPoitNmTcigd1VJjqf7MiMq8+GqEhe4vug9XCnyUgpUM7okOkbem2DPaABwEJfZC9f0HVlJa1X1r1mGAFJuPqJpJ0sOiimZo9k0yfBSGjTCWmr+aga1ASjMJUKBCiEk+yEAaLwu6w0Zr+nYuIhLeLWDxVwJpmUBs0QFM4RX4Q+Pt3hUs9ynCWrXfcR/1hNdQD76705Bs9/4TxBwT7sOMfdVsywcpWtUPtfFTYmQL1sBMnz1GOg4ueZQHL7+GaARaZs+5XuWiaNIP0/xmFE8C+EHm2OqesgwYD/rdJxYG5VMyfyrjsfEJrZLx0TV8e9xbhEx3x9ZeTJrBV24/qDyYT7Ekn2kY+t8nA7V8NSKkleMiT+5D81PyNLJ0+YJjw/Ot+DIT0U6IkuSi5Y0eQMGq+mRfLGGY3YNCSeo1MTxhy5EO3pX4mwVJZt2QwOQwzqoJyGM8foNu6NH1hBjX6IH3B0smpmLoPoY3TCEffZOYjpSoGOqBQsE="
-  
+
   ### === CODACY_PROJECT_TOKEN === ###
   - secure: "MJ6PAxlkD+Vch1QcAyJB/isYfzqs/fgVYp5dM/Rq2pj/sisl3TtpkdNyiddlFMONH+BkxLxUnBng4PaJewrnWc6ojUlarSolyYPO+nUiy0if3XPNHtcdoUgR97CGWfrm1U+3Rb/gDN3RNDTmWveISB8B2d3j00dUvQEwdYBmK48RsJ1z0a0bjc4E3D2Ns0RiOsp4kWi+CEsMG7r0AVWpdOgusiVnx4bWgiALQJclJS6xkszB63PjIjNyscWr79KE6YFmYxP0aEOtLh/u7FAuWCWM7oFEvXp+b4gOZi+dH1SeuKpNO1Cm+6O6mR0bfnrYlrJUr8m0USh4Uoqz8Qexn8SxRtR1cFQENyDzrTqi97aInmA9ZtiaAXRDy6gByOZ9uP0SYgqdF2+R0xNGQsVF6mo7vBqDynpqMp39Bi1DfceFP2/7qLIgsiBvSEH9fj903RAg4rlra16JiQKw2jwHN/S3I0PBvkV20AlgAyFjBAcIdvVpi1OjRIOXKPKPZPB3tyc940U0z3tHSJoWDlKWv5jq1W6YvmzV+bqVpHCAoKatQlcePhKv0WwQC0sFQnfs4JgYqBrpQunSzof4l62NsOsW/9Ji7NBQnWadFmTtoyC4pXRDYitq6ZURRasQS929V9OpzAFQbH55guB6RYyRuBdfCJlQlepZOy40ZV9A+5w="
-  
+
   ### === BluemixPassword === ###
   - secure: "pCcGxYi4rP0giVfguOMDrH6nq++v5xx0geb1pBQT6C6awF6NoFWfkrZXQSGqx5/G2bP5F4G+djTP0c441bzSSPrUT+oqW47vdrg6vqYRVin/YZFQRlutoHPcckjyyWep2aa5qAbp31yWXCol3MwQPupQl90yQeXKUk4GI9HP3+h9wEKeus0x+RZvLuKVINWNlRWMaIHtnR1J8xTrzCCFqQR4L6Kknv80sxOfTMFyaEKv8dUdAHzrV87J+tYQAaJoKAsMLqdagX88TBK9uRxXmfAX33RCUIdgDlG6zorRFcWG+xEvDcBaygxayZ3lc0niqJfAxJqFwzW5ORjYowzXqlfrswpp49djcTUe+fJePLUeApR92BAVXlr12xrbhYBG9BCaOlPvE5JCtmS2BZpGtuZa3XQ1PD9+R0mu9wFz3YgvFMS1WsFhqpauSp4sTmChvpV64jhkbZtjhIymEdOOxN7r9QNetr8P2JyMT5k86TYl0p7+P1O62ru8tqycujIMVLd5KeyH08K71aNmAjdn46Ft5g3sX+rZm7L19EsFRkojTSh7QY6hXW3YuCX3pVQTR25ZqkyZKFV6aFCP0kio7MdN5VcK9iIvDA15pV/ElFNEVMiGKwkC2MFzGD+Qb6MGqE7I4ShwjdU0qLoey3+KJX5pnGYX+CA6Jz2ac5vW6YM="
 
