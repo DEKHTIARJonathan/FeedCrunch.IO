@@ -6,8 +6,9 @@ path: .
 stack: cflinuxfs2
 buildpack: https://github.com/cloudfoundry/buildpack-python.git
 services:
-- Feedcrunch-DB-prod
-- RabbitMQ-prod
+- Feedcrunch-DB-Prod
+- RabbitMQ-Prod
+- Redis-Prod
 
 applications:
 
