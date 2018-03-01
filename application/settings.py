@@ -307,7 +307,11 @@ if not DEBUG and not TESTING:
 ALLOWED_HOSTS = ['*']
 
 # Celery Configuration
-BROKER_URL = assign_env_value('RABBITMQ_URL')
+if assign_env_value('USE_RABBITMQ'):
+    BROKER_URL = assign_env_value('RABBITMQ_URL')
+else:
+    BROKER_URL = assign_env_value('REDIS_URL')
+    
 BROKER_USE_SSL=True
 
 CELERY_ACCEPT_CONTENT = ['application/json']
@@ -321,6 +325,9 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_TASK_ACKS_LATE=True # Acknoledge pool when task is over
 CELERY_TASK_REJECT_ON_WORKER_LOST=True
 CELERY_TASK_RESULT_EXPIRES=7*24*30*30
+
+CELERY_EVENT_QUEUE_EXPIRES=60
+CELERY_EVENT_QUEUE_TTL=5
 
 CELERYD_TASK_TIME_LIMIT=90
 CELERYD_TASK_SOFT_TIME_LIMIT=60
