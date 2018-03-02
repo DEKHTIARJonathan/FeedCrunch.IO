@@ -118,6 +118,8 @@ scripts/django_q.sql
 /celery*
 Procfile
 venv_linux/
+venv2_linux/
+venv3_linux/
 .idea/
 .key
 .crt
