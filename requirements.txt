@@ -13,7 +13,7 @@ dj-database-url==0.4.2
 Django==2.0.2
 django-admin-view-permission==1.5
 django-celery-beat==1.1.1
-django-celery-monitor==1.1.2
+#django-celery-monitor==1.1.2
 django-choices==1.6.0
 django-dotenv==1.4.2
 django-downloadview==1.9
