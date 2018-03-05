@@ -109,6 +109,8 @@ example_files/
 
 # Keys and Certificates
 certificate/
+.crt
+.key
 
 # CI Chain
 .codeclimate.yml
@@ -128,6 +130,8 @@ CONTRIBUTING.md
 LICENSE.md
 .env.dist
 .gitignore
+.github/
+.git/
 
 # Binary Folders
 lib_bin/
