@@ -121,9 +121,6 @@ pytest.ini
 .coverage
 .coveragerc
 
-# Cloud Foundry
-app.json
-
 # Git Files
 README.md
 CODE_OF_CONDUCT.md
