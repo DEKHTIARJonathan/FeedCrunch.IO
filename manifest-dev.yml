@@ -15,7 +15,7 @@ applications:
 - name: Feedcrunch-Front-Dev
   host: feedcrunch-front-dev
   instances: 1
-  command: chmod +x launch_server.sh && ./launch_server.sh
+  command: chmod +x ./scripts/bluemix/launch_server.sh && ./scripts/bluemix/launch_server.sh
   url:
   - dev.feedcrunch.io
   - feedcrunch-dev.eu-gb.mybluemix.net
@@ -24,6 +24,6 @@ applications:
 - name: Feedcrunch-Worker-Dev
   host: feedcrunch-worker-dev
   instances: 1
-  command: celery beat -A application --loglevel=info --detach && celery events -A application --loglevel=info --camera=django_celery_monitor.camera.Camera --frequency=2.0 --detach && celery worker -A application -l info --events
+  command: chmod +x ./scripts/bluemix/launch_orchester.sh && ./scripts/bluemix/launch_orchester.sh
   health-check-type: process
   no-route: true
