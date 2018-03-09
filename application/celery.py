@@ -49,7 +49,7 @@ app.conf.accept_content             = settings.CELERY_ACCEPT_CONTENT
 app.conf.timezone                   = settings.CELERY_TIMEZONE
 
 # Worker settings
-app.conf.worker_concurrency         = settings.CELERYD_CONCURRENCY
+app.conf.worker_concurrency         = settings.CELERY_CONCURRENCY
 
 # Results settings
 #app.conf.result_backend            = settings.CELERY_RESULT_BACKEND
@@ -60,8 +60,8 @@ app.conf.result_expires             = settings.CELERY_TASK_RESULT_EXPIRES
 app.conf.task_serializer            = settings.CELERY_TASK_SERIALIZER
 app.conf.task_acks_late             = settings.CELERY_TASK_ACKS_LATE
 app.conf.task_reject_on_worker_lost = settings.CELERY_TASK_REJECT_ON_WORKER_LOST
-app.conf.task_time_limit            = settings.CELERYD_TASK_TIME_LIMIT
-app.conf.task_soft_time_limit       = settings.CELERYD_TASK_SOFT_TIME_LIMIT
+app.conf.task_time_limit            = settings.CELERY_TASK_TIME_LIMIT
+app.conf.task_soft_time_limit       = settings.CELERY_TASK_SOFT_TIME_LIMIT
 app.conf.task_always_eager          = settings.CELERY_TASK_ALWAYS_EAGER
 
 # Event settings
