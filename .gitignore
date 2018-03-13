@@ -125,3 +125,5 @@ certificate/
 
 # PyCharm
 .idea
+celeryev.pid
+celerybeat.pid
