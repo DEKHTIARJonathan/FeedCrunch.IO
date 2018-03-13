@@ -19,6 +19,7 @@ import os, sys, dj_database_url, getenv
 from datetime import timedelta
 
 from celery.schedules import crontab
+from kombu import Exchange, Queue
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -336,6 +337,17 @@ if DEBUG or TESTING:
     CELERY_TASK_ALWAYS_EAGER = True
 else:
     CELERY_TASK_ALWAYS_EAGER = False
+
+CELERY_TASK_QUEUES = [
+    Queue(
+        'celery',
+        Exchange('celery'),
+        routing_key = 'celery',
+        queue_arguments = {
+            'x-message-ttl': 60 * 1000 # 60 000 ms = 60 secs.
+        }
+    )
+]
 
 CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERYBEAT_MAX_LOOP_INTERVAL=10

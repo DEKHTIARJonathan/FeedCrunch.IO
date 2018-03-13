@@ -63,6 +63,7 @@ app.conf.task_reject_on_worker_lost = settings.CELERY_TASK_REJECT_ON_WORKER_LOST
 app.conf.task_time_limit            = settings.CELERY_TASK_TIME_LIMIT
 app.conf.task_soft_time_limit       = settings.CELERY_TASK_SOFT_TIME_LIMIT
 app.conf.task_always_eager          = settings.CELERY_TASK_ALWAYS_EAGER
+app.conf.task_queues                = settings.CELERY_TASK_QUEUES
 
 # Event settings
 app.conf.event_queue_ttl            = settings.CELERY_EVENT_QUEUE_EXPIRES
