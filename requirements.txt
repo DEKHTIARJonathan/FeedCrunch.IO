@@ -28,7 +28,7 @@ dnspython==1.15.0
 dnspython3==1.15.0
 facebook-sdk==2.0.0
 factory-boy==2.10.0
-Faker==0.8.11
+Faker==0.8.12
 feedgen==0.6.1
 feedparser==5.2.1
 future==0.16.0
@@ -36,7 +36,7 @@ gunicorn==19.7.1
 idna==2.6
 kombu==4.1.0
 lxml==4.1.1
-numpy==1.14.1
+numpy==1.14.2
 oauthlib==2.0.6
 olefile==0.45.1
 pandas==0.22.0
