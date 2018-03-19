@@ -127,3 +127,4 @@ certificate/
 .idea
 celeryev.pid
 celerybeat.pid
+fieldkeys/
