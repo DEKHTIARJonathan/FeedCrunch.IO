@@ -24,6 +24,6 @@ applications:
 - name: Feedcrunch-Worker-Dev
   host: feedcrunch-worker-dev
   instances: 1
-  command: chmod +x ./scripts/bluemix/launch_orchester.sh && ./scripts/bluemix/launch_orchester.sh
+  command: chmod +x ./scripts/bluemix/launch_orchester_dev.sh && ./scripts/bluemix/launch_orchester_dev.sh
   health-check-type: process
   no-route: true
