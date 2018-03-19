@@ -47,6 +47,7 @@ app.conf.broker_url                 = settings.BROKER_URL
 app.conf.broker_use_ssl             = settings.BROKER_USE_SSL
 app.conf.accept_content             = settings.CELERY_ACCEPT_CONTENT
 app.conf.timezone                   = settings.CELERY_TIMEZONE
+app.conf.enable_utc                 = settings.CELERY_ENABLE_UTC
 
 # Worker settings
 app.conf.worker_concurrency         = settings.CELERY_CONCURRENCY
