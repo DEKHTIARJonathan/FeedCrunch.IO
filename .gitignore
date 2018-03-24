@@ -76,13 +76,14 @@ celerybeat-schedule
 
 # virtualenv
 venv/
+venv_linux/
 ENV/
 
 # Spyder project settings
 .spyderproject
 
-# DB Files
-*/staticfiles/
+# StaticFiles
+application/staticfiles/
 
 # App Specific Files
 application/staticfiles/
@@ -90,35 +91,41 @@ cover/
 test.py
 dummy_data.txt
 
-#CodeDeploy
-codedeploy/certificate.crt
-codedeploy/data.zip
-codedeploy/data_.zip
-codedeploy/deploy.sh
-codedeploy/feedcrunch.xyz.csr
-codedeploy/https.key
-https/deploy.sh
-fieldkeys/*
-!fieldkeys/__init__.py
-application/fixtures/dataradar.json
+# Fixtures
+application/fixtures/*
+!application/fixtures/.gitkeep
+
+# SQLite DB
 *.sqlite3
-!media/images/user_photos/__init__.py
+
+# Media Files
+!media/
+media/*
+!media/*/
+media/*/*
+!media/*/*/
+media/*/*/*
+!media/images/user_photos/.gitkeep
 !media/images/user_photos/dummy_user.png
-media/images/user_photos/
-codedeploy/Encrypted/*.zip
-codedeploy/Encrypted/*.txt
-*.model
-FeedCrunch.IO.zip
-boto-develop/build/
-application/fixtures/feedcrunch_dump8.json
-application/fixtures/feedcrunch_dump9.json
-media/images/interest_photos/
-scripts/django_q.sql
-/flower*
-/celery*
-Procfile
-venv_linux/
-.idea/
-.key
+!media/images/interest_photos/.gitkeep
+!media/images/interest_photos/dummy_stock.jpg
+!media/estimators/.gitkeep
+
+# Templates
+_unused_/
+example_files/
+
+# Keys and Certificates
+certificate/
 .crt
-coverage.xml
+.key
+
+# Python Testing
+.coverage
+
+# PyCharm
+.idea
+celeryev.pid
+celerybeat.pid
+fieldkeys/
+.crt*

@@ -81,8 +81,8 @@ ENV/
 # Spyder project settings
 .spyderproject
 
-# DB Files
-*/staticfiles/
+# StaticFiles
+application/staticfiles/
 
 # App Specific Files
 application/staticfiles/
@@ -90,49 +90,48 @@ cover/
 test.py
 dummy_data.txt
 
-#CodeDeploy
-codedeploy/certificate.crt
-codedeploy/data.zip
-codedeploy/data_.zip
-codedeploy/deploy.sh
-codedeploy/feedcrunch.xyz.csr
-codedeploy/https.key
-https/deploy.sh
-fieldkeys/*
-!fieldkeys/__init__.py
-application/fixtures/dataradar.json
-*.sqlite3
-!media/images/user_photos/__init__.py
-!media/images/user_photos/dummy_user.png
-media/images/user_photos/
-codedeploy/Encrypted/*.zip
-codedeploy/Encrypted/*.txt
-*.model
-FeedCrunch.IO.zip
-boto-develop/build/
+# Fixtures
 application/fixtures/feedcrunch_dump8.json
 application/fixtures/feedcrunch_dump9.json
-media/images/interest_photos/
+application/fixtures/dataradar.json
 
-# CloudFoundry Remove
-_unused_/
-codedeploy/
-example_files/
-certificate/
-fieldkeys/
-lib_bin/
+# SQLite DB
+*.sqlite3
+
+# Media Files
 media/
-scripts/
-venv/
+!media/images/user_photos/__init__.py
+!media/images/user_photos/dummy_user.png
+
+# Templates
+_unused_/
+example_files/
+
+# Keys and Certificates
+certificate/
+.crt
+.key
+
+# CI Chain
 .codeclimate.yml
+.travis.yml
+.pyup.yml
+*.yml
+
+# Python Testing
+pytest.ini
+.coverage
 .coveragerc
-.env
+
+# Git Files
+README.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE.md
 .env.dist
 .gitignore
-circle.yml
-.travis.yml
-app.json
-appspec.yml
-pytest.ini
-README.md
-*.yml
+.github/
+.git/
+
+# Binary Folders
+lib_bin/

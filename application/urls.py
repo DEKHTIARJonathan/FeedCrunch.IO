@@ -23,8 +23,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    
     url(r'^admin/django-ses/', include('django_ses.urls')),
+    url(r'^admin/', admin.site.urls),
+    
     url(r'^api/1.0/', include('feedcrunch_api_v1.urls')),
     url(r'^oauth/', include('oauth.urls')),
     url(r'^@(?P<feedname>\w+)/admin/', include('feedcrunch_rssadmin.urls')),

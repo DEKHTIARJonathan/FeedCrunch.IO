@@ -19,6 +19,7 @@ import os, sys, dj_database_url, getenv
 from datetime import timedelta
 
 from celery.schedules import crontab
+from kombu import Exchange, Queue
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -119,8 +120,6 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'material',
-    'material.admin',
     'admin_view_permission',
     'django_extensions',
     'django_ses',
@@ -309,32 +308,52 @@ if not DEBUG and not TESTING:
 ALLOWED_HOSTS = ['*']
 
 # Celery Configuration
-BROKER_URL = assign_env_value('RABBITMQ_URL')
+if assign_env_value('USE_RABBITMQ'):
+    BROKER_URL = assign_env_value('RABBITMQ_URL')
+else:
+    BROKER_URL = assign_env_value('REDIS_URL')
+
 BROKER_USE_SSL=True
 
 CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TIMEZONE = TIME_ZONE
+CELERY_TIMEZONE       = TIME_ZONE
+CELERY_ENABLE_UTC     = False
 
-CELERYD_CONCURRENCY = 3
-#CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CONCURRENCY       = 3
+#CELERY_RESULT_BACKEND   = 'django-db'
 CELERY_RESULT_SERIALIZER = 'json'
 
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TASK_ACKS_LATE=True # Acknoledge pool when task is over
-CELERY_TASK_REJECT_ON_WORKER_LOST=True
-CELERY_TASK_RESULT_EXPIRES=7*24*30*30
+CELERY_TASK_SERIALIZER            = 'json'
+CELERY_TASK_ACKS_LATE             = True # Acknoledge pool when task is over
+CELERY_TASK_REJECT_ON_WORKER_LOST = True
+CELERY_TASK_RESULT_EXPIRES        = 3*24*60*60 # 3 Days
 
-CELERYD_TASK_TIME_LIMIT=90
-CELERYD_TASK_SOFT_TIME_LIMIT=60
+CELERY_EVENT_QUEUE_EXPIRES = 60
+CELERY_EVENT_QUEUE_TTL     = 5
+
+CELERY_TASK_TIME_LIMIT      = 90
+CELERY_TASK_SOFT_TIME_LIMIT = 60
 
 if DEBUG or TESTING:
     CELERY_TASK_ALWAYS_EAGER = True
 else:
     CELERY_TASK_ALWAYS_EAGER = False
 
-CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-CELERYBEAT_MAX_LOOP_INTERVAL=10
-CELERYBEAT_SYNC_EVERY=1
+CELERY_TASK_QUEUES = [
+    Queue(
+        'celery',
+        Exchange('celery'),
+        routing_key = 'celery',
+        queue_arguments = {
+            'x-message-ttl': 60 * 1000 # 60 000 ms = 60 secs.
+        }
+    )
+]
+
+CELERYBEAT_SCHEDULER         = 'django_celery_beat.schedulers:DatabaseScheduler'
+CELERYBEAT_MAX_LOOP_INTERVAL = 10
+CELERYBEAT_SYNC_EVERY        = 1
+
 CELERYBEAT_SCHEDULE = {
     'refresh_all_rss_subscribers_count': {
         'task': 'feedcrunch.tasks.refresh_all_rss_subscribers_count',
