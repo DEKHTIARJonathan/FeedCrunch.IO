@@ -2,4 +2,10 @@
 omit =
 	*/migrations/*
 	venv/*
-	/home/travis/virtualenv/*/lib/*/site-packages/*
+	/home/travis/virtualenv/*/lib/*/site-packages/*	
+	python3.4.6/*
+	python3.6.3/*
+	staticfiles/*
+	tests/*
+	lib/*
+	django_celery_monitor/*
