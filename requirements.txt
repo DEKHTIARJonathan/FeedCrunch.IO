@@ -2,7 +2,7 @@ amqp==2.2.2
 asn1crypto==0.24.0
 billiard==3.5.0.3
 boto==2.48.0
-celery==4.2.0rc1
+celery==4.2.0rc2
 #git+https://github.com/celery/celery.git@be55de6#egg=celery
 certifi==2018.1.18
 cffi==1.11.5
