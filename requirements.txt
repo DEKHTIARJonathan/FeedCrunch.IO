@@ -11,7 +11,7 @@ click==6.7
 coverage==4.5.1
 cryptography==2.2.2
 dj-database-url==0.5.0
-Django==2.0.3
+Django==2.0.4
 django-admin-view-permission==1.6
 django-celery-beat==1.1.1
 #django-celery-monitor==1.1.2
