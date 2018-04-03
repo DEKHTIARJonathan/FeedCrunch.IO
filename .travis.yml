@@ -36,7 +36,7 @@ script:
 - python manage.py migrate
 - python manage.py createcachetable
 - coverage run manage.py test
-- coverage xml
+#- coverage xml
 
 after_success:
 - coveralls
