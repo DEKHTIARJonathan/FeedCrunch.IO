@@ -1,16 +1,22 @@
 [run]
 omit =
+	/home/travis/virtualenv/python3.6.3/*
+	/home/travis/virtualenv/python3.6.3/lib/*
+	/home/travis/virtualenv/python3.6.3/lib/python3.6/*
+	/home/travis/virtualenv/python3.6.3/lib/python3.6/distutils/*
 	*/migrations/*
 	_unused/*
 	scripts/*
 	venv/*
-	python3.4.6/*
-	python3.6.3/*
+	python*/*
+	python3.4.*/*
+	python3.5.*/*
+	python3.6.*/*
 	staticfiles/*
 	tests/*
 	lib/*
 	django_celery_monitor/*
-	/home/travis/virtualenv/*
+	/home/travis/virtualenv/*	
 	
 	## Files
 	manage.py
@@ -18,3 +24,4 @@ omit =
 	*.js
 	*.css
 	*.scss
+	*.less
