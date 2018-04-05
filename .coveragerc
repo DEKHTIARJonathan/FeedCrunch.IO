@@ -1,6 +1,8 @@
 [run]
 omit =
 	*/migrations/*
+	_unused/*
+	scripts/*
 	venv/*
 	python3.4.6/*
 	python3.6.3/*
@@ -9,3 +11,10 @@ omit =
 	lib/*
 	django_celery_monitor/*
 	/home/travis/virtualenv/*
+	
+	## Files
+	manage.py
+	*/__init__.py
+	*.js
+	*.css
+	*.scss
