@@ -21,14 +21,19 @@ from .humanize import naturaldate
 from .utils import action, display_field, fixedwidth, make_aware
 
 
-TASK_STATE_COLORS = {states.SUCCESS: 'green',
-                     states.FAILURE: 'red',
-                     states.REVOKED: 'magenta',
-                     states.STARTED: 'yellow',
-                     states.RETRY: 'orange',
-                     'RECEIVED': 'blue'}
-NODE_STATE_COLORS = {'ONLINE': 'green',
-                     'OFFLINE': 'gray'}
+TASK_STATE_COLORS = {
+    states.SUCCESS: 'green',
+    states.FAILURE: 'red',
+    states.REVOKED: 'magenta',
+    states.STARTED: 'yellow',
+    states.RETRY: 'orange',
+    'RECEIVED': 'blue'
+}
+
+NODE_STATE_COLORS = {
+    'ONLINE': 'green',
+    'OFFLINE': 'gray'
+}
 
 
 class MonitorList(main_views.ChangeList):
@@ -47,8 +52,7 @@ def colored_state(task):
     """
     state = escape(task.state)
     color = TASK_STATE_COLORS.get(task.state, 'black')
-    return format_html('<b><span style="color: {0};">{1}</span></b>', color,
-                       state)
+    return format_html('<b><span style="color: {0};">{1}</span></b>', color, state)
 
 
 @display_field(_('state'), 'last_heartbeat')
@@ -59,8 +63,7 @@ def node_state(node):
     """
     state = node.is_alive() and 'ONLINE' or 'OFFLINE'
     color = NODE_STATE_COLORS[state]
-    return format_html('<b><span style="color: {0};">{1}</span></b>', color,
-                       state)
+    return format_html('<b><span style="color: {0};">{1}</span></b>', color, state)
 
 
 @display_field(_('ETA'), 'eta')
@@ -98,6 +101,7 @@ class ModelMonitor(admin.ModelAdmin):
 
     can_add = False
     can_delete = False
+    #can_delete = True
 
     def get_changelist(self, request, **kwargs):
         """Return the custom change list class we defined above."""
@@ -232,17 +236,27 @@ class WorkerMonitor(ModelMonitor):
     """The Celery worker monitor."""
 
     can_add = True
+    can_delete = True
+
     detail_title = _('Node detail')
     list_page_title = _('Worker Nodes')
     list_display = ('hostname', node_state)
     readonly_fields = ('last_heartbeat', )
-    actions = ['shutdown_nodes',
-               'enable_events',
-               'disable_events']
+
+    actions = [
+        'shutdown_nodes',
+        'delete_nodes',
+        'enable_events',
+        'disable_events'
+    ]
 
     @action(_('Shutdown selected worker nodes'))
     def shutdown_nodes(self, request, queryset):
         broadcast('shutdown', destination=[n.hostname for n in queryset])
+
+    @action(_('Delete selected worker nodes'))
+    def delete_nodes(self, request, queryset):
+        queryset.delete()
 
     @action(_('Enable event mode for selected nodes.'))
     def enable_events(self, request, queryset):
