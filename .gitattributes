@@ -1,0 +1,8 @@
+## Ignore these files for language representation
+
+_unused_/Alpha_v1.2_kingstheme.com/* linguist-vendored
+
+django_celery_monitor/static/* linguist-vendored
+feedcrunch_home/static/* linguist-vendored
+feedcrunch_rssadmin/static/* linguist-vendored
+feedcrunch_rssviewer/static/* linguist-vendored
