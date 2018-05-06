@@ -28,7 +28,7 @@ djangorestframework==3.8.2
 dnspython==1.15.0
 dnspython3==1.15.0
 facebook-sdk==2.0.0
-factory-boy==2.11.0
+factory-boy==2.11.1
 Faker==0.8.13
 feedgen==0.6.1
 feedparser==5.2.1
@@ -53,7 +53,7 @@ redis==2.10.6
 requests==2.18.4
 requests-oauthlib==0.8.0
 scikit-learn==0.19.1
-scipy==1.0.1
+scipy==1.1.0
 six==1.11.0
 slacker==0.9.65
 twython==3.6.0
