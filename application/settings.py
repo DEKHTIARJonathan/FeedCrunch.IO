@@ -328,6 +328,11 @@ CELERY_TASK_ACKS_LATE             = True # Acknoledge pool when task is over
 CELERY_TASK_REJECT_ON_WORKER_LOST = True
 CELERY_TASK_RESULT_EXPIRES        = 3*24*60*60 # 3 Days
 
+# Celery Monitor Settings
+CELERY_MONITORS_EXPIRE_SUCCESS    = timedelta(hours=1)
+CELERY_MONITORS_EXPIRE_ERROR      = timedelta(days=3)
+CELERY_MONITORS_EXPIRE_PENDING    = timedelta(days=5)
+
 CELERY_EVENT_QUEUE_EXPIRES = 60
 CELERY_EVENT_QUEUE_TTL     = 5
 
