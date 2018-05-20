@@ -30,7 +30,7 @@ dnspython3==1.15.0
 facebook-sdk==2.0.0
 factory-boy==2.11.1
 Faker==0.8.15
-feedgen==0.6.1
+feedgen==0.7.0
 feedparser==5.2.1
 future==0.16.0
 gunicorn==19.8.1
