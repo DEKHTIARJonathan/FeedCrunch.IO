@@ -51,7 +51,7 @@ python3-linkedin==1.0.2
 pytz==2018.4
 redis==2.10.6
 requests==2.18.4
-requests-oauthlib==0.8.0
+requests-oauthlib==1.0.0
 scikit-learn==0.19.1
 scipy==1.1.0
 six==1.11.0
