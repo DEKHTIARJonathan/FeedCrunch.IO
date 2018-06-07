@@ -37,7 +37,7 @@ gunicorn==19.8.1
 idna==2.6
 kombu==4.2.1
 lxml==4.2.1
-numpy==1.14.3
+numpy==1.14.4
 oauthlib==2.1.0
 olefile==0.45.1
 pandas==0.23.0
