@@ -1,19 +1,22 @@
-domain: eu-gb.mybluemix.net
-timeout: 120
-memory: 768M
-disk_quota: 2G
-path: .
-stack: cflinuxfs2
-buildpack: https://github.com/cloudfoundry/buildpack-python.git
-services:
-- Feedcrunch-DB-Prod
-- RabbitMQ-Prod
-- Redis-Prod
+defaults: &defaults
+  domain: eu-gb.mybluemix.net
+  timeout: 120
+  memory: 768M
+  disk_quota: 2G
+  path: .
+  stack: cflinuxfs2
+  # buildpack: https://github.com/heroku/heroku-buildpack-python.git
+  buildpack: https://github.com/cloudfoundry/buildpack-python.git
+  services:
+  - Feedcrunch-DB-Prod
+  - RabbitMQ-Prod
+  - Redis-Prod
 
 applications:
 
 - name: Feedcrunch-Front-Prod
   host: feedcrunch-front-prod
+  <<: *defaults
   instances: 2
   command: chmod +x ./scripts/bluemix/launch_server.sh && ./scripts/bluemix/launch_server.sh
   url:
@@ -23,6 +26,7 @@ applications:
 
 - name: Feedcrunch-Orchester-Prod
   host: feedcrunch-orchester-prod
+  <<: *defaults
   memory: 1G
   instances: 1
   command: chmod +x ./scripts/bluemix/launch_orchester.sh && ./scripts/bluemix/launch_orchester.sh
@@ -31,6 +35,7 @@ applications:
 
 - name: Feedcrunch-Worker-Prod
   host: feedcrunch-worker-prod
+  <<: *defaults
   instances: 3
   command: chmod +x ./scripts/bluemix/launch_worker.sh && ./scripts/bluemix/launch_worker.sh
   health-check-type: process
