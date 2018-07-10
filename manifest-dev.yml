@@ -1,19 +1,21 @@
-domain: eu-gb.mybluemix.net
-timeout: 120
-memory: 512M
-disk_quota: 2G
-path: .
-stack: cflinuxfs2
-buildpack: https://github.com/heroku/heroku-buildpack-python.git
-services:
-- Feedcrunch-DB-Dev
-- RabbitMQ-Dev
-- Redis-Dev
+defaults: &defaults
+  domain: eu-gb.mybluemix.net
+  timeout: 120
+  memory: 512M
+  disk_quota: 2G
+  path: .
+  stack: cflinuxfs2
+  buildpack: https://github.com/heroku/heroku-buildpack-python.git
+  services:
+  - Feedcrunch-DB-Dev
+  - RabbitMQ-Dev
+  - Redis-Dev
 
 applications:
 
 - name: Feedcrunch-Front-Dev
   host: feedcrunch-front-dev
+  <<: *defaults
   instances: 1
   command: chmod +x ./scripts/bluemix/launch_server.sh && ./scripts/bluemix/launch_server.sh
   url:
@@ -23,6 +25,7 @@ applications:
 
 - name: Feedcrunch-Worker-Dev
   host: feedcrunch-worker-dev
+  <<: *defaults
   instances: 1
   command: chmod +x ./scripts/bluemix/launch_orchester_dev.sh && ./scripts/bluemix/launch_orchester_dev.sh
   health-check-type: process
