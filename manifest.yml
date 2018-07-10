@@ -5,7 +5,8 @@ defaults: &defaults
   disk_quota: 2G
   path: .
   stack: cflinuxfs2
-  buildpack: https://github.com/heroku/heroku-buildpack-python.git
+  # buildpack: https://github.com/heroku/heroku-buildpack-python.git
+  buildpack: https://github.com/cloudfoundry/buildpack-python.git
   services:
   - Feedcrunch-DB-Prod
   - RabbitMQ-Prod
