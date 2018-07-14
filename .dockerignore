@@ -1,0 +1,146 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+#MACOS File
+.DS_Store
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+htmlcov/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+
+# StaticFiles
+application/staticfiles/
+
+# App Specific Files
+application/staticfiles/
+cover/
+test.py
+dummy_data.txt
+
+# Fixtures
+application/fixtures/feedcrunch_dump8.json
+application/fixtures/feedcrunch_dump9.json
+application/fixtures/dataradar.json
+
+# SQLite DB
+*.sqlite3
+
+# Media Files
+media/
+!media/images/user_photos/__init__.py
+!media/images/user_photos/dummy_user.png
+
+# Templates
+_unused_/
+example_files/
+
+# Keys and Certificates
+certificate/
+.crt
+.crt.key
+.key
+fieldkeys/
+
+# CI Chain
+.codeclimate.yml
+.travis.yml
+.pyup.yml
+*.yml
+
+# Python Testing
+pytest.ini
+.coverage
+.coveragerc
+
+# Git Files
+README.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE.md
+.env.dist
+.env
+.gitignore
+.gitattributes
+.github/
+.git/
+.idea/
+.cfignore
+.dockerignore
+app.json
+fieldkeys
+
+# Binary Folders
+lib_bin/
