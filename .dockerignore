@@ -1,7 +1,8 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -125,6 +126,10 @@ pytest.ini
 .coverage
 .coveragerc
 
+# Execution Files
+*.log
+*.pid
+
 # Git Files
 README.md
 CODE_OF_CONDUCT.md
@@ -140,7 +145,7 @@ LICENSE.md
 .cfignore
 .dockerignore
 app.json
-fieldkeys
+runtime.txt
 
 # Binary Folders
 lib_bin/
