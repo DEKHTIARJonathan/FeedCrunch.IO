@@ -129,3 +129,4 @@ celeryev.pid
 celerybeat.pid
 fieldkeys/
 .crt*
+scripts/docker/feedcrunch_orchester.json

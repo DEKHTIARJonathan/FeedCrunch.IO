@@ -43,8 +43,9 @@ app = Celery('application')
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
-app.conf.broker_url                 = settings.BROKER_URL
-app.conf.broker_use_ssl             = settings.BROKER_USE_SSL
+app.conf.broker_url                 = settings.CELERY_BROKER_URL
+app.conf.broker_use_ssl             = settings.CELERY_BROKER_USE_SSL
+app.conf.broker_heartbeat           = settings.CELERY_BROKER_HEARTBEAT
 app.conf.accept_content             = settings.CELERY_ACCEPT_CONTENT
 app.conf.timezone                   = settings.CELERY_TIMEZONE
 app.conf.enable_utc                 = settings.CELERY_ENABLE_UTC

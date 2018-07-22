@@ -309,11 +309,12 @@ ALLOWED_HOSTS = ['*']
 
 # Celery Configuration
 if assign_env_value('USE_RABBITMQ'):
-    BROKER_URL = assign_env_value('RABBITMQ_URL')
+    CELERY_BROKER_URL = assign_env_value('RABBITMQ_URL')
 else:
-    BROKER_URL = assign_env_value('REDIS_URL')
+    CELERY_BROKER_URL = assign_env_value('REDIS_URL')
 
-BROKER_USE_SSL=True
+CELERY_BROKER_USE_SSL   = True
+CELERY_BROKER_HEARTBEAT = 0
 
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TIMEZONE       = TIME_ZONE
