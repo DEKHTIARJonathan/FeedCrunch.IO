@@ -4,4 +4,4 @@ docker exec -it feedcrunch_dev bash
 ##############
 
 docker run -d --name feedcrunch feedcrunch tail -f /dev/null
-docker exec -it feedcrunch_1 bash
+docker exec -it feedcrunch bash
