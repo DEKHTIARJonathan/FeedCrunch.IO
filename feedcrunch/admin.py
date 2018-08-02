@@ -179,11 +179,15 @@ admin.site.register(RSSSubscriber, RSSSubscriberAdmin)
 
 # ==================== RSS Subscriber ============================
 
+# TODO: Implement this: https://medium.com/@hakibenita/how-to-add-a-text-filter-to-django-admin-5d1db93772d8
 class RSSSubsStatAdmin(admin.ModelAdmin):
     list_display = ('user', 'date', 'count')
-    ordering = ('-date',)
+    ordering = ('-date', '-count')
 
-    search_fields = ('user__username',)
+    search_fields = (
+        'user__username',
+        'user__email',
+    )
 
 admin.site.register(RSSSubsStat, RSSSubsStatAdmin)
 
