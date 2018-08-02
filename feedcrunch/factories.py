@@ -11,6 +11,7 @@ from .models import Post, FeedUser
 class UserFactory(factory.DjangoModelFactory):
     class Meta:
         model = FeedUser
+        django_get_or_create = ('username',)
 
     username="testuser1"
     email="marco.flint31@gmail.com"
