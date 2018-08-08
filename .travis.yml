@@ -2,7 +2,7 @@ language: python
 
 addons:
   apt:
-    update: falseaddons:
+    update: false
   postgresql: "10"
 
 dist: trusty
