@@ -1,5 +1,4 @@
 defaults: &defaults
-  domain: eu-gb.mybluemix.net
   timeout: 120
   memory: 512M
   disk_quota: 2G
