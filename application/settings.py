@@ -116,11 +116,10 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.sites',
+    # 'django.contrib.sites',
 ]
 
 THIRD_PARTY_APPS = [
-    'admin_view_permission',
     'django_extensions',
     'django_ses',
     'rest_framework',
@@ -129,7 +128,7 @@ THIRD_PARTY_APPS = [
     'storages',
     'django_celery_monitor',
     'django_celery_beat',
-    #'django_celery_results',
+    # 'django_celery_results',
 ]
 
 LOCAL_APPS = [
@@ -160,7 +159,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
-        #'APP_DIRS': True,
+        # 'APP_DIRS': True,
         'OPTIONS': {
             'debug': DEBUG,
             'loaders': [
@@ -216,13 +215,14 @@ FIELD_ENCRYPTION_KEY= assign_env_value('FIELD_ENCRYPTION_KEY')
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# if True or "test" in sys.argv:
 if "test" in sys.argv:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
             'CONN_MAX_AGE': 500,
-            'TEST' :
+            'TEST':
             {
                 'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3'),
             }
