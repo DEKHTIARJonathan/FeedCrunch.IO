@@ -3,7 +3,7 @@ language: python
 addons:
   apt:
     update: false
-  postgresql: "10"
+  postgresql: "9.6"
 
 dist: trusty
 
