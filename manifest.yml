@@ -14,17 +14,15 @@ defaults: &defaults
 applications:
 
 - name: Feedcrunch-Front-Prod
-  host: feedcrunch-front-prod
   <<: *defaults
+  routes:
+  - route: www.feedcrunch.io
+  - route: feedcrunch.eu-gb.mybluemix.net
+  - route: feedcrunch-api-prod.eu-gb.mybluemix.net
   instances: 2
   command: chmod +x ./scripts/bluemix/launch_server.sh && ./scripts/bluemix/launch_server.sh
-  url:
-  - www.feedcrunch.io
-  - feedcrunch.eu-gb.mybluemix.net
-  - feedcrunch-api-prod.eu-gb.mybluemix.net
 
 - name: Feedcrunch-Orchester-Prod
-  host: feedcrunch-orchester-prod
   <<: *defaults
   memory: 1G
   instances: 1
@@ -33,7 +31,6 @@ applications:
   no-route: true
 
 - name: Feedcrunch-Worker-Prod
-  host: feedcrunch-worker-prod
   <<: *defaults
   instances: 3
   command: chmod +x ./scripts/bluemix/launch_worker.sh && ./scripts/bluemix/launch_worker.sh
