@@ -88,7 +88,7 @@ class RSSArticle_Assoc(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(FeedUser, related_name='rel_sub_article', on_delete=models.CASCADE)
     article = models.ForeignKey(RSSArticle, related_name='rel_sub_article_assoc', on_delete=models.CASCADE)
-    subscribtion = models.ForeignKey(RSSFeed_Sub, related_name='rel_sub_feedsub_article', on_delete=models.SET_NULL, null=True)
+    subscription = models.ForeignKey(RSSFeed_Sub, related_name='rel_sub_feedsub_article', on_delete=models.SET_NULL, null=True)
 
     open_count = models.SmallIntegerField(default=0)
     marked_read = models.BooleanField(default=False)
@@ -117,8 +117,8 @@ class RSSArticle_Assoc(models.Model):
         return shorten_string(self.article.get_domain(), 35)
 
     def rssfeed(self):
-        if self.subscribtion is not None: # Subscribed to the RSSFeed
-            return self.subscribtion.title
+        if self.subscription is not None: # Subscribed to the RSSFeed
+            return self.subscription.title
         else: # Not subscribed anymore to the RSSFeed
             return self.article.rssfeed.title
 

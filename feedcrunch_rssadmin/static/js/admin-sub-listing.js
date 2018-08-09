@@ -187,7 +187,7 @@ $(document).ready(function() {
 			var current_row = $(this);
 			var feed_id = $(this).data("id");
 
-			var api_url = "/api/1.0/authenticated/delete/rssfeed_subscribtion/"+feed_id+"/";
+			var api_url = "/api/1.0/authenticated/delete/rssfeed_subscription/"+feed_id+"/";
 			var csrftoken = Cookies.get('csrftoken');
 
 
@@ -307,7 +307,7 @@ $(document).ready(function() {
 			$("#rssfeed_link").prop('disabled', false);
 
 		} else {
-			$("#modal-rss-header").text("Edit your RSS Subscribtion !");
+			$("#modal-rss-header").text("Edit your RSS subscription !");
 
 			$("#reload-info").text("");
 			$($("#reload-info").parents("div")[0]).css("margin-top", "0px");
@@ -466,13 +466,13 @@ $(document).ready(function() {
 		var feed_data = get_fields_rssfeed();
 
 		if (feed_id == "-1"){
-			var api_url = "/api/1.0/authenticated/post/rssfeed_subscribtion/";
+			var api_url = "/api/1.0/authenticated/post/rssfeed_subscription/";
 			var request_type = "POST";
 			var await_text = "Verifying and subscribing to the RSS Feed ...";
 			var success_text = "RSS Feed Added with success!";
 		}
 		else {
-			var api_url = "/api/1.0/authenticated/modify/rssfeed_subscribtion/"+feed_id+"/";
+			var api_url = "/api/1.0/authenticated/modify/rssfeed_subscription/"+feed_id+"/";
 			var request_type = "PUT";
 			var await_text = "Verifying and modifying the RSS Feed ...";
 			var success_text = "RSS Feed Modified with success!";

@@ -62,7 +62,7 @@ class RSSSubscriber(models.Model):
         return self.ipaddress + " // " + str(self.date)
 
 
-##################################### Subscribtion Statistics #############################################
+##################################### subscription Statistics #############################################
 
 # First, define the Manager subclass.
 class RSSSubsStatManager(models.Manager):

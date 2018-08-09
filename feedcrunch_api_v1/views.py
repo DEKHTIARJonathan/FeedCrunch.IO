@@ -3,52 +3,60 @@
 
 from __future__ import unicode_literals
 
-from django.contrib.auth import authenticate, login, logout
-from django.core.exceptions import ValidationError, ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.validators import URLValidator
 from django.http import HttpResponse
 
-from rest_framework.authtoken.models import Token
-from rest_framework.decorators import authentication_classes, permission_classes
-from rest_framework.parsers import FileUploadParser, MultiPartParser
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.parsers import MultiPartParser
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from feedcrunch.models import Post, FeedUser, Tag, Country, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc
+from feedcrunch.models import Post
+from feedcrunch.models import FeedUser
+from feedcrunch.models import Tag
+from feedcrunch.models import Country
+from feedcrunch.models import RSSFeed
+from feedcrunch.models import RSSFeed_Sub
+from feedcrunch.models import RSSArticle_Assoc
+
 from feedcrunch import tasks
 
-from oauth.twitterAPI  import TwitterAPI
+from oauth.twitterAPI import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
-from oauth.slackAPI    import SlackAPI
+from oauth.slackAPI import SlackAPI
 
-import datetime, unicodedata, json, sys, os, feedparser
+import datetime
+import unicodedata
+import feedparser
 
-from check_admin          import check_admin_api
-from time_funcs           import get_timestamp
-from date_manipulation    import get_N_time_period
-from data_convert         import str2bool
-from ap_style             import format_title
-from image_validation     import get_image_dimensions
-from feed_validation      import validate_feed
-from clean_html           import clean_html
-from check_social_network import auto_format_social_network
+from functions.ap_style import format_title
+from functions.check_admin import check_admin_api
+from functions.check_social_network import auto_format_social_network
+from functions.clean_html import clean_html
+from functions.data_convert import str2bool
+from functions.date_manipulation import get_N_time_period
+from functions.feed_validation import validate_feed
+from functions.time_funcs import get_timestamp
+
 
 def mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, user):
     RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_AssocID, user=user)
 
     if not RSSArticle_Assoc_QuerySet.exists():
-        raise Exception("The given RSSArticle_Assoc (id = '" + str(RSSArticle_AssocID) + "') with the given user (username = " + user.username + ") doesn't exist.")
+        raise Exception("The given RSSArticle_Assoc (id = '" + str(
+            RSSArticle_AssocID) + "') with the given user (username = " + user.username + ") doesn't exist.")
 
     RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
 
     RSSArticle_Assoc_obj.marked_read = True
     RSSArticle_Assoc_obj.save()
 
-class Username_Validation(APIView):
 
-    permission_classes = (AllowAny, )
+class UsernameValidationView(APIView):
+    permission_classes = (AllowAny,)
 
     def post(self, request):
 
@@ -56,27 +64,27 @@ class Username_Validation(APIView):
 
         try:
             username = request.POST.get('username')
-            payload ["username"] = username
+            payload["username"] = username
 
             if username == None:
                 raise Exception("Username not provided")
 
             else:
-                username = username.lower() # Make it Lowercase
-                payload ["available"] = not FeedUser.objects.filter(username = username).exists()
-                payload ["success"] = True
+                username = username.lower()  # Make it Lowercase
+                payload["available"] = not FeedUser.objects.filter(username=username).exists()
+                payload["success"] = True
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "Username Validation"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class rssfeed_Validation(APIView):
 
-    permission_classes = (IsAuthenticated, )
+class RSSFeedValidationView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
 
@@ -89,54 +97,54 @@ class rssfeed_Validation(APIView):
                 raise Exception("Link for the RSS Feed not provided")
 
             else:
-                payload ["rssfeed"] = rssfeed
+                payload["rssfeed"] = rssfeed
 
                 rssfeed_queryset = RSSFeed.objects.filter(link=rssfeed)
 
                 if rssfeed_queryset.exists():
                     if RSSFeed.objects.filter(link=rssfeed, rel_sub_feed_assoc__user=request.user):
-                        payload ["valid"] = False
-                        payload ["error"] = "You already subscribed to this RSS Feed"
+                        payload["valid"] = False
+                        payload["error"] = "You already subscribed to this RSS Feed"
                     else:
-                        payload ["valid"] = True
-                        payload ["title"] = rssfeed_queryset[0].title
+                        payload["valid"] = True
+                        payload["title"] = rssfeed_queryset[0].title
 
                 else:
                     rss_data = feedparser.parse(rssfeed)
 
                     if validate_feed(rss_data):
-                        payload ["valid"] = True
-                        payload ["title"] = clean_html(rss_data.feed.title)
+                        payload["valid"] = True
+                        payload["title"] = clean_html(rss_data.feed.title)
 
                     else:
-                        payload ["valid"] = False
-                        payload ["error"] = "The RSS Feed is not valid. Please check your link"
+                        payload["valid"] = False
+                        payload["error"] = "The RSS Feed is not valid. Please check your link"
 
-                payload ["success"] = True
+                payload["success"] = True
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload ["operation"] = "RSS Feed Validation"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "RSS Feed Validation"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class OPML_Management(APIView):
 
-    permission_classes = (IsAuthenticated, )
+class OPMLManagementView(APIView):
+    permission_classes = (IsAuthenticated,)
     parser_classes = (MultiPartParser,)
 
     def get(self, request):
         try:
-            return HttpResponse(request.user.export_opml(), content_type='text/xml' )
+            return HttpResponse(request.user.export_opml(), content_type='text/xml')
 
         except Exception as e:
             payload = dict()
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
             payload["operation"] = "Export OPML"
-            payload ["timestamp"] = get_timestamp()
+            payload["timestamp"] = get_timestamp()
             return Response(payload)
 
     def post(self, request, filename=''):
@@ -152,23 +160,24 @@ class OPML_Management(APIView):
             if not 'opml_file' in request.data:
                 raise Exception("opml_file not received")
 
-            opml_file = request.data["opml_file"].read().decode('iso-8859-1').encode('ascii', 'ignore').replace("  ", " ")
+            opml_file = request.data["opml_file"].read().decode('iso-8859-1').encode('ascii', 'ignore').replace("  ",
+                                                                                                                " ")
 
             payload["feed_errors"] = request.user.load_opml(opml_file)
 
-            payload ["success"] = True
+            payload["success"] = True
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "OPML Import"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class User_Social_Network_Status(APIView):
 
-    permission_classes = (IsAuthenticated, )
+class UserSocialNetworkStatusView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, social_network=None):
 
@@ -177,21 +186,22 @@ class User_Social_Network_Status(APIView):
         try:
             social_network = auto_format_social_network(social_network)
 
-            payload ["success"] = True
-            payload ["username"] = request.user.username
-            payload ["social_network"] = social_network
-            payload ["status"] = request.user.is_social_network_activated(network=social_network)
+            payload["success"] = True
+            payload["username"] = request.user.username
+            payload["social_network"] = social_network
+            payload["status"] = request.user.is_social_network_activated(network=social_network)
 
         except Exception as e:
-            payload ["success"] = False
-            payload ["error"] = "FC_API.User_Social_Network_Status() - An error occured in the process: " + str(e)
+            payload["success"] = False
+            payload["error"] = "FC_API.UserSocialNetworkStatusView() - An error occured in the process: " + str(e)
 
         payload["operation"] = "User Social_Network Status"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class UnLink_User_Social_Network(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class UnLinkUserSocialNetworkView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def delete(self, request, social_network=None):
 
@@ -202,31 +212,32 @@ class UnLink_User_Social_Network(APIView):
 
             request.user.reset_social_network_credentials(network=social_network)
 
-            payload ["success"] = True
-            payload ["username"] = request.user.username
-            payload ["social_network"] = social_network
+            payload["success"] = True
+            payload["username"] = request.user.username
+            payload["social_network"] = social_network
 
             if social_network == "twitter":
-                payload ["auth_url"] = TwitterAPI.get_authorization_url(request)
+                payload["auth_url"] = TwitterAPI.get_authorization_url(request)
             elif social_network == "facebook":
-                payload ["auth_url"] = FacebookAPI.get_authorization_url()
+                payload["auth_url"] = FacebookAPI.get_authorization_url()
             elif social_network == "linkedin":
-                payload ["auth_url"] = LinkedInAPI.get_authorization_url()
+                payload["auth_url"] = LinkedInAPI.get_authorization_url()
             elif social_network == "slack":
-                payload ["auth_url"] = SlackAPI.get_authorization_url(request)
+                payload["auth_url"] = SlackAPI.get_authorization_url(request)
             else:
-                raise Exception("'social_network' ("+ social_network +") is not supported.")
+                raise Exception("'social_network' (" + social_network + ") is not supported.")
 
         except Exception as e:
             payload["success"] = False
-            payload["error"] = "FC_API.UnLink_User_Social_Network() - An error occured in the process:  " + str(e)
+            payload["error"] = "FC_API.UnLinkUserSocialNetworkView() - An error occured in the process:  " + str(e)
 
         payload["operation"] = "Unlink User Social_Network"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class User_Stats_Subscribers(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class UserStatsSubscribersView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
 
@@ -234,10 +245,10 @@ class User_Stats_Subscribers(APIView):
 
         try:
 
-            payload ["success"] = True
-            payload ["username"] = request.user.username
+            payload["success"] = True
+            payload["username"] = request.user.username
 
-            first_subscribers_record_date = datetime.datetime(2017,3,29).date()
+            first_subscribers_record_date = datetime.datetime(2017, 3, 29).date()
 
             if (first_subscribers_record_date > request.user.date_joined.replace(tzinfo=None).date()):
                 date_array = get_N_time_period(21, 14, max_date=first_subscribers_record_date)
@@ -250,32 +261,32 @@ class User_Stats_Subscribers(APIView):
             data = []
 
             for i, d in enumerate(date_array):
-
                 delta = (today - d.date()).days
                 data.append([i, request.user.get_user_subscribers_count(delta)])
                 ticks.append([i, d.strftime("%d. %b")])
 
-            payload ["data"] = data
-            payload ["ticks"] = ticks
+            payload["data"] = data
+            payload["ticks"] = ticks
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "Get User Subscriber Stats"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class User_Stats_Publications(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class UserStatsPublicationsView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
 
         payload = dict()
 
         try:
-            payload ["success"] = True
-            payload ["username"] = request.user.username
+            payload["success"] = True
+            payload["username"] = request.user.username
 
             date_array = get_N_time_period(21)
 
@@ -283,24 +294,24 @@ class User_Stats_Publications(APIView):
             data = []
 
             for i, d in enumerate(date_array):
-
                 count = request.user.rel_posts.filter(when__year=d.year, when__month=d.month, when__day=d.day).count()
                 data.append([i, count])
                 ticks.append([i, d.strftime("%d. %b")])
 
-            payload ["data"] = data
-            payload ["ticks"] = ticks
+            payload["data"] = data
+            payload["ticks"] = ticks
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "Get User Publication Stats"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
+
 class Tags(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
 
@@ -311,19 +322,20 @@ class Tags(APIView):
 
             payload["tags"] = [tag.name for tag in tags]
 
-            payload ["success"] = True
-            payload ["username"] = request.user.username
+            payload["success"] = True
+            payload["username"] = request.user.username
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "Get All Tags"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class RSSFeed_View(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class RSSFeedView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
 
@@ -345,12 +357,11 @@ class RSSFeed_View(APIView):
                 tmp_rssfeed = rssfeed_queryset[0]
                 old_articles = RSSArticle_Assoc.objects.filter(article__rssfeed=tmp_rssfeed)
 
+            tmp_sub = RSSFeed_Sub.objects.create(user=request.user, feed=tmp_rssfeed, title=title)
 
-            tmp_sub = RSSFeed_Sub.objects.create(user= request.user, feed=tmp_rssfeed, title=title)
-
-            if ((old_articles is not None) and (old_articles.count() > 0 )):
+            if ((old_articles is not None) and (old_articles.count() > 0)):
                 for article in old_articles:
-                    article.subscribtion = tmp_sub
+                    article.subscription = tmp_sub
                     article.save()
 
             payload["RSSFeed_Sub_ID"] = str(tmp_sub.id)
@@ -361,12 +372,13 @@ class RSSFeed_View(APIView):
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload ["operation"] = "subscribe to RSS Feed"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "subscribe to RSS Feed"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class RSSFeed_Sub_View(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class RSSFeedSubView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def put(self, request, RSSFeed_SubID=None):
 
@@ -377,12 +389,13 @@ class RSSFeed_Sub_View(APIView):
             if type(RSSFeed_SubID) is not int or RSSFeed_SubID < 1:
                 raise Exception("RSSFeed_SubID parameter is not valid")
 
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             RSSFeed_Sub_queryset = RSSFeed_Sub.objects.filter(id=RSSFeed_SubID, user=request.user)
 
             if RSSFeed_Sub_queryset.count() == 0:
-                raise Exception("RSSFeed_Sub (id: "+ RSSFeed_SubID +") does not exist for the user: " + request.user.username)
+                raise Exception(
+                    "RSSFeed_Sub (id: " + RSSFeed_SubID + ") does not exist for the user: " + request.user.username)
 
             RSSFeed_Sub_obj = RSSFeed_Sub_queryset[0]
 
@@ -403,9 +416,8 @@ class RSSFeed_Sub_View(APIView):
             payload["error"] = "An error occured in the process: " + str(e)
             payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
-
         payload["operation"] = "modify RSSFeed"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
     def delete(self, request, RSSFeed_SubID=None):
@@ -417,16 +429,17 @@ class RSSFeed_Sub_View(APIView):
             if type(RSSFeed_SubID) is not int or RSSFeed_SubID < 1:
                 raise Exception("RSSFeed_SubID parameter is not valid")
 
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             RSSFeed_Sub_queryset = RSSFeed_Sub.objects.filter(id=RSSFeed_SubID, user=request.user)
 
             if RSSFeed_Sub_queryset.count() == 0:
-                raise Exception("RSSFeed_Sub (id: "+ RSSFeed_SubID +") does not exist for the user: " + request.user.username)
+                raise Exception(
+                    "RSSFeed_Sub (id: " + RSSFeed_SubID + ") does not exist for the user: " + request.user.username)
 
             RSSFeed_Sub_queryset[0].delete()
 
-            payload ["success"] = True
+            payload["success"] = True
             payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
         except Exception as e:
@@ -434,12 +447,13 @@ class RSSFeed_Sub_View(APIView):
             payload["error"] = "An error occured in the process: " + str(e)
             payload["RSSFeed_SubID"] = str(RSSFeed_SubID)
 
-        payload ["operation"] = "delete RSS Feed"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "delete RSS Feed"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Article_Exists(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class IsArticleExistingView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
 
@@ -455,8 +469,7 @@ class Article_Exists(APIView):
                     user = FeedUser.objects.get(username=tmp_username)
 
                 except ObjectDoesNotExist:
-                    raise Exception("The Provided posting_user ('"+tmp_username+"') does not exist")
-
+                    raise Exception("The Provided posting_user ('" + tmp_username + "') does not exist")
 
             article_link = unicodedata.normalize('NFC', request.GET['link'])
 
@@ -467,15 +480,15 @@ class Article_Exists(APIView):
             elif article_link[:2] == "//":
                 article_link_base = article_link[2:]
             else:
-                raise Exception ("The link provided is invalid (http/https missing): "+article_link)
+                raise Exception("The link provided is invalid (http/https missing): " + article_link)
 
             if article_link_base[-1:] == "/":
                 article_link_base = article_link_base[:-1]
 
-            link_http_slash = "http://"+article_link_base+"/"
-            link_https_slash = "https://"+article_link_base+"/"
-            link_http_noslash = "http://"+article_link_base
-            link_https_noslash = "https://"+article_link_base
+            link_http_slash = "http://" + article_link_base + "/"
+            link_https_slash = "https://" + article_link_base + "/"
+            link_http_noslash = "http://" + article_link_base
+            link_https_noslash = "https://" + article_link_base
 
             links = [
                 link_http_slash,
@@ -492,9 +505,9 @@ class Article_Exists(APIView):
                 if query_set.exists():
                     payload["exists"] = True
                     payload["post_data"] = {
-                        'id':    query_set[0].id,
+                        'id': query_set[0].id,
                         'title': query_set[0].title,
-                        'link':  query_set[0].link
+                        'link': query_set[0].link
                     }
                     break
 
@@ -505,50 +518,56 @@ class Article_Exists(APIView):
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "Get Article Exists"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Article(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS ###################
+
+################### NEED TO CHECK AUTHENTICATION PROCESS ###################
+class ArticleView(APIView):
 
     def get(self, request):
         payload = dict()
         payload["success"] = True
         return Response(payload)
 
-    def post(self, request, APIKey=""):
+    def post(self, request, apikey=""):
 
         payload = dict()
 
         try:
-            if APIKey == "":
+            if apikey == "":
                 check_passed = check_admin_api(request.user)
 
-                if check_passed != True:
+                if not check_passed:
                     raise Exception(check_passed)
 
                 user = request.user
 
             else:
                 try:
-                    user = FeedUser.objects.filter(apikey=APIKey)[:1][0]
+                    user = FeedUser.objects.filter(apikey=apikey)[:1][0]
                 except IndexError:
-                    raise Exception("The APIKey Used is not Valid")
+                    raise Exception("The apikey Used is not Valid")
 
                 if user.is_superuser and 'posting_user' in request.POST:
                     tmp_username = unicodedata.normalize('NFC', request.POST['posting_user'])
                     try:
                         user = FeedUser.objects.get(username=tmp_username)
                     except ObjectDoesNotExist:
-                        raise Exception("The Provided posting_user ('"+tmp_username+"') does not exist")
+                        raise Exception("The Provided posting_user `%s` does not exist" % tmp_username)
 
-            payload ["username"] = user.username
+            payload["username"] = user.username
 
             if 'article_id' in request.POST:
                 RSSArticle_Assoc_id = unicodedata.normalize('NFC', request.POST['article_id'])
                 RSSArticle_Assoc_QuerySet = RSSArticle_Assoc.objects.filter(id=RSSArticle_Assoc_id, user=user)
 
                 if not RSSArticle_Assoc_QuerySet.exists():
-                    raise Exception("The given RSSArticle (id = '" + str(RSSArticle_Assoc_id) + "' with the given user (username = " + user.username + ") doesn't exist.")
+                    _err = "The given RSSArticle (id: %d) with the given username `%s`doesn't exist." % (
+                        RSSArticle_Assoc_id,
+                        user.username
+                    )
+                    raise Exception(_err)
 
                 RSSArticle_Assoc_obj = RSSArticle_Assoc_QuerySet[0]
 
@@ -557,16 +576,18 @@ class Article(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS
 
             title = unicodedata.normalize('NFC', request.POST['title'])
             link = unicodedata.normalize('NFC', request.POST['link'])
-            tags = unicodedata.normalize('NFC', request.POST['tags']).split(',') # We separate each tag and create a list out of it.
+
+            # We separate each tag and create a list out of it.
+            tags = unicodedata.normalize('NFC', request.POST['tags']).split(',')  
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
 
-            twitter_bool  = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+            twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
             facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
             linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
-            slack_bool    = str2bool(unicodedata.normalize('NFC', request.POST['slack']))
+            slack_bool = str2bool(unicodedata.normalize('NFC', request.POST['slack']))
 
-            if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])) :
+            if str2bool(unicodedata.normalize('NFC', request.POST['autoformat'])):
                 title = format_title(title)
 
             if title == "" or link == "":
@@ -606,32 +627,32 @@ class Article(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS
                 tasks.publish_on_slack.delay(idArticle=tmp_post.id)
 
             payload["success"] = True
-            payload["postID"] = str(tmp_post.id)
+            payload["post_id"] = str(tmp_post.id)
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
         payload["operation"] = "submit article"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-    def put(self, request, postID=None):
+    def put(self, request, post_id=None):
 
         payload = dict()
 
         try:
             check_passed = check_admin_api(request.user)
 
-            postID = int(postID)
+            post_id = int(post_id)
 
-            if type(postID) is not int or postID < 1:
-                raise Exception("postID parameter is not valid")
+            if type(post_id) is not int or post_id < 1:
+                raise Exception("post_id parameter is not valid")
 
-            if check_passed != True:
+            if not check_passed:
                 raise Exception(check_passed)
 
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             title = unicodedata.normalize('NFC', request.data['title'])
             link = unicodedata.normalize('NFC', request.data['link'])
@@ -639,19 +660,20 @@ class Article(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS
             if title == "" or link == "":
                 raise Exception("Title and/or Link is/are missing")
 
-            tags = unicodedata.normalize('NFC', request.data['tags']).split(',') # We separate each tag and create a list out of it.
+            tags = unicodedata.normalize('NFC', request.data['tags']).split(
+                ',')  # We separate each tag and create a list out of it.
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.data['activated']))
 
-            twitter_bool  = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
+            twitter_bool = str2bool(unicodedata.normalize('NFC', request.POST['twitter']))
             facebook_bool = str2bool(unicodedata.normalize('NFC', request.POST['facebook']))
             linkedin_bool = str2bool(unicodedata.normalize('NFC', request.POST['linkedin']))
-            slack_bool    = str2bool(unicodedata.normalize('NFC', request.POST['slack']))
+            slack_bool = str2bool(unicodedata.normalize('NFC', request.POST['slack']))
 
-            if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])) :
+            if str2bool(unicodedata.normalize('NFC', request.data['autoformat'])):
                 title = format_title(title)
 
-            tmp_post = Post.objects.get(id=postID, user=request.user)
+            tmp_post = Post.objects.get(id=post_id, user=request.user)
 
             tmp_post.title = title
             tmp_post.link = link
@@ -685,53 +707,53 @@ class Article(APIView): ################### NEED TO CHECK AUTHENTICATION PROCESS
                 tasks.publish_on_slack.delay(idArticle=tmp_post.id)
 
             payload["success"] = True
-            payload["postID"] = str(postID)
+            payload["post_id"] = str(post_id)
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
-
+            payload["post_id"] = None
 
         payload["operation"] = "modify article"
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-    def delete(self, request, postID=None):
+    def delete(self, request, post_id=None):
 
         payload = dict()
 
         try:
             check_passed = check_admin_api(request.user)
 
-            postID = int(unicodedata.normalize('NFC', postID))
-            if type(postID) is not int or postID < 1:
-                raise Exception("postID parameter is not valid")
+            post_id = int(unicodedata.normalize('NFC', post_id))
+            if type(post_id) is not int or post_id < 1:
+                raise Exception("post_id parameter is not valid")
 
-            if check_passed != True:
+            if not check_passed:
                 raise Exception(check_passed)
 
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
-            post = Post.objects.filter(id=postID, user=request.user)
+            post = Post.objects.filter(id=post_id, user=request.user)
             if post.count() == 0:
                 raise Exception("Post does not exist")
 
             post.delete()
-            payload ["success"] = True
-            payload["postID"] = postID
+            payload["success"] = True
+            payload["post_id"] = post_id
 
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
+            payload["post_id"] = None
 
-        payload ["operation"] = "delete article"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "delete article"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Modify_Slack_Preferences(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class ModifySlackPreferencesView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def put(self, request):
 
@@ -741,34 +763,36 @@ class Modify_Slack_Preferences(APIView):
             for team, channels in request.data.items():
                 if channels != "":
                     # Need to test if all channels exists
-                    print("Warning - Modify_Slack_Preferences:Test implementation missing to check if the channel exist")
+                    print(
+                        "Warning - ModifySlackPreferencesView:Test implementation missing to check if the channel exist")
 
                 # get object
                 slack_integration = request.user.rel_slack_integrations.filter(team_name=team)[0]
                 slack_integration.channels = channels
                 slack_integration.save()
 
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
             payload["success"] = True
 
         except Exception as e:
             payload["success"] = False
-            print (str(e))
+            print(str(e))
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload ["operation"] = "modify slack preferences"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "modify slack preferences"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Modify_Social_Networks(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class ModifySocialNetworksView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def put(self, request):
 
         payload = dict()
 
         try:
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             url_validator = URLValidator()
 
@@ -802,9 +826,9 @@ class Modify_Social_Networks(APIView):
                 url = unicodedata.normalize('NFC', request.data[social])
                 if url != '':
                     try:
-                        url_validator(url) #Raise a ValidationError if the URL is invalid.
+                        url_validator(url)  # Raise a ValidationError if the URL is invalid.
                     except:
-                        raise Exception("URL Not Valid: "+social)
+                        raise Exception("URL Not Valid: " + social)
                 social_data[social] = url
 
             # Main Social Networks
@@ -846,13 +870,13 @@ class Modify_Social_Networks(APIView):
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-
-        payload ["operation"] = "modify social networks"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "modify social networks"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class User_Preferences(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class UserPreferencesView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
 
@@ -861,13 +885,13 @@ class User_Preferences(APIView):
         try:
             payload["preferences"] = dict()
 
-            payload["preferences"]["visibility"]   = request.user.pref_post_public_visibility
-            payload["preferences"]["autoformat"]   = request.user.pref_post_autoformat
+            payload["preferences"]["visibility"] = request.user.pref_post_public_visibility
+            payload["preferences"]["autoformat"] = request.user.pref_post_autoformat
 
             if request.user.is_twitter_enabled():
-                payload["preferences"]["twitter"]  = request.user.pref_post_repost_TW
+                payload["preferences"]["twitter"] = request.user.pref_post_repost_TW
             else:
-                payload["preferences"]["twitter"]  = "disabled"
+                payload["preferences"]["twitter"] = "disabled"
 
             if request.user.is_facebook_enabled():
                 payload["preferences"]["facebook"] = request.user.pref_post_repost_FB
@@ -880,18 +904,18 @@ class User_Preferences(APIView):
                 payload["preferences"]["linkedin"] = "disabled"
 
             if request.user.is_slack_enabled():
-                payload["preferences"]["slack"]    = request.user.pref_post_repost_Slack
+                payload["preferences"]["slack"] = request.user.pref_post_repost_Slack
             else:
-                payload["preferences"]["slack"]    = "disabled"
+                payload["preferences"]["slack"] = "disabled"
 
             payload["success"] = True
 
         except Exception as e:
-            payload["error"]   = "User_Preferences - GET: " + str(e)
+            payload["error"] = "UserPreferencesView - GET: " + str(e)
             payload["success"] = False
 
-        payload ["operation"] = "Get personal preferences"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "Get personal preferences"
+        payload["timestamp"] = get_timestamp()
 
         return Response(payload)
 
@@ -900,7 +924,7 @@ class User_Preferences(APIView):
         payload = dict()
 
         try:
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             fields = [
                 'visibility',
@@ -916,12 +940,12 @@ class User_Preferences(APIView):
                 form_data[field] = str2bool(unicodedata.normalize('NFC', request.data[field]))
 
             request.user.pref_post_public_visibility = form_data["visibility"]
-            request.user.pref_post_autoformat        = form_data["autoformat"]
+            request.user.pref_post_autoformat = form_data["autoformat"]
 
-            request.user.pref_post_repost_TW         = form_data["twitter"]
-            request.user.pref_post_repost_FB         = form_data["facebook"]
-            request.user.pref_post_repost_LKin       = form_data["linkedin"]
-            request.user.pref_post_repost_Slack      = form_data["slack"]
+            request.user.pref_post_repost_TW = form_data["twitter"]
+            request.user.pref_post_repost_FB = form_data["facebook"]
+            request.user.pref_post_repost_LKin = form_data["linkedin"]
+            request.user.pref_post_repost_Slack = form_data["slack"]
 
             request.user.save()
             payload["success"] = True
@@ -930,19 +954,20 @@ class User_Preferences(APIView):
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
 
-        payload ["operation"] = "modify personal Information"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "modify personal Information"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Modify_Personal_info(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class ModifyPersonalInformationView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def put(self, request):
 
         payload = dict()
 
         try:
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             url_validator = URLValidator()
 
@@ -953,12 +978,12 @@ class Modify_Personal_info(APIView):
                 'birthdate',
                 'country',
                 'gender',
-                'feedtitle', # not Checked
-                'description', # not Checked
-                'job', # not Checked
-                'company_name', # not Checked
+                'feedtitle',  # not Checked
+                'description',  # not Checked
+                'job',  # not Checked
+                'company_name',  # not Checked
                 'company_website',
-                "newsletter_subscribtion", # Not Saved yet !
+                "newsletter_subscription",  # Not Saved yet !
             ]
 
             form_data = dict()
@@ -1001,16 +1026,16 @@ class Modify_Personal_info(APIView):
             #                              SAVING ATTRIBUTES                              #
             ###############################################################################
 
-            request.user.first_name                     = form_data["firstname"]
-            request.user.last_name                      = form_data["lastname"]
-            request.user.gender                         = form_data["gender"]
-            request.user.email                          = form_data["email"]
-            request.user.rss_feed_title                 = form_data["feedtitle"]
-            request.user.description                    = form_data["description"]
-            request.user.job                            = form_data["job"]
-            request.user.company_name                   = form_data["company_name"]
-            request.user.company_website                = form_data["company_website"]
-            request.user.pref_newsletter_subscribtion   = str2bool(form_data["newsletter_subscribtion"])
+            request.user.first_name = form_data["firstname"]
+            request.user.last_name = form_data["lastname"]
+            request.user.gender = form_data["gender"]
+            request.user.email = form_data["email"]
+            request.user.rss_feed_title = form_data["feedtitle"]
+            request.user.description = form_data["description"]
+            request.user.job = form_data["job"]
+            request.user.company_name = form_data["company_name"]
+            request.user.company_website = form_data["company_website"]
+            request.user.pref_newsletter_subscription = str2bool(form_data["newsletter_subscription"])
 
             request.user.save()
 
@@ -1019,21 +1044,22 @@ class Modify_Personal_info(APIView):
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
+            payload["post_id"] = None
 
-        payload ["operation"] = "modify personal Information"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "modify personal Information"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class Modify_Password(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class ModifyPasswordView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def put(self, request):
 
         payload = dict()
 
         try:
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             form_fields = [
                 'old_password',
@@ -1049,7 +1075,7 @@ class Modify_Password(APIView):
             if (not request.user.check_password(form_data['old_password'])):
                 raise Exception("Old Password is incorrect")
 
-            if ( form_data['new_password_1'] != form_data['new_password_2'] ):
+            if (form_data['new_password_1'] != form_data['new_password_2']):
                 raise Exception("Your have input two different passwords, please retry.")
 
             request.user.set_password(form_data['new_password_1'])
@@ -1059,35 +1085,37 @@ class Modify_Password(APIView):
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
+            payload["post_id"] = None
 
-        payload ["operation"] = "modify password"
-        payload ["timestamp"] = get_timestamp()
+        payload["operation"] = "modify password"
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
 
-class RSSArticle_Assoc_View(APIView):
-    permission_classes = (IsAuthenticated, )
+
+class RSSArticleAssocView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def put(self, request, RSSArticle_AssocID=None):
 
         payload = dict()
 
         try:
-            payload ["username"] = request.user.username
+            payload["username"] = request.user.username
 
             if RSSArticle_AssocID is not None:
                 mark_RSSArticle_Assoc_as_read(RSSArticle_AssocID, request.user)
 
-                payload ["operation"] = "Mark RSSArticle_Assoc as Read"
+                payload["operation"] = "Mark RSSArticle_Assoc as Read"
 
             elif 'listing' in request.data:
-                RSSArticle_Assoc_listing = unicodedata.normalize('NFC', request.POST['listing']).split(',') # We separate each tag and create a list out of it.
-                RSSArticle_Assoc_listing.pop() # We remove the last element which is empty
+                RSSArticle_Assoc_listing = unicodedata.normalize('NFC', request.POST['listing']).split(
+                    ',')  # We separate each tag and create a list out of it.
+                RSSArticle_Assoc_listing.pop()  # We remove the last element which is empty
 
                 for article in RSSArticle_Assoc_listing:
                     mark_RSSArticle_Assoc_as_read(article, request.user)
 
-                payload ["operation"] = "Mark RSSArticles Listing as Read"
+                payload["operation"] = "Mark RSSArticles Listing as Read"
 
             else:
                 raise Exception("Some Parameters are missing (rssArticleID or listing)")
@@ -1100,9 +1128,9 @@ class RSSArticle_Assoc_View(APIView):
             payload["error"] = "An error occured in the process: " + str(e)
             payload["rssArticleID"] = None
 
-
-        payload ["timestamp"] = get_timestamp()
+        payload["timestamp"] = get_timestamp()
         return Response(payload)
+
 
 '''
 class Modify_Photo(APIView):
@@ -1143,7 +1171,7 @@ class Modify_Photo(APIView):
         except Exception as e:
             payload["success"] = False
             payload["error"] = "An error occured in the process: " + str(e)
-            payload["postID"] = None
+            payload["post_id"] = None
 
         payload ["operation"] = "modify profile picture"
         payload ["timestamp"] = get_timestamp()

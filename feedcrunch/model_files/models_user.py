@@ -364,7 +364,7 @@ class FeedUser(AbstractFeedUser):
     #                                       NEWSLETTER PREFERENCES                                       #
     ################################### ============================== ###################################
 
-    pref_newsletter_subscribtion  = models.BooleanField(default=True)
+    pref_newsletter_subscription  = models.BooleanField(default=True)
 
     ################################### ============================== ###################################
     #                                            SOCIAL LINKS                                            #
@@ -468,10 +468,10 @@ class FeedUser(AbstractFeedUser):
         return self.rel_posts.filter(when__lte=date_last_day_last_month, when__gte=date_1st_day_last_month).count()
 
     ################################### ============================== ###################################
-    #                                       User Subscribtion Stats                                      #
+    #                                       User subscription Stats                                      #
     ################################### ============================== ###################################
 
-    def get_rss_subscribtion_count(self):
+    def get_rss_subscription_count(self):
         return self.rel_sub_feed.count()
 
     ################################### ============================== ###################################
@@ -597,7 +597,7 @@ class FeedUser(AbstractFeedUser):
 
         self.save()
     ################################### ============================== ###################################
-    #                                       Subscribtion Management                                      #
+    #                                       subscription Management                                      #
     ################################### ============================== ###################################
 
     def export_opml(self):
@@ -613,9 +613,9 @@ class FeedUser(AbstractFeedUser):
 
         BODY = ""
 
-        for subscribtion in self.rel_sub_feed.all():
-            sub_link = subscribtion.link()
-            sub_title = escape_xml(subscribtion.title)
+        for subscription in self.rel_sub_feed.all():
+            sub_link = subscription.link()
+            sub_title = escape_xml(subscription.title)
             BODY += '<outline type="rss" xmlUrl="'+sub_link+'" htmlUrl="'+sub_link+'" title="'+sub_title+'"/>'
             BODY += '\n'
 
@@ -672,14 +672,14 @@ class FeedUser(AbstractFeedUser):
 
                 if ((old_articles is not None) and (old_articles.count() > 0 )):
                     for article in old_articles:
-                        article.subscribtion = tmp_sub
+                        article.subscription = tmp_sub
                         article.save()
             except:
                 continue
 
         return errors
 
-    def refresh_user_subscribtions(self):
+    def refresh_user_subscriptions(self):
 
         for feed_assoc in self.rel_sub_feed.all():
             feed = feed_assoc.feed
