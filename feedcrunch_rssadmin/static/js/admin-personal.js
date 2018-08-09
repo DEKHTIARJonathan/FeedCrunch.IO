@@ -56,7 +56,7 @@ $( document ).ready(function() {
         'job',
         'company_name',
         'company_website',
-        "newsletter_subscribtion"
+        "newsletter_subscription"
     ]
 
     function clearFields(){
@@ -66,7 +66,7 @@ $( document ).ready(function() {
             input.val(input.data("init"));
         }
 
-        $("#newsletter_subscribtion").prop('checked', $("#newsletter_subscribtion").data("init").toLowerCase() == "true");
+        $("#newsletter_subscription").prop('checked', $("#newsletter_subscription").data("init").toLowerCase() == "true");
 
         $("#country").material_select();
         $("#gender").material_select();
@@ -81,7 +81,7 @@ $( document ).ready(function() {
             var input = $("#"+form_fields[field]);
             rslt[form_fields[field]] = input.val();
         }
-        rslt["newsletter_subscribtion"] =  $("#newsletter_subscribtion").prop('checked');
+        rslt["newsletter_subscription"] =  $("#newsletter_subscription").prop('checked');
 
         return rslt;
     }

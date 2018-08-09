@@ -9,12 +9,18 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-from feedcrunch import models
-from feedcrunch.models import FeedUser #, RSSFeed, RSSSubscriber, RSSSubsStat
+from feedcrunch.models import FeedUser
+
+__all__ = [
+    'send_mass_welcome_email',
+    'send_welcome_email',
+]
+
 
 def send_mass_welcome_email():
     for user in FeedUser.objects.all():
         send_welcome_email.delay(username=user.username)
+
 
 @celery.task(name='feedcrunch.tasks.send_welcome_email')
 def send_welcome_email(username):

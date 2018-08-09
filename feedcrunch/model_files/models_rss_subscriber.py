@@ -13,7 +13,8 @@ from ipware.ip import get_real_ip, get_ip
 
 import datetime
 
-######################################## Subscribtion ################################################
+######################################## Subscription ################################################
+
 
 # First, define the Manager subclass.
 class SubManager(models.Manager):
@@ -38,6 +39,7 @@ class SubManager(models.Manager):
             #return {'status': False, 'error': str(e)}
             return None
 
+
 # Then the Model Class
 class RSSSubscriber(models.Model):
 
@@ -59,7 +61,8 @@ class RSSSubscriber(models.Model):
     def __str__(self):
         return self.ipaddress + " // " + str(self.date)
 
-##################################### Subscribtion Statistics #############################################
+
+##################################### subscription Statistics #############################################
 
 # First, define the Manager subclass.
 class RSSSubsStatManager(models.Manager):
@@ -78,6 +81,7 @@ class RSSSubsStatManager(models.Manager):
 
         except Exception as e:
             return {'status': False, 'error': str(e), 'timestamp': datetime.datetime.now()}
+
 
 class RSSSubsStat(models.Model):
 

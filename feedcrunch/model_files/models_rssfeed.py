@@ -166,11 +166,11 @@ class RSSFeed(models.Model):
 
                         try:
                             tmp_article = RSSArticle.objects.create(rssfeed=self, title=title, link=link)
-                            subscribtions = self.rel_sub_feed_assoc.all()
+                            subscriptions = self.rel_sub_feed_assoc.all()
 
-                            for subscribtion in subscribtions:
+                            for subscription in subscriptions:
                                 try:
-                                    RSSArticle_Assoc.objects.create(subscribtion=subscribtion, user=subscribtion.user, article=tmp_article)
+                                    RSSArticle_Assoc.objects.create(subscription=subscription, user=subscription.user, article=tmp_article)
                                 except Exception as e:
                                     raise Exception("Exception occured while creating RSSArticle_Assoc object: " + str(e))
 

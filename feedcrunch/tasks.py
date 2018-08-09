@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
+# noinspection PyUnresolvedReferences
+from feedcrunch.task_files import *
+from feedcrunch.task_files import __all__ as __all__tasks__
 
-from .task_files.task_record_rss_subscribers import *
-from .task_files.publish_on_social_networks import *
-from .task_files.task_refresh_rssfeeds import *
-from .task_files.task_send_emails import *
+__all__ = __all__tasks__
 
 ####################################################################################################################
 # ============================================ LAUNCH RECURRING JOB  ============================================= #
 ####################################################################################################################
+
 '''
 def launch_recurrent_rss_job():
     execution_time = datetime.datetime.now()

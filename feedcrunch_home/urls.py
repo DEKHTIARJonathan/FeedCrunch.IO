@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.conf import settings
-from django.conf.urls import include, url
-from django.conf.urls.static import static
-import django.contrib.auth.views
 
-#from .admin import admin_site
+from django.conf.urls import url
+
+import django.contrib.auth.views
+import django.views.static
+
 from .views import *
 
 urlpatterns = [
@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^login/$', loginView, name='login'),
     url(r'^signup/$', signUPView, name='signup'),
     url(r'^terms/$', terms, name='terms'),
-    url(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/login',}, name='logout'),
+    url(r'^logout/$', django.contrib.auth.views.LogoutView.as_view(), {'next_page': '/login',}, name='logout'),
 ]
 
 if settings.DEBUG or settings.TESTING:

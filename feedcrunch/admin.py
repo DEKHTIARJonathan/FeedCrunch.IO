@@ -7,8 +7,6 @@ from __future__ import unicode_literals
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-import re, uuid, datetime
-
 from .models import *
 
 admin.site.register(Continent)
@@ -16,18 +14,19 @@ admin.site.register(Country)
 admin.site.register(RSSFeed_Sub)
 admin.site.register(RSSArticle_Assoc)
 
+
 # ==================== FEEDUSER ============================
 class FeedUserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'date_joined', 'country', 'is_staff', '_get_post_count', '_get_rss_subscribtion_count')
+    list_display = ('username', 'date_joined', 'country', 'is_staff', '_get_post_count', '_get_rss_subscription_count')
     ordering = ('-date_joined',)
 
     def _get_post_count(self, obj):
         return obj.get_post_count()
     _get_post_count.short_description = "Post Count"
 
-    def _get_rss_subscribtion_count(self, obj):
-        return obj.get_rss_subscribtion_count()
-    _get_rss_subscribtion_count.short_description = "RSS Count"
+    def _get_rss_subscription_count(self, obj):
+        return obj.get_rss_subscription_count()
+    _get_rss_subscription_count.short_description = "RSS Count"
 
     """
     def has_add_permission(self, request, obj=None):
@@ -41,7 +40,9 @@ class FeedUserAdmin(admin.ModelAdmin):
     search_fields = ('username', 'country__name', 'email')
     list_filter = ('country',)
 
+
 admin.site.register(FeedUser, FeedUserAdmin)
+
 
 # ==================== Option ============================
 class OptionAdmin(admin.ModelAdmin):
@@ -49,6 +50,7 @@ class OptionAdmin(admin.ModelAdmin):
     ordering = ('parameter',)
 
     search_fields = ('parameter',)
+
 
 admin.site.register(Option, OptionAdmin)
 
@@ -63,6 +65,7 @@ class TagAdmin(admin.ModelAdmin):
     _get_post_count.short_description="Post Count"
 
     search_fields = ('name',)
+
 
 admin.site.register(Tag, TagAdmin)
 
@@ -79,10 +82,11 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('user__username', 'title', 'link')
     list_filter = ('user',)
 
+
 admin.site.register(Post, PostAdmin)
 
-# ==================== RSS Feed ============================
 
+# ==================== RSS Feed ============================
 class RSSFeedListFilter(admin.SimpleListFilter):
     # Human-readable title which will be displayed in the
     # right admin sidebar just above the filter options.
@@ -117,6 +121,7 @@ class RSSFeedListFilter(admin.SimpleListFilter):
         if self.value() == 'Correct':
             return queryset.filter(bad_attempts=0)
 
+
 class RSSFeedAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'get_domain', 'link', '_get_articles_count', 'active', 'bad_attempts')
     #ordering = ('-id',)
@@ -133,7 +138,9 @@ class RSSFeedAdmin(admin.ModelAdmin):
 
     list_filter = ('active', RSSFeedListFilter)
 
+
 admin.site.register(RSSFeed, RSSFeedAdmin)
+
 
 # ==================== RSSArticles =========================
 class RSSArticlesAdmin(admin.ModelAdmin):
@@ -142,7 +149,9 @@ class RSSArticlesAdmin(admin.ModelAdmin):
 
     search_fields = ('title', 'link')
 
+
 admin.site.register(RSSArticle, RSSArticlesAdmin)
+
 
 # ==================== Estimator ============================
 class EstimatorAdmin(admin.ModelAdmin):
@@ -150,6 +159,7 @@ class EstimatorAdmin(admin.ModelAdmin):
     ordering = ('-last_modified_date',)
 
     search_fields = ('description',)
+
 
 admin.site.register(Estimator, EstimatorAdmin)
 
@@ -166,7 +176,9 @@ class InterestAdmin(admin.ModelAdmin):
 
     search_fields = ('name',)
 
+
 admin.site.register(Interest, InterestAdmin)
+
 
 # ==================== RSS Subscriber ============================
 class RSSSubscriberAdmin(admin.ModelAdmin):
@@ -175,17 +187,24 @@ class RSSSubscriberAdmin(admin.ModelAdmin):
 
     search_fields = ('user__username',)
 
+
 admin.site.register(RSSSubscriber, RSSSubscriberAdmin)
 
-# ==================== RSS Subscriber ============================
 
+# ==================== RSS Subscriber ============================
+# TODO: Implement this: https://medium.com/@hakibenita/how-to-add-a-text-filter-to-django-admin-5d1db93772d8
 class RSSSubsStatAdmin(admin.ModelAdmin):
     list_display = ('user', 'date', 'count')
-    ordering = ('-date',)
+    ordering = ('-date', '-count')
 
-    search_fields = ('user__username',)
+    search_fields = (
+        'user__username',
+        'user__email',
+    )
+
 
 admin.site.register(RSSSubsStat, RSSSubsStatAdmin)
+
 
 # ==================== SlackIntegration ============================
 class SlackIntegrationAdmin(admin.ModelAdmin):
@@ -193,5 +212,6 @@ class SlackIntegrationAdmin(admin.ModelAdmin):
     ordering = ('user','team_name')
 
     search_fields = ('user__username','team_name')
+
 
 admin.site.register(SlackIntegration, SlackIntegrationAdmin)

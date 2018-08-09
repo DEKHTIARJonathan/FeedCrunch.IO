@@ -439,7 +439,7 @@ def process_onboarding_view(request, feedname=None):
 
                     # We get the N last articles articles published in the feed and loop through them:
                     for article in feed.rel_rss_feed_articles.all().order_by("-added_date")[:max_old_articles_retrieved_on_interest] :
-                        RSSArticle_Assoc.objects.create(subscribtion=tmp_sub, user=request.user, article=article)
+                        RSSArticle_Assoc.objects.create(subscription=tmp_sub, user=request.user, article=article)
 
                 except: #If already subscribed, keep going to the next feed.
                     continue

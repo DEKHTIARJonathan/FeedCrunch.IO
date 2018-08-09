@@ -1,5 +1,10 @@
 language: python
 
+addons:
+  apt:
+    update: false
+  postgresql: "9.6"
+
 dist: trusty
 
 cache:
@@ -8,6 +13,12 @@ cache:
 python:
 - '3.5'
 - '3.6'
+
+branches:
+  only:
+    - master
+    - dev
+    - /\d+\.\d+(\.\d+)?(\S*)?$/
 
 services:
 - rabbitmq

@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-######### https://github.com/django/django/blob/master/django/contrib/auth/models.py
 
-import os, re, uuid, datetime, unicodedata, getenv, random, urllib, string
+import re, uuid, datetime, unicodedata, random, urllib, string
 from xml.sax.saxutils import escape as escape_xml
 
 from django.conf import settings
-from django.contrib.auth.models import User, UserManager, PermissionsMixin, AbstractUser
+from django.contrib.auth.models import UserManager, PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from django.db import models
 from django.utils import six, timezone
 from django.utils.encoding import force_text
@@ -18,16 +19,16 @@ from django.utils.translation import ugettext_lazy as _
 from pyisemail import is_email
 from encrypted_model_fields .fields import EncryptedCharField
 
-from feedcrunch.models import Continent, Country, Estimator, Interest
+from feedcrunch.models import Country, Estimator, Interest
 
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
 from oauth.slackAPI    import SlackAPI
 
-from validators import ASCIIUsernameValidator, UnicodeUsernameValidator
+from functions.validators import ASCIIUsernameValidator, UnicodeUsernameValidator
 
-from datetime import timedelta, date, datetime
+from datetime import timedelta, datetime
 
 def generateDummyDesc():
     return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor."
@@ -59,12 +60,12 @@ class FeedUserManager(BaseUserManager):
             if not re.match("^[A-Za-z0-9]*$", username):
                 raise ValueError("The given username is not a valid string, it should only contains letters (A-Z and a-z) and numbers (0-9)")
 
-            if FeedUser.objects.filter(username = username).exists():
-                raise ValueError("The given username ( "+ username +" ) is already taken")
+            if FeedUser.objects.filter(username=username).exists():
+                raise ValueError("The given username `%s` is already taken" % username)
 
         def _validate_email(self, email):
             if not is_email(email, check_dns=True):
-                raise ValueError("The given email is not valid or not doesn''t exist.")
+                raise ValueError("The given email `%s` is not valid or not does not exist." % email)
 
         def _validate_password(self, password):
             if re.match("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}", password) == None:
@@ -183,7 +184,6 @@ class FeedUserManager(BaseUserManager):
                 extra_fields.setdefault('is_superuser', False)
 
                 return self._create_user(username, email, password, **extra_fields)
-
 
         def create_superuser(self, username, email, password, **extra_fields):
                 extra_fields.setdefault('is_staff', True)
@@ -364,7 +364,7 @@ class FeedUser(AbstractFeedUser):
     #                                       NEWSLETTER PREFERENCES                                       #
     ################################### ============================== ###################################
 
-    pref_newsletter_subscribtion  = models.BooleanField(default=True)
+    pref_newsletter_subscription  = models.BooleanField(default=True)
 
     ################################### ============================== ###################################
     #                                            SOCIAL LINKS                                            #
@@ -468,10 +468,10 @@ class FeedUser(AbstractFeedUser):
         return self.rel_posts.filter(when__lte=date_last_day_last_month, when__gte=date_1st_day_last_month).count()
 
     ################################### ============================== ###################################
-    #                                       User Subscribtion Stats                                      #
+    #                                       User subscription Stats                                      #
     ################################### ============================== ###################################
 
-    def get_rss_subscribtion_count(self):
+    def get_rss_subscription_count(self):
         return self.rel_sub_feed.count()
 
     ################################### ============================== ###################################
@@ -597,7 +597,7 @@ class FeedUser(AbstractFeedUser):
 
         self.save()
     ################################### ============================== ###################################
-    #                                       Subscribtion Management                                      #
+    #                                       subscription Management                                      #
     ################################### ============================== ###################################
 
     def export_opml(self):
@@ -613,9 +613,9 @@ class FeedUser(AbstractFeedUser):
 
         BODY = ""
 
-        for subscribtion in self.rel_sub_feed.all():
-            sub_link = subscribtion.link()
-            sub_title = escape_xml(subscribtion.title)
+        for subscription in self.rel_sub_feed.all():
+            sub_link = subscription.link()
+            sub_title = escape_xml(subscription.title)
             BODY += '<outline type="rss" xmlUrl="'+sub_link+'" htmlUrl="'+sub_link+'" title="'+sub_title+'"/>'
             BODY += '\n'
 
@@ -672,14 +672,14 @@ class FeedUser(AbstractFeedUser):
 
                 if ((old_articles is not None) and (old_articles.count() > 0 )):
                     for article in old_articles:
-                        article.subscribtion = tmp_sub
+                        article.subscription = tmp_sub
                         article.save()
             except:
                 continue
 
         return errors
 
-    def refresh_user_subscribtions(self):
+    def refresh_user_subscriptions(self):
 
         for feed_assoc in self.rel_sub_feed.all():
             feed = feed_assoc.feed

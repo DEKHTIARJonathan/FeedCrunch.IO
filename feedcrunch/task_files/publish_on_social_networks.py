@@ -3,13 +3,9 @@
 
 from __future__ import unicode_literals
 
-from django.db import models
-from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
 from application.celery import app as celery
-
-from feedcrunch import models
 
 from feedcrunch.models import Post
 
@@ -18,17 +14,25 @@ from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
 from oauth.slackAPI    import SlackAPI
 
+__all__ = [
+    'publish_on_twitter',
+    'publish_on_facebook',
+    'publish_on_linkedin',
+    'publish_on_slack'
+]
+
+
 ####################################################################################################################
 # ================================================== TWITTER  ==================================================== #
 ####################################################################################################################
 
 @celery.task(name='feedcrunch.tasks.publish_on_twitter')
-def publish_on_twitter(idArticle):
+def publish_on_twitter(id_article):
     try:
         try:
-            post = Post.objects.get(id=idArticle)
+            post = Post.objects.get(id=id_article)
         except ObjectDoesNotExist:
-            raise Exception("The given idArticle ('"+str(idArticle)+"') doesn't exist.")
+            raise Exception("The given id_article ('"+str(id_article)+"') doesn't exist.")
 
         twitter_API = TwitterAPI(post.user)
 
@@ -45,17 +49,18 @@ def publish_on_twitter(idArticle):
     except Exception as e:
         raise Exception("task.publish_on_twitter - Error: " + str(e))
 
+
 ####################################################################################################################
 # ================================================== Facebook  =================================================== #
 ####################################################################################################################
 
 @celery.task(name='feedcrunch.tasks.publish_on_facebook')
-def publish_on_facebook(idArticle):
+def publish_on_facebook(id_article):
     try:
         try:
-            post = Post.objects.get(id=idArticle)
+            post = Post.objects.get(id=id_article)
         except ObjectDoesNotExist:
-            raise Exception("The given idArticle ('" + str(idArticle) + "') doesn't exist.")
+            raise Exception("The given id_article ('" + str(id_article) + "') doesn't exist.")
 
         facebook_API = FacebookAPI(post.user)
 
@@ -72,18 +77,19 @@ def publish_on_facebook(idArticle):
     except Exception as e:
         raise Exception("task.publish_on_facebook - Error: " + str(e))
 
+
 ####################################################################################################################
 # ================================================== LinkedIn  =================================================== #
 ####################################################################################################################
 
 @celery.task(name='feedcrunch.tasks.publish_on_linkedin')
-def publish_on_linkedin(idArticle):
+def publish_on_linkedin(id_article):
     try:
 
         try:
-            post = Post.objects.get(id=idArticle)
+            post = Post.objects.get(id=id_article)
         except ObjectDoesNotExist:
-            raise Exception("The given idArticle ('" + str(idArticle) + "') doesn't exist.")
+            raise Exception("The given id_article ('" + str(id_article) + "') doesn't exist.")
 
         linkedin_API = LinkedInAPI(post.user)
 
@@ -99,17 +105,18 @@ def publish_on_linkedin(idArticle):
     except Exception as e:
         raise Exception("task.publish_on_linkedin - Error: " + str(e))
 
+
 ####################################################################################################################
 # ==================================================== Slack  ==================================================== #
 ####################################################################################################################
 
 @celery.task(name='feedcrunch.tasks.publish_on_slack')
-def publish_on_slack(idArticle):
+def publish_on_slack(id_article):
     try:
         try:
-            post = Post.objects.get(id=idArticle)
+            post = Post.objects.get(id=id_article)
         except ObjectDoesNotExist:
-            raise Exception("The given idArticle ('" + str(idArticle) + "') doesn't exist.")
+            raise Exception("The given id_article ('" + str(id_article) + "') doesn't exist.")
 
         for slack_instance in post.user.rel_slack_integrations.all():
             slack_API = SlackAPI(slack_instance)

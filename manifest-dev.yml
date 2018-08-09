@@ -1,5 +1,4 @@
 defaults: &defaults
-  domain: eu-gb.mybluemix.net
   timeout: 120
   memory: 512M
   disk_quota: 2G
@@ -14,17 +13,15 @@ defaults: &defaults
 applications:
 
 - name: Feedcrunch-Front-Dev
-  host: feedcrunch-front-dev
   <<: *defaults
+  routes:
+  - route: dev.feedcrunch.io
+  - route: feedcrunch-dev.eu-gb.mybluemix.net
+  - route: feedcrunch-api-dev.eu-gb.mybluemix.net
   instances: 1
   command: chmod +x ./scripts/bluemix/launch_server.sh && ./scripts/bluemix/launch_server.sh
-  url:
-  - dev.feedcrunch.io
-  - feedcrunch-dev.eu-gb.mybluemix.net
-  - feedcrunch-api-dev.eu-gb.mybluemix.net
 
 - name: Feedcrunch-Worker-Dev
-  host: feedcrunch-worker-dev
   <<: *defaults
   instances: 1
   command: chmod +x ./scripts/bluemix/launch_orchester_dev.sh && ./scripts/bluemix/launch_orchester_dev.sh
