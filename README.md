@@ -6,6 +6,7 @@ FeedCrunch.IO - Empower RSS feeds to a whole new level
 [![GitHub release](https://img.shields.io/github/release/DEKHTIARJonathan/FeedCrunch.IO.svg)](https://github.com/DEKHTIARJonathan/FeedCrunch.IO/releases)
 [![ReadTheDocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400&label=documentation)](http://feedcrunch.readthedocs.io/en/latest/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/born2data.svg?style=flat&label=Follow%20me:%20@born2data)](https://twitter.com/intent/user?screen_name=born2data)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDEKHTIARJonathan%2FFeedCrunch.IO.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FDEKHTIARJonathan%2FFeedCrunch.IO?ref=badge_shield)
 
 [![Updates](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
 [![Python 3](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/python-3-shield.svg)](https://pyup.io/repos/github/DEKHTIARJonathan/FeedCrunch.IO/)
@@ -83,6 +84,9 @@ The project is released under the GNU Affero General Public License v3.0, which 
 |*Modification*   |                |*Network use is distribution*  |
 |*Patent use*     |                |*Same license*                 |
 |*Private use*    |                |*State changes*                |
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDEKHTIARJonathan%2FFeedCrunch.IO.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FDEKHTIARJonathan%2FFeedCrunch.IO?ref=badge_large)
 
 ## Installation and deployment instructions
 
