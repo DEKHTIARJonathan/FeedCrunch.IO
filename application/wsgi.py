@@ -27,5 +27,7 @@ if not any(x in os.environ for x in platforms):
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "application.settings")
 
+os.environ.setdefault("USE_WHITENOISE", "True")
+
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)

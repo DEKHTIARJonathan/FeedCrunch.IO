@@ -153,6 +153,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+if "USE_WHITENOISE" in os.environ:
+    MIDDLEWARE += ('whitenoise.middleware.WhiteNoiseMiddleware', )
+
 ROOT_URLCONF = 'application.urls'
 
 TEMPLATES = [
