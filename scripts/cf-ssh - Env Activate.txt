@@ -1,0 +1,6 @@
+export HOME=/home/vcap/app
+export TMPDIR=/home/vcap/tmp
+cd /home/vcap/app
+
+[ -d /home/vcap/app/.profile.d ] && for f in /home/vcap/app/.profile.d/*.sh; do source "$f"; done
+source /home/vcap/app/.profile.d/python.sh
