@@ -578,7 +578,7 @@ class ArticleView(APIView):
             link = unicodedata.normalize('NFC', request.POST['link'])
 
             # We separate each tag and create a list out of it.
-            tags = unicodedata.normalize('NFC', request.POST['tags']).split(',')  
+            tags = unicodedata.normalize('NFC', request.POST['tags']).split(',')
 
             activated_bool = str2bool(unicodedata.normalize('NFC', request.POST['activated']))
 
@@ -615,16 +615,16 @@ class ArticleView(APIView):
                 RSSArticle_Assoc_obj.save()
 
             if twitter_bool and user.is_social_network_enabled(network="twitter"):
-                tasks.publish_on_twitter.delay(idArticle=tmp_post.id)
+                tasks.publish_on_twitter.delay(id_article=tmp_post.id)
 
             if facebook_bool and user.is_social_network_enabled(network="facebook"):
-                tasks.publish_on_facebook.delay(idArticle=tmp_post.id)
+                tasks.publish_on_facebook.delay(id_article=tmp_post.id)
 
             if linkedin_bool and user.is_social_network_enabled(network="linkedin"):
-                tasks.publish_on_linkedin.delay(idArticle=tmp_post.id)
+                tasks.publish_on_linkedin.delay(id_article=tmp_post.id)
 
             if slack_bool and user.is_social_network_enabled(network="slack"):
-                tasks.publish_on_slack.delay(idArticle=tmp_post.id)
+                tasks.publish_on_slack.delay(id_article=tmp_post.id)
 
             payload["success"] = True
             payload["post_id"] = str(tmp_post.id)
@@ -695,16 +695,16 @@ class ArticleView(APIView):
             tmp_post.save()
 
             if twitter_bool and request.user.is_social_network_enabled(network="twitter"):
-                tasks.publish_on_twitter.delay(idArticle=tmp_post.id)
+                tasks.publish_on_twitter.delay(id_article=tmp_post.id)
 
             if facebook_bool and request.user.is_social_network_enabled(network="facebook"):
-                tasks.publish_on_facebook.delay(idArticle=tmp_post.id)
+                tasks.publish_on_facebook.delay(id_article=tmp_post.id)
 
             if linkedin_bool and request.user.is_social_network_enabled(network="linkedin"):
-                tasks.publish_on_linkedin.delay(idArticle=tmp_post.id)
+                tasks.publish_on_linkedin.delay(id_article=tmp_post.id)
 
             if slack_bool and request.user.is_social_network_enabled(network="slack"):
-                tasks.publish_on_slack.delay(idArticle=tmp_post.id)
+                tasks.publish_on_slack.delay(id_article=tmp_post.id)
 
             payload["success"] = True
             payload["post_id"] = str(post_id)
