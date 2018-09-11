@@ -3,17 +3,19 @@
 
 from __future__ import unicode_literals
 
-from django.contrib.auth import authenticate, login, logout
-from django.conf import settings
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, redirect
-from django.template import RequestContext, loader
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
+
+from django.http import HttpResponseRedirect
 
 from rest_framework.authtoken.models import Token
 
-from feedcrunch.models import Country, Option, FeedUser
+from feedcrunch.models import Country
+from feedcrunch.models import Option
+from feedcrunch.models import FeedUser
 
-from custom_render import myrender as render
+from functions.custom_render import myrender as render
+
 
 def index(request):
     try:
@@ -24,17 +26,22 @@ def index(request):
 
     return render(request, 'home.html', {'free_period': freemium_period})
 
+
 def faq(request):
     return render(request, 'faq.html', {})
+
 
 def contact(request):
     return render(request, 'contact.html', {})
 
+
 def about(request):
     return render(request, 'about.html', {})
 
+
 def terms(request):
     return render(request, 'terms.html', {})
+
 
 def loginView(request):
     if request.method == 'POST':
@@ -54,6 +61,7 @@ def loginView(request):
             return HttpResponseRedirect('/@'+request.user.username+'/admin')
         else:
             return render(request, 'login.html', {})
+
 
 def signUPView(request):
 

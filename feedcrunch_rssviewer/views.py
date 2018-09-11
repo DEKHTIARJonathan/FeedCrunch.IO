@@ -3,22 +3,17 @@
 
 from __future__ import unicode_literals
 
-from django.conf import settings
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render_to_response, redirect
-from django.template import RequestContext, loader
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 
-import sys, os
+from feedcrunch.models import Post
+from feedcrunch.models import FeedUser
+from feedcrunch.models import RSSSubscriber
 
-from mimetypes import MimeTypes
+from functions.custom_render import myrender as render
+from functions.rss_generator import generateRSS
 
-from feedcrunch.models import Post, FeedUser, RSSSubscriber
-
-from custom_render import myrender as render
-from rss_generator import generateRSS
-
-# Create your views here.
 
 def index(request, feedname=None):
 
@@ -37,6 +32,7 @@ def index(request, feedname=None):
         requested_user = FeedUser.objects.get(username=feedname)
         return render(request, 'rssviewer.html', {'posts': posts, 'requested_user': requested_user, 'rss_feed_display': True})
 
+
 def dataset(request, feedname=None):
 
     if feedname == None or (not FeedUser.objects.filter(username = feedname).exists()):
@@ -54,6 +50,7 @@ def dataset(request, feedname=None):
             data_output += str(post.id) + "|" + post.title + "|" + post.link + "|" + post.get_domain() + "<br/>"
 
         return HttpResponse(data_output)
+
 
 def search(request, feedname=None):
     result = dict()
@@ -90,6 +87,7 @@ def search(request, feedname=None):
     result["search_str"] = search_str
     return JsonResponse(result)
 
+
 def redirect(request, feedname=None, postID=None):
     if postID == None or feedname == None :
         return HttpResponse("Error")
@@ -103,6 +101,7 @@ def redirect(request, feedname=None, postID=None):
             return HttpResponseRedirect(post.link)
         except:
             return HttpResponseRedirect("/@"+feedname)
+
 
 def rss_feed(request, feedname=None):
     if feedname == None:
@@ -120,6 +119,7 @@ def rss_feed(request, feedname=None):
             return HttpResponse(fg.rss_str(pretty=True, encoding='UTF-8'), content_type='application/xml')
         else:
             return HttpResponse("No Entries in this feed yet")
+
 
 def atom_feed(request, feedname=None):
     if feedname == None:

@@ -3,21 +3,25 @@
 
 from __future__ import unicode_literals
 
-# original based on sci-kit hashing function
-from django.conf import settings
-from django.core.exceptions import ValidationError
-from django.db import models
-from django.core.files.base import ContentFile
-from django.core.files.uploadedfile import InMemoryUploadedFile
-
 import datetime
 
 from io import StringIO
 
-import os, string, pickle, random, uuid, urllib
+import string
+import pickle
+import random
+import uuid
+import urllib
+
+# original based on sci-kit hashing function
+from django.conf import settings
+from django.db import models
+from django.core.files.uploadedfile import InMemoryUploadedFile
+
 
 def id_generator(size=20, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
 
 def get_upload_path():
 
@@ -30,6 +34,7 @@ def get_upload_path():
             break
 
     return settings.USER_ESTIMATOR_PATH + filename
+
 
 def get_upload_path_instance(instance, filename):
     if instance.object_file:
@@ -45,7 +50,6 @@ def get_upload_path_instance(instance, filename):
         return get_upload_path()
 
 
-
 class Estimator(models.Model):
 
     """This class creates estimator objects that persists predictive models
@@ -55,7 +59,7 @@ class Estimator(models.Model):
             :description:
             :estimator:
 
-            >>> from estimators.models import Estimator
+            >>> from feedcrunch.model_files.models_estimators import Estimator
             >>> est = Estimator()
             >>> est.estimator = object
             >>> est.description = "k-means with 5 clusters"

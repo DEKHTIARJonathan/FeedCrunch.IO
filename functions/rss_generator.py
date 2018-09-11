@@ -5,8 +5,12 @@ from __future__ import unicode_literals
 
 from django.core.exceptions import ObjectDoesNotExist
 
-from feedcrunch.models import Post, FeedUser, Option
+from feedcrunch.models import Post
+from feedcrunch.models import FeedUser
+from feedcrunch.models import Option
+
 from feedgen.feed import FeedGenerator
+
 
 def generateRSS(type="", username=""):
     if type not in ["rss", "atom"]:

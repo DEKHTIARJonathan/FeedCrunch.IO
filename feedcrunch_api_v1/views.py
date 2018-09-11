@@ -523,6 +523,7 @@ class IsArticleExistingView(APIView):
 
 
 ################### NEED TO CHECK AUTHENTICATION PROCESS ###################
+
 class ArticleView(APIView):
 
     def get(self, request):

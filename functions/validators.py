@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import re
 
 from django.core import validators
+
 from django.utils import six
 from django.utils.deconstruct import deconstructible
 from django.utils.translation import ugettext_lazy as _

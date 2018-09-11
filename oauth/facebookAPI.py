@@ -7,14 +7,15 @@ from django.conf import settings
 
 from feedcrunch.models import *
 
-import sys, facebook, json
+import facebook
+
 
 class FacebookAPI(object):
     api                 = False
     post_illustration   = "https://s3-eu-west-1.amazonaws.com/feedcrunch/static/home/images/social-share-images/social-img.png"
     callback_url        = 'https://www.feedcrunch.io/oauth/facebook/get_callback/'
     callback_url_debug  = 'http://local.feedcrunch.io:5000/oauth/facebook/get_callback/'
-    baseurl             = ""
+    baseurl             = ''
     app_permissions = [
         'public_profile',
         'user_about_me',
@@ -34,7 +35,7 @@ class FacebookAPI(object):
                 self.api = facebook.GraphAPI(user.facebook_access_token)
                 self.baseurl = "https://www.feedcrunch.io/@"+user.username+"/redirect/"
 
-        except Exception as e:
+        except Exception:
             self.api = False
 
     def connection_status(self):
@@ -82,16 +83,18 @@ class FacebookAPI(object):
         except:
             return {'status':False, 'error': "FacebookAPI.verify_credentials(): Credentials have not been verified"}
 
+    def publish_post(self, title, id, tag_list=None):
 
+        if tag_list is None:
+            tag_list = list()
 
-    def publish_post(self, title, id, tag_list=[]):
         try:
-            if self.api == False:
+            if not self.api:
                 raise Exception("API Connection has failed during init phase")
 
-
             tag_str = ""
-            if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
+
+            if isinstance(tag_list, list) and tag_list:  # if tag_list is not empty:
 
                 for tag in tag_list:
 
@@ -113,10 +116,13 @@ class FacebookAPI(object):
             ## Response: {'id': '10211352122892746_10211354892441983'}
             response = self.api.put_wall_post(message, attachment=attach)
 
-            return {'status':True}
+            return {'status': True}
 
         except Exception as e:
-            return {'status':False, 'error':'FacebookAPI.publish_post() - Error: ' + str(e)}
+            return {
+                'status': False,
+                'error': 'FacebookAPI.publish_post() - Error: ' + str(e)
+            }
 
     ##########################################################################################################
     # =========================================== STATIC METHODS =========================================== #

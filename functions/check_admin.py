@@ -3,7 +3,9 @@
 
 from __future__ import unicode_literals
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+
 
 def check_admin(feedname, user, bypassOnboardingCheck = False):
     if feedname == None:
@@ -23,6 +25,7 @@ def check_admin(feedname, user, bypassOnboardingCheck = False):
 
     else:
         return True
+
 
 def check_admin_api(user):
 

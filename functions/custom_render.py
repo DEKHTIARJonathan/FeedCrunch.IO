@@ -6,7 +6,10 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.conf import settings
 
-from feedcrunch.models import FeedUser, Post, Option
+from feedcrunch.models import FeedUser
+from feedcrunch.models import Post
+from feedcrunch.models import Option
+
 
 def myrender(request, template, dictionary={}):
     dictionary.update({'template_name': template})

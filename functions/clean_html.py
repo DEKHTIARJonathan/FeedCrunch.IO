@@ -3,19 +3,17 @@
 
 from __future__ import unicode_literals
 
-import re, unicodedata
-from html.parser import HTMLParser
+import re
+import unicodedata
+import html
 
 def clean_html(raw_html):
     # Normalizarion
-    if isinstance(raw_html, str):
-        cleantext = unicodedata.normalize('NFC', raw_html)
+    cleantext = unicodedata.normalize('NFC', raw_html)
 
     # Removing all HTML Tags
     cleanr = re.compile('<.*?>')
     cleantext = re.sub(cleanr, '', cleantext)
 
     # Remove all HTML Codes and convert them to string
-    cleantext = HTMLParser().unescape(cleantext)
-
-    return cleantext
+    return html.unescape(cleantext)

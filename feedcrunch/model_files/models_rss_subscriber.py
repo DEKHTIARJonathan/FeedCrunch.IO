@@ -2,16 +2,19 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.core.validators import MaxValueValidator, MinValueValidator
+
+import datetime
+
+from django.core.validators import MaxValueValidator
+from django.core.validators import MinValueValidator
 from django.db import models
 
-from .models_user import FeedUser
+from feedcrunch.model_files.models_user import FeedUser
 
 from djchoices import DjangoChoices, ChoiceItem
 
-from ipware.ip import get_real_ip, get_ip
-
-import datetime
+from ipware.ip import get_real_ip
+from ipware.ip import get_ip
 
 ######################################## Subscription ################################################
 

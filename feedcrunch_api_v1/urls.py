@@ -2,13 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.conf import settings
-from django.conf.urls import include, url
-import django.contrib.auth.views
-from django.views.decorators.csrf import csrf_exempt
+from django.conf.urls import url
 
-#from .admin import admin_site
-from .views import *
+from feedcrunch_api_v1.views import *
 from rest_framework.authtoken import views
 
 urlpatterns = [

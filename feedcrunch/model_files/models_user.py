@@ -3,38 +3,60 @@
 
 from __future__ import unicode_literals
 
-import re, uuid, datetime, unicodedata, random, urllib, string
+import re
+import uuid
+import datetime
+import unicodedata
+import random
+import urllib
+import string
+
 from xml.sax.saxutils import escape as escape_xml
 
 from django.conf import settings
-from django.contrib.auth.models import UserManager, PermissionsMixin
-from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+
+from django.contrib.auth.models import UserManager
+from django.contrib.auth.models import PermissionsMixin
+
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.base_user import AbstractBaseUser
+
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
+
 from django.db import models
-from django.utils import six, timezone
+
+from django.utils import six
+from django.utils import timezone
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from pyisemail import is_email
-from encrypted_model_fields .fields import EncryptedCharField
+from encrypted_model_fields.fields import EncryptedCharField
 
-from feedcrunch.models import Country, Estimator, Interest
+from feedcrunch.models import Country
+from feedcrunch.models import Estimator
+from feedcrunch.models import Interest
 
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
 from oauth.slackAPI    import SlackAPI
 
-from functions.validators import ASCIIUsernameValidator, UnicodeUsernameValidator
+from functions.validators import UnicodeUsernameValidator
+from functions.validators import ASCIIUsernameValidator
 
-from datetime import timedelta, datetime
+from datetime import timedelta
+from datetime import datetime
+
 
 def generateDummyDesc():
     return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui nisl, aliquam nec quam nec, laoreet porta odio. Morbi ultrices sagittis ligula ut consectetur. Aenean quis facilisis augue. Vestibulum maximus aliquam augue, ut lobortis turpis euismod vel. Sed in mollis tellus, eget eleifend turpis. Vivamus aliquam ornare felis at dignissim. Integer vitae cursus eros, non dignissim dui. Suspendisse porttitor justo nec lacus dictum commodo. Sed in fringilla tortor, at pharetra tortor."
 
+
 def id_generator(size=20, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
 
 def get_photo_path(instance, filename):
     ext = filename.split('.')[-1]
@@ -48,6 +70,7 @@ def get_photo_path(instance, filename):
             break
 
     return settings.USER_PHOTO_PATH + filename
+
 
 class FeedUserManager(BaseUserManager):
 
@@ -277,6 +300,7 @@ class AbstractFeedUser(AbstractBaseUser, PermissionsMixin):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
 
 class FeedUser(AbstractFeedUser):
 

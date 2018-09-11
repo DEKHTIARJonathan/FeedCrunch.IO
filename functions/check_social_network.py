@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 from feedcrunch.models import FeedUser
 
+
 def auto_format_social_network(social_network=None):
 
     if social_network is None:

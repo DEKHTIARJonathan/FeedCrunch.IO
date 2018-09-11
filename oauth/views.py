@@ -3,7 +3,6 @@
 
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.urls import reverse
 
 from datetime import datetime, timedelta
 
@@ -13,6 +12,7 @@ from oauth.linkedinAPI import LinkedInAPI
 from oauth.slackAPI    import SlackAPI
 
 from feedcrunch.models import SlackIntegration
+
 
 def twitter_callback(request):
 
@@ -43,6 +43,7 @@ def twitter_callback(request):
 
         return JsonResponse(data)
 
+
 def facebook_callback(request):
 
     try:
@@ -71,6 +72,7 @@ def facebook_callback(request):
 
         return JsonResponse(data)
 
+
 def linkedin_callback(request):
 
     try:
@@ -98,6 +100,7 @@ def linkedin_callback(request):
         data["feedname"] = request.user.username
 
         return JsonResponse(data)
+
 
 def slack_callback(request):
 

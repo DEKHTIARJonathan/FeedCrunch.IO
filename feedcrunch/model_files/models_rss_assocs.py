@@ -4,13 +4,12 @@
 from __future__ import unicode_literals
 from django.db import models
 
-import datetime, string, re, uuid
+from feedcrunch.model_files.models_user import FeedUser
+from feedcrunch.model_files.models_rssfeed import RSSFeed
+from feedcrunch.model_files.models_rssarticle import RSSArticle
 
-from .models_user import FeedUser
-from .models_rssfeed import RSSFeed
-from .models_rssarticle import RSSArticle
+from functions.clean_html import clean_html
 
-from clean_html import clean_html
 
 def shorten_string(string, max_size):
     if max_size < 7:
@@ -19,6 +18,7 @@ def shorten_string(string, max_size):
         return string[:max_size-6] + " [...]"
     else:
         return string
+
 
 class RSSFeed_SubManager(models.Manager):
     def create(self, *args, **kwargs):
@@ -32,6 +32,7 @@ class RSSFeed_SubManager(models.Manager):
             raise Exception("User ("+kwargs['user'].username+") is already subscribed to the RSSFeed (id = "+str(kwargs['feed'].id)+")")
 
         return super(RSSFeed_SubManager, self).create(*args, **kwargs)
+
 
 class RSSFeed_Sub(models.Model):
     objects = RSSFeed_SubManager()
@@ -72,8 +73,6 @@ class RSSFeed_Sub(models.Model):
         return shorten_string(self.title, 75)
 
 
-###################################################################################################################################
-
 class RSSArticle_AssocManager(models.Manager):
     def create(self, *args, **kwargs):
 
@@ -81,6 +80,7 @@ class RSSArticle_AssocManager(models.Manager):
             raise Exception("User ("+kwargs['user'].username+") is already associated with RSSArticle (id = "+str(kwargs['article'].id)+")")
 
         return super(RSSArticle_AssocManager, self).create(*args, **kwargs)
+
 
 class RSSArticle_Assoc(models.Model):
     objects = RSSArticle_AssocManager()

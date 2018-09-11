@@ -16,10 +16,12 @@ platforms = ["TRAVIS", "HEROKU", "BLUEMIX"]
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'application.settings')
 
+
 def load_env():
     "Get the path to the .env file and load it."
     project_dir = os.path.dirname(os.path.dirname(__file__))
     dotenv.read_dotenv(os.path.join(project_dir, '.env'))
+
 
 if not any(x in os.environ for x in platforms):
     load_env()
@@ -54,7 +56,7 @@ app.conf.enable_utc                 = settings.CELERY_ENABLE_UTC
 app.conf.worker_concurrency         = settings.CELERY_CONCURRENCY
 
 # Results settings
-#app.conf.result_backend            = settings.CELERY_RESULT_BACKEND
+# app.conf.result_backend            = settings.CELERY_RESULT_BACKEND
 app.conf.result_serializer          = settings.CELERY_RESULT_SERIALIZER
 app.conf.result_expires             = settings.CELERY_TASK_RESULT_EXPIRES
 
@@ -82,9 +84,11 @@ app.conf.monitors_expire_success    = settings.CELERY_MONITORS_EXPIRE_SUCCESS
 app.conf.monitors_expire_error      = settings.CELERY_MONITORS_EXPIRE_ERROR
 app.conf.monitors_expire_pending    = settings.CELERY_MONITORS_EXPIRE_PENDING
 
+
 class CeleryConfig(AppConfig):
     name = 'application'
     verbose_name = 'Celery Config'
+
 
 @app.task(bind=True)
 def debug_task(self):

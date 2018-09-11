@@ -2,18 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.test import TestCase, Client
+from django.test import TestCase
+from django.test import Client
 from django.urls import reverse
-from feedcrunch.models import Post
-from application.settings import *
 
 from feedcrunch.factories import *
 
-import factory
 from feedparser import parse
 
-from rss_generator import generateRSS
-# Create your tests here.
+from functions.rss_generator import generateRSS
+
 
 class feedcrunch_rssviewer_TestCase(TestCase):
     def setUp(self):
