@@ -193,7 +193,7 @@ class UserSocialNetworkStatusView(APIView):
 
         except Exception as e:
             payload["success"] = False
-            payload["error"] = "FC_API.UserSocialNetworkStatusView() - An error occured in the process: " + str(e)
+            payload["error"] = "FC_API.UserSocialNetworkStatusView() - An error occurred in the process: %s" % str(e)
 
         payload["operation"] = "User Social_Network Status"
         payload["timestamp"] = get_timestamp()
@@ -223,7 +223,7 @@ class UnLinkUserSocialNetworkView(APIView):
             elif social_network == "linkedin":
                 payload["auth_url"] = LinkedInAPI.get_authorization_url()
             elif social_network == "slack":
-                payload["auth_url"] = SlackAPI.get_authorization_url(request)
+                payload["auth_url"] = SlackAPI.get_authorization_url()
             else:
                 raise Exception("'social_network' (" + social_network + ") is not supported.")
 

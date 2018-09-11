@@ -7,8 +7,6 @@ from feedcrunch.models import Option
 
 from twython import Twython
 
-import sys
-
 class TwitterAPI(object):
     api               = False
     maxsize_tweet     = 140
@@ -136,8 +134,8 @@ class TwitterAPI(object):
                 auth = Twython(twitter_consumer_key, twitter_consumer_secret).get_authentication_tokens()
                 auth_url = auth['auth_url']
 
-            except tweepy.TweepError:
-                raise Exception('Failed to get request token.')
+            except Exception as e:
+                raise Exception('Failed to get request token: %s' % str(e))
 
             request.session['OAUTH_TOKEN'] = auth['oauth_token']
             request.session['OAUTH_TOKEN_SECRET'] = auth['oauth_token_secret']

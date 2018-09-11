@@ -54,13 +54,13 @@ urlpatterns = [
 
     # Article Routes
     url(r'^authenticated/get/article/exists/$', IsArticleExistingView.as_view(), name='get_IsArticleExistingView'),
-    url(r'^authenticated/post/article/(?P<APIKey>[^/]+)/$', ArticleView.as_view(), name='post_article_with_api_key'),
+    url(r'^authenticated/post/article/(?P<apikey>[^/]+)/$', ArticleView.as_view(), name='post_article_with_api_key'),
     url(r'^authenticated/post/article/$', ArticleView.as_view(), name='post_article'),
-    url(r'^authenticated/modify/article/(?P<postID>\d+)/$', ArticleView.as_view(), name='modify_article'),
-    url(r'^authenticated/delete/article/(?P<postID>\d+)/$', ArticleView.as_view(), name='delete_article'),
+    url(r'^authenticated/modify/article/(?P<post_id>\d+)/$', ArticleView.as_view(), name='modify_article'),
+    url(r'^authenticated/delete/article/(?P<post_id>\d+)/$', ArticleView.as_view(), name='delete_article'),
 
     # ====================== Private API Routes - API KEY REQUIRED ====================== #
 
     # Article Routes
-    url(r'^private/get/article/(?P<postID>\d+)/$', ArticleView.as_view(), name='get_article'),
+    url(r'^private/get/article/(?P<post_id>\d+)/$', ArticleView.as_view(), name='get_article'),
 ]
