@@ -3,11 +3,8 @@
 
 from __future__ import unicode_literals
 
-from django.conf.urls import include, url
-from django.conf import settings
-
-#from .admin import admin_site
-from .views import *
+from django.conf.urls import url
+from oauth.views import *
 
 urlpatterns = [
     url(r'^twitter/get_callback/$', twitter_callback, name='twitter_callback'),

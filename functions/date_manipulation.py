@@ -20,6 +20,6 @@ def get_N_time_period(N_periods=14, duration=1, max_date=datetime.datetime.now()
     for d in range(0, N_periods):
         rslt.append(d_today - datetime.timedelta(days=d*delta+1))
 
-    rslt.reverse() #From the oldest day to the most recent
+    rslt.reverse()  # From the oldest day to the most recent
 
     return rslt

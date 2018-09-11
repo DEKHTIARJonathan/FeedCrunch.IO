@@ -7,9 +7,8 @@ from django.conf import settings
 
 from feedcrunch.models import *
 
-import sys, json
-
 from slacker import Slacker
+
 
 class SlackAPI(object):
     api                 = False
@@ -50,7 +49,7 @@ class SlackAPI(object):
 
     def verify_credentials(self):
         try:
-            if self.api == False:
+            if not self.api:
                 raise Exception("API Connection has failed during init phase")
 
             if self.api.auth.test().body["ok"] == True:
@@ -92,11 +91,11 @@ class SlackAPI(object):
 
     def publish_post(self, slackChannel, title, postID, tag_list=[]):
         try:
-            if self.api == False:
+            if not self.api:
                 raise Exception("API Connection has failed during init phase")
 
             tag_str = ""
-            if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
+            if isinstance(tag_list, list) and tag_list:  # if tag_list is not empty:
 
                 for tag in tag_list:
 

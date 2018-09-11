@@ -2,14 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+
+import uuid
+
 from django.db import models
 
-import datetime, string, re, uuid
+from feedcrunch.model_files.models_rssfeed import RSSFeed
 
-from .models_rssfeed import RSSFeed
+from functions.get_domain import get_domain
+from functions.clean_html import clean_html
 
-from get_domain import get_domain
-from clean_html import clean_html
 
 class RSSArticleManager(models.Manager):
     def create(self, *args, **kwargs):
@@ -27,6 +29,7 @@ class RSSArticleManager(models.Manager):
             raise Exception("Link is missing - RSSFeed Manager")
 
         return super(RSSArticleManager, self).create(*args, **kwargs)
+
 
 class RSSArticle(models.Model):
     objects = RSSArticleManager()

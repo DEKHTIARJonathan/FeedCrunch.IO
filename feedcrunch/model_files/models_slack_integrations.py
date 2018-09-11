@@ -2,11 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+
 from django.db import models
 
-from .models_user import FeedUser
+from feedcrunch.model_files.models_user import FeedUser
 
 from encrypted_model_fields .fields import EncryptedCharField
+
 
 ############################## TAG MODEL ###################################
 

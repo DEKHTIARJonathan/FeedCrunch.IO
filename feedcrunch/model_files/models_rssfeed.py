@@ -2,15 +2,17 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+
+import unicodedata
+import feedparser
+
 from django.db import models
 from django.conf import settings
 
-import datetime, string, re, unicodedata, feedparser
+from functions.get_domain import get_domain
+from functions.clean_html import clean_html
+from functions.feed_validation import validate_feed
 
-from get_domain import get_domain
-from clean_html import clean_html
-
-from feed_validation import validate_feed
 
 class RSSFeedManager(models.Manager):
     def create(self, *args, **kwargs):
@@ -32,6 +34,7 @@ class RSSFeedManager(models.Manager):
             raise Exception("Link is missing - RSSFeed Manager")
 
         return super(RSSFeedManager, self).create(*args, **kwargs)
+
 
 class RSSFeed(models.Model):
     objects = RSSFeedManager()

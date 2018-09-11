@@ -7,10 +7,11 @@ from feedcrunch.models import Option
 
 from twython import Twython
 
+
 class TwitterAPI(object):
     api               = False
     maxsize_tweet     = 140
-    maxsize_hashtags  = 27 # Allow to keep 85 char for the post title (95% of the post length is < 85 chars)
+    maxsize_hashtags  = 27  # Allow to keep 85 char for the post title (95% of the post length is < 85 chars)
     length_link       = 23
     baseurl           = ""
 
@@ -23,14 +24,16 @@ class TwitterAPI(object):
             if not user.is_social_network_enabled(network="twitter"):
                 raise ValueError("User has not enabled Twitter")
             else:
-                self.api = Twython(twitter_consumer_key,
-                                    twitter_consumer_secret,
-                                    user.twitter_token,
-                                    user.twitter_token_secret)
+                self.api = Twython(
+                    twitter_consumer_key,
+                    twitter_consumer_secret,
+                    user.twitter_token,
+                    user.twitter_token_secret
+                )
 
                 self.baseurl = "https://www.feedcrunch.io/@"+user.username+"/redirect/"
 
-        except Exception as e:
+        except Exception:
             self.api = False
 
     def connection_status(self):

@@ -5,12 +5,13 @@ from __future__ import unicode_literals
 
 import re
 
+
 def format_title(title):
     stopwords = 'a an and at but by for in nor of on or so the to up yet'.split(' ')
 
     if isinstance(title, str):
-        title = title.replace("–", "-") #en dash
-        title = title.replace("\u2013", "-") #en dash
+        title = title.replace("–", "-")  # en dash
+        title = title.replace("\u2013", "-")  # en dash
         title = title.strip().lower()
 
         rslt = ""
@@ -30,4 +31,4 @@ def format_title(title):
         return output
 
     else:
-        raise ValueError("This datatype ( "+ type(title) +" ) is not handled by the application.")
+        raise ValueError("The datatype ( `%s` ) is not handled by the application." % type(title))

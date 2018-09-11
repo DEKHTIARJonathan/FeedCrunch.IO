@@ -2,37 +2,39 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.contrib.auth import authenticate, login, logout
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError, ObjectDoesNotExist
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render_to_response, redirect
-from django.template import RequestContext, loader
-from django.urls import reverse
 
-import datetime, unicodedata, json
+import datetime
+import unicodedata
 from calendar import monthrange
 
-from feedcrunch.models import Post, FeedUser, Country, Tag, RSSFeed, RSSArticle, RSSFeed_Sub, RSSArticle_Assoc, Interest, Option
+from django.core.validators import URLValidator
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import HttpResponseRedirect
+from django.http import JsonResponse
+from django.urls import reverse
 
-from oauth.twitterAPI import TwitterAPI
+from feedcrunch.models import Post
+from feedcrunch.models import FeedUser
+from feedcrunch.models import Country
+from feedcrunch.models import RSSFeed_Sub
+from feedcrunch.models import RSSArticle_Assoc
+from feedcrunch.models import Interest
+from feedcrunch.models import Option
+
+from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI
 from oauth.linkedinAPI import LinkedInAPI
 from oauth.slackAPI    import SlackAPI
 
-from check_admin import check_admin
-from data_convert import str2bool
-from ap_style import format_title
-from image_validation import get_image_dimensions
-from custom_render import myrender as render
+from functions.check_admin import check_admin
+from functions.custom_render import myrender as render
 
-# Create your views here.
 
 def index(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
 
-    if check_passed != True:
+    if not check_passed:
         return check_passed
 
     else:
@@ -74,10 +76,11 @@ def index(request, feedname=None):
 
         return render(request, 'admin/admin_dashboard.html', data)
 
+
 def personal_info_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
 
     else:
@@ -85,42 +88,47 @@ def personal_info_form(request, feedname=None):
         country_list = Country.objects.all().order_by('name')
         return render(request, 'admin/admin_personal.html', {'countries': country_list})
 
+
 def preferences_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         return render(request, 'admin/admin_preferences.html', {"social_networks_enabled": request.user.is_social_network_enabled()})
 
+
 def password_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         return render(request, 'admin/admin_password.html')
 
+
 def picture_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         return render(request, 'admin/admin_photo.html')
 
+
 def social_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         return render(request, 'admin/admin_social_accounts.html')
 
+
 def slack_management(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         request_data = dict()
@@ -138,10 +146,11 @@ def slack_management(request, feedname=None):
 
         return render(request, 'admin/admin_slack_management.html', request_data)
 
+
 def services_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         request_data = dict()
@@ -165,18 +174,20 @@ def services_form(request, feedname=None):
 
         return render(request, 'admin/admin_social_sharing.html', request_data)
 
+
 def add_article_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         return render(request, 'admin/admin_article_form.html')
 
+
 def modify_article_form(request, feedname=None, postID=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
 
     elif postID == None:
@@ -190,31 +201,35 @@ def modify_article_form(request, feedname=None, postID=None):
         except:
             return HttpResponseRedirect("/@"+feedname+"/admin/modify")
 
+
 def modify_article_listing(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         posts = Post.objects.filter(user = feedname).order_by('-id')
         return render(request, 'admin/admin_post_listing.html', {'posts': posts})
+
 
 def delete_article_listing(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         posts = Post.objects.filter(user = feedname).order_by('-id')
         return render(request, 'admin/admin_post_listing.html', {'posts': posts})
 
+
 def contact_form(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         return render(request, 'admin/admin_contact.html')
+
 
 def upload_picture(request, feedname=None):
     try:
@@ -260,17 +275,19 @@ def upload_picture(request, feedname=None):
 
     return HttpResponseRedirect('/@'+request.user.username+'/admin/account/picture/')
 
+
 def sub_management(request, feedname=None):
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
         feeds = RSSFeed_Sub.objects.filter(user=feedname, feed__active=True).order_by("title")
         return render(request, 'admin/admin_sub_listing.html', {'feeds': feeds})
 
+
 def reading_recommendation(request, feedname=None):
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
     else:
 
@@ -306,9 +323,10 @@ def reading_recommendation(request, feedname=None):
         print (len(rssarticles_data))
         return render(request, 'admin/admin_reading_recommendation.html', {'rssarticles': rssarticles_data})
 
+
 def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
     check_passed = check_admin(feedname, request.user)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
 
     try:
@@ -321,10 +339,11 @@ def redirect_recommendation(request, feedname=None, RSSArticle_AssocID=None):
     except:
         return HttpResponseRedirect("/@"+feedname+"/admin/reading/recommendation/")
 
+
 def onboarding_view(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user, bypassOnboardingCheck = True)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
 
     else:
@@ -355,10 +374,11 @@ def onboarding_view(request, feedname=None):
 
         return render(request, 'admin/onboarding.html', request_data)
 
+
 def process_onboarding_view(request, feedname=None):
 
     check_passed = check_admin(feedname, request.user, bypassOnboardingCheck = True)
-    if check_passed != True:
+    if not check_passed:
         return check_passed
 
     else:

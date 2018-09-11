@@ -5,10 +5,11 @@ from __future__ import unicode_literals
 
 from django.conf.urls import url
 
+from django.conf import settings
 import django.contrib.auth.views
 import django.views.static
 
-from .views import *
+from feedcrunch_home.views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),

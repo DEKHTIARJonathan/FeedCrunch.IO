@@ -46,7 +46,7 @@ def get_image_dimensions(data):
         height = int(h)
 
     elif is_jpeg(data):
-        jpeg = StringIO.StringIO(data)
+        jpeg = StringIO(data)
         jpeg.read(2)
         b = jpeg.read(1)
         try:

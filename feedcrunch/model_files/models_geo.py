@@ -2,9 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+
 from django.db import models
 
 ############################# Localisation #####################################
+
 
 class Continent(models.Model):
     name = models.CharField(primary_key=True, max_length=60)
@@ -12,6 +14,7 @@ class Continent(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Country(models.Model):
     name      = models.CharField(primary_key=True, max_length=60)

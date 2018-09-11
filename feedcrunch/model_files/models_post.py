@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.db import models
-from django.contrib.auth.models import User, UserManager
 
-import re, uuid, datetime, random, string
+from feedcrunch.model_files.models_user import *
+from feedcrunch.model_files.models_tag import *
 
-from .models_geo import *
-from .models_user import *
-from .models_tag import *
+from functions.get_domain import get_domain
 
-from get_domain import get_domain
 
 def create_key(size=8):
-    return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(size))
+    return ''.join(
+        random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)
+        for _ in range(size)
+    )
+
 
 ############################## Post MODEL ###################################
 

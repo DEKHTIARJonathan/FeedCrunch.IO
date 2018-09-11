@@ -7,8 +7,8 @@ from django.conf import settings
 
 from feedcrunch.models import *
 
-import sys, json
 from linkedin import linkedin
+
 
 class LinkedInAPI(object):
     api                 = False
@@ -56,7 +56,7 @@ class LinkedInAPI(object):
                 raise Exception("API Connection has failed during init phase")
 
             tag_str = ""
-            if isinstance(tag_list, list) and tag_list: #  if tag_list is not empty:
+            if isinstance(tag_list, list) and tag_list:  #  if tag_list is not empty:
 
                 for tag in tag_list:
 
@@ -77,10 +77,10 @@ class LinkedInAPI(object):
                     visibility_code     = 'anyone'
             )
 
-            return {'status':True}
+            return {'status': True}
 
         except Exception as e:
-            return {'status':False, 'LinkedInAPI.publish_post() - Error': str(e)}
+            return {'status': False, 'LinkedInAPI.publish_post() - Error': str(e)}
 
     ##########################################################################################################
     # =========================================== STATIC METHODS =========================================== #
@@ -117,7 +117,6 @@ class LinkedInAPI(object):
             except:
                 return {'status':False, 'error': "Failed to retrieve the consumer keys."}
 
-
             if settings.DEBUG or settings.TESTING:
                 api = linkedin.LinkedInAuthentication(linkedin_client_id, linkedin_client_secret, LinkedInAPI.callback_url_debug, LinkedInAPI.app_permissions)
             else:
@@ -129,4 +128,4 @@ class LinkedInAPI(object):
             return {'status':True, 'access_token': response.access_token, 'expires_in': response.expires_in}
 
         except Exception as e:
-            return {'status':False, 'error':'LinkedInAPI.get_authorized_tokens() - Error: ' + str(e)}
+            return {'status': False, 'error': 'LinkedInAPI.get_authorized_tokens() - Error: ' + str(e)}

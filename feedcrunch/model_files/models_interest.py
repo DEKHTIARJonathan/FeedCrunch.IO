@@ -2,17 +2,23 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+
+import random
+import urllib
+import string
+import uuid
+
 from django.db import models
 from django.conf import settings
 
-from .models_rssfeed import RSSFeed
+from feedcrunch.model_files.models_rssfeed import RSSFeed
 
-import random, urllib, string, uuid
 
 ############################## Interest MODEL ###################################
 
 def id_generator(size=20, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
 
 def get_photo_path(instance, filename):
     ext = filename.split('.')[-1]
@@ -26,6 +32,7 @@ def get_photo_path(instance, filename):
             break
 
     return settings.INTEREST_PHOTO_PATH + filename
+
 
 class Interest(models.Model):
     name     = models.CharField(max_length=255, primary_key=True)
