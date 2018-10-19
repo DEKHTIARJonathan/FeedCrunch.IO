@@ -27,10 +27,6 @@ services:
 - postgresql
 
 before_install:
-- sudo service apache2 restart
-- python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
-- export DJANGO_SETTINGS_MODULE=application.settings
-- export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/FeedCrunch.IO
 - virtualenv venv
 
 install:
