@@ -5,6 +5,7 @@ addons:
     update: false
   postgresql: "9.6"
 
+sudo: required 
 dist: trusty
 
 cache:
