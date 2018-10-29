@@ -48,7 +48,7 @@ python-dateutil==2.7.5
 python3-linkedin==1.0.2
 pytz==2018.7
 redis==2.10.6
-requests==2.19.1
+requests==2.20.0
 requests-oauthlib==1.0.0
 scikit-learn==0.20.0
 scipy==1.1.0
