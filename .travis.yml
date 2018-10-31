@@ -5,7 +5,7 @@ addons:
     update: false
   postgresql: "9.6"
 
-dist: trusty
+dist: xenial
 
 cache:
 - pip
@@ -19,6 +19,8 @@ branches:
     - master
     - dev
     - /\d+\.\d+(\.\d+)?(\S*)?$/
+    
+sudo: false
 
 services:
 - rabbitmq
@@ -26,9 +28,6 @@ services:
 - postgresql
 
 before_install:
-- python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
-- export DJANGO_SETTINGS_MODULE=application.settings
-- export PYTHONPATH=$HOME/builds/DEKHTIARJonathan/FeedCrunch.IO
 - virtualenv venv
 
 install:
