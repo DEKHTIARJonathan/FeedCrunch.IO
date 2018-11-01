@@ -8,7 +8,8 @@ from django.http import HttpResponseRedirect
 
 
 def check_admin(feedname, user, bypassOnboardingCheck = False):
-    if feedname == None:
+
+    if feedname is None:
         return HttpResponse("Error")
 
     elif not user.is_authenticated:

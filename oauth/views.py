@@ -4,7 +4,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from datetime import datetime, timedelta
+from datetime import datetime
+from datetime import timedelta
 
 from oauth.twitterAPI  import TwitterAPI
 from oauth.facebookAPI import FacebookAPI

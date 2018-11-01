@@ -15,11 +15,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os, sys, getenv
+import os
+import sys
+import getenv
+
 from datetime import timedelta
 
 from celery.schedules import crontab
-from kombu import Exchange, Queue
+
+from kombu import Exchange
+from kombu import Queue
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -44,6 +49,7 @@ STATICFILES_FINDERS = [
 MEDIAFILES_LOCATION = 'media'
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), MEDIAFILES_LOCATION)
 
+
 def assign_env_value(var_name):
     if var_name in os.environ:
         return getenv.env(var_name)
@@ -55,6 +61,7 @@ def assign_env_value(var_name):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
+
 
 DEBUG = assign_env_value('DEBUG')
 SECRET_KEY = assign_env_value('SECRET_KEY')
@@ -216,9 +223,8 @@ FIELD_ENCRYPTION_KEY= assign_env_value('FIELD_ENCRYPTION_KEY')
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 
-
 # if True or "test" in sys.argv:
-if "test" in sys.argv:    
+if "test" in sys.argv:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

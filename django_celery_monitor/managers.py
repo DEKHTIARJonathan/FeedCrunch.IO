@@ -1,13 +1,17 @@
 """The model managers."""
-from __future__ import absolute_import, unicode_literals
+
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from datetime import timedelta
 
 from celery import states
 from celery.events.state import Task
 from celery.utils.time import maybe_timedelta
-from django.db import models, router, transaction
 
-#from .utils import Now
+from django.db import models
+from django.db import router
+from django.db import transaction
+
 from django.utils import timezone
 
 

@@ -1,7 +1,6 @@
 """Result Task Admin interface."""
-from __future__ import absolute_import, unicode_literals
-
-from __future__ import absolute_import, unicode_literals
+from __future__ import absolute_import
+from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.contrib.admin import helpers
@@ -14,11 +13,17 @@ from django.utils.translation import ugettext_lazy as _
 
 from celery import current_app
 from celery import states
-from celery.task.control import broadcast, revoke, rate_limit
+from celery.task.control import broadcast
+from celery.task.control import revoke
+from celery.task.control import rate_limit
 
-from .models import TaskState, WorkerState
+from .models import TaskState
+from .models import WorkerState
 from .humanize import naturaldate
-from .utils import action, display_field, fixedwidth, make_aware
+from .utils import action
+from .utils import display_field
+from .utils import fixedwidth
+from .utils import make_aware
 
 
 TASK_STATE_COLORS = {

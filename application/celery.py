@@ -3,14 +3,15 @@
 
 from __future__ import unicode_literals, absolute_import
 
-import os, dotenv
+import os
+import dotenv
 
 from celery import Celery
-from celery.schedules import crontab
-
-from datetime import timedelta
 
 import django
+
+from django.conf import settings
+from django.apps import AppConfig
 
 platforms = ["TRAVIS", "HEROKU", "BLUEMIX"]
 
@@ -27,9 +28,6 @@ if not any(x in os.environ for x in platforms):
     load_env()
 
 django.setup()
-
-from django.conf import settings
-from django.apps import AppConfig
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'application.settings')
@@ -92,4 +90,4 @@ class CeleryConfig(AppConfig):
 
 @app.task(bind=True)
 def debug_task(self):
-  print('Request: {0!r}'.format(self.request))
+    print('Request: {0!r}'.format(self.request))

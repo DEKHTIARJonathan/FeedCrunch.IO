@@ -3,7 +3,8 @@
 
 from __future__ import unicode_literals
 
-import datetime, time
+import datetime
+import time
 
 
 def get_timestamp():

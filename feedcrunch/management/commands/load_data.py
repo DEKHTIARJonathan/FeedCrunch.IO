@@ -2,12 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from django.core.management.base import BaseCommand
-from feedcrunch.models import *
-from application.settings import *
 
 import os
 import csv
+
+from django.core.management.base import BaseCommand
+
+from feedcrunch.models import *
+from application.settings import *
 
 
 def unicode_csv_reader(utf8_data, dialect=csv.excel, **kwargs):

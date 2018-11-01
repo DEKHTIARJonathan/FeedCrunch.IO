@@ -1,16 +1,19 @@
 """Utilities."""
 # -- XXX This module must not use translation as that causes
 # -- a recursive loader import!
-from __future__ import absolute_import, unicode_literals
+
+from __future__ import absolute_import
+from __future__ import unicode_literals
 
 from datetime import datetime
 from pprint import pformat
+from six import string_types
 
 from django.conf import settings
-from django.db.models import DateTimeField, Func
+from django.db.models import DateTimeField
+from django.db.models import Func
 from django.utils import timezone
 from django.utils.html import format_html
-from six import string_types
 
 try:
     from django.db.models.functions import Now

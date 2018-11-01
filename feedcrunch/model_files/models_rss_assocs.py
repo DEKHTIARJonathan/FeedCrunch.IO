@@ -14,7 +14,7 @@ from functions.clean_html import clean_html
 def shorten_string(string, max_size):
     if max_size < 7:
         max_size = 7
-    if (len(string) > max_size):
+    if len(string) > max_size:
         return string[:max_size-6] + " [...]"
     else:
         return string
