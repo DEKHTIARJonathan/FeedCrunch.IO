@@ -15,7 +15,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os, sys, dj_database_url, getenv
+import os, sys, getenv
 from datetime import timedelta
 
 from celery.schedules import crontab
@@ -142,7 +142,6 @@ LOCAL_APPS = [
 
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -216,8 +215,10 @@ FIELD_ENCRYPTION_KEY= assign_env_value('FIELD_ENCRYPTION_KEY')
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+
+
 # if True or "test" in sys.argv:
-if "test" in sys.argv:
+if "test" in sys.argv:    
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -230,6 +231,7 @@ if "test" in sys.argv:
         },
     }
 else:
+    import dj_database_url
     DATABASES = {
         'default': dj_database_url.config(default=assign_env_value('DATABASE_URL'), conn_max_age=500),
     }
