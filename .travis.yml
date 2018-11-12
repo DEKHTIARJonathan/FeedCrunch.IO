@@ -21,7 +21,7 @@ branches:
     - dev
     - /\d+\.\d+(\.\d+)?(\S*)?$/
 
-sudo: required
+sudo: false
 
 services:
 - rabbitmq
