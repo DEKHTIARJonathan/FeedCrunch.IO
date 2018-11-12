@@ -30,6 +30,8 @@ services:
 
 before_install:
 - virtualenv venv
+- sudo rm -f /etc/boto.cfg
+- source venv/bin/activate
 
 install:
 - pip install --upgrade pip
