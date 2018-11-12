@@ -30,11 +30,13 @@ services:
 
 before_install:
 - virtualenv venv
+- sudo rm -f /etc/boto.cfg
+- source venv/bin/activate
 
 install:
 - pip install --upgrade pip
-- pip install -r requirements.txt
-- pip install -r requirements_test.txt
+- pip install -r requirements.txt --upgrade
+- pip install -r requirements_test.txt --upgrade
 - pip install coveralls codecov codacy-coverage
 
 before_script:
@@ -42,6 +44,7 @@ before_script:
 
 script:
 - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+- python manage.py check
 - python manage.py collectstatic --noinput
 - python manage.py makemigrations feedcrunch
 - python manage.py migrate
