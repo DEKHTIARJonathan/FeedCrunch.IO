@@ -42,4 +42,4 @@ slacker==0.9.65
 twython==3.7.0
 untangle==1.1.1
 # Werkzeug==0.14.1
-whitenoise==4.1
+whitenoise==4.1.1
