@@ -23,7 +23,7 @@ feedgen==0.7.0
 feedparser==5.2.1
 gunicorn==19.9.0
 kombu==4.2.2.post1
-lxml==4.2.5
+lxml==4.2.6
 # numpy==1.15.3
 oauthlib==2.1.0
 # olefile==0.46
