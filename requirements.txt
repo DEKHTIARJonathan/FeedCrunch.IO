@@ -1,6 +1,6 @@
 amqp==2.5.0
 boto==2.49.0
-celery==4.2.2
+celery==4.3.0
 # click==7.0
 cryptography==2.6.1
 dj-database-url==0.5.0
