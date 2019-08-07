@@ -25,7 +25,7 @@ gunicorn==19.9.0
 kombu==4.6.3
 lxml==4.3.4
 # numpy==1.15.3
-oauthlib==3.0.1
+oauthlib==3.1.0
 # olefile==0.46
 # pandas==0.23.4
 Pillow==6.1.0
