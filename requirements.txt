@@ -2,7 +2,7 @@ amqp==2.5.2
 boto==2.49.0
 celery==4.3.0
 # click==7.0
-cryptography==2.7
+cryptography==2.8
 dj-database-url==0.5.0
 django==2.1.15
 django-celery-beat==1.5.0
