@@ -4,7 +4,7 @@ celery==4.2.1
 # click==7.0
 cryptography==2.5
 dj-database-url==0.5.0
-django==2.1.11
+django==2.2.10
 django-celery-beat==1.4.0
 # django-celery-monitor==1.1.  # => https://pypi.org/project/django-celery-monitor/#history
 django-choices==1.6.2
